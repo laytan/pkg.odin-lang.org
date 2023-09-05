@@ -1,0 +1,2960 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>package odin/ast - pkg.odin-lang.org</title>	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/scss/custom.min.css">
+	<link rel=stylesheet href="//odin-lang.org/lib/highlight/styles/github-dark.min.css">
+	<script src="//odin-lang.org/lib/highlight/highlight.min.js"></script>
+
+	<script>hljs.registerLanguage("odin",function(a){return{aliases:["odin","odinlang","odin-lang"],keywords:{keyword:"auto_cast bit_set break case cast context continue defer distinct do dynamic else enum fallthrough for foreign if import in map not_in or_else or_return package proc return struct switch transmute type_of typeid union using when where",literal:"true false nil",built_in:"abs align_of cap clamp complex conj expand_to_tuple imag jmag kmag len max min offset_of quaternion real size_of soa_unzip soa_zip swizzle type_info_of type_of typeid_of"},illegal:"</",contains:[a.C_LINE_COMMENT_MODE,a.C_BLOCK_COMMENT_MODE,{className:"string",variants:[a.QUOTE_STRING_MODE,{begin:"'",end:"[^\\\\]'"},{begin:"`",end:"`"}]},{className:"number",variants:[{begin:a.C_NUMBER_RE+"[ijk]",relevance:1},a.C_NUMBER_MODE]}]}})</script>
+	<script>hljs.highlightAll()</script>
+	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/css/style.css">
+
+	<link rel="stylesheet" type="text/css" href="/style.css">
+
+	</style>
+</head>
+<body>
+<header class="sticky-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary odin-menu">
+		<div class="container">
+			<a class="navbar-brand" href="https://odin-lang.org/">
+			<img src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#odin-navbar-content" aria-controls="odin-navbar-content" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="odin-navbar-content">
+			<ul class="navbar-nav ms-md-auto">
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/docs">Docs</a></li>
+				<li class="nav-item"><a class="nav-link active" href="/">Packages</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/news">News</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/showcase">Showcase</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/community">Community</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://github.com/odin-lang/Odin" target="_blank">GitHub</a></li>
+			</ul>
+		</div>
+		</div>
+	</nav>
+</header>
+<main>
+<div class="container full-width">
+<div class="row odin-main my-4" id="pkg">
+<nav id="pkg-sidebar" class="col-lg-2 odin-sidebar-border navbar-light sticky-top odin-below-navbar">
+<div class="py-3">
+<h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
+<ul>
+<li class="nav-item"><a href="/core/builtin">builtin</a></li>
+<li class="nav-item"><a href="/core/bufio">bufio</a></li>
+<li class="nav-item"><a href="/core/bytes">bytes</a></li>
+<li class="nav-item"><a href="/core/c">c</a><ul>
+<li><a href="/core/c/frontend/preprocessor">frontend/preprocessor</a></li>
+<li><a href="/core/c/frontend/tokenizer">frontend/tokenizer</a></li>
+<li><a href="/core/c/libc">libc</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/compress">compress</a><ul>
+<li><a href="/core/compress/gzip">gzip</a></li>
+<li><a href="/core/compress/shoco">shoco</a></li>
+<li><a href="/core/compress/zlib">zlib</a></li>
+</ul>
+
+</li>
+<li class="nav-item">container<ul>
+<li><a href="/core/container/bit_array">bit_array</a></li>
+<li><a href="/core/container/intrusive/list">intrusive/list</a></li>
+<li><a href="/core/container/lru">lru</a></li>
+<li><a href="/core/container/priority_queue">priority_queue</a></li>
+<li><a href="/core/container/queue">queue</a></li>
+<li><a href="/core/container/small_array">small_array</a></li>
+<li><a href="/core/container/topological_sort">topological_sort</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/crypto">crypto</a><ul>
+<li><a href="/core/crypto/blake">blake</a></li>
+<li><a href="/core/crypto/blake2b">blake2b</a></li>
+<li><a href="/core/crypto/blake2s">blake2s</a></li>
+<li><a href="/core/crypto/chacha20">chacha20</a></li>
+<li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
+<li><a href="/core/crypto/gost">gost</a></li>
+<li><a href="/core/crypto/groestl">groestl</a></li>
+<li><a href="/core/crypto/haval">haval</a></li>
+<li><a href="/core/crypto/jh">jh</a></li>
+<li><a href="/core/crypto/keccak">keccak</a></li>
+<li><a href="/core/crypto/md2">md2</a></li>
+<li><a href="/core/crypto/md4">md4</a></li>
+<li><a href="/core/crypto/md5">md5</a></li>
+<li><a href="/core/crypto/poly1305">poly1305</a></li>
+<li><a href="/core/crypto/ripemd">ripemd</a></li>
+<li><a href="/core/crypto/sha1">sha1</a></li>
+<li><a href="/core/crypto/sha2">sha2</a></li>
+<li><a href="/core/crypto/sha3">sha3</a></li>
+<li><a href="/core/crypto/shake">shake</a></li>
+<li><a href="/core/crypto/sm3">sm3</a></li>
+<li><a href="/core/crypto/streebog">streebog</a></li>
+<li><a href="/core/crypto/tiger">tiger</a></li>
+<li><a href="/core/crypto/tiger2">tiger2</a></li>
+<li><a href="/core/crypto/util">util</a></li>
+<li><a href="/core/crypto/whirlpool">whirlpool</a></li>
+<li><a href="/core/crypto/x25519">x25519</a></li>
+</ul>
+
+</li>
+<li class="nav-item">debug<ul>
+<li><a href="/core/debug/pe">pe</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/dynlib">dynlib</a></li>
+<li class="nav-item">encoding<ul>
+<li><a href="/core/encoding/base32">base32</a></li>
+<li><a href="/core/encoding/base64">base64</a></li>
+<li><a href="/core/encoding/csv">csv</a></li>
+<li><a href="/core/encoding/endian">endian</a></li>
+<li><a href="/core/encoding/entity">entity</a></li>
+<li><a href="/core/encoding/hex">hex</a></li>
+<li><a href="/core/encoding/hxa">hxa</a></li>
+<li><a href="/core/encoding/json">json</a></li>
+<li><a href="/core/encoding/varint">varint</a></li>
+<li><a href="/core/encoding/xml">xml</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/fmt">fmt</a></li>
+<li class="nav-item"><a href="/core/hash">hash</a><ul>
+<li><a href="/core/hash/xxhash">xxhash</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/image">image</a><ul>
+<li><a href="/core/image/netpbm">netpbm</a></li>
+<li><a href="/core/image/png">png</a></li>
+<li><a href="/core/image/qoi">qoi</a></li>
+<li><a href="/core/image/tga">tga</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/io">io</a></li>
+<li class="nav-item"><a href="/core/log">log</a></li>
+<li class="nav-item"><a href="/core/math">math</a><ul>
+<li><a href="/core/math/big">big</a></li>
+<li><a href="/core/math/bits">bits</a></li>
+<li><a href="/core/math/cmplx">cmplx</a></li>
+<li><a href="/core/math/ease">ease</a></li>
+<li><a href="/core/math/fixed">fixed</a></li>
+<li><a href="/core/math/linalg">linalg</a></li>
+<li><a href="/core/math/linalg/glsl">linalg/glsl</a></li>
+<li><a href="/core/math/linalg/hlsl">linalg/hlsl</a></li>
+<li><a href="/core/math/noise">noise</a></li>
+<li><a href="/core/math/rand">rand</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/mem">mem</a><ul>
+<li><a href="/core/mem/virtual">virtual</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/net">net</a></li>
+<li class="nav-item">odin<ul>
+<li><a class="active" href="/core/odin/ast">ast</a></li>
+<li><a href="/core/odin/doc-format">doc-format</a></li>
+<li><a href="/core/odin/format">format</a></li>
+<li><a href="/core/odin/parser">parser</a></li>
+<li><a href="/core/odin/printer">printer</a></li>
+<li><a href="/core/odin/tokenizer">tokenizer</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/os">os</a></li>
+<li class="nav-item">path<ul>
+<li><a href="/core/path/filepath">filepath</a></li>
+<li><a href="/core/path/slashpath">slashpath</a></li>
+</ul>
+
+</li>
+<li class="nav-item">prof<ul>
+<li><a href="/core/prof/spall">spall</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/reflect">reflect</a></li>
+<li class="nav-item"><a href="/core/runtime">runtime</a></li>
+<li class="nav-item"><a href="/core/simd">simd</a></li>
+<li class="nav-item"><a href="/core/slice">slice</a><ul>
+<li><a href="/core/slice/heap">heap</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/sort">sort</a></li>
+<li class="nav-item"><a href="/core/strconv">strconv</a><ul>
+<li><a href="/core/strconv/decimal">decimal</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/strings">strings</a></li>
+<li class="nav-item"><a href="/core/sync">sync</a></li>
+<li class="nav-item"><a href="/core/testing">testing</a></li>
+<li class="nav-item">text<ul>
+<li><a href="/core/text/edit">edit</a></li>
+<li><a href="/core/text/i18n">i18n</a></li>
+<li><a href="/core/text/match">match</a></li>
+<li><a href="/core/text/scanner">scanner</a></li>
+<li><a href="/core/text/table">table</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/thread">thread</a></li>
+<li class="nav-item"><a href="/core/time">time</a></li>
+<li class="nav-item"><a href="/core/unicode">unicode</a><ul>
+<li><a href="/core/unicode/utf16">utf16</a></li>
+<li><a href="/core/unicode/utf8">utf8</a></li>
+<li><a href="/core/unicode/utf8/utf8string">utf8/utf8string</a></li>
+</ul>
+
+</li>
+</ul>
+</div>
+</nav>
+<article class="col-lg-8 p-4 documentation odin-article">
+<nav class="pkg-breadcrumb" aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="/core">core</a></li>
+<li class="breadcrumb-item">odin</li>
+<li class="breadcrumb-item active" aria-current="page"><a href="/core/odin/ast">ast</a></li>
+</ol>
+</nav>
+<h1>package core:odin/ast<div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast"><em>Source</em></a></div></h1>
+
+		<div class="odin-search-wrapper">
+			<input type="search" id="odin-search" class="odin-search-package" autocomplete="off" spellcheck="false" placeholder="Fuzzy Search...">
+			<div class="odin-search-shortcut">
+				<div class="odin-search-key key-macos">⌘K</div>
+				<div class="odin-search-key key-windows">Ctrl+K</div>
+				<span class="odin-search-or">or</span>
+				<div class="odin-search-key">/</div>
+			</div>
+		</div>
+	
+<div id="odin-search-info">
+<div id="odin-search-time"></div>
+
+		<div id="odin-search-options">
+			<input type="checkbox" id="odin-search-filter" name="odin-search-filter">
+			<label for="odin-search-filter">Filter Results</label>
+		</div>
+</div>
+<ul id="odin-search-results"></ul>
+<div id="pkg-top">
+<div id="pkg-index">
+<h2>Index</h2>
+<div>
+<details class="doc-index" id="doc-index-Types" aria-labelledby="#doc-index-Types-header">
+<summary id="#doc-index-Types-header">
+Types (97)</summary>
+<ul>
+<li><a href="#Any_Expr">Any_Expr</a></li>
+<li><a href="#Any_Node">Any_Node</a></li>
+<li><a href="#Any_Stmt">Any_Stmt</a></li>
+<li><a href="#Array_Type">Array_Type</a></li>
+<li><a href="#Assign_Stmt">Assign_Stmt</a></li>
+<li><a href="#Attribute">Attribute</a></li>
+<li><a href="#Auto_Cast">Auto_Cast</a></li>
+<li><a href="#Bad_Decl">Bad_Decl</a></li>
+<li><a href="#Bad_Expr">Bad_Expr</a></li>
+<li><a href="#Bad_Stmt">Bad_Stmt</a></li>
+<li><a href="#Basic_Directive">Basic_Directive</a></li>
+<li><a href="#Basic_Lit">Basic_Lit</a></li>
+<li><a href="#Binary_Expr">Binary_Expr</a></li>
+<li><a href="#Bit_Set_Type">Bit_Set_Type</a></li>
+<li><a href="#Block_Stmt">Block_Stmt</a></li>
+<li><a href="#Branch_Stmt">Branch_Stmt</a></li>
+<li><a href="#Call_Expr">Call_Expr</a></li>
+<li><a href="#Case_Clause">Case_Clause</a></li>
+<li><a href="#Comment_Group">Comment_Group</a></li>
+<li><a href="#Comp_Lit">Comp_Lit</a></li>
+<li><a href="#Decl">Decl</a></li>
+<li><a href="#Defer_Stmt">Defer_Stmt</a></li>
+<li><a href="#Deref_Expr">Deref_Expr</a></li>
+<li><a href="#Distinct_Type">Distinct_Type</a></li>
+<li><a href="#Dynamic_Array_Type">Dynamic_Array_Type</a></li>
+<li><a href="#Ellipsis">Ellipsis</a></li>
+<li><a href="#Empty_Stmt">Empty_Stmt</a></li>
+<li><a href="#Enum_Type">Enum_Type</a></li>
+<li><a href="#Expr">Expr</a></li>
+<li><a href="#Expr_Stmt">Expr_Stmt</a></li>
+<li><a href="#Field">Field</a></li>
+<li><a href="#Field_Flag">Field_Flag</a></li>
+<li><a href="#Field_Flags">Field_Flags</a></li>
+<li><a href="#Field_List">Field_List</a></li>
+<li><a href="#Field_Value">Field_Value</a></li>
+<li><a href="#File">File</a></li>
+<li><a href="#For_Stmt">For_Stmt</a></li>
+<li><a href="#Foreign_Block_Decl">Foreign_Block_Decl</a></li>
+<li><a href="#Foreign_Import_Decl">Foreign_Import_Decl</a></li>
+<li><a href="#Helper_Type">Helper_Type</a></li>
+<li><a href="#Ident">Ident</a></li>
+<li><a href="#If_Stmt">If_Stmt</a></li>
+<li><a href="#Implicit">Implicit</a></li>
+<li><a href="#Implicit_Selector_Expr">Implicit_Selector_Expr</a></li>
+<li><a href="#Import_Decl">Import_Decl</a></li>
+<li><a href="#Index_Expr">Index_Expr</a></li>
+<li><a href="#Inline_Asm_Dialect">Inline_Asm_Dialect</a></li>
+<li><a href="#Inline_Asm_Expr">Inline_Asm_Expr</a></li>
+<li><a href="#Inline_Range_Stmt">Inline_Range_Stmt</a></li>
+<li><a href="#Map_Type">Map_Type</a></li>
+<li><a href="#Matrix_Index_Expr">Matrix_Index_Expr</a></li>
+<li><a href="#Matrix_Type">Matrix_Type</a></li>
+<li><a href="#Multi_Pointer_Type">Multi_Pointer_Type</a></li>
+<li><a href="#Node">Node</a></li>
+<li><a href="#Node_State_Flag">Node_State_Flag</a></li>
+<li><a href="#Node_State_Flags">Node_State_Flags</a></li>
+<li><a href="#Or_Else_Expr">Or_Else_Expr</a></li>
+<li><a href="#Or_Return_Expr">Or_Return_Expr</a></li>
+<li><a href="#Package">Package</a></li>
+<li><a href="#Package_Decl">Package_Decl</a></li>
+<li><a href="#Package_Kind">Package_Kind</a></li>
+<li><a href="#Paren_Expr">Paren_Expr</a></li>
+<li><a href="#Pointer_Type">Pointer_Type</a></li>
+<li><a href="#Poly_Type">Poly_Type</a></li>
+<li><a href="#Proc_Calling_Convention">Proc_Calling_Convention</a></li>
+<li><a href="#Proc_Calling_Convention_Extra">Proc_Calling_Convention_Extra</a></li>
+<li><a href="#Proc_Group">Proc_Group</a></li>
+<li><a href="#Proc_Inlining">Proc_Inlining</a></li>
+<li><a href="#Proc_Lit">Proc_Lit</a></li>
+<li><a href="#Proc_Tag">Proc_Tag</a></li>
+<li><a href="#Proc_Tags">Proc_Tags</a></li>
+<li><a href="#Proc_Type">Proc_Type</a></li>
+<li><a href="#Range_Stmt">Range_Stmt</a></li>
+<li><a href="#Relative_Type">Relative_Type</a></li>
+<li><a href="#Return_Stmt">Return_Stmt</a></li>
+<li><a href="#Selector_Call_Expr">Selector_Call_Expr</a></li>
+<li><a href="#Selector_Expr">Selector_Expr</a></li>
+<li><a href="#Slice_Expr">Slice_Expr</a></li>
+<li><a href="#Stmt">Stmt</a></li>
+<li><a href="#Struct_Type">Struct_Type</a></li>
+<li><a href="#Switch_Stmt">Switch_Stmt</a></li>
+<li><a href="#Tag_Expr">Tag_Expr</a></li>
+<li><a href="#Tag_Stmt">Tag_Stmt</a></li>
+<li><a href="#Ternary_If_Expr">Ternary_If_Expr</a></li>
+<li><a href="#Ternary_When_Expr">Ternary_When_Expr</a></li>
+<li><a href="#Type_Assertion">Type_Assertion</a></li>
+<li><a href="#Type_Cast">Type_Cast</a></li>
+<li><a href="#Type_Switch_Stmt">Type_Switch_Stmt</a></li>
+<li><a href="#Typeid_Type">Typeid_Type</a></li>
+<li><a href="#Unary_Expr">Unary_Expr</a></li>
+<li><a href="#Undef">Undef</a></li>
+<li><a href="#Union_Type">Union_Type</a></li>
+<li><a href="#Union_Type_Kind">Union_Type_Kind</a></li>
+<li><a href="#Using_Stmt">Using_Stmt</a></li>
+<li><a href="#Value_Decl">Value_Decl</a></li>
+<li><a href="#Visitor">Visitor</a></li>
+<li><a href="#When_Stmt">When_Stmt</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Constants" aria-labelledby="#doc-index-Constants-header">
+<summary id="#doc-index-Constants-header">
+Constants (5)</summary>
+<ul>
+<li><a href="#Field_Flags_Record_Poly_Params">Field_Flags_Record_Poly_Params</a></li>
+<li><a href="#Field_Flags_Signature">Field_Flags_Signature</a></li>
+<li><a href="#Field_Flags_Signature_Params">Field_Flags_Signature_Params</a></li>
+<li><a href="#Field_Flags_Signature_Results">Field_Flags_Signature_Results</a></li>
+<li><a href="#Field_Flags_Struct">Field_Flags_Struct</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Variables" aria-labelledby="#doc-index-Variables-header">
+<summary id="#doc-index-Variables-header">
+Variables (2)</summary>
+<ul>
+<li><a href="#field_flag_strings">field_flag_strings</a></li>
+<li><a href="#field_hash_flag_strings">field_hash_flag_strings</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
+<summary id="#doc-index-Procedures-header">
+Procedures (10)</summary>
+<ul>
+<li><a href="#clone_array">clone_array</a></li>
+<li><a href="#clone_decl">clone_decl</a></li>
+<li><a href="#clone_dynamic_array">clone_dynamic_array</a></li>
+<li><a href="#clone_expr">clone_expr</a></li>
+<li><a href="#clone_node">clone_node</a></li>
+<li><a href="#clone_stmt">clone_stmt</a></li>
+<li><a href="#inspect">inspect</a></li>
+<li><a href="#new">new</a></li>
+<li><a href="#unparen_expr">unparen_expr</a></li>
+<li><a href="#walk">walk</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedure Groups" aria-labelledby="#doc-index-Procedure Groups-header">
+<summary id="#doc-index-Procedure Groups-header">
+Procedure Groups (1)</summary>
+<ul>
+<li><a href="#clone">clone</a></li>
+</ul>
+</details>
+</div>
+</div>
+</div>
+<section class="documentation">
+<h2 id="pkg-Types" class="pkg-header">Types</h2>
+<div class="pkg-entity">
+<h3 id="Any_Expr"><span><a class="doc-id-link" href="#Any_Expr">Any_Expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L896"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Any_Expr :: <span class="keyword-type">union</span> {
+	^<a class="code-typename" href="/core/odin/ast/#Bad_Expr">Bad_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Ident">Ident</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Implicit">Implicit</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Undef">Undef</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Basic_Lit">Basic_Lit</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Basic_Directive">Basic_Directive</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Ellipsis">Ellipsis</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Proc_Lit">Proc_Lit</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Comp_Lit">Comp_Lit</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Tag_Expr">Tag_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Unary_Expr">Unary_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Binary_Expr">Binary_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Paren_Expr">Paren_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Selector_Expr">Selector_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Implicit_Selector_Expr">Implicit_Selector_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Selector_Call_Expr">Selector_Call_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Index_Expr">Index_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Deref_Expr">Deref_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Slice_Expr">Slice_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Matrix_Index_Expr">Matrix_Index_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Call_Expr">Call_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Field_Value">Field_Value</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Ternary_If_Expr">Ternary_If_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Ternary_When_Expr">Ternary_When_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Or_Else_Expr">Or_Else_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Or_Return_Expr">Or_Return_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Type_Assertion">Type_Assertion</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Type_Cast">Type_Cast</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Auto_Cast">Auto_Cast</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Inline_Asm_Expr">Inline_Asm_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Proc_Group">Proc_Group</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Typeid_Type">Typeid_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Helper_Type">Helper_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Distinct_Type">Distinct_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Poly_Type">Poly_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Proc_Type">Proc_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Pointer_Type">Pointer_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Multi_Pointer_Type">Multi_Pointer_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Array_Type">Array_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Dynamic_Array_Type">Dynamic_Array_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Struct_Type">Struct_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Union_Type">Union_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Enum_Type">Enum_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Bit_Set_Type">Bit_Set_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Map_Type">Map_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Relative_Type">Relative_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Matrix_Type">Matrix_Type</a>, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Any_Node"><span><a class="doc-id-link" href="#Any_Node">Any_Node<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L809"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Any_Node :: <span class="keyword-type">union</span> {
+	^<a class="code-typename" href="/core/odin/ast/#Package">Package</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#File">File</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Comment_Group">Comment_Group</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Bad_Expr">Bad_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Ident">Ident</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Implicit">Implicit</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Undef">Undef</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Basic_Lit">Basic_Lit</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Basic_Directive">Basic_Directive</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Ellipsis">Ellipsis</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Proc_Lit">Proc_Lit</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Comp_Lit">Comp_Lit</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Tag_Expr">Tag_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Unary_Expr">Unary_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Binary_Expr">Binary_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Paren_Expr">Paren_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Selector_Expr">Selector_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Implicit_Selector_Expr">Implicit_Selector_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Selector_Call_Expr">Selector_Call_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Index_Expr">Index_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Deref_Expr">Deref_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Slice_Expr">Slice_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Matrix_Index_Expr">Matrix_Index_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Call_Expr">Call_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Field_Value">Field_Value</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Ternary_If_Expr">Ternary_If_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Ternary_When_Expr">Ternary_When_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Or_Else_Expr">Or_Else_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Or_Return_Expr">Or_Return_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Type_Assertion">Type_Assertion</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Type_Cast">Type_Cast</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Auto_Cast">Auto_Cast</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Inline_Asm_Expr">Inline_Asm_Expr</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Proc_Group">Proc_Group</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Typeid_Type">Typeid_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Helper_Type">Helper_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Distinct_Type">Distinct_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Poly_Type">Poly_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Proc_Type">Proc_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Pointer_Type">Pointer_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Multi_Pointer_Type">Multi_Pointer_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Array_Type">Array_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Dynamic_Array_Type">Dynamic_Array_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Struct_Type">Struct_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Union_Type">Union_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Enum_Type">Enum_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Bit_Set_Type">Bit_Set_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Map_Type">Map_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Relative_Type">Relative_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Matrix_Type">Matrix_Type</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Bad_Stmt">Bad_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Empty_Stmt">Empty_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Expr_Stmt">Expr_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Tag_Stmt">Tag_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Assign_Stmt">Assign_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Block_Stmt">Block_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#If_Stmt">If_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#When_Stmt">When_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Return_Stmt">Return_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Defer_Stmt">Defer_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#For_Stmt">For_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Range_Stmt">Range_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Inline_Range_Stmt">Inline_Range_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Case_Clause">Case_Clause</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Switch_Stmt">Switch_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Type_Switch_Stmt">Type_Switch_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Branch_Stmt">Branch_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Using_Stmt">Using_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Bad_Decl">Bad_Decl</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Value_Decl">Value_Decl</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Package_Decl">Package_Decl</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Import_Decl">Import_Decl</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Foreign_Block_Decl">Foreign_Block_Decl</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Foreign_Import_Decl">Foreign_Import_Decl</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Attribute">Attribute</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Field">Field</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Field_List">Field_List</a>, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Any_Stmt"><span><a class="doc-id-link" href="#Any_Stmt">Any_Stmt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L949"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Any_Stmt :: <span class="keyword-type">union</span> {
+	^<a class="code-typename" href="/core/odin/ast/#Bad_Stmt">Bad_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Empty_Stmt">Empty_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Expr_Stmt">Expr_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Tag_Stmt">Tag_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Assign_Stmt">Assign_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Block_Stmt">Block_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#If_Stmt">If_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#When_Stmt">When_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Return_Stmt">Return_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Defer_Stmt">Defer_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#For_Stmt">For_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Range_Stmt">Range_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Inline_Range_Stmt">Inline_Range_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Case_Clause">Case_Clause</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Switch_Stmt">Switch_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Type_Switch_Stmt">Type_Switch_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Branch_Stmt">Branch_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Using_Stmt">Using_Stmt</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Bad_Decl">Bad_Decl</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Value_Decl">Value_Decl</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Package_Decl">Package_Decl</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Import_Decl">Import_Decl</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Foreign_Block_Decl">Foreign_Block_Decl</a>, 
+	^<a class="code-typename" href="/core/odin/ast/#Foreign_Import_Decl">Foreign_Import_Decl</a>, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Array_Type"><span><a class="doc-id-link" href="#Array_Type">Array_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L716"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Array_Type :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	open:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	tag:   ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	len:   ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	<span class="comment">// Ellipsis node for [?]T arrray types, nil for slice types</span>
+	close: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	elem:  ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Assign_Stmt"><span><a class="doc-id-link" href="#Assign_Stmt">Assign_Stmt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L358"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Assign_Stmt :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	lhs:  []^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	op:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	rhs:  []^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Attribute"><span><a class="doc-id-link" href="#Attribute">Attribute<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L636"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Attribute :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Node">Node</a>,
+	tok:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token_Kind">Token_Kind</a>,
+	open:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	elems: []^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	close: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Auto_Cast"><span><a class="doc-id-link" href="#Auto_Cast">Auto_Cast<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L305"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Auto_Cast :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	op:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	expr: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Bad_Decl"><span><a class="doc-id-link" href="#Bad_Decl">Bad_Decl<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L481"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Bad_Decl :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Decl">Decl</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Decl">Decl</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_decl">clone_decl</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Bad_Expr"><span><a class="doc-id-link" href="#Bad_Expr">Bad_Expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L103"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Bad_Expr :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Bad_Stmt"><span><a class="doc-id-link" href="#Bad_Stmt">Bad_Stmt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L337"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Bad_Stmt :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Basic_Directive"><span><a class="doc-id-link" href="#Basic_Directive">Basic_Directive<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L128"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Basic_Directive :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	tok:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Basic_Lit"><span><a class="doc-id-link" href="#Basic_Lit">Basic_Lit<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L123"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Basic_Lit :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	tok:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Binary_Expr"><span><a class="doc-id-link" href="#Binary_Expr">Binary_Expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L173"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Binary_Expr :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	left:  ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	op:    odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	right: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Bit_Set_Type"><span><a class="doc-id-link" href="#Bit_Set_Type">Bit_Set_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L777"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Bit_Set_Type :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	tok_pos:    odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	open:       odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	elem:       ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	underlying: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	close:      odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Block_Stmt"><span><a class="doc-id-link" href="#Block_Stmt">Block_Stmt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L366"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Block_Stmt :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	label:   ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	open:    odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	stmts:   []^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	close:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	uses_do: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Branch_Stmt"><span><a class="doc-id-link" href="#Branch_Stmt">Branch_Stmt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L467"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Branch_Stmt :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	tok:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	label: ^<a class="code-typename" href="/core/odin/ast/#Ident">Ident</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Call_Expr"><span><a class="doc-id-link" href="#Call_Expr">Call_Expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L239"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Call_Expr :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	inlining: <a class="code-typename" href="/core/odin/ast/#Proc_Inlining">Proc_Inlining</a>,
+	expr:     ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	open:     odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	args:     []^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	ellipsis: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	close:    odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Case_Clause"><span><a class="doc-id-link" href="#Case_Clause">Case_Clause<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L439"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Case_Clause :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	case_pos:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	list:       []^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	terminator: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	body:       []^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Comment_Group"><span><a class="doc-id-link" href="#Comment_Group">Comment_Group<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L40"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Comment_Group :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Node">Node</a>,
+	list: []odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Comp_Lit"><span><a class="doc-id-link" href="#Comp_Lit">Comp_Lit<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L150"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Comp_Lit :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	type:  ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	open:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	elems: []^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	close: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	tag:   ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Decl"><span><a class="doc-id-link" href="#Decl">Decl<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L97"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Decl :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> decl_base: <a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/odin/ast/#clone_decl">clone_decl</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Defer_Stmt"><span><a class="doc-id-link" href="#Defer_Stmt">Defer_Stmt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L399"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Defer_Stmt :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	stmt: ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Deref_Expr"><span><a class="doc-id-link" href="#Deref_Expr">Deref_Expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L214"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Deref_Expr :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	expr: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	op:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Distinct_Type"><span><a class="doc-id-link" href="#Distinct_Type">Distinct_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L676"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Distinct_Type :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	tok:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token_Kind">Token_Kind</a>,
+	type: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Dynamic_Array_Type"><span><a class="doc-id-link" href="#Dynamic_Array_Type">Dynamic_Array_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L725"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Dynamic_Array_Type :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node:  <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	tag:         ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	open:        odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	dynamic_pos: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	close:       odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	elem:        ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Ellipsis"><span><a class="doc-id-link" href="#Ellipsis">Ellipsis<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L134"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Ellipsis :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	tok:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token_Kind">Token_Kind</a>,
+	expr: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Empty_Stmt"><span><a class="doc-id-link" href="#Empty_Stmt">Empty_Stmt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L341"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Empty_Stmt :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	semicolon: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Enum_Type"><span><a class="doc-id-link" href="#Enum_Type">Enum_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L766"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Enum_Type :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	tok_pos:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	base_type: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	open:      odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	fields:    []^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	close:     odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	is_using:  <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Expr"><span><a class="doc-id-link" href="#Expr">Expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L89"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Expr :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> expr_base: <a class="code-typename" href="/core/odin/ast/#Node">Node</a>,
+	derived_expr: <a class="code-typename" href="/core/odin/ast/#Any_Expr">Any_Expr</a>,
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Expr_Stmt"><span><a class="doc-id-link" href="#Expr_Stmt">Expr_Stmt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L346"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Expr_Stmt :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	expr: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Field"><span><a class="doc-id-link" href="#Field">Field<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L644"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Field :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node:    <a class="code-typename" href="/core/odin/ast/#Node">Node</a>,
+	docs:          ^<a class="code-typename" href="/core/odin/ast/#Comment_Group">Comment_Group</a>,
+	names:         []^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	<span class="comment">// Could be polymorphic</span>
+	type:          ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	default_value: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	tag:           odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	flags:         <a class="code-typename" href="/core/odin/ast/#Field_Flags">Field_Flags</a>,
+	comment:       ^<a class="code-typename" href="/core/odin/ast/#Comment_Group">Comment_Group</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Field_Flag"><span><a class="doc-id-link" href="#Field_Flag">Field_Flag<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L557"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Field_Flag :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+	Invalid, 
+	Unknown, 
+	Ellipsis, 
+	Using, 
+	No_Alias, 
+	C_Vararg, 
+	Auto_Cast, 
+	Any_Int, 
+	Subtype, 
+	By_Ptr, 
+	Results, 
+	Tags, 
+	Default_Parameters, 
+	Typeid_Token, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Field_Flags"><span><a class="doc-id-link" href="#Field_Flags">Field_Flags<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L555"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Field_Flags :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/odin/ast/#Field_Flag">Field_Flag</a>]</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Field_List"><span><a class="doc-id-link" href="#Field_List">Field_List<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L655"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Field_List :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Node">Node</a>,
+	open:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	list:  []^<a class="code-typename" href="/core/odin/ast/#Field">Field</a>,
+	close: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Field_Value"><span><a class="doc-id-link" href="#Field_Value">Field_Value<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L249"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Field_Value :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	field: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	sep:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	value: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="File"><span><a class="doc-id-link" href="#File">File<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L62"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">File :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node:           <a class="code-typename" href="/core/odin/ast/#Node">Node</a>,
+	id:                   <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	pkg:                  ^<a class="code-typename" href="/core/odin/ast/#Package">Package</a>,
+	fullpath:             <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	src:                  <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	docs:                 ^<a class="code-typename" href="/core/odin/ast/#Comment_Group">Comment_Group</a>,
+	pkg_decl:             ^<a class="code-typename" href="/core/odin/ast/#Package_Decl">Package_Decl</a>,
+	pkg_token:            odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	pkg_name:             <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	decls:                [<span class="keyword">dynamic</span>]^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	imports:              [<span class="keyword">dynamic</span>]^<a class="code-typename" href="/core/odin/ast/#Import_Decl">Import_Decl</a>,
+	directive_count:      <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	comments:             [<span class="keyword">dynamic</span>]^<a class="code-typename" href="/core/odin/ast/#Comment_Group">Comment_Group</a>,
+	syntax_warning_count: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	syntax_error_count:   <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="For_Stmt"><span><a class="doc-id-link" href="#For_Stmt">For_Stmt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L404"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">For_Stmt :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	label:   ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	for_pos: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	init:    ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	cond:    ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	post:    ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	body:    ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Foreign_Block_Decl"><span><a class="doc-id-link" href="#Foreign_Block_Decl">Foreign_Block_Decl<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L516"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Foreign_Block_Decl :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node:      <a class="code-typename" href="/core/odin/ast/#Decl">Decl</a>,
+	docs:            ^<a class="code-typename" href="/core/odin/ast/#Comment_Group">Comment_Group</a>,
+	attributes:      [<span class="keyword">dynamic</span>]^<a class="code-typename" href="/core/odin/ast/#Attribute">Attribute</a>,
+	<span class="comment">// dynamic as parsing will add to them lazily</span>
+	tok:             odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	foreign_library: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	body:            ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Decl">Decl</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_decl">clone_decl</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Foreign_Import_Decl"><span><a class="doc-id-link" href="#Foreign_Import_Decl">Foreign_Import_Decl<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L525"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Foreign_Import_Decl :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node:      <a class="code-typename" href="/core/odin/ast/#Decl">Decl</a>,
+	docs:            ^<a class="code-typename" href="/core/odin/ast/#Comment_Group">Comment_Group</a>,
+	attributes:      [<span class="keyword">dynamic</span>]^<a class="code-typename" href="/core/odin/ast/#Attribute">Attribute</a>,
+	<span class="comment">// dynamic as parsing will add to them lazily</span>
+	foreign_tok:     odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	import_tok:      odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	name:            ^<a class="code-typename" href="/core/odin/ast/#Ident">Ident</a>,
+	collection_name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	fullpaths:       []<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	comment:         ^<a class="code-typename" href="/core/odin/ast/#Comment_Group">Comment_Group</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Decl">Decl</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_decl">clone_decl</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Helper_Type"><span><a class="doc-id-link" href="#Helper_Type">Helper_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L670"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Helper_Type :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	tok:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token_Kind">Token_Kind</a>,
+	type: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Ident"><span><a class="doc-id-link" href="#Ident">Ident<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L107"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Ident :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="If_Stmt"><span><a class="doc-id-link" href="#If_Stmt">If_Stmt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L375"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">If_Stmt :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	label:     ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	if_pos:    odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	init:      ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	cond:      ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	body:      ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	else_pos:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	else_stmt: ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Implicit"><span><a class="doc-id-link" href="#Implicit">Implicit<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L112"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Implicit :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	tok:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Implicit_Selector_Expr"><span><a class="doc-id-link" href="#Implicit_Selector_Expr">Implicit_Selector_Expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L194"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Implicit_Selector_Expr :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	field: ^<a class="code-typename" href="/core/odin/ast/#Ident">Ident</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Import_Decl"><span><a class="doc-id-link" href="#Import_Decl">Import_Decl<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L505"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Import_Decl :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Decl">Decl</a>,
+	docs:       ^<a class="code-typename" href="/core/odin/ast/#Comment_Group">Comment_Group</a>,
+	is_using:   <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	import_tok: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	name:       odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	relpath:    odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	fullpath:   <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	comment:    ^<a class="code-typename" href="/core/odin/ast/#Comment_Group">Comment_Group</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Decl">Decl</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_decl">clone_decl</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Index_Expr"><span><a class="doc-id-link" href="#Index_Expr">Index_Expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L206"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Index_Expr :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	expr:  ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	open:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	index: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	close: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Inline_Asm_Dialect"><span><a class="doc-id-link" href="#Inline_Asm_Dialect">Inline_Asm_Dialect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L311"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Inline_Asm_Dialect :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+	Default = 0, 
+	ATT     = 1, 
+	Intel   = 2, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Inline_Asm_Expr"><span><a class="doc-id-link" href="#Inline_Asm_Expr">Inline_Asm_Expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L318"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Inline_Asm_Expr :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node:         <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	tok:                odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	param_types:        []^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	return_type:        ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	has_side_effects:   <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	is_align_stack:     <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	dialect:            <a class="code-typename" href="/core/odin/ast/#Inline_Asm_Dialect">Inline_Asm_Dialect</a>,
+	open:               odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	constraints_string: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	asm_string:         ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	close:              odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Inline_Range_Stmt"><span><a class="doc-id-link" href="#Inline_Range_Stmt">Inline_Range_Stmt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L424"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Inline_Range_Stmt :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	label:      ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	inline_pos: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	for_pos:    odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	val0:       ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	val1:       ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	in_pos:     odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	expr:       ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	body:       ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Map_Type"><span><a class="doc-id-link" href="#Map_Type">Map_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L786"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Map_Type :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	tok_pos: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	key:     ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	value:   ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Matrix_Index_Expr"><span><a class="doc-id-link" href="#Matrix_Index_Expr">Matrix_Index_Expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L230"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Matrix_Index_Expr :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node:   <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	expr:         ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	open:         odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	row_index:    ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	column_index: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	close:        odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Matrix_Type"><span><a class="doc-id-link" href="#Matrix_Type">Matrix_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L800"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Matrix_Type :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node:   <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	tok_pos:      odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	row_count:    ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	column_count: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	elem:         ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Multi_Pointer_Type"><span><a class="doc-id-link" href="#Multi_Pointer_Type">Multi_Pointer_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L708"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Multi_Pointer_Type :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	open:    odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	pointer: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	close:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	elem:    ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Node"><span><a class="doc-id-link" href="#Node">Node<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L33"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Node :: <span class="keyword-type">struct</span> {
+	pos:         odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	end:         odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	state_flags: <a class="code-typename" href="/core/odin/ast/#Node_State_Flags">Node_State_Flags</a>,
+	derived:     <a class="code-typename" href="/core/odin/ast/#Any_Node">Any_Node</a>,
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Node_State_Flag"><span><a class="doc-id-link" href="#Node_State_Flag">Node_State_Flag<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L27"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Node_State_Flag :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+	Bounds_Check, 
+	No_Bounds_Check, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Node_State_Flags"><span><a class="doc-id-link" href="#Node_State_Flags">Node_State_Flags<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L31"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Node_State_Flags :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/odin/ast/#Node_State_Flag">Node_State_Flag</a>]</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Or_Else_Expr"><span><a class="doc-id-link" href="#Or_Else_Expr">Or_Else_Expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L274"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Or_Else_Expr :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	x:     ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	token: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	y:     ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Or_Return_Expr"><span><a class="doc-id-link" href="#Or_Return_Expr">Or_Return_Expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L281"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Or_Return_Expr :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	expr:  ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	token: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Package"><span><a class="doc-id-link" href="#Package">Package<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L51"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Package :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Node">Node</a>,
+	kind:      <a class="code-typename" href="/core/odin/ast/#Package_Kind">Package_Kind</a>,
+	id:        <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	name:      <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	fullpath:  <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	files:     <span class="keyword-type">map</span>[<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>]^<a class="code-typename" href="/core/odin/ast/#File">File</a>,
+	user_data: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Package_Decl"><span><a class="doc-id-link" href="#Package_Decl">Package_Decl<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L497"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Package_Decl :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Decl">Decl</a>,
+	docs:    ^<a class="code-typename" href="/core/odin/ast/#Comment_Group">Comment_Group</a>,
+	token:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	name:    <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	comment: ^<a class="code-typename" href="/core/odin/ast/#Comment_Group">Comment_Group</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Decl">Decl</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_decl">clone_decl</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Package_Kind"><span><a class="doc-id-link" href="#Package_Kind">Package_Kind<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L45"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Package_Kind :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+	Normal, 
+	Runtime, 
+	Init, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Paren_Expr"><span><a class="doc-id-link" href="#Paren_Expr">Paren_Expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L180"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Paren_Expr :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	open:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	expr:  ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	close: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Pointer_Type"><span><a class="doc-id-link" href="#Pointer_Type">Pointer_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L701"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Pointer_Type :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	tag:     ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	pointer: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	elem:    ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Poly_Type"><span><a class="doc-id-link" href="#Poly_Type">Poly_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L682"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Poly_Type :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node:     <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	dollar:         odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	type:           ^<a class="code-typename" href="/core/odin/ast/#Ident">Ident</a>,
+	specialization: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Proc_Calling_Convention"><span><a class="doc-id-link" href="#Proc_Calling_Convention">Proc_Calling_Convention<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L22"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Proc_Calling_Convention :: <span class="keyword-type">union</span> {
+	<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, 
+	<a class="code-typename" href="/core/odin/ast/#Proc_Calling_Convention_Extra">Proc_Calling_Convention_Extra</a>, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Proc_Calling_Convention_Extra"><span><a class="doc-id-link" href="#Proc_Calling_Convention_Extra">Proc_Calling_Convention_Extra<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L19"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Proc_Calling_Convention_Extra :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
+	Foreign_Block_Default, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Proc_Group"><span><a class="doc-id-link" href="#Proc_Group">Proc_Group<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L628"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Proc_Group :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	tok:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	open:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	args:  []^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	close: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Proc_Inlining"><span><a class="doc-id-link" href="#Proc_Inlining">Proc_Inlining<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L13"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Proc_Inlining :: <span class="keyword-type">enum</span> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {
+	None      = 0, 
+	Inline    = 1, 
+	No_Inline = 2, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Proc_Lit"><span><a class="doc-id-link" href="#Proc_Lit">Proc_Lit<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L140"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Proc_Lit :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node:    <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	type:          ^<a class="code-typename" href="/core/odin/ast/#Proc_Type">Proc_Type</a>,
+	body:          ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	tags:          <a class="code-typename" href="/core/odin/ast/#Proc_Tags">Proc_Tags</a>,
+	inlining:      <a class="code-typename" href="/core/odin/ast/#Proc_Inlining">Proc_Inlining</a>,
+	where_token:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	where_clauses: []^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Proc_Tag"><span><a class="doc-id-link" href="#Proc_Tag">Proc_Tag<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L5"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Proc_Tag :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+	Bounds_Check, 
+	No_Bounds_Check, 
+	Optional_Ok, 
+	Optional_Allocator_Error, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Proc_Tags"><span><a class="doc-id-link" href="#Proc_Tags">Proc_Tags<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L11"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Proc_Tags :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/odin/ast/#Proc_Tag">Proc_Tag</a>; <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>]</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Proc_Type"><span><a class="doc-id-link" href="#Proc_Type">Proc_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L689"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Proc_Type :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node:         <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	tok:                odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	calling_convention: <a class="code-typename" href="/core/odin/ast/#Proc_Calling_Convention">Proc_Calling_Convention</a>,
+	params:             ^<a class="code-typename" href="/core/odin/ast/#Field_List">Field_List</a>,
+	arrow:              odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	results:            ^<a class="code-typename" href="/core/odin/ast/#Field_List">Field_List</a>,
+	tags:               <a class="code-typename" href="/core/odin/ast/#Proc_Tags">Proc_Tags</a>,
+	generic:            <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	diverging:          <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Range_Stmt"><span><a class="doc-id-link" href="#Range_Stmt">Range_Stmt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L414"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Range_Stmt :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	label:   ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	for_pos: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	vals:    []^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	in_pos:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	expr:    ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	body:    ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Relative_Type"><span><a class="doc-id-link" href="#Relative_Type">Relative_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L794"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Relative_Type :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	tag:  ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	type: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Return_Stmt"><span><a class="doc-id-link" href="#Return_Stmt">Return_Stmt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L394"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Return_Stmt :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	results: []^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Selector_Call_Expr"><span><a class="doc-id-link" href="#Selector_Call_Expr">Selector_Call_Expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L199"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Selector_Call_Expr :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node:    <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	expr:          ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	call:          ^<a class="code-typename" href="/core/odin/ast/#Call_Expr">Call_Expr</a>,
+	modified_call: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Selector_Expr"><span><a class="doc-id-link" href="#Selector_Expr">Selector_Expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L187"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Selector_Expr :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	expr:  ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	op:    odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	field: ^<a class="code-typename" href="/core/odin/ast/#Ident">Ident</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Slice_Expr"><span><a class="doc-id-link" href="#Slice_Expr">Slice_Expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L220"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Slice_Expr :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	expr:     ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	open:     odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	low:      ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	interval: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	high:     ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	close:    odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Stmt"><span><a class="doc-id-link" href="#Stmt">Stmt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L93"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Stmt :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> stmt_base: <a class="code-typename" href="/core/odin/ast/#Node">Node</a>,
+	derived_stmt: <a class="code-typename" href="/core/odin/ast/#Any_Stmt">Any_Stmt</a>,
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Struct_Type"><span><a class="doc-id-link" href="#Struct_Type">Struct_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L734"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Struct_Type :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node:    <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	tok_pos:       odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	poly_params:   ^<a class="code-typename" href="/core/odin/ast/#Field_List">Field_List</a>,
+	align:         ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	where_token:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	where_clauses: []^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	is_packed:     <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	is_raw_union:  <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	is_no_copy:    <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	fields:        ^<a class="code-typename" href="/core/odin/ast/#Field_List">Field_List</a>,
+	name_count:    <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Switch_Stmt"><span><a class="doc-id-link" href="#Switch_Stmt">Switch_Stmt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L447"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Switch_Stmt :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	label:      ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	switch_pos: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	init:       ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	cond:       ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	body:       ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	partial:    <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Tag_Expr"><span><a class="doc-id-link" href="#Tag_Expr">Tag_Expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L160"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Tag_Expr :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	op:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	expr: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Tag_Stmt"><span><a class="doc-id-link" href="#Tag_Stmt">Tag_Stmt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L351"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Tag_Stmt :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	op:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	stmt: ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Ternary_If_Expr"><span><a class="doc-id-link" href="#Ternary_If_Expr">Ternary_If_Expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L256"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Ternary_If_Expr :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	x:    ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	op1:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	cond: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	op2:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	y:    ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Ternary_When_Expr"><span><a class="doc-id-link" href="#Ternary_When_Expr">Ternary_When_Expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L265"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Ternary_When_Expr :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	x:    ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	op1:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	cond: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	op2:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	y:    ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Type_Assertion"><span><a class="doc-id-link" href="#Type_Assertion">Type_Assertion<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L287"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Type_Assertion :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	expr:  ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	dot:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	open:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	type:  ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	close: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Type_Cast"><span><a class="doc-id-link" href="#Type_Cast">Type_Cast<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L296"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Type_Cast :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	tok:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	open:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	type:  ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	close: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	expr:  ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Type_Switch_Stmt"><span><a class="doc-id-link" href="#Type_Switch_Stmt">Type_Switch_Stmt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L457"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Type_Switch_Stmt :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	label:      ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	switch_pos: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	tag:        ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	expr:       ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	body:       ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	partial:    <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Typeid_Type"><span><a class="doc-id-link" href="#Typeid_Type">Typeid_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L664"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Typeid_Type :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node:     <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	tok:            odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token_Kind">Token_Kind</a>,
+	specialization: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Types</p>
+</details>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Unary_Expr"><span><a class="doc-id-link" href="#Unary_Expr">Unary_Expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L167"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Unary_Expr :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	op:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	expr: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Undef"><span><a class="doc-id-link" href="#Undef">Undef<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L118"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Undef :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	tok:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token_Kind">Token_Kind</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Union_Type"><span><a class="doc-id-link" href="#Union_Type">Union_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L755"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Union_Type :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node:    <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	tok_pos:       odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	poly_params:   ^<a class="code-typename" href="/core/odin/ast/#Field_List">Field_List</a>,
+	align:         ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	kind:          <a class="code-typename" href="/core/odin/ast/#Union_Type_Kind">Union_Type_Kind</a>,
+	where_token:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
+	where_clauses: []^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	variants:      []^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_expr">clone_expr</a></li>
+<li><a href="/core/odin/ast/#unparen_expr">unparen_expr</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Union_Type_Kind"><span><a class="doc-id-link" href="#Union_Type_Kind">Union_Type_Kind<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L748"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Union_Type_Kind :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+	Normal, 
+	maybe, 
+	no_nil, 
+	shared_nil, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Using_Stmt"><span><a class="doc-id-link" href="#Using_Stmt">Using_Stmt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L473"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Using_Stmt :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	list: []^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Value_Decl"><span><a class="doc-id-link" href="#Value_Decl">Value_Decl<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L485"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Value_Decl :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Decl">Decl</a>,
+	docs:       ^<a class="code-typename" href="/core/odin/ast/#Comment_Group">Comment_Group</a>,
+	attributes: [<span class="keyword">dynamic</span>]^<a class="code-typename" href="/core/odin/ast/#Attribute">Attribute</a>,
+	<span class="comment">// dynamic as parsing will add to them lazily</span>
+	names:      []^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	type:       ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	values:     []^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	comment:    ^<a class="code-typename" href="/core/odin/ast/#Comment_Group">Comment_Group</a>,
+	is_using:   <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	is_mutable: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Decl">Decl</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_decl">clone_decl</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Visitor"><span><a class="doc-id-link" href="#Visitor">Visitor<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/walk.odin#L8"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Visitor :: <span class="keyword-type">struct</span> {
+	visit: <span class="keyword-type">proc</span>(visitor: ^<a class="code-typename" href="/core/odin/ast/#Visitor">Visitor</a>, node: ^<a class="code-typename" href="/core/odin/ast/#Node">Node</a>) -> ^<a class="code-typename" href="/core/odin/ast/#Visitor">Visitor</a>,
+	data:  <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>,
+}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>A Visitor's visit procedure is invoked for each node encountered by walk
+If the result visitor is not nil, walk visits each of the children of node with the new visitor,
+followed by a call of v.visit(v, nil)</p>
+</details>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="When_Stmt"><span><a class="doc-id-link" href="#When_Stmt">When_Stmt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L386"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">When_Stmt :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	when_pos:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	cond:      ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	body:      ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+	else_stmt: ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
+}</pre>
+</div>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_stmt">clone_stmt</a></li>
+<li><a href="/core/odin/ast/#clone">clone</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
+<ul>
+<li><a href="/core/odin/ast/#clone_node">clone_node</a></li>
+<li><a href="/core/odin/ast/#inspect">inspect</a></li>
+<li><a href="/core/odin/ast/#walk">walk</a></li>
+</ul>
+</div>
+<h2 id="pkg-Constants" class="pkg-header">Constants</h2>
+<div class="pkg-entity">
+<h3 id="Field_Flags_Record_Poly_Params"><span><a class="doc-id-link" href="#Field_Flags_Record_Poly_Params">Field_Flags_Record_Poly_Params<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L609"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Field_Flags_Record_Poly_Params :: Field_Flags{.Typeid_Token, .Default_Parameters}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Field_Flags_Signature"><span><a class="doc-id-link" href="#Field_Flags_Signature">Field_Flags_Signature<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L613"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Field_Flags_Signature :: Field_Flags{.Ellipsis, .Using, .No_Alias, .C_Vararg, .Auto_Cast, .Any_Int, .By_Ptr, .Default_Parameters}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Field_Flags_Signature_Params"><span><a class="doc-id-link" href="#Field_Flags_Signature_Params">Field_Flags_Signature_Params<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L624"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Field_Flags_Signature_Params :: Field_Flags_Signature | {Field_Flag.Typeid_Token}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Field_Flags_Signature_Results"><span><a class="doc-id-link" href="#Field_Flags_Signature_Results">Field_Flags_Signature_Results<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L625"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Field_Flags_Signature_Results :: Field_Flags_Signature</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Field_Flags_Struct"><span><a class="doc-id-link" href="#Field_Flags_Struct">Field_Flags_Struct<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L604"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Field_Flags_Struct :: Field_Flags{.Using, .Tags, .Subtype}</pre>
+</div>
+</div>
+<h2 id="pkg-Variables" class="pkg-header">Variables</h2>
+<div class="pkg-entity">
+<h3 id="field_flag_strings"><span><a class="doc-id-link" href="#field_flag_strings">field_flag_strings<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L576"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">field_flag_strings: [<a class="code-typename" href="/core/odin/ast/#Field_Flag">Field_Flag</a>]<a href="/core/builtin#string"><span class="doc-builtin">string</span></a> = …</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="field_hash_flag_strings"><span><a class="doc-id-link" href="#field_hash_flag_strings">field_hash_flag_strings<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L595"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">field_hash_flag_strings: []<span class="keyword-type">struct</span> {
+	key:  <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	flag: <a class="code-typename" href="/core/odin/ast/#Field_Flag">Field_Flag</a>,
+} = …</pre>
+</div>
+</div>
+<h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
+<div class="pkg-entity">
+<h3 id="clone_array"><span><a class="doc-id-link" href="#clone_array">clone_array<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/clone.odin#L35"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">clone_array :: <span class="keyword-type">proc</span>(array: $A/[]^$T) -> $A/[]^$T {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="clone_decl"><span><a class="doc-id-link" href="#clone_decl">clone_decl<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/clone.odin#L63"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">clone_decl :: <span class="keyword-type">proc</span>(node: ^<a class="code-typename" href="/core/odin/ast/#Decl">Decl</a>) -> ^<a class="code-typename" href="/core/odin/ast/#Decl">Decl</a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="clone_dynamic_array"><span><a class="doc-id-link" href="#clone_dynamic_array">clone_dynamic_array<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/clone.odin#L46"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">clone_dynamic_array :: <span class="keyword-type">proc</span>(array: $A/[<span class="keyword">dynamic</span>]^$T) -> $A/[<span class="keyword">dynamic</span>]^$T {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="clone_expr"><span><a class="doc-id-link" href="#clone_expr">clone_expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/clone.odin#L57"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">clone_expr :: <span class="keyword-type">proc</span>(node: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>) -> ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="clone_node"><span><a class="doc-id-link" href="#clone_node">clone_node<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/clone.odin#L66"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">clone_node :: <span class="keyword-type">proc</span>(node: ^<a class="code-typename" href="/core/odin/ast/#Node">Node</a>) -> ^<a class="code-typename" href="/core/odin/ast/#Node">Node</a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="clone_stmt"><span><a class="doc-id-link" href="#clone_stmt">clone_stmt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/clone.odin#L60"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">clone_stmt :: <span class="keyword-type">proc</span>(node: ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>) -> ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inspect"><span><a class="doc-id-link" href="#inspect">inspect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/walk.odin#L18"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inspect :: <span class="keyword-type">proc</span>(node: ^<a class="code-typename" href="/core/odin/ast/#Node">Node</a>, f: <span class="keyword-type">proc</span>(_: ^<a class="code-typename" href="/core/odin/ast/#Node">Node</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>inspect traverses an AST in depth-first order
+It starts by calling f(node), and node must be non-nil
+If f returns true, inspect invokes f recursively for each of the non-nil children of node,
+followed by a call of f(nil)</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="new"><span><a class="doc-id-link" href="#new">new<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/clone.odin#L10"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">new :: <span class="keyword-type">proc</span>($T: <a href="/core/builtin#typeid"><span class="doc-builtin">typeid</span></a>, pos, end: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>) -> ^<a href="/core/builtin#typeid"><span class="doc-builtin">typeid</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="unparen_expr"><span><a class="doc-id-link" href="#unparen_expr">unparen_expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L540"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">unparen_expr :: <span class="keyword-type">proc</span>(expr: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>) -> (val: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Other things</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="walk"><span><a class="doc-id-link" href="#walk">walk<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/walk.odin#L37"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">walk :: <span class="keyword-type">proc</span>(v: ^<a class="code-typename" href="/core/odin/ast/#Visitor">Visitor</a>, node: ^<a class="code-typename" href="/core/odin/ast/#Node">Node</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>walk traverses an AST in depth-first order: It starts by calling v.visit(v, node), and node must not be nil
+If the visitor returned by v.visit(v, node) is not nil, walk is invoked recursively with the new visitor for
+each of the non-nil children of node, followed by a call of the new visit procedure</p>
+</details>
+</div>
+<h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
+<div class="pkg-entity">
+<h3 id="clone"><span><a class="doc-id-link" href="#clone">clone<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/clone.odin#L26"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">clone :: proc{
+	<a class="code-procedure" href="/core/odin/ast/#clone_node">clone_node</a>,
+	<a class="code-procedure" href="/core/odin/ast/#clone_expr">clone_expr</a>,
+	<a class="code-procedure" href="/core/odin/ast/#clone_stmt">clone_stmt</a>,
+	<a class="code-procedure" href="/core/odin/ast/#clone_decl">clone_decl</a>,
+	<a class="code-procedure" href="/core/odin/ast/#clone_array">clone_array</a>,
+	<a class="code-procedure" href="/core/odin/ast/#clone_dynamic_array">clone_dynamic_array</a>,
+}
+</pre>
+</div>
+</div>
+</section>
+<h2 id="pkg-source-files">Source Files</h2>
+<ul>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin">ast.odin</a></li>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/clone.odin">clone.odin</a></li>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/walk.odin">walk.odin</a></li>
+</ul>
+<h2 id="pkg-generation-information">Generation Information</h2>
+<p>Generated with <code>odin version dev-2023-09 (vendor "odin") Windows_amd64 @ 2023-09-05 17:19:48.827794800 +0000 UTC</code></p>
+</article>
+<div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#pkg-Types">Types</a><ul>
+<li><a href="#Any_Expr">Any_Expr</a></li>
+<li><a href="#Any_Node">Any_Node</a></li>
+<li><a href="#Any_Stmt">Any_Stmt</a></li>
+<li><a href="#Array_Type">Array_Type</a></li>
+<li><a href="#Assign_Stmt">Assign_Stmt</a></li>
+<li><a href="#Attribute">Attribute</a></li>
+<li><a href="#Auto_Cast">Auto_Cast</a></li>
+<li><a href="#Bad_Decl">Bad_Decl</a></li>
+<li><a href="#Bad_Expr">Bad_Expr</a></li>
+<li><a href="#Bad_Stmt">Bad_Stmt</a></li>
+<li><a href="#Basic_Directive">Basic_Directive</a></li>
+<li><a href="#Basic_Lit">Basic_Lit</a></li>
+<li><a href="#Binary_Expr">Binary_Expr</a></li>
+<li><a href="#Bit_Set_Type">Bit_Set_Type</a></li>
+<li><a href="#Block_Stmt">Block_Stmt</a></li>
+<li><a href="#Branch_Stmt">Branch_Stmt</a></li>
+<li><a href="#Call_Expr">Call_Expr</a></li>
+<li><a href="#Case_Clause">Case_Clause</a></li>
+<li><a href="#Comment_Group">Comment_Group</a></li>
+<li><a href="#Comp_Lit">Comp_Lit</a></li>
+<li><a href="#Decl">Decl</a></li>
+<li><a href="#Defer_Stmt">Defer_Stmt</a></li>
+<li><a href="#Deref_Expr">Deref_Expr</a></li>
+<li><a href="#Distinct_Type">Distinct_Type</a></li>
+<li><a href="#Dynamic_Array_Type">Dynamic_Array_Type</a></li>
+<li><a href="#Ellipsis">Ellipsis</a></li>
+<li><a href="#Empty_Stmt">Empty_Stmt</a></li>
+<li><a href="#Enum_Type">Enum_Type</a></li>
+<li><a href="#Expr">Expr</a></li>
+<li><a href="#Expr_Stmt">Expr_Stmt</a></li>
+<li><a href="#Field">Field</a></li>
+<li><a href="#Field_Flag">Field_Flag</a></li>
+<li><a href="#Field_Flags">Field_Flags</a></li>
+<li><a href="#Field_List">Field_List</a></li>
+<li><a href="#Field_Value">Field_Value</a></li>
+<li><a href="#File">File</a></li>
+<li><a href="#For_Stmt">For_Stmt</a></li>
+<li><a href="#Foreign_Block_Decl">Foreign_Block_Decl</a></li>
+<li><a href="#Foreign_Import_Decl">Foreign_Import_Decl</a></li>
+<li><a href="#Helper_Type">Helper_Type</a></li>
+<li><a href="#Ident">Ident</a></li>
+<li><a href="#If_Stmt">If_Stmt</a></li>
+<li><a href="#Implicit">Implicit</a></li>
+<li><a href="#Implicit_Selector_Expr">Implicit_Selector_Expr</a></li>
+<li><a href="#Import_Decl">Import_Decl</a></li>
+<li><a href="#Index_Expr">Index_Expr</a></li>
+<li><a href="#Inline_Asm_Dialect">Inline_Asm_Dialect</a></li>
+<li><a href="#Inline_Asm_Expr">Inline_Asm_Expr</a></li>
+<li><a href="#Inline_Range_Stmt">Inline_Range_Stmt</a></li>
+<li><a href="#Map_Type">Map_Type</a></li>
+<li><a href="#Matrix_Index_Expr">Matrix_Index_Expr</a></li>
+<li><a href="#Matrix_Type">Matrix_Type</a></li>
+<li><a href="#Multi_Pointer_Type">Multi_Pointer_Type</a></li>
+<li><a href="#Node">Node</a></li>
+<li><a href="#Node_State_Flag">Node_State_Flag</a></li>
+<li><a href="#Node_State_Flags">Node_State_Flags</a></li>
+<li><a href="#Or_Else_Expr">Or_Else_Expr</a></li>
+<li><a href="#Or_Return_Expr">Or_Return_Expr</a></li>
+<li><a href="#Package">Package</a></li>
+<li><a href="#Package_Decl">Package_Decl</a></li>
+<li><a href="#Package_Kind">Package_Kind</a></li>
+<li><a href="#Paren_Expr">Paren_Expr</a></li>
+<li><a href="#Pointer_Type">Pointer_Type</a></li>
+<li><a href="#Poly_Type">Poly_Type</a></li>
+<li><a href="#Proc_Calling_Convention">Proc_Calling_Convention</a></li>
+<li><a href="#Proc_Calling_Convention_Extra">Proc_Calling_Convention_Extra</a></li>
+<li><a href="#Proc_Group">Proc_Group</a></li>
+<li><a href="#Proc_Inlining">Proc_Inlining</a></li>
+<li><a href="#Proc_Lit">Proc_Lit</a></li>
+<li><a href="#Proc_Tag">Proc_Tag</a></li>
+<li><a href="#Proc_Tags">Proc_Tags</a></li>
+<li><a href="#Proc_Type">Proc_Type</a></li>
+<li><a href="#Range_Stmt">Range_Stmt</a></li>
+<li><a href="#Relative_Type">Relative_Type</a></li>
+<li><a href="#Return_Stmt">Return_Stmt</a></li>
+<li><a href="#Selector_Call_Expr">Selector_Call_Expr</a></li>
+<li><a href="#Selector_Expr">Selector_Expr</a></li>
+<li><a href="#Slice_Expr">Slice_Expr</a></li>
+<li><a href="#Stmt">Stmt</a></li>
+<li><a href="#Struct_Type">Struct_Type</a></li>
+<li><a href="#Switch_Stmt">Switch_Stmt</a></li>
+<li><a href="#Tag_Expr">Tag_Expr</a></li>
+<li><a href="#Tag_Stmt">Tag_Stmt</a></li>
+<li><a href="#Ternary_If_Expr">Ternary_If_Expr</a></li>
+<li><a href="#Ternary_When_Expr">Ternary_When_Expr</a></li>
+<li><a href="#Type_Assertion">Type_Assertion</a></li>
+<li><a href="#Type_Cast">Type_Cast</a></li>
+<li><a href="#Type_Switch_Stmt">Type_Switch_Stmt</a></li>
+<li><a href="#Typeid_Type">Typeid_Type</a></li>
+<li><a href="#Unary_Expr">Unary_Expr</a></li>
+<li><a href="#Undef">Undef</a></li>
+<li><a href="#Union_Type">Union_Type</a></li>
+<li><a href="#Union_Type_Kind">Union_Type_Kind</a></li>
+<li><a href="#Using_Stmt">Using_Stmt</a></li>
+<li><a href="#Value_Decl">Value_Decl</a></li>
+<li><a href="#Visitor">Visitor</a></li>
+<li><a href="#When_Stmt">When_Stmt</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Constants">Constants</a><ul>
+<li><a href="#Field_Flags_Record_Poly_Params">Field_Flags_Record_Poly_Params</a></li>
+<li><a href="#Field_Flags_Signature">Field_Flags_Signature</a></li>
+<li><a href="#Field_Flags_Signature_Params">Field_Flags_Signature_Params</a></li>
+<li><a href="#Field_Flags_Signature_Results">Field_Flags_Signature_Results</a></li>
+<li><a href="#Field_Flags_Struct">Field_Flags_Struct</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Variables">Variables</a><ul>
+<li><a href="#field_flag_strings">field_flag_strings</a></li>
+<li><a href="#field_hash_flag_strings">field_hash_flag_strings</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Procedures">Procedures</a><ul>
+<li><a href="#clone_array">clone_array</a></li>
+<li><a href="#clone_decl">clone_decl</a></li>
+<li><a href="#clone_dynamic_array">clone_dynamic_array</a></li>
+<li><a href="#clone_expr">clone_expr</a></li>
+<li><a href="#clone_node">clone_node</a></li>
+<li><a href="#clone_stmt">clone_stmt</a></li>
+<li><a href="#inspect">inspect</a></li>
+<li><a href="#new">new</a></li>
+<li><a href="#unparen_expr">unparen_expr</a></li>
+<li><a href="#walk">walk</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Procedure Groups">Procedure Groups</a><ul>
+<li><a href="#clone">clone</a></li>
+</ul>
+</li>
+<li><a href="#pkg-source-files">Source Files</a></ul>
+</nav>
+</div></div>
+<script type="text/javascript">var odin_pkg_name = "odin_ast";</script>
+</div>
+
+</div>
+</main>
+
+<footer class="odin-footer">
+	<div class="container pb-5 pt-5">
+		<div class="row g-4">
+		<div class="col">
+		<a class="navbar-brand" href="https://odin-lang.org">
+		<img class="mb-3" src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+		<p>
+		The Data-Oriented Language for Sane Software Development.
+		</p>
+		</div>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Resources</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://odin-lang.org/docs" class="link-light">Docs</a></li>
+			<li><a href="https://pkg.odin-lang.org/" class="link-light">Packages</a></li>
+			<li><a href="https://odin-lang.org/news" class="link-light">News</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Community</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin" target="_blank" class="link-light">GitHub</a></li>
+			<li><a href="https://discord.com/invite/sVBPHEv" target="_blank" class="link-light">Discord</a></li>
+			<li><a href="https://www.twitch.tv/ginger_bill" target="_blank" class="link-light">Twitch</a></li>
+			<li><a href="https://www.youtube.com/channel/UCUSck1dOH7VKmG4lRW7tZXg" target="_blank" class="link-light">YouTube</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Contribute</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin/issues" target="_blank" class="link-light">Issues</a></li>
+			<li><a href="https://www.patreon.com/gingerbill" target="_blank" class="link-light">Donate</a></li>
+			</ul>
+			</nav>
+		</div>
+		<div class="mt-4 text-muted">© 2016–2023 Ginger Bill</div>
+	</div>
+</footer>
+
+<script src="https://odin-lang.org/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://odin-lang.org/js/script.js"></script>
+<script src="/pkg-data.js"></script>
+<script src="/search.js"></script>
+</body>
+</html>

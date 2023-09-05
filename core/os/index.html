@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>package os - pkg.odin-lang.org</title>	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/scss/custom.min.css">
+	<link rel=stylesheet href="//odin-lang.org/lib/highlight/styles/github-dark.min.css">
+	<script src="//odin-lang.org/lib/highlight/highlight.min.js"></script>
+
+	<script>hljs.registerLanguage("odin",function(a){return{aliases:["odin","odinlang","odin-lang"],keywords:{keyword:"auto_cast bit_set break case cast context continue defer distinct do dynamic else enum fallthrough for foreign if import in map not_in or_else or_return package proc return struct switch transmute type_of typeid union using when where",literal:"true false nil",built_in:"abs align_of cap clamp complex conj expand_to_tuple imag jmag kmag len max min offset_of quaternion real size_of soa_unzip soa_zip swizzle type_info_of type_of typeid_of"},illegal:"</",contains:[a.C_LINE_COMMENT_MODE,a.C_BLOCK_COMMENT_MODE,{className:"string",variants:[a.QUOTE_STRING_MODE,{begin:"'",end:"[^\\\\]'"},{begin:"`",end:"`"}]},{className:"number",variants:[{begin:a.C_NUMBER_RE+"[ijk]",relevance:1},a.C_NUMBER_MODE]}]}})</script>
+	<script>hljs.highlightAll()</script>
+	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/css/style.css">
+
+	<link rel="stylesheet" type="text/css" href="/style.css">
+
+	</style>
+</head>
+<body>
+<header class="sticky-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary odin-menu">
+		<div class="container">
+			<a class="navbar-brand" href="https://odin-lang.org/">
+			<img src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#odin-navbar-content" aria-controls="odin-navbar-content" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="odin-navbar-content">
+			<ul class="navbar-nav ms-md-auto">
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/docs">Docs</a></li>
+				<li class="nav-item"><a class="nav-link active" href="/">Packages</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/news">News</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/showcase">Showcase</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/community">Community</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://github.com/odin-lang/Odin" target="_blank">GitHub</a></li>
+			</ul>
+		</div>
+		</div>
+	</nav>
+</header>
+<main>
+<div class="container full-width">
+<div class="row odin-main my-4" id="pkg">
+<nav id="pkg-sidebar" class="col-lg-2 odin-sidebar-border navbar-light sticky-top odin-below-navbar">
+<div class="py-3">
+<h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
+<ul>
+<li class="nav-item"><a href="/core/builtin">builtin</a></li>
+<li class="nav-item"><a href="/core/bufio">bufio</a></li>
+<li class="nav-item"><a href="/core/bytes">bytes</a></li>
+<li class="nav-item"><a href="/core/c">c</a><ul>
+<li><a href="/core/c/frontend/preprocessor">frontend/preprocessor</a></li>
+<li><a href="/core/c/frontend/tokenizer">frontend/tokenizer</a></li>
+<li><a href="/core/c/libc">libc</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/compress">compress</a><ul>
+<li><a href="/core/compress/gzip">gzip</a></li>
+<li><a href="/core/compress/shoco">shoco</a></li>
+<li><a href="/core/compress/zlib">zlib</a></li>
+</ul>
+
+</li>
+<li class="nav-item">container<ul>
+<li><a href="/core/container/bit_array">bit_array</a></li>
+<li><a href="/core/container/intrusive/list">intrusive/list</a></li>
+<li><a href="/core/container/lru">lru</a></li>
+<li><a href="/core/container/priority_queue">priority_queue</a></li>
+<li><a href="/core/container/queue">queue</a></li>
+<li><a href="/core/container/small_array">small_array</a></li>
+<li><a href="/core/container/topological_sort">topological_sort</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/crypto">crypto</a><ul>
+<li><a href="/core/crypto/blake">blake</a></li>
+<li><a href="/core/crypto/blake2b">blake2b</a></li>
+<li><a href="/core/crypto/blake2s">blake2s</a></li>
+<li><a href="/core/crypto/chacha20">chacha20</a></li>
+<li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
+<li><a href="/core/crypto/gost">gost</a></li>
+<li><a href="/core/crypto/groestl">groestl</a></li>
+<li><a href="/core/crypto/haval">haval</a></li>
+<li><a href="/core/crypto/jh">jh</a></li>
+<li><a href="/core/crypto/keccak">keccak</a></li>
+<li><a href="/core/crypto/md2">md2</a></li>
+<li><a href="/core/crypto/md4">md4</a></li>
+<li><a href="/core/crypto/md5">md5</a></li>
+<li><a href="/core/crypto/poly1305">poly1305</a></li>
+<li><a href="/core/crypto/ripemd">ripemd</a></li>
+<li><a href="/core/crypto/sha1">sha1</a></li>
+<li><a href="/core/crypto/sha2">sha2</a></li>
+<li><a href="/core/crypto/sha3">sha3</a></li>
+<li><a href="/core/crypto/shake">shake</a></li>
+<li><a href="/core/crypto/sm3">sm3</a></li>
+<li><a href="/core/crypto/streebog">streebog</a></li>
+<li><a href="/core/crypto/tiger">tiger</a></li>
+<li><a href="/core/crypto/tiger2">tiger2</a></li>
+<li><a href="/core/crypto/util">util</a></li>
+<li><a href="/core/crypto/whirlpool">whirlpool</a></li>
+<li><a href="/core/crypto/x25519">x25519</a></li>
+</ul>
+
+</li>
+<li class="nav-item">debug<ul>
+<li><a href="/core/debug/pe">pe</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/dynlib">dynlib</a></li>
+<li class="nav-item">encoding<ul>
+<li><a href="/core/encoding/base32">base32</a></li>
+<li><a href="/core/encoding/base64">base64</a></li>
+<li><a href="/core/encoding/csv">csv</a></li>
+<li><a href="/core/encoding/endian">endian</a></li>
+<li><a href="/core/encoding/entity">entity</a></li>
+<li><a href="/core/encoding/hex">hex</a></li>
+<li><a href="/core/encoding/hxa">hxa</a></li>
+<li><a href="/core/encoding/json">json</a></li>
+<li><a href="/core/encoding/varint">varint</a></li>
+<li><a href="/core/encoding/xml">xml</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/fmt">fmt</a></li>
+<li class="nav-item"><a href="/core/hash">hash</a><ul>
+<li><a href="/core/hash/xxhash">xxhash</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/image">image</a><ul>
+<li><a href="/core/image/netpbm">netpbm</a></li>
+<li><a href="/core/image/png">png</a></li>
+<li><a href="/core/image/qoi">qoi</a></li>
+<li><a href="/core/image/tga">tga</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/io">io</a></li>
+<li class="nav-item"><a href="/core/log">log</a></li>
+<li class="nav-item"><a href="/core/math">math</a><ul>
+<li><a href="/core/math/big">big</a></li>
+<li><a href="/core/math/bits">bits</a></li>
+<li><a href="/core/math/cmplx">cmplx</a></li>
+<li><a href="/core/math/ease">ease</a></li>
+<li><a href="/core/math/fixed">fixed</a></li>
+<li><a href="/core/math/linalg">linalg</a></li>
+<li><a href="/core/math/linalg/glsl">linalg/glsl</a></li>
+<li><a href="/core/math/linalg/hlsl">linalg/hlsl</a></li>
+<li><a href="/core/math/noise">noise</a></li>
+<li><a href="/core/math/rand">rand</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/mem">mem</a><ul>
+<li><a href="/core/mem/virtual">virtual</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/net">net</a></li>
+<li class="nav-item">odin<ul>
+<li><a href="/core/odin/ast">ast</a></li>
+<li><a href="/core/odin/doc-format">doc-format</a></li>
+<li><a href="/core/odin/format">format</a></li>
+<li><a href="/core/odin/parser">parser</a></li>
+<li><a href="/core/odin/printer">printer</a></li>
+<li><a href="/core/odin/tokenizer">tokenizer</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a class="active" href="/core/os">os</a></li>
+<li class="nav-item">path<ul>
+<li><a href="/core/path/filepath">filepath</a></li>
+<li><a href="/core/path/slashpath">slashpath</a></li>
+</ul>
+
+</li>
+<li class="nav-item">prof<ul>
+<li><a href="/core/prof/spall">spall</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/reflect">reflect</a></li>
+<li class="nav-item"><a href="/core/runtime">runtime</a></li>
+<li class="nav-item"><a href="/core/simd">simd</a></li>
+<li class="nav-item"><a href="/core/slice">slice</a><ul>
+<li><a href="/core/slice/heap">heap</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/sort">sort</a></li>
+<li class="nav-item"><a href="/core/strconv">strconv</a><ul>
+<li><a href="/core/strconv/decimal">decimal</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/strings">strings</a></li>
+<li class="nav-item"><a href="/core/sync">sync</a></li>
+<li class="nav-item"><a href="/core/testing">testing</a></li>
+<li class="nav-item">text<ul>
+<li><a href="/core/text/edit">edit</a></li>
+<li><a href="/core/text/i18n">i18n</a></li>
+<li><a href="/core/text/match">match</a></li>
+<li><a href="/core/text/scanner">scanner</a></li>
+<li><a href="/core/text/table">table</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/thread">thread</a></li>
+<li class="nav-item"><a href="/core/time">time</a></li>
+<li class="nav-item"><a href="/core/unicode">unicode</a><ul>
+<li><a href="/core/unicode/utf16">utf16</a></li>
+<li><a href="/core/unicode/utf8">utf8</a></li>
+<li><a href="/core/unicode/utf8/utf8string">utf8/utf8string</a></li>
+</ul>
+
+</li>
+</ul>
+</div>
+</nav>
+<article class="col-lg-8 p-4 documentation odin-article">
+<nav class="pkg-breadcrumb" aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="/core">core</a></li>
+<li class="breadcrumb-item active" aria-current="page"><a href="/core/os">os</a></li>
+</ol>
+</nav>
+<h1>package core:os<div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os"><em>Source</em></a></div></h1>
+
+		<div class="odin-search-wrapper">
+			<input type="search" id="odin-search" class="odin-search-package" autocomplete="off" spellcheck="false" placeholder="Fuzzy Search...">
+			<div class="odin-search-shortcut">
+				<div class="odin-search-key key-macos">⌘K</div>
+				<div class="odin-search-key key-windows">Ctrl+K</div>
+				<span class="odin-search-or">or</span>
+				<div class="odin-search-key">/</div>
+			</div>
+		</div>
+	
+<div id="odin-search-info">
+<div id="odin-search-time"></div>
+
+		<div id="odin-search-options">
+			<input type="checkbox" id="odin-search-filter" name="odin-search-filter">
+			<label for="odin-search-filter">Filter Results</label>
+		</div>
+</div>
+<ul id="odin-search-results"></ul>
+<div id="pkg-top">
+<div id="pkg-index">
+<h2>Index</h2>
+<div>
+<details class="doc-index" id="doc-index-Types" aria-labelledby="#doc-index-Types-header">
+<summary id="#doc-index-Types-header">
+Types (5)</summary>
+<ul>
+<li><a href="#Errno">Errno</a></li>
+<li><a href="#File_Info">File_Info</a></li>
+<li><a href="#File_Mode">File_Mode</a></li>
+<li><a href="#File_Time">File_Time</a></li>
+<li><a href="#Handle">Handle</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Constants" aria-labelledby="#doc-index-Constants-header">
+<summary id="#doc-index-Constants-header">
+Constants (55)</summary>
+<ul>
+<li><a href="#ARCH">ARCH</a></li>
+<li><a href="#ENDIAN">ENDIAN</a></li>
+<li><a href="#ERROR_ACCESS_DENIED">ERROR_ACCESS_DENIED</a></li>
+<li><a href="#ERROR_ALREADY_EXISTS">ERROR_ALREADY_EXISTS</a></li>
+<li><a href="#ERROR_BROKEN_PIPE">ERROR_BROKEN_PIPE</a></li>
+<li><a href="#ERROR_BUFFER_OVERFLOW">ERROR_BUFFER_OVERFLOW</a></li>
+<li><a href="#ERROR_DIR_NOT_EMPTY">ERROR_DIR_NOT_EMPTY</a></li>
+<li><a href="#ERROR_ENVVAR_NOT_FOUND">ERROR_ENVVAR_NOT_FOUND</a></li>
+<li><a href="#ERROR_EOF">ERROR_EOF</a></li>
+<li><a href="#ERROR_FILE_EXISTS">ERROR_FILE_EXISTS</a></li>
+<li><a href="#ERROR_FILE_IS_NOT_DIR">ERROR_FILE_IS_NOT_DIR</a></li>
+<li><a href="#ERROR_FILE_IS_PIPE">ERROR_FILE_IS_PIPE</a></li>
+<li><a href="#ERROR_FILE_NOT_FOUND">ERROR_FILE_NOT_FOUND</a></li>
+<li><a href="#ERROR_HANDLE_EOF">ERROR_HANDLE_EOF</a></li>
+<li><a href="#ERROR_INSUFFICIENT_BUFFER">ERROR_INSUFFICIENT_BUFFER</a></li>
+<li><a href="#ERROR_INVALID_HANDLE">ERROR_INVALID_HANDLE</a></li>
+<li><a href="#ERROR_INVALID_PARAMETER">ERROR_INVALID_PARAMETER</a></li>
+<li><a href="#ERROR_IO_PENDING">ERROR_IO_PENDING</a></li>
+<li><a href="#ERROR_MOD_NOT_FOUND">ERROR_MOD_NOT_FOUND</a></li>
+<li><a href="#ERROR_MORE_DATA">ERROR_MORE_DATA</a></li>
+<li><a href="#ERROR_NEGATIVE_OFFSET">ERROR_NEGATIVE_OFFSET</a></li>
+<li><a href="#ERROR_NETNAME_DELETED">ERROR_NETNAME_DELETED</a></li>
+<li><a href="#ERROR_NONE">ERROR_NONE</a></li>
+<li><a href="#ERROR_NOT_ENOUGH_MEMORY">ERROR_NOT_ENOUGH_MEMORY</a></li>
+<li><a href="#ERROR_NOT_FOUND">ERROR_NOT_FOUND</a></li>
+<li><a href="#ERROR_NO_MORE_FILES">ERROR_NO_MORE_FILES</a></li>
+<li><a href="#ERROR_OPERATION_ABORTED">ERROR_OPERATION_ABORTED</a></li>
+<li><a href="#ERROR_PATH_NOT_FOUND">ERROR_PATH_NOT_FOUND</a></li>
+<li><a href="#ERROR_PRIVILEGE_NOT_HELD">ERROR_PRIVILEGE_NOT_HELD</a></li>
+<li><a href="#ERROR_PROC_NOT_FOUND">ERROR_PROC_NOT_FOUND</a></li>
+<li><a href="#File_Mode_Char_Device">File_Mode_Char_Device</a></li>
+<li><a href="#File_Mode_Device">File_Mode_Device</a></li>
+<li><a href="#File_Mode_Dir">File_Mode_Dir</a></li>
+<li><a href="#File_Mode_Named_Pipe">File_Mode_Named_Pipe</a></li>
+<li><a href="#File_Mode_Sym_Link">File_Mode_Sym_Link</a></li>
+<li><a href="#INVALID_HANDLE">INVALID_HANDLE</a></li>
+<li><a href="#OS">OS</a></li>
+<li><a href="#O_APPEND">O_APPEND</a></li>
+<li><a href="#O_ASYNC">O_ASYNC</a></li>
+<li><a href="#O_CLOEXEC">O_CLOEXEC</a></li>
+<li><a href="#O_CREATE">O_CREATE</a></li>
+<li><a href="#O_EXCL">O_EXCL</a></li>
+<li><a href="#O_NOCTTY">O_NOCTTY</a></li>
+<li><a href="#O_NONBLOCK">O_NONBLOCK</a></li>
+<li><a href="#O_RDONLY">O_RDONLY</a></li>
+<li><a href="#O_RDWR">O_RDWR</a></li>
+<li><a href="#O_SYNC">O_SYNC</a></li>
+<li><a href="#O_TRUNC">O_TRUNC</a></li>
+<li><a href="#O_WRONLY">O_WRONLY</a></li>
+<li><a href="#SEEK_CUR">SEEK_CUR</a></li>
+<li><a href="#SEEK_END">SEEK_END</a></li>
+<li><a href="#SEEK_SET">SEEK_SET</a></li>
+<li><a href="#WINDOWS_11_BUILD_CUTOFF">WINDOWS_11_BUILD_CUTOFF</a></li>
+<li><a href="#WSAEACCES">WSAEACCES</a></li>
+<li><a href="#WSAECONNRESET">WSAECONNRESET</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Variables" aria-labelledby="#doc-index-Variables-header">
+<summary id="#doc-index-Variables-header">
+Variables (4)</summary>
+<ul>
+<li><a href="#args">args</a></li>
+<li><a href="#stderr">stderr</a></li>
+<li><a href="#stdin">stdin</a></li>
+<li><a href="#stdout">stdout</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
+<summary id="#doc-index-Procedures-header">
+Procedures (70)</summary>
+<ul>
+<li><a href="#change_directory">change_directory</a></li>
+<li><a href="#clear_env">clear_env</a></li>
+<li><a href="#close">close</a></li>
+<li><a href="#current_thread_id">current_thread_id</a></li>
+<li><a href="#environ">environ</a></li>
+<li><a href="#exists">exists</a></li>
+<li><a href="#exit">exit</a></li>
+<li><a href="#file_info_delete">file_info_delete</a></li>
+<li><a href="#file_info_slice_delete">file_info_slice_delete</a></li>
+<li><a href="#file_size">file_size</a></li>
+<li><a href="#file_size_from_path">file_size_from_path</a></li>
+<li><a href="#flush">flush</a></li>
+<li><a href="#fstat">fstat</a></li>
+<li><a href="#ftruncate">ftruncate</a></li>
+<li><a href="#get_current_directory">get_current_directory</a></li>
+<li><a href="#get_env">get_env</a></li>
+<li><a href="#get_page_size">get_page_size</a></li>
+<li><a href="#get_std_handle">get_std_handle</a></li>
+<li><a href="#get_windows_version_w">get_windows_version_w</a></li>
+<li><a href="#heap_alloc">heap_alloc</a></li>
+<li><a href="#heap_allocator">heap_allocator</a></li>
+<li><a href="#heap_allocator_proc">heap_allocator_proc</a></li>
+<li><a href="#heap_free">heap_free</a></li>
+<li><a href="#heap_resize">heap_resize</a></li>
+<li><a href="#is_dir">is_dir</a></li>
+<li><a href="#is_file">is_file</a></li>
+<li><a href="#is_path_separator">is_path_separator</a></li>
+<li><a href="#is_windows_10">is_windows_10</a></li>
+<li><a href="#is_windows_11">is_windows_11</a></li>
+<li><a href="#is_windows_7">is_windows_7</a></li>
+<li><a href="#is_windows_8">is_windows_8</a></li>
+<li><a href="#is_windows_8_1">is_windows_8_1</a></li>
+<li><a href="#is_windows_vista">is_windows_vista</a></li>
+<li><a href="#is_windows_xp">is_windows_xp</a></li>
+<li><a href="#last_write_time">last_write_time</a></li>
+<li><a href="#last_write_time_by_name">last_write_time_by_name</a></li>
+<li><a href="#link">link</a></li>
+<li><a href="#lookup_env">lookup_env</a></li>
+<li><a href="#lstat">lstat</a></li>
+<li><a href="#make_directory">make_directory</a></li>
+<li><a href="#open">open</a></li>
+<li><a href="#pipe">pipe</a></li>
+<li><a href="#processor_core_count">processor_core_count</a></li>
+<li><a href="#read">read</a></li>
+<li><a href="#read_at">read_at</a></li>
+<li><a href="#read_at_least">read_at_least</a></li>
+<li><a href="#read_dir">read_dir</a></li>
+<li><a href="#read_entire_file_from_filename">read_entire_file_from_filename</a></li>
+<li><a href="#read_entire_file_from_handle">read_entire_file_from_handle</a></li>
+<li><a href="#read_full">read_full</a></li>
+<li><a href="#read_ptr">read_ptr</a></li>
+<li><a href="#remove">remove</a></li>
+<li><a href="#remove_directory">remove_directory</a></li>
+<li><a href="#rename">rename</a></li>
+<li><a href="#seek">seek</a></li>
+<li><a href="#set_current_directory">set_current_directory</a></li>
+<li><a href="#set_env">set_env</a></li>
+<li><a href="#stat">stat</a></li>
+<li><a href="#stream_from_handle">stream_from_handle</a></li>
+<li><a href="#truncate">truncate</a></li>
+<li><a href="#unlink">unlink</a></li>
+<li><a href="#unset_env">unset_env</a></li>
+<li><a href="#write">write</a></li>
+<li><a href="#write_at">write_at</a></li>
+<li><a href="#write_byte">write_byte</a></li>
+<li><a href="#write_encoded_rune">write_encoded_rune</a></li>
+<li><a href="#write_entire_file">write_entire_file</a></li>
+<li><a href="#write_ptr">write_ptr</a></li>
+<li><a href="#write_rune">write_rune</a></li>
+<li><a href="#write_string">write_string</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedure Groups" aria-labelledby="#doc-index-Procedure Groups-header">
+<summary id="#doc-index-Procedure Groups-header">
+Procedure Groups (1)</summary>
+<ul>
+<li><a href="#read_entire_file">read_entire_file</a></li>
+</ul>
+</details>
+</div>
+</div>
+</div>
+<section class="documentation">
+<h2 id="pkg-Types" class="pkg-header">Types</h2>
+<div class="pkg-entity">
+<h3 id="Errno"><span><a class="doc-id-link" href="#Errno">Errno<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L10"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Errno :: <span class="keyword-type">distinct</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a></pre>
+</div>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/core/os/#change_directory">change_directory</a></li>
+<li><a href="/core/os/#close">close</a></li>
+<li><a href="/core/os/#file_size">file_size</a></li>
+<li><a href="/core/os/#flush">flush</a></li>
+<li><a href="/core/os/#fstat">fstat</a></li>
+<li><a href="/core/os/#ftruncate">ftruncate</a></li>
+<li><a href="/core/os/#last_write_time">last_write_time</a></li>
+<li><a href="/core/os/#last_write_time_by_name">last_write_time_by_name</a></li>
+<li><a href="/core/os/#link">link</a></li>
+<li><a href="/core/os/#lstat">lstat</a></li>
+<li><a href="/core/os/#make_directory">make_directory</a></li>
+<li><a href="/core/os/#open">open</a></li>
+<li><a href="/core/os/#pipe">pipe</a></li>
+<li><a href="/core/os/#read">read</a></li>
+<li><a href="/core/os/#read_at">read_at</a></li>
+<li><a href="/core/os/#read_at_least">read_at_least</a></li>
+<li><a href="/core/os/#read_dir">read_dir</a></li>
+<li><a href="/core/os/#read_full">read_full</a></li>
+<li><a href="/core/os/#read_ptr">read_ptr</a></li>
+<li><a href="/core/os/#remove">remove</a></li>
+<li><a href="/core/os/#remove_directory">remove_directory</a></li>
+<li><a href="/core/os/#rename">rename</a></li>
+<li><a href="/core/os/#seek">seek</a></li>
+<li><a href="/core/os/#set_current_directory">set_current_directory</a></li>
+<li><a href="/core/os/#set_env">set_env</a></li>
+<li><a href="/core/os/#stat">stat</a></li>
+<li><a href="/core/os/#truncate">truncate</a></li>
+<li><a href="/core/os/#unlink">unlink</a></li>
+<li><a href="/core/os/#unset_env">unset_env</a></li>
+<li><a href="/core/os/#write">write</a></li>
+<li><a href="/core/os/#write_at">write_at</a></li>
+<li><a href="/core/os/#write_byte">write_byte</a></li>
+<li><a href="/core/os/#write_ptr">write_ptr</a></li>
+<li><a href="/core/os/#write_rune">write_rune</a></li>
+<li><a href="/core/os/#write_string">write_string</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="File_Info"><span><a class="doc-id-link" href="#File_Info">File_Info<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/stat.odin#L5"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">File_Info :: <span class="keyword-type">struct</span> {
+	fullpath:          <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	name:              <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	size:              <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>,
+	mode:              <a class="code-typename" href="/core/os/#File_Mode">File_Mode</a>,
+	is_dir:            <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	creation_time:     time.<a class="code-typename" href="/core/time/#Time">Time</a>,
+	modification_time: time.<a class="code-typename" href="/core/time/#Time">Time</a>,
+	access_time:       time.<a class="code-typename" href="/core/time/#Time">Time</a>,
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/os/#file_info_delete">file_info_delete</a></li>
+</ul>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/core/os/#fstat">fstat</a></li>
+<li><a href="/core/os/#lstat">lstat</a></li>
+<li><a href="/core/os/#stat">stat</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="File_Mode"><span><a class="doc-id-link" href="#File_Mode">File_Mode<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/stat.odin#L27"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">File_Mode :: <span class="keyword-type">distinct</span> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="File_Time"><span><a class="doc-id-link" href="#File_Time">File_Time<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L9"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">File_Time :: <span class="keyword-type">distinct</span> <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a></pre>
+</div>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/core/os/#last_write_time">last_write_time</a></li>
+<li><a href="/core/os/#last_write_time_by_name">last_write_time_by_name</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Handle"><span><a class="doc-id-link" href="#Handle">Handle<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L8"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Handle :: <span class="keyword-type">distinct</span> <a href="/core/builtin#uintptr"><span class="doc-builtin">uintptr</span></a></pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/os/#close">close</a></li>
+<li><a href="/core/os/#file_size">file_size</a></li>
+<li><a href="/core/os/#flush">flush</a></li>
+<li><a href="/core/os/#fstat">fstat</a></li>
+<li><a href="/core/os/#ftruncate">ftruncate</a></li>
+<li><a href="/core/os/#last_write_time">last_write_time</a></li>
+<li><a href="/core/os/#read">read</a></li>
+<li><a href="/core/os/#read_at">read_at</a></li>
+<li><a href="/core/os/#read_at_least">read_at_least</a></li>
+<li><a href="/core/os/#read_dir">read_dir</a></li>
+<li><a href="/core/os/#read_entire_file_from_handle">read_entire_file_from_handle</a></li>
+<li><a href="/core/os/#read_full">read_full</a></li>
+<li><a href="/core/os/#read_ptr">read_ptr</a></li>
+<li><a href="/core/os/#seek">seek</a></li>
+<li><a href="/core/os/#stream_from_handle">stream_from_handle</a></li>
+<li><a href="/core/os/#write">write</a></li>
+<li><a href="/core/os/#write_at">write_at</a></li>
+<li><a href="/core/os/#write_byte">write_byte</a></li>
+<li><a href="/core/os/#write_encoded_rune">write_encoded_rune</a></li>
+<li><a href="/core/os/#write_ptr">write_ptr</a></li>
+<li><a href="/core/os/#write_rune">write_rune</a></li>
+<li><a href="/core/os/#write_string">write_string</a></li>
+<li><a href="/core/os/#read_entire_file">read_entire_file</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/core/os/#get_std_handle">get_std_handle</a></li>
+<li><a href="/core/os/#open">open</a></li>
+<li><a href="/core/os/#pipe">pipe</a></li>
+</ul>
+</div>
+<h2 id="pkg-Constants" class="pkg-header">Constants</h2>
+<div class="pkg-entity">
+<h3 id="ARCH"><span><a class="doc-id-link" href="#ARCH">ARCH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os.odin#L9"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ARCH: .<a class="code-typename" href="//#Odin_Arch_Type">Odin_Arch_Type</a> : ODIN_ARCH</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ENDIAN"><span><a class="doc-id-link" href="#ENDIAN">ENDIAN<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os.odin#L10"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ENDIAN: .<a class="code-typename" href="//#Odin_Endian_Type">Odin_Endian_Type</a> : ODIN_ENDIAN</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_ACCESS_DENIED"><span><a class="doc-id-link" href="#ERROR_ACCESS_DENIED">ERROR_ACCESS_DENIED<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L34"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_ACCESS_DENIED: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 5</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_ALREADY_EXISTS"><span><a class="doc-id-link" href="#ERROR_ALREADY_EXISTS">ERROR_ALREADY_EXISTS<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L48"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_ALREADY_EXISTS: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 183</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_BROKEN_PIPE"><span><a class="doc-id-link" href="#ERROR_BROKEN_PIPE">ERROR_BROKEN_PIPE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L42"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_BROKEN_PIPE: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 109</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_BUFFER_OVERFLOW"><span><a class="doc-id-link" href="#ERROR_BUFFER_OVERFLOW">ERROR_BUFFER_OVERFLOW<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L43"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_BUFFER_OVERFLOW: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 111</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_DIR_NOT_EMPTY"><span><a class="doc-id-link" href="#ERROR_DIR_NOT_EMPTY">ERROR_DIR_NOT_EMPTY<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L47"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_DIR_NOT_EMPTY: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 145</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_ENVVAR_NOT_FOUND"><span><a class="doc-id-link" href="#ERROR_ENVVAR_NOT_FOUND">ERROR_ENVVAR_NOT_FOUND<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L49"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_ENVVAR_NOT_FOUND: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 203</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_EOF"><span><a class="doc-id-link" href="#ERROR_EOF">ERROR_EOF<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L223"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_EOF :: 38</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_FILE_EXISTS"><span><a class="doc-id-link" href="#ERROR_FILE_EXISTS">ERROR_FILE_EXISTS<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L40"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_FILE_EXISTS: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 80</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_FILE_IS_NOT_DIR"><span><a class="doc-id-link" href="#ERROR_FILE_IS_NOT_DIR">ERROR_FILE_IS_NOT_DIR<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L60"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_FILE_IS_NOT_DIR: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 1 << 29 + 1</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_FILE_IS_PIPE"><span><a class="doc-id-link" href="#ERROR_FILE_IS_PIPE">ERROR_FILE_IS_PIPE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L59"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_FILE_IS_PIPE: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 1 << 29 + 0</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Windows reserves errors &gt;= 1&lt;&lt;29 for application use</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_FILE_NOT_FOUND"><span><a class="doc-id-link" href="#ERROR_FILE_NOT_FOUND">ERROR_FILE_NOT_FOUND<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L32"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_FILE_NOT_FOUND: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 2</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_HANDLE_EOF"><span><a class="doc-id-link" href="#ERROR_HANDLE_EOF">ERROR_HANDLE_EOF<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L38"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_HANDLE_EOF: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 38</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_INSUFFICIENT_BUFFER"><span><a class="doc-id-link" href="#ERROR_INSUFFICIENT_BUFFER">ERROR_INSUFFICIENT_BUFFER<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L44"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_INSUFFICIENT_BUFFER: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 122</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_INVALID_HANDLE"><span><a class="doc-id-link" href="#ERROR_INVALID_HANDLE">ERROR_INVALID_HANDLE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L35"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_INVALID_HANDLE: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 6</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_INVALID_PARAMETER"><span><a class="doc-id-link" href="#ERROR_INVALID_PARAMETER">ERROR_INVALID_PARAMETER<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L41"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_INVALID_PARAMETER: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 87</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_IO_PENDING"><span><a class="doc-id-link" href="#ERROR_IO_PENDING">ERROR_IO_PENDING<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L52"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_IO_PENDING: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 997</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_MOD_NOT_FOUND"><span><a class="doc-id-link" href="#ERROR_MOD_NOT_FOUND">ERROR_MOD_NOT_FOUND<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L45"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_MOD_NOT_FOUND: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 126</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_MORE_DATA"><span><a class="doc-id-link" href="#ERROR_MORE_DATA">ERROR_MORE_DATA<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L50"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_MORE_DATA: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 234</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_NEGATIVE_OFFSET"><span><a class="doc-id-link" href="#ERROR_NEGATIVE_OFFSET">ERROR_NEGATIVE_OFFSET<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L61"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_NEGATIVE_OFFSET: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 1 << 29 + 2</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_NETNAME_DELETED"><span><a class="doc-id-link" href="#ERROR_NETNAME_DELETED">ERROR_NETNAME_DELETED<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L39"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_NETNAME_DELETED: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 64</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_NONE"><span><a class="doc-id-link" href="#ERROR_NONE">ERROR_NONE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L31"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_NONE: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 0</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_NOT_ENOUGH_MEMORY"><span><a class="doc-id-link" href="#ERROR_NOT_ENOUGH_MEMORY">ERROR_NOT_ENOUGH_MEMORY<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L36"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_NOT_ENOUGH_MEMORY: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 8</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_NOT_FOUND"><span><a class="doc-id-link" href="#ERROR_NOT_FOUND">ERROR_NOT_FOUND<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L53"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_NOT_FOUND: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 1168</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_NO_MORE_FILES"><span><a class="doc-id-link" href="#ERROR_NO_MORE_FILES">ERROR_NO_MORE_FILES<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L37"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_NO_MORE_FILES: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 18</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_OPERATION_ABORTED"><span><a class="doc-id-link" href="#ERROR_OPERATION_ABORTED">ERROR_OPERATION_ABORTED<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L51"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_OPERATION_ABORTED: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 995</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_PATH_NOT_FOUND"><span><a class="doc-id-link" href="#ERROR_PATH_NOT_FOUND">ERROR_PATH_NOT_FOUND<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L33"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_PATH_NOT_FOUND: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 3</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_PRIVILEGE_NOT_HELD"><span><a class="doc-id-link" href="#ERROR_PRIVILEGE_NOT_HELD">ERROR_PRIVILEGE_NOT_HELD<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L54"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_PRIVILEGE_NOT_HELD: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 1314</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ERROR_PROC_NOT_FOUND"><span><a class="doc-id-link" href="#ERROR_PROC_NOT_FOUND">ERROR_PROC_NOT_FOUND<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L46"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERROR_PROC_NOT_FOUND: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 127</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="File_Mode_Char_Device"><span><a class="doc-id-link" href="#File_Mode_Char_Device">File_Mode_Char_Device<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/stat.odin#L32"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">File_Mode_Char_Device :: File_Mode(1 << 19)</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="File_Mode_Device"><span><a class="doc-id-link" href="#File_Mode_Device">File_Mode_Device<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/stat.odin#L31"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">File_Mode_Device :: File_Mode(1 << 18)</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="File_Mode_Dir"><span><a class="doc-id-link" href="#File_Mode_Dir">File_Mode_Dir<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/stat.odin#L29"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">File_Mode_Dir :: File_Mode(1 << 16)</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="File_Mode_Named_Pipe"><span><a class="doc-id-link" href="#File_Mode_Named_Pipe">File_Mode_Named_Pipe<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/stat.odin#L30"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">File_Mode_Named_Pipe :: File_Mode(1 << 17)</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="File_Mode_Sym_Link"><span><a class="doc-id-link" href="#File_Mode_Sym_Link">File_Mode_Sym_Link<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/stat.odin#L33"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">File_Mode_Sym_Link :: File_Mode(1 << 20)</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="INVALID_HANDLE"><span><a class="doc-id-link" href="#INVALID_HANDLE">INVALID_HANDLE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L13"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">INVALID_HANDLE: <a class="code-typename" href="/core/os/#Handle">Handle</a> : ~Handle(0)</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="OS"><span><a class="doc-id-link" href="#OS">OS<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os.odin#L8"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">OS: .<a class="code-typename" href="//#Odin_OS_Type">Odin_OS_Type</a> : ODIN_OS</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="O_APPEND"><span><a class="doc-id-link" href="#O_APPEND">O_APPEND<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L25"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">O_APPEND :: 0x00400</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="O_ASYNC"><span><a class="doc-id-link" href="#O_ASYNC">O_ASYNC<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L27"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">O_ASYNC :: 0x02000</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="O_CLOEXEC"><span><a class="doc-id-link" href="#O_CLOEXEC">O_CLOEXEC<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L28"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">O_CLOEXEC :: 0x80000</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="O_CREATE"><span><a class="doc-id-link" href="#O_CREATE">O_CREATE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L20"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">O_CREATE :: 0x00040</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="O_EXCL"><span><a class="doc-id-link" href="#O_EXCL">O_EXCL<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L21"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">O_EXCL :: 0x00080</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="O_NOCTTY"><span><a class="doc-id-link" href="#O_NOCTTY">O_NOCTTY<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L22"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">O_NOCTTY :: 0x00100</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="O_NONBLOCK"><span><a class="doc-id-link" href="#O_NONBLOCK">O_NONBLOCK<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L24"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">O_NONBLOCK :: 0x00800</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="O_RDONLY"><span><a class="doc-id-link" href="#O_RDONLY">O_RDONLY<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L17"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">O_RDONLY :: 0x00000</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="O_RDWR"><span><a class="doc-id-link" href="#O_RDWR">O_RDWR<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L19"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">O_RDWR :: 0x00002</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="O_SYNC"><span><a class="doc-id-link" href="#O_SYNC">O_SYNC<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L26"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">O_SYNC :: 0x01000</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="O_TRUNC"><span><a class="doc-id-link" href="#O_TRUNC">O_TRUNC<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L23"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">O_TRUNC :: 0x00200</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="O_WRONLY"><span><a class="doc-id-link" href="#O_WRONLY">O_WRONLY<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L18"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">O_WRONLY :: 0x00001</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="SEEK_CUR"><span><a class="doc-id-link" href="#SEEK_CUR">SEEK_CUR<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os.odin#L13"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">SEEK_CUR :: 1</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="SEEK_END"><span><a class="doc-id-link" href="#SEEK_END">SEEK_END<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os.odin#L14"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">SEEK_END :: 2</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="SEEK_SET"><span><a class="doc-id-link" href="#SEEK_SET">SEEK_SET<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os.odin#L12"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">SEEK_SET :: 0</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="WINDOWS_11_BUILD_CUTOFF"><span><a class="doc-id-link" href="#WINDOWS_11_BUILD_CUTOFF">WINDOWS_11_BUILD_CUTOFF<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L198"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">WINDOWS_11_BUILD_CUTOFF :: 22_000</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Windows 11 (preview) has the same major and minor version numbers</p>
+<pre>as Windows 10: 10 and 0 respectively.
+
+To determine if you're on Windows 10 or 11, we need to look at
+the build number. As far as we can tell right now, the cutoff is build 22_000.
+
+TODO: Narrow down this range once Win 11 is published and the last Win 10 builds
+</pre>
+<p>          become available.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="WSAEACCES"><span><a class="doc-id-link" href="#WSAEACCES">WSAEACCES<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L55"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">WSAEACCES: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 10013</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="WSAECONNRESET"><span><a class="doc-id-link" href="#WSAECONNRESET">WSAECONNRESET<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L56"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">WSAECONNRESET: <a class="code-typename" href="/core/os/#Errno">Errno</a> : 10054</pre>
+</div>
+</div>
+<h2 id="pkg-Variables" class="pkg-header">Variables</h2>
+<div class="pkg-entity">
+<h3 id="args"><span><a class="doc-id-link" href="#args">args<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L64"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">args: []<a href="/core/builtin#string"><span class="doc-builtin">string</span></a> = …</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>"Argv" arguments converted to Odin strings</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="stderr"><span><a class="doc-id-link" href="#stderr">stderr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L338"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">stderr: <a class="code-typename" href="/core/os/#Handle">Handle</a> = …</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="stdin"><span><a class="doc-id-link" href="#stdin">stdin<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L336"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">stdin: <a class="code-typename" href="/core/os/#Handle">Handle</a> = …</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>NOTE(bill): Uses startup to initialize it</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="stdout"><span><a class="doc-id-link" href="#stdout">stdout<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L337"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">stdout: <a class="code-typename" href="/core/os/#Handle">Handle</a> = …</pre>
+</div>
+</div>
+<h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
+<div class="pkg-entity">
+<h3 id="change_directory"><span><a class="doc-id-link" href="#change_directory">change_directory<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L412"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">change_directory :: <span class="keyword-type">proc</span>(path: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> (err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="clear_env"><span><a class="doc-id-link" href="#clear_env">clear_env<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/env_windows.odin#L92"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">clear_env :: <span class="keyword-type">proc</span>() {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>clear_env deletes all environment variables</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="close"><span><a class="doc-id-link" href="#close">close<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L62"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">close :: <span class="keyword-type">proc</span>(fd: <a class="code-typename" href="/core/os/#Handle">Handle</a>) -> <a class="code-typename" href="/core/os/#Errno">Errno</a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="current_thread_id"><span><a class="doc-id-link" href="#current_thread_id">current_thread_id<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L161"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">current_thread_id :: <span class="keyword-type">proc</span> "contextless" () -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="environ"><span><a class="doc-id-link" href="#environ">environ<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/env_windows.odin#L69"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">environ :: <span class="keyword-type">proc</span>(allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> []<a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>environ returns a copy of strings representing the environment, in the form "key=value"
+NOTE: the slice of strings and the strings with be allocated using the supplied allocator</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="exists"><span><a class="doc-id-link" href="#exists">exists<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L347"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">exists :: <span class="keyword-type">proc</span>(path: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="exit"><span><a class="doc-id-link" href="#exit">exit<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L154"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">exit :: <span class="keyword-type">proc</span> "contextless" (code: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> ! {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="file_info_delete"><span><a class="doc-id-link" href="#file_info_delete">file_info_delete<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/stat.odin#L23"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">file_info_delete :: <span class="keyword-type">proc</span>(fi: <a class="code-typename" href="/core/os/#File_Info">File_Info</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="file_info_slice_delete"><span><a class="doc-id-link" href="#file_info_slice_delete">file_info_slice_delete<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/stat.odin#L16"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">file_info_slice_delete :: <span class="keyword-type">proc</span>(infos: []<a class="code-typename" href="/core/os/#File_Info">File_Info</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="file_size"><span><a class="doc-id-link" href="#file_size">file_size<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L211"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">file_size :: <span class="keyword-type">proc</span>(fd: <a class="code-typename" href="/core/os/#Handle">Handle</a>) -> (<a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>, <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="file_size_from_path"><span><a class="doc-id-link" href="#file_size_from_path">file_size_from_path<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os.odin#L82"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">file_size_from_path :: <span class="keyword-type">proc</span>(path: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="flush"><span><a class="doc-id-link" href="#flush">flush<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L69"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">flush :: <span class="keyword-type">proc</span>(fd: <a class="code-typename" href="/core/os/#Handle">Handle</a>) -> (err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="fstat"><span><a class="doc-id-link" href="#fstat">fstat<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/stat_windows.odin#L86"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">fstat :: <span class="keyword-type">proc</span>(fd: <a class="code-typename" href="/core/os/#Handle">Handle</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (fi: <a class="code-typename" href="/core/os/#File_Info">File_Info</a>, errno: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ftruncate"><span><a class="doc-id-link" href="#ftruncate">ftruncate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L538"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ftruncate :: <span class="keyword-type">proc</span>(fd: <a class="code-typename" href="/core/os/#Handle">Handle</a>, length: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>) -> (err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="get_current_directory"><span><a class="doc-id-link" href="#get_current_directory">get_current_directory<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L380"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">get_current_directory :: <span class="keyword-type">proc</span>(allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="get_env"><span><a class="doc-id-link" href="#get_env">get_env<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/env_windows.odin#L42"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">get_env :: <span class="keyword-type">proc</span>(key: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (value: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>get_env retrieves the value of the environment variable named by the key
+It returns the value, which will be empty if the variable is not present
+To distinguish between an empty value and an unset value, use lookup_env
+NOTE: the value will be allocated with the supplied allocator</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="get_page_size"><span><a class="doc-id-link" href="#get_page_size">get_page_size<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L116"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">get_page_size :: <span class="keyword-type">proc</span>() -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="get_std_handle"><span><a class="doc-id-link" href="#get_std_handle">get_std_handle<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L341"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">get_std_handle :: <span class="keyword-type">proc</span> "contextless" (h: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a class="code-typename" href="/core/os/#Handle">Handle</a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="get_windows_version_w"><span><a class="doc-id-link" href="#get_windows_version_w">get_windows_version_w<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L200"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">get_windows_version_w :: <span class="keyword-type">proc</span>() -> sys_windows.<a class="code-typename" href="//#OSVERSIONINFOEXW">OSVERSIONINFOEXW</a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="heap_alloc"><span><a class="doc-id-link" href="#heap_alloc">heap_alloc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L95"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">heap_alloc :: <span class="keyword-type">proc</span>(size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, zero_memory: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = true) -> <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="heap_allocator"><span><a class="doc-id-link" href="#heap_allocator">heap_allocator<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os.odin#L258"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">heap_allocator :: <span class="keyword-type">proc</span>() -> runtime.<a class="code-typename" href="/core/runtime/#Allocator">Allocator</a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="heap_allocator_proc"><span><a class="doc-id-link" href="#heap_allocator_proc">heap_allocator_proc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os.odin#L171"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">heap_allocator_proc :: <span class="keyword-type">proc</span>(
+	allocator_data:  <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, 
+	mode:            runtime.<a class="code-typename" href="/core/runtime/#Allocator_Mode">Allocator_Mode</a>, 
+	size, alignment: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, 
+	old_memory:      <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, 
+	old_size:        <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, 
+	loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>, 
+) -> ([]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="heap_free"><span><a class="doc-id-link" href="#heap_free">heap_free<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L109"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">heap_free :: <span class="keyword-type">proc</span>(ptr: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="heap_resize"><span><a class="doc-id-link" href="#heap_resize">heap_resize<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L98"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">heap_resize :: <span class="keyword-type">proc</span>(ptr: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, new_size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="is_dir"><span><a class="doc-id-link" href="#is_dir">is_dir<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L366"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">is_dir :: <span class="keyword-type">proc</span>(path: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="is_file"><span><a class="doc-id-link" href="#is_file">is_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L355"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">is_file :: <span class="keyword-type">proc</span>(path: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="is_path_separator"><span><a class="doc-id-link" href="#is_path_separator">is_path_separator<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L8"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">is_path_separator :: <span class="keyword-type">proc</span>(c: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="is_windows_10"><span><a class="doc-id-link" href="#is_windows_10">is_windows_10<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L232"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">is_windows_10 :: <span class="keyword-type">proc</span>() -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="is_windows_11"><span><a class="doc-id-link" href="#is_windows_11">is_windows_11<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L237"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">is_windows_11 :: <span class="keyword-type">proc</span>() -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="is_windows_7"><span><a class="doc-id-link" href="#is_windows_7">is_windows_7<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L217"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">is_windows_7 :: <span class="keyword-type">proc</span>() -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="is_windows_8"><span><a class="doc-id-link" href="#is_windows_8">is_windows_8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L222"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">is_windows_8 :: <span class="keyword-type">proc</span>() -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="is_windows_8_1"><span><a class="doc-id-link" href="#is_windows_8_1">is_windows_8_1<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L227"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">is_windows_8_1 :: <span class="keyword-type">proc</span>() -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="is_windows_vista"><span><a class="doc-id-link" href="#is_windows_vista">is_windows_vista<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L212"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">is_windows_vista :: <span class="keyword-type">proc</span>() -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="is_windows_xp"><span><a class="doc-id-link" href="#is_windows_xp">is_windows_xp<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L207"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">is_windows_xp :: <span class="keyword-type">proc</span>() -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="last_write_time"><span><a class="doc-id-link" href="#last_write_time">last_write_time<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L70"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">last_write_time :: <span class="keyword-type">proc</span>(fd: <a class="code-typename" href="/core/os/#Handle">Handle</a>) -> (<a class="code-typename" href="/core/os/#File_Time">File_Time</a>, <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="last_write_time_by_name"><span><a class="doc-id-link" href="#last_write_time_by_name">last_write_time_by_name<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os_windows.odin#L80"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">last_write_time_by_name :: <span class="keyword-type">proc</span>(name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> (<a class="code-typename" href="/core/os/#File_Time">File_Time</a>, <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="link"><span><a class="doc-id-link" href="#link">link<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L507"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">link :: <span class="keyword-type">proc</span>(old_name, new_name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> (err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="lookup_env"><span><a class="doc-id-link" href="#lookup_env">lookup_env<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/env_windows.odin#L10"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">lookup_env :: <span class="keyword-type">proc</span>(key: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (value: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, found: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>lookup_env gets the value of the environment variable named by the key
+If the variable is found in the environment the value (which can be empty) is returned and the boolean is true
+Otherwise the returned value will be empty and the boolean will be false
+NOTE: the value will be allocated with the supplied allocator</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="lstat"><span><a class="doc-id-link" href="#lstat">lstat<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/stat_windows.odin#L75"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">lstat :: <span class="keyword-type">proc</span>(name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (<a class="code-typename" href="/core/os/#File_Info">File_Info</a>, <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="make_directory"><span><a class="doc-id-link" href="#make_directory">make_directory<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L422"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">make_directory :: <span class="keyword-type">proc</span>(path: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, mode: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> = 0) -> (err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="open"><span><a class="doc-id-link" href="#open">open<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L12"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">open :: <span class="keyword-type">proc</span>(path: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, mode: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = O_RDONLY, perm: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = 0) -> (<a class="code-typename" href="/core/os/#Handle">Handle</a>, <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="pipe"><span><a class="doc-id-link" href="#pipe">pipe<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L605"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">pipe :: <span class="keyword-type">proc</span>() -> (r, w: <a class="code-typename" href="/core/os/#Handle">Handle</a>, err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="processor_core_count"><span><a class="doc-id-link" href="#processor_core_count">processor_core_count<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os.odin#L265"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">processor_core_count :: <span class="keyword-type">proc</span>() -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="read"><span><a class="doc-id-link" href="#read">read<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L152"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">read :: <span class="keyword-type">proc</span>(fd: <a class="code-typename" href="/core/os/#Handle">Handle</a>, data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (<a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="read_at"><span><a class="doc-id-link" href="#read_at">read_at<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L282"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">read_at :: <span class="keyword-type">proc</span>(fd: <a class="code-typename" href="/core/os/#Handle">Handle</a>, data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, offset: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>) -> (n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>read_at returns n: 0, err: 0 on EOF
+on Windows, read_at changes the position of the file cursor, on *nix, it does not.</p>
+<pre>bytes: [8]u8{}
+read_at(fd, bytes, 0)
+read(fd, bytes)
+
+</pre>
+<p>will read from the location twice on *nix, and from two different locations on Windows</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="read_at_least"><span><a class="doc-id-link" href="#read_at_least">read_at_least<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os.odin#L62"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">read_at_least :: <span class="keyword-type">proc</span>(fd: <a class="code-typename" href="/core/os/#Handle">Handle</a>, buf: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, min: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> (n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="read_dir"><span><a class="doc-id-link" href="#read_dir">read_dir<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/dir_windows.odin#L7"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">read_dir :: <span class="keyword-type">proc</span>(fd: <a class="code-typename" href="/core/os/#Handle">Handle</a>, n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (fi: []<a class="code-typename" href="/core/os/#File_Info">File_Info</a>, err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="read_entire_file_from_filename"><span><a class="doc-id-link" href="#read_entire_file_from_filename">read_entire_file_from_filename<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os.odin#L96"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">read_entire_file_from_filename :: <span class="keyword-type">proc</span>(name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, success: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="read_entire_file_from_handle"><span><a class="doc-id-link" href="#read_entire_file_from_handle">read_entire_file_from_handle<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os.odin#L108"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">read_entire_file_from_handle :: <span class="keyword-type">proc</span>(fd: <a class="code-typename" href="/core/os/#Handle">Handle</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, success: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="read_full"><span><a class="doc-id-link" href="#read_full">read_full<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os.odin#L77"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">read_full :: <span class="keyword-type">proc</span>(fd: <a class="code-typename" href="/core/os/#Handle">Handle</a>, buf: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="read_ptr"><span><a class="doc-id-link" href="#read_ptr">read_ptr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os.odin#L166"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">read_ptr :: <span class="keyword-type">proc</span>(fd: <a class="code-typename" href="/core/os/#Handle">Handle</a>, data: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, len: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> (<a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="remove"><span><a class="doc-id-link" href="#remove">remove<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L567"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">remove :: <span class="keyword-type">proc</span>(name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> <a class="code-typename" href="/core/os/#Errno">Errno</a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="remove_directory"><span><a class="doc-id-link" href="#remove_directory">remove_directory<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L434"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">remove_directory :: <span class="keyword-type">proc</span>(path: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> (err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="rename"><span><a class="doc-id-link" href="#rename">rename<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L526"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">rename :: <span class="keyword-type">proc</span>(old_path, new_path: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> (err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="seek"><span><a class="doc-id-link" href="#seek">seek<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L189"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">seek :: <span class="keyword-type">proc</span>(fd: <a class="code-typename" href="/core/os/#Handle">Handle</a>, offset: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>, whence: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> (<a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>, <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="set_current_directory"><span><a class="doc-id-link" href="#set_current_directory">set_current_directory<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L396"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">set_current_directory :: <span class="keyword-type">proc</span>(path: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> (err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="set_env"><span><a class="doc-id-link" href="#set_env">set_env<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/env_windows.odin#L48"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">set_env :: <span class="keyword-type">proc</span>(key, value: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> <a class="code-typename" href="/core/os/#Errno">Errno</a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>set_env sets the value of the environment variable named by the key</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="stat"><span><a class="doc-id-link" href="#stat">stat<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/stat_windows.odin#L81"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">stat :: <span class="keyword-type">proc</span>(name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (<a class="code-typename" href="/core/os/#File_Info">File_Info</a>, <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="stream_from_handle"><span><a class="doc-id-link" href="#stream_from_handle">stream_from_handle<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/stream.odin#L5"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">stream_from_handle :: <span class="keyword-type">proc</span>(fd: <a class="code-typename" href="/core/os/#Handle">Handle</a>) -> io.<a class="code-typename" href="/core/io/#Stream">Stream</a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="truncate"><span><a class="doc-id-link" href="#truncate">truncate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L555"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">truncate :: <span class="keyword-type">proc</span>(path: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, length: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>) -> (err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="unlink"><span><a class="doc-id-link" href="#unlink">unlink<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L514"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">unlink :: <span class="keyword-type">proc</span>(path: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> (err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="unset_env"><span><a class="doc-id-link" href="#unset_env">unset_env<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/env_windows.odin#L59"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">unset_env :: <span class="keyword-type">proc</span>(key: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> <a class="code-typename" href="/core/os/#Errno">Errno</a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>unset_env unsets a single environment variable</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="write"><span><a class="doc-id-link" href="#write">write<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L78"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">write :: <span class="keyword-type">proc</span>(fd: <a class="code-typename" href="/core/os/#Handle">Handle</a>, data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (<a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="write_at"><span><a class="doc-id-link" href="#write_at">write_at<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L314"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">write_at :: <span class="keyword-type">proc</span>(fd: <a class="code-typename" href="/core/os/#Handle">Handle</a>, data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, offset: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>) -> (n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>on Windows, write_at changes the position of the file cursor, on *nix, it does not.</p>
+<pre>bytes: [8]u8{}
+write_at(fd, bytes, 0)
+write(fd, bytes)
+
+</pre>
+<p>will write to the location twice on *nix, and to two different locations on Windows</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="write_byte"><span><a class="doc-id-link" href="#write_byte">write_byte<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os.odin#L20"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">write_byte :: <span class="keyword-type">proc</span>(fd: <a class="code-typename" href="/core/os/#Handle">Handle</a>, b: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (<a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="write_encoded_rune"><span><a class="doc-id-link" href="#write_encoded_rune">write_encoded_rune<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os.odin#L33"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">write_encoded_rune :: <span class="keyword-type">proc</span>(fd: <a class="code-typename" href="/core/os/#Handle">Handle</a>, r: <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="write_entire_file"><span><a class="doc-id-link" href="#write_entire_file">write_entire_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os.odin#L139"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">write_entire_file :: <span class="keyword-type">proc</span>(name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, truncate: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = true) -> (success: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="write_ptr"><span><a class="doc-id-link" href="#write_ptr">write_ptr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os.odin#L161"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">write_ptr :: <span class="keyword-type">proc</span>(fd: <a class="code-typename" href="/core/os/#Handle">Handle</a>, data: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, len: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> (<a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="write_rune"><span><a class="doc-id-link" href="#write_rune">write_rune<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os.odin#L24"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">write_rune :: <span class="keyword-type">proc</span>(fd: <a class="code-typename" href="/core/os/#Handle">Handle</a>, r: <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>) -> (<a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="write_string"><span><a class="doc-id-link" href="#write_string">write_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os.odin#L16"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">write_string :: <span class="keyword-type">proc</span>(fd: <a class="code-typename" href="/core/os/#Handle">Handle</a>, str: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> (<a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+</div>
+</div>
+<h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
+<div class="pkg-entity">
+<h3 id="read_entire_file"><span><a class="doc-id-link" href="#read_entire_file">read_entire_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os.odin#L134"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">read_entire_file :: proc{
+	<a class="code-procedure" href="/core/os/#read_entire_file_from_filename">read_entire_file_from_filename</a>,
+	<a class="code-procedure" href="/core/os/#read_entire_file_from_handle">read_entire_file_from_handle</a>,
+}
+</pre>
+</div>
+</div>
+</section>
+<h2 id="pkg-source-files">Source Files</h2>
+<ul>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/os/os.odin">os.odin</a></li>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/os/stat.odin">stat.odin</a></li>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/os/stream.odin">stream.odin</a></li>
+<li><em>(hidden platform specific files)</em></li>
+</ul>
+<h2 id="pkg-generation-information">Generation Information</h2>
+<p>Generated with <code>odin version dev-2023-09 (vendor "odin") Windows_amd64 @ 2023-09-05 17:19:48.352137400 +0000 UTC</code></p>
+</article>
+<div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#pkg-Types">Types</a><ul>
+<li><a href="#Errno">Errno</a></li>
+<li><a href="#File_Info">File_Info</a></li>
+<li><a href="#File_Mode">File_Mode</a></li>
+<li><a href="#File_Time">File_Time</a></li>
+<li><a href="#Handle">Handle</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Constants">Constants</a><ul>
+<li><a href="#ARCH">ARCH</a></li>
+<li><a href="#ENDIAN">ENDIAN</a></li>
+<li><a href="#ERROR_ACCESS_DENIED">ERROR_ACCESS_DENIED</a></li>
+<li><a href="#ERROR_ALREADY_EXISTS">ERROR_ALREADY_EXISTS</a></li>
+<li><a href="#ERROR_BROKEN_PIPE">ERROR_BROKEN_PIPE</a></li>
+<li><a href="#ERROR_BUFFER_OVERFLOW">ERROR_BUFFER_OVERFLOW</a></li>
+<li><a href="#ERROR_DIR_NOT_EMPTY">ERROR_DIR_NOT_EMPTY</a></li>
+<li><a href="#ERROR_ENVVAR_NOT_FOUND">ERROR_ENVVAR_NOT_FOUND</a></li>
+<li><a href="#ERROR_EOF">ERROR_EOF</a></li>
+<li><a href="#ERROR_FILE_EXISTS">ERROR_FILE_EXISTS</a></li>
+<li><a href="#ERROR_FILE_IS_NOT_DIR">ERROR_FILE_IS_NOT_DIR</a></li>
+<li><a href="#ERROR_FILE_IS_PIPE">ERROR_FILE_IS_PIPE</a></li>
+<li><a href="#ERROR_FILE_NOT_FOUND">ERROR_FILE_NOT_FOUND</a></li>
+<li><a href="#ERROR_HANDLE_EOF">ERROR_HANDLE_EOF</a></li>
+<li><a href="#ERROR_INSUFFICIENT_BUFFER">ERROR_INSUFFICIENT_BUFFER</a></li>
+<li><a href="#ERROR_INVALID_HANDLE">ERROR_INVALID_HANDLE</a></li>
+<li><a href="#ERROR_INVALID_PARAMETER">ERROR_INVALID_PARAMETER</a></li>
+<li><a href="#ERROR_IO_PENDING">ERROR_IO_PENDING</a></li>
+<li><a href="#ERROR_MOD_NOT_FOUND">ERROR_MOD_NOT_FOUND</a></li>
+<li><a href="#ERROR_MORE_DATA">ERROR_MORE_DATA</a></li>
+<li><a href="#ERROR_NEGATIVE_OFFSET">ERROR_NEGATIVE_OFFSET</a></li>
+<li><a href="#ERROR_NETNAME_DELETED">ERROR_NETNAME_DELETED</a></li>
+<li><a href="#ERROR_NONE">ERROR_NONE</a></li>
+<li><a href="#ERROR_NOT_ENOUGH_MEMORY">ERROR_NOT_ENOUGH_MEMORY</a></li>
+<li><a href="#ERROR_NOT_FOUND">ERROR_NOT_FOUND</a></li>
+<li><a href="#ERROR_NO_MORE_FILES">ERROR_NO_MORE_FILES</a></li>
+<li><a href="#ERROR_OPERATION_ABORTED">ERROR_OPERATION_ABORTED</a></li>
+<li><a href="#ERROR_PATH_NOT_FOUND">ERROR_PATH_NOT_FOUND</a></li>
+<li><a href="#ERROR_PRIVILEGE_NOT_HELD">ERROR_PRIVILEGE_NOT_HELD</a></li>
+<li><a href="#ERROR_PROC_NOT_FOUND">ERROR_PROC_NOT_FOUND</a></li>
+<li><a href="#File_Mode_Char_Device">File_Mode_Char_Device</a></li>
+<li><a href="#File_Mode_Device">File_Mode_Device</a></li>
+<li><a href="#File_Mode_Dir">File_Mode_Dir</a></li>
+<li><a href="#File_Mode_Named_Pipe">File_Mode_Named_Pipe</a></li>
+<li><a href="#File_Mode_Sym_Link">File_Mode_Sym_Link</a></li>
+<li><a href="#INVALID_HANDLE">INVALID_HANDLE</a></li>
+<li><a href="#OS">OS</a></li>
+<li><a href="#O_APPEND">O_APPEND</a></li>
+<li><a href="#O_ASYNC">O_ASYNC</a></li>
+<li><a href="#O_CLOEXEC">O_CLOEXEC</a></li>
+<li><a href="#O_CREATE">O_CREATE</a></li>
+<li><a href="#O_EXCL">O_EXCL</a></li>
+<li><a href="#O_NOCTTY">O_NOCTTY</a></li>
+<li><a href="#O_NONBLOCK">O_NONBLOCK</a></li>
+<li><a href="#O_RDONLY">O_RDONLY</a></li>
+<li><a href="#O_RDWR">O_RDWR</a></li>
+<li><a href="#O_SYNC">O_SYNC</a></li>
+<li><a href="#O_TRUNC">O_TRUNC</a></li>
+<li><a href="#O_WRONLY">O_WRONLY</a></li>
+<li><a href="#SEEK_CUR">SEEK_CUR</a></li>
+<li><a href="#SEEK_END">SEEK_END</a></li>
+<li><a href="#SEEK_SET">SEEK_SET</a></li>
+<li><a href="#WINDOWS_11_BUILD_CUTOFF">WINDOWS_11_BUILD_CUTOFF</a></li>
+<li><a href="#WSAEACCES">WSAEACCES</a></li>
+<li><a href="#WSAECONNRESET">WSAECONNRESET</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Variables">Variables</a><ul>
+<li><a href="#args">args</a></li>
+<li><a href="#stderr">stderr</a></li>
+<li><a href="#stdin">stdin</a></li>
+<li><a href="#stdout">stdout</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Procedures">Procedures</a><ul>
+<li><a href="#change_directory">change_directory</a></li>
+<li><a href="#clear_env">clear_env</a></li>
+<li><a href="#close">close</a></li>
+<li><a href="#current_thread_id">current_thread_id</a></li>
+<li><a href="#environ">environ</a></li>
+<li><a href="#exists">exists</a></li>
+<li><a href="#exit">exit</a></li>
+<li><a href="#file_info_delete">file_info_delete</a></li>
+<li><a href="#file_info_slice_delete">file_info_slice_delete</a></li>
+<li><a href="#file_size">file_size</a></li>
+<li><a href="#file_size_from_path">file_size_from_path</a></li>
+<li><a href="#flush">flush</a></li>
+<li><a href="#fstat">fstat</a></li>
+<li><a href="#ftruncate">ftruncate</a></li>
+<li><a href="#get_current_directory">get_current_directory</a></li>
+<li><a href="#get_env">get_env</a></li>
+<li><a href="#get_page_size">get_page_size</a></li>
+<li><a href="#get_std_handle">get_std_handle</a></li>
+<li><a href="#get_windows_version_w">get_windows_version_w</a></li>
+<li><a href="#heap_alloc">heap_alloc</a></li>
+<li><a href="#heap_allocator">heap_allocator</a></li>
+<li><a href="#heap_allocator_proc">heap_allocator_proc</a></li>
+<li><a href="#heap_free">heap_free</a></li>
+<li><a href="#heap_resize">heap_resize</a></li>
+<li><a href="#is_dir">is_dir</a></li>
+<li><a href="#is_file">is_file</a></li>
+<li><a href="#is_path_separator">is_path_separator</a></li>
+<li><a href="#is_windows_10">is_windows_10</a></li>
+<li><a href="#is_windows_11">is_windows_11</a></li>
+<li><a href="#is_windows_7">is_windows_7</a></li>
+<li><a href="#is_windows_8">is_windows_8</a></li>
+<li><a href="#is_windows_8_1">is_windows_8_1</a></li>
+<li><a href="#is_windows_vista">is_windows_vista</a></li>
+<li><a href="#is_windows_xp">is_windows_xp</a></li>
+<li><a href="#last_write_time">last_write_time</a></li>
+<li><a href="#last_write_time_by_name">last_write_time_by_name</a></li>
+<li><a href="#link">link</a></li>
+<li><a href="#lookup_env">lookup_env</a></li>
+<li><a href="#lstat">lstat</a></li>
+<li><a href="#make_directory">make_directory</a></li>
+<li><a href="#open">open</a></li>
+<li><a href="#pipe">pipe</a></li>
+<li><a href="#processor_core_count">processor_core_count</a></li>
+<li><a href="#read">read</a></li>
+<li><a href="#read_at">read_at</a></li>
+<li><a href="#read_at_least">read_at_least</a></li>
+<li><a href="#read_dir">read_dir</a></li>
+<li><a href="#read_entire_file_from_filename">read_entire_file_from_filename</a></li>
+<li><a href="#read_entire_file_from_handle">read_entire_file_from_handle</a></li>
+<li><a href="#read_full">read_full</a></li>
+<li><a href="#read_ptr">read_ptr</a></li>
+<li><a href="#remove">remove</a></li>
+<li><a href="#remove_directory">remove_directory</a></li>
+<li><a href="#rename">rename</a></li>
+<li><a href="#seek">seek</a></li>
+<li><a href="#set_current_directory">set_current_directory</a></li>
+<li><a href="#set_env">set_env</a></li>
+<li><a href="#stat">stat</a></li>
+<li><a href="#stream_from_handle">stream_from_handle</a></li>
+<li><a href="#truncate">truncate</a></li>
+<li><a href="#unlink">unlink</a></li>
+<li><a href="#unset_env">unset_env</a></li>
+<li><a href="#write">write</a></li>
+<li><a href="#write_at">write_at</a></li>
+<li><a href="#write_byte">write_byte</a></li>
+<li><a href="#write_encoded_rune">write_encoded_rune</a></li>
+<li><a href="#write_entire_file">write_entire_file</a></li>
+<li><a href="#write_ptr">write_ptr</a></li>
+<li><a href="#write_rune">write_rune</a></li>
+<li><a href="#write_string">write_string</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Procedure Groups">Procedure Groups</a><ul>
+<li><a href="#read_entire_file">read_entire_file</a></li>
+</ul>
+</li>
+<li><a href="#pkg-source-files">Source Files</a></ul>
+</nav>
+</div></div>
+<script type="text/javascript">var odin_pkg_name = "os";</script>
+</div>
+
+</div>
+</main>
+
+<footer class="odin-footer">
+	<div class="container pb-5 pt-5">
+		<div class="row g-4">
+		<div class="col">
+		<a class="navbar-brand" href="https://odin-lang.org">
+		<img class="mb-3" src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+		<p>
+		The Data-Oriented Language for Sane Software Development.
+		</p>
+		</div>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Resources</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://odin-lang.org/docs" class="link-light">Docs</a></li>
+			<li><a href="https://pkg.odin-lang.org/" class="link-light">Packages</a></li>
+			<li><a href="https://odin-lang.org/news" class="link-light">News</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Community</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin" target="_blank" class="link-light">GitHub</a></li>
+			<li><a href="https://discord.com/invite/sVBPHEv" target="_blank" class="link-light">Discord</a></li>
+			<li><a href="https://www.twitch.tv/ginger_bill" target="_blank" class="link-light">Twitch</a></li>
+			<li><a href="https://www.youtube.com/channel/UCUSck1dOH7VKmG4lRW7tZXg" target="_blank" class="link-light">YouTube</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Contribute</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin/issues" target="_blank" class="link-light">Issues</a></li>
+			<li><a href="https://www.patreon.com/gingerbill" target="_blank" class="link-light">Donate</a></li>
+			</ul>
+			</nav>
+		</div>
+		<div class="mt-4 text-muted">© 2016–2023 Ginger Bill</div>
+	</div>
+</footer>
+
+<script src="https://odin-lang.org/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://odin-lang.org/js/script.js"></script>
+<script src="/pkg-data.js"></script>
+<script src="/search.js"></script>
+</body>
+</html>

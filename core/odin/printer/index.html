@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>package odin/printer - pkg.odin-lang.org</title>	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/scss/custom.min.css">
+	<link rel=stylesheet href="//odin-lang.org/lib/highlight/styles/github-dark.min.css">
+	<script src="//odin-lang.org/lib/highlight/highlight.min.js"></script>
+
+	<script>hljs.registerLanguage("odin",function(a){return{aliases:["odin","odinlang","odin-lang"],keywords:{keyword:"auto_cast bit_set break case cast context continue defer distinct do dynamic else enum fallthrough for foreign if import in map not_in or_else or_return package proc return struct switch transmute type_of typeid union using when where",literal:"true false nil",built_in:"abs align_of cap clamp complex conj expand_to_tuple imag jmag kmag len max min offset_of quaternion real size_of soa_unzip soa_zip swizzle type_info_of type_of typeid_of"},illegal:"</",contains:[a.C_LINE_COMMENT_MODE,a.C_BLOCK_COMMENT_MODE,{className:"string",variants:[a.QUOTE_STRING_MODE,{begin:"'",end:"[^\\\\]'"},{begin:"`",end:"`"}]},{className:"number",variants:[{begin:a.C_NUMBER_RE+"[ijk]",relevance:1},a.C_NUMBER_MODE]}]}})</script>
+	<script>hljs.highlightAll()</script>
+	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/css/style.css">
+
+	<link rel="stylesheet" type="text/css" href="/style.css">
+
+	</style>
+</head>
+<body>
+<header class="sticky-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary odin-menu">
+		<div class="container">
+			<a class="navbar-brand" href="https://odin-lang.org/">
+			<img src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#odin-navbar-content" aria-controls="odin-navbar-content" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="odin-navbar-content">
+			<ul class="navbar-nav ms-md-auto">
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/docs">Docs</a></li>
+				<li class="nav-item"><a class="nav-link active" href="/">Packages</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/news">News</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/showcase">Showcase</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/community">Community</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://github.com/odin-lang/Odin" target="_blank">GitHub</a></li>
+			</ul>
+		</div>
+		</div>
+	</nav>
+</header>
+<main>
+<div class="container full-width">
+<div class="row odin-main my-4" id="pkg">
+<nav id="pkg-sidebar" class="col-lg-2 odin-sidebar-border navbar-light sticky-top odin-below-navbar">
+<div class="py-3">
+<h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
+<ul>
+<li class="nav-item"><a href="/core/builtin">builtin</a></li>
+<li class="nav-item"><a href="/core/bufio">bufio</a></li>
+<li class="nav-item"><a href="/core/bytes">bytes</a></li>
+<li class="nav-item"><a href="/core/c">c</a><ul>
+<li><a href="/core/c/frontend/preprocessor">frontend/preprocessor</a></li>
+<li><a href="/core/c/frontend/tokenizer">frontend/tokenizer</a></li>
+<li><a href="/core/c/libc">libc</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/compress">compress</a><ul>
+<li><a href="/core/compress/gzip">gzip</a></li>
+<li><a href="/core/compress/shoco">shoco</a></li>
+<li><a href="/core/compress/zlib">zlib</a></li>
+</ul>
+
+</li>
+<li class="nav-item">container<ul>
+<li><a href="/core/container/bit_array">bit_array</a></li>
+<li><a href="/core/container/intrusive/list">intrusive/list</a></li>
+<li><a href="/core/container/lru">lru</a></li>
+<li><a href="/core/container/priority_queue">priority_queue</a></li>
+<li><a href="/core/container/queue">queue</a></li>
+<li><a href="/core/container/small_array">small_array</a></li>
+<li><a href="/core/container/topological_sort">topological_sort</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/crypto">crypto</a><ul>
+<li><a href="/core/crypto/blake">blake</a></li>
+<li><a href="/core/crypto/blake2b">blake2b</a></li>
+<li><a href="/core/crypto/blake2s">blake2s</a></li>
+<li><a href="/core/crypto/chacha20">chacha20</a></li>
+<li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
+<li><a href="/core/crypto/gost">gost</a></li>
+<li><a href="/core/crypto/groestl">groestl</a></li>
+<li><a href="/core/crypto/haval">haval</a></li>
+<li><a href="/core/crypto/jh">jh</a></li>
+<li><a href="/core/crypto/keccak">keccak</a></li>
+<li><a href="/core/crypto/md2">md2</a></li>
+<li><a href="/core/crypto/md4">md4</a></li>
+<li><a href="/core/crypto/md5">md5</a></li>
+<li><a href="/core/crypto/poly1305">poly1305</a></li>
+<li><a href="/core/crypto/ripemd">ripemd</a></li>
+<li><a href="/core/crypto/sha1">sha1</a></li>
+<li><a href="/core/crypto/sha2">sha2</a></li>
+<li><a href="/core/crypto/sha3">sha3</a></li>
+<li><a href="/core/crypto/shake">shake</a></li>
+<li><a href="/core/crypto/sm3">sm3</a></li>
+<li><a href="/core/crypto/streebog">streebog</a></li>
+<li><a href="/core/crypto/tiger">tiger</a></li>
+<li><a href="/core/crypto/tiger2">tiger2</a></li>
+<li><a href="/core/crypto/util">util</a></li>
+<li><a href="/core/crypto/whirlpool">whirlpool</a></li>
+<li><a href="/core/crypto/x25519">x25519</a></li>
+</ul>
+
+</li>
+<li class="nav-item">debug<ul>
+<li><a href="/core/debug/pe">pe</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/dynlib">dynlib</a></li>
+<li class="nav-item">encoding<ul>
+<li><a href="/core/encoding/base32">base32</a></li>
+<li><a href="/core/encoding/base64">base64</a></li>
+<li><a href="/core/encoding/csv">csv</a></li>
+<li><a href="/core/encoding/endian">endian</a></li>
+<li><a href="/core/encoding/entity">entity</a></li>
+<li><a href="/core/encoding/hex">hex</a></li>
+<li><a href="/core/encoding/hxa">hxa</a></li>
+<li><a href="/core/encoding/json">json</a></li>
+<li><a href="/core/encoding/varint">varint</a></li>
+<li><a href="/core/encoding/xml">xml</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/fmt">fmt</a></li>
+<li class="nav-item"><a href="/core/hash">hash</a><ul>
+<li><a href="/core/hash/xxhash">xxhash</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/image">image</a><ul>
+<li><a href="/core/image/netpbm">netpbm</a></li>
+<li><a href="/core/image/png">png</a></li>
+<li><a href="/core/image/qoi">qoi</a></li>
+<li><a href="/core/image/tga">tga</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/io">io</a></li>
+<li class="nav-item"><a href="/core/log">log</a></li>
+<li class="nav-item"><a href="/core/math">math</a><ul>
+<li><a href="/core/math/big">big</a></li>
+<li><a href="/core/math/bits">bits</a></li>
+<li><a href="/core/math/cmplx">cmplx</a></li>
+<li><a href="/core/math/ease">ease</a></li>
+<li><a href="/core/math/fixed">fixed</a></li>
+<li><a href="/core/math/linalg">linalg</a></li>
+<li><a href="/core/math/linalg/glsl">linalg/glsl</a></li>
+<li><a href="/core/math/linalg/hlsl">linalg/hlsl</a></li>
+<li><a href="/core/math/noise">noise</a></li>
+<li><a href="/core/math/rand">rand</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/mem">mem</a><ul>
+<li><a href="/core/mem/virtual">virtual</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/net">net</a></li>
+<li class="nav-item">odin<ul>
+<li><a href="/core/odin/ast">ast</a></li>
+<li><a href="/core/odin/doc-format">doc-format</a></li>
+<li><a href="/core/odin/format">format</a></li>
+<li><a href="/core/odin/parser">parser</a></li>
+<li><a class="active" href="/core/odin/printer">printer</a></li>
+<li><a href="/core/odin/tokenizer">tokenizer</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/os">os</a></li>
+<li class="nav-item">path<ul>
+<li><a href="/core/path/filepath">filepath</a></li>
+<li><a href="/core/path/slashpath">slashpath</a></li>
+</ul>
+
+</li>
+<li class="nav-item">prof<ul>
+<li><a href="/core/prof/spall">spall</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/reflect">reflect</a></li>
+<li class="nav-item"><a href="/core/runtime">runtime</a></li>
+<li class="nav-item"><a href="/core/simd">simd</a></li>
+<li class="nav-item"><a href="/core/slice">slice</a><ul>
+<li><a href="/core/slice/heap">heap</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/sort">sort</a></li>
+<li class="nav-item"><a href="/core/strconv">strconv</a><ul>
+<li><a href="/core/strconv/decimal">decimal</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/strings">strings</a></li>
+<li class="nav-item"><a href="/core/sync">sync</a></li>
+<li class="nav-item"><a href="/core/testing">testing</a></li>
+<li class="nav-item">text<ul>
+<li><a href="/core/text/edit">edit</a></li>
+<li><a href="/core/text/i18n">i18n</a></li>
+<li><a href="/core/text/match">match</a></li>
+<li><a href="/core/text/scanner">scanner</a></li>
+<li><a href="/core/text/table">table</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/thread">thread</a></li>
+<li class="nav-item"><a href="/core/time">time</a></li>
+<li class="nav-item"><a href="/core/unicode">unicode</a><ul>
+<li><a href="/core/unicode/utf16">utf16</a></li>
+<li><a href="/core/unicode/utf8">utf8</a></li>
+<li><a href="/core/unicode/utf8/utf8string">utf8/utf8string</a></li>
+</ul>
+
+</li>
+</ul>
+</div>
+</nav>
+<article class="col-lg-8 p-4 documentation odin-article">
+<nav class="pkg-breadcrumb" aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="/core">core</a></li>
+<li class="breadcrumb-item">odin</li>
+<li class="breadcrumb-item active" aria-current="page"><a href="/core/odin/printer">printer</a></li>
+</ol>
+</nav>
+<h1>package core:odin/printer<div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer"><em>Source</em></a></div></h1>
+
+		<div class="odin-search-wrapper">
+			<input type="search" id="odin-search" class="odin-search-package" autocomplete="off" spellcheck="false" placeholder="Fuzzy Search...">
+			<div class="odin-search-shortcut">
+				<div class="odin-search-key key-macos">⌘K</div>
+				<div class="odin-search-key key-windows">Ctrl+K</div>
+				<span class="odin-search-or">or</span>
+				<div class="odin-search-key">/</div>
+			</div>
+		</div>
+	
+<div id="odin-search-info">
+<div id="odin-search-time"></div>
+
+		<div id="odin-search-options">
+			<input type="checkbox" id="odin-search-filter" name="odin-search-filter">
+			<label for="odin-search-filter">Filter Results</label>
+		</div>
+</div>
+<ul id="odin-search-results"></ul>
+<div id="pkg-top">
+<div id="pkg-index">
+<h2>Index</h2>
+<div>
+<details class="doc-index" id="doc-index-Types" aria-labelledby="#doc-index-Types-header">
+<summary id="#doc-index-Types-header">
+Types (12)</summary>
+<ul>
+<li><a href="#Alignment_Style">Alignment_Style</a></li>
+<li><a href="#Block_Type">Block_Type</a></li>
+<li><a href="#Brace_Style">Brace_Style</a></li>
+<li><a href="#Config">Config</a></li>
+<li><a href="#Format_Token">Format_Token</a></li>
+<li><a href="#Line">Line</a></li>
+<li><a href="#Line_Type">Line_Type</a></li>
+<li><a href="#List_Option">List_Option</a></li>
+<li><a href="#List_Options">List_Options</a></li>
+<li><a href="#Newline_Style">Newline_Style</a></li>
+<li><a href="#Printer">Printer</a></li>
+<li><a href="#Type_Enum">Type_Enum</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Constants" aria-labelledby="#doc-index-Constants-header">
+<summary id="#doc-index-Constants-header">
+Constants (0)</summary>
+<p class="pkg-empty-section">This section is empty.</p>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Variables" aria-labelledby="#doc-index-Variables-header">
+<summary id="#doc-index-Variables-header">
+Variables (1)</summary>
+<ul>
+<li><a href="#default_style">default_style</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
+<summary id="#doc-index-Procedures-header">
+Procedures (22)</summary>
+<ul>
+<li><a href="#align_comments">align_comments</a></li>
+<li><a href="#align_enum">align_enum</a></li>
+<li><a href="#align_struct">align_struct</a></li>
+<li><a href="#align_switch_stmt">align_switch_stmt</a></li>
+<li><a href="#align_var_decls">align_var_decls</a></li>
+<li><a href="#find_last_token">find_last_token</a></li>
+<li><a href="#fix_lines">fix_lines</a></li>
+<li><a href="#format_assignment">format_assignment</a></li>
+<li><a href="#format_call">format_call</a></li>
+<li><a href="#format_generic">format_generic</a></li>
+<li><a href="#format_keyword_to_brace">format_keyword_to_brace</a></li>
+<li><a href="#format_value_decl">format_value_decl</a></li>
+<li><a href="#make_printer">make_printer</a></li>
+<li><a href="#print">print</a></li>
+<li><a href="#visit_begin_brace">visit_begin_brace</a></li>
+<li><a href="#visit_binary_expr">visit_binary_expr</a></li>
+<li><a href="#visit_block_stmts">visit_block_stmts</a></li>
+<li><a href="#visit_call_exprs">visit_call_exprs</a></li>
+<li><a href="#visit_end_brace">visit_end_brace</a></li>
+<li><a href="#visit_field_list">visit_field_list</a></li>
+<li><a href="#visit_proc_type">visit_proc_type</a></li>
+<li><a href="#visit_signature_list">visit_signature_list</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedure Groups" aria-labelledby="#doc-index-Procedure Groups-header">
+<summary id="#doc-index-Procedure Groups-header">
+Procedure Groups (0)</summary>
+<p class="pkg-empty-section">This section is empty.</p>
+</details>
+</div>
+</div>
+</div>
+<section class="documentation">
+<h2 id="pkg-Types" class="pkg-header">Types</h2>
+<div class="pkg-entity">
+<h3 id="Alignment_Style"><span><a class="doc-id-link" href="#Alignment_Style">Alignment_Style<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L90"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Alignment_Style :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+	Align_On_Type_And_Equals, 
+	Align_On_Colon_And_Equals, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Block_Type"><span><a class="doc-id-link" href="#Block_Type">Block_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L81"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Block_Type :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+	None, 
+	If_Stmt, 
+	Proc, 
+	Generic, 
+	Comp_Lit, 
+	Switch_Stmt, 
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/odin/printer/#visit_begin_brace">visit_begin_brace</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Brace_Style"><span><a class="doc-id-link" href="#Brace_Style">Brace_Style<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L74"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Brace_Style :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+	_1TBS, 
+	Allman, 
+	Stroustrup, 
+	K_And_R, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Config"><span><a class="doc-id-link" href="#Config">Config<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L56"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Config :: <span class="keyword-type">struct</span> {
+	spaces:               <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	<span class="comment">// Spaces per indentation</span>
+	newline_limit:        <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	<span class="comment">// The limit of newlines between statements and declarations.</span>
+	tabs:                 <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	<span class="comment">// Enable or disable tabs</span>
+	convert_do:           <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	<span class="comment">// Convert all do statements to brace blocks</span>
+	semicolons:           <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	<span class="comment">// Enable semicolons</span>
+	split_multiple_stmts: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	align_switch:         <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	brace_style:          <a class="code-typename" href="/core/odin/printer/#Brace_Style">Brace_Style</a>,
+	align_assignments:    <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	align_structs:        <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	align_style:          <a class="code-typename" href="/core/odin/printer/#Alignment_Style">Alignment_Style</a>,
+	align_enums:          <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	align_length_break:   <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	indent_cases:         <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	newline_style:        <a class="code-typename" href="/core/odin/printer/#Newline_Style">Newline_Style</a>,
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/odin/printer/#make_printer">make_printer</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Format_Token"><span><a class="doc-id-link" href="#Format_Token">Format_Token<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L27"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Format_Token :: <span class="keyword-type">struct</span> {
+	kind:            odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token_Kind">Token_Kind</a>,
+	text:            <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	type:            <a class="code-typename" href="/core/odin/printer/#Type_Enum">Type_Enum</a>,
+	spaces_before:   <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	parameter_count: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Represents a singular token in a unwrapped line</p>
+</details>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/core/odin/printer/#find_last_token">find_last_token</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Line"><span><a class="doc-id-link" href="#Line">Line<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L16"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Line :: <span class="keyword-type">struct</span> {
+	format_tokens: [<span class="keyword">dynamic</span>]<a class="code-typename" href="/core/odin/printer/#Format_Token">Format_Token</a>,
+	finalized:     <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	used:          <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	depth:         <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	types:         <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/odin/printer/#Type_Enum">Type_Enum</a>],
+}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Represents an unwrapped line</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Line_Type"><span><a class="doc-id-link" href="#Line_Type">Line_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L11"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Line_Type :: <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/odin/printer/#Type_Enum">Type_Enum</a>]</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="List_Option"><span><a class="doc-id-link" href="#List_Option">List_Option<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/visit.odin#L1335"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">List_Option :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+	Add_Comma, 
+	Trailing, 
+	Enforce_Newline, 
+	Enforce_Poly_Names, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="List_Options"><span><a class="doc-id-link" href="#List_Options">List_Options<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/visit.odin#L1342"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">List_Options :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/odin/printer/#List_Option">List_Option</a>]</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/odin/printer/#visit_field_list">visit_field_list</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Newline_Style"><span><a class="doc-id-link" href="#Newline_Style">Newline_Style<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L95"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Newline_Style :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+	CRLF, 
+	LF, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Printer"><span><a class="doc-id-link" href="#Printer">Printer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L35"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Printer :: <span class="keyword-type">struct</span> {
+	string_builder:       strings.<a class="code-typename" href="/core/strings/#Builder">Builder</a>,
+	config:               <a class="code-typename" href="/core/odin/printer/#Config">Config</a>,
+	depth:                <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	<span class="comment">// the identation depth</span>
+	comments:             [<span class="keyword">dynamic</span>]^odin_ast.<a class="code-typename" href="/core/odin/ast/#Comment_Group">Comment_Group</a>,
+	latest_comment_index: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	allocator:            runtime.<a class="code-typename" href="/core/runtime/#Allocator">Allocator</a>,
+	file:                 ^odin_ast.<a class="code-typename" href="/core/odin/ast/#File">File</a>,
+	source_position:      odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	last_source_position: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
+	lines:                [<span class="keyword">dynamic</span>]<a class="code-typename" href="/core/odin/printer/#Line">Line</a>,
+	<span class="comment">// need to look into a better data structure, one that can handle inserting lines rather than appending</span>
+	skip_semicolon:       <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	current_line:         ^<a class="code-typename" href="/core/odin/printer/#Line">Line</a>,
+	current_line_index:   <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	last_line_index:      <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	last_token:           ^<a class="code-typename" href="/core/odin/printer/#Format_Token">Format_Token</a>,
+	merge_next_token:     <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	space_next_token:     <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	debug:                <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/odin/printer/#align_comments">align_comments</a></li>
+<li><a href="/core/odin/printer/#align_enum">align_enum</a></li>
+<li><a href="/core/odin/printer/#align_struct">align_struct</a></li>
+<li><a href="/core/odin/printer/#align_switch_stmt">align_switch_stmt</a></li>
+<li><a href="/core/odin/printer/#align_var_decls">align_var_decls</a></li>
+<li><a href="/core/odin/printer/#fix_lines">fix_lines</a></li>
+<li><a href="/core/odin/printer/#format_assignment">format_assignment</a></li>
+<li><a href="/core/odin/printer/#format_call">format_call</a></li>
+<li><a href="/core/odin/printer/#format_generic">format_generic</a></li>
+<li><a href="/core/odin/printer/#format_keyword_to_brace">format_keyword_to_brace</a></li>
+<li><a href="/core/odin/printer/#format_value_decl">format_value_decl</a></li>
+<li><a href="/core/odin/printer/#print">print</a></li>
+<li><a href="/core/odin/printer/#visit_begin_brace">visit_begin_brace</a></li>
+<li><a href="/core/odin/printer/#visit_binary_expr">visit_binary_expr</a></li>
+<li><a href="/core/odin/printer/#visit_block_stmts">visit_block_stmts</a></li>
+<li><a href="/core/odin/printer/#visit_call_exprs">visit_call_exprs</a></li>
+<li><a href="/core/odin/printer/#visit_end_brace">visit_end_brace</a></li>
+<li><a href="/core/odin/printer/#visit_field_list">visit_field_list</a></li>
+<li><a href="/core/odin/printer/#visit_proc_type">visit_proc_type</a></li>
+<li><a href="/core/odin/printer/#visit_signature_list">visit_signature_list</a></li>
+</ul>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/core/odin/printer/#make_printer">make_printer</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Type_Enum"><span><a class="doc-id-link" href="#Type_Enum">Type_Enum<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L9"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Type_Enum :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+	Line_Comment, 
+	Value_Decl, 
+	Switch_Stmt, 
+	Struct, 
+	Assign, 
+	Call, 
+	Enum, 
+	If, 
+	For, 
+	Proc_Lit, 
+}</pre>
+</div>
+</div>
+<h2 id="pkg-Constants" class="pkg-header">Constants</h2>
+<p class="pkg-empty-section">This section is empty.</p>
+<h2 id="pkg-Variables" class="pkg-header">Variables</h2>
+<div class="pkg-entity">
+<h3 id="default_style"><span><a class="doc-id-link" href="#default_style">default_style<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L100"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">default_style: <a class="code-typename" href="/core/odin/printer/#Config">Config</a> = …</pre>
+</div>
+</div>
+<h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
+<div class="pkg-entity">
+<h3 id="align_comments"><span><a class="doc-id-link" href="#align_comments">align_comments<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L849"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">align_comments :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="align_enum"><span><a class="doc-id-link" href="#align_enum">align_enum<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L686"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">align_enum :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, index: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="align_struct"><span><a class="doc-id-link" href="#align_struct">align_struct<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L749"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">align_struct :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, index: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="align_switch_stmt"><span><a class="doc-id-link" href="#align_switch_stmt">align_switch_stmt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L612"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">align_switch_stmt :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, index: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="align_var_decls"><span><a class="doc-id-link" href="#align_var_decls">align_var_decls<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L462"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">align_var_decls :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="find_last_token"><span><a class="doc-id-link" href="#find_last_token">find_last_token<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L261"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">find_last_token :: <span class="keyword-type">proc</span>(format_tokens: [<span class="keyword">dynamic</span>]<a class="code-typename" href="/core/odin/printer/#Format_Token">Format_Token</a>) -> <a class="code-typename" href="/core/odin/printer/#Format_Token">Format_Token</a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="fix_lines"><span><a class="doc-id-link" href="#fix_lines">fix_lines<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L204"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">fix_lines :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="format_assignment"><span><a class="doc-id-link" href="#format_assignment">format_assignment<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L273"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">format_assignment :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, index: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="format_call"><span><a class="doc-id-link" href="#format_call">format_call<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L276"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">format_call :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, line_index: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, format_index: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="format_generic"><span><a class="doc-id-link" href="#format_generic">format_generic<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L414"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">format_generic :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="format_keyword_to_brace"><span><a class="doc-id-link" href="#format_keyword_to_brace">format_keyword_to_brace<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L347"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">format_keyword_to_brace :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, line_index: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, format_index: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, keyword: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token_Kind">Token_Kind</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="format_value_decl"><span><a class="doc-id-link" href="#format_value_decl">format_value_decl<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L210"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">format_value_decl :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, index: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="make_printer"><span><a class="doc-id-link" href="#make_printer">make_printer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L118"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">make_printer :: <span class="keyword-type">proc</span>(config: <a class="code-typename" href="/core/odin/printer/#Config">Config</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> <a class="code-typename" href="/core/odin/printer/#Printer">Printer</a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="print"><span><a class="doc-id-link" href="#print">print<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L126"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">print :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, file: ^odin_ast.<a class="code-typename" href="/core/odin/ast/#File">File</a>) -> <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="visit_begin_brace"><span><a class="doc-id-link" href="#visit_begin_brace">visit_begin_brace<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/visit.odin#L1294"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">visit_begin_brace :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, begin: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>, type: <a class="code-typename" href="/core/odin/printer/#Block_Type">Block_Type</a>, count: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = 0, same_line_spaces_before: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = 1) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="visit_binary_expr"><span><a class="doc-id-link" href="#visit_binary_expr">visit_binary_expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/visit.odin#L1448"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">visit_binary_expr :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, binary: ^odin_ast.<a class="code-typename" href="/core/odin/ast/#Binary_Expr">Binary_Expr</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="visit_block_stmts"><span><a class="doc-id-link" href="#visit_block_stmts">visit_block_stmts<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/visit.odin#L1325"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">visit_block_stmts :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, stmts: []^odin_ast.<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>, split: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="visit_call_exprs"><span><a class="doc-id-link" href="#visit_call_exprs">visit_call_exprs<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/visit.odin#L1484"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">visit_call_exprs :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, list: []^odin_ast.<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>, ellipsis: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="visit_end_brace"><span><a class="doc-id-link" href="#visit_end_brace">visit_end_brace<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/visit.odin#L1318"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">visit_end_brace :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, end: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="visit_field_list"><span><a class="doc-id-link" href="#visit_field_list">visit_field_list<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/visit.odin#L1344"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">visit_field_list :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, list: ^odin_ast.<a class="code-typename" href="/core/odin/ast/#Field_List">Field_List</a>, options: <a class="code-typename" href="/core/odin/printer/#List_Options">List_Options</a> = List_Options{}) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="visit_proc_type"><span><a class="doc-id-link" href="#visit_proc_type">visit_proc_type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/visit.odin#L1386"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">visit_proc_type :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, proc_type: ^odin_ast.<a class="code-typename" href="/core/odin/ast/#Proc_Type">Proc_Type</a>, is_proc_lit: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="visit_signature_list"><span><a class="doc-id-link" href="#visit_signature_list">visit_signature_list<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/visit.odin#L1520"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">visit_signature_list :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, list: ^odin_ast.<a class="code-typename" href="/core/odin/ast/#Field_List">Field_List</a>, remove_blank: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = true) {…}</pre>
+</div>
+</div>
+<h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
+<p class="pkg-empty-section">This section is empty.</p>
+</section>
+<h2 id="pkg-source-files">Source Files</h2>
+<ul>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin">printer.odin</a></li>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/visit.odin">visit.odin</a></li>
+</ul>
+<h2 id="pkg-generation-information">Generation Information</h2>
+<p>Generated with <code>odin version dev-2023-09 (vendor "odin") Windows_amd64 @ 2023-09-05 17:19:48.521469500 +0000 UTC</code></p>
+</article>
+<div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#pkg-Types">Types</a><ul>
+<li><a href="#Alignment_Style">Alignment_Style</a></li>
+<li><a href="#Block_Type">Block_Type</a></li>
+<li><a href="#Brace_Style">Brace_Style</a></li>
+<li><a href="#Config">Config</a></li>
+<li><a href="#Format_Token">Format_Token</a></li>
+<li><a href="#Line">Line</a></li>
+<li><a href="#Line_Type">Line_Type</a></li>
+<li><a href="#List_Option">List_Option</a></li>
+<li><a href="#List_Options">List_Options</a></li>
+<li><a href="#Newline_Style">Newline_Style</a></li>
+<li><a href="#Printer">Printer</a></li>
+<li><a href="#Type_Enum">Type_Enum</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Variables">Variables</a><ul>
+<li><a href="#default_style">default_style</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Procedures">Procedures</a><ul>
+<li><a href="#align_comments">align_comments</a></li>
+<li><a href="#align_enum">align_enum</a></li>
+<li><a href="#align_struct">align_struct</a></li>
+<li><a href="#align_switch_stmt">align_switch_stmt</a></li>
+<li><a href="#align_var_decls">align_var_decls</a></li>
+<li><a href="#find_last_token">find_last_token</a></li>
+<li><a href="#fix_lines">fix_lines</a></li>
+<li><a href="#format_assignment">format_assignment</a></li>
+<li><a href="#format_call">format_call</a></li>
+<li><a href="#format_generic">format_generic</a></li>
+<li><a href="#format_keyword_to_brace">format_keyword_to_brace</a></li>
+<li><a href="#format_value_decl">format_value_decl</a></li>
+<li><a href="#make_printer">make_printer</a></li>
+<li><a href="#print">print</a></li>
+<li><a href="#visit_begin_brace">visit_begin_brace</a></li>
+<li><a href="#visit_binary_expr">visit_binary_expr</a></li>
+<li><a href="#visit_block_stmts">visit_block_stmts</a></li>
+<li><a href="#visit_call_exprs">visit_call_exprs</a></li>
+<li><a href="#visit_end_brace">visit_end_brace</a></li>
+<li><a href="#visit_field_list">visit_field_list</a></li>
+<li><a href="#visit_proc_type">visit_proc_type</a></li>
+<li><a href="#visit_signature_list">visit_signature_list</a></li>
+</ul>
+</li>
+<li><a href="#pkg-source-files">Source Files</a></ul>
+</nav>
+</div></div>
+<script type="text/javascript">var odin_pkg_name = "odin_printer";</script>
+</div>
+
+</div>
+</main>
+
+<footer class="odin-footer">
+	<div class="container pb-5 pt-5">
+		<div class="row g-4">
+		<div class="col">
+		<a class="navbar-brand" href="https://odin-lang.org">
+		<img class="mb-3" src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+		<p>
+		The Data-Oriented Language for Sane Software Development.
+		</p>
+		</div>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Resources</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://odin-lang.org/docs" class="link-light">Docs</a></li>
+			<li><a href="https://pkg.odin-lang.org/" class="link-light">Packages</a></li>
+			<li><a href="https://odin-lang.org/news" class="link-light">News</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Community</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin" target="_blank" class="link-light">GitHub</a></li>
+			<li><a href="https://discord.com/invite/sVBPHEv" target="_blank" class="link-light">Discord</a></li>
+			<li><a href="https://www.twitch.tv/ginger_bill" target="_blank" class="link-light">Twitch</a></li>
+			<li><a href="https://www.youtube.com/channel/UCUSck1dOH7VKmG4lRW7tZXg" target="_blank" class="link-light">YouTube</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Contribute</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin/issues" target="_blank" class="link-light">Issues</a></li>
+			<li><a href="https://www.patreon.com/gingerbill" target="_blank" class="link-light">Donate</a></li>
+			</ul>
+			</nav>
+		</div>
+		<div class="mt-4 text-muted">© 2016–2023 Ginger Bill</div>
+	</div>
+</footer>
+
+<script src="https://odin-lang.org/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://odin-lang.org/js/script.js"></script>
+<script src="/pkg-data.js"></script>
+<script src="/search.js"></script>
+</body>
+</html>

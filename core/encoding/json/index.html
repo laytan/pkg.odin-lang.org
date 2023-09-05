@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>package encoding/json - pkg.odin-lang.org</title>	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/scss/custom.min.css">
+	<link rel=stylesheet href="//odin-lang.org/lib/highlight/styles/github-dark.min.css">
+	<script src="//odin-lang.org/lib/highlight/highlight.min.js"></script>
+
+	<script>hljs.registerLanguage("odin",function(a){return{aliases:["odin","odinlang","odin-lang"],keywords:{keyword:"auto_cast bit_set break case cast context continue defer distinct do dynamic else enum fallthrough for foreign if import in map not_in or_else or_return package proc return struct switch transmute type_of typeid union using when where",literal:"true false nil",built_in:"abs align_of cap clamp complex conj expand_to_tuple imag jmag kmag len max min offset_of quaternion real size_of soa_unzip soa_zip swizzle type_info_of type_of typeid_of"},illegal:"</",contains:[a.C_LINE_COMMENT_MODE,a.C_BLOCK_COMMENT_MODE,{className:"string",variants:[a.QUOTE_STRING_MODE,{begin:"'",end:"[^\\\\]'"},{begin:"`",end:"`"}]},{className:"number",variants:[{begin:a.C_NUMBER_RE+"[ijk]",relevance:1},a.C_NUMBER_MODE]}]}})</script>
+	<script>hljs.highlightAll()</script>
+	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/css/style.css">
+
+	<link rel="stylesheet" type="text/css" href="/style.css">
+
+	</style>
+</head>
+<body>
+<header class="sticky-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary odin-menu">
+		<div class="container">
+			<a class="navbar-brand" href="https://odin-lang.org/">
+			<img src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#odin-navbar-content" aria-controls="odin-navbar-content" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="odin-navbar-content">
+			<ul class="navbar-nav ms-md-auto">
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/docs">Docs</a></li>
+				<li class="nav-item"><a class="nav-link active" href="/">Packages</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/news">News</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/showcase">Showcase</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/community">Community</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://github.com/odin-lang/Odin" target="_blank">GitHub</a></li>
+			</ul>
+		</div>
+		</div>
+	</nav>
+</header>
+<main>
+<div class="container full-width">
+<div class="row odin-main my-4" id="pkg">
+<nav id="pkg-sidebar" class="col-lg-2 odin-sidebar-border navbar-light sticky-top odin-below-navbar">
+<div class="py-3">
+<h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
+<ul>
+<li class="nav-item"><a href="/core/builtin">builtin</a></li>
+<li class="nav-item"><a href="/core/bufio">bufio</a></li>
+<li class="nav-item"><a href="/core/bytes">bytes</a></li>
+<li class="nav-item"><a href="/core/c">c</a><ul>
+<li><a href="/core/c/frontend/preprocessor">frontend/preprocessor</a></li>
+<li><a href="/core/c/frontend/tokenizer">frontend/tokenizer</a></li>
+<li><a href="/core/c/libc">libc</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/compress">compress</a><ul>
+<li><a href="/core/compress/gzip">gzip</a></li>
+<li><a href="/core/compress/shoco">shoco</a></li>
+<li><a href="/core/compress/zlib">zlib</a></li>
+</ul>
+
+</li>
+<li class="nav-item">container<ul>
+<li><a href="/core/container/bit_array">bit_array</a></li>
+<li><a href="/core/container/intrusive/list">intrusive/list</a></li>
+<li><a href="/core/container/lru">lru</a></li>
+<li><a href="/core/container/priority_queue">priority_queue</a></li>
+<li><a href="/core/container/queue">queue</a></li>
+<li><a href="/core/container/small_array">small_array</a></li>
+<li><a href="/core/container/topological_sort">topological_sort</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/crypto">crypto</a><ul>
+<li><a href="/core/crypto/blake">blake</a></li>
+<li><a href="/core/crypto/blake2b">blake2b</a></li>
+<li><a href="/core/crypto/blake2s">blake2s</a></li>
+<li><a href="/core/crypto/chacha20">chacha20</a></li>
+<li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
+<li><a href="/core/crypto/gost">gost</a></li>
+<li><a href="/core/crypto/groestl">groestl</a></li>
+<li><a href="/core/crypto/haval">haval</a></li>
+<li><a href="/core/crypto/jh">jh</a></li>
+<li><a href="/core/crypto/keccak">keccak</a></li>
+<li><a href="/core/crypto/md2">md2</a></li>
+<li><a href="/core/crypto/md4">md4</a></li>
+<li><a href="/core/crypto/md5">md5</a></li>
+<li><a href="/core/crypto/poly1305">poly1305</a></li>
+<li><a href="/core/crypto/ripemd">ripemd</a></li>
+<li><a href="/core/crypto/sha1">sha1</a></li>
+<li><a href="/core/crypto/sha2">sha2</a></li>
+<li><a href="/core/crypto/sha3">sha3</a></li>
+<li><a href="/core/crypto/shake">shake</a></li>
+<li><a href="/core/crypto/sm3">sm3</a></li>
+<li><a href="/core/crypto/streebog">streebog</a></li>
+<li><a href="/core/crypto/tiger">tiger</a></li>
+<li><a href="/core/crypto/tiger2">tiger2</a></li>
+<li><a href="/core/crypto/util">util</a></li>
+<li><a href="/core/crypto/whirlpool">whirlpool</a></li>
+<li><a href="/core/crypto/x25519">x25519</a></li>
+</ul>
+
+</li>
+<li class="nav-item">debug<ul>
+<li><a href="/core/debug/pe">pe</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/dynlib">dynlib</a></li>
+<li class="nav-item">encoding<ul>
+<li><a href="/core/encoding/base32">base32</a></li>
+<li><a href="/core/encoding/base64">base64</a></li>
+<li><a href="/core/encoding/csv">csv</a></li>
+<li><a href="/core/encoding/endian">endian</a></li>
+<li><a href="/core/encoding/entity">entity</a></li>
+<li><a href="/core/encoding/hex">hex</a></li>
+<li><a href="/core/encoding/hxa">hxa</a></li>
+<li><a class="active" href="/core/encoding/json">json</a></li>
+<li><a href="/core/encoding/varint">varint</a></li>
+<li><a href="/core/encoding/xml">xml</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/fmt">fmt</a></li>
+<li class="nav-item"><a href="/core/hash">hash</a><ul>
+<li><a href="/core/hash/xxhash">xxhash</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/image">image</a><ul>
+<li><a href="/core/image/netpbm">netpbm</a></li>
+<li><a href="/core/image/png">png</a></li>
+<li><a href="/core/image/qoi">qoi</a></li>
+<li><a href="/core/image/tga">tga</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/io">io</a></li>
+<li class="nav-item"><a href="/core/log">log</a></li>
+<li class="nav-item"><a href="/core/math">math</a><ul>
+<li><a href="/core/math/big">big</a></li>
+<li><a href="/core/math/bits">bits</a></li>
+<li><a href="/core/math/cmplx">cmplx</a></li>
+<li><a href="/core/math/ease">ease</a></li>
+<li><a href="/core/math/fixed">fixed</a></li>
+<li><a href="/core/math/linalg">linalg</a></li>
+<li><a href="/core/math/linalg/glsl">linalg/glsl</a></li>
+<li><a href="/core/math/linalg/hlsl">linalg/hlsl</a></li>
+<li><a href="/core/math/noise">noise</a></li>
+<li><a href="/core/math/rand">rand</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/mem">mem</a><ul>
+<li><a href="/core/mem/virtual">virtual</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/net">net</a></li>
+<li class="nav-item">odin<ul>
+<li><a href="/core/odin/ast">ast</a></li>
+<li><a href="/core/odin/doc-format">doc-format</a></li>
+<li><a href="/core/odin/format">format</a></li>
+<li><a href="/core/odin/parser">parser</a></li>
+<li><a href="/core/odin/printer">printer</a></li>
+<li><a href="/core/odin/tokenizer">tokenizer</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/os">os</a></li>
+<li class="nav-item">path<ul>
+<li><a href="/core/path/filepath">filepath</a></li>
+<li><a href="/core/path/slashpath">slashpath</a></li>
+</ul>
+
+</li>
+<li class="nav-item">prof<ul>
+<li><a href="/core/prof/spall">spall</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/reflect">reflect</a></li>
+<li class="nav-item"><a href="/core/runtime">runtime</a></li>
+<li class="nav-item"><a href="/core/simd">simd</a></li>
+<li class="nav-item"><a href="/core/slice">slice</a><ul>
+<li><a href="/core/slice/heap">heap</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/sort">sort</a></li>
+<li class="nav-item"><a href="/core/strconv">strconv</a><ul>
+<li><a href="/core/strconv/decimal">decimal</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/strings">strings</a></li>
+<li class="nav-item"><a href="/core/sync">sync</a></li>
+<li class="nav-item"><a href="/core/testing">testing</a></li>
+<li class="nav-item">text<ul>
+<li><a href="/core/text/edit">edit</a></li>
+<li><a href="/core/text/i18n">i18n</a></li>
+<li><a href="/core/text/match">match</a></li>
+<li><a href="/core/text/scanner">scanner</a></li>
+<li><a href="/core/text/table">table</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/thread">thread</a></li>
+<li class="nav-item"><a href="/core/time">time</a></li>
+<li class="nav-item"><a href="/core/unicode">unicode</a><ul>
+<li><a href="/core/unicode/utf16">utf16</a></li>
+<li><a href="/core/unicode/utf8">utf8</a></li>
+<li><a href="/core/unicode/utf8/utf8string">utf8/utf8string</a></li>
+</ul>
+
+</li>
+</ul>
+</div>
+</nav>
+<article class="col-lg-8 p-4 documentation odin-article">
+<nav class="pkg-breadcrumb" aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="/core">core</a></li>
+<li class="breadcrumb-item">encoding</li>
+<li class="breadcrumb-item active" aria-current="page"><a href="/core/encoding/json">json</a></li>
+</ol>
+</nav>
+<h1>package core:encoding/json<div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json"><em>Source</em></a></div></h1>
+
+		<div class="odin-search-wrapper">
+			<input type="search" id="odin-search" class="odin-search-package" autocomplete="off" spellcheck="false" placeholder="Fuzzy Search...">
+			<div class="odin-search-shortcut">
+				<div class="odin-search-key key-macos">⌘K</div>
+				<div class="odin-search-key key-windows">Ctrl+K</div>
+				<span class="odin-search-or">or</span>
+				<div class="odin-search-key">/</div>
+			</div>
+		</div>
+	
+<div id="odin-search-info">
+<div id="odin-search-time"></div>
+
+		<div id="odin-search-options">
+			<input type="checkbox" id="odin-search-filter" name="odin-search-filter">
+			<label for="odin-search-filter">Filter Results</label>
+		</div>
+</div>
+<ul id="odin-search-results"></ul>
+<div id="pkg-top">
+<div id="pkg-index">
+<h2>Index</h2>
+<div>
+<details class="doc-index" id="doc-index-Types" aria-labelledby="#doc-index-Types-header">
+<summary id="#doc-index-Types-header">
+Types (21)</summary>
+<ul>
+<li><a href="#Array">Array</a></li>
+<li><a href="#Boolean">Boolean</a></li>
+<li><a href="#Error">Error</a></li>
+<li><a href="#Float">Float</a></li>
+<li><a href="#Integer">Integer</a></li>
+<li><a href="#Marshal_Data_Error">Marshal_Data_Error</a></li>
+<li><a href="#Marshal_Error">Marshal_Error</a></li>
+<li><a href="#Marshal_Options">Marshal_Options</a></li>
+<li><a href="#Null">Null</a></li>
+<li><a href="#Object">Object</a></li>
+<li><a href="#Parser">Parser</a></li>
+<li><a href="#Pos">Pos</a></li>
+<li><a href="#Specification">Specification</a></li>
+<li><a href="#String">String</a></li>
+<li><a href="#Token">Token</a></li>
+<li><a href="#Token_Kind">Token_Kind</a></li>
+<li><a href="#Tokenizer">Tokenizer</a></li>
+<li><a href="#Unmarshal_Data_Error">Unmarshal_Data_Error</a></li>
+<li><a href="#Unmarshal_Error">Unmarshal_Error</a></li>
+<li><a href="#Unsupported_Type_Error">Unsupported_Type_Error</a></li>
+<li><a href="#Value">Value</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Constants" aria-labelledby="#doc-index-Constants-header">
+<summary id="#doc-index-Constants-header">
+Constants (1)</summary>
+<ul>
+<li><a href="#DEFAULT_SPECIFICATION">DEFAULT_SPECIFICATION</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Variables" aria-labelledby="#doc-index-Variables-header">
+<summary id="#doc-index-Variables-header">
+Variables (0)</summary>
+<p class="pkg-empty-section">This section is empty.</p>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
+<summary id="#doc-index-Procedures-header">
+Procedures (40)</summary>
+<ul>
+<li><a href="#advance_token">advance_token</a></li>
+<li><a href="#allow_token">allow_token</a></li>
+<li><a href="#clone_string">clone_string</a></li>
+<li><a href="#destroy_value">destroy_value</a></li>
+<li><a href="#expect_token">expect_token</a></li>
+<li><a href="#get_token">get_token</a></li>
+<li><a href="#is_valid">is_valid</a></li>
+<li><a href="#is_valid_number">is_valid_number</a></li>
+<li><a href="#is_valid_string_literal">is_valid_string_literal</a></li>
+<li><a href="#make_parser">make_parser</a></li>
+<li><a href="#make_parser_from_string">make_parser_from_string</a></li>
+<li><a href="#make_tokenizer">make_tokenizer</a></li>
+<li><a href="#marshal">marshal</a></li>
+<li><a href="#marshal_to_builder">marshal_to_builder</a></li>
+<li><a href="#marshal_to_writer">marshal_to_writer</a></li>
+<li><a href="#next_rune">next_rune</a></li>
+<li><a href="#opt_write_end">opt_write_end</a></li>
+<li><a href="#opt_write_indentation">opt_write_indentation</a></li>
+<li><a href="#opt_write_iteration">opt_write_iteration</a></li>
+<li><a href="#opt_write_key">opt_write_key</a></li>
+<li><a href="#opt_write_start">opt_write_start</a></li>
+<li><a href="#parse">parse</a></li>
+<li><a href="#parse_array">parse_array</a></li>
+<li><a href="#parse_colon">parse_colon</a></li>
+<li><a href="#parse_comma">parse_comma</a></li>
+<li><a href="#parse_object">parse_object</a></li>
+<li><a href="#parse_object_body">parse_object_body</a></li>
+<li><a href="#parse_object_key">parse_object_key</a></li>
+<li><a href="#parse_string">parse_string</a></li>
+<li><a href="#parse_value">parse_value</a></li>
+<li><a href="#token_end_pos">token_end_pos</a></li>
+<li><a href="#unmarshal">unmarshal</a></li>
+<li><a href="#unmarshal_any">unmarshal_any</a></li>
+<li><a href="#unmarshal_string">unmarshal_string</a></li>
+<li><a href="#unquote_string">unquote_string</a></li>
+<li><a href="#validate_array">validate_array</a></li>
+<li><a href="#validate_object">validate_object</a></li>
+<li><a href="#validate_object_body">validate_object_body</a></li>
+<li><a href="#validate_object_key">validate_object_key</a></li>
+<li><a href="#validate_value">validate_value</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedure Groups" aria-labelledby="#doc-index-Procedure Groups-header">
+<summary id="#doc-index-Procedure Groups-header">
+Procedure Groups (0)</summary>
+<p class="pkg-empty-section">This section is empty.</p>
+</details>
+</div>
+</div>
+</div>
+<section class="documentation">
+<h2 id="pkg-Types" class="pkg-header">Types</h2>
+<div class="pkg-entity">
+<h3 id="Array"><span><a class="doc-id-link" href="#Array">Array<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/types.odin#L51"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Array :: <span class="keyword-type">distinct</span> [<span class="keyword">dynamic</span>]<a class="code-typename" href="/core/encoding/json/#Value">Value</a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Boolean"><span><a class="doc-id-link" href="#Boolean">Boolean<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/types.odin#L49"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Boolean :: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Error"><span><a class="doc-id-link" href="#Error">Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/types.odin#L64"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+	None, 
+	EOF,                            <span class="comment">// Not necessarily an error</span>
+	<span class="comment">// Tokenizing Errors</span>
+	Illegal_Character, 
+	Invalid_Number, 
+	String_Not_Terminated, 
+	Invalid_String, 
+	<span class="comment">// Parsing Errors</span>
+	Unexpected_Token, 
+	Expected_String_For_Object_Key, 
+	Duplicate_Object_Key, 
+	Expected_Colon_After_Key, 
+	<span class="comment">// Allocating Errors</span>
+	Invalid_Allocator, 
+	Out_Of_Memory, 
+}</pre>
+</div>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/core/encoding/json/#advance_token">advance_token</a></li>
+<li><a href="/core/encoding/json/#clone_string">clone_string</a></li>
+<li><a href="/core/encoding/json/#expect_token">expect_token</a></li>
+<li><a href="/core/encoding/json/#get_token">get_token</a></li>
+<li><a href="/core/encoding/json/#parse">parse</a></li>
+<li><a href="/core/encoding/json/#parse_array">parse_array</a></li>
+<li><a href="/core/encoding/json/#parse_colon">parse_colon</a></li>
+<li><a href="/core/encoding/json/#parse_object">parse_object</a></li>
+<li><a href="/core/encoding/json/#parse_object_body">parse_object_body</a></li>
+<li><a href="/core/encoding/json/#parse_object_key">parse_object_key</a></li>
+<li><a href="/core/encoding/json/#parse_string">parse_string</a></li>
+<li><a href="/core/encoding/json/#parse_value">parse_value</a></li>
+<li><a href="/core/encoding/json/#unquote_string">unquote_string</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Float"><span><a class="doc-id-link" href="#Float">Float<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/types.odin#L48"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Float :: <a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Integer"><span><a class="doc-id-link" href="#Integer">Integer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/types.odin#L47"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Integer :: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Marshal_Data_Error"><span><a class="doc-id-link" href="#Marshal_Data_Error">Marshal_Data_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/marshal.odin#L11"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Marshal_Data_Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+	None, 
+	Unsupported_Type, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Marshal_Error"><span><a class="doc-id-link" href="#Marshal_Error">Marshal_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/marshal.odin#L16"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Marshal_Error :: <span class="keyword-type">union</span> {
+	<a class="code-typename" href="/core/encoding/json/#Marshal_Data_Error">Marshal_Data_Error</a>, 
+	io.<a class="code-typename" href="/core/io/#Error">Error</a>, 
+}</pre>
+</div>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/core/encoding/json/#marshal">marshal</a></li>
+<li><a href="/core/encoding/json/#marshal_to_builder">marshal_to_builder</a></li>
+<li><a href="/core/encoding/json/#marshal_to_writer">marshal_to_writer</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Marshal_Options"><span><a class="doc-id-link" href="#Marshal_Options">Marshal_Options<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/marshal.odin#L22"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Marshal_Options :: <span class="keyword-type">struct</span> {
+	<span class="comment">// output based on spec</span>
+	spec:                             <a class="code-typename" href="/core/encoding/json/#Specification">Specification</a>,
+	<span class="comment">// use line breaks & tab|spaces</span>
+	pretty:                           <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	<span class="comment">// spacing</span>
+	use_spaces:                       <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	spaces:                           <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	<span class="comment">// state</span>
+	indentation:                      <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	<span class="comment">// option to output uint in JSON5 & MJSON</span>
+	write_uint_as_hex:                <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	<span class="comment">// mjson output options</span>
+	mjson_keys_use_quotes:            <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	mjson_keys_use_equal_sign:        <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	<span class="comment">// mjson state</span>
+	mjson_skipped_first_braces_start: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	mjson_skipped_first_braces_end:   <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>careful with MJSON maps & non quotes usage as keys without whitespace will lead to bad results</p>
+</details>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/encoding/json/#marshal">marshal</a></li>
+<li><a href="/core/encoding/json/#marshal_to_builder">marshal_to_builder</a></li>
+<li><a href="/core/encoding/json/#marshal_to_writer">marshal_to_writer</a></li>
+<li><a href="/core/encoding/json/#opt_write_end">opt_write_end</a></li>
+<li><a href="/core/encoding/json/#opt_write_indentation">opt_write_indentation</a></li>
+<li><a href="/core/encoding/json/#opt_write_iteration">opt_write_iteration</a></li>
+<li><a href="/core/encoding/json/#opt_write_key">opt_write_key</a></li>
+<li><a href="/core/encoding/json/#opt_write_start">opt_write_start</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Null"><span><a class="doc-id-link" href="#Null">Null<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/types.odin#L46"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Null :: <span class="keyword-type">distinct</span> <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Object"><span><a class="doc-id-link" href="#Object">Object<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/types.odin#L52"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Object :: <span class="keyword-type">distinct</span> <span class="keyword-type">map</span>[<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>]<a class="code-typename" href="/core/encoding/json/#Value">Value</a></pre>
+</div>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/core/encoding/json/#parse_object_body">parse_object_body</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Parser"><span><a class="doc-id-link" href="#Parser">Parser<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/parser.odin#L8"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Parser :: <span class="keyword-type">struct</span> {
+	tok:            <a class="code-typename" href="/core/encoding/json/#Tokenizer">Tokenizer</a>,
+	prev_token:     <a class="code-typename" href="/core/encoding/json/#Token">Token</a>,
+	curr_token:     <a class="code-typename" href="/core/encoding/json/#Token">Token</a>,
+	spec:           <a class="code-typename" href="/core/encoding/json/#Specification">Specification</a>,
+	allocator:      runtime.<a class="code-typename" href="/core/runtime/#Allocator">Allocator</a>,
+	parse_integers: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/encoding/json/#advance_token">advance_token</a></li>
+<li><a href="/core/encoding/json/#allow_token">allow_token</a></li>
+<li><a href="/core/encoding/json/#expect_token">expect_token</a></li>
+<li><a href="/core/encoding/json/#parse_array">parse_array</a></li>
+<li><a href="/core/encoding/json/#parse_colon">parse_colon</a></li>
+<li><a href="/core/encoding/json/#parse_comma">parse_comma</a></li>
+<li><a href="/core/encoding/json/#parse_object">parse_object</a></li>
+<li><a href="/core/encoding/json/#parse_object_body">parse_object_body</a></li>
+<li><a href="/core/encoding/json/#parse_object_key">parse_object_key</a></li>
+<li><a href="/core/encoding/json/#parse_value">parse_value</a></li>
+<li><a href="/core/encoding/json/#validate_array">validate_array</a></li>
+<li><a href="/core/encoding/json/#validate_object">validate_object</a></li>
+<li><a href="/core/encoding/json/#validate_object_body">validate_object_body</a></li>
+<li><a href="/core/encoding/json/#validate_object_key">validate_object_key</a></li>
+<li><a href="/core/encoding/json/#validate_value">validate_value</a></li>
+</ul>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/core/encoding/json/#make_parser">make_parser</a></li>
+<li><a href="/core/encoding/json/#make_parser_from_string">make_parser_from_string</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Pos"><span><a class="doc-id-link" href="#Pos">Pos<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/tokenizer.odin#L5"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Pos :: <span class="keyword-type">struct</span> {
+	offset: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	line:   <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	column: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+}</pre>
+</div>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/core/encoding/json/#token_end_pos">token_end_pos</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Specification"><span><a class="doc-id-link" href="#Specification">Specification<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/types.odin#L33"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Specification :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+	JSON, 
+	JSON5,        <span class="comment">// https://json5.org/</span>
+	SJSON,        <span class="comment">// https://bitsquid.blogspot.com/2009/10/simplified-json-notation.html</span>
+	Bitsquid = 2, 
+	MJSON    = 2, 
+}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>JSON </p>
+<pre>	strict JSON
+JSON5 
+	pure superset of JSON and valid JavaScript
+	https://json5.org/
+	
+	* Object keys may be an ECMAScript 5.1 IdentifierName.
+	* Objects may have a single trailing comma.
+	* Arrays may have a single trailing comma.
+	* Strings may be single quoted.
+	* Strings may span multiple lines by escaping new line characters.
+	* Strings may include character escapes
+	* Numbers may be hexadecimal.
+	* Numbers may have a leading or trailing decimal point.
+	* Numbers may be IEEE 754 positive infinity, negative infinity, and NaN.
+	* Numbers may begin with an explicit plus sign.
+	* Single and multi-line comments are allowed.
+	* Additional white space characters are allowed.
+	
+MJSON
+	pure superset of JSON5, may not be valid JavaScript
+	https://bitsquid.blogspot.com/2009/10/simplified-json-notation.html
+	
+	* All the same features as JSON5 plus extras.
+	* Assume an object definition at the root level (no need to surround entire file with { } ).
+	* Commas are optional, using comma insertion rules with newlines.
+	* Quotes around object keys are optional if the keys are valid identifiers.
+	* : can be replaced with =
+</pre>
+</details>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/encoding/json/#is_valid">is_valid</a></li>
+<li><a href="/core/encoding/json/#is_valid_number">is_valid_number</a></li>
+<li><a href="/core/encoding/json/#is_valid_string_literal">is_valid_string_literal</a></li>
+<li><a href="/core/encoding/json/#make_parser">make_parser</a></li>
+<li><a href="/core/encoding/json/#make_parser_from_string">make_parser_from_string</a></li>
+<li><a href="/core/encoding/json/#make_tokenizer">make_tokenizer</a></li>
+<li><a href="/core/encoding/json/#parse">parse</a></li>
+<li><a href="/core/encoding/json/#parse_string">parse_string</a></li>
+<li><a href="/core/encoding/json/#unmarshal">unmarshal</a></li>
+<li><a href="/core/encoding/json/#unmarshal_any">unmarshal_any</a></li>
+<li><a href="/core/encoding/json/#unmarshal_string">unmarshal_string</a></li>
+<li><a href="/core/encoding/json/#unquote_string">unquote_string</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="String"><span><a class="doc-id-link" href="#String">String<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/types.odin#L50"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">String :: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Token"><span><a class="doc-id-link" href="#Token">Token<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/tokenizer.odin#L11"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Token :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> pos: <a class="code-typename" href="/core/encoding/json/#Pos">Pos</a>,
+	kind: <a class="code-typename" href="/core/encoding/json/#Token_Kind">Token_Kind</a>,
+	text: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/encoding/json/#token_end_pos">token_end_pos</a></li>
+<li><a href="/core/encoding/json/#unquote_string">unquote_string</a></li>
+</ul>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/core/encoding/json/#advance_token">advance_token</a></li>
+<li><a href="/core/encoding/json/#get_token">get_token</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Token_Kind"><span><a class="doc-id-link" href="#Token_Kind">Token_Kind<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/tokenizer.odin#L17"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Token_Kind :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+	Invalid, 
+	EOF, 
+	Null, 
+	False, 
+	True, 
+	Infinity, 
+	NaN, 
+	Ident, 
+	Integer, 
+	Float, 
+	String, 
+	Colon, 
+	Comma, 
+	Open_Brace, 
+	Close_Brace, 
+	Open_Bracket, 
+	Close_Bracket, 
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/encoding/json/#allow_token">allow_token</a></li>
+<li><a href="/core/encoding/json/#expect_token">expect_token</a></li>
+<li><a href="/core/encoding/json/#parse_object_body">parse_object_body</a></li>
+<li><a href="/core/encoding/json/#validate_object_body">validate_object_body</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Tokenizer"><span><a class="doc-id-link" href="#Tokenizer">Tokenizer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/tokenizer.odin#L44"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Tokenizer :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> pos:        <a class="code-typename" href="/core/encoding/json/#Pos">Pos</a>,
+	data:             <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	r:                <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>,
+	<span class="comment">// current rune</span>
+	w:                <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	<span class="comment">// current rune width in bytes</span>
+	curr_line_offset: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	spec:             <a class="code-typename" href="/core/encoding/json/#Specification">Specification</a>,
+	parse_integers:   <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	insert_comma:     <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/encoding/json/#get_token">get_token</a></li>
+<li><a href="/core/encoding/json/#next_rune">next_rune</a></li>
+</ul>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/core/encoding/json/#make_tokenizer">make_tokenizer</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Unmarshal_Data_Error"><span><a class="doc-id-link" href="#Unmarshal_Data_Error">Unmarshal_Data_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/unmarshal.odin#L10"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Unmarshal_Data_Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+	Invalid_Data, 
+	Invalid_Parameter, 
+	Non_Pointer_Parameter, 
+	Multiple_Use_Field, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Unmarshal_Error"><span><a class="doc-id-link" href="#Unmarshal_Error">Unmarshal_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/unmarshal.odin#L22"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Unmarshal_Error :: <span class="keyword-type">union</span> {
+	<a class="code-typename" href="/core/encoding/json/#Error">Error</a>, 
+	<a class="code-typename" href="/core/encoding/json/#Unmarshal_Data_Error">Unmarshal_Data_Error</a>, 
+	<a class="code-typename" href="/core/encoding/json/#Unsupported_Type_Error">Unsupported_Type_Error</a>, 
+}</pre>
+</div>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/core/encoding/json/#unmarshal">unmarshal</a></li>
+<li><a href="/core/encoding/json/#unmarshal_any">unmarshal_any</a></li>
+<li><a href="/core/encoding/json/#unmarshal_string">unmarshal_string</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Unsupported_Type_Error"><span><a class="doc-id-link" href="#Unsupported_Type_Error">Unsupported_Type_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/unmarshal.odin#L17"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Unsupported_Type_Error :: <span class="keyword-type">struct</span> {
+	id:    <a href="/core/builtin#typeid"><span class="doc-builtin">typeid</span></a>,
+	token: <a class="code-typename" href="/core/encoding/json/#Token">Token</a>,
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Value"><span><a class="doc-id-link" href="#Value">Value<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/types.odin#L54"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Value :: <span class="keyword-type">union</span> {
+	<a class="code-typename" href="/core/encoding/json/#Null">Null</a>, 
+	<a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>, 
+	<a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a>, 
+	<a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>, 
+	<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, 
+	<a class="code-typename" href="/core/encoding/json/#Array">Array</a>, 
+	<a class="code-typename" href="/core/encoding/json/#Object">Object</a>, 
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/encoding/json/#destroy_value">destroy_value</a></li>
+</ul>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/core/encoding/json/#parse">parse</a></li>
+<li><a href="/core/encoding/json/#parse_array">parse_array</a></li>
+<li><a href="/core/encoding/json/#parse_object">parse_object</a></li>
+<li><a href="/core/encoding/json/#parse_string">parse_string</a></li>
+<li><a href="/core/encoding/json/#parse_value">parse_value</a></li>
+</ul>
+</div>
+<h2 id="pkg-Constants" class="pkg-header">Constants</h2>
+<div class="pkg-entity">
+<h3 id="DEFAULT_SPECIFICATION"><span><a class="doc-id-link" href="#DEFAULT_SPECIFICATION">DEFAULT_SPECIFICATION<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/types.odin#L44"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">DEFAULT_SPECIFICATION :: Specification.JSON5</pre>
+</div>
+</div>
+<h2 id="pkg-Variables" class="pkg-header">Variables</h2>
+<p class="pkg-empty-section">This section is empty.</p>
+<h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
+<div class="pkg-entity">
+<h3 id="advance_token"><span><a class="doc-id-link" href="#advance_token">advance_token<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/parser.odin#L60"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">advance_token :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/encoding/json/#Parser">Parser</a>) -> (<a class="code-typename" href="/core/encoding/json/#Token">Token</a>, <a class="code-typename" href="/core/encoding/json/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="allow_token"><span><a class="doc-id-link" href="#allow_token">allow_token<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/parser.odin#L68"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">allow_token :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/encoding/json/#Parser">Parser</a>, kind: <a class="code-typename" href="/core/encoding/json/#Token_Kind">Token_Kind</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="clone_string"><span><a class="doc-id-link" href="#clone_string">clone_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/parser.odin#L220"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">clone_string :: <span class="keyword-type">proc</span>(s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, allocator: runtime.<a class="code-typename" href="/core/runtime/#Allocator">Allocator</a>) -> (str: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, err: <a class="code-typename" href="/core/encoding/json/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="destroy_value"><span><a class="doc-id-link" href="#destroy_value">destroy_value<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/types.odin#L90"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">destroy_value :: <span class="keyword-type">proc</span>(value: <a class="code-typename" href="/core/encoding/json/#Value">Value</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="expect_token"><span><a class="doc-id-link" href="#expect_token">expect_token<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/parser.odin#L76"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">expect_token :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/encoding/json/#Parser">Parser</a>, kind: <a class="code-typename" href="/core/encoding/json/#Token_Kind">Token_Kind</a>) -> <a class="code-typename" href="/core/encoding/json/#Error">Error</a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="get_token"><span><a class="doc-id-link" href="#get_token">get_token<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/tokenizer.odin#L81"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">get_token :: <span class="keyword-type">proc</span>(t: ^<a class="code-typename" href="/core/encoding/json/#Tokenizer">Tokenizer</a>) -> (token: <a class="code-typename" href="/core/encoding/json/#Token">Token</a>, err: <a class="code-typename" href="/core/encoding/json/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="is_valid"><span><a class="doc-id-link" href="#is_valid">is_valid<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/validator.odin#L6"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">is_valid :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, spec: <a class="code-typename" href="/core/encoding/json/#Specification">Specification</a> = DEFAULT_SPECIFICATION, parse_integers: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>NOTE(bill): is_valid will not check for duplicate keys</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="is_valid_number"><span><a class="doc-id-link" href="#is_valid_number">is_valid_number<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/tokenizer.odin#L387"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">is_valid_number :: <span class="keyword-type">proc</span>(str: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, spec: <a class="code-typename" href="/core/encoding/json/#Specification">Specification</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="is_valid_string_literal"><span><a class="doc-id-link" href="#is_valid_string_literal">is_valid_string_literal<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/tokenizer.odin#L475"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">is_valid_string_literal :: <span class="keyword-type">proc</span>(str: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, spec: <a class="code-typename" href="/core/encoding/json/#Specification">Specification</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="make_parser"><span><a class="doc-id-link" href="#make_parser">make_parser<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/parser.odin#L17"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">make_parser :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, spec: <a class="code-typename" href="/core/encoding/json/#Specification">Specification</a> = DEFAULT_SPECIFICATION, parse_integers: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> <a class="code-typename" href="/core/encoding/json/#Parser">Parser</a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="make_parser_from_string"><span><a class="doc-id-link" href="#make_parser_from_string">make_parser_from_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/parser.odin#L20"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">make_parser_from_string :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, spec: <a class="code-typename" href="/core/encoding/json/#Specification">Specification</a> = DEFAULT_SPECIFICATION, parse_integers: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> <a class="code-typename" href="/core/encoding/json/#Parser">Parser</a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="make_tokenizer"><span><a class="doc-id-link" href="#make_tokenizer">make_tokenizer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/tokenizer.odin#L57"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">make_tokenizer :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, spec: <a class="code-typename" href="/core/encoding/json/#Specification">Specification</a> = DEFAULT_SPECIFICATION, parse_integers: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> <a class="code-typename" href="/core/encoding/json/#Tokenizer">Tokenizer</a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="marshal"><span><a class="doc-id-link" href="#marshal">marshal<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/marshal.odin#L48"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">marshal :: <span class="keyword-type">proc</span>(v: <a href="/core/builtin#any"><span class="doc-builtin">any</span></a>, opt: <a class="code-typename" href="/core/encoding/json/#Marshal_Options">Marshal_Options</a> = {}, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, err: <a class="code-typename" href="/core/encoding/json/#Marshal_Error">Marshal_Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="marshal_to_builder"><span><a class="doc-id-link" href="#marshal_to_builder">marshal_to_builder<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/marshal.odin#L64"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">marshal_to_builder :: <span class="keyword-type">proc</span>(b: ^strings.<a class="code-typename" href="/core/strings/#Builder">Builder</a>, v: <a href="/core/builtin#any"><span class="doc-builtin">any</span></a>, opt: ^<a class="code-typename" href="/core/encoding/json/#Marshal_Options">Marshal_Options</a>) -> <a class="code-typename" href="/core/encoding/json/#Marshal_Error">Marshal_Error</a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="marshal_to_writer"><span><a class="doc-id-link" href="#marshal_to_writer">marshal_to_writer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/marshal.odin#L68"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">marshal_to_writer :: <span class="keyword-type">proc</span>(w: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, v: <a href="/core/builtin#any"><span class="doc-builtin">any</span></a>, opt: ^<a class="code-typename" href="/core/encoding/json/#Marshal_Options">Marshal_Options</a>) -> (err: <a class="code-typename" href="/core/encoding/json/#Marshal_Error">Marshal_Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="next_rune"><span><a class="doc-id-link" href="#next_rune">next_rune<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/tokenizer.odin#L66"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">next_rune :: <span class="keyword-type">proc</span>(t: ^<a class="code-typename" href="/core/encoding/json/#Tokenizer">Tokenizer</a>) -> <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="opt_write_end"><span><a class="doc-id-link" href="#opt_write_end">opt_write_end<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/marshal.odin#L476"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">opt_write_end :: <span class="keyword-type">proc</span>(w: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, opt: ^<a class="code-typename" href="/core/encoding/json/#Marshal_Options">Marshal_Options</a>, c: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>decrease indent, write spacing and insert end byte</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="opt_write_indentation"><span><a class="doc-id-link" href="#opt_write_indentation">opt_write_indentation<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/marshal.odin#L496"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">opt_write_indentation :: <span class="keyword-type">proc</span>(w: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, opt: ^<a class="code-typename" href="/core/encoding/json/#Marshal_Options">Marshal_Options</a>) -> (err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>writes current indentation level based on options</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="opt_write_iteration"><span><a class="doc-id-link" href="#opt_write_iteration">opt_write_iteration<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/marshal.odin#L445"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">opt_write_iteration :: <span class="keyword-type">proc</span>(w: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, opt: ^<a class="code-typename" href="/core/encoding/json/#Marshal_Options">Marshal_Options</a>, iteration: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> (err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>insert comma separation and write indentations</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="opt_write_key"><span><a class="doc-id-link" href="#opt_write_key">opt_write_key<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/marshal.odin#L403"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">opt_write_key :: <span class="keyword-type">proc</span>(w: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, opt: ^<a class="code-typename" href="/core/encoding/json/#Marshal_Options">Marshal_Options</a>, name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> (err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>write key as quoted string or with optional quotes in mjson</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="opt_write_start"><span><a class="doc-id-link" href="#opt_write_start">opt_write_start<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/marshal.odin#L427"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">opt_write_start :: <span class="keyword-type">proc</span>(w: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, opt: ^<a class="code-typename" href="/core/encoding/json/#Marshal_Options">Marshal_Options</a>, c: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>insert start byte and increase indentation on pretty</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="parse"><span><a class="doc-id-link" href="#parse">parse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/parser.odin#L31"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">parse :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, spec: <a class="code-typename" href="/core/encoding/json/#Specification">Specification</a> = DEFAULT_SPECIFICATION, parse_integers: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (<a class="code-typename" href="/core/encoding/json/#Value">Value</a>, <a class="code-typename" href="/core/encoding/json/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="parse_array"><span><a class="doc-id-link" href="#parse_array">parse_array<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/parser.odin#L179"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">parse_array :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/encoding/json/#Parser">Parser</a>) -> (value: <a class="code-typename" href="/core/encoding/json/#Value">Value</a>, err: <a class="code-typename" href="/core/encoding/json/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="parse_colon"><span><a class="doc-id-link" href="#parse_colon">parse_colon<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/parser.odin#L86"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">parse_colon :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/encoding/json/#Parser">Parser</a>) -> (err: <a class="code-typename" href="/core/encoding/json/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="parse_comma"><span><a class="doc-id-link" href="#parse_comma">parse_comma<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/parser.odin#L94"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">parse_comma :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/encoding/json/#Parser">Parser</a>) -> (do_break: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="parse_object"><span><a class="doc-id-link" href="#parse_object">parse_object<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/parser.odin#L275"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">parse_object :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/encoding/json/#Parser">Parser</a>) -> (value: <a class="code-typename" href="/core/encoding/json/#Value">Value</a>, err: <a class="code-typename" href="/core/encoding/json/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="parse_object_body"><span><a class="doc-id-link" href="#parse_object_body">parse_object_body<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/parser.odin#L245"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">parse_object_body :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/encoding/json/#Parser">Parser</a>, end_token: <a class="code-typename" href="/core/encoding/json/#Token_Kind">Token_Kind</a>) -> (obj: <a class="code-typename" href="/core/encoding/json/#Object">Object</a>, err: <a class="code-typename" href="/core/encoding/json/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="parse_object_key"><span><a class="doc-id-link" href="#parse_object_key">parse_object_key<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/parser.odin#L231"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">parse_object_key :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/encoding/json/#Parser">Parser</a>, key_allocator: runtime.<a class="code-typename" href="/core/runtime/#Allocator">Allocator</a>) -> (key: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, err: <a class="code-typename" href="/core/encoding/json/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="parse_string"><span><a class="doc-id-link" href="#parse_string">parse_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/parser.odin#L35"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">parse_string :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, spec: <a class="code-typename" href="/core/encoding/json/#Specification">Specification</a> = DEFAULT_SPECIFICATION, parse_integers: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (<a class="code-typename" href="/core/encoding/json/#Value">Value</a>, <a class="code-typename" href="/core/encoding/json/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="parse_value"><span><a class="doc-id-link" href="#parse_value">parse_value<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/parser.odin#L109"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">parse_value :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/encoding/json/#Parser">Parser</a>) -> (value: <a class="code-typename" href="/core/encoding/json/#Value">Value</a>, err: <a class="code-typename" href="/core/encoding/json/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="token_end_pos"><span><a class="doc-id-link" href="#token_end_pos">token_end_pos<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/parser.odin#L54"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">token_end_pos :: <span class="keyword-type">proc</span>(tok: <a class="code-typename" href="/core/encoding/json/#Token">Token</a>) -> <a class="code-typename" href="/core/encoding/json/#Pos">Pos</a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="unmarshal"><span><a class="doc-id-link" href="#unmarshal">unmarshal<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/unmarshal.odin#L63"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">unmarshal :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, ptr: ^$T, spec: <a class="code-typename" href="/core/encoding/json/#Specification">Specification</a> = DEFAULT_SPECIFICATION, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> <a class="code-typename" href="/core/encoding/json/#Unmarshal_Error">Unmarshal_Error</a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="unmarshal_any"><span><a class="doc-id-link" href="#unmarshal_any">unmarshal_any<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/unmarshal.odin#L28"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">unmarshal_any :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, v: <a href="/core/builtin#any"><span class="doc-builtin">any</span></a>, spec: <a class="code-typename" href="/core/encoding/json/#Specification">Specification</a> = DEFAULT_SPECIFICATION, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> <a class="code-typename" href="/core/encoding/json/#Unmarshal_Error">Unmarshal_Error</a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="unmarshal_string"><span><a class="doc-id-link" href="#unmarshal_string">unmarshal_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/unmarshal.odin#L67"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">unmarshal_string :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, ptr: ^$T, spec: <a class="code-typename" href="/core/encoding/json/#Specification">Specification</a> = DEFAULT_SPECIFICATION, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> <a class="code-typename" href="/core/encoding/json/#Unmarshal_Error">Unmarshal_Error</a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="unquote_string"><span><a class="doc-id-link" href="#unquote_string">unquote_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/parser.odin#L284"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">unquote_string :: <span class="keyword-type">proc</span>(token: <a class="code-typename" href="/core/encoding/json/#Token">Token</a>, spec: <a class="code-typename" href="/core/encoding/json/#Specification">Specification</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (value: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, err: <a class="code-typename" href="/core/encoding/json/#Error">Error</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>IMPORTANT NOTE(bill): unquote_string assumes a mostly valid string</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="validate_array"><span><a class="doc-id-link" href="#validate_array">validate_array<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/validator.odin#L64"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">validate_array :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/encoding/json/#Parser">Parser</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="validate_object"><span><a class="doc-id-link" href="#validate_object">validate_object<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/validator.odin#L51"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">validate_object :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/encoding/json/#Parser">Parser</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="validate_object_body"><span><a class="doc-id-link" href="#validate_object_body">validate_object_body<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/validator.odin#L34"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">validate_object_body :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/encoding/json/#Parser">Parser</a>, end_token: <a class="code-typename" href="/core/encoding/json/#Token_Kind">Token_Kind</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="validate_object_key"><span><a class="doc-id-link" href="#validate_object_key">validate_object_key<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/validator.odin#L24"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">validate_object_key :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/encoding/json/#Parser">Parser</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="validate_value"><span><a class="doc-id-link" href="#validate_value">validate_value<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/validator.odin#L86"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">validate_value :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/encoding/json/#Parser">Parser</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
+<p class="pkg-empty-section">This section is empty.</p>
+</section>
+<h2 id="pkg-source-files">Source Files</h2>
+<ul>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/marshal.odin">marshal.odin</a></li>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/parser.odin">parser.odin</a></li>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/tokenizer.odin">tokenizer.odin</a></li>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/types.odin">types.odin</a></li>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/unmarshal.odin">unmarshal.odin</a></li>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/validator.odin">validator.odin</a></li>
+</ul>
+<h2 id="pkg-generation-information">Generation Information</h2>
+<p>Generated with <code>odin version dev-2023-09 (vendor "odin") Windows_amd64 @ 2023-09-05 17:19:48.805796700 +0000 UTC</code></p>
+</article>
+<div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#pkg-Types">Types</a><ul>
+<li><a href="#Array">Array</a></li>
+<li><a href="#Boolean">Boolean</a></li>
+<li><a href="#Error">Error</a></li>
+<li><a href="#Float">Float</a></li>
+<li><a href="#Integer">Integer</a></li>
+<li><a href="#Marshal_Data_Error">Marshal_Data_Error</a></li>
+<li><a href="#Marshal_Error">Marshal_Error</a></li>
+<li><a href="#Marshal_Options">Marshal_Options</a></li>
+<li><a href="#Null">Null</a></li>
+<li><a href="#Object">Object</a></li>
+<li><a href="#Parser">Parser</a></li>
+<li><a href="#Pos">Pos</a></li>
+<li><a href="#Specification">Specification</a></li>
+<li><a href="#String">String</a></li>
+<li><a href="#Token">Token</a></li>
+<li><a href="#Token_Kind">Token_Kind</a></li>
+<li><a href="#Tokenizer">Tokenizer</a></li>
+<li><a href="#Unmarshal_Data_Error">Unmarshal_Data_Error</a></li>
+<li><a href="#Unmarshal_Error">Unmarshal_Error</a></li>
+<li><a href="#Unsupported_Type_Error">Unsupported_Type_Error</a></li>
+<li><a href="#Value">Value</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Constants">Constants</a><ul>
+<li><a href="#DEFAULT_SPECIFICATION">DEFAULT_SPECIFICATION</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Procedures">Procedures</a><ul>
+<li><a href="#advance_token">advance_token</a></li>
+<li><a href="#allow_token">allow_token</a></li>
+<li><a href="#clone_string">clone_string</a></li>
+<li><a href="#destroy_value">destroy_value</a></li>
+<li><a href="#expect_token">expect_token</a></li>
+<li><a href="#get_token">get_token</a></li>
+<li><a href="#is_valid">is_valid</a></li>
+<li><a href="#is_valid_number">is_valid_number</a></li>
+<li><a href="#is_valid_string_literal">is_valid_string_literal</a></li>
+<li><a href="#make_parser">make_parser</a></li>
+<li><a href="#make_parser_from_string">make_parser_from_string</a></li>
+<li><a href="#make_tokenizer">make_tokenizer</a></li>
+<li><a href="#marshal">marshal</a></li>
+<li><a href="#marshal_to_builder">marshal_to_builder</a></li>
+<li><a href="#marshal_to_writer">marshal_to_writer</a></li>
+<li><a href="#next_rune">next_rune</a></li>
+<li><a href="#opt_write_end">opt_write_end</a></li>
+<li><a href="#opt_write_indentation">opt_write_indentation</a></li>
+<li><a href="#opt_write_iteration">opt_write_iteration</a></li>
+<li><a href="#opt_write_key">opt_write_key</a></li>
+<li><a href="#opt_write_start">opt_write_start</a></li>
+<li><a href="#parse">parse</a></li>
+<li><a href="#parse_array">parse_array</a></li>
+<li><a href="#parse_colon">parse_colon</a></li>
+<li><a href="#parse_comma">parse_comma</a></li>
+<li><a href="#parse_object">parse_object</a></li>
+<li><a href="#parse_object_body">parse_object_body</a></li>
+<li><a href="#parse_object_key">parse_object_key</a></li>
+<li><a href="#parse_string">parse_string</a></li>
+<li><a href="#parse_value">parse_value</a></li>
+<li><a href="#token_end_pos">token_end_pos</a></li>
+<li><a href="#unmarshal">unmarshal</a></li>
+<li><a href="#unmarshal_any">unmarshal_any</a></li>
+<li><a href="#unmarshal_string">unmarshal_string</a></li>
+<li><a href="#unquote_string">unquote_string</a></li>
+<li><a href="#validate_array">validate_array</a></li>
+<li><a href="#validate_object">validate_object</a></li>
+<li><a href="#validate_object_body">validate_object_body</a></li>
+<li><a href="#validate_object_key">validate_object_key</a></li>
+<li><a href="#validate_value">validate_value</a></li>
+</ul>
+</li>
+<li><a href="#pkg-source-files">Source Files</a></ul>
+</nav>
+</div></div>
+<script type="text/javascript">var odin_pkg_name = "json";</script>
+</div>
+
+</div>
+</main>
+
+<footer class="odin-footer">
+	<div class="container pb-5 pt-5">
+		<div class="row g-4">
+		<div class="col">
+		<a class="navbar-brand" href="https://odin-lang.org">
+		<img class="mb-3" src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+		<p>
+		The Data-Oriented Language for Sane Software Development.
+		</p>
+		</div>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Resources</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://odin-lang.org/docs" class="link-light">Docs</a></li>
+			<li><a href="https://pkg.odin-lang.org/" class="link-light">Packages</a></li>
+			<li><a href="https://odin-lang.org/news" class="link-light">News</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Community</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin" target="_blank" class="link-light">GitHub</a></li>
+			<li><a href="https://discord.com/invite/sVBPHEv" target="_blank" class="link-light">Discord</a></li>
+			<li><a href="https://www.twitch.tv/ginger_bill" target="_blank" class="link-light">Twitch</a></li>
+			<li><a href="https://www.youtube.com/channel/UCUSck1dOH7VKmG4lRW7tZXg" target="_blank" class="link-light">YouTube</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Contribute</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin/issues" target="_blank" class="link-light">Issues</a></li>
+			<li><a href="https://www.patreon.com/gingerbill" target="_blank" class="link-light">Donate</a></li>
+			</ul>
+			</nav>
+		</div>
+		<div class="mt-4 text-muted">© 2016–2023 Ginger Bill</div>
+	</div>
+</footer>
+
+<script src="https://odin-lang.org/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://odin-lang.org/js/script.js"></script>
+<script src="/pkg-data.js"></script>
+<script src="/search.js"></script>
+</body>
+</html>

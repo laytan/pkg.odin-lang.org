@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>package text/edit - pkg.odin-lang.org</title>	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/scss/custom.min.css">
+	<link rel=stylesheet href="//odin-lang.org/lib/highlight/styles/github-dark.min.css">
+	<script src="//odin-lang.org/lib/highlight/highlight.min.js"></script>
+
+	<script>hljs.registerLanguage("odin",function(a){return{aliases:["odin","odinlang","odin-lang"],keywords:{keyword:"auto_cast bit_set break case cast context continue defer distinct do dynamic else enum fallthrough for foreign if import in map not_in or_else or_return package proc return struct switch transmute type_of typeid union using when where",literal:"true false nil",built_in:"abs align_of cap clamp complex conj expand_to_tuple imag jmag kmag len max min offset_of quaternion real size_of soa_unzip soa_zip swizzle type_info_of type_of typeid_of"},illegal:"</",contains:[a.C_LINE_COMMENT_MODE,a.C_BLOCK_COMMENT_MODE,{className:"string",variants:[a.QUOTE_STRING_MODE,{begin:"'",end:"[^\\\\]'"},{begin:"`",end:"`"}]},{className:"number",variants:[{begin:a.C_NUMBER_RE+"[ijk]",relevance:1},a.C_NUMBER_MODE]}]}})</script>
+	<script>hljs.highlightAll()</script>
+	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/css/style.css">
+
+	<link rel="stylesheet" type="text/css" href="/style.css">
+
+	</style>
+</head>
+<body>
+<header class="sticky-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary odin-menu">
+		<div class="container">
+			<a class="navbar-brand" href="https://odin-lang.org/">
+			<img src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#odin-navbar-content" aria-controls="odin-navbar-content" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="odin-navbar-content">
+			<ul class="navbar-nav ms-md-auto">
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/docs">Docs</a></li>
+				<li class="nav-item"><a class="nav-link active" href="/">Packages</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/news">News</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/showcase">Showcase</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/community">Community</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://github.com/odin-lang/Odin" target="_blank">GitHub</a></li>
+			</ul>
+		</div>
+		</div>
+	</nav>
+</header>
+<main>
+<div class="container full-width">
+<div class="row odin-main my-4" id="pkg">
+<nav id="pkg-sidebar" class="col-lg-2 odin-sidebar-border navbar-light sticky-top odin-below-navbar">
+<div class="py-3">
+<h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
+<ul>
+<li class="nav-item"><a href="/core/builtin">builtin</a></li>
+<li class="nav-item"><a href="/core/bufio">bufio</a></li>
+<li class="nav-item"><a href="/core/bytes">bytes</a></li>
+<li class="nav-item"><a href="/core/c">c</a><ul>
+<li><a href="/core/c/frontend/preprocessor">frontend/preprocessor</a></li>
+<li><a href="/core/c/frontend/tokenizer">frontend/tokenizer</a></li>
+<li><a href="/core/c/libc">libc</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/compress">compress</a><ul>
+<li><a href="/core/compress/gzip">gzip</a></li>
+<li><a href="/core/compress/shoco">shoco</a></li>
+<li><a href="/core/compress/zlib">zlib</a></li>
+</ul>
+
+</li>
+<li class="nav-item">container<ul>
+<li><a href="/core/container/bit_array">bit_array</a></li>
+<li><a href="/core/container/intrusive/list">intrusive/list</a></li>
+<li><a href="/core/container/lru">lru</a></li>
+<li><a href="/core/container/priority_queue">priority_queue</a></li>
+<li><a href="/core/container/queue">queue</a></li>
+<li><a href="/core/container/small_array">small_array</a></li>
+<li><a href="/core/container/topological_sort">topological_sort</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/crypto">crypto</a><ul>
+<li><a href="/core/crypto/blake">blake</a></li>
+<li><a href="/core/crypto/blake2b">blake2b</a></li>
+<li><a href="/core/crypto/blake2s">blake2s</a></li>
+<li><a href="/core/crypto/chacha20">chacha20</a></li>
+<li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
+<li><a href="/core/crypto/gost">gost</a></li>
+<li><a href="/core/crypto/groestl">groestl</a></li>
+<li><a href="/core/crypto/haval">haval</a></li>
+<li><a href="/core/crypto/jh">jh</a></li>
+<li><a href="/core/crypto/keccak">keccak</a></li>
+<li><a href="/core/crypto/md2">md2</a></li>
+<li><a href="/core/crypto/md4">md4</a></li>
+<li><a href="/core/crypto/md5">md5</a></li>
+<li><a href="/core/crypto/poly1305">poly1305</a></li>
+<li><a href="/core/crypto/ripemd">ripemd</a></li>
+<li><a href="/core/crypto/sha1">sha1</a></li>
+<li><a href="/core/crypto/sha2">sha2</a></li>
+<li><a href="/core/crypto/sha3">sha3</a></li>
+<li><a href="/core/crypto/shake">shake</a></li>
+<li><a href="/core/crypto/sm3">sm3</a></li>
+<li><a href="/core/crypto/streebog">streebog</a></li>
+<li><a href="/core/crypto/tiger">tiger</a></li>
+<li><a href="/core/crypto/tiger2">tiger2</a></li>
+<li><a href="/core/crypto/util">util</a></li>
+<li><a href="/core/crypto/whirlpool">whirlpool</a></li>
+<li><a href="/core/crypto/x25519">x25519</a></li>
+</ul>
+
+</li>
+<li class="nav-item">debug<ul>
+<li><a href="/core/debug/pe">pe</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/dynlib">dynlib</a></li>
+<li class="nav-item">encoding<ul>
+<li><a href="/core/encoding/base32">base32</a></li>
+<li><a href="/core/encoding/base64">base64</a></li>
+<li><a href="/core/encoding/csv">csv</a></li>
+<li><a href="/core/encoding/endian">endian</a></li>
+<li><a href="/core/encoding/entity">entity</a></li>
+<li><a href="/core/encoding/hex">hex</a></li>
+<li><a href="/core/encoding/hxa">hxa</a></li>
+<li><a href="/core/encoding/json">json</a></li>
+<li><a href="/core/encoding/varint">varint</a></li>
+<li><a href="/core/encoding/xml">xml</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/fmt">fmt</a></li>
+<li class="nav-item"><a href="/core/hash">hash</a><ul>
+<li><a href="/core/hash/xxhash">xxhash</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/image">image</a><ul>
+<li><a href="/core/image/netpbm">netpbm</a></li>
+<li><a href="/core/image/png">png</a></li>
+<li><a href="/core/image/qoi">qoi</a></li>
+<li><a href="/core/image/tga">tga</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/io">io</a></li>
+<li class="nav-item"><a href="/core/log">log</a></li>
+<li class="nav-item"><a href="/core/math">math</a><ul>
+<li><a href="/core/math/big">big</a></li>
+<li><a href="/core/math/bits">bits</a></li>
+<li><a href="/core/math/cmplx">cmplx</a></li>
+<li><a href="/core/math/ease">ease</a></li>
+<li><a href="/core/math/fixed">fixed</a></li>
+<li><a href="/core/math/linalg">linalg</a></li>
+<li><a href="/core/math/linalg/glsl">linalg/glsl</a></li>
+<li><a href="/core/math/linalg/hlsl">linalg/hlsl</a></li>
+<li><a href="/core/math/noise">noise</a></li>
+<li><a href="/core/math/rand">rand</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/mem">mem</a><ul>
+<li><a href="/core/mem/virtual">virtual</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/net">net</a></li>
+<li class="nav-item">odin<ul>
+<li><a href="/core/odin/ast">ast</a></li>
+<li><a href="/core/odin/doc-format">doc-format</a></li>
+<li><a href="/core/odin/format">format</a></li>
+<li><a href="/core/odin/parser">parser</a></li>
+<li><a href="/core/odin/printer">printer</a></li>
+<li><a href="/core/odin/tokenizer">tokenizer</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/os">os</a></li>
+<li class="nav-item">path<ul>
+<li><a href="/core/path/filepath">filepath</a></li>
+<li><a href="/core/path/slashpath">slashpath</a></li>
+</ul>
+
+</li>
+<li class="nav-item">prof<ul>
+<li><a href="/core/prof/spall">spall</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/reflect">reflect</a></li>
+<li class="nav-item"><a href="/core/runtime">runtime</a></li>
+<li class="nav-item"><a href="/core/simd">simd</a></li>
+<li class="nav-item"><a href="/core/slice">slice</a><ul>
+<li><a href="/core/slice/heap">heap</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/sort">sort</a></li>
+<li class="nav-item"><a href="/core/strconv">strconv</a><ul>
+<li><a href="/core/strconv/decimal">decimal</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/strings">strings</a></li>
+<li class="nav-item"><a href="/core/sync">sync</a></li>
+<li class="nav-item"><a href="/core/testing">testing</a></li>
+<li class="nav-item">text<ul>
+<li><a class="active" href="/core/text/edit">edit</a></li>
+<li><a href="/core/text/i18n">i18n</a></li>
+<li><a href="/core/text/match">match</a></li>
+<li><a href="/core/text/scanner">scanner</a></li>
+<li><a href="/core/text/table">table</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/thread">thread</a></li>
+<li class="nav-item"><a href="/core/time">time</a></li>
+<li class="nav-item"><a href="/core/unicode">unicode</a><ul>
+<li><a href="/core/unicode/utf16">utf16</a></li>
+<li><a href="/core/unicode/utf8">utf8</a></li>
+<li><a href="/core/unicode/utf8/utf8string">utf8/utf8string</a></li>
+</ul>
+
+</li>
+</ul>
+</div>
+</nav>
+<article class="col-lg-8 p-4 documentation odin-article">
+<nav class="pkg-breadcrumb" aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="/core">core</a></li>
+<li class="breadcrumb-item">text</li>
+<li class="breadcrumb-item active" aria-current="page"><a href="/core/text/edit">edit</a></li>
+</ol>
+</nav>
+<h1>package core:text/edit<div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit"><em>Source</em></a></div></h1>
+
+		<div class="odin-search-wrapper">
+			<input type="search" id="odin-search" class="odin-search-package" autocomplete="off" spellcheck="false" placeholder="Fuzzy Search...">
+			<div class="odin-search-shortcut">
+				<div class="odin-search-key key-macos">⌘K</div>
+				<div class="odin-search-key key-windows">Ctrl+K</div>
+				<span class="odin-search-or">or</span>
+				<div class="odin-search-key">/</div>
+			</div>
+		</div>
+	
+<div id="odin-search-info">
+<div id="odin-search-time"></div>
+
+		<div id="odin-search-options">
+			<input type="checkbox" id="odin-search-filter" name="odin-search-filter">
+			<label for="odin-search-filter">Filter Results</label>
+		</div>
+</div>
+<ul id="odin-search-results"></ul>
+<div id="pkg-top">
+<div id="pkg-index">
+<h2>Index</h2>
+<div>
+<details class="doc-index" id="doc-index-Types" aria-labelledby="#doc-index-Types-header">
+<summary id="#doc-index-Types-header">
+Types (5)</summary>
+<ul>
+<li><a href="#Command">Command</a></li>
+<li><a href="#Command_Set">Command_Set</a></li>
+<li><a href="#State">State</a></li>
+<li><a href="#Translation">Translation</a></li>
+<li><a href="#Undo_State">Undo_State</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Constants" aria-labelledby="#doc-index-Constants-header">
+<summary id="#doc-index-Constants-header">
+Constants (2)</summary>
+<ul>
+<li><a href="#DEFAULT_UNDO_TIMEOUT">DEFAULT_UNDO_TIMEOUT</a></li>
+<li><a href="#MULTILINE_COMMANDS">MULTILINE_COMMANDS</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Variables" aria-labelledby="#doc-index-Variables-header">
+<summary id="#doc-index-Variables-header">
+Variables (0)</summary>
+<p class="pkg-empty-section">This section is empty.</p>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
+<summary id="#doc-index-Procedures-header">
+Procedures (25)</summary>
+<ul>
+<li><a href="#begin">begin</a></li>
+<li><a href="#copy">copy</a></li>
+<li><a href="#current_selected_text">current_selected_text</a></li>
+<li><a href="#cut">cut</a></li>
+<li><a href="#delete_to">delete_to</a></li>
+<li><a href="#destroy">destroy</a></li>
+<li><a href="#end">end</a></li>
+<li><a href="#has_selection">has_selection</a></li>
+<li><a href="#init">init</a></li>
+<li><a href="#input_runes">input_runes</a></li>
+<li><a href="#input_text">input_text</a></li>
+<li><a href="#insert">insert</a></li>
+<li><a href="#move_to">move_to</a></li>
+<li><a href="#paste">paste</a></li>
+<li><a href="#perform_command">perform_command</a></li>
+<li><a href="#remove">remove</a></li>
+<li><a href="#select_to">select_to</a></li>
+<li><a href="#selection_delete">selection_delete</a></li>
+<li><a href="#set_text">set_text</a></li>
+<li><a href="#sorted_selection">sorted_selection</a></li>
+<li><a href="#translate_position">translate_position</a></li>
+<li><a href="#undo">undo</a></li>
+<li><a href="#undo_check">undo_check</a></li>
+<li><a href="#undo_clear">undo_clear</a></li>
+<li><a href="#undo_state_push">undo_state_push</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedure Groups" aria-labelledby="#doc-index-Procedure Groups-header">
+<summary id="#doc-index-Procedure Groups-header">
+Procedure Groups (0)</summary>
+<p class="pkg-empty-section">This section is empty.</p>
+</details>
+</div>
+</div>
+</div>
+<section class="documentation">
+<h2 id="pkg-Types" class="pkg-header">Types</h2>
+<div class="pkg-entity">
+<h3 id="Command"><span><a class="doc-id-link" href="#Command">Command<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L342"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Command :: <span class="keyword-type">enum</span> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {
+	None, 
+	Undo, 
+	Redo, 
+	New_Line,          <span class="comment">// multi-lines</span>
+	Cut, 
+	Copy, 
+	Paste, 
+	Select_All, 
+	Backspace, 
+	Delete, 
+	Delete_Word_Left, 
+	Delete_Word_Right, 
+	Left, 
+	Right, 
+	Up,                <span class="comment">// multi-lines</span>
+	Down,              <span class="comment">// multi-lines</span>
+	Word_Left, 
+	Word_Right, 
+	Start, 
+	End, 
+	Line_Start, 
+	Line_End, 
+	Select_Left, 
+	Select_Right, 
+	Select_Up,         <span class="comment">// multi-lines</span>
+	Select_Down,       <span class="comment">// multi-lines</span>
+	Select_Word_Left, 
+	Select_Word_Right, 
+	Select_Start, 
+	Select_End, 
+	Select_Line_Start, 
+	Select_Line_End, 
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/text/edit/#perform_command">perform_command</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Command_Set"><span><a class="doc-id-link" href="#Command_Set">Command_Set<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L340"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Command_Set :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/text/edit/#Command">Command</a>; <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>]</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="State"><span><a class="doc-id-link" href="#State">State<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L17"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">State :: <span class="keyword-type">struct</span> {
+	selection:           [2]<a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	line_start,
+	line_end:            <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	<span class="comment">// initialized each "frame" with `begin`</span>
+	builder:             ^strings.<a class="code-typename" href="/core/strings/#Builder">Builder</a>,
+	<span class="comment">// let the caller store the text buffer data</span>
+	up_index,
+	down_index:          <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	<span class="comment">// undo</span>
+	undo:                [<span class="keyword">dynamic</span>]^<a class="code-typename" href="/core/text/edit/#Undo_State">Undo_State</a>,
+	redo:                [<span class="keyword">dynamic</span>]^<a class="code-typename" href="/core/text/edit/#Undo_State">Undo_State</a>,
+	undo_text_allocator: runtime.<a class="code-typename" href="/core/runtime/#Allocator">Allocator</a>,
+	id:                  <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>,
+	<span class="comment">// Timeout information</span>
+	current_time:        time.<a class="code-typename" href="/core/time/#Tick">Tick</a>,
+	last_edit_time:      time.<a class="code-typename" href="/core/time/#Tick">Tick</a>,
+	undo_timeout:        time.<a class="code-typename" href="/core/time/#Duration">Duration</a>,
+	<span class="comment">// Set these if you want cut/copy/paste functionality</span>
+	set_clipboard:       <span class="keyword-type">proc</span>(user_data: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, text: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> (ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>),
+	get_clipboard:       <span class="keyword-type">proc</span>(user_data: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>) -> (text: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>),
+	clipboard_user_data: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>,
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/text/edit/#begin">begin</a></li>
+<li><a href="/core/text/edit/#copy">copy</a></li>
+<li><a href="/core/text/edit/#current_selected_text">current_selected_text</a></li>
+<li><a href="/core/text/edit/#cut">cut</a></li>
+<li><a href="/core/text/edit/#delete_to">delete_to</a></li>
+<li><a href="/core/text/edit/#destroy">destroy</a></li>
+<li><a href="/core/text/edit/#end">end</a></li>
+<li><a href="/core/text/edit/#has_selection">has_selection</a></li>
+<li><a href="/core/text/edit/#init">init</a></li>
+<li><a href="/core/text/edit/#input_runes">input_runes</a></li>
+<li><a href="/core/text/edit/#input_text">input_text</a></li>
+<li><a href="/core/text/edit/#insert">insert</a></li>
+<li><a href="/core/text/edit/#move_to">move_to</a></li>
+<li><a href="/core/text/edit/#paste">paste</a></li>
+<li><a href="/core/text/edit/#perform_command">perform_command</a></li>
+<li><a href="/core/text/edit/#remove">remove</a></li>
+<li><a href="/core/text/edit/#select_to">select_to</a></li>
+<li><a href="/core/text/edit/#selection_delete">selection_delete</a></li>
+<li><a href="/core/text/edit/#set_text">set_text</a></li>
+<li><a href="/core/text/edit/#sorted_selection">sorted_selection</a></li>
+<li><a href="/core/text/edit/#translate_position">translate_position</a></li>
+<li><a href="/core/text/edit/#undo">undo</a></li>
+<li><a href="/core/text/edit/#undo_check">undo_check</a></li>
+<li><a href="/core/text/edit/#undo_clear">undo_clear</a></li>
+<li><a href="/core/text/edit/#undo_state_push">undo_state_push</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Translation"><span><a class="doc-id-link" href="#Translation">Translation<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L51"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Translation :: <span class="keyword-type">enum</span> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {
+	Start, 
+	End, 
+	Left, 
+	Right, 
+	Up, 
+	Down, 
+	Word_Left, 
+	Word_Right, 
+	Word_Start, 
+	Word_End, 
+	Soft_Line_Start, 
+	Soft_Line_End, 
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/text/edit/#delete_to">delete_to</a></li>
+<li><a href="/core/text/edit/#move_to">move_to</a></li>
+<li><a href="/core/text/edit/#select_to">select_to</a></li>
+<li><a href="/core/text/edit/#translate_position">translate_position</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Undo_State"><span><a class="doc-id-link" href="#Undo_State">Undo_State<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L45"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Undo_State :: <span class="keyword-type">struct</span> {
+	selection: [2]<a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	len:       <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	text:      [0]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+}</pre>
+</div>
+</div>
+<h2 id="pkg-Constants" class="pkg-header">Constants</h2>
+<div class="pkg-entity">
+<h3 id="DEFAULT_UNDO_TIMEOUT"><span><a class="doc-id-link" href="#DEFAULT_UNDO_TIMEOUT">DEFAULT_UNDO_TIMEOUT<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L15"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">DEFAULT_UNDO_TIMEOUT: time.<a class="code-typename" href="/core/time/#Duration">Duration</a> : 300 * time.Millisecond</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="MULTILINE_COMMANDS"><span><a class="doc-id-link" href="#MULTILINE_COMMANDS">MULTILINE_COMMANDS<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L377"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MULTILINE_COMMANDS :: Command_Set{.New_Line, .Up, .Down, .Select_Up, .Select_Down}</pre>
+</div>
+</div>
+<h2 id="pkg-Variables" class="pkg-header">Variables</h2>
+<p class="pkg-empty-section">This section is empty.</p>
+<h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
+<div class="pkg-entity">
+<h3 id="begin"><span><a class="doc-id-link" href="#begin">begin<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L87"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">begin :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>, id: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, builder: ^strings.<a class="code-typename" href="/core/strings/#Builder">Builder</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Call at the beginning of each frame</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="copy"><span><a class="doc-id-link" href="#copy">copy<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L325"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">copy :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="current_selected_text"><span><a class="doc-id-link" href="#current_selected_text">current_selected_text<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L311"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">current_selected_text :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>) -> <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="cut"><span><a class="doc-id-link" href="#cut">cut<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L317"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">cut :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="delete_to"><span><a class="doc-id-link" href="#delete_to">delete_to<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L298"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">delete_to :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>, t: <a class="code-typename" href="/core/text/edit/#Translation">Translation</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="destroy"><span><a class="doc-id-link" href="#destroy">destroy<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L77"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">destroy :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="end"><span><a class="doc-id-link" href="#end">end<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L105"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">end :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Call at the end of each frame</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="has_selection"><span><a class="doc-id-link" href="#has_selection">has_selection<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L198"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">has_selection :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="init"><span><a class="doc-id-link" href="#init">init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L67"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">init :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>, undo_text_allocator, undo_state_allocator: runtime.<a class="code-typename" href="/core/runtime/#Allocator">Allocator</a>, undo_timeout: time.<a class="code-typename" href="/core/time/#Duration">Duration</a> = DEFAULT_UNDO_TIMEOUT) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="input_runes"><span><a class="doc-id-link" href="#input_runes">input_runes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L169"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">input_runes :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>, text: []<a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="input_text"><span><a class="doc-id-link" href="#input_text">input_text<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L157"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">input_text :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>, text: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="insert"><span><a class="doc-id-link" href="#insert">insert<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L186"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">insert :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>, at: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, text: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="move_to"><span><a class="doc-id-link" href="#move_to">move_to<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L283"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">move_to :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>, t: <a class="code-typename" href="/core/text/edit/#Translation">Translation</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="paste"><span><a class="doc-id-link" href="#paste">paste<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L332"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">paste :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="perform_command"><span><a class="doc-id-link" href="#perform_command">perform_command<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L379"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">perform_command :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>, cmd: <a class="code-typename" href="/core/text/edit/#Command">Command</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="remove"><span><a class="doc-id-link" href="#remove">remove<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L191"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">remove :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>, lo, hi: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="select_to"><span><a class="doc-id-link" href="#select_to">select_to<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L295"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">select_to :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>, t: <a class="code-typename" href="/core/text/edit/#Translation">Translation</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="selection_delete"><span><a class="doc-id-link" href="#selection_delete">selection_delete<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L213"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">selection_delete :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="set_text"><span><a class="doc-id-link" href="#set_text">set_text<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L110"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">set_text :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>, text: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="sorted_selection"><span><a class="doc-id-link" href="#sorted_selection">sorted_selection<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L202"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">sorted_selection :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>) -> (lo, hi: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="translate_position"><span><a class="doc-id-link" href="#translate_position">translate_position<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L221"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">translate_position :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>, pos: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, t: <a class="code-typename" href="/core/text/edit/#Translation">Translation</a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="undo"><span><a class="doc-id-link" href="#undo">undo<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L128"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">undo :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>, undo, redo: ^[<span class="keyword">dynamic</span>]^<a class="code-typename" href="/core/text/edit/#Undo_State">Undo_State</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="undo_check"><span><a class="doc-id-link" href="#undo_check">undo_check<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L147"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">undo_check :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="undo_clear"><span><a class="doc-id-link" href="#undo_clear">undo_clear<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L140"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">undo_clear :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>, undo: ^[<span class="keyword">dynamic</span>]^<a class="code-typename" href="/core/text/edit/#Undo_State">Undo_State</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="undo_state_push"><span><a class="doc-id-link" href="#undo_state_push">undo_state_push<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin#L116"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">undo_state_push :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/text/edit/#State">State</a>, undo: ^[<span class="keyword">dynamic</span>]^<a class="code-typename" href="/core/text/edit/#Undo_State">Undo_State</a>) -> runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a> {…}</pre>
+</div>
+</div>
+<h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
+<p class="pkg-empty-section">This section is empty.</p>
+</section>
+<h2 id="pkg-source-files">Source Files</h2>
+<ul>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/text/edit/text_edit.odin">text_edit.odin</a></li>
+</ul>
+<h2 id="pkg-generation-information">Generation Information</h2>
+<p>Generated with <code>odin version dev-2023-09 (vendor "odin") Windows_amd64 @ 2023-09-05 17:19:48.411891200 +0000 UTC</code></p>
+</article>
+<div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#pkg-Types">Types</a><ul>
+<li><a href="#Command">Command</a></li>
+<li><a href="#Command_Set">Command_Set</a></li>
+<li><a href="#State">State</a></li>
+<li><a href="#Translation">Translation</a></li>
+<li><a href="#Undo_State">Undo_State</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Constants">Constants</a><ul>
+<li><a href="#DEFAULT_UNDO_TIMEOUT">DEFAULT_UNDO_TIMEOUT</a></li>
+<li><a href="#MULTILINE_COMMANDS">MULTILINE_COMMANDS</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Procedures">Procedures</a><ul>
+<li><a href="#begin">begin</a></li>
+<li><a href="#copy">copy</a></li>
+<li><a href="#current_selected_text">current_selected_text</a></li>
+<li><a href="#cut">cut</a></li>
+<li><a href="#delete_to">delete_to</a></li>
+<li><a href="#destroy">destroy</a></li>
+<li><a href="#end">end</a></li>
+<li><a href="#has_selection">has_selection</a></li>
+<li><a href="#init">init</a></li>
+<li><a href="#input_runes">input_runes</a></li>
+<li><a href="#input_text">input_text</a></li>
+<li><a href="#insert">insert</a></li>
+<li><a href="#move_to">move_to</a></li>
+<li><a href="#paste">paste</a></li>
+<li><a href="#perform_command">perform_command</a></li>
+<li><a href="#remove">remove</a></li>
+<li><a href="#select_to">select_to</a></li>
+<li><a href="#selection_delete">selection_delete</a></li>
+<li><a href="#set_text">set_text</a></li>
+<li><a href="#sorted_selection">sorted_selection</a></li>
+<li><a href="#translate_position">translate_position</a></li>
+<li><a href="#undo">undo</a></li>
+<li><a href="#undo_check">undo_check</a></li>
+<li><a href="#undo_clear">undo_clear</a></li>
+<li><a href="#undo_state_push">undo_state_push</a></li>
+</ul>
+</li>
+<li><a href="#pkg-source-files">Source Files</a></ul>
+</nav>
+</div></div>
+<script type="text/javascript">var odin_pkg_name = "text_edit";</script>
+</div>
+
+</div>
+</main>
+
+<footer class="odin-footer">
+	<div class="container pb-5 pt-5">
+		<div class="row g-4">
+		<div class="col">
+		<a class="navbar-brand" href="https://odin-lang.org">
+		<img class="mb-3" src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+		<p>
+		The Data-Oriented Language for Sane Software Development.
+		</p>
+		</div>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Resources</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://odin-lang.org/docs" class="link-light">Docs</a></li>
+			<li><a href="https://pkg.odin-lang.org/" class="link-light">Packages</a></li>
+			<li><a href="https://odin-lang.org/news" class="link-light">News</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Community</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin" target="_blank" class="link-light">GitHub</a></li>
+			<li><a href="https://discord.com/invite/sVBPHEv" target="_blank" class="link-light">Discord</a></li>
+			<li><a href="https://www.twitch.tv/ginger_bill" target="_blank" class="link-light">Twitch</a></li>
+			<li><a href="https://www.youtube.com/channel/UCUSck1dOH7VKmG4lRW7tZXg" target="_blank" class="link-light">YouTube</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Contribute</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin/issues" target="_blank" class="link-light">Issues</a></li>
+			<li><a href="https://www.patreon.com/gingerbill" target="_blank" class="link-light">Donate</a></li>
+			</ul>
+			</nav>
+		</div>
+		<div class="mt-4 text-muted">© 2016–2023 Ginger Bill</div>
+	</div>
+</footer>
+
+<script src="https://odin-lang.org/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://odin-lang.org/js/script.js"></script>
+<script src="/pkg-data.js"></script>
+<script src="/search.js"></script>
+</body>
+</html>

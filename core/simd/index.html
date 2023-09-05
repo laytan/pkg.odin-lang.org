@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>package simd - pkg.odin-lang.org</title>	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/scss/custom.min.css">
+	<link rel=stylesheet href="//odin-lang.org/lib/highlight/styles/github-dark.min.css">
+	<script src="//odin-lang.org/lib/highlight/highlight.min.js"></script>
+
+	<script>hljs.registerLanguage("odin",function(a){return{aliases:["odin","odinlang","odin-lang"],keywords:{keyword:"auto_cast bit_set break case cast context continue defer distinct do dynamic else enum fallthrough for foreign if import in map not_in or_else or_return package proc return struct switch transmute type_of typeid union using when where",literal:"true false nil",built_in:"abs align_of cap clamp complex conj expand_to_tuple imag jmag kmag len max min offset_of quaternion real size_of soa_unzip soa_zip swizzle type_info_of type_of typeid_of"},illegal:"</",contains:[a.C_LINE_COMMENT_MODE,a.C_BLOCK_COMMENT_MODE,{className:"string",variants:[a.QUOTE_STRING_MODE,{begin:"'",end:"[^\\\\]'"},{begin:"`",end:"`"}]},{className:"number",variants:[{begin:a.C_NUMBER_RE+"[ijk]",relevance:1},a.C_NUMBER_MODE]}]}})</script>
+	<script>hljs.highlightAll()</script>
+	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/css/style.css">
+
+	<link rel="stylesheet" type="text/css" href="/style.css">
+
+	</style>
+</head>
+<body>
+<header class="sticky-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary odin-menu">
+		<div class="container">
+			<a class="navbar-brand" href="https://odin-lang.org/">
+			<img src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#odin-navbar-content" aria-controls="odin-navbar-content" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="odin-navbar-content">
+			<ul class="navbar-nav ms-md-auto">
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/docs">Docs</a></li>
+				<li class="nav-item"><a class="nav-link active" href="/">Packages</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/news">News</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/showcase">Showcase</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/community">Community</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://github.com/odin-lang/Odin" target="_blank">GitHub</a></li>
+			</ul>
+		</div>
+		</div>
+	</nav>
+</header>
+<main>
+<div class="container full-width">
+<div class="row odin-main my-4" id="pkg">
+<nav id="pkg-sidebar" class="col-lg-2 odin-sidebar-border navbar-light sticky-top odin-below-navbar">
+<div class="py-3">
+<h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
+<ul>
+<li class="nav-item"><a href="/core/builtin">builtin</a></li>
+<li class="nav-item"><a href="/core/bufio">bufio</a></li>
+<li class="nav-item"><a href="/core/bytes">bytes</a></li>
+<li class="nav-item"><a href="/core/c">c</a><ul>
+<li><a href="/core/c/frontend/preprocessor">frontend/preprocessor</a></li>
+<li><a href="/core/c/frontend/tokenizer">frontend/tokenizer</a></li>
+<li><a href="/core/c/libc">libc</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/compress">compress</a><ul>
+<li><a href="/core/compress/gzip">gzip</a></li>
+<li><a href="/core/compress/shoco">shoco</a></li>
+<li><a href="/core/compress/zlib">zlib</a></li>
+</ul>
+
+</li>
+<li class="nav-item">container<ul>
+<li><a href="/core/container/bit_array">bit_array</a></li>
+<li><a href="/core/container/intrusive/list">intrusive/list</a></li>
+<li><a href="/core/container/lru">lru</a></li>
+<li><a href="/core/container/priority_queue">priority_queue</a></li>
+<li><a href="/core/container/queue">queue</a></li>
+<li><a href="/core/container/small_array">small_array</a></li>
+<li><a href="/core/container/topological_sort">topological_sort</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/crypto">crypto</a><ul>
+<li><a href="/core/crypto/blake">blake</a></li>
+<li><a href="/core/crypto/blake2b">blake2b</a></li>
+<li><a href="/core/crypto/blake2s">blake2s</a></li>
+<li><a href="/core/crypto/chacha20">chacha20</a></li>
+<li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
+<li><a href="/core/crypto/gost">gost</a></li>
+<li><a href="/core/crypto/groestl">groestl</a></li>
+<li><a href="/core/crypto/haval">haval</a></li>
+<li><a href="/core/crypto/jh">jh</a></li>
+<li><a href="/core/crypto/keccak">keccak</a></li>
+<li><a href="/core/crypto/md2">md2</a></li>
+<li><a href="/core/crypto/md4">md4</a></li>
+<li><a href="/core/crypto/md5">md5</a></li>
+<li><a href="/core/crypto/poly1305">poly1305</a></li>
+<li><a href="/core/crypto/ripemd">ripemd</a></li>
+<li><a href="/core/crypto/sha1">sha1</a></li>
+<li><a href="/core/crypto/sha2">sha2</a></li>
+<li><a href="/core/crypto/sha3">sha3</a></li>
+<li><a href="/core/crypto/shake">shake</a></li>
+<li><a href="/core/crypto/sm3">sm3</a></li>
+<li><a href="/core/crypto/streebog">streebog</a></li>
+<li><a href="/core/crypto/tiger">tiger</a></li>
+<li><a href="/core/crypto/tiger2">tiger2</a></li>
+<li><a href="/core/crypto/util">util</a></li>
+<li><a href="/core/crypto/whirlpool">whirlpool</a></li>
+<li><a href="/core/crypto/x25519">x25519</a></li>
+</ul>
+
+</li>
+<li class="nav-item">debug<ul>
+<li><a href="/core/debug/pe">pe</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/dynlib">dynlib</a></li>
+<li class="nav-item">encoding<ul>
+<li><a href="/core/encoding/base32">base32</a></li>
+<li><a href="/core/encoding/base64">base64</a></li>
+<li><a href="/core/encoding/csv">csv</a></li>
+<li><a href="/core/encoding/endian">endian</a></li>
+<li><a href="/core/encoding/entity">entity</a></li>
+<li><a href="/core/encoding/hex">hex</a></li>
+<li><a href="/core/encoding/hxa">hxa</a></li>
+<li><a href="/core/encoding/json">json</a></li>
+<li><a href="/core/encoding/varint">varint</a></li>
+<li><a href="/core/encoding/xml">xml</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/fmt">fmt</a></li>
+<li class="nav-item"><a href="/core/hash">hash</a><ul>
+<li><a href="/core/hash/xxhash">xxhash</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/image">image</a><ul>
+<li><a href="/core/image/netpbm">netpbm</a></li>
+<li><a href="/core/image/png">png</a></li>
+<li><a href="/core/image/qoi">qoi</a></li>
+<li><a href="/core/image/tga">tga</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/io">io</a></li>
+<li class="nav-item"><a href="/core/log">log</a></li>
+<li class="nav-item"><a href="/core/math">math</a><ul>
+<li><a href="/core/math/big">big</a></li>
+<li><a href="/core/math/bits">bits</a></li>
+<li><a href="/core/math/cmplx">cmplx</a></li>
+<li><a href="/core/math/ease">ease</a></li>
+<li><a href="/core/math/fixed">fixed</a></li>
+<li><a href="/core/math/linalg">linalg</a></li>
+<li><a href="/core/math/linalg/glsl">linalg/glsl</a></li>
+<li><a href="/core/math/linalg/hlsl">linalg/hlsl</a></li>
+<li><a href="/core/math/noise">noise</a></li>
+<li><a href="/core/math/rand">rand</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/mem">mem</a><ul>
+<li><a href="/core/mem/virtual">virtual</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/net">net</a></li>
+<li class="nav-item">odin<ul>
+<li><a href="/core/odin/ast">ast</a></li>
+<li><a href="/core/odin/doc-format">doc-format</a></li>
+<li><a href="/core/odin/format">format</a></li>
+<li><a href="/core/odin/parser">parser</a></li>
+<li><a href="/core/odin/printer">printer</a></li>
+<li><a href="/core/odin/tokenizer">tokenizer</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/os">os</a></li>
+<li class="nav-item">path<ul>
+<li><a href="/core/path/filepath">filepath</a></li>
+<li><a href="/core/path/slashpath">slashpath</a></li>
+</ul>
+
+</li>
+<li class="nav-item">prof<ul>
+<li><a href="/core/prof/spall">spall</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/reflect">reflect</a></li>
+<li class="nav-item"><a href="/core/runtime">runtime</a></li>
+<li class="nav-item"><a class="active" href="/core/simd">simd</a></li>
+<li class="nav-item"><a href="/core/slice">slice</a><ul>
+<li><a href="/core/slice/heap">heap</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/sort">sort</a></li>
+<li class="nav-item"><a href="/core/strconv">strconv</a><ul>
+<li><a href="/core/strconv/decimal">decimal</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/strings">strings</a></li>
+<li class="nav-item"><a href="/core/sync">sync</a></li>
+<li class="nav-item"><a href="/core/testing">testing</a></li>
+<li class="nav-item">text<ul>
+<li><a href="/core/text/edit">edit</a></li>
+<li><a href="/core/text/i18n">i18n</a></li>
+<li><a href="/core/text/match">match</a></li>
+<li><a href="/core/text/scanner">scanner</a></li>
+<li><a href="/core/text/table">table</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/thread">thread</a></li>
+<li class="nav-item"><a href="/core/time">time</a></li>
+<li class="nav-item"><a href="/core/unicode">unicode</a><ul>
+<li><a href="/core/unicode/utf16">utf16</a></li>
+<li><a href="/core/unicode/utf8">utf8</a></li>
+<li><a href="/core/unicode/utf8/utf8string">utf8/utf8string</a></li>
+</ul>
+
+</li>
+</ul>
+</div>
+</nav>
+<article class="col-lg-8 p-4 documentation odin-article">
+<nav class="pkg-breadcrumb" aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="/core">core</a></li>
+<li class="breadcrumb-item active" aria-current="page"><a href="/core/simd">simd</a></li>
+</ol>
+</nav>
+<h1>package core:simd<div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd"><em>Source</em></a></div></h1>
+
+		<div class="odin-search-wrapper">
+			<input type="search" id="odin-search" class="odin-search-package" autocomplete="off" spellcheck="false" placeholder="Fuzzy Search...">
+			<div class="odin-search-shortcut">
+				<div class="odin-search-key key-macos">⌘K</div>
+				<div class="odin-search-key key-windows">Ctrl+K</div>
+				<span class="odin-search-or">or</span>
+				<div class="odin-search-key">/</div>
+			</div>
+		</div>
+	
+<div id="odin-search-info">
+<div id="odin-search-time"></div>
+
+		<div id="odin-search-options">
+			<input type="checkbox" id="odin-search-filter" name="odin-search-filter">
+			<label for="odin-search-filter">Filter Results</label>
+		</div>
+</div>
+<ul id="odin-search-results"></ul>
+<div id="pkg-top">
+<div id="pkg-index">
+<h2>Index</h2>
+<div>
+<details class="doc-index" id="doc-index-Types" aria-labelledby="#doc-index-Types-header">
+<summary id="#doc-index-Types-header">
+Types (45)</summary>
+<ul>
+<li><a href="#b16x16">b16x16</a></li>
+<li><a href="#b16x32">b16x32</a></li>
+<li><a href="#b16x8">b16x8</a></li>
+<li><a href="#b32x16">b32x16</a></li>
+<li><a href="#b32x4">b32x4</a></li>
+<li><a href="#b32x8">b32x8</a></li>
+<li><a href="#b64x2">b64x2</a></li>
+<li><a href="#b64x4">b64x4</a></li>
+<li><a href="#b64x8">b64x8</a></li>
+<li><a href="#b8x16">b8x16</a></li>
+<li><a href="#b8x32">b8x32</a></li>
+<li><a href="#b8x64">b8x64</a></li>
+<li><a href="#boolx16">boolx16</a></li>
+<li><a href="#boolx32">boolx32</a></li>
+<li><a href="#boolx64">boolx64</a></li>
+<li><a href="#f32x16">f32x16</a></li>
+<li><a href="#f32x4">f32x4</a></li>
+<li><a href="#f32x8">f32x8</a></li>
+<li><a href="#f64x2">f64x2</a></li>
+<li><a href="#f64x4">f64x4</a></li>
+<li><a href="#f64x8">f64x8</a></li>
+<li><a href="#i16x16">i16x16</a></li>
+<li><a href="#i16x32">i16x32</a></li>
+<li><a href="#i16x8">i16x8</a></li>
+<li><a href="#i32x16">i32x16</a></li>
+<li><a href="#i32x4">i32x4</a></li>
+<li><a href="#i32x8">i32x8</a></li>
+<li><a href="#i64x2">i64x2</a></li>
+<li><a href="#i64x4">i64x4</a></li>
+<li><a href="#i64x8">i64x8</a></li>
+<li><a href="#i8x16">i8x16</a></li>
+<li><a href="#i8x32">i8x32</a></li>
+<li><a href="#i8x64">i8x64</a></li>
+<li><a href="#u16x16">u16x16</a></li>
+<li><a href="#u16x32">u16x32</a></li>
+<li><a href="#u16x8">u16x8</a></li>
+<li><a href="#u32x16">u32x16</a></li>
+<li><a href="#u32x4">u32x4</a></li>
+<li><a href="#u32x8">u32x8</a></li>
+<li><a href="#u64x2">u64x2</a></li>
+<li><a href="#u64x4">u64x4</a></li>
+<li><a href="#u64x8">u64x8</a></li>
+<li><a href="#u8x16">u8x16</a></li>
+<li><a href="#u8x32">u8x32</a></li>
+<li><a href="#u8x64">u8x64</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Constants" aria-labelledby="#doc-index-Constants-header">
+<summary id="#doc-index-Constants-header">
+Constants (0)</summary>
+<p class="pkg-empty-section">This section is empty.</p>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Variables" aria-labelledby="#doc-index-Variables-header">
+<summary id="#doc-index-Variables-header">
+Variables (0)</summary>
+<p class="pkg-empty-section">This section is empty.</p>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
+<summary id="#doc-index-Procedures-header">
+Procedures (61)</summary>
+<ul>
+<li><a href="#abs">abs</a></li>
+<li><a href="#add">add</a></li>
+<li><a href="#add_sat">add_sat</a></li>
+<li><a href="#and">and</a></li>
+<li><a href="#and_not">and_not</a></li>
+<li><a href="#bit_not">bit_not</a></li>
+<li><a href="#ceil">ceil</a></li>
+<li><a href="#clamp">clamp</a></li>
+<li><a href="#copysign">copysign</a></li>
+<li><a href="#count_leading_zeros">count_leading_zeros</a></li>
+<li><a href="#count_ones">count_ones</a></li>
+<li><a href="#count_trailing_zeros">count_trailing_zeros</a></li>
+<li><a href="#count_zeros">count_zeros</a></li>
+<li><a href="#div">div</a></li>
+<li><a href="#extract">extract</a></li>
+<li><a href="#floor">floor</a></li>
+<li><a href="#fma">fma</a></li>
+<li><a href="#from_array">from_array</a></li>
+<li><a href="#from_slice">from_slice</a></li>
+<li><a href="#fused_mul_add">fused_mul_add</a></li>
+<li><a href="#lanes_eq">lanes_eq</a></li>
+<li><a href="#lanes_ge">lanes_ge</a></li>
+<li><a href="#lanes_gt">lanes_gt</a></li>
+<li><a href="#lanes_le">lanes_le</a></li>
+<li><a href="#lanes_lt">lanes_lt</a></li>
+<li><a href="#lanes_ne">lanes_ne</a></li>
+<li><a href="#lanes_reverse">lanes_reverse</a></li>
+<li><a href="#lanes_rotate_left">lanes_rotate_left</a></li>
+<li><a href="#lanes_rotate_right">lanes_rotate_right</a></li>
+<li><a href="#max">max</a></li>
+<li><a href="#min">min</a></li>
+<li><a href="#mul">mul</a></li>
+<li><a href="#nearest">nearest</a></li>
+<li><a href="#neg">neg</a></li>
+<li><a href="#or">or</a></li>
+<li><a href="#recip">recip</a></li>
+<li><a href="#reduce_add_ordered">reduce_add_ordered</a></li>
+<li><a href="#reduce_and">reduce_and</a></li>
+<li><a href="#reduce_max">reduce_max</a></li>
+<li><a href="#reduce_min">reduce_min</a></li>
+<li><a href="#reduce_mul_ordered">reduce_mul_ordered</a></li>
+<li><a href="#reduce_or">reduce_or</a></li>
+<li><a href="#reduce_xor">reduce_xor</a></li>
+<li><a href="#replace">replace</a></li>
+<li><a href="#reverse_bits">reverse_bits</a></li>
+<li><a href="#select">select</a></li>
+<li><a href="#shl">shl</a></li>
+<li><a href="#shl_masked">shl_masked</a></li>
+<li><a href="#shr">shr</a></li>
+<li><a href="#shr_masked">shr_masked</a></li>
+<li><a href="#shuffle">shuffle</a></li>
+<li><a href="#signum">signum</a></li>
+<li><a href="#sqrt">sqrt</a></li>
+<li><a href="#sub">sub</a></li>
+<li><a href="#sub_sat">sub_sat</a></li>
+<li><a href="#swizzle">swizzle</a></li>
+<li><a href="#to_array">to_array</a></li>
+<li><a href="#to_array_ptr">to_array_ptr</a></li>
+<li><a href="#to_bits">to_bits</a></li>
+<li><a href="#trunc">trunc</a></li>
+<li><a href="#xor">xor</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedure Groups" aria-labelledby="#doc-index-Procedure Groups-header">
+<summary id="#doc-index-Procedure Groups-header">
+Procedure Groups (0)</summary>
+<p class="pkg-empty-section">This section is empty.</p>
+</details>
+</div>
+</div>
+</div>
+<section class="documentation">
+<h2 id="pkg-Types" class="pkg-header">Types</h2>
+<div class="pkg-entity">
+<h3 id="b16x16"><span><a class="doc-id-link" href="#b16x16">b16x16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L38"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">b16x16 :: <span class="directive">#simd</span>[16]<a href="/core/builtin#b16"><span class="doc-builtin">b16</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="b16x32"><span><a class="doc-id-link" href="#b16x32">b16x32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L56"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">b16x32 :: <span class="directive">#simd</span>[32]<a href="/core/builtin#b16"><span class="doc-builtin">b16</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="b16x8"><span><a class="doc-id-link" href="#b16x8">b16x8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L20"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">b16x8 :: <span class="directive">#simd</span>[8]<a href="/core/builtin#b16"><span class="doc-builtin">b16</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="b32x16"><span><a class="doc-id-link" href="#b32x16">b32x16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L57"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">b32x16 :: <span class="directive">#simd</span>[16]<a href="/core/builtin#b32"><span class="doc-builtin">b32</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="b32x4"><span><a class="doc-id-link" href="#b32x4">b32x4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L21"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">b32x4 :: <span class="directive">#simd</span>[4]<a href="/core/builtin#b32"><span class="doc-builtin">b32</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="b32x8"><span><a class="doc-id-link" href="#b32x8">b32x8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L39"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">b32x8 :: <span class="directive">#simd</span>[8]<a href="/core/builtin#b32"><span class="doc-builtin">b32</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="b64x2"><span><a class="doc-id-link" href="#b64x2">b64x2<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L22"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">b64x2 :: <span class="directive">#simd</span>[2]<a href="/core/builtin#b64"><span class="doc-builtin">b64</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="b64x4"><span><a class="doc-id-link" href="#b64x4">b64x4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L40"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">b64x4 :: <span class="directive">#simd</span>[4]<a href="/core/builtin#b64"><span class="doc-builtin">b64</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="b64x8"><span><a class="doc-id-link" href="#b64x8">b64x8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L58"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">b64x8 :: <span class="directive">#simd</span>[8]<a href="/core/builtin#b64"><span class="doc-builtin">b64</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="b8x16"><span><a class="doc-id-link" href="#b8x16">b8x16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L19"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">b8x16 :: <span class="directive">#simd</span>[16]<a href="/core/builtin#b8"><span class="doc-builtin">b8</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="b8x32"><span><a class="doc-id-link" href="#b8x32">b8x32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L37"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">b8x32 :: <span class="directive">#simd</span>[32]<a href="/core/builtin#b8"><span class="doc-builtin">b8</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="b8x64"><span><a class="doc-id-link" href="#b8x64">b8x64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L55"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">b8x64 :: <span class="directive">#simd</span>[64]<a href="/core/builtin#b8"><span class="doc-builtin">b8</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="boolx16"><span><a class="doc-id-link" href="#boolx16">boolx16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L18"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">boolx16 :: <span class="directive">#simd</span>[16]<a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="boolx32"><span><a class="doc-id-link" href="#boolx32">boolx32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L36"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">boolx32 :: <span class="directive">#simd</span>[32]<a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="boolx64"><span><a class="doc-id-link" href="#boolx64">boolx64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L54"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">boolx64 :: <span class="directive">#simd</span>[64]<a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="f32x16"><span><a class="doc-id-link" href="#f32x16">f32x16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L51"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">f32x16 :: <span class="directive">#simd</span>[16]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="f32x4"><span><a class="doc-id-link" href="#f32x4">f32x4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L15"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">f32x4 :: <span class="directive">#simd</span>[4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="f32x8"><span><a class="doc-id-link" href="#f32x8">f32x8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L33"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">f32x8 :: <span class="directive">#simd</span>[8]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="f64x2"><span><a class="doc-id-link" href="#f64x2">f64x2<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L16"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">f64x2 :: <span class="directive">#simd</span>[2]<a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="f64x4"><span><a class="doc-id-link" href="#f64x4">f64x4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L34"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">f64x4 :: <span class="directive">#simd</span>[4]<a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="f64x8"><span><a class="doc-id-link" href="#f64x8">f64x8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L52"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">f64x8 :: <span class="directive">#simd</span>[8]<a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="i16x16"><span><a class="doc-id-link" href="#i16x16">i16x16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L28"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">i16x16 :: <span class="directive">#simd</span>[16]<a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="i16x32"><span><a class="doc-id-link" href="#i16x32">i16x32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L46"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">i16x32 :: <span class="directive">#simd</span>[32]<a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="i16x8"><span><a class="doc-id-link" href="#i16x8">i16x8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L10"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">i16x8 :: <span class="directive">#simd</span>[8]<a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="i32x16"><span><a class="doc-id-link" href="#i32x16">i32x16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L48"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">i32x16 :: <span class="directive">#simd</span>[16]<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="i32x4"><span><a class="doc-id-link" href="#i32x4">i32x4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L12"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">i32x4 :: <span class="directive">#simd</span>[4]<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="i32x8"><span><a class="doc-id-link" href="#i32x8">i32x8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L30"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">i32x8 :: <span class="directive">#simd</span>[8]<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="i64x2"><span><a class="doc-id-link" href="#i64x2">i64x2<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L14"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">i64x2 :: <span class="directive">#simd</span>[2]<a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="i64x4"><span><a class="doc-id-link" href="#i64x4">i64x4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L32"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">i64x4 :: <span class="directive">#simd</span>[4]<a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="i64x8"><span><a class="doc-id-link" href="#i64x8">i64x8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L50"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">i64x8 :: <span class="directive">#simd</span>[8]<a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="i8x16"><span><a class="doc-id-link" href="#i8x16">i8x16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L8"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">i8x16 :: <span class="directive">#simd</span>[16]<a href="/core/builtin#i8"><span class="doc-builtin">i8</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="i8x32"><span><a class="doc-id-link" href="#i8x32">i8x32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L26"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">i8x32 :: <span class="directive">#simd</span>[32]<a href="/core/builtin#i8"><span class="doc-builtin">i8</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="i8x64"><span><a class="doc-id-link" href="#i8x64">i8x64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L44"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">i8x64 :: <span class="directive">#simd</span>[64]<a href="/core/builtin#i8"><span class="doc-builtin">i8</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="u16x16"><span><a class="doc-id-link" href="#u16x16">u16x16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L27"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">u16x16 :: <span class="directive">#simd</span>[16]<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="u16x32"><span><a class="doc-id-link" href="#u16x32">u16x32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L45"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">u16x32 :: <span class="directive">#simd</span>[32]<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="u16x8"><span><a class="doc-id-link" href="#u16x8">u16x8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L9"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">u16x8 :: <span class="directive">#simd</span>[8]<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="u32x16"><span><a class="doc-id-link" href="#u32x16">u32x16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L47"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">u32x16 :: <span class="directive">#simd</span>[16]<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="u32x4"><span><a class="doc-id-link" href="#u32x4">u32x4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L11"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">u32x4 :: <span class="directive">#simd</span>[4]<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="u32x8"><span><a class="doc-id-link" href="#u32x8">u32x8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L29"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">u32x8 :: <span class="directive">#simd</span>[8]<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="u64x2"><span><a class="doc-id-link" href="#u64x2">u64x2<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L13"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">u64x2 :: <span class="directive">#simd</span>[2]<a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="u64x4"><span><a class="doc-id-link" href="#u64x4">u64x4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L31"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">u64x4 :: <span class="directive">#simd</span>[4]<a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="u64x8"><span><a class="doc-id-link" href="#u64x8">u64x8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L49"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">u64x8 :: <span class="directive">#simd</span>[8]<a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="u8x16"><span><a class="doc-id-link" href="#u8x16">u8x16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L7"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">u8x16 :: <span class="directive">#simd</span>[16]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a></pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>128-bit vector aliases</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="u8x32"><span><a class="doc-id-link" href="#u8x32">u8x32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L25"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">u8x32 :: <span class="directive">#simd</span>[32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a></pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>256-bit vector aliases</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="u8x64"><span><a class="doc-id-link" href="#u8x64">u8x64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L43"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">u8x64 :: <span class="directive">#simd</span>[64]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a></pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>512-bit vector aliases</p>
+</details>
+</div>
+<h2 id="pkg-Constants" class="pkg-header">Constants</h2>
+<p class="pkg-empty-section">This section is empty.</p>
+<h2 id="pkg-Variables" class="pkg-header">Variables</h2>
+<p class="pkg-empty-section">This section is empty.</p>
+<h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
+<div class="pkg-entity">
+<h3 id="abs"><span><a class="doc-id-link" href="#abs">abs<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">abs :: intrinsics.simd_abs</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="add"><span><a class="doc-id-link" href="#add">add<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">add :: intrinsics.simd_add</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="add_sat"><span><a class="doc-id-link" href="#add_sat">add_sat<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">add_sat :: intrinsics.simd_add_sat</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Saturation Arithmetic</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="and"><span><a class="doc-id-link" href="#and">and<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">and :: intrinsics.simd_and</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="and_not"><span><a class="doc-id-link" href="#and_not">and_not<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">and_not :: intrinsics.simd_and_not</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="bit_not"><span><a class="doc-id-link" href="#bit_not">bit_not<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L169"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">bit_not :: <span class="keyword-type">proc</span> "contextless" (v: $/<span class="directive">#simd</span>[0]$T) -> $/<span class="directive">#simd</span>[0]$T {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ceil"><span><a class="doc-id-link" href="#ceil">ceil<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">ceil :: intrinsics.simd_ceil</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="clamp"><span><a class="doc-id-link" href="#clamp">clamp<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">clamp :: intrinsics.simd_clamp</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="copysign"><span><a class="doc-id-link" href="#copysign">copysign<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L173"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">copysign :: <span class="keyword-type">proc</span> "contextless" (v, sign: $/<span class="directive">#simd</span>[0]$T) -> $/<span class="directive">#simd</span>[0]$T {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="count_leading_zeros"><span><a class="doc-id-link" href="#count_leading_zeros">count_leading_zeros<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">count_leading_zeros :: intrinsics.count_leading_zeros</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="count_ones"><span><a class="doc-id-link" href="#count_ones">count_ones<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">count_ones :: intrinsics.count_ones</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="count_trailing_zeros"><span><a class="doc-id-link" href="#count_trailing_zeros">count_trailing_zeros<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">count_trailing_zeros :: intrinsics.count_trailing_zeros</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="count_zeros"><span><a class="doc-id-link" href="#count_zeros">count_zeros<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">count_zeros :: intrinsics.count_zeros</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="div"><span><a class="doc-id-link" href="#div">div<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">div :: intrinsics.simd_div</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>floats only</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="extract"><span><a class="doc-id-link" href="#extract">extract<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">extract :: intrinsics.simd_extract</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>extract :: proc(a: #simd[N]T, idx: uint) -&gt; T</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="floor"><span><a class="doc-id-link" href="#floor">floor<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">floor :: intrinsics.simd_floor</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="fma"><span><a class="doc-id-link" href="#fma">fma<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">fma :: intrinsics.fused_mul_add</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="from_array"><span><a class="doc-id-link" href="#from_array">from_array<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L156"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">from_array :: <span class="keyword-type">proc</span> "contextless" (v: $V/[0]$T) -> <span class="directive">#simd</span>[0]$T {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="from_slice"><span><a class="doc-id-link" href="#from_slice">from_slice<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L160"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">from_slice :: <span class="keyword-type">proc</span>($T: typeid/<span class="directive">#simd</span>[0]T, slice: []T) -> $/<span class="directive">#simd</span>[0]T {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="fused_mul_add"><span><a class="doc-id-link" href="#fused_mul_add">fused_mul_add<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">fused_mul_add :: intrinsics.fused_mul_add</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="lanes_eq"><span><a class="doc-id-link" href="#lanes_eq">lanes_eq<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">lanes_eq :: intrinsics.simd_lanes_eq</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Return an unsigned integer of the same size as the input type
+NOT A BOOLEAN
+element-wise:
+    false =&gt; 0x00...00
+    true  =&gt; 0xff...ff</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="lanes_ge"><span><a class="doc-id-link" href="#lanes_ge">lanes_ge<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">lanes_ge :: intrinsics.simd_lanes_ge</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="lanes_gt"><span><a class="doc-id-link" href="#lanes_gt">lanes_gt<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">lanes_gt :: intrinsics.simd_lanes_gt</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="lanes_le"><span><a class="doc-id-link" href="#lanes_le">lanes_le<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">lanes_le :: intrinsics.simd_lanes_le</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="lanes_lt"><span><a class="doc-id-link" href="#lanes_lt">lanes_lt<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">lanes_lt :: intrinsics.simd_lanes_lt</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="lanes_ne"><span><a class="doc-id-link" href="#lanes_ne">lanes_ne<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">lanes_ne :: intrinsics.simd_lanes_ne</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="lanes_reverse"><span><a class="doc-id-link" href="#lanes_reverse">lanes_reverse<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">lanes_reverse :: intrinsics.simd_lanes_reverse</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="lanes_rotate_left"><span><a class="doc-id-link" href="#lanes_rotate_left">lanes_rotate_left<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">lanes_rotate_left :: intrinsics.simd_lanes_rotate_left</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="lanes_rotate_right"><span><a class="doc-id-link" href="#lanes_rotate_right">lanes_rotate_right<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">lanes_rotate_right :: intrinsics.simd_lanes_rotate_right</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="max"><span><a class="doc-id-link" href="#max">max<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">max :: intrinsics.simd_max</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="min"><span><a class="doc-id-link" href="#min">min<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">min :: intrinsics.simd_min</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="mul"><span><a class="doc-id-link" href="#mul">mul<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">mul :: intrinsics.simd_mul</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="nearest"><span><a class="doc-id-link" href="#nearest">nearest<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">nearest :: intrinsics.simd_nearest</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="neg"><span><a class="doc-id-link" href="#neg">neg<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">neg :: intrinsics.simd_neg</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="or"><span><a class="doc-id-link" href="#or">or<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">or :: intrinsics.simd_or</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="recip"><span><a class="doc-id-link" href="#recip">recip<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L185"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">recip :: <span class="keyword-type">proc</span> "contextless" (v: $/<span class="directive">#simd</span>[0]$T) -> $/<span class="directive">#simd</span>[0]$T {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="reduce_add_ordered"><span><a class="doc-id-link" href="#reduce_add_ordered">reduce_add_ordered<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">reduce_add_ordered :: intrinsics.simd_reduce_add_ordered</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="reduce_and"><span><a class="doc-id-link" href="#reduce_and">reduce_and<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">reduce_and :: intrinsics.simd_reduce_and</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="reduce_max"><span><a class="doc-id-link" href="#reduce_max">reduce_max<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">reduce_max :: intrinsics.simd_reduce_max</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="reduce_min"><span><a class="doc-id-link" href="#reduce_min">reduce_min<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">reduce_min :: intrinsics.simd_reduce_min</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="reduce_mul_ordered"><span><a class="doc-id-link" href="#reduce_mul_ordered">reduce_mul_ordered<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">reduce_mul_ordered :: intrinsics.simd_reduce_mul_ordered</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="reduce_or"><span><a class="doc-id-link" href="#reduce_or">reduce_or<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">reduce_or :: intrinsics.simd_reduce_or</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="reduce_xor"><span><a class="doc-id-link" href="#reduce_xor">reduce_xor<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">reduce_xor :: intrinsics.simd_reduce_xor</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="replace"><span><a class="doc-id-link" href="#replace">replace<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">replace :: intrinsics.simd_replace</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>replace :: proc(a: #simd[N]T, idx: uint, elem: T) -&gt; #simd[N]T</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="reverse_bits"><span><a class="doc-id-link" href="#reverse_bits">reverse_bits<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">reverse_bits :: intrinsics.reverse_bits</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="select"><span><a class="doc-id-link" href="#select">select<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">select :: intrinsics.simd_select</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>select :: proc(cond: #simd[N]boolean_or_integer, true, false: #simd[N]T) -&gt; #simd[N]T</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="shl"><span><a class="doc-id-link" href="#shl">shl<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">shl :: intrinsics.simd_shl</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Keeps Odin's Behaviour
+(x &lt;&lt; y) if y &lt;= mask else 0</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="shl_masked"><span><a class="doc-id-link" href="#shl_masked">shl_masked<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">shl_masked :: intrinsics.simd_shl_masked</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Similar to C's Behaviour
+x &lt;&lt; (y & mask)</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="shr"><span><a class="doc-id-link" href="#shr">shr<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">shr :: intrinsics.simd_shr</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="shr_masked"><span><a class="doc-id-link" href="#shr_masked">shr_masked<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">shr_masked :: intrinsics.simd_shr_masked</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="shuffle"><span><a class="doc-id-link" href="#shuffle">shuffle<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">shuffle :: intrinsics.simd_shuffle</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>shuffle :: proc(a, b: #simd[N]T, indices: #simd[max 2*N]u32) -&gt; #simd[len(indices)]T</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="signum"><span><a class="doc-id-link" href="#signum">signum<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L180"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">signum :: <span class="keyword-type">proc</span> "contextless" (v: $/<span class="directive">#simd</span>[0]$T) -> $/<span class="directive">#simd</span>[0]$T {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="sqrt"><span><a class="doc-id-link" href="#sqrt">sqrt<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">sqrt :: intrinsics.sqrt</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="sub"><span><a class="doc-id-link" href="#sub">sub<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">sub :: intrinsics.simd_sub</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="sub_sat"><span><a class="doc-id-link" href="#sub_sat">sub_sat<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">sub_sat :: intrinsics.simd_sub_sat</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="swizzle"><span><a class="doc-id-link" href="#swizzle">swizzle<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">swizzle :: <a href="/core/builtin#swizzle">builtin</a>.swizzle</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>swizzle :: proc(a: #simd[N]T, indices: ..int) -&gt; #simd[len(indices)]T</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="to_array"><span><a class="doc-id-link" href="#to_array">to_array<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L153"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">to_array :: <span class="keyword-type">proc</span> "contextless" (v: <span class="directive">#simd</span>[0]$T) -> [0]$T {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="to_array_ptr"><span><a class="doc-id-link" href="#to_array_ptr">to_array_ptr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L150"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">to_array_ptr :: <span class="keyword-type">proc</span> "contextless" (v: ^<span class="directive">#simd</span>[0]$T) -> ^[0]$T {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="to_bits"><span><a class="doc-id-link" href="#to_bits">to_bits<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">to_bits :: intrinsics.simd_to_bits</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="trunc"><span><a class="doc-id-link" href="#trunc">trunc<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">trunc :: intrinsics.simd_trunc</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="xor"><span><a class="doc-id-link" href="#xor">xor<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">xor :: intrinsics.simd_xor</pre>
+</div>
+</div>
+<h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
+<p class="pkg-empty-section">This section is empty.</p>
+</section>
+<h2 id="pkg-source-files">Source Files</h2>
+<ul>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin">simd.odin</a></li>
+</ul>
+<h2 id="pkg-generation-information">Generation Information</h2>
+<p>Generated with <code>odin version dev-2023-09 (vendor "odin") Windows_amd64 @ 2023-09-05 17:19:48.835878500 +0000 UTC</code></p>
+</article>
+<div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#pkg-Types">Types</a><ul>
+<li><a href="#b16x16">b16x16</a></li>
+<li><a href="#b16x32">b16x32</a></li>
+<li><a href="#b16x8">b16x8</a></li>
+<li><a href="#b32x16">b32x16</a></li>
+<li><a href="#b32x4">b32x4</a></li>
+<li><a href="#b32x8">b32x8</a></li>
+<li><a href="#b64x2">b64x2</a></li>
+<li><a href="#b64x4">b64x4</a></li>
+<li><a href="#b64x8">b64x8</a></li>
+<li><a href="#b8x16">b8x16</a></li>
+<li><a href="#b8x32">b8x32</a></li>
+<li><a href="#b8x64">b8x64</a></li>
+<li><a href="#boolx16">boolx16</a></li>
+<li><a href="#boolx32">boolx32</a></li>
+<li><a href="#boolx64">boolx64</a></li>
+<li><a href="#f32x16">f32x16</a></li>
+<li><a href="#f32x4">f32x4</a></li>
+<li><a href="#f32x8">f32x8</a></li>
+<li><a href="#f64x2">f64x2</a></li>
+<li><a href="#f64x4">f64x4</a></li>
+<li><a href="#f64x8">f64x8</a></li>
+<li><a href="#i16x16">i16x16</a></li>
+<li><a href="#i16x32">i16x32</a></li>
+<li><a href="#i16x8">i16x8</a></li>
+<li><a href="#i32x16">i32x16</a></li>
+<li><a href="#i32x4">i32x4</a></li>
+<li><a href="#i32x8">i32x8</a></li>
+<li><a href="#i64x2">i64x2</a></li>
+<li><a href="#i64x4">i64x4</a></li>
+<li><a href="#i64x8">i64x8</a></li>
+<li><a href="#i8x16">i8x16</a></li>
+<li><a href="#i8x32">i8x32</a></li>
+<li><a href="#i8x64">i8x64</a></li>
+<li><a href="#u16x16">u16x16</a></li>
+<li><a href="#u16x32">u16x32</a></li>
+<li><a href="#u16x8">u16x8</a></li>
+<li><a href="#u32x16">u32x16</a></li>
+<li><a href="#u32x4">u32x4</a></li>
+<li><a href="#u32x8">u32x8</a></li>
+<li><a href="#u64x2">u64x2</a></li>
+<li><a href="#u64x4">u64x4</a></li>
+<li><a href="#u64x8">u64x8</a></li>
+<li><a href="#u8x16">u8x16</a></li>
+<li><a href="#u8x32">u8x32</a></li>
+<li><a href="#u8x64">u8x64</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Procedures">Procedures</a><ul>
+<li><a href="#abs">abs</a></li>
+<li><a href="#add">add</a></li>
+<li><a href="#add_sat">add_sat</a></li>
+<li><a href="#and">and</a></li>
+<li><a href="#and_not">and_not</a></li>
+<li><a href="#bit_not">bit_not</a></li>
+<li><a href="#ceil">ceil</a></li>
+<li><a href="#clamp">clamp</a></li>
+<li><a href="#copysign">copysign</a></li>
+<li><a href="#count_leading_zeros">count_leading_zeros</a></li>
+<li><a href="#count_ones">count_ones</a></li>
+<li><a href="#count_trailing_zeros">count_trailing_zeros</a></li>
+<li><a href="#count_zeros">count_zeros</a></li>
+<li><a href="#div">div</a></li>
+<li><a href="#extract">extract</a></li>
+<li><a href="#floor">floor</a></li>
+<li><a href="#fma">fma</a></li>
+<li><a href="#from_array">from_array</a></li>
+<li><a href="#from_slice">from_slice</a></li>
+<li><a href="#fused_mul_add">fused_mul_add</a></li>
+<li><a href="#lanes_eq">lanes_eq</a></li>
+<li><a href="#lanes_ge">lanes_ge</a></li>
+<li><a href="#lanes_gt">lanes_gt</a></li>
+<li><a href="#lanes_le">lanes_le</a></li>
+<li><a href="#lanes_lt">lanes_lt</a></li>
+<li><a href="#lanes_ne">lanes_ne</a></li>
+<li><a href="#lanes_reverse">lanes_reverse</a></li>
+<li><a href="#lanes_rotate_left">lanes_rotate_left</a></li>
+<li><a href="#lanes_rotate_right">lanes_rotate_right</a></li>
+<li><a href="#max">max</a></li>
+<li><a href="#min">min</a></li>
+<li><a href="#mul">mul</a></li>
+<li><a href="#nearest">nearest</a></li>
+<li><a href="#neg">neg</a></li>
+<li><a href="#or">or</a></li>
+<li><a href="#recip">recip</a></li>
+<li><a href="#reduce_add_ordered">reduce_add_ordered</a></li>
+<li><a href="#reduce_and">reduce_and</a></li>
+<li><a href="#reduce_max">reduce_max</a></li>
+<li><a href="#reduce_min">reduce_min</a></li>
+<li><a href="#reduce_mul_ordered">reduce_mul_ordered</a></li>
+<li><a href="#reduce_or">reduce_or</a></li>
+<li><a href="#reduce_xor">reduce_xor</a></li>
+<li><a href="#replace">replace</a></li>
+<li><a href="#reverse_bits">reverse_bits</a></li>
+<li><a href="#select">select</a></li>
+<li><a href="#shl">shl</a></li>
+<li><a href="#shl_masked">shl_masked</a></li>
+<li><a href="#shr">shr</a></li>
+<li><a href="#shr_masked">shr_masked</a></li>
+<li><a href="#shuffle">shuffle</a></li>
+<li><a href="#signum">signum</a></li>
+<li><a href="#sqrt">sqrt</a></li>
+<li><a href="#sub">sub</a></li>
+<li><a href="#sub_sat">sub_sat</a></li>
+<li><a href="#swizzle">swizzle</a></li>
+<li><a href="#to_array">to_array</a></li>
+<li><a href="#to_array_ptr">to_array_ptr</a></li>
+<li><a href="#to_bits">to_bits</a></li>
+<li><a href="#trunc">trunc</a></li>
+<li><a href="#xor">xor</a></li>
+</ul>
+</li>
+<li><a href="#pkg-source-files">Source Files</a></ul>
+</nav>
+</div></div>
+<script type="text/javascript">var odin_pkg_name = "simd";</script>
+</div>
+
+</div>
+</main>
+
+<footer class="odin-footer">
+	<div class="container pb-5 pt-5">
+		<div class="row g-4">
+		<div class="col">
+		<a class="navbar-brand" href="https://odin-lang.org">
+		<img class="mb-3" src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+		<p>
+		The Data-Oriented Language for Sane Software Development.
+		</p>
+		</div>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Resources</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://odin-lang.org/docs" class="link-light">Docs</a></li>
+			<li><a href="https://pkg.odin-lang.org/" class="link-light">Packages</a></li>
+			<li><a href="https://odin-lang.org/news" class="link-light">News</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Community</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin" target="_blank" class="link-light">GitHub</a></li>
+			<li><a href="https://discord.com/invite/sVBPHEv" target="_blank" class="link-light">Discord</a></li>
+			<li><a href="https://www.twitch.tv/ginger_bill" target="_blank" class="link-light">Twitch</a></li>
+			<li><a href="https://www.youtube.com/channel/UCUSck1dOH7VKmG4lRW7tZXg" target="_blank" class="link-light">YouTube</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Contribute</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin/issues" target="_blank" class="link-light">Issues</a></li>
+			<li><a href="https://www.patreon.com/gingerbill" target="_blank" class="link-light">Donate</a></li>
+			</ul>
+			</nav>
+		</div>
+		<div class="mt-4 text-muted">© 2016–2023 Ginger Bill</div>
+	</div>
+</footer>
+
+<script src="https://odin-lang.org/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://odin-lang.org/js/script.js"></script>
+<script src="/pkg-data.js"></script>
+<script src="/search.js"></script>
+</body>
+</html>

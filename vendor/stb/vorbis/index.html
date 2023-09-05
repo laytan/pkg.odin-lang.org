@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>package stb/vorbis - pkg.odin-lang.org</title>	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/scss/custom.min.css">
+	<link rel=stylesheet href="//odin-lang.org/lib/highlight/styles/github-dark.min.css">
+	<script src="//odin-lang.org/lib/highlight/highlight.min.js"></script>
+
+	<script>hljs.registerLanguage("odin",function(a){return{aliases:["odin","odinlang","odin-lang"],keywords:{keyword:"auto_cast bit_set break case cast context continue defer distinct do dynamic else enum fallthrough for foreign if import in map not_in or_else or_return package proc return struct switch transmute type_of typeid union using when where",literal:"true false nil",built_in:"abs align_of cap clamp complex conj expand_to_tuple imag jmag kmag len max min offset_of quaternion real size_of soa_unzip soa_zip swizzle type_info_of type_of typeid_of"},illegal:"</",contains:[a.C_LINE_COMMENT_MODE,a.C_BLOCK_COMMENT_MODE,{className:"string",variants:[a.QUOTE_STRING_MODE,{begin:"'",end:"[^\\\\]'"},{begin:"`",end:"`"}]},{className:"number",variants:[{begin:a.C_NUMBER_RE+"[ijk]",relevance:1},a.C_NUMBER_MODE]}]}})</script>
+	<script>hljs.highlightAll()</script>
+	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/css/style.css">
+
+	<link rel="stylesheet" type="text/css" href="/style.css">
+
+	</style>
+</head>
+<body>
+<header class="sticky-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary odin-menu">
+		<div class="container">
+			<a class="navbar-brand" href="https://odin-lang.org/">
+			<img src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#odin-navbar-content" aria-controls="odin-navbar-content" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="odin-navbar-content">
+			<ul class="navbar-nav ms-md-auto">
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/docs">Docs</a></li>
+				<li class="nav-item"><a class="nav-link active" href="/">Packages</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/news">News</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/showcase">Showcase</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/community">Community</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://github.com/odin-lang/Odin" target="_blank">GitHub</a></li>
+			</ul>
+		</div>
+		</div>
+	</nav>
+</header>
+<main>
+<div class="container full-width">
+<div class="row odin-main my-4" id="pkg">
+<nav id="pkg-sidebar" class="col-lg-2 odin-sidebar-border navbar-light sticky-top odin-below-navbar">
+<div class="py-3">
+<h4><a style="text-transform: capitalize; color: inherit;" href="/vendor">vendor Library</a></h4>
+<ul>
+<li class="nav-item">botan<ul>
+<li><a href="/vendor/botan/bindings">bindings</a></li>
+<li><a href="/vendor/botan/blake2b">blake2b</a></li>
+<li><a href="/vendor/botan/gost">gost</a></li>
+<li><a href="/vendor/botan/keccak">keccak</a></li>
+<li><a href="/vendor/botan/md4">md4</a></li>
+<li><a href="/vendor/botan/md5">md5</a></li>
+<li><a href="/vendor/botan/ripemd">ripemd</a></li>
+<li><a href="/vendor/botan/sha1">sha1</a></li>
+<li><a href="/vendor/botan/sha2">sha2</a></li>
+<li><a href="/vendor/botan/sha3">sha3</a></li>
+<li><a href="/vendor/botan/shake">shake</a></li>
+<li><a href="/vendor/botan/siphash">siphash</a></li>
+<li><a href="/vendor/botan/skein512">skein512</a></li>
+<li><a href="/vendor/botan/sm3">sm3</a></li>
+<li><a href="/vendor/botan/streebog">streebog</a></li>
+<li><a href="/vendor/botan/tiger">tiger</a></li>
+<li><a href="/vendor/botan/whirlpool">whirlpool</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/cgltf">cgltf</a></li>
+<li class="nav-item"><a href="/vendor/commonmark">commonmark</a></li>
+<li class="nav-item">darwin<ul>
+<li><a href="/vendor/darwin/Foundation">Foundation</a></li>
+<li><a href="/vendor/darwin/Metal">Metal</a></li>
+<li><a href="/vendor/darwin/MetalKit">MetalKit</a></li>
+<li><a href="/vendor/darwin/QuartzCore">QuartzCore</a></li>
+</ul>
+
+</li>
+<li class="nav-item">directx<ul>
+<li><a href="/vendor/directx/d3d11">d3d11</a></li>
+<li><a href="/vendor/directx/d3d12">d3d12</a></li>
+<li><a href="/vendor/directx/d3d_compiler">d3d_compiler</a></li>
+<li><a href="/vendor/directx/dxgi">dxgi</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/ENet">ENet</a></li>
+<li class="nav-item"><a href="/vendor/fontstash">fontstash</a></li>
+<li class="nav-item"><a href="/vendor/ggpo">ggpo</a></li>
+<li class="nav-item"><a href="/vendor/glfw">glfw</a><ul>
+<li><a href="/vendor/glfw/bindings">bindings</a></li>
+</ul>
+
+</li>
+<li class="nav-item">lua<ul>
+<li><a href="/vendor/lua/5.4">5.4</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/microui">microui</a></li>
+<li class="nav-item"><a href="/vendor/miniaudio">miniaudio</a></li>
+<li class="nav-item"><a href="/vendor/nanovg">nanovg</a><ul>
+<li><a href="/vendor/nanovg/gl">gl</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/OpenEXRCore">OpenEXRCore</a></li>
+<li class="nav-item"><a href="/vendor/OpenGL">OpenGL</a></li>
+<li class="nav-item"><a href="/vendor/portmidi">portmidi</a></li>
+<li class="nav-item"><a href="/vendor/raylib">raylib</a></li>
+<li class="nav-item"><a href="/vendor/sdl2">sdl2</a><ul>
+<li><a href="/vendor/sdl2/image">image</a></li>
+<li><a href="/vendor/sdl2/mixer">mixer</a></li>
+<li><a href="/vendor/sdl2/net">net</a></li>
+<li><a href="/vendor/sdl2/ttf">ttf</a></li>
+</ul>
+
+</li>
+<li class="nav-item">stb<ul>
+<li><a href="/vendor/stb/easy_font">easy_font</a></li>
+<li><a href="/vendor/stb/image">image</a></li>
+<li><a href="/vendor/stb/rect_pack">rect_pack</a></li>
+<li><a href="/vendor/stb/truetype">truetype</a></li>
+<li><a class="active" href="/vendor/stb/vorbis">vorbis</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/vulkan">vulkan</a></li>
+<li class="nav-item"><a href="/vendor/zlib">zlib</a></li>
+</ul>
+</div>
+</nav>
+<article class="col-lg-8 p-4 documentation odin-article">
+<nav class="pkg-breadcrumb" aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="/vendor">vendor</a></li>
+<li class="breadcrumb-item">stb</li>
+<li class="breadcrumb-item active" aria-current="page"><a href="/vendor/stb/vorbis">vorbis</a></li>
+</ol>
+</nav>
+<h1>package vendor:stb/vorbis<div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis"><em>Source</em></a></div></h1>
+
+		<div class="odin-search-wrapper">
+			<input type="search" id="odin-search" class="odin-search-package" autocomplete="off" spellcheck="false" placeholder="Fuzzy Search...">
+			<div class="odin-search-shortcut">
+				<div class="odin-search-key key-macos">⌘K</div>
+				<div class="odin-search-key key-windows">Ctrl+K</div>
+				<span class="odin-search-or">or</span>
+				<div class="odin-search-key">/</div>
+			</div>
+		</div>
+	
+<div id="odin-search-info">
+<div id="odin-search-time"></div>
+
+		<div id="odin-search-options">
+			<input type="checkbox" id="odin-search-filter" name="odin-search-filter">
+			<label for="odin-search-filter">Filter Results</label>
+		</div>
+</div>
+<ul id="odin-search-results"></ul>
+<div id="pkg-top">
+<div id="pkg-index">
+<h2>Index</h2>
+<div>
+<details class="doc-index" id="doc-index-Types" aria-labelledby="#doc-index-Types-header">
+<summary id="#doc-index-Types-header">
+Types (5)</summary>
+<ul>
+<li><a href="#Error">Error</a></li>
+<li><a href="#vorbis">vorbis</a></li>
+<li><a href="#vorbis_alloc">vorbis_alloc</a></li>
+<li><a href="#vorbis_comment">vorbis_comment</a></li>
+<li><a href="#vorbis_info">vorbis_info</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Constants" aria-labelledby="#doc-index-Constants-header">
+<summary id="#doc-index-Constants-header">
+Constants (3)</summary>
+<ul>
+<li><a href="#FAST_HUFFMAN_LENGTH">FAST_HUFFMAN_LENGTH</a></li>
+<li><a href="#MAX_CHANNELS">MAX_CHANNELS</a></li>
+<li><a href="#PUSHDATA_CRC_COUNT">PUSHDATA_CRC_COUNT</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Variables" aria-labelledby="#doc-index-Variables-header">
+<summary id="#doc-index-Variables-header">
+Variables (0)</summary>
+<p class="pkg-empty-section">This section is empty.</p>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
+<summary id="#doc-index-Procedures-header">
+Procedures (27)</summary>
+<ul>
+<li><a href="#close">close</a></li>
+<li><a href="#decode_filename">decode_filename</a></li>
+<li><a href="#decode_frame_pushdata">decode_frame_pushdata</a></li>
+<li><a href="#decode_memory">decode_memory</a></li>
+<li><a href="#flush_pushdata">flush_pushdata</a></li>
+<li><a href="#get_comment">get_comment</a></li>
+<li><a href="#get_error">get_error</a></li>
+<li><a href="#get_file_offset">get_file_offset</a></li>
+<li><a href="#get_frame_float">get_frame_float</a></li>
+<li><a href="#get_frame_short">get_frame_short</a></li>
+<li><a href="#get_frame_short_interleaved">get_frame_short_interleaved</a></li>
+<li><a href="#get_info">get_info</a></li>
+<li><a href="#get_sample_offset">get_sample_offset</a></li>
+<li><a href="#get_samples_float">get_samples_float</a></li>
+<li><a href="#get_samples_float_interleaved">get_samples_float_interleaved</a></li>
+<li><a href="#get_samples_short">get_samples_short</a></li>
+<li><a href="#get_samples_short_interleaved">get_samples_short_interleaved</a></li>
+<li><a href="#open_file">open_file</a></li>
+<li><a href="#open_file_section">open_file_section</a></li>
+<li><a href="#open_filename">open_filename</a></li>
+<li><a href="#open_memory">open_memory</a></li>
+<li><a href="#open_pushdata">open_pushdata</a></li>
+<li><a href="#seek">seek</a></li>
+<li><a href="#seek_frame">seek_frame</a></li>
+<li><a href="#seek_start">seek_start</a></li>
+<li><a href="#stream_length_in_samples">stream_length_in_samples</a></li>
+<li><a href="#stream_length_in_seconds">stream_length_in_seconds</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedure Groups" aria-labelledby="#doc-index-Procedure Groups-header">
+<summary id="#doc-index-Procedure Groups-header">
+Procedure Groups (0)</summary>
+<p class="pkg-empty-section">This section is empty.</p>
+</details>
+</div>
+</div>
+</div>
+<section class="documentation">
+<h2 id="pkg-Types" class="pkg-header">Types</h2>
+<div class="pkg-entity">
+<h3 id="Error"><span><a class="doc-id-link" href="#Error">Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L288"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
+	none                             = 0, 
+	need_more_data                   = 1,  <span class="comment">// not a real error</span>
+	invalid_api_mixing,                    <span class="comment">// can't mix API modes</span>
+	outofmem,                              <span class="comment">// not enough memory</span>
+	feature_not_supported,                 <span class="comment">// uses floor 0</span>
+	too_many_channels,                     <span class="comment">// MAX_CHANNELS is too small</span>
+	file_open_failure,                     <span class="comment">// fopen() failed</span>
+	seek_without_length,                   <span class="comment">// can't seek in unknown-length file</span>
+	unexpected_eof                   = 10, <span class="comment">// file is truncated?</span>
+	seek_invalid,                          <span class="comment">// seek past EOF</span>
+	<span class="comment">// vorbis errors:</span>
+	invalid_setup                    = 20, 
+	invalid_stream, 
+	<span class="comment">// ogg errors:</span>
+	missing_capture_pattern          = 30, 
+	invalid_stream_structure_version, 
+	continued_packet_flag_invalid, 
+	incorrect_stream_serial_number, 
+	invalid_first_page, 
+	bad_packet_type, 
+	cant_find_last_page, 
+	seek_failed, 
+	ogg_skeleton_not_supported, 
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/vendor/stb/vorbis/#open_file">open_file</a></li>
+<li><a href="/vendor/stb/vorbis/#open_file_section">open_file_section</a></li>
+<li><a href="/vendor/stb/vorbis/#open_filename">open_filename</a></li>
+<li><a href="/vendor/stb/vorbis/#open_memory">open_memory</a></li>
+<li><a href="/vendor/stb/vorbis/#open_pushdata">open_pushdata</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="vorbis"><span><a class="doc-id-link" href="#vorbis">vorbis<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L46"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">vorbis :: <span class="keyword-type">struct</span> {}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/vendor/stb/vorbis/#close">close</a></li>
+<li><a href="/vendor/stb/vorbis/#decode_frame_pushdata">decode_frame_pushdata</a></li>
+<li><a href="/vendor/stb/vorbis/#flush_pushdata">flush_pushdata</a></li>
+<li><a href="/vendor/stb/vorbis/#get_comment">get_comment</a></li>
+<li><a href="/vendor/stb/vorbis/#get_error">get_error</a></li>
+<li><a href="/vendor/stb/vorbis/#get_file_offset">get_file_offset</a></li>
+<li><a href="/vendor/stb/vorbis/#get_frame_float">get_frame_float</a></li>
+<li><a href="/vendor/stb/vorbis/#get_frame_short">get_frame_short</a></li>
+<li><a href="/vendor/stb/vorbis/#get_frame_short_interleaved">get_frame_short_interleaved</a></li>
+<li><a href="/vendor/stb/vorbis/#get_info">get_info</a></li>
+<li><a href="/vendor/stb/vorbis/#get_sample_offset">get_sample_offset</a></li>
+<li><a href="/vendor/stb/vorbis/#get_samples_float">get_samples_float</a></li>
+<li><a href="/vendor/stb/vorbis/#get_samples_float_interleaved">get_samples_float_interleaved</a></li>
+<li><a href="/vendor/stb/vorbis/#get_samples_short">get_samples_short</a></li>
+<li><a href="/vendor/stb/vorbis/#get_samples_short_interleaved">get_samples_short_interleaved</a></li>
+<li><a href="/vendor/stb/vorbis/#seek">seek</a></li>
+<li><a href="/vendor/stb/vorbis/#seek_frame">seek_frame</a></li>
+<li><a href="/vendor/stb/vorbis/#seek_start">seek_start</a></li>
+<li><a href="/vendor/stb/vorbis/#stream_length_in_samples">stream_length_in_samples</a></li>
+<li><a href="/vendor/stb/vorbis/#stream_length_in_seconds">stream_length_in_seconds</a></li>
+</ul>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/vendor/stb/vorbis/#open_file">open_file</a></li>
+<li><a href="/vendor/stb/vorbis/#open_file_section">open_file_section</a></li>
+<li><a href="/vendor/stb/vorbis/#open_filename">open_filename</a></li>
+<li><a href="/vendor/stb/vorbis/#open_memory">open_memory</a></li>
+<li><a href="/vendor/stb/vorbis/#open_pushdata">open_pushdata</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="vorbis_alloc"><span><a class="doc-id-link" href="#vorbis_alloc">vorbis_alloc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L41"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">vorbis_alloc :: <span class="keyword-type">struct</span> {
+	alloc_buffer:                 [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	alloc_buffer_length_in_bytes: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/vendor/stb/vorbis/#open_file">open_file</a></li>
+<li><a href="/vendor/stb/vorbis/#open_file_section">open_file_section</a></li>
+<li><a href="/vendor/stb/vorbis/#open_filename">open_filename</a></li>
+<li><a href="/vendor/stb/vorbis/#open_memory">open_memory</a></li>
+<li><a href="/vendor/stb/vorbis/#open_pushdata">open_pushdata</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="vorbis_comment"><span><a class="doc-id-link" href="#vorbis_comment">vorbis_comment<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L59"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">vorbis_comment :: <span class="keyword-type">struct</span> {
+	vendor:              <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>,
+	comment_list_length: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+	comment_list:        [^]<a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>,
+}</pre>
+</div>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/vendor/stb/vorbis/#get_comment">get_comment</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="vorbis_info"><span><a class="doc-id-link" href="#vorbis_info">vorbis_info<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L48"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">vorbis_info :: <span class="keyword-type">struct</span> {
+	sample_rate:                <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	channels:                   <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+	setup_memory_required:      <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	setup_temp_memory_required: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	temp_memory_required:       <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	max_frame_size:             <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+}</pre>
+</div>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/vendor/stb/vorbis/#get_info">get_info</a></li>
+</ul>
+</div>
+<h2 id="pkg-Constants" class="pkg-header">Constants</h2>
+<div class="pkg-entity">
+<h3 id="FAST_HUFFMAN_LENGTH"><span><a class="doc-id-link" href="#FAST_HUFFMAN_LENGTH">FAST_HUFFMAN_LENGTH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L353"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">FAST_HUFFMAN_LENGTH :: 10</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>FAST_HUFFMAN_LENGTH [number]
+    sets the log size of the huffman-acceleration table.  Maximum
+    supported value is 24. with larger numbers, more decodings are O(1),
+    but the table size is larger so worse cache missing, so you'll have
+    to probe (and try multiple ogg vorbis files) to find the sweet spot.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="MAX_CHANNELS"><span><a class="doc-id-link" href="#MAX_CHANNELS">MAX_CHANNELS<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L332"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MAX_CHANNELS :: 16</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>MAX_CHANNELS [number]
+    globally define this to the maximum number of channels you need.
+    The spec does not put a restriction on channels except that
+    the count is stored in a byte, so 255 is the hard limit.
+    Reducing this saves about 16 bytes per value, so using 16 saves
+    (255-16)*16 or around 4KB. Plus anything other memory usage
+    I forgot to account for. Can probably go as low as 8 (7.1 audio),
+    6 (5.1 audio), or 2 (stereo only).</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="PUSHDATA_CRC_COUNT"><span><a class="doc-id-link" href="#PUSHDATA_CRC_COUNT">PUSHDATA_CRC_COUNT<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L346"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">PUSHDATA_CRC_COUNT :: 4</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>PUSHDATA_CRC_COUNT [number]
+    after a flush_pushdata(), stb_vorbis begins scanning for the
+    next valid page, without backtracking. when it finds something
+    that looks like a page, it streams through it and verifies its
+    CRC32. Should that validation fail, it keeps scanning. But it's
+    possible that _while_ streaming through to check the CRC32 of
+    one candidate page, it sees another candidate page. This #define
+    determines how many "overlapping" candidate pages it can search
+    at once. Note that "real" pages are typically ~4KB to ~8KB, whereas
+    garbage pages could be as big as 64KB, but probably average ~16KB.
+    So don't hose ourselves by scanning an apparent 64KB page and
+    missing a ton of real ones in the interim; so minimum of 2</p>
+</details>
+</div>
+<h2 id="pkg-Variables" class="pkg-header">Variables</h2>
+<p class="pkg-empty-section">This section is empty.</p>
+<h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
+<div class="pkg-entity">
+<h3 id="close"><span><a class="doc-id-link" href="#close">close<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L78"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">close :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>close an ogg vorbis file and free all memory in use</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="decode_filename"><span><a class="doc-id-link" href="#decode_filename">decode_filename<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L185"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">decode_filename :: <span class="keyword-type">proc</span> "c" (filename: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>, channels, sample_rate: ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, output: ^[^]<a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>decode an entire file and output the data interleaved into a malloc()ed
+buffer stored in *output. The return value is the number of samples
+decoded, or -1 if the file could not be opened or was not an ogg vorbis file.
+When you're done with it, just free() the pointer returned in *output.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="decode_frame_pushdata"><span><a class="doc-id-link" href="#decode_frame_pushdata">decode_frame_pushdata<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L148"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">decode_frame_pushdata :: <span class="keyword-type">proc</span> "c" (
+	f:                         ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, 
+	datablock:                 [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, 
+	datablock_length_in_bytes: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+	channels:                  ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+	output:                    ^[^]^<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	samples:                   ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>decode a frame of audio sample data if possible from the passed-in data block</p>
+<p>return value: number of bytes we used from datablock</p>
+<p>possible cases:
+    0 bytes used, 0 samples output (need more data)
+    N bytes used, 0 samples output (resynching the stream, keep going)
+    N bytes used, M samples output (one frame of data)
+note that after opening a file, you will ALWAYS get one N-bytes,0-sample
+frame, because Vorbis always "discards" the first frame.</p>
+<p>Note that on resynch, stb_vorbis will rarely consume all of the buffer,
+instead only datablock_length_in_bytes-3 or less. This is because it wants
+to avoid missing parts of a page header if they cross a datablock boundary,
+without writing state-machiney code to record a partial detection.</p>
+<p>The number of channels returned are stored in *channels (which can be
+NULL--it is always the same as the number of channels reported by
+get_info). <i>output will contain an array of float</i> buffers, one per
+channel. In other words, (*output)[0][0] contains the first sample from
+the first channel, and (*output)[1][0] contains the first sample from
+the second channel.</p>
+<p>*output points into stb_vorbis's internal output buffer storage; these
+buffers are owned by stb_vorbis and application code should not free
+them or modify their contents. They are transient and will be overwritten
+once you ask for more data to get decoded, so be sure to grab any data
+you need before then.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="decode_memory"><span><a class="doc-id-link" href="#decode_memory">decode_memory<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L186"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">decode_memory :: <span class="keyword-type">proc</span> "c" (mem: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, len: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, channels, sample_rate: ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, output: ^[^]<a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="flush_pushdata"><span><a class="doc-id-link" href="#flush_pushdata">flush_pushdata<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L166"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">flush_pushdata :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>inform stb_vorbis that your next datablock will not be contiguous with
+previous ones (e.g. you've seeked in the data); future attempts to decode
+frames will cause stb_vorbis to resynchronize (as noted above), and
+once it sees a valid Ogg page (typically 4-8KB, as large as 64KB), it
+will begin decoding the _next_ frame.</p>
+<p>if you want to seek using pushdata, you need to seek in your file, then
+call stb_vorbis_flush_pushdata(), then start calling decoding, then once
+decoding is returning you data, call stb_vorbis_get_sample_offset, and
+if you don't like the result, seek your file again and repeat.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="get_comment"><span><a class="doc-id-link" href="#get_comment">get_comment<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L72"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">get_comment :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) -> <a class="code-typename" href="/vendor/stb/vorbis/#vorbis_comment">vorbis_comment</a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>get ogg comments</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="get_error"><span><a class="doc-id-link" href="#get_error">get_error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L75"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">get_error :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>get the last error detected (clears it, too)</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="get_file_offset"><span><a class="doc-id-link" href="#get_file_offset">get_file_offset<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L89"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">get_file_offset :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>returns the current seek point within the file, or offset from the beginning
+of the memory buffer. In pushdata mode it returns 0.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="get_frame_float"><span><a class="doc-id-link" href="#get_frame_float">get_frame_float<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L242"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">get_frame_float :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, channels: ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, output: ^[^]^<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>decode the next frame and return the number of samples. the number of
+channels returned are stored in *channels (which can be NULL--it is always
+the same as the number of channels reported by get_info). *output will
+contain an array of float* buffers, one per channel. These outputs will
+be overwritten on the next call to stb_vorbis_get_frame_*.</p>
+<p>You generally should not intermix calls to stb_vorbis_get_frame_*()
+and stb_vorbis_get_samples_*(), since the latter calls the former.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="get_frame_short"><span><a class="doc-id-link" href="#get_frame_short">get_frame_short<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L256"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">get_frame_short :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, num_c: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, buffer: ^[^]<a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>, num_samples: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="get_frame_short_interleaved"><span><a class="doc-id-link" href="#get_frame_short_interleaved">get_frame_short_interleaved<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L255"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">get_frame_short_interleaved :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, num_c: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, buffer: [^]<a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>, num_shorts: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>decode the next frame and return the number of <i>samples</i> per channel.
+Note that for interleaved data, you pass in the number of shorts (the
+size of your array), but the return value is the number of samples per
+channel, not the total number of samples.</p>
+<p>The data is coerced to the number of channels you request according to the
+channel coercion rules (see below). You must pass in the size of your
+buffer(s) so that stb_vorbis will not overwrite the end of the buffer.
+The maximum buffer size needed can be gotten from get_info(); however,
+the Vorbis I specification implies an absolute maximum of 4096 samples
+per channel.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="get_info"><span><a class="doc-id-link" href="#get_info">get_info<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L69"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">get_info :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) -> <a class="code-typename" href="/vendor/stb/vorbis/#vorbis_info">vorbis_info</a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>get general information about the file</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="get_sample_offset"><span><a class="doc-id-link" href="#get_sample_offset">get_sample_offset<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L85"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">get_sample_offset :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>this function returns the offset (in samples) from the beginning of the
+file that will be returned by the next decode, if it is known, or -1
+otherwise. after a flush_pushdata() call, this may take a while before
+it becomes valid again.
+NOT WORKING YET after a seek with PULLDATA API</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="get_samples_float"><span><a class="doc-id-link" href="#get_samples_float">get_samples_float<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L276"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">get_samples_float :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, channels: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, buffer: ^[^]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, num_samples: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="get_samples_float_interleaved"><span><a class="doc-id-link" href="#get_samples_float_interleaved">get_samples_float_interleaved<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L275"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">get_samples_float_interleaved :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, channels: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, buffer: [^]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, num_floats: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>gets num_samples samples, not necessarily on a frame boundary--this requires
+buffering so you have to supply the buffers. DOES NOT APPLY THE COERCION RULES.
+Returns the number of samples stored per channel; it may be less than requested
+at the end of the file. If there are no more samples in the file, returns 0.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="get_samples_short"><span><a class="doc-id-link" href="#get_samples_short">get_samples_short<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L284"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">get_samples_short :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, channels: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, buffer: ^[^]<a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>, num_samples: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="get_samples_short_interleaved"><span><a class="doc-id-link" href="#get_samples_short_interleaved">get_samples_short_interleaved<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L283"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">get_samples_short_interleaved :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, channels: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, buffer: [^]<a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>, num_shorts: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>gets num_samples samples, not necessarily on a frame boundary--this requires
+buffering so you have to supply the buffers. Applies the coercion rules above
+to produce 'channels' channels. Returns the number of samples stored per channel;
+it may be less than requested at the end of the file. If there are no more
+samples in the file, returns 0.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="open_file"><span><a class="doc-id-link" href="#open_file">open_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L207"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">open_file :: <span class="keyword-type">proc</span> "c" (f: ^libc.<a class="code-typename" href="/core/c/libc/#FILE">FILE</a>, close_handle_on_close: <a href="/core/builtin#b32"><span class="doc-builtin">b32</span></a>, error: ^<a class="code-typename" href="/vendor/stb/vorbis/#Error">Error</a>, alloc_buffer: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis_alloc">vorbis_alloc</a>) -> ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>create an ogg vorbis decoder from an open FILE *, looking for a stream at
+the _current_ seek point (ftell). on failure, returns NULL and sets *error.
+note that stb_vorbis must "own" this stream; if you seek it in between
+calls to stb_vorbis, it will become confused. Moreover, if you attempt to
+perform stb_vorbis_seek_*() operations on this file, it will assume it
+owns the _entire_ rest of the file after the start point. Use the next
+function, stb_vorbis_open_file_section(), to limit it.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="open_file_section"><span><a class="doc-id-link" href="#open_file_section">open_file_section<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L215"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">open_file_section :: <span class="keyword-type">proc</span> "c" (f: ^libc.<a class="code-typename" href="/core/c/libc/#FILE">FILE</a>, close_handle_on_close: <a href="/core/builtin#b32"><span class="doc-builtin">b32</span></a>, error: ^<a class="code-typename" href="/vendor/stb/vorbis/#Error">Error</a>, alloc_buffer: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis_alloc">vorbis_alloc</a>, len: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>create an ogg vorbis decoder from an open FILE *, looking for a stream at
+the _current_ seek point (ftell); the stream will be of length 'len' bytes.
+on failure, returns NULL and sets *error. note that stb_vorbis must "own"
+this stream; if you seek it in between calls to stb_vorbis, it will become
+confused.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="open_filename"><span><a class="doc-id-link" href="#open_filename">open_filename<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L197"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">open_filename :: <span class="keyword-type">proc</span> "c" (filename: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>, error: ^<a class="code-typename" href="/vendor/stb/vorbis/#Error">Error</a>, alloc_buffer: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis_alloc">vorbis_alloc</a>) -> ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>create an ogg vorbis decoder from a filename via fopen(). on failure,
+returns NULL and sets *error (possibly to VORBIS_file_open_failure).</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="open_memory"><span><a class="doc-id-link" href="#open_memory">open_memory<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L192"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">open_memory :: <span class="keyword-type">proc</span> "c" (data: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, len: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, error: ^<a class="code-typename" href="/vendor/stb/vorbis/#Error">Error</a>, alloc_buffer: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis_alloc">vorbis_alloc</a>) -> ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>create an ogg vorbis decoder from an ogg vorbis stream in memory (note
+this must be the entire stream!). on failure, returns NULL and sets *error</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="open_pushdata"><span><a class="doc-id-link" href="#open_pushdata">open_pushdata<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L113"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">open_pushdata :: <span class="keyword-type">proc</span> "c" (datablock: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, datablock_length_in_bytes: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, datablock_memory_consumed_in_bytes: ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, error: ^<a class="code-typename" href="/vendor/stb/vorbis/#Error">Error</a>, alloc_buffer: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis_alloc">vorbis_alloc</a>) -> ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>create a vorbis decoder by passing in the initial data block containing
+   the ogg&vorbis headers (you don't need to do parse them, just provide
+   the first N bytes of the file--you're told if it's not enough, see below)
+on success, returns an stb_vorbis *, does not set error, returns the amount of
+   data parsed/consumed on this call in *datablock_memory_consumed_in_bytes;
+on failure, returns NULL on error and sets <i>error, does not change </i>datablock_memory_consumed
+if returns NULL and *error is VORBIS_need_more_data, then the input block was
+      incomplete and you need to pass in a larger block from the start of the file</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="seek"><span><a class="doc-id-link" href="#seek">seek<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L225"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">seek :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, sample_number: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="seek_frame"><span><a class="doc-id-link" href="#seek_frame">seek_frame<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L224"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">seek_frame :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, sample_number: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>these functions seek in the Vorbis file to (approximately) 'sample_number'.
+after calling seek_frame(), the next call to get_frame_*() will include
+the specified sample. after calling stb_vorbis_seek(), the next call to
+stb_vorbis_get_samples_* will start with the specified sample. If you
+do not need to seek to EXACTLY the target sample when using get_samples_*,
+you can also use seek_frame().</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="seek_start"><span><a class="doc-id-link" href="#seek_start">seek_start<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L228"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">seek_start :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>this function is equivalent to stb_vorbis_seek(f,0)</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="stream_length_in_samples"><span><a class="doc-id-link" href="#stream_length_in_samples">stream_length_in_samples<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L231"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">stream_length_in_samples :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>these functions return the total length of the vorbis stream</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="stream_length_in_seconds"><span><a class="doc-id-link" href="#stream_length_in_seconds">stream_length_in_seconds<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L232"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">stream_length_in_seconds :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) -> <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a> ---</pre>
+</div>
+</div>
+<h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
+<p class="pkg-empty-section">This section is empty.</p>
+</section>
+<h2 id="pkg-source-files">Source Files</h2>
+<ul>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin">stb_vorbis.odin</a></li>
+</ul>
+<h2 id="pkg-generation-information">Generation Information</h2>
+<p>Generated with <code>odin version dev-2023-09 (vendor "odin") Windows_amd64 @ 2023-09-05 17:19:49.002961000 +0000 UTC</code></p>
+</article>
+<div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#pkg-Types">Types</a><ul>
+<li><a href="#Error">Error</a></li>
+<li><a href="#vorbis">vorbis</a></li>
+<li><a href="#vorbis_alloc">vorbis_alloc</a></li>
+<li><a href="#vorbis_comment">vorbis_comment</a></li>
+<li><a href="#vorbis_info">vorbis_info</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Constants">Constants</a><ul>
+<li><a href="#FAST_HUFFMAN_LENGTH">FAST_HUFFMAN_LENGTH</a></li>
+<li><a href="#MAX_CHANNELS">MAX_CHANNELS</a></li>
+<li><a href="#PUSHDATA_CRC_COUNT">PUSHDATA_CRC_COUNT</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Procedures">Procedures</a><ul>
+<li><a href="#close">close</a></li>
+<li><a href="#decode_filename">decode_filename</a></li>
+<li><a href="#decode_frame_pushdata">decode_frame_pushdata</a></li>
+<li><a href="#decode_memory">decode_memory</a></li>
+<li><a href="#flush_pushdata">flush_pushdata</a></li>
+<li><a href="#get_comment">get_comment</a></li>
+<li><a href="#get_error">get_error</a></li>
+<li><a href="#get_file_offset">get_file_offset</a></li>
+<li><a href="#get_frame_float">get_frame_float</a></li>
+<li><a href="#get_frame_short">get_frame_short</a></li>
+<li><a href="#get_frame_short_interleaved">get_frame_short_interleaved</a></li>
+<li><a href="#get_info">get_info</a></li>
+<li><a href="#get_sample_offset">get_sample_offset</a></li>
+<li><a href="#get_samples_float">get_samples_float</a></li>
+<li><a href="#get_samples_float_interleaved">get_samples_float_interleaved</a></li>
+<li><a href="#get_samples_short">get_samples_short</a></li>
+<li><a href="#get_samples_short_interleaved">get_samples_short_interleaved</a></li>
+<li><a href="#open_file">open_file</a></li>
+<li><a href="#open_file_section">open_file_section</a></li>
+<li><a href="#open_filename">open_filename</a></li>
+<li><a href="#open_memory">open_memory</a></li>
+<li><a href="#open_pushdata">open_pushdata</a></li>
+<li><a href="#seek">seek</a></li>
+<li><a href="#seek_frame">seek_frame</a></li>
+<li><a href="#seek_start">seek_start</a></li>
+<li><a href="#stream_length_in_samples">stream_length_in_samples</a></li>
+<li><a href="#stream_length_in_seconds">stream_length_in_seconds</a></li>
+</ul>
+</li>
+<li><a href="#pkg-source-files">Source Files</a></ul>
+</nav>
+</div></div>
+<script type="text/javascript">var odin_pkg_name = "stb_vorbis";</script>
+</div>
+
+</div>
+</main>
+
+<footer class="odin-footer">
+	<div class="container pb-5 pt-5">
+		<div class="row g-4">
+		<div class="col">
+		<a class="navbar-brand" href="https://odin-lang.org">
+		<img class="mb-3" src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+		<p>
+		The Data-Oriented Language for Sane Software Development.
+		</p>
+		</div>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Resources</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://odin-lang.org/docs" class="link-light">Docs</a></li>
+			<li><a href="https://pkg.odin-lang.org/" class="link-light">Packages</a></li>
+			<li><a href="https://odin-lang.org/news" class="link-light">News</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Community</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin" target="_blank" class="link-light">GitHub</a></li>
+			<li><a href="https://discord.com/invite/sVBPHEv" target="_blank" class="link-light">Discord</a></li>
+			<li><a href="https://www.twitch.tv/ginger_bill" target="_blank" class="link-light">Twitch</a></li>
+			<li><a href="https://www.youtube.com/channel/UCUSck1dOH7VKmG4lRW7tZXg" target="_blank" class="link-light">YouTube</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Contribute</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin/issues" target="_blank" class="link-light">Issues</a></li>
+			<li><a href="https://www.patreon.com/gingerbill" target="_blank" class="link-light">Donate</a></li>
+			</ul>
+			</nav>
+		</div>
+		<div class="mt-4 text-muted">© 2016–2023 Ginger Bill</div>
+	</div>
+</footer>
+
+<script src="https://odin-lang.org/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://odin-lang.org/js/script.js"></script>
+<script src="/pkg-data.js"></script>
+<script src="/search.js"></script>
+</body>
+</html>

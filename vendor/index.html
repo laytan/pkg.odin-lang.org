@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>vendor library - pkg.odin-lang.org</title>	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/scss/custom.min.css">
+	<link rel=stylesheet href="//odin-lang.org/lib/highlight/styles/github-dark.min.css">
+	<script src="//odin-lang.org/lib/highlight/highlight.min.js"></script>
+
+	<script>hljs.registerLanguage("odin",function(a){return{aliases:["odin","odinlang","odin-lang"],keywords:{keyword:"auto_cast bit_set break case cast context continue defer distinct do dynamic else enum fallthrough for foreign if import in map not_in or_else or_return package proc return struct switch transmute type_of typeid union using when where",literal:"true false nil",built_in:"abs align_of cap clamp complex conj expand_to_tuple imag jmag kmag len max min offset_of quaternion real size_of soa_unzip soa_zip swizzle type_info_of type_of typeid_of"},illegal:"</",contains:[a.C_LINE_COMMENT_MODE,a.C_BLOCK_COMMENT_MODE,{className:"string",variants:[a.QUOTE_STRING_MODE,{begin:"'",end:"[^\\\\]'"},{begin:"`",end:"`"}]},{className:"number",variants:[{begin:a.C_NUMBER_RE+"[ijk]",relevance:1},a.C_NUMBER_MODE]}]}})</script>
+	<script>hljs.highlightAll()</script>
+	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/css/style.css">
+
+	<link rel="stylesheet" type="text/css" href="/style.css">
+
+	</style>
+</head>
+<body>
+<header class="sticky-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary odin-menu">
+		<div class="container">
+			<a class="navbar-brand" href="https://odin-lang.org/">
+			<img src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#odin-navbar-content" aria-controls="odin-navbar-content" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="odin-navbar-content">
+			<ul class="navbar-nav ms-md-auto">
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/docs">Docs</a></li>
+				<li class="nav-item"><a class="nav-link active" href="/">Packages</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/news">News</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/showcase">Showcase</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/community">Community</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://github.com/odin-lang/Odin" target="_blank">GitHub</a></li>
+			</ul>
+		</div>
+		</div>
+	</nav>
+</header>
+<main>
+<div class="container">
+<div class="row odin-main my-4">
+<nav id="pkg-sidebar" class="col-lg-2 odin-sidebar-border navbar-light sticky-top odin-below-navbar">
+<div class="py-3">
+<h4><a style="text-transform: capitalize; color: inherit;" href="/vendor">vendor Library</a></h4>
+<ul>
+<li class="nav-item">botan<ul>
+<li><a href="/vendor/botan/bindings">bindings</a></li>
+<li><a href="/vendor/botan/blake2b">blake2b</a></li>
+<li><a href="/vendor/botan/gost">gost</a></li>
+<li><a href="/vendor/botan/keccak">keccak</a></li>
+<li><a href="/vendor/botan/md4">md4</a></li>
+<li><a href="/vendor/botan/md5">md5</a></li>
+<li><a href="/vendor/botan/ripemd">ripemd</a></li>
+<li><a href="/vendor/botan/sha1">sha1</a></li>
+<li><a href="/vendor/botan/sha2">sha2</a></li>
+<li><a href="/vendor/botan/sha3">sha3</a></li>
+<li><a href="/vendor/botan/shake">shake</a></li>
+<li><a href="/vendor/botan/siphash">siphash</a></li>
+<li><a href="/vendor/botan/skein512">skein512</a></li>
+<li><a href="/vendor/botan/sm3">sm3</a></li>
+<li><a href="/vendor/botan/streebog">streebog</a></li>
+<li><a href="/vendor/botan/tiger">tiger</a></li>
+<li><a href="/vendor/botan/whirlpool">whirlpool</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/cgltf">cgltf</a></li>
+<li class="nav-item"><a href="/vendor/commonmark">commonmark</a></li>
+<li class="nav-item">darwin<ul>
+<li><a href="/vendor/darwin/Foundation">Foundation</a></li>
+<li><a href="/vendor/darwin/Metal">Metal</a></li>
+<li><a href="/vendor/darwin/MetalKit">MetalKit</a></li>
+<li><a href="/vendor/darwin/QuartzCore">QuartzCore</a></li>
+</ul>
+
+</li>
+<li class="nav-item">directx<ul>
+<li><a href="/vendor/directx/d3d11">d3d11</a></li>
+<li><a href="/vendor/directx/d3d12">d3d12</a></li>
+<li><a href="/vendor/directx/d3d_compiler">d3d_compiler</a></li>
+<li><a href="/vendor/directx/dxgi">dxgi</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/ENet">ENet</a></li>
+<li class="nav-item"><a href="/vendor/fontstash">fontstash</a></li>
+<li class="nav-item"><a href="/vendor/ggpo">ggpo</a></li>
+<li class="nav-item"><a href="/vendor/glfw">glfw</a><ul>
+<li><a href="/vendor/glfw/bindings">bindings</a></li>
+</ul>
+
+</li>
+<li class="nav-item">lua<ul>
+<li><a href="/vendor/lua/5.4">5.4</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/microui">microui</a></li>
+<li class="nav-item"><a href="/vendor/miniaudio">miniaudio</a></li>
+<li class="nav-item"><a href="/vendor/nanovg">nanovg</a><ul>
+<li><a href="/vendor/nanovg/gl">gl</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/OpenEXRCore">OpenEXRCore</a></li>
+<li class="nav-item"><a href="/vendor/OpenGL">OpenGL</a></li>
+<li class="nav-item"><a href="/vendor/portmidi">portmidi</a></li>
+<li class="nav-item"><a href="/vendor/raylib">raylib</a></li>
+<li class="nav-item"><a href="/vendor/sdl2">sdl2</a><ul>
+<li><a href="/vendor/sdl2/image">image</a></li>
+<li><a href="/vendor/sdl2/mixer">mixer</a></li>
+<li><a href="/vendor/sdl2/net">net</a></li>
+<li><a href="/vendor/sdl2/ttf">ttf</a></li>
+</ul>
+
+</li>
+<li class="nav-item">stb<ul>
+<li><a href="/vendor/stb/easy_font">easy_font</a></li>
+<li><a href="/vendor/stb/image">image</a></li>
+<li><a href="/vendor/stb/rect_pack">rect_pack</a></li>
+<li><a href="/vendor/stb/truetype">truetype</a></li>
+<li><a href="/vendor/stb/vorbis">vorbis</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/vulkan">vulkan</a></li>
+<li class="nav-item"><a href="/vendor/zlib">zlib</a></li>
+</ul>
+</div>
+</nav>
+<article class="col-lg-10 p-4">
+<article class="p-4">
+<header class="collection-header">
+<h1 style="text-transform: capitalize">vendor Library Collection</h1>
+<ul class="license">
+<li>License: <a href="https://github.com/odin-lang/Odin/tree/master/LICENSE">BSD-3-Clause</a></li>
+<li>Repository: <a href="https://github.com/odin-lang/Odin/tree/master/vendor">https://github.com/odin-lang/Odin/tree/master/vendor</a></li>
+</ul>
+
+		<div class="odin-search-wrapper">
+			<input type="search" id="odin-search" class="odin-search-collection" autocomplete="off" spellcheck="false" placeholder="Fuzzy Search...">
+			<div class="odin-search-shortcut">
+				<div class="odin-search-key key-macos">⌘K</div>
+				<div class="odin-search-key key-windows">Ctrl+K</div>
+				<span class="odin-search-or">or</span>
+				<div class="odin-search-key">/</div>
+			</div>
+		</div>
+	
+<div id="odin-search-info">
+<div id="odin-search-time"></div>
+</div>
+<ul id="odin-search-results"></ul>
+</header>
+</article>
+<hr class="collection-hr">
+<header>
+<h2><i class="bi bi-folder"></i>Directories</h2>
+</header>
+<div>
+	<table class="doc-directory mt-4 mb-4">
+		<tbody>
+<tr aria-controls="pkg-vendor_botan pkg-vendor_botan_blake2b pkg-vendor_gost pkg-vendor_keccak pkg-vendor_md4 pkg-vendor_md5 pkg-vendor_ripemd pkg-vendor_sha1 pkg-vendor_sha2 pkg-vendor_sha3 pkg-vendor_shake pkg-vendor_siphash pkg-vendor_skein512 pkg-vendor_sm3 pkg-vendor_streebog pkg-vendor_tiger pkg-vendor_whirlpool " class="directory-pkg"><td class="pkg-line pkg-name" data-aria-owns="pkg-vendor_botan pkg-vendor_botan_blake2b pkg-vendor_gost pkg-vendor_keccak pkg-vendor_md4 pkg-vendor_md5 pkg-vendor_ripemd pkg-vendor_sha1 pkg-vendor_sha2 pkg-vendor_sha3 pkg-vendor_shake pkg-vendor_siphash pkg-vendor_skein512 pkg-vendor_sm3 pkg-vendor_streebog pkg-vendor_tiger pkg-vendor_whirlpool " id="pkg-botan">botan</td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
+<tr id="pkg-vendor_botan" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/botan/bindings/">bindings</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-vendor_botan_blake2b" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/botan/blake2b/">blake2b</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-vendor_gost" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/botan/gost/">gost</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-vendor_keccak" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/botan/keccak/">keccak</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-vendor_md4" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/botan/md4/">md4</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-vendor_md5" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/botan/md5/">md5</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-vendor_ripemd" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/botan/ripemd/">ripemd</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-vendor_sha1" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/botan/sha1/">sha1</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-vendor_sha2" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/botan/sha2/">sha2</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-vendor_sha3" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/botan/sha3/">sha3</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-vendor_shake" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/botan/shake/">shake</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-vendor_siphash" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/botan/siphash/">siphash</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-vendor_skein512" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/botan/skein512/">skein512</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-vendor_sm3" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/botan/sm3/">sm3</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-vendor_streebog" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/botan/streebog/">streebog</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-vendor_tiger" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/botan/tiger/">tiger</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-vendor_whirlpool" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/botan/whirlpool/">whirlpool</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-cgltf" class="directory-pkg"><td class="pkg-name"><a href="/vendor/cgltf">cgltf</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
+<tr id="pkg-commonmark" class="directory-pkg"><td class="pkg-name"><a href="/vendor/commonmark">commonmark</a></td><td class="pkg-line pkg-line-doc">Bindings against CMark (https://github.com/commonmark/cmark)</td></tr>
+<tr aria-controls="pkg-objc_Foundation pkg-objc_Metal pkg-objc_MetalKit pkg-objc_QuartzCore " class="directory-pkg"><td class="pkg-line pkg-name" data-aria-owns="pkg-objc_Foundation pkg-objc_Metal pkg-objc_MetalKit pkg-objc_QuartzCore " id="pkg-darwin">darwin</td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
+<tr id="pkg-objc_Foundation" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/darwin/Foundation/">Foundation</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-objc_Metal" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/darwin/Metal/">Metal</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-objc_MetalKit" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/darwin/MetalKit/">MetalKit</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-objc_QuartzCore" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/darwin/QuartzCore/">QuartzCore</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr aria-controls="pkg-directx_d3d11 pkg-directx_d3d12 pkg-directx_d3d_compiler pkg-directx_dxgi " class="directory-pkg"><td class="pkg-line pkg-name" data-aria-owns="pkg-directx_d3d11 pkg-directx_d3d12 pkg-directx_d3d_compiler pkg-directx_dxgi " id="pkg-directx">directx</td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
+<tr id="pkg-directx_d3d11" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/directx/d3d11/">d3d11</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-directx_d3d12" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/directx/d3d12/">d3d12</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-directx_d3d_compiler" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/directx/d3d_compiler/">d3d_compiler</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-directx_dxgi" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/directx/dxgi/">dxgi</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-ENet" class="directory-pkg"><td class="pkg-name"><a href="/vendor/ENet">ENet</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
+<tr id="pkg-fontstash" class="directory-pkg"><td class="pkg-name"><a href="/vendor/fontstash">fontstash</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
+<tr id="pkg-ggpo" class="directory-pkg"><td class="pkg-name"><a href="/vendor/ggpo">ggpo</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
+<tr aria-controls="pkg-glfw_bindings " class="directory-pkg"><td class="pkg-line pkg-name" data-aria-owns="pkg-glfw_bindings " id="pkg-glfw"><a href="/vendor/glfw">glfw</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
+<tr id="pkg-glfw_bindings" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/glfw/bindings/">bindings</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr aria-controls="pkg-lua_5_4 " class="directory-pkg"><td class="pkg-line pkg-name" data-aria-owns="pkg-lua_5_4 " id="pkg-lua">lua</td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
+<tr id="pkg-lua_5_4" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/lua/5.4/">5.4</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-microui" class="directory-pkg"><td class="pkg-name"><a href="/vendor/microui">microui</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
+<tr id="pkg-miniaudio" class="directory-pkg"><td class="pkg-name"><a href="/vendor/miniaudio">miniaudio</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
+<tr aria-controls="pkg-nanovg_gl " class="directory-pkg"><td class="pkg-line pkg-name" data-aria-owns="pkg-nanovg_gl " id="pkg-nanovg"><a href="/vendor/nanovg">nanovg</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
+<tr id="pkg-nanovg_gl" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/nanovg/gl/">gl</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-OpenEXRCore" class="directory-pkg"><td class="pkg-name"><a href="/vendor/OpenEXRCore">OpenEXRCore</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
+<tr id="pkg-OpenGL" class="directory-pkg"><td class="pkg-name"><a href="/vendor/OpenGL">OpenGL</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
+<tr id="pkg-portmidi" class="directory-pkg"><td class="pkg-name"><a href="/vendor/portmidi">portmidi</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
+<tr id="pkg-raylib" class="directory-pkg"><td class="pkg-name"><a href="/vendor/raylib">raylib</a></td><td class="pkg-line pkg-line-doc">Package vendor:raylib implements bindings for version 4.5 of the raylib library (https://www.raylib.com/)</td></tr>
+<tr aria-controls="pkg-sdl2_image pkg-sdl2_mixer pkg-sdl2_net pkg-sdl2_ttf " class="directory-pkg"><td class="pkg-line pkg-name" data-aria-owns="pkg-sdl2_image pkg-sdl2_mixer pkg-sdl2_net pkg-sdl2_ttf " id="pkg-sdl2"><a href="/vendor/sdl2">sdl2</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
+<tr id="pkg-sdl2_image" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/sdl2/image/">image</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-sdl2_mixer" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/sdl2/mixer/">mixer</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-sdl2_net" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/sdl2/net/">net</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-sdl2_ttf" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/sdl2/ttf/">ttf</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr aria-controls="pkg-stb_easy_font pkg-stb_image pkg-stb_rect_pack pkg-stb_truetype pkg-stb_vorbis " class="directory-pkg"><td class="pkg-line pkg-name" data-aria-owns="pkg-stb_easy_font pkg-stb_image pkg-stb_rect_pack pkg-stb_truetype pkg-stb_vorbis " id="pkg-stb">stb</td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
+<tr id="pkg-stb_easy_font" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/stb/easy_font/">easy_font</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-stb_image" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/stb/image/">image</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-stb_rect_pack" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/stb/rect_pack/">rect_pack</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-stb_truetype" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/stb/truetype/">truetype</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-stb_vorbis" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/vendor/stb/vorbis/">vorbis</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-vulkan" class="directory-pkg"><td class="pkg-name"><a href="/vendor/vulkan">vulkan</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
+<tr id="pkg-zlib" class="directory-pkg"><td class="pkg-name"><a href="/vendor/zlib">zlib</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
+		</tbody>
+	</table>
+</div>
+</article>
+</div>
+
+</div>
+</main>
+
+<footer class="odin-footer">
+	<div class="container pb-5 pt-5">
+		<div class="row g-4">
+		<div class="col">
+		<a class="navbar-brand" href="https://odin-lang.org">
+		<img class="mb-3" src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+		<p>
+		The Data-Oriented Language for Sane Software Development.
+		</p>
+		</div>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Resources</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://odin-lang.org/docs" class="link-light">Docs</a></li>
+			<li><a href="https://pkg.odin-lang.org/" class="link-light">Packages</a></li>
+			<li><a href="https://odin-lang.org/news" class="link-light">News</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Community</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin" target="_blank" class="link-light">GitHub</a></li>
+			<li><a href="https://discord.com/invite/sVBPHEv" target="_blank" class="link-light">Discord</a></li>
+			<li><a href="https://www.twitch.tv/ginger_bill" target="_blank" class="link-light">Twitch</a></li>
+			<li><a href="https://www.youtube.com/channel/UCUSck1dOH7VKmG4lRW7tZXg" target="_blank" class="link-light">YouTube</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Contribute</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin/issues" target="_blank" class="link-light">Issues</a></li>
+			<li><a href="https://www.patreon.com/gingerbill" target="_blank" class="link-light">Donate</a></li>
+			</ul>
+			</nav>
+		</div>
+		<div class="mt-4 text-muted">© 2016–2023 Ginger Bill</div>
+	</div>
+</footer>
+
+<script src="https://odin-lang.org/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://odin-lang.org/js/script.js"></script>
+<script src="/pkg-data.js"></script>
+<script src="/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>package ggpo - pkg.odin-lang.org</title>	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/scss/custom.min.css">
+	<link rel=stylesheet href="//odin-lang.org/lib/highlight/styles/github-dark.min.css">
+	<script src="//odin-lang.org/lib/highlight/highlight.min.js"></script>
+
+	<script>hljs.registerLanguage("odin",function(a){return{aliases:["odin","odinlang","odin-lang"],keywords:{keyword:"auto_cast bit_set break case cast context continue defer distinct do dynamic else enum fallthrough for foreign if import in map not_in or_else or_return package proc return struct switch transmute type_of typeid union using when where",literal:"true false nil",built_in:"abs align_of cap clamp complex conj expand_to_tuple imag jmag kmag len max min offset_of quaternion real size_of soa_unzip soa_zip swizzle type_info_of type_of typeid_of"},illegal:"</",contains:[a.C_LINE_COMMENT_MODE,a.C_BLOCK_COMMENT_MODE,{className:"string",variants:[a.QUOTE_STRING_MODE,{begin:"'",end:"[^\\\\]'"},{begin:"`",end:"`"}]},{className:"number",variants:[{begin:a.C_NUMBER_RE+"[ijk]",relevance:1},a.C_NUMBER_MODE]}]}})</script>
+	<script>hljs.highlightAll()</script>
+	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/css/style.css">
+
+	<link rel="stylesheet" type="text/css" href="/style.css">
+
+	</style>
+</head>
+<body>
+<header class="sticky-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary odin-menu">
+		<div class="container">
+			<a class="navbar-brand" href="https://odin-lang.org/">
+			<img src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#odin-navbar-content" aria-controls="odin-navbar-content" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="odin-navbar-content">
+			<ul class="navbar-nav ms-md-auto">
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/docs">Docs</a></li>
+				<li class="nav-item"><a class="nav-link active" href="/">Packages</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/news">News</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/showcase">Showcase</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/community">Community</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://github.com/odin-lang/Odin" target="_blank">GitHub</a></li>
+			</ul>
+		</div>
+		</div>
+	</nav>
+</header>
+<main>
+<div class="container full-width">
+<div class="row odin-main my-4" id="pkg">
+<nav id="pkg-sidebar" class="col-lg-2 odin-sidebar-border navbar-light sticky-top odin-below-navbar">
+<div class="py-3">
+<h4><a style="text-transform: capitalize; color: inherit;" href="/vendor">vendor Library</a></h4>
+<ul>
+<li class="nav-item">botan<ul>
+<li><a href="/vendor/botan/bindings">bindings</a></li>
+<li><a href="/vendor/botan/blake2b">blake2b</a></li>
+<li><a href="/vendor/botan/gost">gost</a></li>
+<li><a href="/vendor/botan/keccak">keccak</a></li>
+<li><a href="/vendor/botan/md4">md4</a></li>
+<li><a href="/vendor/botan/md5">md5</a></li>
+<li><a href="/vendor/botan/ripemd">ripemd</a></li>
+<li><a href="/vendor/botan/sha1">sha1</a></li>
+<li><a href="/vendor/botan/sha2">sha2</a></li>
+<li><a href="/vendor/botan/sha3">sha3</a></li>
+<li><a href="/vendor/botan/shake">shake</a></li>
+<li><a href="/vendor/botan/siphash">siphash</a></li>
+<li><a href="/vendor/botan/skein512">skein512</a></li>
+<li><a href="/vendor/botan/sm3">sm3</a></li>
+<li><a href="/vendor/botan/streebog">streebog</a></li>
+<li><a href="/vendor/botan/tiger">tiger</a></li>
+<li><a href="/vendor/botan/whirlpool">whirlpool</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/cgltf">cgltf</a></li>
+<li class="nav-item"><a href="/vendor/commonmark">commonmark</a></li>
+<li class="nav-item">darwin<ul>
+<li><a href="/vendor/darwin/Foundation">Foundation</a></li>
+<li><a href="/vendor/darwin/Metal">Metal</a></li>
+<li><a href="/vendor/darwin/MetalKit">MetalKit</a></li>
+<li><a href="/vendor/darwin/QuartzCore">QuartzCore</a></li>
+</ul>
+
+</li>
+<li class="nav-item">directx<ul>
+<li><a href="/vendor/directx/d3d11">d3d11</a></li>
+<li><a href="/vendor/directx/d3d12">d3d12</a></li>
+<li><a href="/vendor/directx/d3d_compiler">d3d_compiler</a></li>
+<li><a href="/vendor/directx/dxgi">dxgi</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/ENet">ENet</a></li>
+<li class="nav-item"><a href="/vendor/fontstash">fontstash</a></li>
+<li class="nav-item"><a class="active" href="/vendor/ggpo">ggpo</a></li>
+<li class="nav-item"><a href="/vendor/glfw">glfw</a><ul>
+<li><a href="/vendor/glfw/bindings">bindings</a></li>
+</ul>
+
+</li>
+<li class="nav-item">lua<ul>
+<li><a href="/vendor/lua/5.4">5.4</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/microui">microui</a></li>
+<li class="nav-item"><a href="/vendor/miniaudio">miniaudio</a></li>
+<li class="nav-item"><a href="/vendor/nanovg">nanovg</a><ul>
+<li><a href="/vendor/nanovg/gl">gl</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/OpenEXRCore">OpenEXRCore</a></li>
+<li class="nav-item"><a href="/vendor/OpenGL">OpenGL</a></li>
+<li class="nav-item"><a href="/vendor/portmidi">portmidi</a></li>
+<li class="nav-item"><a href="/vendor/raylib">raylib</a></li>
+<li class="nav-item"><a href="/vendor/sdl2">sdl2</a><ul>
+<li><a href="/vendor/sdl2/image">image</a></li>
+<li><a href="/vendor/sdl2/mixer">mixer</a></li>
+<li><a href="/vendor/sdl2/net">net</a></li>
+<li><a href="/vendor/sdl2/ttf">ttf</a></li>
+</ul>
+
+</li>
+<li class="nav-item">stb<ul>
+<li><a href="/vendor/stb/easy_font">easy_font</a></li>
+<li><a href="/vendor/stb/image">image</a></li>
+<li><a href="/vendor/stb/rect_pack">rect_pack</a></li>
+<li><a href="/vendor/stb/truetype">truetype</a></li>
+<li><a href="/vendor/stb/vorbis">vorbis</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/vulkan">vulkan</a></li>
+<li class="nav-item"><a href="/vendor/zlib">zlib</a></li>
+</ul>
+</div>
+</nav>
+<article class="col-lg-8 p-4 documentation odin-article">
+<nav class="pkg-breadcrumb" aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="/vendor">vendor</a></li>
+<li class="breadcrumb-item active" aria-current="page"><a href="/vendor/ggpo">ggpo</a></li>
+</ol>
+</nav>
+<h1>package vendor:ggpo<div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo"><em>Source</em></a></div></h1>
+
+		<div class="odin-search-wrapper">
+			<input type="search" id="odin-search" class="odin-search-package" autocomplete="off" spellcheck="false" placeholder="Fuzzy Search...">
+			<div class="odin-search-shortcut">
+				<div class="odin-search-key key-macos">⌘K</div>
+				<div class="odin-search-key key-windows">Ctrl+K</div>
+				<span class="odin-search-or">or</span>
+				<div class="odin-search-key">/</div>
+			</div>
+		</div>
+	
+<div id="odin-search-info">
+<div id="odin-search-time"></div>
+
+		<div id="odin-search-options">
+			<input type="checkbox" id="odin-search-filter" name="odin-search-filter">
+			<label for="odin-search-filter">Filter Results</label>
+		</div>
+</div>
+<ul id="odin-search-results"></ul>
+<div id="pkg-top">
+<div id="pkg-index">
+<h2>Index</h2>
+<div>
+<details class="doc-index" id="doc-index-Types" aria-labelledby="#doc-index-Types-header">
+<summary id="#doc-index-Types-header">
+Types (10)</summary>
+<ul>
+<li><a href="#ErrorCode">ErrorCode</a></li>
+<li><a href="#Event">Event</a></li>
+<li><a href="#EventCode">EventCode</a></li>
+<li><a href="#LocalEndpoint">LocalEndpoint</a></li>
+<li><a href="#NetworkStats">NetworkStats</a></li>
+<li><a href="#Player">Player</a></li>
+<li><a href="#PlayerHandle">PlayerHandle</a></li>
+<li><a href="#PlayerType">PlayerType</a></li>
+<li><a href="#Session">Session</a></li>
+<li><a href="#SessionCallbacks">SessionCallbacks</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Constants" aria-labelledby="#doc-index-Constants-header">
+<summary id="#doc-index-Constants-header">
+Constants (5)</summary>
+<ul>
+<li><a href="#INVALID_HANDLE">INVALID_HANDLE</a></li>
+<li><a href="#MAX_PLAYERS">MAX_PLAYERS</a></li>
+<li><a href="#MAX_PREDICTION_FRAMES">MAX_PREDICTION_FRAMES</a></li>
+<li><a href="#MAX_SPECTATORS">MAX_SPECTATORS</a></li>
+<li><a href="#SPECTATOR_INPUT_INTERVAL">SPECTATOR_INPUT_INTERVAL</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Variables" aria-labelledby="#doc-index-Variables-header">
+<summary id="#doc-index-Variables-header">
+Variables (0)</summary>
+<p class="pkg-empty-section">This section is empty.</p>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
+<summary id="#doc-index-Procedures-header">
+Procedures (16)</summary>
+<ul>
+<li><a href="#add_local_input">add_local_input</a></li>
+<li><a href="#add_player">add_player</a></li>
+<li><a href="#advance_frame">advance_frame</a></li>
+<li><a href="#close_session">close_session</a></li>
+<li><a href="#disconnect_player">disconnect_player</a></li>
+<li><a href="#get_network_stats">get_network_stats</a></li>
+<li><a href="#idle">idle</a></li>
+<li><a href="#log">log</a></li>
+<li><a href="#logv">logv</a></li>
+<li><a href="#set_disconnect_notify_start">set_disconnect_notify_start</a></li>
+<li><a href="#set_disconnect_timeout">set_disconnect_timeout</a></li>
+<li><a href="#set_frame_delay">set_frame_delay</a></li>
+<li><a href="#start_session">start_session</a></li>
+<li><a href="#start_spectating">start_spectating</a></li>
+<li><a href="#start_synctest">start_synctest</a></li>
+<li><a href="#synchronize_input">synchronize_input</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedure Groups" aria-labelledby="#doc-index-Procedure Groups-header">
+<summary id="#doc-index-Procedure Groups-header">
+Procedure Groups (0)</summary>
+<p class="pkg-empty-section">This section is empty.</p>
+</details>
+</div>
+</div>
+</div>
+<section class="documentation">
+<h2 id="pkg-Types" class="pkg-header">Types</h2>
+<div class="pkg-entity">
+<h3 id="ErrorCode"><span><a class="doc-id-link" href="#ErrorCode">ErrorCode<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L64"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ErrorCode :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
+	OK                    = 0, 
+	SUCCESS               = 0, 
+	GENERAL_FAILURE       = -1, 
+	INVALID_SESSION       = 1, 
+	INVALID_PLAYER_HANDLE = 2, 
+	PLAYER_OUT_OF_RANGE   = 3, 
+	PREDICTION_THRESHOLD  = 4, 
+	UNSUPPORTED           = 5, 
+	NOT_SYNCHRONIZED      = 6, 
+	IN_ROLLBACK           = 7, 
+	INPUT_DROPPED         = 8, 
+	PLAYER_DISCONNECTED   = 9, 
+	TOO_MANY_SPECTATORS   = 10, 
+	INVALID_REQUEST       = 11, 
+}</pre>
+</div>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/vendor/ggpo/#add_local_input">add_local_input</a></li>
+<li><a href="/vendor/ggpo/#add_player">add_player</a></li>
+<li><a href="/vendor/ggpo/#advance_frame">advance_frame</a></li>
+<li><a href="/vendor/ggpo/#close_session">close_session</a></li>
+<li><a href="/vendor/ggpo/#disconnect_player">disconnect_player</a></li>
+<li><a href="/vendor/ggpo/#get_network_stats">get_network_stats</a></li>
+<li><a href="/vendor/ggpo/#idle">idle</a></li>
+<li><a href="/vendor/ggpo/#set_disconnect_notify_start">set_disconnect_notify_start</a></li>
+<li><a href="/vendor/ggpo/#set_disconnect_timeout">set_disconnect_timeout</a></li>
+<li><a href="/vendor/ggpo/#set_frame_delay">set_frame_delay</a></li>
+<li><a href="/vendor/ggpo/#start_session">start_session</a></li>
+<li><a href="/vendor/ggpo/#start_spectating">start_spectating</a></li>
+<li><a href="/vendor/ggpo/#start_synctest">start_synctest</a></li>
+<li><a href="/vendor/ggpo/#synchronize_input">synchronize_input</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Event"><span><a class="doc-id-link" href="#Event">Event<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L126"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Event :: <span class="keyword-type">struct</span> {
+	code: <a class="code-typename" href="/vendor/ggpo/#EventCode">EventCode</a>,
+	<span class="keyword-type">using</span> u: <span class="keyword-type">struct</span> <span class="directive">#raw_union</span> {
+		connected:              <span class="keyword-type">struct</span> {
+			player: <a class="code-typename" href="/vendor/ggpo/#PlayerHandle">PlayerHandle</a>,
+		},
+		synchronizing:          <span class="keyword-type">struct</span> {
+			player: <a class="code-typename" href="/vendor/ggpo/#PlayerHandle">PlayerHandle</a>,
+			count:  <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+			total:  <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+		},
+		synchronized:           <span class="keyword-type">struct</span> {
+			player: <a class="code-typename" href="/vendor/ggpo/#PlayerHandle">PlayerHandle</a>,
+		},
+		disconnected:           <span class="keyword-type">struct</span> {
+			player: <a class="code-typename" href="/vendor/ggpo/#PlayerHandle">PlayerHandle</a>,
+		},
+		timesync:               <span class="keyword-type">struct</span> {
+			frames_ahead: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+		},
+		connection_interrupted: <span class="keyword-type">struct</span> {
+			player:             <a class="code-typename" href="/vendor/ggpo/#PlayerHandle">PlayerHandle</a>,
+			disconnect_timeout: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+		},
+		connection_resumed:     <span class="keyword-type">struct</span> {
+			player: <a class="code-typename" href="/vendor/ggpo/#PlayerHandle">PlayerHandle</a>,
+		},
+	},
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="EventCode"><span><a class="doc-id-link" href="#EventCode">EventCode<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L109"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">EventCode :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
+	CONNECTED_TO_PEER       = 1000, 
+	SYNCHRONIZING_WITH_PEER = 1001, 
+	SYNCHRONIZED_WITH_PEER  = 1002, 
+	RUNNING                 = 1003, 
+	DISCONNECTED_FROM_PEER  = 1004, 
+	TIMESYNC                = 1005, 
+	CONNECTION_INTERRUPTED  = 1006, 
+	CONNECTION_RESUMED      = 1007, 
+}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>* The EventCode enumeration describes what type of event just happened.
+ *
+ * CONNECTED_TO_PEER - Handshake with the game running on the
+ * other side of the network has been completed.
+ *
+ * SYNCHRONIZING_WITH_PEER - Beginning the synchronization
+ * process with the client on the other end of the networking.  The count
+ * and total fields in the u.synchronizing struct of the Event
+ * object indicate progress.
+ *
+ * SYNCHRONIZED_WITH_PEER - The synchronziation with this
+ * peer has finished.
+ *
+ * RUNNING - All the clients have synchronized.  You may begin
+ * sending inputs with synchronize_inputs.
+ *
+ * DISCONNECTED_FROM_PEER - The network connection on
+ * the other end of the network has closed.
+ *
+ * TIMESYNC - The time synchronziation code has determined
+ * that this client is too far ahead of the other one and should slow
+ * down to ensure fairness.  The u.timesync.frames_ahead parameter in
+ * the Event object indicates how many frames the client is.
+ *</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="LocalEndpoint"><span><a class="doc-id-link" href="#LocalEndpoint">LocalEndpoint<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L60"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">LocalEndpoint :: <span class="keyword-type">struct</span> {
+	player_num: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="NetworkStats"><span><a class="doc-id-link" href="#NetworkStats">NetworkStats<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L250"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">NetworkStats :: <span class="keyword-type">struct</span> {
+	network:  <span class="keyword-type">struct</span> {
+		send_queue_len: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+		recv_queue_len: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+		ping:           <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+		kbps_sent:      <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+	},
+	timesync: <span class="keyword-type">struct</span> {
+		local_frames_behind:  <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+		remote_frames_behind: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+	},
+}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>* The NetworkStats function contains some statistics about the current
+ * session.
+ *
+ * network.send_queue_len - The length of the queue containing UDP packets
+ * which have not yet been acknowledged by the end client.  The length of
+ * the send queue is a rough indication of the quality of the connection.
+ * The longer the send queue, the higher the round-trip time between the
+ * clients.  The send queue will also be longer than usual during high
+ * packet loss situations.
+ *
+ * network.recv_queue_len - The number of inputs currently buffered by the
+ * GGPO.net network layer which have yet to be validated.  The length of
+ * the prediction queue is roughly equal to the current frame number
+ * minus the frame number of the last packet in the remote queue.
+ *
+ * network.ping - The roundtrip packet transmission time as calcuated
+ * by GGPO.net.  This will be roughly equal to the actual round trip
+ * packet transmission time + 2 the interval at which you call idle
+ * or advance_frame.
+ *
+ * network.kbps_sent - The estimated bandwidth used between the two
+ * clients, in kilobits per second.
+ *
+ * timesync.local_frames_behind - The number of frames GGPO.net calculates
+ * that the local client is behind the remote client at this instant in
+ * time.  For example, if at this instant the current game client is running
+ * frame 1002 and the remote game client is running frame 1009, this value
+ * will mostly likely roughly equal 7.
+ *
+ * timesync.remote_frames_behind - The same as local_frames_behind, but
+ * calculated from the perspective of the remote player.
+ *</p>
+</details>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/vendor/ggpo/#get_network_stats">get_network_stats</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Player"><span><a class="doc-id-link" href="#Player">Player<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L47"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Player :: <span class="keyword-type">struct</span> {
+	size:       <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+	type:       <a class="code-typename" href="/vendor/ggpo/#PlayerType">PlayerType</a>,
+	player_num: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+	<span class="keyword-type">using</span> u:    <span class="keyword-type">struct</span> <span class="directive">#raw_union</span> {
+		local:  <span class="keyword-type">struct</span> {},
+		remote: <span class="keyword-type">struct</span> {
+			ip_address: [32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+			port:       <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>,
+		},
+	},
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/vendor/ggpo/#add_player">add_player</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="PlayerHandle"><span><a class="doc-id-link" href="#PlayerHandle">PlayerHandle<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L15"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">PlayerHandle :: <span class="keyword-type">distinct</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a></pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/vendor/ggpo/#add_local_input">add_local_input</a></li>
+<li><a href="/vendor/ggpo/#add_player">add_player</a></li>
+<li><a href="/vendor/ggpo/#disconnect_player">disconnect_player</a></li>
+<li><a href="/vendor/ggpo/#get_network_stats">get_network_stats</a></li>
+<li><a href="/vendor/ggpo/#set_frame_delay">set_frame_delay</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="PlayerType"><span><a class="doc-id-link" href="#PlayerType">PlayerType<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L16"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">PlayerType :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
+	LOCAL, 
+	REMOTE, 
+	SPECTATOR, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Session"><span><a class="doc-id-link" href="#Session">Session<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L7"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Session :: <span class="keyword-type">distinct</span> <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a></pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/vendor/ggpo/#add_local_input">add_local_input</a></li>
+<li><a href="/vendor/ggpo/#add_player">add_player</a></li>
+<li><a href="/vendor/ggpo/#advance_frame">advance_frame</a></li>
+<li><a href="/vendor/ggpo/#close_session">close_session</a></li>
+<li><a href="/vendor/ggpo/#disconnect_player">disconnect_player</a></li>
+<li><a href="/vendor/ggpo/#get_network_stats">get_network_stats</a></li>
+<li><a href="/vendor/ggpo/#idle">idle</a></li>
+<li><a href="/vendor/ggpo/#log">log</a></li>
+<li><a href="/vendor/ggpo/#logv">logv</a></li>
+<li><a href="/vendor/ggpo/#set_disconnect_notify_start">set_disconnect_notify_start</a></li>
+<li><a href="/vendor/ggpo/#set_disconnect_timeout">set_disconnect_timeout</a></li>
+<li><a href="/vendor/ggpo/#set_frame_delay">set_frame_delay</a></li>
+<li><a href="/vendor/ggpo/#synchronize_input">synchronize_input</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="SessionCallbacks"><span><a class="doc-id-link" href="#SessionCallbacks">SessionCallbacks<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L161"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">SessionCallbacks :: <span class="keyword-type">struct</span> {
+	<span class="comment">// 	 * begin_game callback - This callback has been deprecated.  You must</span>
+	<span class="comment">// 	 * implement it, but should ignore the 'game' parameter.</span>
+	begin_game:      <span class="keyword-type">proc</span> "c" (game: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	<span class="comment">// 	 * save_game_state - The client should allocate a buffer, copy the</span>
+	<span class="comment">// 	 * entire contents of the current game state into it, and copy the</span>
+	<span class="comment">// 	 * length into the len parameter.  Optionally, the client can compute</span>
+	<span class="comment">// 	 * a checksum of the data and store it in the checksum argument.</span>
+	save_game_state: <span class="keyword-type">proc</span> "c" (buffer: ^[^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, len: ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, checksum: ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, frame: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	<span class="comment">// 	 * load_game_state - GGPO.net will call this function at the beginning</span>
+	<span class="comment">// 	 * of a rollback.  The buffer and len parameters contain a previously</span>
+	<span class="comment">// 	 * saved state returned from the save_game_state function.  The client</span>
+	<span class="comment">// 	 * should make the current game state match the state contained in the</span>
+	<span class="comment">// 	 * buffer.</span>
+	load_game_state: <span class="keyword-type">proc</span> "c" (buffer: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, len: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	<span class="comment">// 	 * log_game_state - Used in diagnostic testing.  The client should use</span>
+	<span class="comment">// 	 * the log function to write the contents of the specified save</span>
+	<span class="comment">// 	 * state in a human readible form.</span>
+	log_game_state:  <span class="keyword-type">proc</span> "c" (filename: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>, buffer: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, len: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	<span class="comment">// 	 * free_buffer - Frees a game state allocated in save_game_state.  You</span>
+	<span class="comment">// 	 * should deallocate the memory contained in the buffer.</span>
+	free_buffer:     <span class="keyword-type">proc</span> "c" (buffer: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>),
+	<span class="comment">// 	 * advance_frame - Called during a rollback.  You should advance your game</span>
+	<span class="comment">// 	 * state by exactly one frame.  Before each frame, call synchronize_input</span>
+	<span class="comment">// 	 * to retrieve the inputs you should use for that frame.  After each frame,</span>
+	<span class="comment">// 	 * you should call advance_frame to notify GGPO.net that you're</span>
+	<span class="comment">// 	 * finished.</span>
+	<span class="comment">// 	 *</span>
+	<span class="comment">// 	 * The flags parameter is reserved.  It can safely be ignored at this time.</span>
+	advance_frame:   <span class="keyword-type">proc</span> "c" (flags: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	<span class="comment">// 	 * on_event - Notification that something has happened.  See the EventCode</span>
+	<span class="comment">// 	 * structure above for more information.</span>
+	on_event:        <span class="keyword-type">proc</span> "c" (info: ^<a class="code-typename" href="/vendor/ggpo/#Event">Event</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>* The SessionCallbacks structure contains the callback functions that
+ * your application must implement.  GGPO.net will periodically call these
+ * functions during the game.  All callback functions must be implemented.</p>
+</details>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/vendor/ggpo/#start_session">start_session</a></li>
+<li><a href="/vendor/ggpo/#start_spectating">start_spectating</a></li>
+<li><a href="/vendor/ggpo/#start_synctest">start_synctest</a></li>
+</ul>
+</div>
+<h2 id="pkg-Constants" class="pkg-header">Constants</h2>
+<div class="pkg-entity">
+<h3 id="INVALID_HANDLE"><span><a class="doc-id-link" href="#INVALID_HANDLE">INVALID_HANDLE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L81"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">INVALID_HANDLE :: PlayerHandle(-1)</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="MAX_PLAYERS"><span><a class="doc-id-link" href="#MAX_PLAYERS">MAX_PLAYERS<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L9"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MAX_PLAYERS :: 4</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="MAX_PREDICTION_FRAMES"><span><a class="doc-id-link" href="#MAX_PREDICTION_FRAMES">MAX_PREDICTION_FRAMES<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L10"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MAX_PREDICTION_FRAMES :: 8</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="MAX_SPECTATORS"><span><a class="doc-id-link" href="#MAX_SPECTATORS">MAX_SPECTATORS<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L11"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MAX_SPECTATORS :: 32</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="SPECTATOR_INPUT_INTERVAL"><span><a class="doc-id-link" href="#SPECTATOR_INPUT_INTERVAL">SPECTATOR_INPUT_INTERVAL<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L13"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">SPECTATOR_INPUT_INTERVAL :: 4</pre>
+</div>
+</div>
+<h2 id="pkg-Variables" class="pkg-header">Variables</h2>
+<p class="pkg-empty-section">This section is empty.</p>
+<h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
+<div class="pkg-entity">
+<h3 id="add_local_input"><span><a class="doc-id-link" href="#add_local_input">add_local_input<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L423"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">add_local_input :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, player: <a class="code-typename" href="/vendor/ggpo/#PlayerHandle">PlayerHandle</a>, values: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, size: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>* add_local_input --</p>
+<pre> *
+ * Used to notify GGPO.net of inputs that should be trasmitted to remote
+ * players.  add_local_input must be called once every frame for
+ * all player of type PLAYERTYPE_LOCAL.
+ *
+ * player - The player handle returned for this player when you called
+ * add_local_player.
+ *
+ * values - The controller inputs for this player.
+ *
+ * size - The size of the controller inputs.  This must be exactly equal to the
+ * size passed into start_session.
+</pre>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="add_player"><span><a class="doc-id-link" href="#add_player">add_player<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L308"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">add_player :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, player: ^<a class="code-typename" href="/vendor/ggpo/#Player">Player</a>, handle: ^<a class="code-typename" href="/vendor/ggpo/#PlayerHandle">PlayerHandle</a>) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>* add_player --</p>
+<pre> *
+ * Must be called for each player in the session (e.g. in a 3 player session, must
+ * be called 3 times).
+ *
+ * player - A Player struct used to describe the player.
+ *
+ * handle - An out parameter to a handle used to identify this player in the future.
+ * (e.g. in the on_event callbacks).
+</pre>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="advance_frame"><span><a class="doc-id-link" href="#advance_frame">advance_frame<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L467"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">advance_frame :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>* advance_frame --</p>
+<pre> *
+ * You should call advance_frame to notify GGPO.net that you have
+ * advanced your gamestate by a single frame.  You should call this everytime
+ * you advance the gamestate by a frame, even during rollbacks.  GGPO.net
+ * may call your save_state callback before this function returns.
+</pre>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="close_session"><span><a class="doc-id-link" href="#close_session">close_session<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L383"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">close_session :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>* close_session --</p>
+<pre> * Used to close a session.  You must call close_session to
+ * free the resources allocated in start_session.
+</pre>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="disconnect_player"><span><a class="doc-id-link" href="#disconnect_player">disconnect_player<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L456"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">disconnect_player :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, player: <a class="code-typename" href="/vendor/ggpo/#PlayerHandle">PlayerHandle</a>) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>* disconnect_player --</p>
+<pre> *
+ * Disconnects a remote player from a game.  Will return ERRORCODE_PLAYER_DISCONNECTED
+ * if you try to disconnect a player who has already been disconnected.
+</pre>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="get_network_stats"><span><a class="doc-id-link" href="#get_network_stats">get_network_stats<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L479"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">get_network_stats :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, player: <a class="code-typename" href="/vendor/ggpo/#PlayerHandle">PlayerHandle</a>, stats: ^<a class="code-typename" href="/vendor/ggpo/#NetworkStats">NetworkStats</a>) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>* get_network_stats --</p>
+<pre> *
+ * Used to fetch some statistics about the quality of the network connection.
+ *
+ * player - The player handle returned from the add_player function you used
+ * to add the remote player.
+ *
+ * stats - Out parameter to the network statistics.
+</pre>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="idle"><span><a class="doc-id-link" href="#idle">idle<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L405"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">idle :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, timeout: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>* idle --</p>
+<pre> * Should be called periodically by your application to give GGPO.net
+ * a chance to do some work.  Most packet transmissions and rollbacks occur
+ * in idle.
+ *
+ * timeout - The amount of time GGPO.net is allowed to spend in this function,
+ * in milliseconds.
+</pre>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="log"><span><a class="doc-id-link" href="#log">log<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L518"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">log :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, fmt: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>, args: ..<a href="/core/builtin#any"><span class="doc-builtin">any</span></a>) ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>* log --</p>
+<pre> *
+ * Used to write to the ggpo.net log.  In the current versions of the
+ * SDK, a log file is only generated if the "quark.log" environment
+ * variable is set to 1.  This will change in future versions of the
+ * SDK.
+</pre>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="logv"><span><a class="doc-id-link" href="#logv">logv<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L525"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">logv :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, fmt: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>, args: libc.<a class="code-typename" href="/core/c/libc/#va_list">va_list</a>) ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>* logv --</p>
+<pre> *
+ * A varargs compatible version of log.  See log for
+ * more details.
+</pre>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="set_disconnect_notify_start"><span><a class="doc-id-link" href="#set_disconnect_notify_start">set_disconnect_notify_start<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L507"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">set_disconnect_notify_start :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, timeout: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>* set_disconnect_notify_start --</p>
+<pre> *
+ * The time to wait before the first EVENTCODE_NETWORK_INTERRUPTED timeout
+ * will be sent.
+ *
+ * timeout - The amount of time which needs to elapse without receiving a packet
+ *           before the EVENTCODE_NETWORK_INTERRUPTED event is sent.
+</pre>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="set_disconnect_timeout"><span><a class="doc-id-link" href="#set_disconnect_timeout">set_disconnect_timeout<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L495"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">set_disconnect_timeout :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, timeout: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>* set_disconnect_timeout --</p>
+<pre> *
+ * Sets the disconnect timeout.  The session will automatically disconnect
+ * from a remote peer if it has not received a packet in the timeout window.
+ * You will be notified of the disconnect via a EVENTCODE_DISCONNECTED_FROM_PEER
+ * event.
+ *
+ * Setting a timeout value of 0 will disable automatic disconnects.
+ *
+ * timeout - The time in milliseconds to wait before disconnecting a peer.
+</pre>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="set_frame_delay"><span><a class="doc-id-link" href="#set_frame_delay">set_frame_delay<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L392"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">set_frame_delay :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, player: <a class="code-typename" href="/vendor/ggpo/#PlayerHandle">PlayerHandle</a>, frame_delay: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>* set_frame_delay --</p>
+<pre> *
+ * Change the amount of frames ggpo will delay local input.  Must be called
+ * before the first call to synchronize_input.
+</pre>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="start_session"><span><a class="doc-id-link" href="#start_session">start_session<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L289"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">start_session :: <span class="keyword-type">proc</span> "c" (
+	session:     ^^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, 
+	cb:          ^<a class="code-typename" href="/vendor/ggpo/#SessionCallbacks">SessionCallbacks</a>, 
+	game:        <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>, 
+	num_players: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+	input_size:  <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+	localport:   <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, 
+) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>* start_session --</p>
+<pre> *
+ * Used to being a new GGPO.net session.  The ggpo object returned by start_session
+ * uniquely identifies the state for this session and should be passed to all other
+ * functions.
+ *
+ * session - An out parameter to the new ggpo session object.
+ *
+ * cb - A SessionCallbacks structure which contains the callbacks you implement
+ * to help GGPO.net synchronize the two games.  You must implement all functions in
+ * cb, even if they do nothing but 'return true';
+ *
+ * game - The name of the game.  This is used internally for GGPO for logging purposes only.
+ *
+ * num_players - The number of players which will be in this game.  The number of players
+ * per session is fixed.  If you need to change the number of players or any player
+ * disconnects, you must start a new session.
+ *
+ * input_size - The size of the game inputs which will be passsed to add_local_input.
+ *
+ * local_port - The port GGPO should bind to for UDP traffic.
+</pre>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="start_spectating"><span><a class="doc-id-link" href="#start_spectating">start_spectating<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L369"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">start_spectating :: <span class="keyword-type">proc</span> "c" (
+	session:     ^^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, 
+	cb:          ^<a class="code-typename" href="/vendor/ggpo/#SessionCallbacks">SessionCallbacks</a>, 
+	game:        <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>, 
+	num_players: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+	input_size:  <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+	local_port:  <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, 
+	host_ip:     <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>, 
+	host_port:   <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, 
+) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>* start_spectating --</p>
+<pre> *
+ * Start a spectator session.
+ *
+ * cb - A SessionCallbacks structure which contains the callbacks you implement
+ * to help GGPO.net synchronize the two games.  You must implement all functions in
+ * cb, even if they do nothing but 'return true';
+ *
+ * game - The name of the game.  This is used internally for GGPO for logging purposes only.
+ *
+ * num_players - The number of players which will be in this game.  The number of players
+ * per session is fixed.  If you need to change the number of players or any player
+ * disconnects, you must start a new session.
+ *
+ * input_size - The size of the game inputs which will be passsed to add_local_input.
+ *
+ * local_port - The port GGPO should bind to for UDP traffic.
+ *
+ * host_ip - The IP address of the host who will serve you the inputs for the game.  Any
+ * player partcipating in the session can serve as a host.
+ *
+ * host_port - The port of the session on the host
+</pre>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="start_synctest"><span><a class="doc-id-link" href="#start_synctest">start_synctest<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L337"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">start_synctest :: <span class="keyword-type">proc</span> "c" (
+	session:     ^^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, 
+	cb:          ^<a class="code-typename" href="/vendor/ggpo/#SessionCallbacks">SessionCallbacks</a>, 
+	game:        <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>, 
+	num_players: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+	input_size:  <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+	frames:      <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>* start_synctest --</p>
+<pre> *
+ * Used to being a new GGPO.net sync test session.  During a sync test, every
+ * frame of execution is run twice: once in prediction mode and once again to
+ * verify the result of the prediction.  If the checksums of your save states
+ * do not match, the test is aborted.
+ *
+ * cb - A SessionCallbacks structure which contains the callbacks you implement
+ * to help GGPO.net synchronize the two games.  You must implement all functions in
+ * cb, even if they do nothing but 'return true';
+ *
+ * game - The name of the game.  This is used internally for GGPO for logging purposes only.
+ *
+ * num_players - The number of players which will be in this game.  The number of players
+ * per session is fixed.  If you need to change the number of players or any player
+ * disconnects, you must start a new session.
+ *
+ * input_size - The size of the game inputs which will be passsed to add_local_input.
+ *
+ * frames - The number of frames to run before verifying the prediction.  The
+ * recommended value is 1.
+ *
+</pre>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="synchronize_input"><span><a class="doc-id-link" href="#synchronize_input">synchronize_input<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L445"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">synchronize_input :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, values: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, size: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, disconnect_flags: ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>* synchronize_input --</p>
+<pre> *
+ * You should call synchronize_input before every frame of execution,
+ * including those frames which happen during rollback.
+ *
+ * values - When the function returns, the values parameter will contain
+ * inputs for this frame for all players.  The values array must be at
+ * least (size * players) large.
+ *
+ * size - The size of the values array.
+ *
+ * disconnect_flags - Indicated whether the input in slot (1 &lt;&lt; flag) is
+ * valid.  If a player has disconnected, the input in the values array for
+ * that player will be zeroed and the i-th flag will be set.  For example,
+ * if only player 3 has disconnected, disconnect flags will be 8 (i.e. 1 &lt;&lt; 3).
+</pre>
+</details>
+</div>
+<h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
+<p class="pkg-empty-section">This section is empty.</p>
+</section>
+<h2 id="pkg-source-files">Source Files</h2>
+<ul>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin">ggpo.odin</a></li>
+</ul>
+<h2 id="pkg-generation-information">Generation Information</h2>
+<p>Generated with <code>odin version dev-2023-09 (vendor "odin") Windows_amd64 @ 2023-09-05 17:19:49.005503600 +0000 UTC</code></p>
+</article>
+<div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#pkg-Types">Types</a><ul>
+<li><a href="#ErrorCode">ErrorCode</a></li>
+<li><a href="#Event">Event</a></li>
+<li><a href="#EventCode">EventCode</a></li>
+<li><a href="#LocalEndpoint">LocalEndpoint</a></li>
+<li><a href="#NetworkStats">NetworkStats</a></li>
+<li><a href="#Player">Player</a></li>
+<li><a href="#PlayerHandle">PlayerHandle</a></li>
+<li><a href="#PlayerType">PlayerType</a></li>
+<li><a href="#Session">Session</a></li>
+<li><a href="#SessionCallbacks">SessionCallbacks</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Constants">Constants</a><ul>
+<li><a href="#INVALID_HANDLE">INVALID_HANDLE</a></li>
+<li><a href="#MAX_PLAYERS">MAX_PLAYERS</a></li>
+<li><a href="#MAX_PREDICTION_FRAMES">MAX_PREDICTION_FRAMES</a></li>
+<li><a href="#MAX_SPECTATORS">MAX_SPECTATORS</a></li>
+<li><a href="#SPECTATOR_INPUT_INTERVAL">SPECTATOR_INPUT_INTERVAL</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Procedures">Procedures</a><ul>
+<li><a href="#add_local_input">add_local_input</a></li>
+<li><a href="#add_player">add_player</a></li>
+<li><a href="#advance_frame">advance_frame</a></li>
+<li><a href="#close_session">close_session</a></li>
+<li><a href="#disconnect_player">disconnect_player</a></li>
+<li><a href="#get_network_stats">get_network_stats</a></li>
+<li><a href="#idle">idle</a></li>
+<li><a href="#log">log</a></li>
+<li><a href="#logv">logv</a></li>
+<li><a href="#set_disconnect_notify_start">set_disconnect_notify_start</a></li>
+<li><a href="#set_disconnect_timeout">set_disconnect_timeout</a></li>
+<li><a href="#set_frame_delay">set_frame_delay</a></li>
+<li><a href="#start_session">start_session</a></li>
+<li><a href="#start_spectating">start_spectating</a></li>
+<li><a href="#start_synctest">start_synctest</a></li>
+<li><a href="#synchronize_input">synchronize_input</a></li>
+</ul>
+</li>
+<li><a href="#pkg-source-files">Source Files</a></ul>
+</nav>
+</div></div>
+<script type="text/javascript">var odin_pkg_name = "vendor_ggpo";</script>
+</div>
+
+</div>
+</main>
+
+<footer class="odin-footer">
+	<div class="container pb-5 pt-5">
+		<div class="row g-4">
+		<div class="col">
+		<a class="navbar-brand" href="https://odin-lang.org">
+		<img class="mb-3" src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+		<p>
+		The Data-Oriented Language for Sane Software Development.
+		</p>
+		</div>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Resources</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://odin-lang.org/docs" class="link-light">Docs</a></li>
+			<li><a href="https://pkg.odin-lang.org/" class="link-light">Packages</a></li>
+			<li><a href="https://odin-lang.org/news" class="link-light">News</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Community</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin" target="_blank" class="link-light">GitHub</a></li>
+			<li><a href="https://discord.com/invite/sVBPHEv" target="_blank" class="link-light">Discord</a></li>
+			<li><a href="https://www.twitch.tv/ginger_bill" target="_blank" class="link-light">Twitch</a></li>
+			<li><a href="https://www.youtube.com/channel/UCUSck1dOH7VKmG4lRW7tZXg" target="_blank" class="link-light">YouTube</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Contribute</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin/issues" target="_blank" class="link-light">Issues</a></li>
+			<li><a href="https://www.patreon.com/gingerbill" target="_blank" class="link-light">Donate</a></li>
+			</ul>
+			</nav>
+		</div>
+		<div class="mt-4 text-muted">© 2016–2023 Ginger Bill</div>
+	</div>
+</footer>
+
+<script src="https://odin-lang.org/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://odin-lang.org/js/script.js"></script>
+<script src="/pkg-data.js"></script>
+<script src="/search.js"></script>
+</body>
+</html>

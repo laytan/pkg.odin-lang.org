@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>package fontstash - pkg.odin-lang.org</title>	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/scss/custom.min.css">
+	<link rel=stylesheet href="//odin-lang.org/lib/highlight/styles/github-dark.min.css">
+	<script src="//odin-lang.org/lib/highlight/highlight.min.js"></script>
+
+	<script>hljs.registerLanguage("odin",function(a){return{aliases:["odin","odinlang","odin-lang"],keywords:{keyword:"auto_cast bit_set break case cast context continue defer distinct do dynamic else enum fallthrough for foreign if import in map not_in or_else or_return package proc return struct switch transmute type_of typeid union using when where",literal:"true false nil",built_in:"abs align_of cap clamp complex conj expand_to_tuple imag jmag kmag len max min offset_of quaternion real size_of soa_unzip soa_zip swizzle type_info_of type_of typeid_of"},illegal:"</",contains:[a.C_LINE_COMMENT_MODE,a.C_BLOCK_COMMENT_MODE,{className:"string",variants:[a.QUOTE_STRING_MODE,{begin:"'",end:"[^\\\\]'"},{begin:"`",end:"`"}]},{className:"number",variants:[{begin:a.C_NUMBER_RE+"[ijk]",relevance:1},a.C_NUMBER_MODE]}]}})</script>
+	<script>hljs.highlightAll()</script>
+	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/css/style.css">
+
+	<link rel="stylesheet" type="text/css" href="/style.css">
+
+	</style>
+</head>
+<body>
+<header class="sticky-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary odin-menu">
+		<div class="container">
+			<a class="navbar-brand" href="https://odin-lang.org/">
+			<img src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#odin-navbar-content" aria-controls="odin-navbar-content" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="odin-navbar-content">
+			<ul class="navbar-nav ms-md-auto">
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/docs">Docs</a></li>
+				<li class="nav-item"><a class="nav-link active" href="/">Packages</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/news">News</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/showcase">Showcase</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/community">Community</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://github.com/odin-lang/Odin" target="_blank">GitHub</a></li>
+			</ul>
+		</div>
+		</div>
+	</nav>
+</header>
+<main>
+<div class="container full-width">
+<div class="row odin-main my-4" id="pkg">
+<nav id="pkg-sidebar" class="col-lg-2 odin-sidebar-border navbar-light sticky-top odin-below-navbar">
+<div class="py-3">
+<h4><a style="text-transform: capitalize; color: inherit;" href="/vendor">vendor Library</a></h4>
+<ul>
+<li class="nav-item">botan<ul>
+<li><a href="/vendor/botan/bindings">bindings</a></li>
+<li><a href="/vendor/botan/blake2b">blake2b</a></li>
+<li><a href="/vendor/botan/gost">gost</a></li>
+<li><a href="/vendor/botan/keccak">keccak</a></li>
+<li><a href="/vendor/botan/md4">md4</a></li>
+<li><a href="/vendor/botan/md5">md5</a></li>
+<li><a href="/vendor/botan/ripemd">ripemd</a></li>
+<li><a href="/vendor/botan/sha1">sha1</a></li>
+<li><a href="/vendor/botan/sha2">sha2</a></li>
+<li><a href="/vendor/botan/sha3">sha3</a></li>
+<li><a href="/vendor/botan/shake">shake</a></li>
+<li><a href="/vendor/botan/siphash">siphash</a></li>
+<li><a href="/vendor/botan/skein512">skein512</a></li>
+<li><a href="/vendor/botan/sm3">sm3</a></li>
+<li><a href="/vendor/botan/streebog">streebog</a></li>
+<li><a href="/vendor/botan/tiger">tiger</a></li>
+<li><a href="/vendor/botan/whirlpool">whirlpool</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/cgltf">cgltf</a></li>
+<li class="nav-item"><a href="/vendor/commonmark">commonmark</a></li>
+<li class="nav-item">darwin<ul>
+<li><a href="/vendor/darwin/Foundation">Foundation</a></li>
+<li><a href="/vendor/darwin/Metal">Metal</a></li>
+<li><a href="/vendor/darwin/MetalKit">MetalKit</a></li>
+<li><a href="/vendor/darwin/QuartzCore">QuartzCore</a></li>
+</ul>
+
+</li>
+<li class="nav-item">directx<ul>
+<li><a href="/vendor/directx/d3d11">d3d11</a></li>
+<li><a href="/vendor/directx/d3d12">d3d12</a></li>
+<li><a href="/vendor/directx/d3d_compiler">d3d_compiler</a></li>
+<li><a href="/vendor/directx/dxgi">dxgi</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/ENet">ENet</a></li>
+<li class="nav-item"><a class="active" href="/vendor/fontstash">fontstash</a></li>
+<li class="nav-item"><a href="/vendor/ggpo">ggpo</a></li>
+<li class="nav-item"><a href="/vendor/glfw">glfw</a><ul>
+<li><a href="/vendor/glfw/bindings">bindings</a></li>
+</ul>
+
+</li>
+<li class="nav-item">lua<ul>
+<li><a href="/vendor/lua/5.4">5.4</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/microui">microui</a></li>
+<li class="nav-item"><a href="/vendor/miniaudio">miniaudio</a></li>
+<li class="nav-item"><a href="/vendor/nanovg">nanovg</a><ul>
+<li><a href="/vendor/nanovg/gl">gl</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/OpenEXRCore">OpenEXRCore</a></li>
+<li class="nav-item"><a href="/vendor/OpenGL">OpenGL</a></li>
+<li class="nav-item"><a href="/vendor/portmidi">portmidi</a></li>
+<li class="nav-item"><a href="/vendor/raylib">raylib</a></li>
+<li class="nav-item"><a href="/vendor/sdl2">sdl2</a><ul>
+<li><a href="/vendor/sdl2/image">image</a></li>
+<li><a href="/vendor/sdl2/mixer">mixer</a></li>
+<li><a href="/vendor/sdl2/net">net</a></li>
+<li><a href="/vendor/sdl2/ttf">ttf</a></li>
+</ul>
+
+</li>
+<li class="nav-item">stb<ul>
+<li><a href="/vendor/stb/easy_font">easy_font</a></li>
+<li><a href="/vendor/stb/image">image</a></li>
+<li><a href="/vendor/stb/rect_pack">rect_pack</a></li>
+<li><a href="/vendor/stb/truetype">truetype</a></li>
+<li><a href="/vendor/stb/vorbis">vorbis</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/vulkan">vulkan</a></li>
+<li class="nav-item"><a href="/vendor/zlib">zlib</a></li>
+</ul>
+</div>
+</nav>
+<article class="col-lg-8 p-4 documentation odin-article">
+<nav class="pkg-breadcrumb" aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="/vendor">vendor</a></li>
+<li class="breadcrumb-item active" aria-current="page"><a href="/vendor/fontstash">fontstash</a></li>
+</ol>
+</nav>
+<h1>package vendor:fontstash<div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash"><em>Source</em></a></div></h1>
+
+		<div class="odin-search-wrapper">
+			<input type="search" id="odin-search" class="odin-search-package" autocomplete="off" spellcheck="false" placeholder="Fuzzy Search...">
+			<div class="odin-search-shortcut">
+				<div class="odin-search-key key-macos">⌘K</div>
+				<div class="odin-search-key key-windows">Ctrl+K</div>
+				<span class="odin-search-or">or</span>
+				<div class="odin-search-key">/</div>
+			</div>
+		</div>
+	
+<div id="odin-search-info">
+<div id="odin-search-time"></div>
+
+		<div id="odin-search-options">
+			<input type="checkbox" id="odin-search-filter" name="odin-search-filter">
+			<label for="odin-search-filter">Filter Results</label>
+		</div>
+</div>
+<ul id="odin-search-results"></ul>
+<div id="pkg-top">
+<div id="pkg-index">
+<h2>Index</h2>
+<div>
+<details class="doc-index" id="doc-index-Types" aria-labelledby="#doc-index-Types-header">
+<summary id="#doc-index-Types-header">
+Types (12)</summary>
+<ul>
+<li><a href="#AlignHorizontal">AlignHorizontal</a></li>
+<li><a href="#AlignVertical">AlignVertical</a></li>
+<li><a href="#AtlasNode">AtlasNode</a></li>
+<li><a href="#Font">Font</a></li>
+<li><a href="#FontContext">FontContext</a></li>
+<li><a href="#Glyph">Glyph</a></li>
+<li><a href="#Glyph_Index">Glyph_Index</a></li>
+<li><a href="#Quad">Quad</a></li>
+<li><a href="#QuadLocation">QuadLocation</a></li>
+<li><a href="#State">State</a></li>
+<li><a href="#TextIter">TextIter</a></li>
+<li><a href="#Vertex">Vertex</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Constants" aria-labelledby="#doc-index-Constants-header">
+<summary id="#doc-index-Constants-header">
+Constants (8)</summary>
+<ul>
+<li><a href="#BLUR_APREC">BLUR_APREC</a></li>
+<li><a href="#BLUR_ZPREC">BLUR_ZPREC</a></li>
+<li><a href="#HASH_LUT_SIZE">HASH_LUT_SIZE</a></li>
+<li><a href="#INIT_ATLAS_NODES">INIT_ATLAS_NODES</a></li>
+<li><a href="#INIT_GLYPHS">INIT_GLYPHS</a></li>
+<li><a href="#INVALID">INVALID</a></li>
+<li><a href="#MAX_FALLBACKS">MAX_FALLBACKS</a></li>
+<li><a href="#MAX_STATES">MAX_STATES</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Variables" aria-labelledby="#doc-index-Variables-header">
+<summary id="#doc-index-Variables-header">
+Variables (0)</summary>
+<p class="pkg-empty-section">This section is empty.</p>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
+<summary id="#doc-index-Procedures-header">
+Procedures (31)</summary>
+<ul>
+<li><a href="#AddFallbackFont">AddFallbackFont</a></li>
+<li><a href="#AddFontMem">AddFontMem</a></li>
+<li><a href="#AddFontPath">AddFontPath</a></li>
+<li><a href="#BeginState">BeginState</a></li>
+<li><a href="#ClearState">ClearState</a></li>
+<li><a href="#CodepointWidth">CodepointWidth</a></li>
+<li><a href="#Destroy">Destroy</a></li>
+<li><a href="#EndState">EndState</a></li>
+<li><a href="#ExpandAtlas">ExpandAtlas</a></li>
+<li><a href="#GetFontByName">GetFontByName</a></li>
+<li><a href="#Init">Init</a></li>
+<li><a href="#LineBounds">LineBounds</a></li>
+<li><a href="#PopState">PopState</a></li>
+<li><a href="#PushState">PushState</a></li>
+<li><a href="#Reset">Reset</a></li>
+<li><a href="#ResetAtlas">ResetAtlas</a></li>
+<li><a href="#ResetFallbackFont">ResetFallbackFont</a></li>
+<li><a href="#SetAH">SetAH</a></li>
+<li><a href="#SetAV">SetAV</a></li>
+<li><a href="#SetAlignHorizontal">SetAlignHorizontal</a></li>
+<li><a href="#SetAlignVertical">SetAlignVertical</a></li>
+<li><a href="#SetBlur">SetBlur</a></li>
+<li><a href="#SetColor">SetColor</a></li>
+<li><a href="#SetFont">SetFont</a></li>
+<li><a href="#SetSize">SetSize</a></li>
+<li><a href="#SetSpacing">SetSpacing</a></li>
+<li><a href="#TextBounds">TextBounds</a></li>
+<li><a href="#TextIterInit">TextIterInit</a></li>
+<li><a href="#TextIterNext">TextIterNext</a></li>
+<li><a href="#ValidateTexture">ValidateTexture</a></li>
+<li><a href="#VerticalMetrics">VerticalMetrics</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedure Groups" aria-labelledby="#doc-index-Procedure Groups-header">
+<summary id="#doc-index-Procedure Groups-header">
+Procedure Groups (1)</summary>
+<ul>
+<li><a href="#AddFont">AddFont</a></li>
+</ul>
+</details>
+</div>
+</div>
+</div>
+<section class="documentation">
+<h2 id="pkg-Types" class="pkg-header">Types</h2>
+<div class="pkg-entity">
+<h3 id="AlignHorizontal"><span><a class="doc-id-link" href="#AlignHorizontal">AlignHorizontal<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L36"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">AlignHorizontal :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+	LEFT, 
+	CENTER, 
+	RIGHT, 
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/vendor/fontstash/#SetAlignHorizontal">SetAlignHorizontal</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="AlignVertical"><span><a class="doc-id-link" href="#AlignVertical">AlignVertical<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L42"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">AlignVertical :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+	TOP, 
+	MIDDLE, 
+	BOTTOM, 
+	BASELINE, 
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/vendor/fontstash/#SetAlignVertical">SetAlignVertical</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="AtlasNode"><span><a class="doc-id-link" href="#AtlasNode">AtlasNode<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L78"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">AtlasNode :: <span class="keyword-type">struct</span> {
+	x,
+	y,
+	width: <a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>,
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Font"><span><a class="doc-id-link" href="#Font">Font<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L49"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Font :: <span class="keyword-type">struct</span> {
+	name:           <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	<span class="comment">// allocated</span>
+	info:           stb_truetype.<a class="code-typename" href="/vendor/stb/truetype/#fontinfo">fontinfo</a>,
+	loadedData:     []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	freeLoadedData: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	<span class="comment">// in case you dont want loadedData to be removed</span>
+	ascender:       <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	descender:      <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	lineHeight:     <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	glyphs:         [<span class="keyword">dynamic</span>]<a class="code-typename" href="/vendor/fontstash/#Glyph">Glyph</a>,
+	lut:            [256]<a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	fallbacks:      [20]<a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	nfallbacks:     <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/vendor/fontstash/#CodepointWidth">CodepointWidth</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="FontContext"><span><a class="doc-id-link" href="#FontContext">FontContext<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L93"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">FontContext :: <span class="keyword-type">struct</span> {
+	fonts:          [<span class="keyword">dynamic</span>]<a class="code-typename" href="/vendor/fontstash/#Font">Font</a>,
+	<span class="comment">// always assuming user wants to resize</span>
+	nodes:          [<span class="keyword">dynamic</span>]<a class="code-typename" href="/vendor/fontstash/#AtlasNode">AtlasNode</a>,
+	<span class="comment">// actual pixels</span>
+	textureData:    []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	<span class="comment">// allocated using context.allocator</span>
+	width,
+	height:         <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	<span class="comment">// 1 / texture_atlas_width, 1 / texture_atlas_height</span>
+	itw,
+	ith:            <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	<span class="comment">// state </span>
+	states:         []<a class="code-typename" href="/vendor/fontstash/#State">State</a>,
+	state_count:    <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	<span class="comment">// used states</span>
+	location:       <a class="code-typename" href="/vendor/fontstash/#QuadLocation">QuadLocation</a>,
+	<span class="comment">// dirty rectangle of the texture region that was updated</span>
+	dirtyRect:      [4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	<span class="comment">// callbacks with userData passed</span>
+	userData:       <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>,
+	<span class="comment">// called when a texture is expanded and needs handling</span>
+	callbackResize: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, w, h: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>),
+	<span class="comment">// called in state_end to update the texture region that changed</span>
+	callbackUpdate: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, dirtyRect: [4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, textureData: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>),
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/vendor/fontstash/#AddFallbackFont">AddFallbackFont</a></li>
+<li><a href="/vendor/fontstash/#AddFontMem">AddFontMem</a></li>
+<li><a href="/vendor/fontstash/#AddFontPath">AddFontPath</a></li>
+<li><a href="/vendor/fontstash/#BeginState">BeginState</a></li>
+<li><a href="/vendor/fontstash/#ClearState">ClearState</a></li>
+<li><a href="/vendor/fontstash/#Destroy">Destroy</a></li>
+<li><a href="/vendor/fontstash/#EndState">EndState</a></li>
+<li><a href="/vendor/fontstash/#ExpandAtlas">ExpandAtlas</a></li>
+<li><a href="/vendor/fontstash/#GetFontByName">GetFontByName</a></li>
+<li><a href="/vendor/fontstash/#Init">Init</a></li>
+<li><a href="/vendor/fontstash/#LineBounds">LineBounds</a></li>
+<li><a href="/vendor/fontstash/#PopState">PopState</a></li>
+<li><a href="/vendor/fontstash/#PushState">PushState</a></li>
+<li><a href="/vendor/fontstash/#Reset">Reset</a></li>
+<li><a href="/vendor/fontstash/#ResetAtlas">ResetAtlas</a></li>
+<li><a href="/vendor/fontstash/#ResetFallbackFont">ResetFallbackFont</a></li>
+<li><a href="/vendor/fontstash/#SetAlignHorizontal">SetAlignHorizontal</a></li>
+<li><a href="/vendor/fontstash/#SetAlignVertical">SetAlignVertical</a></li>
+<li><a href="/vendor/fontstash/#SetBlur">SetBlur</a></li>
+<li><a href="/vendor/fontstash/#SetColor">SetColor</a></li>
+<li><a href="/vendor/fontstash/#SetFont">SetFont</a></li>
+<li><a href="/vendor/fontstash/#SetSize">SetSize</a></li>
+<li><a href="/vendor/fontstash/#SetSpacing">SetSpacing</a></li>
+<li><a href="/vendor/fontstash/#TextBounds">TextBounds</a></li>
+<li><a href="/vendor/fontstash/#TextIterInit">TextIterInit</a></li>
+<li><a href="/vendor/fontstash/#TextIterNext">TextIterNext</a></li>
+<li><a href="/vendor/fontstash/#ValidateTexture">ValidateTexture</a></li>
+<li><a href="/vendor/fontstash/#VerticalMetrics">VerticalMetrics</a></li>
+<li><a href="/vendor/fontstash/#AddFont">AddFont</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Glyph"><span><a class="doc-id-link" href="#Glyph">Glyph<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L67"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Glyph :: <span class="keyword-type">struct</span> {
+	codepoint: <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>,
+	index:     <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+	next:      <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	isize:     <a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>,
+	blurSize:  <a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>,
+	x0,
+	y0,
+	x1,
+	y1:        <a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>,
+	xoff,
+	yoff:      <a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>,
+	xadvance:  <a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>,
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Glyph_Index"><span><a class="doc-id-link" href="#Glyph_Index">Glyph_Index<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L34"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Glyph_Index :: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a></pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>in case you want to change the handle for glyph indices</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Quad"><span><a class="doc-id-link" href="#Quad">Quad<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L858"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Quad :: <span class="keyword-type">struct</span> {
+	x0,
+	y0,
+	s0,
+	t0: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	x1,
+	y1,
+	s1,
+	t1: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>quad that should be used to draw from the texture atlas</p>
+</details>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/vendor/fontstash/#TextIterNext">TextIterNext</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="QuadLocation"><span><a class="doc-id-link" href="#QuadLocation">QuadLocation<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L88"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">QuadLocation :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+	TOPLEFT, 
+	BOTTOMLEFT, 
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/vendor/fontstash/#Init">Init</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="State"><span><a class="doc-id-link" href="#State">State<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L846"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">State :: <span class="keyword-type">struct</span> {
+	font:    <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	size:    <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	color:   [4]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	spacing: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	blur:    <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	ah:      <a class="code-typename" href="/vendor/fontstash/#AlignHorizontal">AlignHorizontal</a>,
+	av:      <a class="code-typename" href="/vendor/fontstash/#AlignVertical">AlignVertical</a>,
+}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>state used to share font options</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="TextIter"><span><a class="doc-id-link" href="#TextIter">TextIter<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L864"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">TextIter :: <span class="keyword-type">struct</span> {
+	x,
+	y,
+	nextx,
+	nexty,
+	scale,
+	spacing:            <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	isize,
+	iblur:              <a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>,
+	font:               ^<a class="code-typename" href="/vendor/fontstash/#Font">Font</a>,
+	previousGlyphIndex: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+	<span class="comment">// unicode iteration</span>
+	utf8state:          <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>,
+	<span class="comment">// utf8</span>
+	codepoint:          <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>,
+	text:               <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	codepointCount:     <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	<span class="comment">// byte indices</span>
+	str:                <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	next:               <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	end:                <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>text iteration with custom settings</p>
+</details>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/vendor/fontstash/#TextIterNext">TextIterNext</a></li>
+</ul>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/vendor/fontstash/#TextIterInit">TextIterInit</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Vertex"><span><a class="doc-id-link" href="#Vertex">Vertex<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L82"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vertex :: <span class="keyword-type">struct</span> <span class="directive">#packed</span> {
+	x,
+	y:     <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	u,
+	v:     <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	color: [4]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+}</pre>
+</div>
+</div>
+<h2 id="pkg-Constants" class="pkg-header">Constants</h2>
+<div class="pkg-entity">
+<h3 id="BLUR_APREC"><span><a class="doc-id-link" href="#BLUR_APREC">BLUR_APREC<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L564"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">BLUR_APREC :: 16</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="BLUR_ZPREC"><span><a class="doc-id-link" href="#BLUR_ZPREC">BLUR_ZPREC<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L565"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">BLUR_ZPREC :: 7</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="HASH_LUT_SIZE"><span><a class="doc-id-link" href="#HASH_LUT_SIZE">HASH_LUT_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L30"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">HASH_LUT_SIZE :: 256</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="INIT_ATLAS_NODES"><span><a class="doc-id-link" href="#INIT_ATLAS_NODES">INIT_ATLAS_NODES<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L32"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">INIT_ATLAS_NODES :: 256</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="INIT_GLYPHS"><span><a class="doc-id-link" href="#INIT_GLYPHS">INIT_GLYPHS<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L31"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">INIT_GLYPHS :: 256</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="INVALID"><span><a class="doc-id-link" href="#INVALID">INVALID<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L28"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">INVALID :: -1</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="MAX_FALLBACKS"><span><a class="doc-id-link" href="#MAX_FALLBACKS">MAX_FALLBACKS<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L33"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MAX_FALLBACKS :: 20</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="MAX_STATES"><span><a class="doc-id-link" href="#MAX_STATES">MAX_STATES<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L29"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MAX_STATES :: 20</pre>
+</div>
+</div>
+<h2 id="pkg-Variables" class="pkg-header">Variables</h2>
+<p class="pkg-empty-section">This section is empty.</p>
+<h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
+<div class="pkg-entity">
+<h3 id="AddFallbackFont"><span><a class="doc-id-link" href="#AddFallbackFont">AddFallbackFont<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L368"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">AddFallbackFont :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>, base, fallback: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="AddFontMem"><span><a class="doc-id-link" href="#AddFontMem">AddFontMem<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L340"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">AddFontMem :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>, name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, freeLoadedData: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>push a font to the font stack
+optionally init with ascii characters at a wanted size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="AddFontPath"><span><a class="doc-id-link" href="#AddFontPath">AddFontPath<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L324"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">AddFontPath :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>, name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, path: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="BeginState"><span><a class="doc-id-link" href="#BeginState">BeginState<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L1180"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">BeginState :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>reset to single state</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="ClearState"><span><a class="doc-id-link" href="#ClearState">ClearState<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L904"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ClearState :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>clear current state</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="CodepointWidth"><span><a class="doc-id-link" href="#CodepointWidth">CodepointWidth<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L731"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">CodepointWidth :: <span class="keyword-type">proc</span>(font: ^<a class="code-typename" href="/vendor/fontstash/#Font">Font</a>, codepoint: <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>, scale: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>only useful for single glyphs where you quickly want the width</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Destroy"><span><a class="doc-id-link" href="#Destroy">Destroy<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L150"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Destroy :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="EndState"><span><a class="doc-id-link" href="#EndState">EndState<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L1187"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">EndState :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>checks for texture updates after potential __getGlyph calls</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="ExpandAtlas"><span><a class="doc-id-link" href="#ExpandAtlas">ExpandAtlas<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L630"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ExpandAtlas :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>, width, height: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="GetFontByName"><span><a class="doc-id-link" href="#GetFontByName">GetFontByName<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L388"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">GetFontByName :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>, name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>find font by name</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Init"><span><a class="doc-id-link" href="#Init">Init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L123"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Init :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>, w, h: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, loc: <a class="code-typename" href="/vendor/fontstash/#QuadLocation">QuadLocation</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="LineBounds"><span><a class="doc-id-link" href="#LineBounds">LineBounds<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L743"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">LineBounds :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>, y: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) -> (miny, maxy: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>get top and bottom line boundary</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="PopState"><span><a class="doc-id-link" href="#PopState">PopState<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L895"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">PopState :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>pop a state</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="PushState"><span><a class="doc-id-link" href="#PushState">PushState<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L884"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">PushState :: <span class="keyword-type">proc</span>(<span class="keyword-type">using</span> ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>push a state, copies the current one over to the next one</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Reset"><span><a class="doc-id-link" href="#Reset">Reset<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L166"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Reset :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ResetAtlas"><span><a class="doc-id-link" href="#ResetAtlas">ResetAtlas<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L682"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ResetAtlas :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>, width, height: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ResetFallbackFont"><span><a class="doc-id-link" href="#ResetFallbackFont">ResetFallbackFont<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L380"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ResetFallbackFont :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>, base: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="SetAH"><span><a class="doc-id-link" href="#SetAH">SetAH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L942"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">SetAH :: <a class="code-procedure" href="/vendor/fontstash/#SetAlignHorizontal">SetAlignHorizontal</a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="SetAV"><span><a class="doc-id-link" href="#SetAV">SetAV<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L946"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">SetAV :: <a class="code-procedure" href="/vendor/fontstash/#SetAlignVertical">SetAlignVertical</a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="SetAlignHorizontal"><span><a class="doc-id-link" href="#SetAlignHorizontal">SetAlignHorizontal<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L942"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">SetAlignHorizontal :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>, ah: <a class="code-typename" href="/vendor/fontstash/#AlignHorizontal">AlignHorizontal</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="SetAlignVertical"><span><a class="doc-id-link" href="#SetAlignVertical">SetAlignVertical<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L946"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">SetAlignVertical :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>, av: <a class="code-typename" href="/vendor/fontstash/#AlignVertical">AlignVertical</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="SetBlur"><span><a class="doc-id-link" href="#SetBlur">SetBlur<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L931"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">SetBlur :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>, blur: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="SetColor"><span><a class="doc-id-link" href="#SetColor">SetColor<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L923"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">SetColor :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>, color: [4]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="SetFont"><span><a class="doc-id-link" href="#SetFont">SetFont<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L935"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">SetFont :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>, font: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="SetSize"><span><a class="doc-id-link" href="#SetSize">SetSize<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L919"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">SetSize :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>, size: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="SetSpacing"><span><a class="doc-id-link" href="#SetSpacing">SetSpacing<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L927"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">SetSpacing :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>, spacing: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="TextBounds"><span><a class="doc-id-link" href="#TextBounds">TextBounds<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L1087"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">TextBounds :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>, text: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, x: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a> = 0, y: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a> = 0, bounds: ^[4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a> = nil) -> <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>width of a text line, optionally the full rect</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="TextIterInit"><span><a class="doc-id-link" href="#TextIterInit">TextIterInit<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L1011"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">TextIterInit :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>, x: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, y: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, text: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> (res: <a class="code-typename" href="/vendor/fontstash/#TextIter">TextIter</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>init text iter struct with settings</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="TextIterNext"><span><a class="doc-id-link" href="#TextIterNext">TextIterNext<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L1056"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">TextIterNext :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>, iter: ^<a class="code-typename" href="/vendor/fontstash/#TextIter">TextIter</a>, quad: ^<a class="code-typename" href="/vendor/fontstash/#Quad">Quad</a>) -> (ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>step through each codepoint</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="ValidateTexture"><span><a class="doc-id-link" href="#ValidateTexture">ValidateTexture<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L770"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ValidateTexture :: <span class="keyword-type">proc</span>(<span class="keyword-type">using</span> ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>, dirty: ^[4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>true when the dirty rectangle is valid and needs a texture update on the gpu</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="VerticalMetrics"><span><a class="doc-id-link" href="#VerticalMetrics">VerticalMetrics<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L1167"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">VerticalMetrics :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>) -> (ascender, descender, lineHeight: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+</div>
+</div>
+<h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
+<div class="pkg-entity">
+<h3 id="AddFont"><span><a class="doc-id-link" href="#AddFont">AddFont<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin#L366"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">AddFont :: proc{
+	<a class="code-procedure" href="/vendor/fontstash/#AddFontPath">AddFontPath</a>,
+	<a class="code-procedure" href="/vendor/fontstash/#AddFontMem">AddFontMem</a>,
+}
+</pre>
+</div>
+</div>
+</section>
+<h2 id="pkg-source-files">Source Files</h2>
+<ul>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/vendor/fontstash/fontstash.odin">fontstash.odin</a></li>
+</ul>
+<h2 id="pkg-generation-information">Generation Information</h2>
+<p>Generated with <code>odin version dev-2023-09 (vendor "odin") Windows_amd64 @ 2023-09-05 17:19:49.036692200 +0000 UTC</code></p>
+</article>
+<div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#pkg-Types">Types</a><ul>
+<li><a href="#AlignHorizontal">AlignHorizontal</a></li>
+<li><a href="#AlignVertical">AlignVertical</a></li>
+<li><a href="#AtlasNode">AtlasNode</a></li>
+<li><a href="#Font">Font</a></li>
+<li><a href="#FontContext">FontContext</a></li>
+<li><a href="#Glyph">Glyph</a></li>
+<li><a href="#Glyph_Index">Glyph_Index</a></li>
+<li><a href="#Quad">Quad</a></li>
+<li><a href="#QuadLocation">QuadLocation</a></li>
+<li><a href="#State">State</a></li>
+<li><a href="#TextIter">TextIter</a></li>
+<li><a href="#Vertex">Vertex</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Constants">Constants</a><ul>
+<li><a href="#BLUR_APREC">BLUR_APREC</a></li>
+<li><a href="#BLUR_ZPREC">BLUR_ZPREC</a></li>
+<li><a href="#HASH_LUT_SIZE">HASH_LUT_SIZE</a></li>
+<li><a href="#INIT_ATLAS_NODES">INIT_ATLAS_NODES</a></li>
+<li><a href="#INIT_GLYPHS">INIT_GLYPHS</a></li>
+<li><a href="#INVALID">INVALID</a></li>
+<li><a href="#MAX_FALLBACKS">MAX_FALLBACKS</a></li>
+<li><a href="#MAX_STATES">MAX_STATES</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Procedures">Procedures</a><ul>
+<li><a href="#AddFallbackFont">AddFallbackFont</a></li>
+<li><a href="#AddFontMem">AddFontMem</a></li>
+<li><a href="#AddFontPath">AddFontPath</a></li>
+<li><a href="#BeginState">BeginState</a></li>
+<li><a href="#ClearState">ClearState</a></li>
+<li><a href="#CodepointWidth">CodepointWidth</a></li>
+<li><a href="#Destroy">Destroy</a></li>
+<li><a href="#EndState">EndState</a></li>
+<li><a href="#ExpandAtlas">ExpandAtlas</a></li>
+<li><a href="#GetFontByName">GetFontByName</a></li>
+<li><a href="#Init">Init</a></li>
+<li><a href="#LineBounds">LineBounds</a></li>
+<li><a href="#PopState">PopState</a></li>
+<li><a href="#PushState">PushState</a></li>
+<li><a href="#Reset">Reset</a></li>
+<li><a href="#ResetAtlas">ResetAtlas</a></li>
+<li><a href="#ResetFallbackFont">ResetFallbackFont</a></li>
+<li><a href="#SetAH">SetAH</a></li>
+<li><a href="#SetAV">SetAV</a></li>
+<li><a href="#SetAlignHorizontal">SetAlignHorizontal</a></li>
+<li><a href="#SetAlignVertical">SetAlignVertical</a></li>
+<li><a href="#SetBlur">SetBlur</a></li>
+<li><a href="#SetColor">SetColor</a></li>
+<li><a href="#SetFont">SetFont</a></li>
+<li><a href="#SetSize">SetSize</a></li>
+<li><a href="#SetSpacing">SetSpacing</a></li>
+<li><a href="#TextBounds">TextBounds</a></li>
+<li><a href="#TextIterInit">TextIterInit</a></li>
+<li><a href="#TextIterNext">TextIterNext</a></li>
+<li><a href="#ValidateTexture">ValidateTexture</a></li>
+<li><a href="#VerticalMetrics">VerticalMetrics</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Procedure Groups">Procedure Groups</a><ul>
+<li><a href="#AddFont">AddFont</a></li>
+</ul>
+</li>
+<li><a href="#pkg-source-files">Source Files</a></ul>
+</nav>
+</div></div>
+<script type="text/javascript">var odin_pkg_name = "fontstash";</script>
+</div>
+
+</div>
+</main>
+
+<footer class="odin-footer">
+	<div class="container pb-5 pt-5">
+		<div class="row g-4">
+		<div class="col">
+		<a class="navbar-brand" href="https://odin-lang.org">
+		<img class="mb-3" src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+		<p>
+		The Data-Oriented Language for Sane Software Development.
+		</p>
+		</div>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Resources</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://odin-lang.org/docs" class="link-light">Docs</a></li>
+			<li><a href="https://pkg.odin-lang.org/" class="link-light">Packages</a></li>
+			<li><a href="https://odin-lang.org/news" class="link-light">News</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Community</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin" target="_blank" class="link-light">GitHub</a></li>
+			<li><a href="https://discord.com/invite/sVBPHEv" target="_blank" class="link-light">Discord</a></li>
+			<li><a href="https://www.twitch.tv/ginger_bill" target="_blank" class="link-light">Twitch</a></li>
+			<li><a href="https://www.youtube.com/channel/UCUSck1dOH7VKmG4lRW7tZXg" target="_blank" class="link-light">YouTube</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Contribute</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin/issues" target="_blank" class="link-light">Issues</a></li>
+			<li><a href="https://www.patreon.com/gingerbill" target="_blank" class="link-light">Donate</a></li>
+			</ul>
+			</nav>
+		</div>
+		<div class="mt-4 text-muted">© 2016–2023 Ginger Bill</div>
+	</div>
+</footer>
+
+<script src="https://odin-lang.org/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://odin-lang.org/js/script.js"></script>
+<script src="/pkg-data.js"></script>
+<script src="/search.js"></script>
+</body>
+</html>

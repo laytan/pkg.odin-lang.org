@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>package odin/doc-format - pkg.odin-lang.org</title>	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/scss/custom.min.css">
+	<link rel=stylesheet href="//odin-lang.org/lib/highlight/styles/github-dark.min.css">
+	<script src="//odin-lang.org/lib/highlight/highlight.min.js"></script>
+
+	<script>hljs.registerLanguage("odin",function(a){return{aliases:["odin","odinlang","odin-lang"],keywords:{keyword:"auto_cast bit_set break case cast context continue defer distinct do dynamic else enum fallthrough for foreign if import in map not_in or_else or_return package proc return struct switch transmute type_of typeid union using when where",literal:"true false nil",built_in:"abs align_of cap clamp complex conj expand_to_tuple imag jmag kmag len max min offset_of quaternion real size_of soa_unzip soa_zip swizzle type_info_of type_of typeid_of"},illegal:"</",contains:[a.C_LINE_COMMENT_MODE,a.C_BLOCK_COMMENT_MODE,{className:"string",variants:[a.QUOTE_STRING_MODE,{begin:"'",end:"[^\\\\]'"},{begin:"`",end:"`"}]},{className:"number",variants:[{begin:a.C_NUMBER_RE+"[ijk]",relevance:1},a.C_NUMBER_MODE]}]}})</script>
+	<script>hljs.highlightAll()</script>
+	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/css/style.css">
+
+	<link rel="stylesheet" type="text/css" href="/style.css">
+
+	</style>
+</head>
+<body>
+<header class="sticky-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary odin-menu">
+		<div class="container">
+			<a class="navbar-brand" href="https://odin-lang.org/">
+			<img src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#odin-navbar-content" aria-controls="odin-navbar-content" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="odin-navbar-content">
+			<ul class="navbar-nav ms-md-auto">
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/docs">Docs</a></li>
+				<li class="nav-item"><a class="nav-link active" href="/">Packages</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/news">News</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/showcase">Showcase</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/community">Community</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://github.com/odin-lang/Odin" target="_blank">GitHub</a></li>
+			</ul>
+		</div>
+		</div>
+	</nav>
+</header>
+<main>
+<div class="container full-width">
+<div class="row odin-main my-4" id="pkg">
+<nav id="pkg-sidebar" class="col-lg-2 odin-sidebar-border navbar-light sticky-top odin-below-navbar">
+<div class="py-3">
+<h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
+<ul>
+<li class="nav-item"><a href="/core/builtin">builtin</a></li>
+<li class="nav-item"><a href="/core/bufio">bufio</a></li>
+<li class="nav-item"><a href="/core/bytes">bytes</a></li>
+<li class="nav-item"><a href="/core/c">c</a><ul>
+<li><a href="/core/c/frontend/preprocessor">frontend/preprocessor</a></li>
+<li><a href="/core/c/frontend/tokenizer">frontend/tokenizer</a></li>
+<li><a href="/core/c/libc">libc</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/compress">compress</a><ul>
+<li><a href="/core/compress/gzip">gzip</a></li>
+<li><a href="/core/compress/shoco">shoco</a></li>
+<li><a href="/core/compress/zlib">zlib</a></li>
+</ul>
+
+</li>
+<li class="nav-item">container<ul>
+<li><a href="/core/container/bit_array">bit_array</a></li>
+<li><a href="/core/container/intrusive/list">intrusive/list</a></li>
+<li><a href="/core/container/lru">lru</a></li>
+<li><a href="/core/container/priority_queue">priority_queue</a></li>
+<li><a href="/core/container/queue">queue</a></li>
+<li><a href="/core/container/small_array">small_array</a></li>
+<li><a href="/core/container/topological_sort">topological_sort</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/crypto">crypto</a><ul>
+<li><a href="/core/crypto/blake">blake</a></li>
+<li><a href="/core/crypto/blake2b">blake2b</a></li>
+<li><a href="/core/crypto/blake2s">blake2s</a></li>
+<li><a href="/core/crypto/chacha20">chacha20</a></li>
+<li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
+<li><a href="/core/crypto/gost">gost</a></li>
+<li><a href="/core/crypto/groestl">groestl</a></li>
+<li><a href="/core/crypto/haval">haval</a></li>
+<li><a href="/core/crypto/jh">jh</a></li>
+<li><a href="/core/crypto/keccak">keccak</a></li>
+<li><a href="/core/crypto/md2">md2</a></li>
+<li><a href="/core/crypto/md4">md4</a></li>
+<li><a href="/core/crypto/md5">md5</a></li>
+<li><a href="/core/crypto/poly1305">poly1305</a></li>
+<li><a href="/core/crypto/ripemd">ripemd</a></li>
+<li><a href="/core/crypto/sha1">sha1</a></li>
+<li><a href="/core/crypto/sha2">sha2</a></li>
+<li><a href="/core/crypto/sha3">sha3</a></li>
+<li><a href="/core/crypto/shake">shake</a></li>
+<li><a href="/core/crypto/sm3">sm3</a></li>
+<li><a href="/core/crypto/streebog">streebog</a></li>
+<li><a href="/core/crypto/tiger">tiger</a></li>
+<li><a href="/core/crypto/tiger2">tiger2</a></li>
+<li><a href="/core/crypto/util">util</a></li>
+<li><a href="/core/crypto/whirlpool">whirlpool</a></li>
+<li><a href="/core/crypto/x25519">x25519</a></li>
+</ul>
+
+</li>
+<li class="nav-item">debug<ul>
+<li><a href="/core/debug/pe">pe</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/dynlib">dynlib</a></li>
+<li class="nav-item">encoding<ul>
+<li><a href="/core/encoding/base32">base32</a></li>
+<li><a href="/core/encoding/base64">base64</a></li>
+<li><a href="/core/encoding/csv">csv</a></li>
+<li><a href="/core/encoding/endian">endian</a></li>
+<li><a href="/core/encoding/entity">entity</a></li>
+<li><a href="/core/encoding/hex">hex</a></li>
+<li><a href="/core/encoding/hxa">hxa</a></li>
+<li><a href="/core/encoding/json">json</a></li>
+<li><a href="/core/encoding/varint">varint</a></li>
+<li><a href="/core/encoding/xml">xml</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/fmt">fmt</a></li>
+<li class="nav-item"><a href="/core/hash">hash</a><ul>
+<li><a href="/core/hash/xxhash">xxhash</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/image">image</a><ul>
+<li><a href="/core/image/netpbm">netpbm</a></li>
+<li><a href="/core/image/png">png</a></li>
+<li><a href="/core/image/qoi">qoi</a></li>
+<li><a href="/core/image/tga">tga</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/io">io</a></li>
+<li class="nav-item"><a href="/core/log">log</a></li>
+<li class="nav-item"><a href="/core/math">math</a><ul>
+<li><a href="/core/math/big">big</a></li>
+<li><a href="/core/math/bits">bits</a></li>
+<li><a href="/core/math/cmplx">cmplx</a></li>
+<li><a href="/core/math/ease">ease</a></li>
+<li><a href="/core/math/fixed">fixed</a></li>
+<li><a href="/core/math/linalg">linalg</a></li>
+<li><a href="/core/math/linalg/glsl">linalg/glsl</a></li>
+<li><a href="/core/math/linalg/hlsl">linalg/hlsl</a></li>
+<li><a href="/core/math/noise">noise</a></li>
+<li><a href="/core/math/rand">rand</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/mem">mem</a><ul>
+<li><a href="/core/mem/virtual">virtual</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/net">net</a></li>
+<li class="nav-item">odin<ul>
+<li><a href="/core/odin/ast">ast</a></li>
+<li><a class="active" href="/core/odin/doc-format">doc-format</a></li>
+<li><a href="/core/odin/format">format</a></li>
+<li><a href="/core/odin/parser">parser</a></li>
+<li><a href="/core/odin/printer">printer</a></li>
+<li><a href="/core/odin/tokenizer">tokenizer</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/os">os</a></li>
+<li class="nav-item">path<ul>
+<li><a href="/core/path/filepath">filepath</a></li>
+<li><a href="/core/path/slashpath">slashpath</a></li>
+</ul>
+
+</li>
+<li class="nav-item">prof<ul>
+<li><a href="/core/prof/spall">spall</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/reflect">reflect</a></li>
+<li class="nav-item"><a href="/core/runtime">runtime</a></li>
+<li class="nav-item"><a href="/core/simd">simd</a></li>
+<li class="nav-item"><a href="/core/slice">slice</a><ul>
+<li><a href="/core/slice/heap">heap</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/sort">sort</a></li>
+<li class="nav-item"><a href="/core/strconv">strconv</a><ul>
+<li><a href="/core/strconv/decimal">decimal</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/strings">strings</a></li>
+<li class="nav-item"><a href="/core/sync">sync</a></li>
+<li class="nav-item"><a href="/core/testing">testing</a></li>
+<li class="nav-item">text<ul>
+<li><a href="/core/text/edit">edit</a></li>
+<li><a href="/core/text/i18n">i18n</a></li>
+<li><a href="/core/text/match">match</a></li>
+<li><a href="/core/text/scanner">scanner</a></li>
+<li><a href="/core/text/table">table</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/thread">thread</a></li>
+<li class="nav-item"><a href="/core/time">time</a></li>
+<li class="nav-item"><a href="/core/unicode">unicode</a><ul>
+<li><a href="/core/unicode/utf16">utf16</a></li>
+<li><a href="/core/unicode/utf8">utf8</a></li>
+<li><a href="/core/unicode/utf8/utf8string">utf8/utf8string</a></li>
+</ul>
+
+</li>
+</ul>
+</div>
+</nav>
+<article class="col-lg-8 p-4 documentation odin-article">
+<nav class="pkg-breadcrumb" aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="/core">core</a></li>
+<li class="breadcrumb-item">odin</li>
+<li class="breadcrumb-item active" aria-current="page"><a href="/core/odin/doc-format">doc-format</a></li>
+</ol>
+</nav>
+<h1>package core:odin/doc-format<div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format"><em>Source</em></a></div></h1>
+
+		<div class="odin-search-wrapper">
+			<input type="search" id="odin-search" class="odin-search-package" autocomplete="off" spellcheck="false" placeholder="Fuzzy Search...">
+			<div class="odin-search-shortcut">
+				<div class="odin-search-key key-macos">⌘K</div>
+				<div class="odin-search-key key-windows">Ctrl+K</div>
+				<span class="odin-search-or">or</span>
+				<div class="odin-search-key">/</div>
+			</div>
+		</div>
+	
+<div id="odin-search-info">
+<div id="odin-search-time"></div>
+
+		<div id="odin-search-options">
+			<input type="checkbox" id="odin-search-filter" name="odin-search-filter">
+			<label for="odin-search-filter">Filter Results</label>
+		</div>
+</div>
+<ul id="odin-search-results"></ul>
+<div id="pkg-top">
+<div id="pkg-index">
+<h2>Index</h2>
+<div>
+<details class="doc-index" id="doc-index-Types" aria-labelledby="#doc-index-Types-header">
+<summary id="#doc-index-Types-header">
+Types (33)</summary>
+<ul>
+<li><a href="#Array">Array</a></li>
+<li><a href="#Attribute">Attribute</a></li>
+<li><a href="#Entity">Entity</a></li>
+<li><a href="#Entity_Flag">Entity_Flag</a></li>
+<li><a href="#Entity_Flags">Entity_Flags</a></li>
+<li><a href="#Entity_Index">Entity_Index</a></li>
+<li><a href="#Entity_Kind">Entity_Kind</a></li>
+<li><a href="#File">File</a></li>
+<li><a href="#File_Index">File_Index</a></li>
+<li><a href="#Header">Header</a></li>
+<li><a href="#Header_Base">Header_Base</a></li>
+<li><a href="#Pkg">Pkg</a></li>
+<li><a href="#Pkg_Flag">Pkg_Flag</a></li>
+<li><a href="#Pkg_Flags">Pkg_Flags</a></li>
+<li><a href="#Pkg_Index">Pkg_Index</a></li>
+<li><a href="#Position">Position</a></li>
+<li><a href="#Reader_Error">Reader_Error</a></li>
+<li><a href="#Scope_Entry">Scope_Entry</a></li>
+<li><a href="#String">String</a></li>
+<li><a href="#Type">Type</a></li>
+<li><a href="#Type_Flag_Basic">Type_Flag_Basic</a></li>
+<li><a href="#Type_Flag_Bit_Set">Type_Flag_Bit_Set</a></li>
+<li><a href="#Type_Flag_Proc">Type_Flag_Proc</a></li>
+<li><a href="#Type_Flag_Struct">Type_Flag_Struct</a></li>
+<li><a href="#Type_Flag_Union">Type_Flag_Union</a></li>
+<li><a href="#Type_Flags_Basic">Type_Flags_Basic</a></li>
+<li><a href="#Type_Flags_Bit_Set">Type_Flags_Bit_Set</a></li>
+<li><a href="#Type_Flags_Proc">Type_Flags_Proc</a></li>
+<li><a href="#Type_Flags_Struct">Type_Flags_Struct</a></li>
+<li><a href="#Type_Flags_Union">Type_Flags_Union</a></li>
+<li><a href="#Type_Index">Type_Index</a></li>
+<li><a href="#Type_Kind">Type_Kind</a></li>
+<li><a href="#Version_Type">Version_Type</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Constants" aria-labelledby="#doc-index-Constants-header">
+<summary id="#doc-index-Constants-header">
+Constants (6)</summary>
+<ul>
+<li><a href="#Magic_String">Magic_String</a></li>
+<li><a href="#Type_Elems_Cap">Type_Elems_Cap</a></li>
+<li><a href="#Version_Type_Default">Version_Type_Default</a></li>
+<li><a href="#Version_Type_Major">Version_Type_Major</a></li>
+<li><a href="#Version_Type_Minor">Version_Type_Minor</a></li>
+<li><a href="#Version_Type_Patch">Version_Type_Patch</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Variables" aria-labelledby="#doc-index-Variables-header">
+<summary id="#doc-index-Variables-header">
+Variables (0)</summary>
+<p class="pkg-empty-section">This section is empty.</p>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
+<summary id="#doc-index-Procedures-header">
+Procedures (3)</summary>
+<ul>
+<li><a href="#from_array">from_array</a></li>
+<li><a href="#from_string">from_string</a></li>
+<li><a href="#read_from_bytes">read_from_bytes</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedure Groups" aria-labelledby="#doc-index-Procedure Groups-header">
+<summary id="#doc-index-Procedure Groups-header">
+Procedure Groups (0)</summary>
+<p class="pkg-empty-section">This section is empty.</p>
+</details>
+</div>
+</div>
+</div>
+<section class="documentation">
+<h2 id="pkg-Types" class="pkg-header">Types</h2>
+<div class="pkg-entity">
+<h3 id="Array"><span><a class="doc-id-link" href="#Array">Array<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L5"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Array :: <span class="keyword-type">struct</span>($T: typeid) {}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/odin/doc-format/#from_array">from_array</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Attribute"><span><a class="doc-id-link" href="#Attribute">Attribute<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L159"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Attribute :: <span class="keyword-type">struct</span> {
+	name:  <a class="code-typename" href="/core/odin/doc-format/#String">String</a>,
+	value: <a class="code-typename" href="/core/odin/doc-format/#String">String</a>,
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Entity"><span><a class="doc-id-link" href="#Entity">Entity<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L126"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Entity :: <span class="keyword-type">struct</span> {
+	kind:              <a class="code-typename" href="/core/odin/doc-format/#Entity_Kind">Entity_Kind</a>,
+	_:                 <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
+	<span class="comment">// reserved</span>
+	flags:             <a class="code-typename" href="/core/odin/doc-format/#Entity_Flags">Entity_Flags</a>,
+	pos:               <a class="code-typename" href="/core/odin/doc-format/#Position">Position</a>,
+	name:              <a class="code-typename" href="/core/odin/doc-format/#String">String</a>,
+	type:              <a class="code-typename" href="/core/odin/doc-format/#Type_Index">Type_Index</a>,
+	init_string:       <a class="code-typename" href="/core/odin/doc-format/#String">String</a>,
+	_:                 <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
+	<span class="comment">// reserved for init</span>
+	comment:           <a class="code-typename" href="/core/odin/doc-format/#String">String</a>,
+	docs:              <a class="code-typename" href="/core/odin/doc-format/#String">String</a>,
+	<span class="comment">// May be used by (Struct fields and procedure fields):</span>
+	<span class="comment">// .Variable</span>
+	<span class="comment">// .Constant</span>
+	field_group_index: <a href="/core/builtin#i32le"><span class="doc-builtin">i32le</span></a>,
+	<span class="comment">// May used by:</span>
+	<span class="comment">// .Variable</span>
+	<span class="comment">// .Procedure</span>
+	foreign_library:   <a class="code-typename" href="/core/odin/doc-format/#Entity_Index">Entity_Index</a>,
+	<span class="comment">// May used by:</span>
+	<span class="comment">// .Variable</span>
+	<span class="comment">// .Procedure</span>
+	link_name:         <a class="code-typename" href="/core/odin/doc-format/#String">String</a>,
+	attributes:        <a class="code-typename" href="/core/odin/doc-format/#Array">Array</a>($T=Attribute),
+	<span class="comment">// Used by: .Proc_Group</span>
+	grouped_entities:  <a class="code-typename" href="/core/odin/doc-format/#Array">Array</a>($T=Entity_Index),
+	<span class="comment">// May used by: .Procedure</span>
+	where_clauses:     <a class="code-typename" href="/core/odin/doc-format/#Array">Array</a>($T=String),
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Entity_Flag"><span><a class="doc-id-link" href="#Entity_Flag">Entity_Flag<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L101"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Entity_Flag :: <span class="keyword-type">enum</span> <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a> {
+	Foreign                = 0, 
+	Export                 = 1, 
+	Param_Using            = 2,  <span class="comment">// using</span>
+	Param_Const            = 3,  <span class="comment">// #const</span>
+	Param_Auto_Cast        = 4,  <span class="comment">// auto_cast</span>
+	Param_Ellipsis         = 5,  <span class="comment">// Variadic parameter</span>
+	Param_CVararg          = 6,  <span class="comment">// #c_vararg</span>
+	Param_No_Alias         = 7,  <span class="comment">// #no_alias</span>
+	Param_Any_Int          = 8,  <span class="comment">// #any_int</span>
+	Type_Alias             = 20, 
+	Builtin_Pkg_Builtin    = 30, 
+	Builtin_Pkg_Intrinsics = 31, 
+	Var_Thread_Local       = 40, 
+	Var_Static             = 41, 
+	Private                = 50, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Entity_Flags"><span><a class="doc-id-link" href="#Entity_Flags">Entity_Flags<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L124"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Entity_Flags :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/odin/doc-format/#Entity_Flag">Entity_Flag</a>; <a href="/core/builtin#u64le"><span class="doc-builtin">u64le</span></a>]</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Entity_Index"><span><a class="doc-id-link" href="#Entity_Index">Entity_Index<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L50"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Entity_Index :: <span class="keyword-type">distinct</span> <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Entity_Kind"><span><a class="doc-id-link" href="#Entity_Kind">Entity_Kind<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L89"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Entity_Kind :: <span class="keyword-type">enum</span> <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a> {
+	Invalid      = 0, 
+	Constant     = 1, 
+	Variable     = 2, 
+	Type_Name    = 3, 
+	Procedure    = 4, 
+	Proc_Group   = 5, 
+	Import_Name  = 6, 
+	Library_Name = 7, 
+	Builtin      = 8, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="File"><span><a class="doc-id-link" href="#File">File<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L61"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">File :: <span class="keyword-type">struct</span> {
+	pkg:  <a class="code-typename" href="/core/odin/doc-format/#Pkg_Index">Pkg_Index</a>,
+	name: <a class="code-typename" href="/core/odin/doc-format/#String">String</a>,
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="File_Index"><span><a class="doc-id-link" href="#File_Index">File_Index<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L48"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">File_Index :: <span class="keyword-type">distinct</span> <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Header"><span><a class="doc-id-link" href="#Header">Header<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L38"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Header :: <span class="keyword-type">struct</span> {
+	<span class="keyword-type">using</span> base: <a class="code-typename" href="/core/odin/doc-format/#Header_Base">Header_Base</a>,
+	<span class="comment">// NOTE: These arrays reserve the zero element as a sentinel value</span>
+	files:    <a class="code-typename" href="/core/odin/doc-format/#Array">Array</a>($T=File),
+	pkgs:     <a class="code-typename" href="/core/odin/doc-format/#Array">Array</a>($T=Pkg),
+	entities: <a class="code-typename" href="/core/odin/doc-format/#Array">Array</a>($T=Entity),
+	types:    <a class="code-typename" href="/core/odin/doc-format/#Array">Array</a>($T=Type),
+}</pre>
+</div>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/core/odin/doc-format/#read_from_bytes">read_from_bytes</a></li>
+</ul>
+<h6>Procedures Through `using` From <a href="/core/odin/doc-format/#Header_Base">Header_Base</a></h6>
+<ul>
+<li><a href="/core/odin/doc-format/#from_array">from_array</a></li>
+<li><a href="/core/odin/doc-format/#from_string">from_string</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Header_Base"><span><a class="doc-id-link" href="#Header_Base">Header_Base<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L29"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Header_Base :: <span class="keyword-type">struct</span> {
+	magic:       [8]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	_:           <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
+	<span class="comment">// padding</span>
+	version:     <a class="code-typename" href="/core/odin/doc-format/#Version_Type">Version_Type</a>,
+	total_size:  <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
+	<span class="comment">// in bytes</span>
+	header_size: <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
+	<span class="comment">// in bytes</span>
+	hash:        <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/odin/doc-format/#from_array">from_array</a></li>
+<li><a href="/core/odin/doc-format/#from_string">from_string</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Pkg"><span><a class="doc-id-link" href="#Pkg">Pkg<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L74"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Pkg :: <span class="keyword-type">struct</span> {
+	fullpath: <a class="code-typename" href="/core/odin/doc-format/#String">String</a>,
+	name:     <a class="code-typename" href="/core/odin/doc-format/#String">String</a>,
+	flags:    <a class="code-typename" href="/core/odin/doc-format/#Pkg_Flags">Pkg_Flags</a>,
+	docs:     <a class="code-typename" href="/core/odin/doc-format/#String">String</a>,
+	files:    <a class="code-typename" href="/core/odin/doc-format/#Array">Array</a>($T=File_Index),
+	entries:  <a class="code-typename" href="/core/odin/doc-format/#Array">Array</a>($T=Scope_Entry),
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Pkg_Flag"><span><a class="doc-id-link" href="#Pkg_Flag">Pkg_Flag<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L66"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Pkg_Flag :: <span class="keyword-type">enum</span> <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a> {
+	Builtin = 0, 
+	Runtime = 1, 
+	Init    = 2, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Pkg_Flags"><span><a class="doc-id-link" href="#Pkg_Flags">Pkg_Flags<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L72"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Pkg_Flags :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/odin/doc-format/#Pkg_Flag">Pkg_Flag</a>; <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>]</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Pkg_Index"><span><a class="doc-id-link" href="#Pkg_Index">Pkg_Index<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L49"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Pkg_Index :: <span class="keyword-type">distinct</span> <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Position"><span><a class="doc-id-link" href="#Position">Position<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L54"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Position :: <span class="keyword-type">struct</span> {
+	file:   <a class="code-typename" href="/core/odin/doc-format/#File_Index">File_Index</a>,
+	line:   <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
+	column: <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
+	offset: <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Reader_Error"><span><a class="doc-id-link" href="#Reader_Error">Reader_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L316"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Reader_Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+	None, 
+	Header_Too_Small, 
+	Invalid_Magic, 
+	Data_Too_Small, 
+	Invalid_Version, 
+}</pre>
+</div>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/core/odin/doc-format/#read_from_bytes">read_from_bytes</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Scope_Entry"><span><a class="doc-id-link" href="#Scope_Entry">Scope_Entry<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L83"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Scope_Entry :: <span class="keyword-type">struct</span> {
+	name:   <a class="code-typename" href="/core/odin/doc-format/#String">String</a>,
+	entity: <a class="code-typename" href="/core/odin/doc-format/#Entity_Index">Entity_Index</a>,
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="String"><span><a class="doc-id-link" href="#String">String<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L10"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">String :: <span class="keyword-type">struct</span>($T: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {
+	offset: <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
+	length: <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/odin/doc-format/#from_string">from_string</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Type"><span><a class="doc-id-link" href="#Type">Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L194"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Type :: <span class="keyword-type">struct</span> {
+	kind:               <a class="code-typename" href="/core/odin/doc-format/#Type_Kind">Type_Kind</a>,
+	<span class="comment">// Type_Kind specific used by some types</span>
+	<span class="comment">// Underlying flag types:</span>
+	<span class="comment">// .Basic   - Type_Flags_Basic</span>
+	<span class="comment">// .Struct  - Type_Flags_Struct</span>
+	<span class="comment">// .Union   - Type_Flags_Union</span>
+	<span class="comment">// .Proc    - Type_Flags_Proc</span>
+	<span class="comment">// .Bit_Set - Type_Flags_Bit_Set</span>
+	flags:              <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
+	<span class="comment">// Used by:</span>
+	<span class="comment">// .Basic</span>
+	<span class="comment">// .Named</span>
+	<span class="comment">// .Generic</span>
+	name:               <a class="code-typename" href="/core/odin/doc-format/#String">String</a>,
+	<span class="comment">// Used By: .Struct, .Union</span>
+	custom_align:       <a class="code-typename" href="/core/odin/doc-format/#String">String</a>,
+	<span class="comment">// Used by:</span>
+	<span class="comment">// .Array            - 1 count: 0=len</span>
+	<span class="comment">// .Enumerated_Array - 1 count: 0=len</span>
+	<span class="comment">// .SOA_Struct_Fixed - 1 count: 0=len</span>
+	<span class="comment">// .Bit_Set          - 2 count: 0=lower, 1=upper</span>
+	<span class="comment">// .Simd_Vector      - 1 count: 0=len</span>
+	<span class="comment">// .Matrix           - 2 count: 0=row_count, 1=column_count</span>
+	elem_count_len:     <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
+	elem_counts:        [4]<a href="/core/builtin#i64le"><span class="doc-builtin">i64le</span></a>,
+	<span class="comment">// Used by: .Procedures</span>
+	<span class="comment">// blank implies the "odin" calling convention</span>
+	calling_convention: <a class="code-typename" href="/core/odin/doc-format/#String">String</a>,
+	<span class="comment">// Used by:</span>
+	<span class="comment">// .Named              - 1 type:    0=base type</span>
+	<span class="comment">// .Generic            - <1 type:   0=specialization</span>
+	<span class="comment">// .Pointer            - 1 type:    0=element</span>
+	<span class="comment">// .Array              - 1 type:    0=element</span>
+	<span class="comment">// .Enumerated_Array   - 2 types:   0=index and 1=element</span>
+	<span class="comment">// .Slice              - 1 type:    0=element</span>
+	<span class="comment">// .Dynamic_Array      - 1 type:    0=element</span>
+	<span class="comment">// .Map                - 2 types:   0=key, 1=value</span>
+	<span class="comment">// .SOA_Struct_Fixed   - 1 type:    underlying SOA struct element</span>
+	<span class="comment">// .SOA_Struct_Slice   - 1 type:    underlying SOA struct element</span>
+	<span class="comment">// .SOA_Struct_Dynamic - 1 type:    underlying SOA struct element</span>
+	<span class="comment">// .Union              - 0+ types:  variants</span>
+	<span class="comment">// .Enum               - <1 type:   0=base type</span>
+	<span class="comment">// .Proc               - 2 types:   0=parameters, 1=results</span>
+	<span class="comment">// .Bit_Set            - <=2 types: 0=element type, 1=underlying type (Underlying_Type flag will be set)</span>
+	<span class="comment">// .Simd_Vector        - 1 type:    0=element</span>
+	<span class="comment">// .Relative_Pointer   - 2 types:   0=pointer type, 1=base integer</span>
+	<span class="comment">// .Relative_Slice     - 2 types:   0=slice type, 1=base integer</span>
+	<span class="comment">// .Multi_Pointer      - 1 type:    0=element</span>
+	<span class="comment">// .Matrix             - 1 type:    0=element</span>
+	<span class="comment">// .Soa_Pointer        - 1 type:    0=element</span>
+	types:              <a class="code-typename" href="/core/odin/doc-format/#Array">Array</a>($T=Type_Index),
+	<span class="comment">// Used by:</span>
+	<span class="comment">// .Named  - 1 field for the definition</span>
+	<span class="comment">// .Struct - fields</span>
+	<span class="comment">// .Enum   - fields</span>
+	<span class="comment">// .Tuple  - parameters (procedures only)</span>
+	entities:           <a class="code-typename" href="/core/odin/doc-format/#Array">Array</a>($T=Entity_Index),
+	<span class="comment">// Used By: .Struct, .Union</span>
+	polymorphic_params: <a class="code-typename" href="/core/odin/doc-format/#Type_Index">Type_Index</a>,
+	<span class="comment">// Used By: .Struct, .Union</span>
+	where_clauses:      <a class="code-typename" href="/core/odin/doc-format/#Array">Array</a>($T=String),
+	<span class="comment">// Used By: .Struct</span>
+	tags:               <a class="code-typename" href="/core/odin/doc-format/#Array">Array</a>($T=String),
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Type_Flag_Basic"><span><a class="doc-id-link" href="#Type_Flag_Basic">Type_Flag_Basic<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L268"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Type_Flag_Basic :: <span class="keyword-type">enum</span> <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a> {
+	Untyped = 1, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Type_Flag_Bit_Set"><span><a class="doc-id-link" href="#Type_Flag_Bit_Set">Type_Flag_Bit_Set<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L296"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Type_Flag_Bit_Set :: <span class="keyword-type">enum</span> <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a> {
+	Range           = 1, 
+	Op_Lt           = 2, 
+	Op_Lt_Eq        = 3, 
+	Underlying_Type = 4, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Type_Flag_Proc"><span><a class="doc-id-link" href="#Type_Flag_Proc">Type_Flag_Proc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L287"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Type_Flag_Proc :: <span class="keyword-type">enum</span> <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a> {
+	Polymorphic = 0, 
+	Diverging   = 1, 
+	Optional_Ok = 2, 
+	Variadic    = 3, 
+	C_Vararg    = 4, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Type_Flag_Struct"><span><a class="doc-id-link" href="#Type_Flag_Struct">Type_Flag_Struct<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L273"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Type_Flag_Struct :: <span class="keyword-type">enum</span> <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a> {
+	Polymorphic = 0, 
+	Packed      = 1, 
+	Raw_Union   = 2, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Type_Flag_Union"><span><a class="doc-id-link" href="#Type_Flag_Union">Type_Flag_Union<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L280"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Type_Flag_Union :: <span class="keyword-type">enum</span> <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a> {
+	Polymorphic = 0, 
+	No_Nil      = 1, 
+	Maybe       = 2, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Type_Flags_Basic"><span><a class="doc-id-link" href="#Type_Flags_Basic">Type_Flags_Basic<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L267"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Type_Flags_Basic :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/odin/doc-format/#Type_Flag_Basic">Type_Flag_Basic</a>; <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>]</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Type_Flags_Bit_Set"><span><a class="doc-id-link" href="#Type_Flags_Bit_Set">Type_Flags_Bit_Set<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L295"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Type_Flags_Bit_Set :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/odin/doc-format/#Type_Flag_Bit_Set">Type_Flag_Bit_Set</a>; <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>]</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Type_Flags_Proc"><span><a class="doc-id-link" href="#Type_Flags_Proc">Type_Flags_Proc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L286"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Type_Flags_Proc :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/odin/doc-format/#Type_Flag_Proc">Type_Flag_Proc</a>; <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>]</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Type_Flags_Struct"><span><a class="doc-id-link" href="#Type_Flags_Struct">Type_Flags_Struct<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L272"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Type_Flags_Struct :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/odin/doc-format/#Type_Flag_Struct">Type_Flag_Struct</a>; <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>]</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Type_Flags_Union"><span><a class="doc-id-link" href="#Type_Flags_Union">Type_Flags_Union<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L279"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Type_Flags_Union :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/odin/doc-format/#Type_Flag_Union">Type_Flag_Union</a>; <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>]</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Type_Index"><span><a class="doc-id-link" href="#Type_Index">Type_Index<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L51"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Type_Index :: <span class="keyword-type">distinct</span> <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Type_Kind"><span><a class="doc-id-link" href="#Type_Kind">Type_Kind<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L164"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Type_Kind :: <span class="keyword-type">enum</span> <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a> {
+	Invalid                = 0, 
+	Basic                  = 1, 
+	Named                  = 2, 
+	Generic                = 3, 
+	Pointer                = 4, 
+	Array                  = 5, 
+	Enumerated_Array       = 6, 
+	Slice                  = 7, 
+	Dynamic_Array          = 8, 
+	Map                    = 9, 
+	Struct                 = 10, 
+	Union                  = 11, 
+	Enum                   = 12, 
+	Tuple                  = 13, 
+	Proc                   = 14, 
+	Bit_Set                = 15, 
+	Simd_Vector            = 16, 
+	SOA_Struct_Fixed       = 17, 
+	SOA_Struct_Slice       = 18, 
+	SOA_Struct_Dynamic     = 19, 
+	Relative_Pointer       = 20, 
+	Relative_Multi_Pointer = 21, 
+	Multi_Pointer          = 22, 
+	Matrix                 = 23, 
+	Soa_Pointer            = 24, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Version_Type"><span><a class="doc-id-link" href="#Version_Type">Version_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L16"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Version_Type :: <span class="keyword-type">struct</span> {
+	major,
+	minor,
+	patch: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	_:     <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+}</pre>
+</div>
+</div>
+<h2 id="pkg-Constants" class="pkg-header">Constants</h2>
+<div class="pkg-entity">
+<h3 id="Magic_String"><span><a class="doc-id-link" href="#Magic_String">Magic_String<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L27"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Magic_String :: "odindoc\x00"</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Type_Elems_Cap"><span><a class="doc-id-link" href="#Type_Elems_Cap">Type_Elems_Cap<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L192"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Type_Elems_Cap :: 4</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Version_Type_Default"><span><a class="doc-id-link" href="#Version_Type_Default">Version_Type_Default<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L21"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Version_Type_Default :: Version_Type{major = Version_Type_Major, minor = Version_Type_Minor, patch = Version_Type_Patch}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Version_Type_Major"><span><a class="doc-id-link" href="#Version_Type_Major">Version_Type_Major<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L12"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Version_Type_Major :: 0</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Version_Type_Minor"><span><a class="doc-id-link" href="#Version_Type_Minor">Version_Type_Minor<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L13"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Version_Type_Minor :: 2</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Version_Type_Patch"><span><a class="doc-id-link" href="#Version_Type_Patch">Version_Type_Patch<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L14"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Version_Type_Patch :: 4</pre>
+</div>
+</div>
+<h2 id="pkg-Variables" class="pkg-header">Variables</h2>
+<p class="pkg-empty-section">This section is empty.</p>
+<h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
+<div class="pkg-entity">
+<h3 id="from_array"><span><a class="doc-id-link" href="#from_array">from_array<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L303"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">from_array :: <span class="keyword-type">proc</span>(base: ^<a class="code-typename" href="/core/odin/doc-format/#Header_Base">Header_Base</a>, a: $A/<a class="code-typename" href="/core/odin/doc-format/#Array">Array</a>($T)) -> []$T {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="from_string"><span><a class="doc-id-link" href="#from_string">from_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L309"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">from_string :: <span class="keyword-type">proc</span>(base: ^<a class="code-typename" href="/core/odin/doc-format/#Header_Base">Header_Base</a>, s: <a class="code-typename" href="/core/odin/doc-format/#String">String</a>) -> <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="read_from_bytes"><span><a class="doc-id-link" href="#read_from_bytes">read_from_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin#L324"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">read_from_bytes :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (h: ^<a class="code-typename" href="/core/odin/doc-format/#Header">Header</a>, err: <a class="code-typename" href="/core/odin/doc-format/#Reader_Error">Reader_Error</a>) {…}</pre>
+</div>
+</div>
+<h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
+<p class="pkg-empty-section">This section is empty.</p>
+</section>
+<h2 id="pkg-source-files">Source Files</h2>
+<ul>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/doc-format/doc_format.odin">doc_format.odin</a></li>
+</ul>
+<h2 id="pkg-generation-information">Generation Information</h2>
+<p>Generated with <code>odin version dev-2023-09 (vendor "odin") Windows_amd64 @ 2023-09-05 17:19:48.838176900 +0000 UTC</code></p>
+</article>
+<div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#pkg-Types">Types</a><ul>
+<li><a href="#Array">Array</a></li>
+<li><a href="#Attribute">Attribute</a></li>
+<li><a href="#Entity">Entity</a></li>
+<li><a href="#Entity_Flag">Entity_Flag</a></li>
+<li><a href="#Entity_Flags">Entity_Flags</a></li>
+<li><a href="#Entity_Index">Entity_Index</a></li>
+<li><a href="#Entity_Kind">Entity_Kind</a></li>
+<li><a href="#File">File</a></li>
+<li><a href="#File_Index">File_Index</a></li>
+<li><a href="#Header">Header</a></li>
+<li><a href="#Header_Base">Header_Base</a></li>
+<li><a href="#Pkg">Pkg</a></li>
+<li><a href="#Pkg_Flag">Pkg_Flag</a></li>
+<li><a href="#Pkg_Flags">Pkg_Flags</a></li>
+<li><a href="#Pkg_Index">Pkg_Index</a></li>
+<li><a href="#Position">Position</a></li>
+<li><a href="#Reader_Error">Reader_Error</a></li>
+<li><a href="#Scope_Entry">Scope_Entry</a></li>
+<li><a href="#String">String</a></li>
+<li><a href="#Type">Type</a></li>
+<li><a href="#Type_Flag_Basic">Type_Flag_Basic</a></li>
+<li><a href="#Type_Flag_Bit_Set">Type_Flag_Bit_Set</a></li>
+<li><a href="#Type_Flag_Proc">Type_Flag_Proc</a></li>
+<li><a href="#Type_Flag_Struct">Type_Flag_Struct</a></li>
+<li><a href="#Type_Flag_Union">Type_Flag_Union</a></li>
+<li><a href="#Type_Flags_Basic">Type_Flags_Basic</a></li>
+<li><a href="#Type_Flags_Bit_Set">Type_Flags_Bit_Set</a></li>
+<li><a href="#Type_Flags_Proc">Type_Flags_Proc</a></li>
+<li><a href="#Type_Flags_Struct">Type_Flags_Struct</a></li>
+<li><a href="#Type_Flags_Union">Type_Flags_Union</a></li>
+<li><a href="#Type_Index">Type_Index</a></li>
+<li><a href="#Type_Kind">Type_Kind</a></li>
+<li><a href="#Version_Type">Version_Type</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Constants">Constants</a><ul>
+<li><a href="#Magic_String">Magic_String</a></li>
+<li><a href="#Type_Elems_Cap">Type_Elems_Cap</a></li>
+<li><a href="#Version_Type_Default">Version_Type_Default</a></li>
+<li><a href="#Version_Type_Major">Version_Type_Major</a></li>
+<li><a href="#Version_Type_Minor">Version_Type_Minor</a></li>
+<li><a href="#Version_Type_Patch">Version_Type_Patch</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Procedures">Procedures</a><ul>
+<li><a href="#from_array">from_array</a></li>
+<li><a href="#from_string">from_string</a></li>
+<li><a href="#read_from_bytes">read_from_bytes</a></li>
+</ul>
+</li>
+<li><a href="#pkg-source-files">Source Files</a></ul>
+</nav>
+</div></div>
+<script type="text/javascript">var odin_pkg_name = "odin_doc_format";</script>
+</div>
+
+</div>
+</main>
+
+<footer class="odin-footer">
+	<div class="container pb-5 pt-5">
+		<div class="row g-4">
+		<div class="col">
+		<a class="navbar-brand" href="https://odin-lang.org">
+		<img class="mb-3" src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+		<p>
+		The Data-Oriented Language for Sane Software Development.
+		</p>
+		</div>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Resources</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://odin-lang.org/docs" class="link-light">Docs</a></li>
+			<li><a href="https://pkg.odin-lang.org/" class="link-light">Packages</a></li>
+			<li><a href="https://odin-lang.org/news" class="link-light">News</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Community</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin" target="_blank" class="link-light">GitHub</a></li>
+			<li><a href="https://discord.com/invite/sVBPHEv" target="_blank" class="link-light">Discord</a></li>
+			<li><a href="https://www.twitch.tv/ginger_bill" target="_blank" class="link-light">Twitch</a></li>
+			<li><a href="https://www.youtube.com/channel/UCUSck1dOH7VKmG4lRW7tZXg" target="_blank" class="link-light">YouTube</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Contribute</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin/issues" target="_blank" class="link-light">Issues</a></li>
+			<li><a href="https://www.patreon.com/gingerbill" target="_blank" class="link-light">Donate</a></li>
+			</ul>
+			</nav>
+		</div>
+		<div class="mt-4 text-muted">© 2016–2023 Ginger Bill</div>
+	</div>
+</footer>
+
+<script src="https://odin-lang.org/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://odin-lang.org/js/script.js"></script>
+<script src="/pkg-data.js"></script>
+<script src="/search.js"></script>
+</body>
+</html>

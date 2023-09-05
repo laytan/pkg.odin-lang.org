@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>package encoding/entity - pkg.odin-lang.org</title>	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/scss/custom.min.css">
+	<link rel=stylesheet href="//odin-lang.org/lib/highlight/styles/github-dark.min.css">
+	<script src="//odin-lang.org/lib/highlight/highlight.min.js"></script>
+
+	<script>hljs.registerLanguage("odin",function(a){return{aliases:["odin","odinlang","odin-lang"],keywords:{keyword:"auto_cast bit_set break case cast context continue defer distinct do dynamic else enum fallthrough for foreign if import in map not_in or_else or_return package proc return struct switch transmute type_of typeid union using when where",literal:"true false nil",built_in:"abs align_of cap clamp complex conj expand_to_tuple imag jmag kmag len max min offset_of quaternion real size_of soa_unzip soa_zip swizzle type_info_of type_of typeid_of"},illegal:"</",contains:[a.C_LINE_COMMENT_MODE,a.C_BLOCK_COMMENT_MODE,{className:"string",variants:[a.QUOTE_STRING_MODE,{begin:"'",end:"[^\\\\]'"},{begin:"`",end:"`"}]},{className:"number",variants:[{begin:a.C_NUMBER_RE+"[ijk]",relevance:1},a.C_NUMBER_MODE]}]}})</script>
+	<script>hljs.highlightAll()</script>
+	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/css/style.css">
+
+	<link rel="stylesheet" type="text/css" href="/style.css">
+
+	</style>
+</head>
+<body>
+<header class="sticky-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary odin-menu">
+		<div class="container">
+			<a class="navbar-brand" href="https://odin-lang.org/">
+			<img src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#odin-navbar-content" aria-controls="odin-navbar-content" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="odin-navbar-content">
+			<ul class="navbar-nav ms-md-auto">
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/docs">Docs</a></li>
+				<li class="nav-item"><a class="nav-link active" href="/">Packages</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/news">News</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/showcase">Showcase</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/community">Community</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://github.com/odin-lang/Odin" target="_blank">GitHub</a></li>
+			</ul>
+		</div>
+		</div>
+	</nav>
+</header>
+<main>
+<div class="container full-width">
+<div class="row odin-main my-4" id="pkg">
+<nav id="pkg-sidebar" class="col-lg-2 odin-sidebar-border navbar-light sticky-top odin-below-navbar">
+<div class="py-3">
+<h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
+<ul>
+<li class="nav-item"><a href="/core/builtin">builtin</a></li>
+<li class="nav-item"><a href="/core/bufio">bufio</a></li>
+<li class="nav-item"><a href="/core/bytes">bytes</a></li>
+<li class="nav-item"><a href="/core/c">c</a><ul>
+<li><a href="/core/c/frontend/preprocessor">frontend/preprocessor</a></li>
+<li><a href="/core/c/frontend/tokenizer">frontend/tokenizer</a></li>
+<li><a href="/core/c/libc">libc</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/compress">compress</a><ul>
+<li><a href="/core/compress/gzip">gzip</a></li>
+<li><a href="/core/compress/shoco">shoco</a></li>
+<li><a href="/core/compress/zlib">zlib</a></li>
+</ul>
+
+</li>
+<li class="nav-item">container<ul>
+<li><a href="/core/container/bit_array">bit_array</a></li>
+<li><a href="/core/container/intrusive/list">intrusive/list</a></li>
+<li><a href="/core/container/lru">lru</a></li>
+<li><a href="/core/container/priority_queue">priority_queue</a></li>
+<li><a href="/core/container/queue">queue</a></li>
+<li><a href="/core/container/small_array">small_array</a></li>
+<li><a href="/core/container/topological_sort">topological_sort</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/crypto">crypto</a><ul>
+<li><a href="/core/crypto/blake">blake</a></li>
+<li><a href="/core/crypto/blake2b">blake2b</a></li>
+<li><a href="/core/crypto/blake2s">blake2s</a></li>
+<li><a href="/core/crypto/chacha20">chacha20</a></li>
+<li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
+<li><a href="/core/crypto/gost">gost</a></li>
+<li><a href="/core/crypto/groestl">groestl</a></li>
+<li><a href="/core/crypto/haval">haval</a></li>
+<li><a href="/core/crypto/jh">jh</a></li>
+<li><a href="/core/crypto/keccak">keccak</a></li>
+<li><a href="/core/crypto/md2">md2</a></li>
+<li><a href="/core/crypto/md4">md4</a></li>
+<li><a href="/core/crypto/md5">md5</a></li>
+<li><a href="/core/crypto/poly1305">poly1305</a></li>
+<li><a href="/core/crypto/ripemd">ripemd</a></li>
+<li><a href="/core/crypto/sha1">sha1</a></li>
+<li><a href="/core/crypto/sha2">sha2</a></li>
+<li><a href="/core/crypto/sha3">sha3</a></li>
+<li><a href="/core/crypto/shake">shake</a></li>
+<li><a href="/core/crypto/sm3">sm3</a></li>
+<li><a href="/core/crypto/streebog">streebog</a></li>
+<li><a href="/core/crypto/tiger">tiger</a></li>
+<li><a href="/core/crypto/tiger2">tiger2</a></li>
+<li><a href="/core/crypto/util">util</a></li>
+<li><a href="/core/crypto/whirlpool">whirlpool</a></li>
+<li><a href="/core/crypto/x25519">x25519</a></li>
+</ul>
+
+</li>
+<li class="nav-item">debug<ul>
+<li><a href="/core/debug/pe">pe</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/dynlib">dynlib</a></li>
+<li class="nav-item">encoding<ul>
+<li><a href="/core/encoding/base32">base32</a></li>
+<li><a href="/core/encoding/base64">base64</a></li>
+<li><a href="/core/encoding/csv">csv</a></li>
+<li><a href="/core/encoding/endian">endian</a></li>
+<li><a class="active" href="/core/encoding/entity">entity</a></li>
+<li><a href="/core/encoding/hex">hex</a></li>
+<li><a href="/core/encoding/hxa">hxa</a></li>
+<li><a href="/core/encoding/json">json</a></li>
+<li><a href="/core/encoding/varint">varint</a></li>
+<li><a href="/core/encoding/xml">xml</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/fmt">fmt</a></li>
+<li class="nav-item"><a href="/core/hash">hash</a><ul>
+<li><a href="/core/hash/xxhash">xxhash</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/image">image</a><ul>
+<li><a href="/core/image/netpbm">netpbm</a></li>
+<li><a href="/core/image/png">png</a></li>
+<li><a href="/core/image/qoi">qoi</a></li>
+<li><a href="/core/image/tga">tga</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/io">io</a></li>
+<li class="nav-item"><a href="/core/log">log</a></li>
+<li class="nav-item"><a href="/core/math">math</a><ul>
+<li><a href="/core/math/big">big</a></li>
+<li><a href="/core/math/bits">bits</a></li>
+<li><a href="/core/math/cmplx">cmplx</a></li>
+<li><a href="/core/math/ease">ease</a></li>
+<li><a href="/core/math/fixed">fixed</a></li>
+<li><a href="/core/math/linalg">linalg</a></li>
+<li><a href="/core/math/linalg/glsl">linalg/glsl</a></li>
+<li><a href="/core/math/linalg/hlsl">linalg/hlsl</a></li>
+<li><a href="/core/math/noise">noise</a></li>
+<li><a href="/core/math/rand">rand</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/mem">mem</a><ul>
+<li><a href="/core/mem/virtual">virtual</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/net">net</a></li>
+<li class="nav-item">odin<ul>
+<li><a href="/core/odin/ast">ast</a></li>
+<li><a href="/core/odin/doc-format">doc-format</a></li>
+<li><a href="/core/odin/format">format</a></li>
+<li><a href="/core/odin/parser">parser</a></li>
+<li><a href="/core/odin/printer">printer</a></li>
+<li><a href="/core/odin/tokenizer">tokenizer</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/os">os</a></li>
+<li class="nav-item">path<ul>
+<li><a href="/core/path/filepath">filepath</a></li>
+<li><a href="/core/path/slashpath">slashpath</a></li>
+</ul>
+
+</li>
+<li class="nav-item">prof<ul>
+<li><a href="/core/prof/spall">spall</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/reflect">reflect</a></li>
+<li class="nav-item"><a href="/core/runtime">runtime</a></li>
+<li class="nav-item"><a href="/core/simd">simd</a></li>
+<li class="nav-item"><a href="/core/slice">slice</a><ul>
+<li><a href="/core/slice/heap">heap</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/sort">sort</a></li>
+<li class="nav-item"><a href="/core/strconv">strconv</a><ul>
+<li><a href="/core/strconv/decimal">decimal</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/strings">strings</a></li>
+<li class="nav-item"><a href="/core/sync">sync</a></li>
+<li class="nav-item"><a href="/core/testing">testing</a></li>
+<li class="nav-item">text<ul>
+<li><a href="/core/text/edit">edit</a></li>
+<li><a href="/core/text/i18n">i18n</a></li>
+<li><a href="/core/text/match">match</a></li>
+<li><a href="/core/text/scanner">scanner</a></li>
+<li><a href="/core/text/table">table</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/thread">thread</a></li>
+<li class="nav-item"><a href="/core/time">time</a></li>
+<li class="nav-item"><a href="/core/unicode">unicode</a><ul>
+<li><a href="/core/unicode/utf16">utf16</a></li>
+<li><a href="/core/unicode/utf8">utf8</a></li>
+<li><a href="/core/unicode/utf8/utf8string">utf8/utf8string</a></li>
+</ul>
+
+</li>
+</ul>
+</div>
+</nav>
+<article class="col-lg-8 p-4 documentation odin-article">
+<nav class="pkg-breadcrumb" aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="/core">core</a></li>
+<li class="breadcrumb-item">encoding</li>
+<li class="breadcrumb-item active" aria-current="page"><a href="/core/encoding/entity">entity</a></li>
+</ol>
+</nav>
+<h1>package core:encoding/entity<div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity"><em>Source</em></a></div></h1>
+
+		<div class="odin-search-wrapper">
+			<input type="search" id="odin-search" class="odin-search-package" autocomplete="off" spellcheck="false" placeholder="Fuzzy Search...">
+			<div class="odin-search-shortcut">
+				<div class="odin-search-key key-macos">⌘K</div>
+				<div class="odin-search-key key-windows">Ctrl+K</div>
+				<span class="odin-search-or">or</span>
+				<div class="odin-search-key">/</div>
+			</div>
+		</div>
+	
+<div id="odin-search-info">
+<div id="odin-search-time"></div>
+
+		<div id="odin-search-options">
+			<input type="checkbox" id="odin-search-filter" name="odin-search-filter">
+			<label for="odin-search-filter">Filter Results</label>
+		</div>
+</div>
+<ul id="odin-search-results"></ul>
+<div id="pkg-top">
+<div id="pkg-index">
+<h2>Index</h2>
+<div>
+<details class="doc-index" id="doc-index-Types" aria-labelledby="#doc-index-Types-header">
+<summary id="#doc-index-Types-header">
+Types (4)</summary>
+<ul>
+<li><a href="#Error">Error</a></li>
+<li><a href="#Tokenizer">Tokenizer</a></li>
+<li><a href="#XML_Decode_Option">XML_Decode_Option</a></li>
+<li><a href="#XML_Decode_Options">XML_Decode_Options</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Constants" aria-labelledby="#doc-index-Constants-header">
+<summary id="#doc-index-Constants-header">
+Constants (7)</summary>
+<ul>
+<li><a href="#CDATA_END">CDATA_END</a></li>
+<li><a href="#CDATA_START">CDATA_START</a></li>
+<li><a href="#COMMENT_END">COMMENT_END</a></li>
+<li><a href="#COMMENT_START">COMMENT_START</a></li>
+<li><a href="#MAX_RUNE_CODEPOINT">MAX_RUNE_CODEPOINT</a></li>
+<li><a href="#XML_NAME_TO_RUNE_MAX_LENGTH">XML_NAME_TO_RUNE_MAX_LENGTH</a></li>
+<li><a href="#XML_NAME_TO_RUNE_MIN_LENGTH">XML_NAME_TO_RUNE_MIN_LENGTH</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Variables" aria-labelledby="#doc-index-Variables-header">
+<summary id="#doc-index-Variables-header">
+Variables (0)</summary>
+<p class="pkg-empty-section">This section is empty.</p>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
+<summary id="#doc-index-Procedures-header">
+Procedures (4)</summary>
+<ul>
+<li><a href="#advance">advance</a></li>
+<li><a href="#decode_xml">decode_xml</a></li>
+<li><a href="#named_xml_entity_to_rune">named_xml_entity_to_rune</a></li>
+<li><a href="#xml_decode_entity">xml_decode_entity</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedure Groups" aria-labelledby="#doc-index-Procedure Groups-header">
+<summary id="#doc-index-Procedure Groups-header">
+Procedure Groups (0)</summary>
+<p class="pkg-empty-section">This section is empty.</p>
+</details>
+</div>
+</div>
+</div>
+<section class="documentation">
+<h2 id="pkg-Types" class="pkg-header">Types</h2>
+<div class="pkg-entity">
+<h3 id="Error"><span><a class="doc-id-link" href="#Error">Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L31"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+	None                    = 0, 
+	Tokenizer_Is_Nil, 
+	Illegal_NUL_Character, 
+	Illegal_UTF_Encoding, 
+	Illegal_BOM, 
+	CDATA_Not_Terminated, 
+	Comment_Not_Terminated, 
+	Invalid_Entity_Encoding, 
+}</pre>
+</div>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/core/encoding/entity/#advance">advance</a></li>
+<li><a href="/core/encoding/entity/#decode_xml">decode_xml</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Tokenizer"><span><a class="doc-id-link" href="#Tokenizer">Tokenizer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L44"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Tokenizer :: <span class="keyword-type">struct</span> {
+	r:           <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>,
+	w:           <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	src:         <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	offset:      <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	read_offset: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/encoding/entity/#advance">advance</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="XML_Decode_Option"><span><a class="doc-id-link" href="#XML_Decode_Option">XML_Decode_Option<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L62"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">XML_Decode_Option :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+	<span class="comment">// 		Do not decode & entities. It decodes by default.</span>
+	<span class="comment">// 		If given, overrides `Decode_CDATA`.</span>
+	No_Entity_Decode, 
+	<span class="comment">// 		CDATA is unboxed.</span>
+	Unbox_CDATA, 
+	<span class="comment">// 		Unboxed CDATA is decoded as well.</span>
+	<span class="comment">// 		Ignored if `.Unbox_CDATA` is not given.</span>
+	Decode_CDATA, 
+	<span class="comment">// 		Comments are stripped.</span>
+	Comment_Strip, 
+}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Default: CDATA and comments are passed through unchanged.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="XML_Decode_Options"><span><a class="doc-id-link" href="#XML_Decode_Options">XML_Decode_Options<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L85"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">XML_Decode_Options :: <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/encoding/entity/#XML_Decode_Option">XML_Decode_Option</a>; <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>]</pre>
+</div>
+</div>
+<h2 id="pkg-Constants" class="pkg-header">Constants</h2>
+<div class="pkg-entity">
+<h3 id="CDATA_END"><span><a class="doc-id-link" href="#CDATA_END">CDATA_END<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L54"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">CDATA_END :: "]]>"</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="CDATA_START"><span><a class="doc-id-link" href="#CDATA_START">CDATA_START<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L53"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">CDATA_START :: "<![CDATA["</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="COMMENT_END"><span><a class="doc-id-link" href="#COMMENT_END">COMMENT_END<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L57"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">COMMENT_END :: "-->"</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="COMMENT_START"><span><a class="doc-id-link" href="#COMMENT_START">COMMENT_START<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L56"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">COMMENT_START :: "<!--"</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="MAX_RUNE_CODEPOINT"><span><a class="doc-id-link" href="#MAX_RUNE_CODEPOINT">MAX_RUNE_CODEPOINT<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L26"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MAX_RUNE_CODEPOINT :: int(unicode.MAX_RUNE)</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="XML_NAME_TO_RUNE_MAX_LENGTH"><span><a class="doc-id-link" href="#XML_NAME_TO_RUNE_MAX_LENGTH">XML_NAME_TO_RUNE_MAX_LENGTH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/generated.odin#L32"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">XML_NAME_TO_RUNE_MAX_LENGTH :: 31</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p><code>&CounterClockwiseContourIntegral;</code></p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="XML_NAME_TO_RUNE_MIN_LENGTH"><span><a class="doc-id-link" href="#XML_NAME_TO_RUNE_MIN_LENGTH">XML_NAME_TO_RUNE_MIN_LENGTH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/generated.odin#L30"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">XML_NAME_TO_RUNE_MIN_LENGTH :: 2</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p><code>&lt;</code></p>
+</details>
+</div>
+<h2 id="pkg-Variables" class="pkg-header">Variables</h2>
+<p class="pkg-empty-section">This section is empty.</p>
+<h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
+<div class="pkg-entity">
+<h3 id="advance"><span><a class="doc-id-link" href="#advance">advance<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L185"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">advance :: <span class="keyword-type">proc</span>(t: ^<a class="code-typename" href="/core/encoding/entity/#Tokenizer">Tokenizer</a>) -> (err: <a class="code-typename" href="/core/encoding/entity/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="decode_xml"><span><a class="doc-id-link" href="#decode_xml">decode_xml<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L91"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">decode_xml :: <span class="keyword-type">proc</span>(input: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, options: <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/encoding/entity/#XML_Decode_Option">XML_Decode_Option</a>; <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>] = XML_Decode_Options{}, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (decoded: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, err: <a class="code-typename" href="/core/encoding/entity/#Error">Error</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Decode a string that may include SGML/XML/HTML entities.</p>
+<pre>The caller has to free the result.
+</pre>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="named_xml_entity_to_rune"><span><a class="doc-id-link" href="#named_xml_entity_to_rune">named_xml_entity_to_rune<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/generated.odin#L45"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">named_xml_entity_to_rune :: <span class="keyword-type">proc</span>(name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> (decoded: <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>, ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Input:</p>
+<pre>	entity_name - a string, like "copy" that describes a user-encoded Unicode entity as used in XML.
+
+Output:
+	"decoded" - The decoded rune if found by name, or -1 otherwise.
+	"ok"      - true if found, false if not.
+
+IMPORTANT: XML processors (including browsers) treat these names as case-sensitive. So do we.
+</pre>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="xml_decode_entity"><span><a class="doc-id-link" href="#xml_decode_entity">xml_decode_entity<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L212"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">xml_decode_entity :: <span class="keyword-type">proc</span>(entity: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> (decoded: <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>, ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+</div>
+<h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
+<p class="pkg-empty-section">This section is empty.</p>
+</section>
+<h2 id="pkg-source-files">Source Files</h2>
+<ul>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin">entity.odin</a></li>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/generated.odin">generated.odin</a></li>
+</ul>
+<h2 id="pkg-generation-information">Generation Information</h2>
+<p>Generated with <code>odin version dev-2023-09 (vendor "odin") Windows_amd64 @ 2023-09-05 17:19:48.288925500 +0000 UTC</code></p>
+</article>
+<div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#pkg-Types">Types</a><ul>
+<li><a href="#Error">Error</a></li>
+<li><a href="#Tokenizer">Tokenizer</a></li>
+<li><a href="#XML_Decode_Option">XML_Decode_Option</a></li>
+<li><a href="#XML_Decode_Options">XML_Decode_Options</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Constants">Constants</a><ul>
+<li><a href="#CDATA_END">CDATA_END</a></li>
+<li><a href="#CDATA_START">CDATA_START</a></li>
+<li><a href="#COMMENT_END">COMMENT_END</a></li>
+<li><a href="#COMMENT_START">COMMENT_START</a></li>
+<li><a href="#MAX_RUNE_CODEPOINT">MAX_RUNE_CODEPOINT</a></li>
+<li><a href="#XML_NAME_TO_RUNE_MAX_LENGTH">XML_NAME_TO_RUNE_MAX_LENGTH</a></li>
+<li><a href="#XML_NAME_TO_RUNE_MIN_LENGTH">XML_NAME_TO_RUNE_MIN_LENGTH</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Procedures">Procedures</a><ul>
+<li><a href="#advance">advance</a></li>
+<li><a href="#decode_xml">decode_xml</a></li>
+<li><a href="#named_xml_entity_to_rune">named_xml_entity_to_rune</a></li>
+<li><a href="#xml_decode_entity">xml_decode_entity</a></li>
+</ul>
+</li>
+<li><a href="#pkg-source-files">Source Files</a></ul>
+</nav>
+</div></div>
+<script type="text/javascript">var odin_pkg_name = "unicode_entity";</script>
+</div>
+
+</div>
+</main>
+
+<footer class="odin-footer">
+	<div class="container pb-5 pt-5">
+		<div class="row g-4">
+		<div class="col">
+		<a class="navbar-brand" href="https://odin-lang.org">
+		<img class="mb-3" src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+		<p>
+		The Data-Oriented Language for Sane Software Development.
+		</p>
+		</div>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Resources</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://odin-lang.org/docs" class="link-light">Docs</a></li>
+			<li><a href="https://pkg.odin-lang.org/" class="link-light">Packages</a></li>
+			<li><a href="https://odin-lang.org/news" class="link-light">News</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Community</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin" target="_blank" class="link-light">GitHub</a></li>
+			<li><a href="https://discord.com/invite/sVBPHEv" target="_blank" class="link-light">Discord</a></li>
+			<li><a href="https://www.twitch.tv/ginger_bill" target="_blank" class="link-light">Twitch</a></li>
+			<li><a href="https://www.youtube.com/channel/UCUSck1dOH7VKmG4lRW7tZXg" target="_blank" class="link-light">YouTube</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Contribute</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin/issues" target="_blank" class="link-light">Issues</a></li>
+			<li><a href="https://www.patreon.com/gingerbill" target="_blank" class="link-light">Donate</a></li>
+			</ul>
+			</nav>
+		</div>
+		<div class="mt-4 text-muted">© 2016–2023 Ginger Bill</div>
+	</div>
+</footer>
+
+<script src="https://odin-lang.org/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://odin-lang.org/js/script.js"></script>
+<script src="/pkg-data.js"></script>
+<script src="/search.js"></script>
+</body>
+</html>

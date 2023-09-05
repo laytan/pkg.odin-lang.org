@@ -1,0 +1,2124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>package crypto/haval - pkg.odin-lang.org</title>	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/scss/custom.min.css">
+	<link rel=stylesheet href="//odin-lang.org/lib/highlight/styles/github-dark.min.css">
+	<script src="//odin-lang.org/lib/highlight/highlight.min.js"></script>
+
+	<script>hljs.registerLanguage("odin",function(a){return{aliases:["odin","odinlang","odin-lang"],keywords:{keyword:"auto_cast bit_set break case cast context continue defer distinct do dynamic else enum fallthrough for foreign if import in map not_in or_else or_return package proc return struct switch transmute type_of typeid union using when where",literal:"true false nil",built_in:"abs align_of cap clamp complex conj expand_to_tuple imag jmag kmag len max min offset_of quaternion real size_of soa_unzip soa_zip swizzle type_info_of type_of typeid_of"},illegal:"</",contains:[a.C_LINE_COMMENT_MODE,a.C_BLOCK_COMMENT_MODE,{className:"string",variants:[a.QUOTE_STRING_MODE,{begin:"'",end:"[^\\\\]'"},{begin:"`",end:"`"}]},{className:"number",variants:[{begin:a.C_NUMBER_RE+"[ijk]",relevance:1},a.C_NUMBER_MODE]}]}})</script>
+	<script>hljs.highlightAll()</script>
+	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/css/style.css">
+
+	<link rel="stylesheet" type="text/css" href="/style.css">
+
+	</style>
+</head>
+<body>
+<header class="sticky-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary odin-menu">
+		<div class="container">
+			<a class="navbar-brand" href="https://odin-lang.org/">
+			<img src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#odin-navbar-content" aria-controls="odin-navbar-content" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="odin-navbar-content">
+			<ul class="navbar-nav ms-md-auto">
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/docs">Docs</a></li>
+				<li class="nav-item"><a class="nav-link active" href="/">Packages</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/news">News</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/showcase">Showcase</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/community">Community</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://github.com/odin-lang/Odin" target="_blank">GitHub</a></li>
+			</ul>
+		</div>
+		</div>
+	</nav>
+</header>
+<main>
+<div class="container full-width">
+<div class="row odin-main my-4" id="pkg">
+<nav id="pkg-sidebar" class="col-lg-2 odin-sidebar-border navbar-light sticky-top odin-below-navbar">
+<div class="py-3">
+<h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
+<ul>
+<li class="nav-item"><a href="/core/builtin">builtin</a></li>
+<li class="nav-item"><a href="/core/bufio">bufio</a></li>
+<li class="nav-item"><a href="/core/bytes">bytes</a></li>
+<li class="nav-item"><a href="/core/c">c</a><ul>
+<li><a href="/core/c/frontend/preprocessor">frontend/preprocessor</a></li>
+<li><a href="/core/c/frontend/tokenizer">frontend/tokenizer</a></li>
+<li><a href="/core/c/libc">libc</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/compress">compress</a><ul>
+<li><a href="/core/compress/gzip">gzip</a></li>
+<li><a href="/core/compress/shoco">shoco</a></li>
+<li><a href="/core/compress/zlib">zlib</a></li>
+</ul>
+
+</li>
+<li class="nav-item">container<ul>
+<li><a href="/core/container/bit_array">bit_array</a></li>
+<li><a href="/core/container/intrusive/list">intrusive/list</a></li>
+<li><a href="/core/container/lru">lru</a></li>
+<li><a href="/core/container/priority_queue">priority_queue</a></li>
+<li><a href="/core/container/queue">queue</a></li>
+<li><a href="/core/container/small_array">small_array</a></li>
+<li><a href="/core/container/topological_sort">topological_sort</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/crypto">crypto</a><ul>
+<li><a href="/core/crypto/blake">blake</a></li>
+<li><a href="/core/crypto/blake2b">blake2b</a></li>
+<li><a href="/core/crypto/blake2s">blake2s</a></li>
+<li><a href="/core/crypto/chacha20">chacha20</a></li>
+<li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
+<li><a href="/core/crypto/gost">gost</a></li>
+<li><a href="/core/crypto/groestl">groestl</a></li>
+<li><a class="active" href="/core/crypto/haval">haval</a></li>
+<li><a href="/core/crypto/jh">jh</a></li>
+<li><a href="/core/crypto/keccak">keccak</a></li>
+<li><a href="/core/crypto/md2">md2</a></li>
+<li><a href="/core/crypto/md4">md4</a></li>
+<li><a href="/core/crypto/md5">md5</a></li>
+<li><a href="/core/crypto/poly1305">poly1305</a></li>
+<li><a href="/core/crypto/ripemd">ripemd</a></li>
+<li><a href="/core/crypto/sha1">sha1</a></li>
+<li><a href="/core/crypto/sha2">sha2</a></li>
+<li><a href="/core/crypto/sha3">sha3</a></li>
+<li><a href="/core/crypto/shake">shake</a></li>
+<li><a href="/core/crypto/sm3">sm3</a></li>
+<li><a href="/core/crypto/streebog">streebog</a></li>
+<li><a href="/core/crypto/tiger">tiger</a></li>
+<li><a href="/core/crypto/tiger2">tiger2</a></li>
+<li><a href="/core/crypto/util">util</a></li>
+<li><a href="/core/crypto/whirlpool">whirlpool</a></li>
+<li><a href="/core/crypto/x25519">x25519</a></li>
+</ul>
+
+</li>
+<li class="nav-item">debug<ul>
+<li><a href="/core/debug/pe">pe</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/dynlib">dynlib</a></li>
+<li class="nav-item">encoding<ul>
+<li><a href="/core/encoding/base32">base32</a></li>
+<li><a href="/core/encoding/base64">base64</a></li>
+<li><a href="/core/encoding/csv">csv</a></li>
+<li><a href="/core/encoding/endian">endian</a></li>
+<li><a href="/core/encoding/entity">entity</a></li>
+<li><a href="/core/encoding/hex">hex</a></li>
+<li><a href="/core/encoding/hxa">hxa</a></li>
+<li><a href="/core/encoding/json">json</a></li>
+<li><a href="/core/encoding/varint">varint</a></li>
+<li><a href="/core/encoding/xml">xml</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/fmt">fmt</a></li>
+<li class="nav-item"><a href="/core/hash">hash</a><ul>
+<li><a href="/core/hash/xxhash">xxhash</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/image">image</a><ul>
+<li><a href="/core/image/netpbm">netpbm</a></li>
+<li><a href="/core/image/png">png</a></li>
+<li><a href="/core/image/qoi">qoi</a></li>
+<li><a href="/core/image/tga">tga</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/io">io</a></li>
+<li class="nav-item"><a href="/core/log">log</a></li>
+<li class="nav-item"><a href="/core/math">math</a><ul>
+<li><a href="/core/math/big">big</a></li>
+<li><a href="/core/math/bits">bits</a></li>
+<li><a href="/core/math/cmplx">cmplx</a></li>
+<li><a href="/core/math/ease">ease</a></li>
+<li><a href="/core/math/fixed">fixed</a></li>
+<li><a href="/core/math/linalg">linalg</a></li>
+<li><a href="/core/math/linalg/glsl">linalg/glsl</a></li>
+<li><a href="/core/math/linalg/hlsl">linalg/hlsl</a></li>
+<li><a href="/core/math/noise">noise</a></li>
+<li><a href="/core/math/rand">rand</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/mem">mem</a><ul>
+<li><a href="/core/mem/virtual">virtual</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/net">net</a></li>
+<li class="nav-item">odin<ul>
+<li><a href="/core/odin/ast">ast</a></li>
+<li><a href="/core/odin/doc-format">doc-format</a></li>
+<li><a href="/core/odin/format">format</a></li>
+<li><a href="/core/odin/parser">parser</a></li>
+<li><a href="/core/odin/printer">printer</a></li>
+<li><a href="/core/odin/tokenizer">tokenizer</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/os">os</a></li>
+<li class="nav-item">path<ul>
+<li><a href="/core/path/filepath">filepath</a></li>
+<li><a href="/core/path/slashpath">slashpath</a></li>
+</ul>
+
+</li>
+<li class="nav-item">prof<ul>
+<li><a href="/core/prof/spall">spall</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/reflect">reflect</a></li>
+<li class="nav-item"><a href="/core/runtime">runtime</a></li>
+<li class="nav-item"><a href="/core/simd">simd</a></li>
+<li class="nav-item"><a href="/core/slice">slice</a><ul>
+<li><a href="/core/slice/heap">heap</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/sort">sort</a></li>
+<li class="nav-item"><a href="/core/strconv">strconv</a><ul>
+<li><a href="/core/strconv/decimal">decimal</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/strings">strings</a></li>
+<li class="nav-item"><a href="/core/sync">sync</a></li>
+<li class="nav-item"><a href="/core/testing">testing</a></li>
+<li class="nav-item">text<ul>
+<li><a href="/core/text/edit">edit</a></li>
+<li><a href="/core/text/i18n">i18n</a></li>
+<li><a href="/core/text/match">match</a></li>
+<li><a href="/core/text/scanner">scanner</a></li>
+<li><a href="/core/text/table">table</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/thread">thread</a></li>
+<li class="nav-item"><a href="/core/time">time</a></li>
+<li class="nav-item"><a href="/core/unicode">unicode</a><ul>
+<li><a href="/core/unicode/utf16">utf16</a></li>
+<li><a href="/core/unicode/utf8">utf8</a></li>
+<li><a href="/core/unicode/utf8/utf8string">utf8/utf8string</a></li>
+</ul>
+
+</li>
+</ul>
+</div>
+</nav>
+<article class="col-lg-8 p-4 documentation odin-article">
+<nav class="pkg-breadcrumb" aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="/core">core</a></li>
+<li class="breadcrumb-item"><a href="/core/crypto">crypto</a></li>
+<li class="breadcrumb-item active" aria-current="page"><a href="/core/crypto/haval">haval</a></li>
+</ol>
+</nav>
+<h1>package core:crypto/haval<div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval"><em>Source</em></a></div></h1>
+
+		<div class="odin-search-wrapper">
+			<input type="search" id="odin-search" class="odin-search-package" autocomplete="off" spellcheck="false" placeholder="Fuzzy Search...">
+			<div class="odin-search-shortcut">
+				<div class="odin-search-key key-macos">⌘K</div>
+				<div class="odin-search-key key-windows">Ctrl+K</div>
+				<span class="odin-search-or">or</span>
+				<div class="odin-search-key">/</div>
+			</div>
+		</div>
+	
+<div id="odin-search-info">
+<div id="odin-search-time"></div>
+
+		<div id="odin-search-options">
+			<input type="checkbox" id="odin-search-filter" name="odin-search-filter">
+			<label for="odin-search-filter">Filter Results</label>
+		</div>
+</div>
+<ul id="odin-search-results"></ul>
+<div id="pkg-top">
+<div id="pkg-index">
+<h2>Index</h2>
+<div>
+<details class="doc-index" id="doc-index-Types" aria-labelledby="#doc-index-Types-header">
+<summary id="#doc-index-Types-header">
+Types (1)</summary>
+<ul>
+<li><a href="#Haval_Context">Haval_Context</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Constants" aria-labelledby="#doc-index-Constants-header">
+<summary id="#doc-index-Constants-header">
+Constants (6)</summary>
+<ul>
+<li><a href="#DIGEST_SIZE_128">DIGEST_SIZE_128</a></li>
+<li><a href="#DIGEST_SIZE_160">DIGEST_SIZE_160</a></li>
+<li><a href="#DIGEST_SIZE_192">DIGEST_SIZE_192</a></li>
+<li><a href="#DIGEST_SIZE_224">DIGEST_SIZE_224</a></li>
+<li><a href="#DIGEST_SIZE_256">DIGEST_SIZE_256</a></li>
+<li><a href="#VERSION">VERSION</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Variables" aria-labelledby="#doc-index-Variables-header">
+<summary id="#doc-index-Variables-header">
+Variables (1)</summary>
+<ul>
+<li><a href="#PADDING">PADDING</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
+<summary id="#doc-index-Procedures-header">
+Procedures (112)</summary>
+<ul>
+<li><a href="#CH2UINT">CH2UINT</a></li>
+<li><a href="#FF_1">FF_1</a></li>
+<li><a href="#FF_2">FF_2</a></li>
+<li><a href="#FF_3">FF_3</a></li>
+<li><a href="#FF_4">FF_4</a></li>
+<li><a href="#FF_5">FF_5</a></li>
+<li><a href="#FPHI_1">FPHI_1</a></li>
+<li><a href="#FPHI_2">FPHI_2</a></li>
+<li><a href="#FPHI_3">FPHI_3</a></li>
+<li><a href="#FPHI_4">FPHI_4</a></li>
+<li><a href="#FPHI_5">FPHI_5</a></li>
+<li><a href="#F_1">F_1</a></li>
+<li><a href="#F_2">F_2</a></li>
+<li><a href="#F_3">F_3</a></li>
+<li><a href="#F_4">F_4</a></li>
+<li><a href="#F_5">F_5</a></li>
+<li><a href="#UINT2CH">UINT2CH</a></li>
+<li><a href="#block">block</a></li>
+<li><a href="#final">final</a></li>
+<li><a href="#hash_bytes_128_3">hash_bytes_128_3</a></li>
+<li><a href="#hash_bytes_128_4">hash_bytes_128_4</a></li>
+<li><a href="#hash_bytes_128_5">hash_bytes_128_5</a></li>
+<li><a href="#hash_bytes_160_3">hash_bytes_160_3</a></li>
+<li><a href="#hash_bytes_160_4">hash_bytes_160_4</a></li>
+<li><a href="#hash_bytes_160_5">hash_bytes_160_5</a></li>
+<li><a href="#hash_bytes_192_3">hash_bytes_192_3</a></li>
+<li><a href="#hash_bytes_192_4">hash_bytes_192_4</a></li>
+<li><a href="#hash_bytes_192_5">hash_bytes_192_5</a></li>
+<li><a href="#hash_bytes_224_3">hash_bytes_224_3</a></li>
+<li><a href="#hash_bytes_224_4">hash_bytes_224_4</a></li>
+<li><a href="#hash_bytes_224_5">hash_bytes_224_5</a></li>
+<li><a href="#hash_bytes_256_3">hash_bytes_256_3</a></li>
+<li><a href="#hash_bytes_256_4">hash_bytes_256_4</a></li>
+<li><a href="#hash_bytes_256_5">hash_bytes_256_5</a></li>
+<li><a href="#hash_bytes_to_buffer_128_3">hash_bytes_to_buffer_128_3</a></li>
+<li><a href="#hash_bytes_to_buffer_128_4">hash_bytes_to_buffer_128_4</a></li>
+<li><a href="#hash_bytes_to_buffer_128_5">hash_bytes_to_buffer_128_5</a></li>
+<li><a href="#hash_bytes_to_buffer_160_3">hash_bytes_to_buffer_160_3</a></li>
+<li><a href="#hash_bytes_to_buffer_160_4">hash_bytes_to_buffer_160_4</a></li>
+<li><a href="#hash_bytes_to_buffer_160_5">hash_bytes_to_buffer_160_5</a></li>
+<li><a href="#hash_bytes_to_buffer_192_3">hash_bytes_to_buffer_192_3</a></li>
+<li><a href="#hash_bytes_to_buffer_192_4">hash_bytes_to_buffer_192_4</a></li>
+<li><a href="#hash_bytes_to_buffer_192_5">hash_bytes_to_buffer_192_5</a></li>
+<li><a href="#hash_bytes_to_buffer_224_3">hash_bytes_to_buffer_224_3</a></li>
+<li><a href="#hash_bytes_to_buffer_224_4">hash_bytes_to_buffer_224_4</a></li>
+<li><a href="#hash_bytes_to_buffer_224_5">hash_bytes_to_buffer_224_5</a></li>
+<li><a href="#hash_bytes_to_buffer_256_3">hash_bytes_to_buffer_256_3</a></li>
+<li><a href="#hash_bytes_to_buffer_256_4">hash_bytes_to_buffer_256_4</a></li>
+<li><a href="#hash_bytes_to_buffer_256_5">hash_bytes_to_buffer_256_5</a></li>
+<li><a href="#hash_file_128_3">hash_file_128_3</a></li>
+<li><a href="#hash_file_128_4">hash_file_128_4</a></li>
+<li><a href="#hash_file_128_5">hash_file_128_5</a></li>
+<li><a href="#hash_file_160_3">hash_file_160_3</a></li>
+<li><a href="#hash_file_160_4">hash_file_160_4</a></li>
+<li><a href="#hash_file_160_5">hash_file_160_5</a></li>
+<li><a href="#hash_file_192_3">hash_file_192_3</a></li>
+<li><a href="#hash_file_192_4">hash_file_192_4</a></li>
+<li><a href="#hash_file_192_5">hash_file_192_5</a></li>
+<li><a href="#hash_file_224_3">hash_file_224_3</a></li>
+<li><a href="#hash_file_224_4">hash_file_224_4</a></li>
+<li><a href="#hash_file_224_5">hash_file_224_5</a></li>
+<li><a href="#hash_file_256_3">hash_file_256_3</a></li>
+<li><a href="#hash_file_256_4">hash_file_256_4</a></li>
+<li><a href="#hash_file_256_5">hash_file_256_5</a></li>
+<li><a href="#hash_stream_128_3">hash_stream_128_3</a></li>
+<li><a href="#hash_stream_128_4">hash_stream_128_4</a></li>
+<li><a href="#hash_stream_128_5">hash_stream_128_5</a></li>
+<li><a href="#hash_stream_160_3">hash_stream_160_3</a></li>
+<li><a href="#hash_stream_160_4">hash_stream_160_4</a></li>
+<li><a href="#hash_stream_160_5">hash_stream_160_5</a></li>
+<li><a href="#hash_stream_192_3">hash_stream_192_3</a></li>
+<li><a href="#hash_stream_192_4">hash_stream_192_4</a></li>
+<li><a href="#hash_stream_192_5">hash_stream_192_5</a></li>
+<li><a href="#hash_stream_224_3">hash_stream_224_3</a></li>
+<li><a href="#hash_stream_224_4">hash_stream_224_4</a></li>
+<li><a href="#hash_stream_224_5">hash_stream_224_5</a></li>
+<li><a href="#hash_stream_256_3">hash_stream_256_3</a></li>
+<li><a href="#hash_stream_256_4">hash_stream_256_4</a></li>
+<li><a href="#hash_stream_256_5">hash_stream_256_5</a></li>
+<li><a href="#hash_string_128_3">hash_string_128_3</a></li>
+<li><a href="#hash_string_128_4">hash_string_128_4</a></li>
+<li><a href="#hash_string_128_5">hash_string_128_5</a></li>
+<li><a href="#hash_string_160_3">hash_string_160_3</a></li>
+<li><a href="#hash_string_160_4">hash_string_160_4</a></li>
+<li><a href="#hash_string_160_5">hash_string_160_5</a></li>
+<li><a href="#hash_string_192_3">hash_string_192_3</a></li>
+<li><a href="#hash_string_192_4">hash_string_192_4</a></li>
+<li><a href="#hash_string_192_5">hash_string_192_5</a></li>
+<li><a href="#hash_string_224_3">hash_string_224_3</a></li>
+<li><a href="#hash_string_224_4">hash_string_224_4</a></li>
+<li><a href="#hash_string_224_5">hash_string_224_5</a></li>
+<li><a href="#hash_string_256_3">hash_string_256_3</a></li>
+<li><a href="#hash_string_256_4">hash_string_256_4</a></li>
+<li><a href="#hash_string_256_5">hash_string_256_5</a></li>
+<li><a href="#hash_string_to_buffer_128_3">hash_string_to_buffer_128_3</a></li>
+<li><a href="#hash_string_to_buffer_128_4">hash_string_to_buffer_128_4</a></li>
+<li><a href="#hash_string_to_buffer_128_5">hash_string_to_buffer_128_5</a></li>
+<li><a href="#hash_string_to_buffer_160_3">hash_string_to_buffer_160_3</a></li>
+<li><a href="#hash_string_to_buffer_160_4">hash_string_to_buffer_160_4</a></li>
+<li><a href="#hash_string_to_buffer_160_5">hash_string_to_buffer_160_5</a></li>
+<li><a href="#hash_string_to_buffer_192_3">hash_string_to_buffer_192_3</a></li>
+<li><a href="#hash_string_to_buffer_192_4">hash_string_to_buffer_192_4</a></li>
+<li><a href="#hash_string_to_buffer_192_5">hash_string_to_buffer_192_5</a></li>
+<li><a href="#hash_string_to_buffer_224_3">hash_string_to_buffer_224_3</a></li>
+<li><a href="#hash_string_to_buffer_224_4">hash_string_to_buffer_224_4</a></li>
+<li><a href="#hash_string_to_buffer_224_5">hash_string_to_buffer_224_5</a></li>
+<li><a href="#hash_string_to_buffer_256_3">hash_string_to_buffer_256_3</a></li>
+<li><a href="#hash_string_to_buffer_256_4">hash_string_to_buffer_256_4</a></li>
+<li><a href="#hash_string_to_buffer_256_5">hash_string_to_buffer_256_5</a></li>
+<li><a href="#init">init</a></li>
+<li><a href="#tailor">tailor</a></li>
+<li><a href="#update">update</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedure Groups" aria-labelledby="#doc-index-Procedure Groups-header">
+<summary id="#doc-index-Procedure Groups-header">
+Procedure Groups (15)</summary>
+<ul>
+<li><a href="#hash_128_3">hash_128_3</a></li>
+<li><a href="#hash_128_4">hash_128_4</a></li>
+<li><a href="#hash_128_5">hash_128_5</a></li>
+<li><a href="#hash_160_3">hash_160_3</a></li>
+<li><a href="#hash_160_4">hash_160_4</a></li>
+<li><a href="#hash_160_5">hash_160_5</a></li>
+<li><a href="#hash_192_3">hash_192_3</a></li>
+<li><a href="#hash_192_4">hash_192_4</a></li>
+<li><a href="#hash_192_5">hash_192_5</a></li>
+<li><a href="#hash_224_3">hash_224_3</a></li>
+<li><a href="#hash_224_4">hash_224_4</a></li>
+<li><a href="#hash_224_5">hash_224_5</a></li>
+<li><a href="#hash_256_3">hash_256_3</a></li>
+<li><a href="#hash_256_4">hash_256_4</a></li>
+<li><a href="#hash_256_5">hash_256_5</a></li>
+</ul>
+</details>
+</div>
+</div>
+</div>
+<section class="documentation">
+<h2 id="pkg-Types" class="pkg-header">Types</h2>
+<div class="pkg-entity">
+<h3 id="Haval_Context"><span><a class="doc-id-link" href="#Haval_Context">Haval_Context<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1397"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Haval_Context :: <span class="keyword-type">struct</span> {
+	count:       [2]<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	fingerprint: [8]<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	block:       [32]<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	remainder:   [128]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	rounds:      <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	hashbitlen:  <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	str_len:     <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/crypto/haval/#block">block</a></li>
+<li><a href="/core/crypto/haval/#final">final</a></li>
+<li><a href="/core/crypto/haval/#init">init</a></li>
+<li><a href="/core/crypto/haval/#tailor">tailor</a></li>
+<li><a href="/core/crypto/haval/#update">update</a></li>
+</ul>
+</div>
+<h2 id="pkg-Constants" class="pkg-header">Constants</h2>
+<div class="pkg-entity">
+<h3 id="DIGEST_SIZE_128"><span><a class="doc-id-link" href="#DIGEST_SIZE_128">DIGEST_SIZE_128<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L23"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">DIGEST_SIZE_128 :: 16</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="DIGEST_SIZE_160"><span><a class="doc-id-link" href="#DIGEST_SIZE_160">DIGEST_SIZE_160<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L24"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">DIGEST_SIZE_160 :: 20</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="DIGEST_SIZE_192"><span><a class="doc-id-link" href="#DIGEST_SIZE_192">DIGEST_SIZE_192<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L25"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">DIGEST_SIZE_192 :: 24</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="DIGEST_SIZE_224"><span><a class="doc-id-link" href="#DIGEST_SIZE_224">DIGEST_SIZE_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L26"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">DIGEST_SIZE_224 :: 28</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="DIGEST_SIZE_256"><span><a class="doc-id-link" href="#DIGEST_SIZE_256">DIGEST_SIZE_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L27"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">DIGEST_SIZE_256 :: 32</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="VERSION"><span><a class="doc-id-link" href="#VERSION">VERSION<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1395"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">VERSION :: 1</pre>
+</div>
+</div>
+<h2 id="pkg-Variables" class="pkg-header">Variables</h2>
+<div class="pkg-entity">
+<h3 id="PADDING"><span><a class="doc-id-link" href="#PADDING">PADDING<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1407"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">PADDING: [128]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> = …</pre>
+</div>
+</div>
+<h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
+<div class="pkg-entity">
+<h3 id="CH2UINT"><span><a class="doc-id-link" href="#CH2UINT">CH2UINT<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1515"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">CH2UINT :: <span class="keyword-type">proc</span> "contextless" (str: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, word: []<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="FF_1"><span><a class="doc-id-link" href="#FF_1">FF_1<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1485"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">FF_1 :: <span class="keyword-type">proc</span>(
+	x7, x6, x5, x4, x3, x2, x1, x0, w, 
+	rounds:                            <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, 
+) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="FF_2"><span><a class="doc-id-link" href="#FF_2">FF_2<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1491"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">FF_2 :: <span class="keyword-type">proc</span>(
+	x7, x6, x5, x4, x3, x2, x1, x0, w, c, 
+	rounds:                               <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, 
+) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="FF_3"><span><a class="doc-id-link" href="#FF_3">FF_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1497"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">FF_3 :: <span class="keyword-type">proc</span>(
+	x7, x6, x5, x4, x3, x2, x1, x0, w, c, 
+	rounds:                               <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, 
+) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="FF_4"><span><a class="doc-id-link" href="#FF_4">FF_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1503"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">FF_4 :: <span class="keyword-type">proc</span>(
+	x7, x6, x5, x4, x3, x2, x1, x0, w, c, 
+	rounds:                               <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, 
+) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="FF_5"><span><a class="doc-id-link" href="#FF_5">FF_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1509"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">FF_5 :: <span class="keyword-type">proc</span>(
+	x7, x6, x5, x4, x3, x2, x1, x0, w, c, 
+	rounds:                               <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, 
+) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="FPHI_1"><span><a class="doc-id-link" href="#FPHI_1">FPHI_1<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1438"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">FPHI_1 :: <span class="keyword-type">proc</span>(
+	x6, x5, x4, x3, x2, x1, x0, 
+	rounds:                     <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, 
+) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="FPHI_2"><span><a class="doc-id-link" href="#FPHI_2">FPHI_2<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1448"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">FPHI_2 :: <span class="keyword-type">proc</span>(
+	x6, x5, x4, x3, x2, x1, x0, 
+	rounds:                     <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, 
+) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="FPHI_3"><span><a class="doc-id-link" href="#FPHI_3">FPHI_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1458"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">FPHI_3 :: <span class="keyword-type">proc</span>(
+	x6, x5, x4, x3, x2, x1, x0, 
+	rounds:                     <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, 
+) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="FPHI_4"><span><a class="doc-id-link" href="#FPHI_4">FPHI_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1468"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">FPHI_4 :: <span class="keyword-type">proc</span>(
+	x6, x5, x4, x3, x2, x1, x0, 
+	rounds:                     <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, 
+) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="FPHI_5"><span><a class="doc-id-link" href="#FPHI_5">FPHI_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1477"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">FPHI_5 :: <span class="keyword-type">proc</span>(
+	x6, x5, x4, x3, x2, x1, x0, 
+	rounds:                     <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, 
+) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="F_1"><span><a class="doc-id-link" href="#F_1">F_1<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1418"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">F_1 :: <span class="keyword-type">proc</span> "contextless" (
+	x6, x5, x4, x3, x2, x1, 
+	x0:                     <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, 
+) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="F_2"><span><a class="doc-id-link" href="#F_2">F_2<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1422"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">F_2 :: <span class="keyword-type">proc</span> "contextless" (
+	x6, x5, x4, x3, x2, x1, 
+	x0:                     <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, 
+) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="F_3"><span><a class="doc-id-link" href="#F_3">F_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1426"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">F_3 :: <span class="keyword-type">proc</span> "contextless" (
+	x6, x5, x4, x3, x2, x1, 
+	x0:                     <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, 
+) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="F_4"><span><a class="doc-id-link" href="#F_4">F_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1430"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">F_4 :: <span class="keyword-type">proc</span> "contextless" (
+	x6, x5, x4, x3, x2, x1, 
+	x0:                     <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, 
+) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="F_5"><span><a class="doc-id-link" href="#F_5">F_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1434"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">F_5 :: <span class="keyword-type">proc</span> "contextless" (
+	x6, x5, x4, x3, x2, x1, 
+	x0:                     <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, 
+) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="UINT2CH"><span><a class="doc-id-link" href="#UINT2CH">UINT2CH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1521"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">UINT2CH :: <span class="keyword-type">proc</span> "contextless" (word: []<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, str: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, wlen: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="block"><span><a class="doc-id-link" href="#block">block<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1530"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">block :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/haval/#Haval_Context">Haval_Context</a>, rounds: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="final"><span><a class="doc-id-link" href="#final">final<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1366"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">final :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/haval/#Haval_Context">Haval_Context</a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_128_3"><span><a class="doc-id-link" href="#hash_bytes_128_3">hash_bytes_128_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L37"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_128_3 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [16]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_128_3 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_128_4"><span><a class="doc-id-link" href="#hash_bytes_128_4">hash_bytes_128_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L122"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_128_4 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [16]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_128_4 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_128_5"><span><a class="doc-id-link" href="#hash_bytes_128_5">hash_bytes_128_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L207"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_128_5 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [16]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_128_5 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_160_3"><span><a class="doc-id-link" href="#hash_bytes_160_3">hash_bytes_160_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L292"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_160_3 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [20]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_160_3 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_160_4"><span><a class="doc-id-link" href="#hash_bytes_160_4">hash_bytes_160_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L377"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_160_4 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [20]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_160_4 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_160_5"><span><a class="doc-id-link" href="#hash_bytes_160_5">hash_bytes_160_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L462"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_160_5 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [20]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_160_5 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_192_3"><span><a class="doc-id-link" href="#hash_bytes_192_3">hash_bytes_192_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L547"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_192_3 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [24]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_192_3 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_192_4"><span><a class="doc-id-link" href="#hash_bytes_192_4">hash_bytes_192_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L632"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_192_4 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [24]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_192_4 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_192_5"><span><a class="doc-id-link" href="#hash_bytes_192_5">hash_bytes_192_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L717"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_192_5 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [24]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_2DIGEST_SIZE_192_5 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_224_3"><span><a class="doc-id-link" href="#hash_bytes_224_3">hash_bytes_224_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L802"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_224_3 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [28]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_224_3 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_224_4"><span><a class="doc-id-link" href="#hash_bytes_224_4">hash_bytes_224_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L887"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_224_4 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [28]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_224_4 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_224_5"><span><a class="doc-id-link" href="#hash_bytes_224_5">hash_bytes_224_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L972"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_224_5 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [28]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_224_5 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_256_3"><span><a class="doc-id-link" href="#hash_bytes_256_3">hash_bytes_256_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1057"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_256_3 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_256_3 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_256_4"><span><a class="doc-id-link" href="#hash_bytes_256_4">hash_bytes_256_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1142"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_256_4 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_256_4 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_256_5"><span><a class="doc-id-link" href="#hash_bytes_256_5">hash_bytes_256_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1227"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_256_5 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_256_5 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_to_buffer_128_3"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_128_3">hash_bytes_to_buffer_128_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L59"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_to_buffer_128_3 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_to_buffer_128_3 will hash the given input and write the
+computed hash into the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_to_buffer_128_4"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_128_4">hash_bytes_to_buffer_128_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L144"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_to_buffer_128_4 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_to_buffer_128_4 will hash the given input and write the
+computed hash into the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_to_buffer_128_5"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_128_5">hash_bytes_to_buffer_128_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L229"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_to_buffer_128_5 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_to_buffer_128_5 will hash the given input and write the
+computed hash into the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_to_buffer_160_3"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_160_3">hash_bytes_to_buffer_160_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L314"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_to_buffer_160_3 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_to_buffer_160_3 will hash the given input and write the
+computed hash into the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_to_buffer_160_4"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_160_4">hash_bytes_to_buffer_160_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L399"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_to_buffer_160_4 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_to_buffer_160_4 will hash the given input and write the
+computed hash into the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_to_buffer_160_5"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_160_5">hash_bytes_to_buffer_160_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L484"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_to_buffer_160_5 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_to_buffer_160_5 will hash the given input and write the
+computed hash into the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_to_buffer_192_3"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_192_3">hash_bytes_to_buffer_192_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L569"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_to_buffer_192_3 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_to_buffer_192_3 will hash the given input and write the
+computed hash into the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_to_buffer_192_4"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_192_4">hash_bytes_to_buffer_192_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L654"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_to_buffer_192_4 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_to_buffer_192_4 will hash the given input and write the
+computed hash into the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_to_buffer_192_5"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_192_5">hash_bytes_to_buffer_192_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L739"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_to_buffer_192_5 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_to_buffer_192_5 will hash the given input and write the
+computed hash into the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_to_buffer_224_3"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_224_3">hash_bytes_to_buffer_224_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L824"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_to_buffer_224_3 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_to_buffer_224_3 will hash the given input and write the
+computed hash into the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_to_buffer_224_4"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_224_4">hash_bytes_to_buffer_224_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L909"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_to_buffer_224_4 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_to_buffer_224_4 will hash the given input and write the
+computed hash into the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_to_buffer_224_5"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_224_5">hash_bytes_to_buffer_224_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L994"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_to_buffer_224_5 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_to_buffer_224_5 will hash the given input and write the
+computed hash into the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_to_buffer_256_3"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_256_3">hash_bytes_to_buffer_256_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1079"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_to_buffer_256_3 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_to_buffer_256_3 will hash the given input and write the
+computed hash into the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_to_buffer_256_4"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_256_4">hash_bytes_to_buffer_256_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1164"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_to_buffer_256_4 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_to_buffer_256_4 will hash the given input and write the
+computed hash into the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_to_buffer_256_5"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_256_5">hash_bytes_to_buffer_256_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1249"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_to_buffer_256_5 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_to_buffer_256_5 will hash the given input and write the
+computed hash into the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_file_128_3"><span><a class="doc-id-link" href="#hash_file_128_3">hash_file_128_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L94"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_file_128_3 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([16]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_file_128_3 will read the file provided by the given handle
+and compute a hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_file_128_4"><span><a class="doc-id-link" href="#hash_file_128_4">hash_file_128_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L179"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_file_128_4 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([16]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_file_128_4 will read the file provided by the given handle
+and compute a hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_file_128_5"><span><a class="doc-id-link" href="#hash_file_128_5">hash_file_128_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L264"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_file_128_5 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([16]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_file_128_5 will read the file provided by the given handle
+and compute a hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_file_160_3"><span><a class="doc-id-link" href="#hash_file_160_3">hash_file_160_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L349"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_file_160_3 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([20]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_file_160_3 will read the file provided by the given handle
+and compute a hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_file_160_4"><span><a class="doc-id-link" href="#hash_file_160_4">hash_file_160_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L434"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_file_160_4 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([20]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_file_160_4 will read the file provided by the given handle
+and compute a hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_file_160_5"><span><a class="doc-id-link" href="#hash_file_160_5">hash_file_160_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L519"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_file_160_5 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([20]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_file_160_5 will read the file provided by the given handle
+and compute a hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_file_192_3"><span><a class="doc-id-link" href="#hash_file_192_3">hash_file_192_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L604"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_file_192_3 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([24]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_file_192_3 will read the file provided by the given handle
+and compute a hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_file_192_4"><span><a class="doc-id-link" href="#hash_file_192_4">hash_file_192_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L689"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_file_192_4 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([24]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_file_192_4 will read the file provided by the given handle
+and compute a hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_file_192_5"><span><a class="doc-id-link" href="#hash_file_192_5">hash_file_192_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L774"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_file_192_5 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([24]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_file_192_5 will read the file provided by the given handle
+and compute a hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_file_224_3"><span><a class="doc-id-link" href="#hash_file_224_3">hash_file_224_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L859"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_file_224_3 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([28]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_file_224_3 will read the file provided by the given handle
+and compute a hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_file_224_4"><span><a class="doc-id-link" href="#hash_file_224_4">hash_file_224_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L944"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_file_224_4 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([28]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_file_224_4 will read the file provided by the given handle
+and compute a hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_file_224_5"><span><a class="doc-id-link" href="#hash_file_224_5">hash_file_224_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1029"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_file_224_5 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([28]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_file_224_5 will read the file provided by the given handle
+and compute a hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_file_256_3"><span><a class="doc-id-link" href="#hash_file_256_3">hash_file_256_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1114"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_file_256_3 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_file_256_3 will read the file provided by the given handle
+and compute a hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_file_256_4"><span><a class="doc-id-link" href="#hash_file_256_4">hash_file_256_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1199"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_file_256_4 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_file_256_4 will read the file provided by the given handle
+and compute a hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_file_256_5"><span><a class="doc-id-link" href="#hash_file_256_5">hash_file_256_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1285"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_file_256_5 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_file_256_5 will read the file provided by the given handle
+and compute a hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_stream_128_3"><span><a class="doc-id-link" href="#hash_stream_128_3">hash_stream_128_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L72"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_stream_128_3 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([16]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_stream_128_3 will read the stream in chunks and compute a
+hash from its contents</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_stream_128_4"><span><a class="doc-id-link" href="#hash_stream_128_4">hash_stream_128_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L157"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_stream_128_4 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([16]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_stream_128_4 will read the stream in chunks and compute a
+hash from its contents</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_stream_128_5"><span><a class="doc-id-link" href="#hash_stream_128_5">hash_stream_128_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L242"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_stream_128_5 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([16]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_stream_128_5 will read the stream in chunks and compute a
+hash from its contents</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_stream_160_3"><span><a class="doc-id-link" href="#hash_stream_160_3">hash_stream_160_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L327"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_stream_160_3 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([20]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_stream_160_3 will read the stream in chunks and compute a
+hash from its contents</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_stream_160_4"><span><a class="doc-id-link" href="#hash_stream_160_4">hash_stream_160_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L412"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_stream_160_4 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([20]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_stream_160_4 will read the stream in chunks and compute a
+hash from its contents</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_stream_160_5"><span><a class="doc-id-link" href="#hash_stream_160_5">hash_stream_160_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L497"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_stream_160_5 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([20]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_stream_160_5 will read the stream in chunks and compute a
+hash from its contents</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_stream_192_3"><span><a class="doc-id-link" href="#hash_stream_192_3">hash_stream_192_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L582"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_stream_192_3 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([24]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_stream_192_3 will read the stream in chunks and compute a
+hash from its contents</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_stream_192_4"><span><a class="doc-id-link" href="#hash_stream_192_4">hash_stream_192_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L667"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_stream_192_4 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([24]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_stream_192_4 will read the stream in chunks and compute a
+hash from its contents</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_stream_192_5"><span><a class="doc-id-link" href="#hash_stream_192_5">hash_stream_192_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L752"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_stream_192_5 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([24]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_stream_192_5 will read the stream in chunks and compute a
+hash from its contents</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_stream_224_3"><span><a class="doc-id-link" href="#hash_stream_224_3">hash_stream_224_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L837"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_stream_224_3 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([28]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_stream_224_3 will read the stream in chunks and compute a
+hash from its contents</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_stream_224_4"><span><a class="doc-id-link" href="#hash_stream_224_4">hash_stream_224_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L922"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_stream_224_4 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([28]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_stream_224_4 will read the stream in chunks and compute a
+hash from its contents</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_stream_224_5"><span><a class="doc-id-link" href="#hash_stream_224_5">hash_stream_224_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1007"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_stream_224_5 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([28]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_stream_224_5 will read the stream in chunks and compute a
+hash from its contents</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_stream_256_3"><span><a class="doc-id-link" href="#hash_stream_256_3">hash_stream_256_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1092"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_stream_256_3 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_stream_256_3 will read the stream in chunks and compute a
+hash from its contents</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_stream_256_4"><span><a class="doc-id-link" href="#hash_stream_256_4">hash_stream_256_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1177"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_stream_256_4 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_stream_256_4 will read the stream in chunks and compute a
+hash from its contents</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_stream_256_5"><span><a class="doc-id-link" href="#hash_stream_256_5">hash_stream_256_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1263"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_stream_256_5 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_stream_256_5 will read the stream in chunks and compute a
+hash from its contents</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_128_3"><span><a class="doc-id-link" href="#hash_string_128_3">hash_string_128_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L31"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_128_3 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [16]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_128_3 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_128_4"><span><a class="doc-id-link" href="#hash_string_128_4">hash_string_128_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L116"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_128_4 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [16]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_128_4 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_128_5"><span><a class="doc-id-link" href="#hash_string_128_5">hash_string_128_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L201"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_128_5 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [16]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_128_5 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_160_3"><span><a class="doc-id-link" href="#hash_string_160_3">hash_string_160_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L286"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_160_3 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [20]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_160_3 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_160_4"><span><a class="doc-id-link" href="#hash_string_160_4">hash_string_160_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L371"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_160_4 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [20]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_160_4 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_160_5"><span><a class="doc-id-link" href="#hash_string_160_5">hash_string_160_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L456"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_160_5 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [20]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_160_5 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_192_3"><span><a class="doc-id-link" href="#hash_string_192_3">hash_string_192_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L541"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_192_3 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [24]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_192_3 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_192_4"><span><a class="doc-id-link" href="#hash_string_192_4">hash_string_192_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L626"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_192_4 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [24]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_192_4 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_192_5"><span><a class="doc-id-link" href="#hash_string_192_5">hash_string_192_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L711"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_192_5 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [24]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_192_5 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_224_3"><span><a class="doc-id-link" href="#hash_string_224_3">hash_string_224_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L796"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_224_3 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [28]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_224_3 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_224_4"><span><a class="doc-id-link" href="#hash_string_224_4">hash_string_224_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L881"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_224_4 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [28]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_224_4 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_224_5"><span><a class="doc-id-link" href="#hash_string_224_5">hash_string_224_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L966"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_224_5 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [28]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_224_5 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_256_3"><span><a class="doc-id-link" href="#hash_string_256_3">hash_string_256_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1051"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_256_3 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_256_3 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_256_4"><span><a class="doc-id-link" href="#hash_string_256_4">hash_string_256_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1136"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_256_4 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_256_4 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_256_5"><span><a class="doc-id-link" href="#hash_string_256_5">hash_string_256_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1221"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_256_5 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_256_5 will hash the given input and return the
+computed hash</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_to_buffer_128_3"><span><a class="doc-id-link" href="#hash_string_to_buffer_128_3">hash_string_to_buffer_128_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L52"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_to_buffer_128_3 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_to_buffer_128_3 will hash the given input and assign the
+computed hash to the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_to_buffer_128_4"><span><a class="doc-id-link" href="#hash_string_to_buffer_128_4">hash_string_to_buffer_128_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L137"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_to_buffer_128_4 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_to_buffer_128_4 will hash the given input and assign the
+computed hash to the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_to_buffer_128_5"><span><a class="doc-id-link" href="#hash_string_to_buffer_128_5">hash_string_to_buffer_128_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L222"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_to_buffer_128_5 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_to_buffer_128_5 will hash the given input and assign the
+computed hash to the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_to_buffer_160_3"><span><a class="doc-id-link" href="#hash_string_to_buffer_160_3">hash_string_to_buffer_160_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L307"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_to_buffer_160_3 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_to_buffer_160_3 will hash the given input and assign the
+computed hash to the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_to_buffer_160_4"><span><a class="doc-id-link" href="#hash_string_to_buffer_160_4">hash_string_to_buffer_160_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L392"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_to_buffer_160_4 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_to_buffer_160_4 will hash the given input and assign the
+computed hash to the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_to_buffer_160_5"><span><a class="doc-id-link" href="#hash_string_to_buffer_160_5">hash_string_to_buffer_160_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L477"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_to_buffer_160_5 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_to_buffer_160_5 will hash the given input and assign the
+computed hash to the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_to_buffer_192_3"><span><a class="doc-id-link" href="#hash_string_to_buffer_192_3">hash_string_to_buffer_192_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L562"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_to_buffer_192_3 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_to_buffer_192_3 will hash the given input and assign the
+computed hash to the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_to_buffer_192_4"><span><a class="doc-id-link" href="#hash_string_to_buffer_192_4">hash_string_to_buffer_192_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L647"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_to_buffer_192_4 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_to_buffer_192_4 will hash the given input and assign the
+computed hash to the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_to_buffer_192_5"><span><a class="doc-id-link" href="#hash_string_to_buffer_192_5">hash_string_to_buffer_192_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L732"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_to_buffer_192_5 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_to_buffer_192_5 will hash the given input and assign the
+computed hash to the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_to_buffer_224_3"><span><a class="doc-id-link" href="#hash_string_to_buffer_224_3">hash_string_to_buffer_224_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L817"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_to_buffer_224_3 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_to_buffer_224_3 will hash the given input and assign the
+computed hash to the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_to_buffer_224_4"><span><a class="doc-id-link" href="#hash_string_to_buffer_224_4">hash_string_to_buffer_224_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L902"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_to_buffer_224_4 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_to_buffer_224_4 will hash the given input and assign the
+computed hash to the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_to_buffer_224_5"><span><a class="doc-id-link" href="#hash_string_to_buffer_224_5">hash_string_to_buffer_224_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L987"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_to_buffer_224_5 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_to_buffer_224_5 will hash the given input and assign the
+computed hash to the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_to_buffer_256_3"><span><a class="doc-id-link" href="#hash_string_to_buffer_256_3">hash_string_to_buffer_256_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1072"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_to_buffer_256_3 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_to_buffer_256_3 will hash the given input and assign the
+computed hash to the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_to_buffer_256_4"><span><a class="doc-id-link" href="#hash_string_to_buffer_256_4">hash_string_to_buffer_256_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1157"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_to_buffer_256_4 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_to_buffer_256_4 will hash the given input and assign the
+computed hash to the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_to_buffer_256_5"><span><a class="doc-id-link" href="#hash_string_to_buffer_256_5">hash_string_to_buffer_256_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1242"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_to_buffer_256_5 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_to_buffer_256_5 will hash the given input and assign the
+computed hash to the second parameter.
+It requires that the destination buffer is at least as big as the digest size</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="init"><span><a class="doc-id-link" href="#init">init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1309"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">init :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/haval/#Haval_Context">Haval_Context</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="tailor"><span><a class="doc-id-link" href="#tailor">tailor<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1729"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">tailor :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/haval/#Haval_Context">Haval_Context</a>, size: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="update"><span><a class="doc-id-link" href="#update">update<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1323"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">update :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/haval/#Haval_Context">Haval_Context</a>, data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>@note(zh): Make sure to set ctx.str_len to the remaining buffer size before calling this proc - e.g. ctx.str_len = u32(len(data))</p>
+</details>
+</div>
+<h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
+<div class="pkg-entity">
+<h3 id="hash_128_3"><span><a class="doc-id-link" href="#hash_128_3">hash_128_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L105"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_128_3 :: proc{
+	<a class="code-procedure" href="/core/crypto/haval/#hash_stream_128_3">hash_stream_128_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_file_128_3">hash_file_128_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_128_3">hash_bytes_128_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_128_3">hash_string_128_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_to_buffer_128_3">hash_bytes_to_buffer_128_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_to_buffer_128_3">hash_string_to_buffer_128_3</a>,
+}
+</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_128_4"><span><a class="doc-id-link" href="#hash_128_4">hash_128_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L190"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_128_4 :: proc{
+	<a class="code-procedure" href="/core/crypto/haval/#hash_stream_128_4">hash_stream_128_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_file_128_4">hash_file_128_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_128_4">hash_bytes_128_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_128_4">hash_string_128_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_to_buffer_128_4">hash_bytes_to_buffer_128_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_to_buffer_128_4">hash_string_to_buffer_128_4</a>,
+}
+</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_128_5"><span><a class="doc-id-link" href="#hash_128_5">hash_128_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L275"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_128_5 :: proc{
+	<a class="code-procedure" href="/core/crypto/haval/#hash_stream_128_5">hash_stream_128_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_file_128_5">hash_file_128_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_128_5">hash_bytes_128_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_128_5">hash_string_128_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_to_buffer_128_5">hash_bytes_to_buffer_128_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_to_buffer_128_5">hash_string_to_buffer_128_5</a>,
+}
+</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_160_3"><span><a class="doc-id-link" href="#hash_160_3">hash_160_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L360"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_160_3 :: proc{
+	<a class="code-procedure" href="/core/crypto/haval/#hash_stream_160_3">hash_stream_160_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_file_160_3">hash_file_160_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_160_3">hash_bytes_160_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_160_3">hash_string_160_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_to_buffer_160_3">hash_bytes_to_buffer_160_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_to_buffer_160_3">hash_string_to_buffer_160_3</a>,
+}
+</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_160_4"><span><a class="doc-id-link" href="#hash_160_4">hash_160_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L445"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_160_4 :: proc{
+	<a class="code-procedure" href="/core/crypto/haval/#hash_stream_160_4">hash_stream_160_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_file_160_4">hash_file_160_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_160_4">hash_bytes_160_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_160_4">hash_string_160_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_to_buffer_160_4">hash_bytes_to_buffer_160_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_to_buffer_160_4">hash_string_to_buffer_160_4</a>,
+}
+</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_160_5"><span><a class="doc-id-link" href="#hash_160_5">hash_160_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L530"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_160_5 :: proc{
+	<a class="code-procedure" href="/core/crypto/haval/#hash_stream_160_5">hash_stream_160_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_file_160_5">hash_file_160_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_160_5">hash_bytes_160_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_160_5">hash_string_160_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_to_buffer_160_5">hash_bytes_to_buffer_160_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_to_buffer_160_5">hash_string_to_buffer_160_5</a>,
+}
+</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_192_3"><span><a class="doc-id-link" href="#hash_192_3">hash_192_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L615"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_192_3 :: proc{
+	<a class="code-procedure" href="/core/crypto/haval/#hash_stream_192_3">hash_stream_192_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_file_192_3">hash_file_192_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_192_3">hash_bytes_192_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_192_3">hash_string_192_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_to_buffer_192_3">hash_bytes_to_buffer_192_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_to_buffer_192_3">hash_string_to_buffer_192_3</a>,
+}
+</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_192_4"><span><a class="doc-id-link" href="#hash_192_4">hash_192_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L700"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_192_4 :: proc{
+	<a class="code-procedure" href="/core/crypto/haval/#hash_stream_192_4">hash_stream_192_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_file_192_4">hash_file_192_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_192_4">hash_bytes_192_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_192_4">hash_string_192_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_to_buffer_192_4">hash_bytes_to_buffer_192_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_to_buffer_192_4">hash_string_to_buffer_192_4</a>,
+}
+</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_192_5"><span><a class="doc-id-link" href="#hash_192_5">hash_192_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L785"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_192_5 :: proc{
+	<a class="code-procedure" href="/core/crypto/haval/#hash_stream_192_5">hash_stream_192_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_file_192_5">hash_file_192_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_192_5">hash_bytes_192_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_192_5">hash_string_192_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_to_buffer_192_5">hash_bytes_to_buffer_192_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_to_buffer_192_5">hash_string_to_buffer_192_5</a>,
+}
+</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_224_3"><span><a class="doc-id-link" href="#hash_224_3">hash_224_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L870"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_224_3 :: proc{
+	<a class="code-procedure" href="/core/crypto/haval/#hash_stream_224_3">hash_stream_224_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_file_224_3">hash_file_224_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_224_3">hash_bytes_224_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_224_3">hash_string_224_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_to_buffer_224_3">hash_bytes_to_buffer_224_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_to_buffer_224_3">hash_string_to_buffer_224_3</a>,
+}
+</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_224_4"><span><a class="doc-id-link" href="#hash_224_4">hash_224_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L955"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_224_4 :: proc{
+	<a class="code-procedure" href="/core/crypto/haval/#hash_stream_224_4">hash_stream_224_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_file_224_4">hash_file_224_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_224_4">hash_bytes_224_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_224_4">hash_string_224_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_to_buffer_224_4">hash_bytes_to_buffer_224_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_to_buffer_224_4">hash_string_to_buffer_224_4</a>,
+}
+</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_224_5"><span><a class="doc-id-link" href="#hash_224_5">hash_224_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1040"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_224_5 :: proc{
+	<a class="code-procedure" href="/core/crypto/haval/#hash_stream_224_5">hash_stream_224_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_file_224_5">hash_file_224_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_224_5">hash_bytes_224_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_224_5">hash_string_224_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_to_buffer_224_5">hash_bytes_to_buffer_224_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_to_buffer_224_5">hash_string_to_buffer_224_5</a>,
+}
+</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_256_3"><span><a class="doc-id-link" href="#hash_256_3">hash_256_3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1125"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_256_3 :: proc{
+	<a class="code-procedure" href="/core/crypto/haval/#hash_stream_256_3">hash_stream_256_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_file_256_3">hash_file_256_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_256_3">hash_bytes_256_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_256_3">hash_string_256_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_to_buffer_256_3">hash_bytes_to_buffer_256_3</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_to_buffer_256_3">hash_string_to_buffer_256_3</a>,
+}
+</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_256_4"><span><a class="doc-id-link" href="#hash_256_4">hash_256_4<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1210"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_256_4 :: proc{
+	<a class="code-procedure" href="/core/crypto/haval/#hash_stream_256_4">hash_stream_256_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_file_256_4">hash_file_256_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_256_4">hash_bytes_256_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_256_4">hash_string_256_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_to_buffer_256_4">hash_bytes_to_buffer_256_4</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_to_buffer_256_4">hash_string_to_buffer_256_4</a>,
+}
+</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_256_5"><span><a class="doc-id-link" href="#hash_256_5">hash_256_5<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin#L1296"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_256_5 :: proc{
+	<a class="code-procedure" href="/core/crypto/haval/#hash_stream_256_5">hash_stream_256_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_file_256_5">hash_file_256_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_256_5">hash_bytes_256_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_256_5">hash_string_256_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_bytes_to_buffer_256_5">hash_bytes_to_buffer_256_5</a>,
+	<a class="code-procedure" href="/core/crypto/haval/#hash_string_to_buffer_256_5">hash_string_to_buffer_256_5</a>,
+}
+</pre>
+</div>
+</div>
+</section>
+<h2 id="pkg-source-files">Source Files</h2>
+<ul>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/haval/haval.odin">haval.odin</a></li>
+</ul>
+<h2 id="pkg-generation-information">Generation Information</h2>
+<p>Generated with <code>odin version dev-2023-09 (vendor "odin") Windows_amd64 @ 2023-09-05 17:19:48.652270000 +0000 UTC</code></p>
+</article>
+<div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#pkg-Types">Types</a><ul>
+<li><a href="#Haval_Context">Haval_Context</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Constants">Constants</a><ul>
+<li><a href="#DIGEST_SIZE_128">DIGEST_SIZE_128</a></li>
+<li><a href="#DIGEST_SIZE_160">DIGEST_SIZE_160</a></li>
+<li><a href="#DIGEST_SIZE_192">DIGEST_SIZE_192</a></li>
+<li><a href="#DIGEST_SIZE_224">DIGEST_SIZE_224</a></li>
+<li><a href="#DIGEST_SIZE_256">DIGEST_SIZE_256</a></li>
+<li><a href="#VERSION">VERSION</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Variables">Variables</a><ul>
+<li><a href="#PADDING">PADDING</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Procedures">Procedures</a><ul>
+<li><a href="#CH2UINT">CH2UINT</a></li>
+<li><a href="#FF_1">FF_1</a></li>
+<li><a href="#FF_2">FF_2</a></li>
+<li><a href="#FF_3">FF_3</a></li>
+<li><a href="#FF_4">FF_4</a></li>
+<li><a href="#FF_5">FF_5</a></li>
+<li><a href="#FPHI_1">FPHI_1</a></li>
+<li><a href="#FPHI_2">FPHI_2</a></li>
+<li><a href="#FPHI_3">FPHI_3</a></li>
+<li><a href="#FPHI_4">FPHI_4</a></li>
+<li><a href="#FPHI_5">FPHI_5</a></li>
+<li><a href="#F_1">F_1</a></li>
+<li><a href="#F_2">F_2</a></li>
+<li><a href="#F_3">F_3</a></li>
+<li><a href="#F_4">F_4</a></li>
+<li><a href="#F_5">F_5</a></li>
+<li><a href="#UINT2CH">UINT2CH</a></li>
+<li><a href="#block">block</a></li>
+<li><a href="#final">final</a></li>
+<li><a href="#hash_bytes_128_3">hash_bytes_128_3</a></li>
+<li><a href="#hash_bytes_128_4">hash_bytes_128_4</a></li>
+<li><a href="#hash_bytes_128_5">hash_bytes_128_5</a></li>
+<li><a href="#hash_bytes_160_3">hash_bytes_160_3</a></li>
+<li><a href="#hash_bytes_160_4">hash_bytes_160_4</a></li>
+<li><a href="#hash_bytes_160_5">hash_bytes_160_5</a></li>
+<li><a href="#hash_bytes_192_3">hash_bytes_192_3</a></li>
+<li><a href="#hash_bytes_192_4">hash_bytes_192_4</a></li>
+<li><a href="#hash_bytes_192_5">hash_bytes_192_5</a></li>
+<li><a href="#hash_bytes_224_3">hash_bytes_224_3</a></li>
+<li><a href="#hash_bytes_224_4">hash_bytes_224_4</a></li>
+<li><a href="#hash_bytes_224_5">hash_bytes_224_5</a></li>
+<li><a href="#hash_bytes_256_3">hash_bytes_256_3</a></li>
+<li><a href="#hash_bytes_256_4">hash_bytes_256_4</a></li>
+<li><a href="#hash_bytes_256_5">hash_bytes_256_5</a></li>
+<li><a href="#hash_bytes_to_buffer_128_3">hash_bytes_to_buffer_128_3</a></li>
+<li><a href="#hash_bytes_to_buffer_128_4">hash_bytes_to_buffer_128_4</a></li>
+<li><a href="#hash_bytes_to_buffer_128_5">hash_bytes_to_buffer_128_5</a></li>
+<li><a href="#hash_bytes_to_buffer_160_3">hash_bytes_to_buffer_160_3</a></li>
+<li><a href="#hash_bytes_to_buffer_160_4">hash_bytes_to_buffer_160_4</a></li>
+<li><a href="#hash_bytes_to_buffer_160_5">hash_bytes_to_buffer_160_5</a></li>
+<li><a href="#hash_bytes_to_buffer_192_3">hash_bytes_to_buffer_192_3</a></li>
+<li><a href="#hash_bytes_to_buffer_192_4">hash_bytes_to_buffer_192_4</a></li>
+<li><a href="#hash_bytes_to_buffer_192_5">hash_bytes_to_buffer_192_5</a></li>
+<li><a href="#hash_bytes_to_buffer_224_3">hash_bytes_to_buffer_224_3</a></li>
+<li><a href="#hash_bytes_to_buffer_224_4">hash_bytes_to_buffer_224_4</a></li>
+<li><a href="#hash_bytes_to_buffer_224_5">hash_bytes_to_buffer_224_5</a></li>
+<li><a href="#hash_bytes_to_buffer_256_3">hash_bytes_to_buffer_256_3</a></li>
+<li><a href="#hash_bytes_to_buffer_256_4">hash_bytes_to_buffer_256_4</a></li>
+<li><a href="#hash_bytes_to_buffer_256_5">hash_bytes_to_buffer_256_5</a></li>
+<li><a href="#hash_file_128_3">hash_file_128_3</a></li>
+<li><a href="#hash_file_128_4">hash_file_128_4</a></li>
+<li><a href="#hash_file_128_5">hash_file_128_5</a></li>
+<li><a href="#hash_file_160_3">hash_file_160_3</a></li>
+<li><a href="#hash_file_160_4">hash_file_160_4</a></li>
+<li><a href="#hash_file_160_5">hash_file_160_5</a></li>
+<li><a href="#hash_file_192_3">hash_file_192_3</a></li>
+<li><a href="#hash_file_192_4">hash_file_192_4</a></li>
+<li><a href="#hash_file_192_5">hash_file_192_5</a></li>
+<li><a href="#hash_file_224_3">hash_file_224_3</a></li>
+<li><a href="#hash_file_224_4">hash_file_224_4</a></li>
+<li><a href="#hash_file_224_5">hash_file_224_5</a></li>
+<li><a href="#hash_file_256_3">hash_file_256_3</a></li>
+<li><a href="#hash_file_256_4">hash_file_256_4</a></li>
+<li><a href="#hash_file_256_5">hash_file_256_5</a></li>
+<li><a href="#hash_stream_128_3">hash_stream_128_3</a></li>
+<li><a href="#hash_stream_128_4">hash_stream_128_4</a></li>
+<li><a href="#hash_stream_128_5">hash_stream_128_5</a></li>
+<li><a href="#hash_stream_160_3">hash_stream_160_3</a></li>
+<li><a href="#hash_stream_160_4">hash_stream_160_4</a></li>
+<li><a href="#hash_stream_160_5">hash_stream_160_5</a></li>
+<li><a href="#hash_stream_192_3">hash_stream_192_3</a></li>
+<li><a href="#hash_stream_192_4">hash_stream_192_4</a></li>
+<li><a href="#hash_stream_192_5">hash_stream_192_5</a></li>
+<li><a href="#hash_stream_224_3">hash_stream_224_3</a></li>
+<li><a href="#hash_stream_224_4">hash_stream_224_4</a></li>
+<li><a href="#hash_stream_224_5">hash_stream_224_5</a></li>
+<li><a href="#hash_stream_256_3">hash_stream_256_3</a></li>
+<li><a href="#hash_stream_256_4">hash_stream_256_4</a></li>
+<li><a href="#hash_stream_256_5">hash_stream_256_5</a></li>
+<li><a href="#hash_string_128_3">hash_string_128_3</a></li>
+<li><a href="#hash_string_128_4">hash_string_128_4</a></li>
+<li><a href="#hash_string_128_5">hash_string_128_5</a></li>
+<li><a href="#hash_string_160_3">hash_string_160_3</a></li>
+<li><a href="#hash_string_160_4">hash_string_160_4</a></li>
+<li><a href="#hash_string_160_5">hash_string_160_5</a></li>
+<li><a href="#hash_string_192_3">hash_string_192_3</a></li>
+<li><a href="#hash_string_192_4">hash_string_192_4</a></li>
+<li><a href="#hash_string_192_5">hash_string_192_5</a></li>
+<li><a href="#hash_string_224_3">hash_string_224_3</a></li>
+<li><a href="#hash_string_224_4">hash_string_224_4</a></li>
+<li><a href="#hash_string_224_5">hash_string_224_5</a></li>
+<li><a href="#hash_string_256_3">hash_string_256_3</a></li>
+<li><a href="#hash_string_256_4">hash_string_256_4</a></li>
+<li><a href="#hash_string_256_5">hash_string_256_5</a></li>
+<li><a href="#hash_string_to_buffer_128_3">hash_string_to_buffer_128_3</a></li>
+<li><a href="#hash_string_to_buffer_128_4">hash_string_to_buffer_128_4</a></li>
+<li><a href="#hash_string_to_buffer_128_5">hash_string_to_buffer_128_5</a></li>
+<li><a href="#hash_string_to_buffer_160_3">hash_string_to_buffer_160_3</a></li>
+<li><a href="#hash_string_to_buffer_160_4">hash_string_to_buffer_160_4</a></li>
+<li><a href="#hash_string_to_buffer_160_5">hash_string_to_buffer_160_5</a></li>
+<li><a href="#hash_string_to_buffer_192_3">hash_string_to_buffer_192_3</a></li>
+<li><a href="#hash_string_to_buffer_192_4">hash_string_to_buffer_192_4</a></li>
+<li><a href="#hash_string_to_buffer_192_5">hash_string_to_buffer_192_5</a></li>
+<li><a href="#hash_string_to_buffer_224_3">hash_string_to_buffer_224_3</a></li>
+<li><a href="#hash_string_to_buffer_224_4">hash_string_to_buffer_224_4</a></li>
+<li><a href="#hash_string_to_buffer_224_5">hash_string_to_buffer_224_5</a></li>
+<li><a href="#hash_string_to_buffer_256_3">hash_string_to_buffer_256_3</a></li>
+<li><a href="#hash_string_to_buffer_256_4">hash_string_to_buffer_256_4</a></li>
+<li><a href="#hash_string_to_buffer_256_5">hash_string_to_buffer_256_5</a></li>
+<li><a href="#init">init</a></li>
+<li><a href="#tailor">tailor</a></li>
+<li><a href="#update">update</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Procedure Groups">Procedure Groups</a><ul>
+<li><a href="#hash_128_3">hash_128_3</a></li>
+<li><a href="#hash_128_4">hash_128_4</a></li>
+<li><a href="#hash_128_5">hash_128_5</a></li>
+<li><a href="#hash_160_3">hash_160_3</a></li>
+<li><a href="#hash_160_4">hash_160_4</a></li>
+<li><a href="#hash_160_5">hash_160_5</a></li>
+<li><a href="#hash_192_3">hash_192_3</a></li>
+<li><a href="#hash_192_4">hash_192_4</a></li>
+<li><a href="#hash_192_5">hash_192_5</a></li>
+<li><a href="#hash_224_3">hash_224_3</a></li>
+<li><a href="#hash_224_4">hash_224_4</a></li>
+<li><a href="#hash_224_5">hash_224_5</a></li>
+<li><a href="#hash_256_3">hash_256_3</a></li>
+<li><a href="#hash_256_4">hash_256_4</a></li>
+<li><a href="#hash_256_5">hash_256_5</a></li>
+</ul>
+</li>
+<li><a href="#pkg-source-files">Source Files</a></ul>
+</nav>
+</div></div>
+<script type="text/javascript">var odin_pkg_name = "haval";</script>
+</div>
+
+</div>
+</main>
+
+<footer class="odin-footer">
+	<div class="container pb-5 pt-5">
+		<div class="row g-4">
+		<div class="col">
+		<a class="navbar-brand" href="https://odin-lang.org">
+		<img class="mb-3" src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+		<p>
+		The Data-Oriented Language for Sane Software Development.
+		</p>
+		</div>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Resources</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://odin-lang.org/docs" class="link-light">Docs</a></li>
+			<li><a href="https://pkg.odin-lang.org/" class="link-light">Packages</a></li>
+			<li><a href="https://odin-lang.org/news" class="link-light">News</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Community</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin" target="_blank" class="link-light">GitHub</a></li>
+			<li><a href="https://discord.com/invite/sVBPHEv" target="_blank" class="link-light">Discord</a></li>
+			<li><a href="https://www.twitch.tv/ginger_bill" target="_blank" class="link-light">Twitch</a></li>
+			<li><a href="https://www.youtube.com/channel/UCUSck1dOH7VKmG4lRW7tZXg" target="_blank" class="link-light">YouTube</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Contribute</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin/issues" target="_blank" class="link-light">Issues</a></li>
+			<li><a href="https://www.patreon.com/gingerbill" target="_blank" class="link-light">Donate</a></li>
+			</ul>
+			</nav>
+		</div>
+		<div class="mt-4 text-muted">© 2016–2023 Ginger Bill</div>
+	</div>
+</footer>
+
+<script src="https://odin-lang.org/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://odin-lang.org/js/script.js"></script>
+<script src="/pkg-data.js"></script>
+<script src="/search.js"></script>
+</body>
+</html>

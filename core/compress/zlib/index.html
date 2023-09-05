@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>package compress/zlib - pkg.odin-lang.org</title>	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/scss/custom.min.css">
+	<link rel=stylesheet href="//odin-lang.org/lib/highlight/styles/github-dark.min.css">
+	<script src="//odin-lang.org/lib/highlight/highlight.min.js"></script>
+
+	<script>hljs.registerLanguage("odin",function(a){return{aliases:["odin","odinlang","odin-lang"],keywords:{keyword:"auto_cast bit_set break case cast context continue defer distinct do dynamic else enum fallthrough for foreign if import in map not_in or_else or_return package proc return struct switch transmute type_of typeid union using when where",literal:"true false nil",built_in:"abs align_of cap clamp complex conj expand_to_tuple imag jmag kmag len max min offset_of quaternion real size_of soa_unzip soa_zip swizzle type_info_of type_of typeid_of"},illegal:"</",contains:[a.C_LINE_COMMENT_MODE,a.C_BLOCK_COMMENT_MODE,{className:"string",variants:[a.QUOTE_STRING_MODE,{begin:"'",end:"[^\\\\]'"},{begin:"`",end:"`"}]},{className:"number",variants:[{begin:a.C_NUMBER_RE+"[ijk]",relevance:1},a.C_NUMBER_MODE]}]}})</script>
+	<script>hljs.highlightAll()</script>
+	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/css/style.css">
+
+	<link rel="stylesheet" type="text/css" href="/style.css">
+
+	</style>
+</head>
+<body>
+<header class="sticky-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary odin-menu">
+		<div class="container">
+			<a class="navbar-brand" href="https://odin-lang.org/">
+			<img src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#odin-navbar-content" aria-controls="odin-navbar-content" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="odin-navbar-content">
+			<ul class="navbar-nav ms-md-auto">
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/docs">Docs</a></li>
+				<li class="nav-item"><a class="nav-link active" href="/">Packages</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/news">News</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/showcase">Showcase</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/community">Community</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://github.com/odin-lang/Odin" target="_blank">GitHub</a></li>
+			</ul>
+		</div>
+		</div>
+	</nav>
+</header>
+<main>
+<div class="container full-width">
+<div class="row odin-main my-4" id="pkg">
+<nav id="pkg-sidebar" class="col-lg-2 odin-sidebar-border navbar-light sticky-top odin-below-navbar">
+<div class="py-3">
+<h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
+<ul>
+<li class="nav-item"><a href="/core/builtin">builtin</a></li>
+<li class="nav-item"><a href="/core/bufio">bufio</a></li>
+<li class="nav-item"><a href="/core/bytes">bytes</a></li>
+<li class="nav-item"><a href="/core/c">c</a><ul>
+<li><a href="/core/c/frontend/preprocessor">frontend/preprocessor</a></li>
+<li><a href="/core/c/frontend/tokenizer">frontend/tokenizer</a></li>
+<li><a href="/core/c/libc">libc</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/compress">compress</a><ul>
+<li><a href="/core/compress/gzip">gzip</a></li>
+<li><a href="/core/compress/shoco">shoco</a></li>
+<li><a class="active" href="/core/compress/zlib">zlib</a></li>
+</ul>
+
+</li>
+<li class="nav-item">container<ul>
+<li><a href="/core/container/bit_array">bit_array</a></li>
+<li><a href="/core/container/intrusive/list">intrusive/list</a></li>
+<li><a href="/core/container/lru">lru</a></li>
+<li><a href="/core/container/priority_queue">priority_queue</a></li>
+<li><a href="/core/container/queue">queue</a></li>
+<li><a href="/core/container/small_array">small_array</a></li>
+<li><a href="/core/container/topological_sort">topological_sort</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/crypto">crypto</a><ul>
+<li><a href="/core/crypto/blake">blake</a></li>
+<li><a href="/core/crypto/blake2b">blake2b</a></li>
+<li><a href="/core/crypto/blake2s">blake2s</a></li>
+<li><a href="/core/crypto/chacha20">chacha20</a></li>
+<li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
+<li><a href="/core/crypto/gost">gost</a></li>
+<li><a href="/core/crypto/groestl">groestl</a></li>
+<li><a href="/core/crypto/haval">haval</a></li>
+<li><a href="/core/crypto/jh">jh</a></li>
+<li><a href="/core/crypto/keccak">keccak</a></li>
+<li><a href="/core/crypto/md2">md2</a></li>
+<li><a href="/core/crypto/md4">md4</a></li>
+<li><a href="/core/crypto/md5">md5</a></li>
+<li><a href="/core/crypto/poly1305">poly1305</a></li>
+<li><a href="/core/crypto/ripemd">ripemd</a></li>
+<li><a href="/core/crypto/sha1">sha1</a></li>
+<li><a href="/core/crypto/sha2">sha2</a></li>
+<li><a href="/core/crypto/sha3">sha3</a></li>
+<li><a href="/core/crypto/shake">shake</a></li>
+<li><a href="/core/crypto/sm3">sm3</a></li>
+<li><a href="/core/crypto/streebog">streebog</a></li>
+<li><a href="/core/crypto/tiger">tiger</a></li>
+<li><a href="/core/crypto/tiger2">tiger2</a></li>
+<li><a href="/core/crypto/util">util</a></li>
+<li><a href="/core/crypto/whirlpool">whirlpool</a></li>
+<li><a href="/core/crypto/x25519">x25519</a></li>
+</ul>
+
+</li>
+<li class="nav-item">debug<ul>
+<li><a href="/core/debug/pe">pe</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/dynlib">dynlib</a></li>
+<li class="nav-item">encoding<ul>
+<li><a href="/core/encoding/base32">base32</a></li>
+<li><a href="/core/encoding/base64">base64</a></li>
+<li><a href="/core/encoding/csv">csv</a></li>
+<li><a href="/core/encoding/endian">endian</a></li>
+<li><a href="/core/encoding/entity">entity</a></li>
+<li><a href="/core/encoding/hex">hex</a></li>
+<li><a href="/core/encoding/hxa">hxa</a></li>
+<li><a href="/core/encoding/json">json</a></li>
+<li><a href="/core/encoding/varint">varint</a></li>
+<li><a href="/core/encoding/xml">xml</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/fmt">fmt</a></li>
+<li class="nav-item"><a href="/core/hash">hash</a><ul>
+<li><a href="/core/hash/xxhash">xxhash</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/image">image</a><ul>
+<li><a href="/core/image/netpbm">netpbm</a></li>
+<li><a href="/core/image/png">png</a></li>
+<li><a href="/core/image/qoi">qoi</a></li>
+<li><a href="/core/image/tga">tga</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/io">io</a></li>
+<li class="nav-item"><a href="/core/log">log</a></li>
+<li class="nav-item"><a href="/core/math">math</a><ul>
+<li><a href="/core/math/big">big</a></li>
+<li><a href="/core/math/bits">bits</a></li>
+<li><a href="/core/math/cmplx">cmplx</a></li>
+<li><a href="/core/math/ease">ease</a></li>
+<li><a href="/core/math/fixed">fixed</a></li>
+<li><a href="/core/math/linalg">linalg</a></li>
+<li><a href="/core/math/linalg/glsl">linalg/glsl</a></li>
+<li><a href="/core/math/linalg/hlsl">linalg/hlsl</a></li>
+<li><a href="/core/math/noise">noise</a></li>
+<li><a href="/core/math/rand">rand</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/mem">mem</a><ul>
+<li><a href="/core/mem/virtual">virtual</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/net">net</a></li>
+<li class="nav-item">odin<ul>
+<li><a href="/core/odin/ast">ast</a></li>
+<li><a href="/core/odin/doc-format">doc-format</a></li>
+<li><a href="/core/odin/format">format</a></li>
+<li><a href="/core/odin/parser">parser</a></li>
+<li><a href="/core/odin/printer">printer</a></li>
+<li><a href="/core/odin/tokenizer">tokenizer</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/os">os</a></li>
+<li class="nav-item">path<ul>
+<li><a href="/core/path/filepath">filepath</a></li>
+<li><a href="/core/path/slashpath">slashpath</a></li>
+</ul>
+
+</li>
+<li class="nav-item">prof<ul>
+<li><a href="/core/prof/spall">spall</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/reflect">reflect</a></li>
+<li class="nav-item"><a href="/core/runtime">runtime</a></li>
+<li class="nav-item"><a href="/core/simd">simd</a></li>
+<li class="nav-item"><a href="/core/slice">slice</a><ul>
+<li><a href="/core/slice/heap">heap</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/sort">sort</a></li>
+<li class="nav-item"><a href="/core/strconv">strconv</a><ul>
+<li><a href="/core/strconv/decimal">decimal</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/strings">strings</a></li>
+<li class="nav-item"><a href="/core/sync">sync</a></li>
+<li class="nav-item"><a href="/core/testing">testing</a></li>
+<li class="nav-item">text<ul>
+<li><a href="/core/text/edit">edit</a></li>
+<li><a href="/core/text/i18n">i18n</a></li>
+<li><a href="/core/text/match">match</a></li>
+<li><a href="/core/text/scanner">scanner</a></li>
+<li><a href="/core/text/table">table</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/thread">thread</a></li>
+<li class="nav-item"><a href="/core/time">time</a></li>
+<li class="nav-item"><a href="/core/unicode">unicode</a><ul>
+<li><a href="/core/unicode/utf16">utf16</a></li>
+<li><a href="/core/unicode/utf8">utf8</a></li>
+<li><a href="/core/unicode/utf8/utf8string">utf8/utf8string</a></li>
+</ul>
+
+</li>
+</ul>
+</div>
+</nav>
+<article class="col-lg-8 p-4 documentation odin-article">
+<nav class="pkg-breadcrumb" aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="/core">core</a></li>
+<li class="breadcrumb-item"><a href="/core/compress">compress</a></li>
+<li class="breadcrumb-item active" aria-current="page"><a href="/core/compress/zlib">zlib</a></li>
+</ol>
+</nav>
+<h1>package core:compress/zlib<div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib"><em>Source</em></a></div></h1>
+
+		<div class="odin-search-wrapper">
+			<input type="search" id="odin-search" class="odin-search-package" autocomplete="off" spellcheck="false" placeholder="Fuzzy Search...">
+			<div class="odin-search-shortcut">
+				<div class="odin-search-key key-macos">⌘K</div>
+				<div class="odin-search-key key-windows">Ctrl+K</div>
+				<span class="odin-search-or">or</span>
+				<div class="odin-search-key">/</div>
+			</div>
+		</div>
+	
+<div id="odin-search-info">
+<div id="odin-search-time"></div>
+
+		<div id="odin-search-options">
+			<input type="checkbox" id="odin-search-filter" name="odin-search-filter">
+			<label for="odin-search-filter">Filter Results</label>
+		</div>
+</div>
+<ul id="odin-search-results"></ul>
+<div id="pkg-top">
+<div id="pkg-index">
+<h2>Index</h2>
+<div>
+<details class="doc-index" id="doc-index-Types" aria-labelledby="#doc-index-Types-header">
+<summary id="#doc-index-Types-header">
+Types (8)</summary>
+<ul>
+<li><a href="#Compression_Level">Compression_Level</a></li>
+<li><a href="#Compression_Method">Compression_Method</a></li>
+<li><a href="#Deflate_Error">Deflate_Error</a></li>
+<li><a href="#Error">Error</a></li>
+<li><a href="#General_Error">General_Error</a></li>
+<li><a href="#Huffman_Table">Huffman_Table</a></li>
+<li><a href="#Options">Options</a></li>
+<li><a href="#ZLIB_Error">ZLIB_Error</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Constants" aria-labelledby="#doc-index-Constants-header">
+<summary id="#doc-index-Constants-header">
+Constants (9)</summary>
+<ul>
+<li><a href="#DEFLATE_MAX_CHUNK_SIZE">DEFLATE_MAX_CHUNK_SIZE</a></li>
+<li><a href="#DEFLATE_MAX_DISTANCE">DEFLATE_MAX_DISTANCE</a></li>
+<li><a href="#DEFLATE_MAX_LENGTH">DEFLATE_MAX_LENGTH</a></li>
+<li><a href="#DEFLATE_MAX_LITERAL_SIZE">DEFLATE_MAX_LITERAL_SIZE</a></li>
+<li><a href="#HUFFMAN_FAST_BITS">HUFFMAN_FAST_BITS</a></li>
+<li><a href="#HUFFMAN_FAST_MASK">HUFFMAN_FAST_MASK</a></li>
+<li><a href="#HUFFMAN_MAX_BITS">HUFFMAN_MAX_BITS</a></li>
+<li><a href="#ZFAST_BITS">ZFAST_BITS</a></li>
+<li><a href="#ZFAST_MASK">ZFAST_MASK</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Variables" aria-labelledby="#doc-index-Variables-header">
+<summary id="#doc-index-Variables-header">
+Variables (7)</summary>
+<ul>
+<li><a href="#Z_DIST_BASE">Z_DIST_BASE</a></li>
+<li><a href="#Z_DIST_EXTRA">Z_DIST_EXTRA</a></li>
+<li><a href="#Z_FIXED_DIST">Z_FIXED_DIST</a></li>
+<li><a href="#Z_FIXED_LENGTH">Z_FIXED_LENGTH</a></li>
+<li><a href="#Z_LENGTH_BASE">Z_LENGTH_BASE</a></li>
+<li><a href="#Z_LENGTH_DEZIGZAG">Z_LENGTH_DEZIGZAG</a></li>
+<li><a href="#Z_LENGTH_EXTRA">Z_LENGTH_EXTRA</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
+<summary id="#doc-index-Procedures-header">
+Procedures (14)</summary>
+<ul>
+<li><a href="#allocate_huffman_table">allocate_huffman_table</a></li>
+<li><a href="#build_huffman">build_huffman</a></li>
+<li><a href="#decode_huffman">decode_huffman</a></li>
+<li><a href="#decode_huffman_slowpath">decode_huffman_slowpath</a></li>
+<li><a href="#grow_buffer">grow_buffer</a></li>
+<li><a href="#inflate_from_byte_array">inflate_from_byte_array</a></li>
+<li><a href="#inflate_from_byte_array_raw">inflate_from_byte_array_raw</a></li>
+<li><a href="#inflate_from_context">inflate_from_context</a></li>
+<li><a href="#inflate_raw">inflate_raw</a></li>
+<li><a href="#parse_huffman_block">parse_huffman_block</a></li>
+<li><a href="#repl_byte">repl_byte</a></li>
+<li><a href="#repl_bytes">repl_bytes</a></li>
+<li><a href="#write_byte">write_byte</a></li>
+<li><a href="#z_bit_reverse">z_bit_reverse</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedure Groups" aria-labelledby="#doc-index-Procedure Groups-header">
+<summary id="#doc-index-Procedure Groups-header">
+Procedure Groups (1)</summary>
+<ul>
+<li><a href="#inflate">inflate</a></li>
+</ul>
+</details>
+</div>
+</div>
+</div>
+<section class="documentation">
+<h2 id="pkg-Types" class="pkg-header">Types</h2>
+<div class="pkg-entity">
+<h3 id="Compression_Level"><span><a class="doc-id-link" href="#Compression_Level">Compression_Level<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L39"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Compression_Level :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+	Fastest = 0, 
+	Fast    = 1, 
+	Default = 2, 
+	Maximum = 3, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Compression_Method"><span><a class="doc-id-link" href="#Compression_Method">Compression_Method<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L34"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Compression_Method :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+	DEFLATE  = 8, 
+	Reserved = 15, 
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Deflate_Error"><span><a class="doc-id-link" href="#Deflate_Error">Deflate_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L54"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Deflate_Error :: compress.<a class="code-typename" href="/core/compress/#Deflate_Error">Deflate_Error</a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Error"><span><a class="doc-id-link" href="#Error">Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L51"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Error :: compress.<a class="code-typename" href="/core/compress/#Error">Error</a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="General_Error"><span><a class="doc-id-link" href="#General_Error">General_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L52"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">General_Error :: compress.<a class="code-typename" href="/core/compress/#General_Error">General_Error</a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Huffman_Table"><span><a class="doc-id-link" href="#Huffman_Table">Huffman_Table<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L113"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Huffman_Table :: <span class="keyword-type">struct</span> {
+	fast:        [512]<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>,
+	firstcode:   [17]<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>,
+	maxcode:     [17]<a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	firstsymbol: [17]<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>,
+	size:        [288]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	value:       [288]<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>,
+}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>ZLIB-style Huffman encoding.</p>
+<pre>JPEG packs from left, ZLIB from right. We can't share code.
+</pre>
+</details>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/compress/zlib/#build_huffman">build_huffman</a></li>
+<li><a href="/core/compress/zlib/#decode_huffman">decode_huffman</a></li>
+<li><a href="/core/compress/zlib/#decode_huffman_slowpath">decode_huffman_slowpath</a></li>
+<li><a href="/core/compress/zlib/#parse_huffman_block">parse_huffman_block</a></li>
+</ul>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/core/compress/zlib/#allocate_huffman_table">allocate_huffman_table</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Options"><span><a class="doc-id-link" href="#Options">Options<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L46"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Options :: <span class="keyword-type">struct</span> {
+	window_size: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>,
+	level:       <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ZLIB_Error"><span><a class="doc-id-link" href="#ZLIB_Error">ZLIB_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L53"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ZLIB_Error :: compress.<a class="code-typename" href="/core/compress/#ZLIB_Error">ZLIB_Error</a></pre>
+</div>
+</div>
+<h2 id="pkg-Constants" class="pkg-header">Constants</h2>
+<div class="pkg-entity">
+<h3 id="DEFLATE_MAX_CHUNK_SIZE"><span><a class="doc-id-link" href="#DEFLATE_MAX_CHUNK_SIZE">DEFLATE_MAX_CHUNK_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L56"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">DEFLATE_MAX_CHUNK_SIZE :: 65535</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="DEFLATE_MAX_DISTANCE"><span><a class="doc-id-link" href="#DEFLATE_MAX_DISTANCE">DEFLATE_MAX_DISTANCE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L58"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">DEFLATE_MAX_DISTANCE :: 32768</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="DEFLATE_MAX_LENGTH"><span><a class="doc-id-link" href="#DEFLATE_MAX_LENGTH">DEFLATE_MAX_LENGTH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L59"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">DEFLATE_MAX_LENGTH :: 258</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="DEFLATE_MAX_LITERAL_SIZE"><span><a class="doc-id-link" href="#DEFLATE_MAX_LITERAL_SIZE">DEFLATE_MAX_LITERAL_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L57"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">DEFLATE_MAX_LITERAL_SIZE :: 65535</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="HUFFMAN_FAST_BITS"><span><a class="doc-id-link" href="#HUFFMAN_FAST_BITS">HUFFMAN_FAST_BITS<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L62"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">HUFFMAN_FAST_BITS :: 9</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="HUFFMAN_FAST_MASK"><span><a class="doc-id-link" href="#HUFFMAN_FAST_MASK">HUFFMAN_FAST_MASK<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L63"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">HUFFMAN_FAST_MASK :: (1 << HUFFMAN_FAST_BITS) - 1</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="HUFFMAN_MAX_BITS"><span><a class="doc-id-link" href="#HUFFMAN_MAX_BITS">HUFFMAN_MAX_BITS<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L61"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">HUFFMAN_MAX_BITS :: 16</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="ZFAST_BITS"><span><a class="doc-id-link" href="#ZFAST_BITS">ZFAST_BITS<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L106"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ZFAST_BITS :: 9</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Accelerate all cases in default tables.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="ZFAST_MASK"><span><a class="doc-id-link" href="#ZFAST_MASK">ZFAST_MASK<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L107"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ZFAST_MASK :: (1 << ZFAST_BITS) - 1</pre>
+</div>
+</div>
+<h2 id="pkg-Variables" class="pkg-header">Variables</h2>
+<div class="pkg-entity">
+<h3 id="Z_DIST_BASE"><span><a class="doc-id-link" href="#Z_DIST_BASE">Z_DIST_BASE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L74"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Z_DIST_BASE: [32]<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a> = …</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Z_DIST_EXTRA"><span><a class="doc-id-link" href="#Z_DIST_EXTRA">Z_DIST_EXTRA<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L79"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Z_DIST_EXTRA: [32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> = …</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Z_FIXED_DIST"><span><a class="doc-id-link" href="#Z_FIXED_DIST">Z_FIXED_DIST<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L99"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Z_FIXED_DIST: [32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> = …</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Z_FIXED_LENGTH"><span><a class="doc-id-link" href="#Z_FIXED_LENGTH">Z_FIXED_LENGTH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L87"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Z_FIXED_LENGTH: [288]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> = …</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Z_LENGTH_BASE"><span><a class="doc-id-link" href="#Z_LENGTH_BASE">Z_LENGTH_BASE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L65"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Z_LENGTH_BASE: [31]<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a> = …</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Z_LENGTH_DEZIGZAG"><span><a class="doc-id-link" href="#Z_LENGTH_DEZIGZAG">Z_LENGTH_DEZIGZAG<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L83"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Z_LENGTH_DEZIGZAG: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> = …</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Z_LENGTH_EXTRA"><span><a class="doc-id-link" href="#Z_LENGTH_EXTRA">Z_LENGTH_EXTRA<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L70"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Z_LENGTH_EXTRA: [31]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> = …</pre>
+</div>
+</div>
+<h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
+<div class="pkg-entity">
+<h3 id="allocate_huffman_table"><span><a class="doc-id-link" href="#allocate_huffman_table">allocate_huffman_table<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L233"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">allocate_huffman_table :: <span class="keyword-type">proc</span>(allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (z: ^<a class="code-typename" href="/core/compress/zlib/#Huffman_Table">Huffman_Table</a>, err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="build_huffman"><span><a class="doc-id-link" href="#build_huffman">build_huffman<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L238"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">build_huffman :: <span class="keyword-type">proc</span>(z: ^<a class="code-typename" href="/core/compress/zlib/#Huffman_Table">Huffman_Table</a>, code_lengths: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="decode_huffman"><span><a class="doc-id-link" href="#decode_huffman">decode_huffman<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L328"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">decode_huffman :: <span class="keyword-type">proc</span>(z: ^$T, t: ^<a class="code-typename" href="/core/compress/zlib/#Huffman_Table">Huffman_Table</a>) -> (r: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="decode_huffman_slowpath"><span><a class="doc-id-link" href="#decode_huffman_slowpath">decode_huffman_slowpath<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L297"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">decode_huffman_slowpath :: <span class="keyword-type">proc</span>(z: ^$T, t: ^<a class="code-typename" href="/core/compress/zlib/#Huffman_Table">Huffman_Table</a>) -> (r: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="grow_buffer"><span><a class="doc-id-link" href="#grow_buffer">grow_buffer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L140"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">grow_buffer :: <span class="keyword-type">proc</span>(buf: ^[<span class="keyword">dynamic</span>]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflate_from_byte_array"><span><a class="doc-id-link" href="#inflate_from_byte_array">inflate_from_byte_array<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L655"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflate_from_byte_array :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, buf: ^bytes.<a class="code-typename" href="/core/bytes/#Buffer">Buffer</a>, raw: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false, expected_output_size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = -1) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflate_from_byte_array_raw"><span><a class="doc-id-link" href="#inflate_from_byte_array_raw">inflate_from_byte_array_raw<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L664"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflate_from_byte_array_raw :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, buf: ^bytes.<a class="code-typename" href="/core/bytes/#Buffer">Buffer</a>, raw: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false, expected_output_size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = -1) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflate_from_context"><span><a class="doc-id-link" href="#inflate_from_context">inflate_from_context<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L417"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflate_from_context :: <span class="keyword-type">proc</span>(<span class="keyword-type">using</span> ctx: ^compress.<a class="code-typename" href="/core/compress/#Context_Memory_Input">Context_Memory_Input</a>, raw: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false, expected_output_size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = -1, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflate_raw"><span><a class="doc-id-link" href="#inflate_raw">inflate_raw<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L490"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflate_raw :: <span class="keyword-type">proc</span>(z: ^$T, expected_output_size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = -1, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="parse_huffman_block"><span><a class="doc-id-link" href="#parse_huffman_block">parse_huffman_block<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L348"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">parse_huffman_block :: <span class="keyword-type">proc</span>(z: ^$T, z_repeat, z_offset: ^<a class="code-typename" href="/core/compress/zlib/#Huffman_Table">Huffman_Table</a>) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="repl_byte"><span><a class="doc-id-link" href="#repl_byte">repl_byte<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L177"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">repl_byte :: <span class="keyword-type">proc</span>(z: ^$T, count: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, c: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="repl_bytes"><span><a class="doc-id-link" href="#repl_bytes">repl_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L205"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">repl_bytes :: <span class="keyword-type">proc</span>(z: ^$T, count: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, distance: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>) -> (err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="write_byte"><span><a class="doc-id-link" href="#write_byte">write_byte<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L158"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">write_byte :: <span class="keyword-type">proc</span>(z: ^$T, c: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="z_bit_reverse"><span><a class="doc-id-link" href="#z_bit_reverse">z_bit_reverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L124"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">z_bit_reverse :: <span class="keyword-type">proc</span>(n: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, bits: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (r: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Implementation starts here</p>
+</details>
+</div>
+<h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
+<div class="pkg-entity">
+<h3 id="inflate"><span><a class="doc-id-link" href="#inflate">inflate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L673"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflate :: proc{
+	<a class="code-procedure" href="/core/compress/zlib/#inflate_from_context">inflate_from_context</a>,
+	<a class="code-procedure" href="/core/compress/zlib/#inflate_from_byte_array">inflate_from_byte_array</a>,
+}
+</pre>
+</div>
+</div>
+</section>
+<h2 id="pkg-source-files">Source Files</h2>
+<ul>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin">zlib.odin</a></li>
+</ul>
+<h2 id="pkg-generation-information">Generation Information</h2>
+<p>Generated with <code>odin version dev-2023-09 (vendor "odin") Windows_amd64 @ 2023-09-05 17:19:48.377262500 +0000 UTC</code></p>
+</article>
+<div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#pkg-Types">Types</a><ul>
+<li><a href="#Compression_Level">Compression_Level</a></li>
+<li><a href="#Compression_Method">Compression_Method</a></li>
+<li><a href="#Deflate_Error">Deflate_Error</a></li>
+<li><a href="#Error">Error</a></li>
+<li><a href="#General_Error">General_Error</a></li>
+<li><a href="#Huffman_Table">Huffman_Table</a></li>
+<li><a href="#Options">Options</a></li>
+<li><a href="#ZLIB_Error">ZLIB_Error</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Constants">Constants</a><ul>
+<li><a href="#DEFLATE_MAX_CHUNK_SIZE">DEFLATE_MAX_CHUNK_SIZE</a></li>
+<li><a href="#DEFLATE_MAX_DISTANCE">DEFLATE_MAX_DISTANCE</a></li>
+<li><a href="#DEFLATE_MAX_LENGTH">DEFLATE_MAX_LENGTH</a></li>
+<li><a href="#DEFLATE_MAX_LITERAL_SIZE">DEFLATE_MAX_LITERAL_SIZE</a></li>
+<li><a href="#HUFFMAN_FAST_BITS">HUFFMAN_FAST_BITS</a></li>
+<li><a href="#HUFFMAN_FAST_MASK">HUFFMAN_FAST_MASK</a></li>
+<li><a href="#HUFFMAN_MAX_BITS">HUFFMAN_MAX_BITS</a></li>
+<li><a href="#ZFAST_BITS">ZFAST_BITS</a></li>
+<li><a href="#ZFAST_MASK">ZFAST_MASK</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Variables">Variables</a><ul>
+<li><a href="#Z_DIST_BASE">Z_DIST_BASE</a></li>
+<li><a href="#Z_DIST_EXTRA">Z_DIST_EXTRA</a></li>
+<li><a href="#Z_FIXED_DIST">Z_FIXED_DIST</a></li>
+<li><a href="#Z_FIXED_LENGTH">Z_FIXED_LENGTH</a></li>
+<li><a href="#Z_LENGTH_BASE">Z_LENGTH_BASE</a></li>
+<li><a href="#Z_LENGTH_DEZIGZAG">Z_LENGTH_DEZIGZAG</a></li>
+<li><a href="#Z_LENGTH_EXTRA">Z_LENGTH_EXTRA</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Procedures">Procedures</a><ul>
+<li><a href="#allocate_huffman_table">allocate_huffman_table</a></li>
+<li><a href="#build_huffman">build_huffman</a></li>
+<li><a href="#decode_huffman">decode_huffman</a></li>
+<li><a href="#decode_huffman_slowpath">decode_huffman_slowpath</a></li>
+<li><a href="#grow_buffer">grow_buffer</a></li>
+<li><a href="#inflate_from_byte_array">inflate_from_byte_array</a></li>
+<li><a href="#inflate_from_byte_array_raw">inflate_from_byte_array_raw</a></li>
+<li><a href="#inflate_from_context">inflate_from_context</a></li>
+<li><a href="#inflate_raw">inflate_raw</a></li>
+<li><a href="#parse_huffman_block">parse_huffman_block</a></li>
+<li><a href="#repl_byte">repl_byte</a></li>
+<li><a href="#repl_bytes">repl_bytes</a></li>
+<li><a href="#write_byte">write_byte</a></li>
+<li><a href="#z_bit_reverse">z_bit_reverse</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Procedure Groups">Procedure Groups</a><ul>
+<li><a href="#inflate">inflate</a></li>
+</ul>
+</li>
+<li><a href="#pkg-source-files">Source Files</a></ul>
+</nav>
+</div></div>
+<script type="text/javascript">var odin_pkg_name = "zlib";</script>
+</div>
+
+</div>
+</main>
+
+<footer class="odin-footer">
+	<div class="container pb-5 pt-5">
+		<div class="row g-4">
+		<div class="col">
+		<a class="navbar-brand" href="https://odin-lang.org">
+		<img class="mb-3" src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+		<p>
+		The Data-Oriented Language for Sane Software Development.
+		</p>
+		</div>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Resources</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://odin-lang.org/docs" class="link-light">Docs</a></li>
+			<li><a href="https://pkg.odin-lang.org/" class="link-light">Packages</a></li>
+			<li><a href="https://odin-lang.org/news" class="link-light">News</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Community</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin" target="_blank" class="link-light">GitHub</a></li>
+			<li><a href="https://discord.com/invite/sVBPHEv" target="_blank" class="link-light">Discord</a></li>
+			<li><a href="https://www.twitch.tv/ginger_bill" target="_blank" class="link-light">Twitch</a></li>
+			<li><a href="https://www.youtube.com/channel/UCUSck1dOH7VKmG4lRW7tZXg" target="_blank" class="link-light">YouTube</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Contribute</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin/issues" target="_blank" class="link-light">Issues</a></li>
+			<li><a href="https://www.patreon.com/gingerbill" target="_blank" class="link-light">Donate</a></li>
+			</ul>
+			</nav>
+		</div>
+		<div class="mt-4 text-muted">© 2016–2023 Ginger Bill</div>
+	</div>
+</footer>
+
+<script src="https://odin-lang.org/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://odin-lang.org/js/script.js"></script>
+<script src="/pkg-data.js"></script>
+<script src="/search.js"></script>
+</body>
+</html>

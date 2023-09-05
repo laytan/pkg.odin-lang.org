@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>package zlib - pkg.odin-lang.org</title>	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/scss/custom.min.css">
+	<link rel=stylesheet href="//odin-lang.org/lib/highlight/styles/github-dark.min.css">
+	<script src="//odin-lang.org/lib/highlight/highlight.min.js"></script>
+
+	<script>hljs.registerLanguage("odin",function(a){return{aliases:["odin","odinlang","odin-lang"],keywords:{keyword:"auto_cast bit_set break case cast context continue defer distinct do dynamic else enum fallthrough for foreign if import in map not_in or_else or_return package proc return struct switch transmute type_of typeid union using when where",literal:"true false nil",built_in:"abs align_of cap clamp complex conj expand_to_tuple imag jmag kmag len max min offset_of quaternion real size_of soa_unzip soa_zip swizzle type_info_of type_of typeid_of"},illegal:"</",contains:[a.C_LINE_COMMENT_MODE,a.C_BLOCK_COMMENT_MODE,{className:"string",variants:[a.QUOTE_STRING_MODE,{begin:"'",end:"[^\\\\]'"},{begin:"`",end:"`"}]},{className:"number",variants:[{begin:a.C_NUMBER_RE+"[ijk]",relevance:1},a.C_NUMBER_MODE]}]}})</script>
+	<script>hljs.highlightAll()</script>
+	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/css/style.css">
+
+	<link rel="stylesheet" type="text/css" href="/style.css">
+
+	</style>
+</head>
+<body>
+<header class="sticky-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary odin-menu">
+		<div class="container">
+			<a class="navbar-brand" href="https://odin-lang.org/">
+			<img src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#odin-navbar-content" aria-controls="odin-navbar-content" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="odin-navbar-content">
+			<ul class="navbar-nav ms-md-auto">
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/docs">Docs</a></li>
+				<li class="nav-item"><a class="nav-link active" href="/">Packages</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/news">News</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/showcase">Showcase</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/community">Community</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://github.com/odin-lang/Odin" target="_blank">GitHub</a></li>
+			</ul>
+		</div>
+		</div>
+	</nav>
+</header>
+<main>
+<div class="container full-width">
+<div class="row odin-main my-4" id="pkg">
+<nav id="pkg-sidebar" class="col-lg-2 odin-sidebar-border navbar-light sticky-top odin-below-navbar">
+<div class="py-3">
+<h4><a style="text-transform: capitalize; color: inherit;" href="/vendor">vendor Library</a></h4>
+<ul>
+<li class="nav-item">botan<ul>
+<li><a href="/vendor/botan/bindings">bindings</a></li>
+<li><a href="/vendor/botan/blake2b">blake2b</a></li>
+<li><a href="/vendor/botan/gost">gost</a></li>
+<li><a href="/vendor/botan/keccak">keccak</a></li>
+<li><a href="/vendor/botan/md4">md4</a></li>
+<li><a href="/vendor/botan/md5">md5</a></li>
+<li><a href="/vendor/botan/ripemd">ripemd</a></li>
+<li><a href="/vendor/botan/sha1">sha1</a></li>
+<li><a href="/vendor/botan/sha2">sha2</a></li>
+<li><a href="/vendor/botan/sha3">sha3</a></li>
+<li><a href="/vendor/botan/shake">shake</a></li>
+<li><a href="/vendor/botan/siphash">siphash</a></li>
+<li><a href="/vendor/botan/skein512">skein512</a></li>
+<li><a href="/vendor/botan/sm3">sm3</a></li>
+<li><a href="/vendor/botan/streebog">streebog</a></li>
+<li><a href="/vendor/botan/tiger">tiger</a></li>
+<li><a href="/vendor/botan/whirlpool">whirlpool</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/cgltf">cgltf</a></li>
+<li class="nav-item"><a href="/vendor/commonmark">commonmark</a></li>
+<li class="nav-item">darwin<ul>
+<li><a href="/vendor/darwin/Foundation">Foundation</a></li>
+<li><a href="/vendor/darwin/Metal">Metal</a></li>
+<li><a href="/vendor/darwin/MetalKit">MetalKit</a></li>
+<li><a href="/vendor/darwin/QuartzCore">QuartzCore</a></li>
+</ul>
+
+</li>
+<li class="nav-item">directx<ul>
+<li><a href="/vendor/directx/d3d11">d3d11</a></li>
+<li><a href="/vendor/directx/d3d12">d3d12</a></li>
+<li><a href="/vendor/directx/d3d_compiler">d3d_compiler</a></li>
+<li><a href="/vendor/directx/dxgi">dxgi</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/ENet">ENet</a></li>
+<li class="nav-item"><a href="/vendor/fontstash">fontstash</a></li>
+<li class="nav-item"><a href="/vendor/ggpo">ggpo</a></li>
+<li class="nav-item"><a href="/vendor/glfw">glfw</a><ul>
+<li><a href="/vendor/glfw/bindings">bindings</a></li>
+</ul>
+
+</li>
+<li class="nav-item">lua<ul>
+<li><a href="/vendor/lua/5.4">5.4</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/microui">microui</a></li>
+<li class="nav-item"><a href="/vendor/miniaudio">miniaudio</a></li>
+<li class="nav-item"><a href="/vendor/nanovg">nanovg</a><ul>
+<li><a href="/vendor/nanovg/gl">gl</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/OpenEXRCore">OpenEXRCore</a></li>
+<li class="nav-item"><a href="/vendor/OpenGL">OpenGL</a></li>
+<li class="nav-item"><a href="/vendor/portmidi">portmidi</a></li>
+<li class="nav-item"><a href="/vendor/raylib">raylib</a></li>
+<li class="nav-item"><a href="/vendor/sdl2">sdl2</a><ul>
+<li><a href="/vendor/sdl2/image">image</a></li>
+<li><a href="/vendor/sdl2/mixer">mixer</a></li>
+<li><a href="/vendor/sdl2/net">net</a></li>
+<li><a href="/vendor/sdl2/ttf">ttf</a></li>
+</ul>
+
+</li>
+<li class="nav-item">stb<ul>
+<li><a href="/vendor/stb/easy_font">easy_font</a></li>
+<li><a href="/vendor/stb/image">image</a></li>
+<li><a href="/vendor/stb/rect_pack">rect_pack</a></li>
+<li><a href="/vendor/stb/truetype">truetype</a></li>
+<li><a href="/vendor/stb/vorbis">vorbis</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/vendor/vulkan">vulkan</a></li>
+<li class="nav-item"><a class="active" href="/vendor/zlib">zlib</a></li>
+</ul>
+</div>
+</nav>
+<article class="col-lg-8 p-4 documentation odin-article">
+<nav class="pkg-breadcrumb" aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="/vendor">vendor</a></li>
+<li class="breadcrumb-item active" aria-current="page"><a href="/vendor/zlib">zlib</a></li>
+</ol>
+</nav>
+<h1>package vendor:zlib<div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib"><em>Source</em></a></div></h1>
+
+		<div class="odin-search-wrapper">
+			<input type="search" id="odin-search" class="odin-search-package" autocomplete="off" spellcheck="false" placeholder="Fuzzy Search...">
+			<div class="odin-search-shortcut">
+				<div class="odin-search-key key-macos">⌘K</div>
+				<div class="odin-search-key key-windows">Ctrl+K</div>
+				<span class="odin-search-or">or</span>
+				<div class="odin-search-key">/</div>
+			</div>
+		</div>
+	
+<div id="odin-search-info">
+<div id="odin-search-time"></div>
+
+		<div id="odin-search-options">
+			<input type="checkbox" id="odin-search-filter" name="odin-search-filter">
+			<label for="odin-search-filter">Filter Results</label>
+		</div>
+</div>
+<ul id="odin-search-results"></ul>
+<div id="pkg-top">
+<div id="pkg-index">
+<h2>Index</h2>
+<div>
+<details class="doc-index" id="doc-index-Types" aria-labelledby="#doc-index-Types-header">
+<summary id="#doc-index-Types-header">
+Types (25)</summary>
+<ul>
+<li><a href="#Byte">Byte</a></li>
+<li><a href="#Bytef">Bytef</a></li>
+<li><a href="#alloc_func">alloc_func</a></li>
+<li><a href="#crc_t">crc_t</a></li>
+<li><a href="#free_func">free_func</a></li>
+<li><a href="#gzFile">gzFile</a></li>
+<li><a href="#gzFile_s">gzFile_s</a></li>
+<li><a href="#gz_header">gz_header</a></li>
+<li><a href="#gz_header_s">gz_header_s</a></li>
+<li><a href="#gz_headerp">gz_headerp</a></li>
+<li><a href="#in_func">in_func</a></li>
+<li><a href="#off64_t">off64_t</a></li>
+<li><a href="#off_t">off_t</a></li>
+<li><a href="#out_func">out_func</a></li>
+<li><a href="#size_t">size_t</a></li>
+<li><a href="#uInt">uInt</a></li>
+<li><a href="#uIntf">uIntf</a></li>
+<li><a href="#uLong">uLong</a></li>
+<li><a href="#uLongf">uLongf</a></li>
+<li><a href="#voidp">voidp</a></li>
+<li><a href="#voidpc">voidpc</a></li>
+<li><a href="#voidpf">voidpf</a></li>
+<li><a href="#z_stream">z_stream</a></li>
+<li><a href="#z_stream_s">z_stream_s</a></li>
+<li><a href="#z_streamp">z_streamp</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Constants" aria-labelledby="#doc-index-Constants-header">
+<summary id="#doc-index-Constants-header">
+Constants (37)</summary>
+<ul>
+<li><a href="#ASCII">ASCII</a></li>
+<li><a href="#BEST_COMPRESSION">BEST_COMPRESSION</a></li>
+<li><a href="#BEST_SPEED">BEST_SPEED</a></li>
+<li><a href="#BINARY">BINARY</a></li>
+<li><a href="#BLOCK">BLOCK</a></li>
+<li><a href="#BUF_ERROR">BUF_ERROR</a></li>
+<li><a href="#DATA_ERROR">DATA_ERROR</a></li>
+<li><a href="#DEFAULT_COMPRESSION">DEFAULT_COMPRESSION</a></li>
+<li><a href="#DEFAULT_STRATEGY">DEFAULT_STRATEGY</a></li>
+<li><a href="#DEFLATED">DEFLATED</a></li>
+<li><a href="#ERRNO">ERRNO</a></li>
+<li><a href="#FILTERED">FILTERED</a></li>
+<li><a href="#FINISH">FINISH</a></li>
+<li><a href="#FIXED">FIXED</a></li>
+<li><a href="#FULL_FLUSH">FULL_FLUSH</a></li>
+<li><a href="#HUFFMAN_ONLY">HUFFMAN_ONLY</a></li>
+<li><a href="#MEM_ERROR">MEM_ERROR</a></li>
+<li><a href="#NEED_DICT">NEED_DICT</a></li>
+<li><a href="#NO_COMPRESSION">NO_COMPRESSION</a></li>
+<li><a href="#NO_FLUSH">NO_FLUSH</a></li>
+<li><a href="#NULL">NULL</a></li>
+<li><a href="#OK">OK</a></li>
+<li><a href="#PARTIAL_FLUSH">PARTIAL_FLUSH</a></li>
+<li><a href="#RLE">RLE</a></li>
+<li><a href="#STREAM_END">STREAM_END</a></li>
+<li><a href="#STREAM_ERROR">STREAM_ERROR</a></li>
+<li><a href="#SYNC_FLUSH">SYNC_FLUSH</a></li>
+<li><a href="#TEXT">TEXT</a></li>
+<li><a href="#TREES">TREES</a></li>
+<li><a href="#UNKNOWN">UNKNOWN</a></li>
+<li><a href="#VERNUM">VERNUM</a></li>
+<li><a href="#VERSION">VERSION</a></li>
+<li><a href="#VERSION_ERROR">VERSION_ERROR</a></li>
+<li><a href="#VER_MAJOR">VER_MAJOR</a></li>
+<li><a href="#VER_MINOR">VER_MINOR</a></li>
+<li><a href="#VER_REVISION">VER_REVISION</a></li>
+<li><a href="#VER_SUBREVISION">VER_SUBREVISION</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Variables" aria-labelledby="#doc-index-Variables-header">
+<summary id="#doc-index-Variables-header">
+Variables (0)</summary>
+<p class="pkg-empty-section">This section is empty.</p>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
+<summary id="#doc-index-Procedures-header">
+Procedures (84)</summary>
+<ul>
+<li><a href="#Version">Version</a></li>
+<li><a href="#adler32">adler32</a></li>
+<li><a href="#adler32_combine">adler32_combine</a></li>
+<li><a href="#adler32_combine64">adler32_combine64</a></li>
+<li><a href="#adler32_z">adler32_z</a></li>
+<li><a href="#compress">compress</a></li>
+<li><a href="#compress2">compress2</a></li>
+<li><a href="#compressBound">compressBound</a></li>
+<li><a href="#crc32">crc32</a></li>
+<li><a href="#crc32_combine">crc32_combine</a></li>
+<li><a href="#crc32_combine64">crc32_combine64</a></li>
+<li><a href="#crc32_combine_gen">crc32_combine_gen</a></li>
+<li><a href="#crc32_combine_gen64">crc32_combine_gen64</a></li>
+<li><a href="#crc32_combine_op">crc32_combine_op</a></li>
+<li><a href="#crc32_z">crc32_z</a></li>
+<li><a href="#deflate">deflate</a></li>
+<li><a href="#deflateBound">deflateBound</a></li>
+<li><a href="#deflateCopy">deflateCopy</a></li>
+<li><a href="#deflateEnd">deflateEnd</a></li>
+<li><a href="#deflateGetDictionary">deflateGetDictionary</a></li>
+<li><a href="#deflateInit">deflateInit</a></li>
+<li><a href="#deflateInit2">deflateInit2</a></li>
+<li><a href="#deflateParams">deflateParams</a></li>
+<li><a href="#deflatePending">deflatePending</a></li>
+<li><a href="#deflatePrime">deflatePrime</a></li>
+<li><a href="#deflateReset">deflateReset</a></li>
+<li><a href="#deflateResetKeep">deflateResetKeep</a></li>
+<li><a href="#deflateSetDictionary">deflateSetDictionary</a></li>
+<li><a href="#deflateSetHeader">deflateSetHeader</a></li>
+<li><a href="#deflateTune">deflateTune</a></li>
+<li><a href="#get_crc_table">get_crc_table</a></li>
+<li><a href="#gzbuffer">gzbuffer</a></li>
+<li><a href="#gzclearerr">gzclearerr</a></li>
+<li><a href="#gzclose">gzclose</a></li>
+<li><a href="#gzclose_r">gzclose_r</a></li>
+<li><a href="#gzclose_w">gzclose_w</a></li>
+<li><a href="#gzdirect">gzdirect</a></li>
+<li><a href="#gzdopen">gzdopen</a></li>
+<li><a href="#gzeof">gzeof</a></li>
+<li><a href="#gzerror">gzerror</a></li>
+<li><a href="#gzflush">gzflush</a></li>
+<li><a href="#gzfread">gzfread</a></li>
+<li><a href="#gzfwrite">gzfwrite</a></li>
+<li><a href="#gzgetc">gzgetc</a></li>
+<li><a href="#gzgetc_">gzgetc_</a></li>
+<li><a href="#gzgets">gzgets</a></li>
+<li><a href="#gzoffset64">gzoffset64</a></li>
+<li><a href="#gzopen64">gzopen64</a></li>
+<li><a href="#gzprintf">gzprintf</a></li>
+<li><a href="#gzputc">gzputc</a></li>
+<li><a href="#gzputs">gzputs</a></li>
+<li><a href="#gzread">gzread</a></li>
+<li><a href="#gzrewind">gzrewind</a></li>
+<li><a href="#gzseek64">gzseek64</a></li>
+<li><a href="#gzsetparams">gzsetparams</a></li>
+<li><a href="#gztell64">gztell64</a></li>
+<li><a href="#gzungetc">gzungetc</a></li>
+<li><a href="#gzwrite">gzwrite</a></li>
+<li><a href="#inflate">inflate</a></li>
+<li><a href="#inflateBack">inflateBack</a></li>
+<li><a href="#inflateBackEnd">inflateBackEnd</a></li>
+<li><a href="#inflateBackInit">inflateBackInit</a></li>
+<li><a href="#inflateCodesUsed">inflateCodesUsed</a></li>
+<li><a href="#inflateCopy">inflateCopy</a></li>
+<li><a href="#inflateEnd">inflateEnd</a></li>
+<li><a href="#inflateGetDictionary">inflateGetDictionary</a></li>
+<li><a href="#inflateGetHeader">inflateGetHeader</a></li>
+<li><a href="#inflateInit">inflateInit</a></li>
+<li><a href="#inflateInit2">inflateInit2</a></li>
+<li><a href="#inflateMark">inflateMark</a></li>
+<li><a href="#inflatePrime">inflatePrime</a></li>
+<li><a href="#inflateReset">inflateReset</a></li>
+<li><a href="#inflateReset2">inflateReset2</a></li>
+<li><a href="#inflateResetKeep">inflateResetKeep</a></li>
+<li><a href="#inflateSetDictionary">inflateSetDictionary</a></li>
+<li><a href="#inflateSync">inflateSync</a></li>
+<li><a href="#inflateSyncPoint">inflateSyncPoint</a></li>
+<li><a href="#inflateUndermine">inflateUndermine</a></li>
+<li><a href="#inflateValidate">inflateValidate</a></li>
+<li><a href="#uncompress">uncompress</a></li>
+<li><a href="#uncompress2">uncompress2</a></li>
+<li><a href="#version">version</a></li>
+<li><a href="#zError">zError</a></li>
+<li><a href="#zlibCompileFlags">zlibCompileFlags</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedure Groups" aria-labelledby="#doc-index-Procedure Groups-header">
+<summary id="#doc-index-Procedure Groups-header">
+Procedure Groups (0)</summary>
+<p class="pkg-empty-section">This section is empty.</p>
+</details>
+</div>
+</div>
+</div>
+<section class="documentation">
+<h2 id="pkg-Types" class="pkg-header">Types</h2>
+<div class="pkg-entity">
+<h3 id="Byte"><span><a class="doc-id-link" href="#Byte">Byte<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L23"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Byte :: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Bytef"><span><a class="doc-id-link" href="#Bytef">Bytef<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L24"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Bytef :: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="alloc_func"><span><a class="doc-id-link" href="#alloc_func">alloc_func<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L34"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">alloc_func :: <span class="keyword-type">proc</span> "c" (opaque: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, items: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, size: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="crc_t"><span><a class="doc-id-link" href="#crc_t">crc_t<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L32"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">crc_t :: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="free_func"><span><a class="doc-id-link" href="#free_func">free_func<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L35"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">free_func :: <span class="keyword-type">proc</span> "c" (opaque: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, address: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>)</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzFile"><span><a class="doc-id-link" href="#gzFile">gzFile<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L46"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzFile :: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzFile_s"><span><a class="doc-id-link" href="#gzFile_s">gzFile_s<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L40"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzFile_s :: <span class="keyword-type">struct</span> {
+	have: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	next: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	pos:  <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>,
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/vendor/zlib/#gzbuffer">gzbuffer</a></li>
+<li><a href="/vendor/zlib/#gzclearerr">gzclearerr</a></li>
+<li><a href="/vendor/zlib/#gzclose">gzclose</a></li>
+<li><a href="/vendor/zlib/#gzclose_r">gzclose_r</a></li>
+<li><a href="/vendor/zlib/#gzclose_w">gzclose_w</a></li>
+<li><a href="/vendor/zlib/#gzdirect">gzdirect</a></li>
+<li><a href="/vendor/zlib/#gzeof">gzeof</a></li>
+<li><a href="/vendor/zlib/#gzerror">gzerror</a></li>
+<li><a href="/vendor/zlib/#gzflush">gzflush</a></li>
+<li><a href="/vendor/zlib/#gzfread">gzfread</a></li>
+<li><a href="/vendor/zlib/#gzfwrite">gzfwrite</a></li>
+<li><a href="/vendor/zlib/#gzgetc">gzgetc</a></li>
+<li><a href="/vendor/zlib/#gzgetc_">gzgetc_</a></li>
+<li><a href="/vendor/zlib/#gzgets">gzgets</a></li>
+<li><a href="/vendor/zlib/#gzoffset64">gzoffset64</a></li>
+<li><a href="/vendor/zlib/#gzprintf">gzprintf</a></li>
+<li><a href="/vendor/zlib/#gzputc">gzputc</a></li>
+<li><a href="/vendor/zlib/#gzputs">gzputs</a></li>
+<li><a href="/vendor/zlib/#gzread">gzread</a></li>
+<li><a href="/vendor/zlib/#gzrewind">gzrewind</a></li>
+<li><a href="/vendor/zlib/#gzseek64">gzseek64</a></li>
+<li><a href="/vendor/zlib/#gzsetparams">gzsetparams</a></li>
+<li><a href="/vendor/zlib/#gztell64">gztell64</a></li>
+<li><a href="/vendor/zlib/#gzungetc">gzungetc</a></li>
+<li><a href="/vendor/zlib/#gzwrite">gzwrite</a></li>
+</ul>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/vendor/zlib/#gzdopen">gzdopen</a></li>
+<li><a href="/vendor/zlib/#gzopen64">gzopen64</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="gz_header"><span><a class="doc-id-link" href="#gz_header">gz_header<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L84"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gz_header :: <a class="code-typename" href="/vendor/zlib/#gz_header_s">gz_header_s</a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gz_header_s"><span><a class="doc-id-link" href="#gz_header_s">gz_header_s<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L68"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gz_header_s :: <span class="keyword-type">struct</span> {
+	text:      <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+	time:      <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	xflags:    <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+	os:        <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+	extra:     [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	extra_len: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	extra_max: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	name:      [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	name_max:  <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	comment:   [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	comm_max:  <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	hcrc:      <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+	done:      <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/vendor/zlib/#deflateSetHeader">deflateSetHeader</a></li>
+<li><a href="/vendor/zlib/#inflateGetHeader">inflateGetHeader</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="gz_headerp"><span><a class="doc-id-link" href="#gz_headerp">gz_headerp<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L85"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gz_headerp :: ^<a class="code-typename" href="/vendor/zlib/#gz_header_s">gz_header_s</a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="in_func"><span><a class="doc-id-link" href="#in_func">in_func<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L37"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">in_func :: <span class="keyword-type">proc</span> "c" (_: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, _: [^][^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a></pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/vendor/zlib/#inflateBack">inflateBack</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="off64_t"><span><a class="doc-id-link" href="#off64_t">off64_t<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L31"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">off64_t :: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="off_t"><span><a class="doc-id-link" href="#off_t">off_t<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L30"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">off_t :: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="out_func"><span><a class="doc-id-link" href="#out_func">out_func<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L38"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">out_func :: <span class="keyword-type">proc</span> "c" (_: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, _: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, _: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a></pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/vendor/zlib/#inflateBack">inflateBack</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="size_t"><span><a class="doc-id-link" href="#size_t">size_t<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L29"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">size_t :: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="uInt"><span><a class="doc-id-link" href="#uInt">uInt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L25"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">uInt :: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="uIntf"><span><a class="doc-id-link" href="#uIntf">uIntf<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L26"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">uIntf :: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="uLong"><span><a class="doc-id-link" href="#uLong">uLong<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L27"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">uLong :: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="uLongf"><span><a class="doc-id-link" href="#uLongf">uLongf<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L28"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">uLongf :: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="voidp"><span><a class="doc-id-link" href="#voidp">voidp<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L20"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">voidp :: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="voidpc"><span><a class="doc-id-link" href="#voidpc">voidpc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L22"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">voidpc :: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="voidpf"><span><a class="doc-id-link" href="#voidpf">voidpf<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L21"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">voidpf :: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="z_stream"><span><a class="doc-id-link" href="#z_stream">z_stream<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L65"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">z_stream :: <a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a></pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="z_stream_s"><span><a class="doc-id-link" href="#z_stream_s">z_stream_s<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L48"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">z_stream_s :: <span class="keyword-type">struct</span> {
+	next_in:   ^<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	avail_in:  <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	total_in:  <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	next_out:  ^<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	avail_out: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	total_out: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	msg:       [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	state:     <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>,
+	zalloc:    <a class="code-typename" href="/vendor/zlib/#alloc_func">alloc_func</a>,
+	zfree:     <a class="code-typename" href="/vendor/zlib/#free_func">free_func</a>,
+	opaque:    <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>,
+	data_type: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+	adler:     <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	reserved:  <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/vendor/zlib/#deflate">deflate</a></li>
+<li><a href="/vendor/zlib/#deflateBound">deflateBound</a></li>
+<li><a href="/vendor/zlib/#deflateCopy">deflateCopy</a></li>
+<li><a href="/vendor/zlib/#deflateEnd">deflateEnd</a></li>
+<li><a href="/vendor/zlib/#deflateGetDictionary">deflateGetDictionary</a></li>
+<li><a href="/vendor/zlib/#deflateInit">deflateInit</a></li>
+<li><a href="/vendor/zlib/#deflateInit2">deflateInit2</a></li>
+<li><a href="/vendor/zlib/#deflateParams">deflateParams</a></li>
+<li><a href="/vendor/zlib/#deflatePending">deflatePending</a></li>
+<li><a href="/vendor/zlib/#deflatePrime">deflatePrime</a></li>
+<li><a href="/vendor/zlib/#deflateReset">deflateReset</a></li>
+<li><a href="/vendor/zlib/#deflateResetKeep">deflateResetKeep</a></li>
+<li><a href="/vendor/zlib/#deflateSetDictionary">deflateSetDictionary</a></li>
+<li><a href="/vendor/zlib/#deflateSetHeader">deflateSetHeader</a></li>
+<li><a href="/vendor/zlib/#deflateTune">deflateTune</a></li>
+<li><a href="/vendor/zlib/#inflate">inflate</a></li>
+<li><a href="/vendor/zlib/#inflateBack">inflateBack</a></li>
+<li><a href="/vendor/zlib/#inflateBackEnd">inflateBackEnd</a></li>
+<li><a href="/vendor/zlib/#inflateBackInit">inflateBackInit</a></li>
+<li><a href="/vendor/zlib/#inflateCodesUsed">inflateCodesUsed</a></li>
+<li><a href="/vendor/zlib/#inflateCopy">inflateCopy</a></li>
+<li><a href="/vendor/zlib/#inflateEnd">inflateEnd</a></li>
+<li><a href="/vendor/zlib/#inflateGetDictionary">inflateGetDictionary</a></li>
+<li><a href="/vendor/zlib/#inflateGetHeader">inflateGetHeader</a></li>
+<li><a href="/vendor/zlib/#inflateInit">inflateInit</a></li>
+<li><a href="/vendor/zlib/#inflateInit2">inflateInit2</a></li>
+<li><a href="/vendor/zlib/#inflateMark">inflateMark</a></li>
+<li><a href="/vendor/zlib/#inflatePrime">inflatePrime</a></li>
+<li><a href="/vendor/zlib/#inflateReset">inflateReset</a></li>
+<li><a href="/vendor/zlib/#inflateReset2">inflateReset2</a></li>
+<li><a href="/vendor/zlib/#inflateResetKeep">inflateResetKeep</a></li>
+<li><a href="/vendor/zlib/#inflateSetDictionary">inflateSetDictionary</a></li>
+<li><a href="/vendor/zlib/#inflateSync">inflateSync</a></li>
+<li><a href="/vendor/zlib/#inflateSyncPoint">inflateSyncPoint</a></li>
+<li><a href="/vendor/zlib/#inflateUndermine">inflateUndermine</a></li>
+<li><a href="/vendor/zlib/#inflateValidate">inflateValidate</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="z_streamp"><span><a class="doc-id-link" href="#z_streamp">z_streamp<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L66"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">z_streamp :: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a></pre>
+</div>
+</div>
+<h2 id="pkg-Constants" class="pkg-header">Constants</h2>
+<div class="pkg-entity">
+<h3 id="ASCII"><span><a class="doc-id-link" href="#ASCII">ASCII<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L124"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ASCII :: TEXT</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>for compatibility with 1.2.2 and earlier</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="BEST_COMPRESSION"><span><a class="doc-id-link" href="#BEST_COMPRESSION">BEST_COMPRESSION<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L111"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">BEST_COMPRESSION :: 9</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="BEST_SPEED"><span><a class="doc-id-link" href="#BEST_SPEED">BEST_SPEED<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L110"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">BEST_SPEED :: 1</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="BINARY"><span><a class="doc-id-link" href="#BINARY">BINARY<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L122"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">BINARY :: 0</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Possible values of the data_type field for deflate()</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="BLOCK"><span><a class="doc-id-link" href="#BLOCK">BLOCK<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L93"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">BLOCK :: 5</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="BUF_ERROR"><span><a class="doc-id-link" href="#BUF_ERROR">BUF_ERROR<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L105"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">BUF_ERROR :: -5</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="DATA_ERROR"><span><a class="doc-id-link" href="#DATA_ERROR">DATA_ERROR<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L103"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">DATA_ERROR :: -3</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="DEFAULT_COMPRESSION"><span><a class="doc-id-link" href="#DEFAULT_COMPRESSION">DEFAULT_COMPRESSION<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L112"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">DEFAULT_COMPRESSION :: -1</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="DEFAULT_STRATEGY"><span><a class="doc-id-link" href="#DEFAULT_STRATEGY">DEFAULT_STRATEGY<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L119"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">DEFAULT_STRATEGY :: 0</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="DEFLATED"><span><a class="doc-id-link" href="#DEFLATED">DEFLATED<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L128"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">DEFLATED :: 8</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>The deflate compression method (the only one supported in this version)</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="ERRNO"><span><a class="doc-id-link" href="#ERRNO">ERRNO<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L101"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ERRNO :: -1</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="FILTERED"><span><a class="doc-id-link" href="#FILTERED">FILTERED<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L115"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">FILTERED :: 1</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>compression strategy; see deflateInit2() below for details</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="FINISH"><span><a class="doc-id-link" href="#FINISH">FINISH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L92"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">FINISH :: 4</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="FIXED"><span><a class="doc-id-link" href="#FIXED">FIXED<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L118"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">FIXED :: 4</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="FULL_FLUSH"><span><a class="doc-id-link" href="#FULL_FLUSH">FULL_FLUSH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L91"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">FULL_FLUSH :: 3</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="HUFFMAN_ONLY"><span><a class="doc-id-link" href="#HUFFMAN_ONLY">HUFFMAN_ONLY<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L116"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">HUFFMAN_ONLY :: 2</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="MEM_ERROR"><span><a class="doc-id-link" href="#MEM_ERROR">MEM_ERROR<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L104"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MEM_ERROR :: -4</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="NEED_DICT"><span><a class="doc-id-link" href="#NEED_DICT">NEED_DICT<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L100"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">NEED_DICT :: 2</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="NO_COMPRESSION"><span><a class="doc-id-link" href="#NO_COMPRESSION">NO_COMPRESSION<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L109"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">NO_COMPRESSION :: 0</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>compression levels</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="NO_FLUSH"><span><a class="doc-id-link" href="#NO_FLUSH">NO_FLUSH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L88"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">NO_FLUSH :: 0</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Allowed flush values; see deflate() and inflate() below for details</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="NULL"><span><a class="doc-id-link" href="#NULL">NULL<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L130"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">NULL :: 0</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>for initializing zalloc, zfree, opaque</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="OK"><span><a class="doc-id-link" href="#OK">OK<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L98"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">OK :: 0</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Return codes for the compression/decompression functions. Negative values are
+errors, positive values are used for special but normal events.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="PARTIAL_FLUSH"><span><a class="doc-id-link" href="#PARTIAL_FLUSH">PARTIAL_FLUSH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L89"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">PARTIAL_FLUSH :: 1</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="RLE"><span><a class="doc-id-link" href="#RLE">RLE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L117"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">RLE :: 3</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="STREAM_END"><span><a class="doc-id-link" href="#STREAM_END">STREAM_END<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L99"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">STREAM_END :: 1</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="STREAM_ERROR"><span><a class="doc-id-link" href="#STREAM_ERROR">STREAM_ERROR<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L102"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">STREAM_ERROR :: -2</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="SYNC_FLUSH"><span><a class="doc-id-link" href="#SYNC_FLUSH">SYNC_FLUSH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L90"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">SYNC_FLUSH :: 2</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="TEXT"><span><a class="doc-id-link" href="#TEXT">TEXT<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L123"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">TEXT :: 1</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="TREES"><span><a class="doc-id-link" href="#TREES">TREES<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L94"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">TREES :: 6</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="UNKNOWN"><span><a class="doc-id-link" href="#UNKNOWN">UNKNOWN<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L125"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">UNKNOWN :: 2</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="VERNUM"><span><a class="doc-id-link" href="#VERNUM">VERNUM<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L14"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">VERNUM :: 0x12c0</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="VERSION"><span><a class="doc-id-link" href="#VERSION">VERSION<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L13"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">VERSION :: "1.2.12"</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="VERSION_ERROR"><span><a class="doc-id-link" href="#VERSION_ERROR">VERSION_ERROR<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L106"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">VERSION_ERROR :: -6</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="VER_MAJOR"><span><a class="doc-id-link" href="#VER_MAJOR">VER_MAJOR<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L15"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">VER_MAJOR :: 1</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="VER_MINOR"><span><a class="doc-id-link" href="#VER_MINOR">VER_MINOR<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L16"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">VER_MINOR :: 2</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="VER_REVISION"><span><a class="doc-id-link" href="#VER_REVISION">VER_REVISION<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L17"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">VER_REVISION :: 12</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="VER_SUBREVISION"><span><a class="doc-id-link" href="#VER_SUBREVISION">VER_SUBREVISION<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L18"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">VER_SUBREVISION :: 0</pre>
+</div>
+</div>
+<h2 id="pkg-Variables" class="pkg-header">Variables</h2>
+<p class="pkg-empty-section">This section is empty.</p>
+<h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
+<div class="pkg-entity">
+<h3 id="Version"><span><a class="doc-id-link" href="#Version">Version<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L138"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Version :: <span class="keyword-type">proc</span> "c" () -> <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>becase zlib.zlibVersion would be silly to write</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="adler32"><span><a class="doc-id-link" href="#adler32">adler32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L193"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">adler32 :: <span class="keyword-type">proc</span> "c" (adler: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, buf: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, len: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="adler32_combine"><span><a class="doc-id-link" href="#adler32_combine">adler32_combine<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L205"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">adler32_combine :: <span class="keyword-type">proc</span> "c" (_: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, _: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, _: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="adler32_combine64"><span><a class="doc-id-link" href="#adler32_combine64">adler32_combine64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L202"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">adler32_combine64 :: <span class="keyword-type">proc</span> "c" (_: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, _: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, _: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="adler32_z"><span><a class="doc-id-link" href="#adler32_z">adler32_z<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L194"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">adler32_z :: <span class="keyword-type">proc</span> "c" (adler: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, buf: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, len: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="compress"><span><a class="doc-id-link" href="#compress">compress<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L166"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">compress :: <span class="keyword-type">proc</span> "c" (dest: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, destLen: ^<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, source: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, sourceLen: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="compress2"><span><a class="doc-id-link" href="#compress2">compress2<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L167"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">compress2 :: <span class="keyword-type">proc</span> "c" (dest: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, destLen: ^<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, source: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, sourceLen: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, level: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="compressBound"><span><a class="doc-id-link" href="#compressBound">compressBound<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L168"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">compressBound :: <span class="keyword-type">proc</span> "c" (sourceLen: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="crc32"><span><a class="doc-id-link" href="#crc32">crc32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L195"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">crc32 :: <span class="keyword-type">proc</span> "c" (crc: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, buf: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, len: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="crc32_combine"><span><a class="doc-id-link" href="#crc32_combine">crc32_combine<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L206"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">crc32_combine :: <span class="keyword-type">proc</span> "c" (_: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, _: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, _: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="crc32_combine64"><span><a class="doc-id-link" href="#crc32_combine64">crc32_combine64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L203"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">crc32_combine64 :: <span class="keyword-type">proc</span> "c" (_: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, _: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, _: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="crc32_combine_gen"><span><a class="doc-id-link" href="#crc32_combine_gen">crc32_combine_gen<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L207"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">crc32_combine_gen :: <span class="keyword-type">proc</span> "c" (_: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="crc32_combine_gen64"><span><a class="doc-id-link" href="#crc32_combine_gen64">crc32_combine_gen64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L204"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">crc32_combine_gen64 :: <span class="keyword-type">proc</span> "c" (_: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="crc32_combine_op"><span><a class="doc-id-link" href="#crc32_combine_op">crc32_combine_op<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L197"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">crc32_combine_op :: <span class="keyword-type">proc</span> "c" (crc1, crc2, op: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="crc32_z"><span><a class="doc-id-link" href="#crc32_z">crc32_z<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L196"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">crc32_z :: <span class="keyword-type">proc</span> "c" (crc: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, buf: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, len: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="deflate"><span><a class="doc-id-link" href="#deflate">deflate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L140"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">deflate :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>, flush: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="deflateBound"><span><a class="doc-id-link" href="#deflateBound">deflateBound<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L150"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">deflateBound :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>, sourceLen: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="deflateCopy"><span><a class="doc-id-link" href="#deflateCopy">deflateCopy<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L146"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">deflateCopy :: <span class="keyword-type">proc</span> "c" (dest, source: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="deflateEnd"><span><a class="doc-id-link" href="#deflateEnd">deflateEnd<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L141"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">deflateEnd :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="deflateGetDictionary"><span><a class="doc-id-link" href="#deflateGetDictionary">deflateGetDictionary<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L145"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">deflateGetDictionary :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>, dictionary: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, dictLength: ^<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="deflateInit"><span><a class="doc-id-link" href="#deflateInit">deflateInit<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L234"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">deflateInit :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>, level: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="deflateInit2"><span><a class="doc-id-link" href="#deflateInit2">deflateInit2<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L242"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">deflateInit2 :: <span class="keyword-type">proc</span> "c" (
+	strm:                                ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>, 
+	level, method, windowBits, memLevel, 
+	strategy:                            <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="deflateParams"><span><a class="doc-id-link" href="#deflateParams">deflateParams<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L148"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">deflateParams :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>, level, strategy: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="deflatePending"><span><a class="doc-id-link" href="#deflatePending">deflatePending<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L151"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">deflatePending :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>, pending: [^]<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, bits: [^]<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="deflatePrime"><span><a class="doc-id-link" href="#deflatePrime">deflatePrime<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L152"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">deflatePrime :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>, bits, value: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="deflateReset"><span><a class="doc-id-link" href="#deflateReset">deflateReset<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L147"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">deflateReset :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="deflateResetKeep"><span><a class="doc-id-link" href="#deflateResetKeep">deflateResetKeep<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L215"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">deflateResetKeep :: <span class="keyword-type">proc</span> "c" (_: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="deflateSetDictionary"><span><a class="doc-id-link" href="#deflateSetDictionary">deflateSetDictionary<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L144"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">deflateSetDictionary :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>, dictionary: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, dictLength: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="deflateSetHeader"><span><a class="doc-id-link" href="#deflateSetHeader">deflateSetHeader<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L153"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">deflateSetHeader :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>, head: ^<a class="code-typename" href="/vendor/zlib/#gz_header_s">gz_header_s</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="deflateTune"><span><a class="doc-id-link" href="#deflateTune">deflateTune<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L149"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">deflateTune :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>, good_length, max_lazy, nice_length, max_chain: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="get_crc_table"><span><a class="doc-id-link" href="#get_crc_table">get_crc_table<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L210"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">get_crc_table :: <span class="keyword-type">proc</span> "c" () -> [^]<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzbuffer"><span><a class="doc-id-link" href="#gzbuffer">gzbuffer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L172"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzbuffer :: <span class="keyword-type">proc</span> "c" (file: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>, size: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzclearerr"><span><a class="doc-id-link" href="#gzclearerr">gzclearerr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L192"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzclearerr :: <span class="keyword-type">proc</span> "c" (file: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>) ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzclose"><span><a class="doc-id-link" href="#gzclose">gzclose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L188"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzclose :: <span class="keyword-type">proc</span> "c" (file: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzclose_r"><span><a class="doc-id-link" href="#gzclose_r">gzclose_r<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L189"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzclose_r :: <span class="keyword-type">proc</span> "c" (file: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzclose_w"><span><a class="doc-id-link" href="#gzclose_w">gzclose_w<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L190"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzclose_w :: <span class="keyword-type">proc</span> "c" (file: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzdirect"><span><a class="doc-id-link" href="#gzdirect">gzdirect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L187"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzdirect :: <span class="keyword-type">proc</span> "c" (file: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzdopen"><span><a class="doc-id-link" href="#gzdopen">gzdopen<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L171"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzdopen :: <span class="keyword-type">proc</span> "c" (fd: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, mode: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzeof"><span><a class="doc-id-link" href="#gzeof">gzeof<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L186"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzeof :: <span class="keyword-type">proc</span> "c" (file: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzerror"><span><a class="doc-id-link" href="#gzerror">gzerror<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L191"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzerror :: <span class="keyword-type">proc</span> "c" (file: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>, errnum: ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzflush"><span><a class="doc-id-link" href="#gzflush">gzflush<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L184"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzflush :: <span class="keyword-type">proc</span> "c" (file: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>, flush: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzfread"><span><a class="doc-id-link" href="#gzfread">gzfread<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L175"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzfread :: <span class="keyword-type">proc</span> "c" (buf: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, size, nitems: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>, file: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>) -> <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzfwrite"><span><a class="doc-id-link" href="#gzfwrite">gzfwrite<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L177"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzfwrite :: <span class="keyword-type">proc</span> "c" (buf: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, size, nitems: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>, file: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>) -> <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzgetc"><span><a class="doc-id-link" href="#gzgetc">gzgetc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L258"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzgetc :: <span class="keyword-type">proc</span>(file: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>zlib.h redefines gzgetc with a macro and uses (gzgetc)(g) to invoke it from
+inside the same macro (preventing macro expansion), in Odin we give that a
+unique name using link_prefix then implement the body of the macro in our own
+procedure calling the unique named gzgetc instead.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="gzgetc_"><span><a class="doc-id-link" href="#gzgetc_">gzgetc_<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L182"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzgetc_ :: <span class="keyword-type">proc</span> "c" (file: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>backwards compat, not the same as gzget</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="gzgets"><span><a class="doc-id-link" href="#gzgets">gzgets<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L180"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzgets :: <span class="keyword-type">proc</span> "c" (file: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>, buf: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, len: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzoffset64"><span><a class="doc-id-link" href="#gzoffset64">gzoffset64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L201"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzoffset64 :: <span class="keyword-type">proc</span> "c" (_: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>) -> <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzopen64"><span><a class="doc-id-link" href="#gzopen64">gzopen64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L198"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzopen64 :: <span class="keyword-type">proc</span> "c" (_: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>, _: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzprintf"><span><a class="doc-id-link" href="#gzprintf">gzprintf<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L178"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzprintf :: <span class="keyword-type">proc</span> "c" (file: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>, format: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>, args: ..<a href="/core/builtin#any"><span class="doc-builtin">any</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzputc"><span><a class="doc-id-link" href="#gzputc">gzputc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L181"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzputc :: <span class="keyword-type">proc</span> "c" (file: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>, ch: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzputs"><span><a class="doc-id-link" href="#gzputs">gzputs<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L179"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzputs :: <span class="keyword-type">proc</span> "c" (file: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>, s: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzread"><span><a class="doc-id-link" href="#gzread">gzread<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L174"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzread :: <span class="keyword-type">proc</span> "c" (file: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>, buf: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, len: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzrewind"><span><a class="doc-id-link" href="#gzrewind">gzrewind<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L185"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzrewind :: <span class="keyword-type">proc</span> "c" (file: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzseek64"><span><a class="doc-id-link" href="#gzseek64">gzseek64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L199"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzseek64 :: <span class="keyword-type">proc</span> "c" (_: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>, _: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>, _: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzsetparams"><span><a class="doc-id-link" href="#gzsetparams">gzsetparams<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L173"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzsetparams :: <span class="keyword-type">proc</span> "c" (file: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>, level, strategy: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gztell64"><span><a class="doc-id-link" href="#gztell64">gztell64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L200"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gztell64 :: <span class="keyword-type">proc</span> "c" (_: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>) -> <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzungetc"><span><a class="doc-id-link" href="#gzungetc">gzungetc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L183"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzungetc :: <span class="keyword-type">proc</span> "c" (ch: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, file: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="gzwrite"><span><a class="doc-id-link" href="#gzwrite">gzwrite<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L176"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">gzwrite :: <span class="keyword-type">proc</span> "c" (file: ^<a class="code-typename" href="/vendor/zlib/#gzFile_s">gzFile_s</a>, buf: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, len: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflate"><span><a class="doc-id-link" href="#inflate">inflate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L142"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflate :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>, flush: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflateBack"><span><a class="doc-id-link" href="#inflateBack">inflateBack<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L163"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflateBack :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>, _in: <a class="code-typename" href="/vendor/zlib/#in_func">in_func</a>, in_desc: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, out: <a class="code-typename" href="/vendor/zlib/#out_func">out_func</a>, out_desc: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflateBackEnd"><span><a class="doc-id-link" href="#inflateBackEnd">inflateBackEnd<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L164"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflateBackEnd :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflateBackInit"><span><a class="doc-id-link" href="#inflateBackInit">inflateBackInit<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L250"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflateBackInit :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>, windowBits: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, window: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflateCodesUsed"><span><a class="doc-id-link" href="#inflateCodesUsed">inflateCodesUsed<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L213"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflateCodesUsed :: <span class="keyword-type">proc</span> "c" (_: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflateCopy"><span><a class="doc-id-link" href="#inflateCopy">inflateCopy<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L157"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflateCopy :: <span class="keyword-type">proc</span> "c" (dest, source: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflateEnd"><span><a class="doc-id-link" href="#inflateEnd">inflateEnd<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L143"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflateEnd :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflateGetDictionary"><span><a class="doc-id-link" href="#inflateGetDictionary">inflateGetDictionary<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L155"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflateGetDictionary :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>, dictionary: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, dictLength: ^<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflateGetHeader"><span><a class="doc-id-link" href="#inflateGetHeader">inflateGetHeader<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L162"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflateGetHeader :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>, head: ^<a class="code-typename" href="/vendor/zlib/#gz_header_s">gz_header_s</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflateInit"><span><a class="doc-id-link" href="#inflateInit">inflateInit<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L238"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflateInit :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>, level: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflateInit2"><span><a class="doc-id-link" href="#inflateInit2">inflateInit2<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L246"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflateInit2 :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>, windowBits: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflateMark"><span><a class="doc-id-link" href="#inflateMark">inflateMark<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L161"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflateMark :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflatePrime"><span><a class="doc-id-link" href="#inflatePrime">inflatePrime<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L160"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflatePrime :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>, bits, value: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflateReset"><span><a class="doc-id-link" href="#inflateReset">inflateReset<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L158"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflateReset :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflateReset2"><span><a class="doc-id-link" href="#inflateReset2">inflateReset2<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L159"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflateReset2 :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>, windowBits: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflateResetKeep"><span><a class="doc-id-link" href="#inflateResetKeep">inflateResetKeep<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L214"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflateResetKeep :: <span class="keyword-type">proc</span> "c" (_: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflateSetDictionary"><span><a class="doc-id-link" href="#inflateSetDictionary">inflateSetDictionary<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L154"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflateSetDictionary :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>, dictionary: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, dictLength: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflateSync"><span><a class="doc-id-link" href="#inflateSync">inflateSync<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L156"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflateSync :: <span class="keyword-type">proc</span> "c" (strm: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflateSyncPoint"><span><a class="doc-id-link" href="#inflateSyncPoint">inflateSyncPoint<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L209"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflateSyncPoint :: <span class="keyword-type">proc</span> "c" (_: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflateUndermine"><span><a class="doc-id-link" href="#inflateUndermine">inflateUndermine<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L211"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflateUndermine :: <span class="keyword-type">proc</span> "c" (_: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>, _: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inflateValidate"><span><a class="doc-id-link" href="#inflateValidate">inflateValidate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L212"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inflateValidate :: <span class="keyword-type">proc</span> "c" (_: ^<a class="code-typename" href="/vendor/zlib/#z_stream_s">z_stream_s</a>, _: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="uncompress"><span><a class="doc-id-link" href="#uncompress">uncompress<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L169"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">uncompress :: <span class="keyword-type">proc</span> "c" (dest: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, destLen: ^<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, source: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, sourceLen: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="uncompress2"><span><a class="doc-id-link" href="#uncompress2">uncompress2<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L170"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">uncompress2 :: <span class="keyword-type">proc</span> "c" (dest: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, destLen: ^<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, source: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, sourceLen: ^<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="version"><span><a class="doc-id-link" href="#version">version<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L138"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">version :: <a class="code-procedure" href="/vendor/zlib/#Version">Version</a></pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>becase zlib.zlibVersion would be silly to write</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="zError"><span><a class="doc-id-link" href="#zError">zError<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L208"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">zError :: <span class="keyword-type">proc</span> "c" (_: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="zlibCompileFlags"><span><a class="doc-id-link" href="#zlibCompileFlags">zlibCompileFlags<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin#L165"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">zlibCompileFlags :: <span class="keyword-type">proc</span> "c" () -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> ---</pre>
+</div>
+</div>
+<h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
+<p class="pkg-empty-section">This section is empty.</p>
+</section>
+<h2 id="pkg-source-files">Source Files</h2>
+<ul>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/vendor/zlib/zlib.odin">zlib.odin</a></li>
+</ul>
+<h2 id="pkg-generation-information">Generation Information</h2>
+<p>Generated with <code>odin version dev-2023-09 (vendor "odin") Windows_amd64 @ 2023-09-05 17:19:49.013560000 +0000 UTC</code></p>
+</article>
+<div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#pkg-Types">Types</a><ul>
+<li><a href="#Byte">Byte</a></li>
+<li><a href="#Bytef">Bytef</a></li>
+<li><a href="#alloc_func">alloc_func</a></li>
+<li><a href="#crc_t">crc_t</a></li>
+<li><a href="#free_func">free_func</a></li>
+<li><a href="#gzFile">gzFile</a></li>
+<li><a href="#gzFile_s">gzFile_s</a></li>
+<li><a href="#gz_header">gz_header</a></li>
+<li><a href="#gz_header_s">gz_header_s</a></li>
+<li><a href="#gz_headerp">gz_headerp</a></li>
+<li><a href="#in_func">in_func</a></li>
+<li><a href="#off64_t">off64_t</a></li>
+<li><a href="#off_t">off_t</a></li>
+<li><a href="#out_func">out_func</a></li>
+<li><a href="#size_t">size_t</a></li>
+<li><a href="#uInt">uInt</a></li>
+<li><a href="#uIntf">uIntf</a></li>
+<li><a href="#uLong">uLong</a></li>
+<li><a href="#uLongf">uLongf</a></li>
+<li><a href="#voidp">voidp</a></li>
+<li><a href="#voidpc">voidpc</a></li>
+<li><a href="#voidpf">voidpf</a></li>
+<li><a href="#z_stream">z_stream</a></li>
+<li><a href="#z_stream_s">z_stream_s</a></li>
+<li><a href="#z_streamp">z_streamp</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Constants">Constants</a><ul>
+<li><a href="#ASCII">ASCII</a></li>
+<li><a href="#BEST_COMPRESSION">BEST_COMPRESSION</a></li>
+<li><a href="#BEST_SPEED">BEST_SPEED</a></li>
+<li><a href="#BINARY">BINARY</a></li>
+<li><a href="#BLOCK">BLOCK</a></li>
+<li><a href="#BUF_ERROR">BUF_ERROR</a></li>
+<li><a href="#DATA_ERROR">DATA_ERROR</a></li>
+<li><a href="#DEFAULT_COMPRESSION">DEFAULT_COMPRESSION</a></li>
+<li><a href="#DEFAULT_STRATEGY">DEFAULT_STRATEGY</a></li>
+<li><a href="#DEFLATED">DEFLATED</a></li>
+<li><a href="#ERRNO">ERRNO</a></li>
+<li><a href="#FILTERED">FILTERED</a></li>
+<li><a href="#FINISH">FINISH</a></li>
+<li><a href="#FIXED">FIXED</a></li>
+<li><a href="#FULL_FLUSH">FULL_FLUSH</a></li>
+<li><a href="#HUFFMAN_ONLY">HUFFMAN_ONLY</a></li>
+<li><a href="#MEM_ERROR">MEM_ERROR</a></li>
+<li><a href="#NEED_DICT">NEED_DICT</a></li>
+<li><a href="#NO_COMPRESSION">NO_COMPRESSION</a></li>
+<li><a href="#NO_FLUSH">NO_FLUSH</a></li>
+<li><a href="#NULL">NULL</a></li>
+<li><a href="#OK">OK</a></li>
+<li><a href="#PARTIAL_FLUSH">PARTIAL_FLUSH</a></li>
+<li><a href="#RLE">RLE</a></li>
+<li><a href="#STREAM_END">STREAM_END</a></li>
+<li><a href="#STREAM_ERROR">STREAM_ERROR</a></li>
+<li><a href="#SYNC_FLUSH">SYNC_FLUSH</a></li>
+<li><a href="#TEXT">TEXT</a></li>
+<li><a href="#TREES">TREES</a></li>
+<li><a href="#UNKNOWN">UNKNOWN</a></li>
+<li><a href="#VERNUM">VERNUM</a></li>
+<li><a href="#VERSION">VERSION</a></li>
+<li><a href="#VERSION_ERROR">VERSION_ERROR</a></li>
+<li><a href="#VER_MAJOR">VER_MAJOR</a></li>
+<li><a href="#VER_MINOR">VER_MINOR</a></li>
+<li><a href="#VER_REVISION">VER_REVISION</a></li>
+<li><a href="#VER_SUBREVISION">VER_SUBREVISION</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Procedures">Procedures</a><ul>
+<li><a href="#Version">Version</a></li>
+<li><a href="#adler32">adler32</a></li>
+<li><a href="#adler32_combine">adler32_combine</a></li>
+<li><a href="#adler32_combine64">adler32_combine64</a></li>
+<li><a href="#adler32_z">adler32_z</a></li>
+<li><a href="#compress">compress</a></li>
+<li><a href="#compress2">compress2</a></li>
+<li><a href="#compressBound">compressBound</a></li>
+<li><a href="#crc32">crc32</a></li>
+<li><a href="#crc32_combine">crc32_combine</a></li>
+<li><a href="#crc32_combine64">crc32_combine64</a></li>
+<li><a href="#crc32_combine_gen">crc32_combine_gen</a></li>
+<li><a href="#crc32_combine_gen64">crc32_combine_gen64</a></li>
+<li><a href="#crc32_combine_op">crc32_combine_op</a></li>
+<li><a href="#crc32_z">crc32_z</a></li>
+<li><a href="#deflate">deflate</a></li>
+<li><a href="#deflateBound">deflateBound</a></li>
+<li><a href="#deflateCopy">deflateCopy</a></li>
+<li><a href="#deflateEnd">deflateEnd</a></li>
+<li><a href="#deflateGetDictionary">deflateGetDictionary</a></li>
+<li><a href="#deflateInit">deflateInit</a></li>
+<li><a href="#deflateInit2">deflateInit2</a></li>
+<li><a href="#deflateParams">deflateParams</a></li>
+<li><a href="#deflatePending">deflatePending</a></li>
+<li><a href="#deflatePrime">deflatePrime</a></li>
+<li><a href="#deflateReset">deflateReset</a></li>
+<li><a href="#deflateResetKeep">deflateResetKeep</a></li>
+<li><a href="#deflateSetDictionary">deflateSetDictionary</a></li>
+<li><a href="#deflateSetHeader">deflateSetHeader</a></li>
+<li><a href="#deflateTune">deflateTune</a></li>
+<li><a href="#get_crc_table">get_crc_table</a></li>
+<li><a href="#gzbuffer">gzbuffer</a></li>
+<li><a href="#gzclearerr">gzclearerr</a></li>
+<li><a href="#gzclose">gzclose</a></li>
+<li><a href="#gzclose_r">gzclose_r</a></li>
+<li><a href="#gzclose_w">gzclose_w</a></li>
+<li><a href="#gzdirect">gzdirect</a></li>
+<li><a href="#gzdopen">gzdopen</a></li>
+<li><a href="#gzeof">gzeof</a></li>
+<li><a href="#gzerror">gzerror</a></li>
+<li><a href="#gzflush">gzflush</a></li>
+<li><a href="#gzfread">gzfread</a></li>
+<li><a href="#gzfwrite">gzfwrite</a></li>
+<li><a href="#gzgetc">gzgetc</a></li>
+<li><a href="#gzgetc_">gzgetc_</a></li>
+<li><a href="#gzgets">gzgets</a></li>
+<li><a href="#gzoffset64">gzoffset64</a></li>
+<li><a href="#gzopen64">gzopen64</a></li>
+<li><a href="#gzprintf">gzprintf</a></li>
+<li><a href="#gzputc">gzputc</a></li>
+<li><a href="#gzputs">gzputs</a></li>
+<li><a href="#gzread">gzread</a></li>
+<li><a href="#gzrewind">gzrewind</a></li>
+<li><a href="#gzseek64">gzseek64</a></li>
+<li><a href="#gzsetparams">gzsetparams</a></li>
+<li><a href="#gztell64">gztell64</a></li>
+<li><a href="#gzungetc">gzungetc</a></li>
+<li><a href="#gzwrite">gzwrite</a></li>
+<li><a href="#inflate">inflate</a></li>
+<li><a href="#inflateBack">inflateBack</a></li>
+<li><a href="#inflateBackEnd">inflateBackEnd</a></li>
+<li><a href="#inflateBackInit">inflateBackInit</a></li>
+<li><a href="#inflateCodesUsed">inflateCodesUsed</a></li>
+<li><a href="#inflateCopy">inflateCopy</a></li>
+<li><a href="#inflateEnd">inflateEnd</a></li>
+<li><a href="#inflateGetDictionary">inflateGetDictionary</a></li>
+<li><a href="#inflateGetHeader">inflateGetHeader</a></li>
+<li><a href="#inflateInit">inflateInit</a></li>
+<li><a href="#inflateInit2">inflateInit2</a></li>
+<li><a href="#inflateMark">inflateMark</a></li>
+<li><a href="#inflatePrime">inflatePrime</a></li>
+<li><a href="#inflateReset">inflateReset</a></li>
+<li><a href="#inflateReset2">inflateReset2</a></li>
+<li><a href="#inflateResetKeep">inflateResetKeep</a></li>
+<li><a href="#inflateSetDictionary">inflateSetDictionary</a></li>
+<li><a href="#inflateSync">inflateSync</a></li>
+<li><a href="#inflateSyncPoint">inflateSyncPoint</a></li>
+<li><a href="#inflateUndermine">inflateUndermine</a></li>
+<li><a href="#inflateValidate">inflateValidate</a></li>
+<li><a href="#uncompress">uncompress</a></li>
+<li><a href="#uncompress2">uncompress2</a></li>
+<li><a href="#version">version</a></li>
+<li><a href="#zError">zError</a></li>
+<li><a href="#zlibCompileFlags">zlibCompileFlags</a></li>
+</ul>
+</li>
+<li><a href="#pkg-source-files">Source Files</a></ul>
+</nav>
+</div></div>
+<script type="text/javascript">var odin_pkg_name = "vendor_zlib";</script>
+</div>
+
+</div>
+</main>
+
+<footer class="odin-footer">
+	<div class="container pb-5 pt-5">
+		<div class="row g-4">
+		<div class="col">
+		<a class="navbar-brand" href="https://odin-lang.org">
+		<img class="mb-3" src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+		<p>
+		The Data-Oriented Language for Sane Software Development.
+		</p>
+		</div>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Resources</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://odin-lang.org/docs" class="link-light">Docs</a></li>
+			<li><a href="https://pkg.odin-lang.org/" class="link-light">Packages</a></li>
+			<li><a href="https://odin-lang.org/news" class="link-light">News</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Community</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin" target="_blank" class="link-light">GitHub</a></li>
+			<li><a href="https://discord.com/invite/sVBPHEv" target="_blank" class="link-light">Discord</a></li>
+			<li><a href="https://www.twitch.tv/ginger_bill" target="_blank" class="link-light">Twitch</a></li>
+			<li><a href="https://www.youtube.com/channel/UCUSck1dOH7VKmG4lRW7tZXg" target="_blank" class="link-light">YouTube</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Contribute</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin/issues" target="_blank" class="link-light">Issues</a></li>
+			<li><a href="https://www.patreon.com/gingerbill" target="_blank" class="link-light">Donate</a></li>
+			</ul>
+			</nav>
+		</div>
+		<div class="mt-4 text-muted">© 2016–2023 Ginger Bill</div>
+	</div>
+</footer>
+
+<script src="https://odin-lang.org/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://odin-lang.org/js/script.js"></script>
+<script src="/pkg-data.js"></script>
+<script src="/search.js"></script>
+</body>
+</html>
