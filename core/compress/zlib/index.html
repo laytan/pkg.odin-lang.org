@@ -519,25 +519,25 @@ Procedure Groups (1)</summary>
 </div>
 <h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
 <div class="pkg-entity">
-<h3 id="allocate_huffman_table"><span><a class="doc-id-link" href="#allocate_huffman_table">allocate_huffman_table<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L233"><em>Source</em></a></div></h3>
+<h3 id="allocate_huffman_table"><span><a class="doc-id-link" href="#allocate_huffman_table">allocate_huffman_table<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L241"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">allocate_huffman_table :: <span class="keyword-type">proc</span>(allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (z: ^<a class="code-typename" href="/core/compress/zlib/#Huffman_Table">Huffman_Table</a>, err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="build_huffman"><span><a class="doc-id-link" href="#build_huffman">build_huffman<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L238"><em>Source</em></a></div></h3>
+<h3 id="build_huffman"><span><a class="doc-id-link" href="#build_huffman">build_huffman<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L246"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">build_huffman :: <span class="keyword-type">proc</span>(z: ^<a class="code-typename" href="/core/compress/zlib/#Huffman_Table">Huffman_Table</a>, code_lengths: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="decode_huffman"><span><a class="doc-id-link" href="#decode_huffman">decode_huffman<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L328"><em>Source</em></a></div></h3>
+<h3 id="decode_huffman"><span><a class="doc-id-link" href="#decode_huffman">decode_huffman<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L336"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">decode_huffman :: <span class="keyword-type">proc</span>(z: ^$T, t: ^<a class="code-typename" href="/core/compress/zlib/#Huffman_Table">Huffman_Table</a>) -> (r: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="decode_huffman_slowpath"><span><a class="doc-id-link" href="#decode_huffman_slowpath">decode_huffman_slowpath<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L297"><em>Source</em></a></div></h3>
+<h3 id="decode_huffman_slowpath"><span><a class="doc-id-link" href="#decode_huffman_slowpath">decode_huffman_slowpath<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L305"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">decode_huffman_slowpath :: <span class="keyword-type">proc</span>(z: ^$T, t: ^<a class="code-typename" href="/core/compress/zlib/#Huffman_Table">Huffman_Table</a>) -> (r: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
 </div>
@@ -549,49 +549,49 @@ Procedure Groups (1)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="inflate_from_byte_array"><span><a class="doc-id-link" href="#inflate_from_byte_array">inflate_from_byte_array<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L655"><em>Source</em></a></div></h3>
+<h3 id="inflate_from_byte_array"><span><a class="doc-id-link" href="#inflate_from_byte_array">inflate_from_byte_array<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L663"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">inflate_from_byte_array :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, buf: ^bytes.<a class="code-typename" href="/core/bytes/#Buffer">Buffer</a>, raw: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false, expected_output_size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = -1) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="inflate_from_byte_array_raw"><span><a class="doc-id-link" href="#inflate_from_byte_array_raw">inflate_from_byte_array_raw<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L664"><em>Source</em></a></div></h3>
+<h3 id="inflate_from_byte_array_raw"><span><a class="doc-id-link" href="#inflate_from_byte_array_raw">inflate_from_byte_array_raw<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L672"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">inflate_from_byte_array_raw :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, buf: ^bytes.<a class="code-typename" href="/core/bytes/#Buffer">Buffer</a>, raw: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false, expected_output_size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = -1) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="inflate_from_context"><span><a class="doc-id-link" href="#inflate_from_context">inflate_from_context<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L417"><em>Source</em></a></div></h3>
+<h3 id="inflate_from_context"><span><a class="doc-id-link" href="#inflate_from_context">inflate_from_context<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L425"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">inflate_from_context :: <span class="keyword-type">proc</span>(<span class="keyword-type">using</span> ctx: ^compress.<a class="code-typename" href="/core/compress/#Context_Memory_Input">Context_Memory_Input</a>, raw: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false, expected_output_size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = -1, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="inflate_raw"><span><a class="doc-id-link" href="#inflate_raw">inflate_raw<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L490"><em>Source</em></a></div></h3>
+<h3 id="inflate_raw"><span><a class="doc-id-link" href="#inflate_raw">inflate_raw<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L498"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">inflate_raw :: <span class="keyword-type">proc</span>(z: ^$T, expected_output_size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = -1, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="parse_huffman_block"><span><a class="doc-id-link" href="#parse_huffman_block">parse_huffman_block<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L348"><em>Source</em></a></div></h3>
+<h3 id="parse_huffman_block"><span><a class="doc-id-link" href="#parse_huffman_block">parse_huffman_block<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L356"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">parse_huffman_block :: <span class="keyword-type">proc</span>(z: ^$T, z_repeat, z_offset: ^<a class="code-typename" href="/core/compress/zlib/#Huffman_Table">Huffman_Table</a>) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="repl_byte"><span><a class="doc-id-link" href="#repl_byte">repl_byte<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L177"><em>Source</em></a></div></h3>
+<h3 id="repl_byte"><span><a class="doc-id-link" href="#repl_byte">repl_byte<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L185"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">repl_byte :: <span class="keyword-type">proc</span>(z: ^$T, count: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, c: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="repl_bytes"><span><a class="doc-id-link" href="#repl_bytes">repl_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L205"><em>Source</em></a></div></h3>
+<h3 id="repl_bytes"><span><a class="doc-id-link" href="#repl_bytes">repl_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L213"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">repl_bytes :: <span class="keyword-type">proc</span>(z: ^$T, count: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, distance: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>) -> (err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="write_byte"><span><a class="doc-id-link" href="#write_byte">write_byte<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L158"><em>Source</em></a></div></h3>
+<h3 id="write_byte"><span><a class="doc-id-link" href="#write_byte">write_byte<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L166"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">write_byte :: <span class="keyword-type">proc</span>(z: ^$T, c: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
@@ -608,7 +608,7 @@ Procedure Groups (1)</summary>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
 <div class="pkg-entity">
-<h3 id="inflate"><span><a class="doc-id-link" href="#inflate">inflate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L673"><em>Source</em></a></div></h3>
+<h3 id="inflate"><span><a class="doc-id-link" href="#inflate">inflate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L681"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">inflate :: proc{
 	<a class="code-procedure" href="/core/compress/zlib/#inflate_from_context">inflate_from_context</a>,
@@ -623,7 +623,7 @@ Procedure Groups (1)</summary>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin">zlib.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-09 (vendor "odin") Windows_amd64 @ 2023-09-05 17:19:48.377262500 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:35:08.381181600 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

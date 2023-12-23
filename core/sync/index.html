@@ -970,8 +970,6 @@ Posting to the semaphore increases the count by one, or the provided amount.</p>
 <li><a href="/core/sync/#wait_group_done">wait_group_done</a></li>
 <li><a href="/core/sync/#wait_group_wait">wait_group_wait</a></li>
 <li><a href="/core/sync/#wait_group_wait_with_timeout">wait_group_wait_with_timeout</a></li>
-<li><a href="/core/sync/#wait">wait</a>&nbsp;<em>(procedure groups)</em></li>
-<li><a href="/core/sync/#wait_with_timeout">wait_with_timeout</a>&nbsp;<em>(procedure groups)</em></li>
 </ul>
 </div>
 <h2 id="pkg-Constants" class="pkg-header">Constants</h2>
@@ -1810,7 +1808,7 @@ If the mutex is already locked for reading or writing, the mutex blocks until th
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
 <div class="pkg-entity">
-<h3 id="broadcast"><span><a class="doc-id-link" href="#broadcast">broadcast<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/sync/sync_util.odin#L114"><em>Source</em></a></div></h3>
+<h3 id="broadcast"><span><a class="doc-id-link" href="#broadcast">broadcast<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/sync/sync_util.odin#L112"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">broadcast :: proc{
 	<a class="code-procedure" href="/core/sync/#cond_broadcast">cond_broadcast</a>,
@@ -1881,7 +1879,7 @@ If the mutex is already locked for reading or writing, the mutex blocks until th
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="post"><span><a class="doc-id-link" href="#post">post<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/sync/sync_util.odin#L103"><em>Source</em></a></div></h3>
+<h3 id="post"><span><a class="doc-id-link" href="#post">post<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/sync/sync_util.odin#L101"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">post :: proc{
 	<a class="code-procedure" href="/core/sync/#sema_post">sema_post</a>,
@@ -1937,7 +1935,7 @@ If the mutex is already locked for reading or writing, the mutex blocks until th
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="signal"><span><a class="doc-id-link" href="#signal">signal<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/sync/sync_util.odin#L108"><em>Source</em></a></div></h3>
+<h3 id="signal"><span><a class="doc-id-link" href="#signal">signal<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/sync/sync_util.odin#L106"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">signal :: proc{
 	<a class="code-procedure" href="/core/sync/#cond_signal">cond_signal</a>,
@@ -2009,13 +2007,12 @@ If the mutex is already locked for reading or writing, the mutex blocks until th
 	<a class="code-procedure" href="/core/sync/#atomic_cond_wait">atomic_cond_wait</a>,
 	<a class="code-procedure" href="/core/sync/#atomic_sema_wait">atomic_sema_wait</a>,
 	<a class="code-procedure" href="/core/sync/#futex_wait">futex_wait</a>,
-	<a class="code-procedure" href="/core/sync/#wait_group_wait">wait_group_wait</a>,
 }
 </pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="wait_with_timeout"><span><a class="doc-id-link" href="#wait_with_timeout">wait_with_timeout<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/sync/sync_util.odin#L94"><em>Source</em></a></div></h3>
+<h3 id="wait_with_timeout"><span><a class="doc-id-link" href="#wait_with_timeout">wait_with_timeout<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/sync/sync_util.odin#L93"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">wait_with_timeout :: proc{
 	<a class="code-procedure" href="/core/sync/#cond_wait_with_timeout">cond_wait_with_timeout</a>,
@@ -2023,7 +2020,6 @@ If the mutex is already locked for reading or writing, the mutex blocks until th
 	<a class="code-procedure" href="/core/sync/#atomic_cond_wait_with_timeout">atomic_cond_wait_with_timeout</a>,
 	<a class="code-procedure" href="/core/sync/#atomic_sema_wait_with_timeout">atomic_sema_wait_with_timeout</a>,
 	<a class="code-procedure" href="/core/sync/#futex_wait_with_timeout">futex_wait_with_timeout</a>,
-	<a class="code-procedure" href="/core/sync/#wait_group_wait_with_timeout">wait_group_wait_with_timeout</a>,
 }
 </pre>
 </div>
@@ -2040,7 +2036,7 @@ If the mutex is already locked for reading or writing, the mutex blocks until th
 <li><em>(hidden platform specific files)</em></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-09 (vendor "odin") Windows_amd64 @ 2023-09-05 17:19:48.503348900 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:35:08.423758600 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

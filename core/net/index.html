@@ -1208,7 +1208,7 @@ These can be used for any purpose.
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Set_Blocking_Error"><span><a class="doc-id-link" href="#Set_Blocking_Error">Set_Blocking_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/net/errors_windows.odin#L256"><em>Source</em></a></div></h3>
+<h3 id="Set_Blocking_Error"><span><a class="doc-id-link" href="#Set_Blocking_Error">Set_Blocking_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/net/errors_windows.odin#L263"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Set_Blocking_Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	None                              = 0, 
@@ -1222,7 +1222,7 @@ These can be used for any purpose.
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Shutdown_Error"><span><a class="doc-id-link" href="#Shutdown_Error">Shutdown_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/net/errors_windows.odin#L185"><em>Source</em></a></div></h3>
+<h3 id="Shutdown_Error"><span><a class="doc-id-link" href="#Shutdown_Error">Shutdown_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/net/errors_windows.odin#L192"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Shutdown_Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	None           = 0, 
@@ -1236,7 +1236,7 @@ These can be used for any purpose.
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Shutdown_Manner"><span><a class="doc-id-link" href="#Shutdown_Manner">Shutdown_Manner<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/net/errors_windows.odin#L179"><em>Source</em></a></div></h3>
+<h3 id="Shutdown_Manner"><span><a class="doc-id-link" href="#Shutdown_Manner">Shutdown_Manner<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/net/errors_windows.odin#L186"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Shutdown_Manner :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	Receive = 0, 
@@ -1268,7 +1268,7 @@ The platform code will perform the cast so you don't have to.
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Socket_Option"><span><a class="doc-id-link" href="#Socket_Option">Socket_Option<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/net/errors_windows.odin#L195"><em>Source</em></a></div></h3>
+<h3 id="Socket_Option"><span><a class="doc-id-link" href="#Socket_Option">Socket_Option<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/net/errors_windows.odin#L202"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Socket_Option :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	<span class="comment">// bool: Whether the address that this socket is bound to can be reused by other sockets.</span>
@@ -1311,7 +1311,7 @@ The platform code will perform the cast so you don't have to.
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Socket_Option_Error"><span><a class="doc-id-link" href="#Socket_Option_Error">Socket_Option_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/net/errors_windows.odin#L242"><em>Source</em></a></div></h3>
+<h3 id="Socket_Option_Error"><span><a class="doc-id-link" href="#Socket_Option_Error">Socket_Option_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/net/errors_windows.odin#L249"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Socket_Option_Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	None                               = 0, 
@@ -1386,6 +1386,7 @@ The platform code will perform the cast so you don't have to.
 	Not_Socket                = 10038, 
 	Shutdown                  = 10058, 
 	Would_Block               = 10035, 
+	<span class="comment">// TODO: not functionally different from Reset; merge?</span>
 	Aborted                   = 10053, 
 	Timeout                   = 10060, 
 	<span class="comment">// TODO(tetra): Determine when this is different from the syscall returning n=0 and maybe normalize them?</span>
@@ -1396,10 +1397,11 @@ The platform code will perform the cast so you don't have to.
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="TCP_Send_Error"><span><a class="doc-id-link" href="#TCP_Send_Error">TCP_Send_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/net/errors_windows.odin#L128"><em>Source</em></a></div></h3>
+<h3 id="TCP_Send_Error"><span><a class="doc-id-link" href="#TCP_Send_Error">TCP_Send_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/net/errors_windows.odin#L133"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">TCP_Send_Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	None                      = 0, 
+	<span class="comment">// TODO: not functionally different from Reset; merge?</span>
 	Aborted                   = 10053, 
 	Not_Connected             = 10057, 
 	Shutdown                  = 10058, 
@@ -1462,13 +1464,15 @@ TODO: verify once more what errors to actually expose</p>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="UDP_Recv_Error"><span><a class="doc-id-link" href="#UDP_Recv_Error">UDP_Recv_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/net/errors_windows.odin#L105"><em>Source</em></a></div></h3>
+<h3 id="UDP_Recv_Error"><span><a class="doc-id-link" href="#UDP_Recv_Error">UDP_Recv_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/net/errors_windows.odin#L107"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">UDP_Recv_Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	None                      = 0, 
 	Network_Subsystem_Failure = 10050, 
+	<span class="comment">// TODO: not functionally different from Reset; merge?</span>
+	<span class="comment">// UDP packets are limited in size, and the length of the incoming message exceeded it.</span>
 	Aborted                   = 10053, 
-	Buffer_Too_Small          = 10040, <span class="comment">// The buffer is too small to fit the entire message, and the message was truncated. When this happens, the rest of message is lost.</span>
+	Truncated                 = 10040, 
 	Remote_Not_Listening      = 10054, <span class="comment">// The machine at the remote endpoint doesn't have the given port open to receiving UDP data.</span>
 	Shutdown                  = 10058, 
 	Broadcast_Disabled        = 10013, <span class="comment">// A broadcast address was specified, but the .Broadcast socket option isn't set.</span>
@@ -1486,14 +1490,15 @@ TODO: verify once more what errors to actually expose</p>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="UDP_Send_Error"><span><a class="doc-id-link" href="#UDP_Send_Error">UDP_Send_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/net/errors_windows.odin#L152"><em>Source</em></a></div></h3>
+<h3 id="UDP_Send_Error"><span><a class="doc-id-link" href="#UDP_Send_Error">UDP_Send_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/net/errors_windows.odin#L158"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">UDP_Send_Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	None                                 = 0, 
 	Network_Subsystem_Failure            = 10050, 
-	Aborted                              = 10053, 
-	Message_Too_Long                     = 10040, <span class="comment">// The message is larger than the maximum UDP packet size.</span>
-	Remote_Not_Listening                 = 10054, <span class="comment">// The machine at the remote endpoint doesn't have the given port open to receiving UDP data.</span>
+	<span class="comment">// TODO: not functionally different from Reset; merge?</span>
+	Aborted                              = 10053, <span class="comment">// UDP packets are limited in size, and len(buf) exceeded it.</span>
+	Message_Too_Long                     = 10040, <span class="comment">// The machine at the remote endpoint doesn't have the given port open to receiving UDP data.</span>
+	Remote_Not_Listening                 = 10054, 
 	Shutdown                             = 10058, <span class="comment">// A broadcast address was specified, but the .Broadcast socket option isn't set.</span>
 	Broadcast_Disabled                   = 10013, 
 	Bad_Buffer                           = 10014, <span class="comment">// Connection is broken due to keepalive activity detecting a failure during the operation.</span>
@@ -1796,7 +1801,7 @@ The port, if present, is required to be a base 10 number in the range 0-65535, i
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
 <p>Returns a temporarily-allocated string representation of the endpoint.
-If there's a port, uses the <code>ip4address:port</code> or <code>[ip6address]:port</code> format, respectively.</p>
+If there's a port, uses the <code>[address]:port</code> format.</p>
 </details>
 </div>
 <div class="pkg-entity">
@@ -2272,7 +2277,7 @@ Returns ok=false if port is not a number.</p>
 <li><em>(hidden platform specific files)</em></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-09 (vendor "odin") Windows_amd64 @ 2023-09-05 17:19:48.257675000 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:35:08.549016800 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

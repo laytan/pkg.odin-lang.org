@@ -708,7 +708,7 @@ ab
 <div class="pkg-entity">
 <h3 id="builder_init_len"><span><a class="doc-id-link" href="#builder_init_len">builder_init_len<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strings/builder.odin#L138"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">builder_init_len :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/strings/#Builder">Builder</a>, len: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (res: ^<a class="code-typename" href="/core/strings/#Builder">Builder</a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
+<pre class="doc-code">builder_init_len :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/strings/#Builder">Builder</a>, len: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (res: ^<a class="code-typename" href="/core/strings/#Builder">Builder</a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -725,7 +725,7 @@ It replaces the existing <code>buf</code></p>
 <div class="pkg-entity">
 <h3 id="builder_init_len_cap"><span><a class="doc-id-link" href="#builder_init_len_cap">builder_init_len_cap<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strings/builder.odin#L156"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">builder_init_len_cap :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/strings/#Builder">Builder</a>, len, cap: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (res: ^<a class="code-typename" href="/core/strings/#Builder">Builder</a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
+<pre class="doc-code">builder_init_len_cap :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/strings/#Builder">Builder</a>, len, cap: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (res: ^<a class="code-typename" href="/core/strings/#Builder">Builder</a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -742,7 +742,7 @@ It replaces the existing <code>buf</code></p>
 <div class="pkg-entity">
 <h3 id="builder_init_none"><span><a class="doc-id-link" href="#builder_init_none">builder_init_none<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strings/builder.odin#L119"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">builder_init_none :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/strings/#Builder">Builder</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (res: ^<a class="code-typename" href="/core/strings/#Builder">Builder</a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
+<pre class="doc-code">builder_init_none :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/strings/#Builder">Builder</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (res: ^<a class="code-typename" href="/core/strings/#Builder">Builder</a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -770,7 +770,7 @@ It replaces the existing <code>buf</code></p>
 <div class="pkg-entity">
 <h3 id="builder_make_len"><span><a class="doc-id-link" href="#builder_make_len">builder_make_len<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strings/builder.odin#L54"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">builder_make_len :: <span class="keyword-type">proc</span>(len: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (res: <a class="code-typename" href="/core/strings/#Builder">Builder</a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
+<pre class="doc-code">builder_make_len :: <span class="keyword-type">proc</span>(len: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (res: <a class="code-typename" href="/core/strings/#Builder">Builder</a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -785,7 +785,7 @@ It replaces the existing <code>buf</code></p>
 <div class="pkg-entity">
 <h3 id="builder_make_len_cap"><span><a class="doc-id-link" href="#builder_make_len_cap">builder_make_len_cap<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strings/builder.odin#L71"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">builder_make_len_cap :: <span class="keyword-type">proc</span>(len, cap: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (res: <a class="code-typename" href="/core/strings/#Builder">Builder</a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
+<pre class="doc-code">builder_make_len_cap :: <span class="keyword-type">proc</span>(len, cap: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (res: <a class="code-typename" href="/core/strings/#Builder">Builder</a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -801,7 +801,7 @@ It replaces the existing <code>buf</code></p>
 <div class="pkg-entity">
 <h3 id="builder_make_none"><span><a class="doc-id-link" href="#builder_make_none">builder_make_none<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strings/builder.odin#L38"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">builder_make_none :: <span class="keyword-type">proc</span>(allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (res: <a class="code-typename" href="/core/strings/#Builder">Builder</a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
+<pre class="doc-code">builder_make_none :: <span class="keyword-type">proc</span>(allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (res: <a class="code-typename" href="/core/strings/#Builder">Builder</a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1002,7 +1002,7 @@ It replaces the existing <code>buf</code></p>
 <div class="pkg-entity">
 <h3 id="concatenate"><span><a class="doc-id-link" href="#concatenate">concatenate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strings/strings.odin#L662"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">concatenate :: <span class="keyword-type">proc</span>(a: []<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (res: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
+<pre class="doc-code">concatenate :: <span class="keyword-type">proc</span>(a: []<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (res: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1154,7 +1154,7 @@ count_example :: proc() {
 <div class="pkg-entity">
 <h3 id="cut"><span><a class="doc-id-link" href="#cut">cut<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strings/strings.odin#L727"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">cut :: <span class="keyword-type">proc</span>(s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, rune_offset: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = int(0), rune_length: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = int(0), allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (res: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
+<pre class="doc-code">cut :: <span class="keyword-type">proc</span>(s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, rune_offset: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = int(0), rune_length: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = int(0), allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (res: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1252,7 +1252,7 @@ expand_tabs_example :: proc() {
 <div class="pkg-entity">
 <h3 id="fields"><span><a class="doc-id-link" href="#fields">fields<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strings/strings.odin#L3110"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">fields :: <span class="keyword-type">proc</span>(s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (res: []<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
+<pre class="doc-code">fields :: <span class="keyword-type">proc</span>(s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, allocator: runtime.<a class="code-typename" href="/core/runtime/#Allocator">Allocator</a>) -> (res: []<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1280,7 +1280,7 @@ expand_tabs_example :: proc() {
 <div class="pkg-entity">
 <h3 id="fields_proc"><span><a class="doc-id-link" href="#fields_proc">fields_proc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strings/strings.odin#L3174"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">fields_proc :: <span class="keyword-type">proc</span>(s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, f: <span class="keyword-type">proc</span>(_: <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (res: []<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
+<pre class="doc-code">fields_proc :: <span class="keyword-type">proc</span>(s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, f: <span class="keyword-type">proc</span>(_: <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (res: []<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1604,7 +1604,7 @@ index_rune_example :: proc() {
 <div class="pkg-entity">
 <h3 id="intern_init"><span><a class="doc-id-link" href="#intern_init">intern_init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strings/intern.odin#L37"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">intern_init :: <span class="keyword-type">proc</span>(m: ^<a class="code-typename" href="/core/strings/#Intern">Intern</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, map_allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) {…}</pre>
+<pre class="doc-code">intern_init :: <span class="keyword-type">proc</span>(m: ^<a class="code-typename" href="/core/strings/#Intern">Intern</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, map_allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1689,7 +1689,7 @@ index_rune_example :: proc() {
 <div class="pkg-entity">
 <h3 id="join"><span><a class="doc-id-link" href="#join">join<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strings/strings.odin#L598"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">join :: <span class="keyword-type">proc</span>(a: []<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, sep: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (res: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
+<pre class="doc-code">join :: <span class="keyword-type">proc</span>(a: []<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, sep: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (res: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1875,7 +1875,7 @@ last_index_byte_example :: proc() {
 <div class="pkg-entity">
 <h3 id="levenshtein_distance"><span><a class="doc-id-link" href="#levenshtein_distance">levenshtein_distance<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strings/strings.odin#L3255"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">levenshtein_distance :: <span class="keyword-type">proc</span>(a, b: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (res: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
+<pre class="doc-code">levenshtein_distance :: <span class="keyword-type">proc</span>(a, b: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (res: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -2229,7 +2229,7 @@ abcabc false
 <div class="pkg-entity">
 <h3 id="repeat"><span><a class="doc-id-link" href="#repeat">repeat<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strings/strings.odin#L1968"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">repeat :: <span class="keyword-type">proc</span>(s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, count: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (res: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
+<pre class="doc-code">repeat :: <span class="keyword-type">proc</span>(s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, count: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (res: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -2259,12 +2259,7 @@ repeat_example :: proc() {
 <div class="pkg-entity">
 <h3 id="replace"><span><a class="doc-id-link" href="#replace">replace<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strings/strings.odin#L2055"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">replace :: <span class="keyword-type">proc</span>(
-	s, old, new: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, 
-	n:           <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, 
-	allocator := <a href="/core/runtime/#Context">context.allocator</a>, 
-	loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>, 
-) -> (output: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, was_allocation: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">replace :: <span class="keyword-type">proc</span>(s, old, new: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (output: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, was_allocation: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -2335,7 +2330,7 @@ zzzz true
 <div class="pkg-entity">
 <h3 id="reverse"><span><a class="doc-id-link" href="#reverse">reverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strings/strings.odin#L2828"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">reverse :: <span class="keyword-type">proc</span>(s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (res: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
+<pre class="doc-code">reverse :: <span class="keyword-type">proc</span>(s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, allocator: runtime.<a class="code-typename" href="/core/runtime/#Allocator">Allocator</a>) -> (res: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -2829,7 +2824,7 @@ split_lines_n_example :: proc() {
 <div class="pkg-entity">
 <h3 id="split_multi"><span><a class="doc-id-link" href="#split_multi">split_multi<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strings/strings.odin#L2640"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">split_multi :: <span class="keyword-type">proc</span>(s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, substrs: []<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (res: []<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
+<pre class="doc-code">split_multi :: <span class="keyword-type">proc</span>(s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, substrs: []<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (res: []<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -4149,7 +4144,7 @@ builder_make_example :: proc() {
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/strings/strings.odin">strings.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-09 (vendor "odin") Windows_amd64 @ 2023-09-05 17:19:48.401720500 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:35:08.415534600 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
