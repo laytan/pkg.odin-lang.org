@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>package crypto/sha1 - pkg.odin-lang.org</title>	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/scss/custom.min.css">
+	<title>package crypto/legacy/md5 - pkg.odin-lang.org</title>	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/scss/custom.min.css">
 	<link rel=stylesheet href="//odin-lang.org/lib/highlight/styles/github-dark.min.css">
 	<script src="//odin-lang.org/lib/highlight/highlight.min.js"></script>
 
@@ -72,31 +72,18 @@
 
 </li>
 <li class="nav-item"><a href="/core/crypto">crypto</a><ul>
-<li><a href="/core/crypto/blake">blake</a></li>
 <li><a href="/core/crypto/blake2b">blake2b</a></li>
 <li><a href="/core/crypto/blake2s">blake2s</a></li>
 <li><a href="/core/crypto/chacha20">chacha20</a></li>
 <li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
-<li><a href="/core/crypto/gost">gost</a></li>
-<li><a href="/core/crypto/groestl">groestl</a></li>
-<li><a href="/core/crypto/haval">haval</a></li>
-<li><a href="/core/crypto/jh">jh</a></li>
-<li><a href="/core/crypto/keccak">keccak</a></li>
-<li><a href="/core/crypto/md2">md2</a></li>
-<li><a href="/core/crypto/md4">md4</a></li>
-<li><a href="/core/crypto/md5">md5</a></li>
+<li><a href="/core/crypto/legacy/keccak">legacy/keccak</a></li>
+<li><a class="active" href="/core/crypto/legacy/md5">legacy/md5</a></li>
+<li><a href="/core/crypto/legacy/sha1">legacy/sha1</a></li>
 <li><a href="/core/crypto/poly1305">poly1305</a></li>
-<li><a href="/core/crypto/ripemd">ripemd</a></li>
-<li><a class="active" href="/core/crypto/sha1">sha1</a></li>
 <li><a href="/core/crypto/sha2">sha2</a></li>
 <li><a href="/core/crypto/sha3">sha3</a></li>
 <li><a href="/core/crypto/shake">shake</a></li>
 <li><a href="/core/crypto/sm3">sm3</a></li>
-<li><a href="/core/crypto/streebog">streebog</a></li>
-<li><a href="/core/crypto/tiger">tiger</a></li>
-<li><a href="/core/crypto/tiger2">tiger2</a></li>
-<li><a href="/core/crypto/util">util</a></li>
-<li><a href="/core/crypto/whirlpool">whirlpool</a></li>
 <li><a href="/core/crypto/x25519">x25519</a></li>
 </ul>
 
@@ -110,6 +97,7 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
+<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -222,10 +210,11 @@
 <ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="/core">core</a></li>
 <li class="breadcrumb-item"><a href="/core/crypto">crypto</a></li>
-<li class="breadcrumb-item active" aria-current="page"><a href="/core/crypto/sha1">sha1</a></li>
+<li class="breadcrumb-item">legacy</li>
+<li class="breadcrumb-item active" aria-current="page"><a href="/core/crypto/legacy/md5">md5</a></li>
 </ol>
 </nav>
-<h1>package core:crypto/sha1<div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha1"><em>Source</em></a></div></h1>
+<h1>package core:crypto/legacy/md5<div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/md5"><em>Source</em></a></div></h1>
 
 		<div class="odin-search-wrapper">
 			<input type="search" id="odin-search" class="odin-search-package" autocomplete="off" spellcheck="false" placeholder="Fuzzy Search...">
@@ -254,7 +243,7 @@
 <summary id="#doc-index-Types-header">
 Types (1)</summary>
 <ul>
-<li><a href="#Sha1_Context">Sha1_Context</a></li>
+<li><a href="#Context">Context</a></li>
 </ul>
 </details>
 </div>
@@ -278,7 +267,7 @@ Variables (0)</summary>
 <div>
 <details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
 <summary id="#doc-index-Procedures-header">
-Procedures (10)</summary>
+Procedures (9)</summary>
 <ul>
 <li><a href="#final">final</a></li>
 <li><a href="#hash_bytes">hash_bytes</a></li>
@@ -288,7 +277,6 @@ Procedures (10)</summary>
 <li><a href="#hash_string">hash_string</a></li>
 <li><a href="#hash_string_to_buffer">hash_string_to_buffer</a></li>
 <li><a href="#init">init</a></li>
-<li><a href="#transform">transform</a></li>
 <li><a href="#update">update</a></li>
 </ul>
 </details>
@@ -307,50 +295,49 @@ Procedure Groups (1)</summary>
 <section class="documentation">
 <h2 id="pkg-Types" class="pkg-header">Types</h2>
 <div class="pkg-entity">
-<h3 id="Sha1_Context"><span><a class="doc-id-link" href="#Sha1_Context">Sha1_Context<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha1/sha1.odin#L177"><em>Source</em></a></div></h3>
+<h3 id="Context"><span><a class="doc-id-link" href="#Context">Context<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/md5/md5.odin#L176"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Sha1_Context :: <span class="keyword-type">struct</span> {
-	data:    [64]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
-	datalen: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
-	bitlen:  <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>,
-	state:   [5]<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
-	k:       [4]<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+<pre class="doc-code">Context :: <span class="keyword-type">struct</span> {
+	data:           [64]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	state:          [4]<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	bitlen:         <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>,
+	datalen:        <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	is_initialized: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
 <ul>
-<li><a href="/core/crypto/sha1/#final">final</a></li>
-<li><a href="/core/crypto/sha1/#init">init</a></li>
-<li><a href="/core/crypto/sha1/#transform">transform</a></li>
-<li><a href="/core/crypto/sha1/#update">update</a></li>
+<li><a href="/core/crypto/legacy/md5/#final">final</a></li>
+<li><a href="/core/crypto/legacy/md5/#init">init</a></li>
+<li><a href="/core/crypto/legacy/md5/#update">update</a></li>
 </ul>
 </div>
 <h2 id="pkg-Constants" class="pkg-header">Constants</h2>
 <div class="pkg-entity">
-<h3 id="BLOCK_SIZE"><span><a class="doc-id-link" href="#BLOCK_SIZE">BLOCK_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha1/sha1.odin#L175"><em>Source</em></a></div></h3>
+<h3 id="BLOCK_SIZE"><span><a class="doc-id-link" href="#BLOCK_SIZE">BLOCK_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/md5/md5.odin#L174"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">BLOCK_SIZE :: 64</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="DIGEST_SIZE"><span><a class="doc-id-link" href="#DIGEST_SIZE">DIGEST_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha1/sha1.odin#L23"><em>Source</em></a></div></h3>
+<h3 id="DIGEST_SIZE"><span><a class="doc-id-link" href="#DIGEST_SIZE">DIGEST_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/md5/md5.odin#L23"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">DIGEST_SIZE :: 20</pre>
+<pre class="doc-code">DIGEST_SIZE :: 16</pre>
 </div>
 </div>
 <h2 id="pkg-Variables" class="pkg-header">Variables</h2>
 <p class="pkg-empty-section">This section is empty.</p>
 <h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
 <div class="pkg-entity">
-<h3 id="final"><span><a class="doc-id-link" href="#final">final<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha1/sha1.odin#L129"><em>Source</em></a></div></h3>
+<h3 id="final"><span><a class="doc-id-link" href="#final">final<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/md5/md5.odin#L132"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">final :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/sha1/#Sha1_Context">Sha1_Context</a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">final :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/legacy/md5/#Context">Context</a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_bytes"><span><a class="doc-id-link" href="#hash_bytes">hash_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha1/sha1.odin#L33"><em>Source</em></a></div></h3>
+<h3 id="hash_bytes"><span><a class="doc-id-link" href="#hash_bytes">hash_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/md5/md5.odin#L33"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_bytes :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [20]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">hash_bytes :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [16]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -359,7 +346,7 @@ computed hash</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_bytes_to_buffer"><span><a class="doc-id-link" href="#hash_bytes_to_buffer">hash_bytes_to_buffer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha1/sha1.odin#L52"><em>Source</em></a></div></h3>
+<h3 id="hash_bytes_to_buffer"><span><a class="doc-id-link" href="#hash_bytes_to_buffer">hash_bytes_to_buffer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/md5/md5.odin#L52"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_bytes_to_buffer :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
@@ -371,9 +358,9 @@ It requires that the destination buffer is at least as big as the digest size</p
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_file"><span><a class="doc-id-link" href="#hash_file">hash_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha1/sha1.odin#L81"><em>Source</em></a></div></h3>
+<h3 id="hash_file"><span><a class="doc-id-link" href="#hash_file">hash_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/md5/md5.odin#L82"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_file :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([20]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">hash_file :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([16]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -382,9 +369,9 @@ and compute a hash</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_stream"><span><a class="doc-id-link" href="#hash_stream">hash_stream<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha1/sha1.odin#L62"><em>Source</em></a></div></h3>
+<h3 id="hash_stream"><span><a class="doc-id-link" href="#hash_stream">hash_stream<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/md5/md5.odin#L61"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_stream :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([20]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">hash_stream :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([16]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -393,9 +380,9 @@ hash from its contents</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_string"><span><a class="doc-id-link" href="#hash_string">hash_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha1/sha1.odin#L27"><em>Source</em></a></div></h3>
+<h3 id="hash_string"><span><a class="doc-id-link" href="#hash_string">hash_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/md5/md5.odin#L27"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_string :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [20]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">hash_string :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [16]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -404,7 +391,7 @@ computed hash</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_string_to_buffer"><span><a class="doc-id-link" href="#hash_string_to_buffer">hash_string_to_buffer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha1/sha1.odin#L45"><em>Source</em></a></div></h3>
+<h3 id="hash_string_to_buffer"><span><a class="doc-id-link" href="#hash_string_to_buffer">hash_string_to_buffer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/md5/md5.odin#L45"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_string_to_buffer :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
@@ -416,34 +403,28 @@ It requires that the destination buffer is at least as big as the digest size</p
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="init"><span><a class="doc-id-link" href="#init">init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha1/sha1.odin#L105"><em>Source</em></a></div></h3>
+<h3 id="init"><span><a class="doc-id-link" href="#init">init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/md5/md5.odin#L106"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">init :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/sha1/#Sha1_Context">Sha1_Context</a>) {…}</pre>
+<pre class="doc-code">init :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/legacy/md5/#Context">Context</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="transform"><span><a class="doc-id-link" href="#transform">transform<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha1/sha1.odin#L185"><em>Source</em></a></div></h3>
+<h3 id="update"><span><a class="doc-id-link" href="#update">update<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/md5/md5.odin#L118"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">transform :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/sha1/#Sha1_Context">Sha1_Context</a>, data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="update"><span><a class="doc-id-link" href="#update">update<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha1/sha1.odin#L117"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">update :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/sha1/#Sha1_Context">Sha1_Context</a>, data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">update :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/legacy/md5/#Context">Context</a>, data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
 <div class="pkg-entity">
-<h3 id="hash"><span><a class="doc-id-link" href="#hash">hash<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha1/sha1.odin#L92"><em>Source</em></a></div></h3>
+<h3 id="hash"><span><a class="doc-id-link" href="#hash">hash<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/md5/md5.odin#L93"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash :: proc{
-	<a class="code-procedure" href="/core/crypto/sha1/#hash_stream">hash_stream</a>,
-	<a class="code-procedure" href="/core/crypto/sha1/#hash_file">hash_file</a>,
-	<a class="code-procedure" href="/core/crypto/sha1/#hash_bytes">hash_bytes</a>,
-	<a class="code-procedure" href="/core/crypto/sha1/#hash_string">hash_string</a>,
-	<a class="code-procedure" href="/core/crypto/sha1/#hash_bytes_to_buffer">hash_bytes_to_buffer</a>,
-	<a class="code-procedure" href="/core/crypto/sha1/#hash_string_to_buffer">hash_string_to_buffer</a>,
+	<a class="code-procedure" href="/core/crypto/legacy/md5/#hash_stream">hash_stream</a>,
+	<a class="code-procedure" href="/core/crypto/legacy/md5/#hash_file">hash_file</a>,
+	<a class="code-procedure" href="/core/crypto/legacy/md5/#hash_bytes">hash_bytes</a>,
+	<a class="code-procedure" href="/core/crypto/legacy/md5/#hash_string">hash_string</a>,
+	<a class="code-procedure" href="/core/crypto/legacy/md5/#hash_bytes_to_buffer">hash_bytes_to_buffer</a>,
+	<a class="code-procedure" href="/core/crypto/legacy/md5/#hash_string_to_buffer">hash_string_to_buffer</a>,
 }
 </pre>
 </div>
@@ -451,16 +432,16 @@ It requires that the destination buffer is at least as big as the digest size</p
 </section>
 <h2 id="pkg-source-files">Source Files</h2>
 <ul>
-<li><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha1/sha1.odin">sha1.odin</a></li>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/md5/md5.odin">md5.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:47:44.668361800 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:51:54.912510800 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
 <ul>
 <li><a href="#pkg-Types">Types</a><ul>
-<li><a href="#Sha1_Context">Sha1_Context</a></li>
+<li><a href="#Context">Context</a></li>
 </ul>
 </li>
 <li><a href="#pkg-Constants">Constants</a><ul>
@@ -477,7 +458,6 @@ It requires that the destination buffer is at least as big as the digest size</p
 <li><a href="#hash_string">hash_string</a></li>
 <li><a href="#hash_string_to_buffer">hash_string_to_buffer</a></li>
 <li><a href="#init">init</a></li>
-<li><a href="#transform">transform</a></li>
 <li><a href="#update">update</a></li>
 </ul>
 </li>
@@ -488,7 +468,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 <li><a href="#pkg-source-files">Source Files</a></ul>
 </nav>
 </div></div>
-<script type="text/javascript">var odin_pkg_name = "sha1";</script>
+<script type="text/javascript">var odin_pkg_name = "md5";</script>
 </div>
 
 </div>

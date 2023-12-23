@@ -72,31 +72,18 @@
 
 </li>
 <li class="nav-item"><a href="/core/crypto">crypto</a><ul>
-<li><a href="/core/crypto/blake">blake</a></li>
 <li><a href="/core/crypto/blake2b">blake2b</a></li>
 <li><a href="/core/crypto/blake2s">blake2s</a></li>
 <li><a href="/core/crypto/chacha20">chacha20</a></li>
 <li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
-<li><a href="/core/crypto/gost">gost</a></li>
-<li><a href="/core/crypto/groestl">groestl</a></li>
-<li><a href="/core/crypto/haval">haval</a></li>
-<li><a href="/core/crypto/jh">jh</a></li>
-<li><a href="/core/crypto/keccak">keccak</a></li>
-<li><a href="/core/crypto/md2">md2</a></li>
-<li><a href="/core/crypto/md4">md4</a></li>
-<li><a href="/core/crypto/md5">md5</a></li>
+<li><a href="/core/crypto/legacy/keccak">legacy/keccak</a></li>
+<li><a href="/core/crypto/legacy/md5">legacy/md5</a></li>
+<li><a href="/core/crypto/legacy/sha1">legacy/sha1</a></li>
 <li><a href="/core/crypto/poly1305">poly1305</a></li>
-<li><a href="/core/crypto/ripemd">ripemd</a></li>
-<li><a href="/core/crypto/sha1">sha1</a></li>
 <li><a href="/core/crypto/sha2">sha2</a></li>
 <li><a href="/core/crypto/sha3">sha3</a></li>
 <li><a href="/core/crypto/shake">shake</a></li>
 <li><a href="/core/crypto/sm3">sm3</a></li>
-<li><a href="/core/crypto/streebog">streebog</a></li>
-<li><a href="/core/crypto/tiger">tiger</a></li>
-<li><a href="/core/crypto/tiger2">tiger2</a></li>
-<li><a href="/core/crypto/util">util</a></li>
-<li><a href="/core/crypto/whirlpool">whirlpool</a></li>
 <li><a href="/core/crypto/x25519">x25519</a></li>
 </ul>
 
@@ -110,6 +97,7 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
+<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -323,9 +311,11 @@ Procedures (61)</summary>
 <li><a href="#abs">abs</a></li>
 <li><a href="#add">add</a></li>
 <li><a href="#add_sat">add_sat</a></li>
-<li><a href="#and">and</a></li>
-<li><a href="#and_not">and_not</a></li>
+<li><a href="#bit_and">bit_and</a></li>
+<li><a href="#bit_and_not">bit_and_not</a></li>
 <li><a href="#bit_not">bit_not</a></li>
+<li><a href="#bit_or">bit_or</a></li>
+<li><a href="#bit_xor">bit_xor</a></li>
 <li><a href="#ceil">ceil</a></li>
 <li><a href="#clamp">clamp</a></li>
 <li><a href="#copysign">copysign</a></li>
@@ -354,7 +344,6 @@ Procedures (61)</summary>
 <li><a href="#mul">mul</a></li>
 <li><a href="#nearest">nearest</a></li>
 <li><a href="#neg">neg</a></li>
-<li><a href="#or">or</a></li>
 <li><a href="#recip">recip</a></li>
 <li><a href="#reduce_add_ordered">reduce_add_ordered</a></li>
 <li><a href="#reduce_and">reduce_and</a></li>
@@ -380,7 +369,6 @@ Procedures (61)</summary>
 <li><a href="#to_array_ptr">to_array_ptr</a></li>
 <li><a href="#to_bits">to_bits</a></li>
 <li><a href="#trunc">trunc</a></li>
-<li><a href="#xor">xor</a></li>
 </ul>
 </details>
 </div>
@@ -705,21 +693,33 @@ Procedure Groups (0)</summary>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="and"><span><a class="doc-id-link" href="#and">and<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<h3 id="bit_and"><span><a class="doc-id-link" href="#bit_and">bit_and<span class="a-hidden">&nbsp;¶</span></a></span></h3>
 <div>
-<pre class="doc-code">and :: intrinsics.simd_and</pre>
+<pre class="doc-code">bit_and :: intrinsics.simd_bit_and</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="and_not"><span><a class="doc-id-link" href="#and_not">and_not<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<h3 id="bit_and_not"><span><a class="doc-id-link" href="#bit_and_not">bit_and_not<span class="a-hidden">&nbsp;¶</span></a></span></h3>
 <div>
-<pre class="doc-code">and_not :: intrinsics.simd_and_not</pre>
+<pre class="doc-code">bit_and_not :: intrinsics.simd_bit_and_not</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bit_not"><span><a class="doc-id-link" href="#bit_not">bit_not<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L169"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">bit_not :: <span class="keyword-type">proc</span> "contextless" (v: $/<span class="directive">#simd</span>[0]$T) -> $/<span class="directive">#simd</span>[0]$T {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="bit_or"><span><a class="doc-id-link" href="#bit_or">bit_or<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">bit_or :: intrinsics.simd_bit_or</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="bit_xor"><span><a class="doc-id-link" href="#bit_xor">bit_xor<span class="a-hidden">&nbsp;¶</span></a></span></h3>
+<div>
+<pre class="doc-code">bit_xor :: intrinsics.simd_bit_xor</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -907,12 +907,6 @@ element-wise:
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="or"><span><a class="doc-id-link" href="#or">or<span class="a-hidden">&nbsp;¶</span></a></span></h3>
-<div>
-<pre class="doc-code">or :: intrinsics.simd_or</pre>
-</div>
-</div>
-<div class="pkg-entity">
 <h3 id="recip"><span><a class="doc-id-link" href="#recip">recip<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin#L185"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">recip :: <span class="keyword-type">proc</span> "contextless" (v: $/<span class="directive">#simd</span>[0]$T) -> $/<span class="directive">#simd</span>[0]$T {…}</pre>
@@ -1088,12 +1082,6 @@ x &lt;&lt; (y & mask)</p>
 <pre class="doc-code">trunc :: intrinsics.simd_trunc</pre>
 </div>
 </div>
-<div class="pkg-entity">
-<h3 id="xor"><span><a class="doc-id-link" href="#xor">xor<span class="a-hidden">&nbsp;¶</span></a></span></h3>
-<div>
-<pre class="doc-code">xor :: intrinsics.simd_xor</pre>
-</div>
-</div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
 <p class="pkg-empty-section">This section is empty.</p>
 </section>
@@ -1102,7 +1090,7 @@ x &lt;&lt; (y & mask)</p>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/simd/simd.odin">simd.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:47:44.570840800 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:51:55.123484700 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
@@ -1159,9 +1147,11 @@ x &lt;&lt; (y & mask)</p>
 <li><a href="#abs">abs</a></li>
 <li><a href="#add">add</a></li>
 <li><a href="#add_sat">add_sat</a></li>
-<li><a href="#and">and</a></li>
-<li><a href="#and_not">and_not</a></li>
+<li><a href="#bit_and">bit_and</a></li>
+<li><a href="#bit_and_not">bit_and_not</a></li>
 <li><a href="#bit_not">bit_not</a></li>
+<li><a href="#bit_or">bit_or</a></li>
+<li><a href="#bit_xor">bit_xor</a></li>
 <li><a href="#ceil">ceil</a></li>
 <li><a href="#clamp">clamp</a></li>
 <li><a href="#copysign">copysign</a></li>
@@ -1190,7 +1180,6 @@ x &lt;&lt; (y & mask)</p>
 <li><a href="#mul">mul</a></li>
 <li><a href="#nearest">nearest</a></li>
 <li><a href="#neg">neg</a></li>
-<li><a href="#or">or</a></li>
 <li><a href="#recip">recip</a></li>
 <li><a href="#reduce_add_ordered">reduce_add_ordered</a></li>
 <li><a href="#reduce_and">reduce_and</a></li>
@@ -1216,7 +1205,6 @@ x &lt;&lt; (y & mask)</p>
 <li><a href="#to_array_ptr">to_array_ptr</a></li>
 <li><a href="#to_bits">to_bits</a></li>
 <li><a href="#trunc">trunc</a></li>
-<li><a href="#xor">xor</a></li>
 </ul>
 </li>
 <li><a href="#pkg-source-files">Source Files</a></ul>

@@ -72,31 +72,18 @@
 
 </li>
 <li class="nav-item"><a href="/core/crypto">crypto</a><ul>
-<li><a href="/core/crypto/blake">blake</a></li>
 <li><a href="/core/crypto/blake2b">blake2b</a></li>
 <li><a href="/core/crypto/blake2s">blake2s</a></li>
 <li><a href="/core/crypto/chacha20">chacha20</a></li>
 <li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
-<li><a href="/core/crypto/gost">gost</a></li>
-<li><a href="/core/crypto/groestl">groestl</a></li>
-<li><a href="/core/crypto/haval">haval</a></li>
-<li><a href="/core/crypto/jh">jh</a></li>
-<li><a href="/core/crypto/keccak">keccak</a></li>
-<li><a href="/core/crypto/md2">md2</a></li>
-<li><a href="/core/crypto/md4">md4</a></li>
-<li><a href="/core/crypto/md5">md5</a></li>
+<li><a href="/core/crypto/legacy/keccak">legacy/keccak</a></li>
+<li><a href="/core/crypto/legacy/md5">legacy/md5</a></li>
+<li><a href="/core/crypto/legacy/sha1">legacy/sha1</a></li>
 <li><a href="/core/crypto/poly1305">poly1305</a></li>
-<li><a href="/core/crypto/ripemd">ripemd</a></li>
-<li><a href="/core/crypto/sha1">sha1</a></li>
 <li><a href="/core/crypto/sha2">sha2</a></li>
 <li><a href="/core/crypto/sha3">sha3</a></li>
 <li><a href="/core/crypto/shake">shake</a></li>
 <li><a href="/core/crypto/sm3">sm3</a></li>
-<li><a href="/core/crypto/streebog">streebog</a></li>
-<li><a href="/core/crypto/tiger">tiger</a></li>
-<li><a href="/core/crypto/tiger2">tiger2</a></li>
-<li><a href="/core/crypto/util">util</a></li>
-<li><a href="/core/crypto/whirlpool">whirlpool</a></li>
 <li><a href="/core/crypto/x25519">x25519</a></li>
 </ul>
 
@@ -110,6 +97,7 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
+<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -306,7 +294,7 @@ Procedure Groups (0)</summary>
 <p class="pkg-empty-section">This section is empty.</p>
 <h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
 <div class="pkg-entity">
-<h3 id="is_heap"><span><a class="doc-id-link" href="#is_heap">is_heap<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/slice/heap/heap.odin#L119"><em>Source</em></a></div></h3>
+<h3 id="is_heap"><span><a class="doc-id-link" href="#is_heap">is_heap<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/slice/heap/heap.odin#L123"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">is_heap :: <span class="keyword-type">proc</span>(data: []$T, less: <span class="keyword-type">proc</span>(a, b: $T) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
@@ -318,7 +306,7 @@ Procedure Groups (0)</summary>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="is_heap_until"><span><a class="doc-id-link" href="#is_heap_until">is_heap_until<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/slice/heap/heap.odin#L96"><em>Source</em></a></div></h3>
+<h3 id="is_heap_until"><span><a class="doc-id-link" href="#is_heap_until">is_heap_until<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/slice/heap/heap.odin#L100"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">is_heap_until :: <span class="keyword-type">proc</span>(data: []$T, less: <span class="keyword-type">proc</span>(a, b: $T) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
@@ -357,7 +345,7 @@ max heap (less than) or min heap (greater than) for T.
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="pop"><span><a class="doc-id-link" href="#pop">pop<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/slice/heap/heap.odin#L54"><em>Source</em></a></div></h3>
+<h3 id="pop"><span><a class="doc-id-link" href="#pop">pop<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/slice/heap/heap.odin#L56"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">pop :: <span class="keyword-type">proc</span>(data: []$T, less: <span class="keyword-type">proc</span>(a, b: $T) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
@@ -372,7 +360,7 @@ At most 2 * log(N) comparisons where N = len(data) will be performed.
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="push"><span><a class="doc-id-link" href="#push">push<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/slice/heap/heap.odin#L43"><em>Source</em></a></div></h3>
+<h3 id="push"><span><a class="doc-id-link" href="#push">push<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/slice/heap/heap.odin#L45"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">push :: <span class="keyword-type">proc</span>(data: []$T, less: <span class="keyword-type">proc</span>(a, b: $T) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
@@ -386,7 +374,7 @@ At most log(N) comparisons where N = len(data) will be performed.
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="sort"><span><a class="doc-id-link" href="#sort">sort<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/slice/heap/heap.odin#L81"><em>Source</em></a></div></h3>
+<h3 id="sort"><span><a class="doc-id-link" href="#sort">sort<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/slice/heap/heap.odin#L85"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">sort :: <span class="keyword-type">proc</span>(data: []$T, less: <span class="keyword-type">proc</span>(a, b: $T) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
@@ -407,7 +395,7 @@ At most 2 * N * log(N) comparisons where N = len(data) will be performed.
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/slice/heap/heap.odin">heap.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:47:44.565156800 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:51:55.178460600 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

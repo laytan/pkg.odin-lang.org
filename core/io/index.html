@@ -72,31 +72,18 @@
 
 </li>
 <li class="nav-item"><a href="/core/crypto">crypto</a><ul>
-<li><a href="/core/crypto/blake">blake</a></li>
 <li><a href="/core/crypto/blake2b">blake2b</a></li>
 <li><a href="/core/crypto/blake2s">blake2s</a></li>
 <li><a href="/core/crypto/chacha20">chacha20</a></li>
 <li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
-<li><a href="/core/crypto/gost">gost</a></li>
-<li><a href="/core/crypto/groestl">groestl</a></li>
-<li><a href="/core/crypto/haval">haval</a></li>
-<li><a href="/core/crypto/jh">jh</a></li>
-<li><a href="/core/crypto/keccak">keccak</a></li>
-<li><a href="/core/crypto/md2">md2</a></li>
-<li><a href="/core/crypto/md4">md4</a></li>
-<li><a href="/core/crypto/md5">md5</a></li>
+<li><a href="/core/crypto/legacy/keccak">legacy/keccak</a></li>
+<li><a href="/core/crypto/legacy/md5">legacy/md5</a></li>
+<li><a href="/core/crypto/legacy/sha1">legacy/sha1</a></li>
 <li><a href="/core/crypto/poly1305">poly1305</a></li>
-<li><a href="/core/crypto/ripemd">ripemd</a></li>
-<li><a href="/core/crypto/sha1">sha1</a></li>
 <li><a href="/core/crypto/sha2">sha2</a></li>
 <li><a href="/core/crypto/sha3">sha3</a></li>
 <li><a href="/core/crypto/shake">shake</a></li>
 <li><a href="/core/crypto/sm3">sm3</a></li>
-<li><a href="/core/crypto/streebog">streebog</a></li>
-<li><a href="/core/crypto/tiger">tiger</a></li>
-<li><a href="/core/crypto/tiger2">tiger2</a></li>
-<li><a href="/core/crypto/util">util</a></li>
-<li><a href="/core/crypto/whirlpool">whirlpool</a></li>
 <li><a href="/core/crypto/x25519">x25519</a></li>
 </ul>
 
@@ -110,6 +97,7 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
+<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -305,7 +293,7 @@ Variables (0)</summary>
 <div>
 <details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
 <summary id="#doc-index-Procedures-header">
-Procedures (64)</summary>
+Procedures (66)</summary>
 <ul>
 <li><a href="#close">close</a></li>
 <li><a href="#copy">copy</a></li>
@@ -353,12 +341,14 @@ Procedures (64)</summary>
 <li><a href="#to_writer_at">to_writer_at</a></li>
 <li><a href="#write">write</a></li>
 <li><a href="#write_at">write_at</a></li>
+<li><a href="#write_at_least">write_at_least</a></li>
 <li><a href="#write_byte">write_byte</a></li>
 <li><a href="#write_encoded_rune">write_encoded_rune</a></li>
 <li><a href="#write_escaped_rune">write_escaped_rune</a></li>
 <li><a href="#write_f16">write_f16</a></li>
 <li><a href="#write_f32">write_f32</a></li>
 <li><a href="#write_f64">write_f64</a></li>
+<li><a href="#write_full">write_full</a></li>
 <li><a href="#write_i128">write_i128</a></li>
 <li><a href="#write_i64">write_i64</a></li>
 <li><a href="#write_int">write_int</a></li>
@@ -405,11 +395,11 @@ Procedure Groups (0)</summary>
 	Short_Write, 
 	<span class="comment">// Invalid_Write means that a write returned an impossible count</span>
 	Invalid_Write, 
-	<span class="comment">// Short_Buffer means that a read required a longer buffer than was provided</span>
+	<span class="comment">// Short_Buffer means that a read/write required a longer buffer than was provided</span>
 	Short_Buffer, 
 	<span class="comment">// No_Progress is returned by some implementations of `io.Reader` when many calls</span>
 	<span class="comment">// to `read` have failed to return any data or error.</span>
-	<span class="comment">// This is usually a signed of a broken `io.Reader` implementation</span>
+	<span class="comment">// This is usually a sign of a broken `io.Reader` implementation</span>
 	No_Progress, 
 	Invalid_Whence, 
 	Invalid_Offset, 
@@ -449,12 +439,14 @@ Procedure Groups (0)</summary>
 <li><a href="/core/io/#size">size</a></li>
 <li><a href="/core/io/#write">write</a></li>
 <li><a href="/core/io/#write_at">write_at</a></li>
+<li><a href="/core/io/#write_at_least">write_at_least</a></li>
 <li><a href="/core/io/#write_byte">write_byte</a></li>
 <li><a href="/core/io/#write_encoded_rune">write_encoded_rune</a></li>
 <li><a href="/core/io/#write_escaped_rune">write_escaped_rune</a></li>
 <li><a href="/core/io/#write_f16">write_f16</a></li>
 <li><a href="/core/io/#write_f32">write_f32</a></li>
 <li><a href="/core/io/#write_f64">write_f64</a></li>
+<li><a href="/core/io/#write_full">write_full</a></li>
 <li><a href="/core/io/#write_i128">write_i128</a></li>
 <li><a href="/core/io/#write_i64">write_i64</a></li>
 <li><a href="/core/io/#write_int">write_int</a></li>
@@ -648,12 +640,14 @@ read returns EOF when n &lt;= 0 or when the underlying r returns EOF.</p>
 <li><a href="/core/io/#to_writer_at">to_writer_at</a></li>
 <li><a href="/core/io/#write">write</a></li>
 <li><a href="/core/io/#write_at">write_at</a></li>
+<li><a href="/core/io/#write_at_least">write_at_least</a></li>
 <li><a href="/core/io/#write_byte">write_byte</a></li>
 <li><a href="/core/io/#write_encoded_rune">write_encoded_rune</a></li>
 <li><a href="/core/io/#write_escaped_rune">write_escaped_rune</a></li>
 <li><a href="/core/io/#write_f16">write_f16</a></li>
 <li><a href="/core/io/#write_f32">write_f32</a></li>
 <li><a href="/core/io/#write_f64">write_f64</a></li>
+<li><a href="/core/io/#write_full">write_full</a></li>
 <li><a href="/core/io/#write_i128">write_i128</a></li>
 <li><a href="/core/io/#write_i64">write_i64</a></li>
 <li><a href="/core/io/#write_int">write_int</a></li>
@@ -780,7 +774,7 @@ Different streams may document their own behaviour.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="copy"><span><a class="doc-id-link" href="#copy">copy<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/io/io.odin#L364"><em>Source</em></a></div></h3>
+<h3 id="copy"><span><a class="doc-id-link" href="#copy">copy<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/io/io.odin#L387"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">copy :: <span class="keyword-type">proc</span>(dst: <a class="code-typename" href="/core/io/#Stream">Stream</a>, src: <a class="code-typename" href="/core/io/#Stream">Stream</a>) -> (written: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>, err: <a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
@@ -791,7 +785,7 @@ It returns the number of bytes copied and the first error that occurred whilst c
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="copy_buffer"><span><a class="doc-id-link" href="#copy_buffer">copy_buffer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/io/io.odin#L371"><em>Source</em></a></div></h3>
+<h3 id="copy_buffer"><span><a class="doc-id-link" href="#copy_buffer">copy_buffer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/io/io.odin#L394"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">copy_buffer :: <span class="keyword-type">proc</span>(dst: <a class="code-typename" href="/core/io/#Stream">Stream</a>, src: <a class="code-typename" href="/core/io/#Stream">Stream</a>, buf: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (written: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>, err: <a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
@@ -803,7 +797,7 @@ If buf is <code>nil</code>, it is allocate through <code>intrinsics.alloca</code
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="copy_n"><span><a class="doc-id-link" href="#copy_n">copy_n<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/io/io.odin#L383"><em>Source</em></a></div></h3>
+<h3 id="copy_n"><span><a class="doc-id-link" href="#copy_n">copy_n<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/io/io.odin#L406"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">copy_n :: <span class="keyword-type">proc</span>(dst: <a class="code-typename" href="/core/io/#Stream">Stream</a>, src: <a class="code-typename" href="/core/io/#Stream">Stream</a>, n: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>) -> (written: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>, err: <a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
@@ -1131,6 +1125,17 @@ seek offset.</p>
 </details>
 </div>
 <div class="pkg-entity">
+<h3 id="write_at_least"><span><a class="doc-id-link" href="#write_at_least">write_at_least<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/io/io.odin#L369"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">write_at_least :: <span class="keyword-type">proc</span>(w: <a class="code-typename" href="/core/io/#Stream">Stream</a>, buf: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, min: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> (n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, err: <a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>write_at_least writes at least <code>buf[:min]</code> to the writer and returns the amount written.
+If an error occurs before writing everything it is returned.</p>
+</details>
+</div>
+<div class="pkg-entity">
 <h3 id="write_byte"><span><a class="doc-id-link" href="#write_byte">write_byte<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/io/io.odin#L270"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">write_byte :: <span class="keyword-type">proc</span>(w: <a class="code-typename" href="/core/io/#Stream">Stream</a>, c: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, n_written: ^<a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = nil) -> <a class="code-typename" href="/core/io/#Error">Error</a> {…}</pre>
@@ -1172,6 +1177,16 @@ seek offset.</p>
 <div>
 <pre class="doc-code">write_f64 :: <span class="keyword-type">proc</span>(w: <a class="code-typename" href="/core/io/#Stream">Stream</a>, val: <a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a>, n_written: ^<a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = nil) -> (n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, err: <a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
+</div>
+<div class="pkg-entity">
+<h3 id="write_full"><span><a class="doc-id-link" href="#write_full">write_full<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/io/io.odin#L363"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">write_full :: <span class="keyword-type">proc</span>(w: <a class="code-typename" href="/core/io/#Stream">Stream</a>, buf: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, err: <a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>write_full writes until the entire contents of <code>buf</code> has been written or an error occurs.</p>
+</details>
 </div>
 <div class="pkg-entity">
 <h3 id="write_i128"><span><a class="doc-id-link" href="#write_i128">write_i128<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/io/util.odin#L46"><em>Source</em></a></div></h3>
@@ -1268,7 +1283,7 @@ seek offset.</p>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/io/util.odin">util.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:47:44.753434600 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:51:55.134278400 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
@@ -1349,12 +1364,14 @@ seek offset.</p>
 <li><a href="#to_writer_at">to_writer_at</a></li>
 <li><a href="#write">write</a></li>
 <li><a href="#write_at">write_at</a></li>
+<li><a href="#write_at_least">write_at_least</a></li>
 <li><a href="#write_byte">write_byte</a></li>
 <li><a href="#write_encoded_rune">write_encoded_rune</a></li>
 <li><a href="#write_escaped_rune">write_escaped_rune</a></li>
 <li><a href="#write_f16">write_f16</a></li>
 <li><a href="#write_f32">write_f32</a></li>
 <li><a href="#write_f64">write_f64</a></li>
+<li><a href="#write_full">write_full</a></li>
 <li><a href="#write_i128">write_i128</a></li>
 <li><a href="#write_i64">write_i64</a></li>
 <li><a href="#write_int">write_int</a></li>

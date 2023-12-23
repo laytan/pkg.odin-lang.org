@@ -72,31 +72,18 @@
 
 </li>
 <li class="nav-item"><a href="/core/crypto">crypto</a><ul>
-<li><a href="/core/crypto/blake">blake</a></li>
 <li><a href="/core/crypto/blake2b">blake2b</a></li>
 <li><a href="/core/crypto/blake2s">blake2s</a></li>
 <li><a href="/core/crypto/chacha20">chacha20</a></li>
 <li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
-<li><a href="/core/crypto/gost">gost</a></li>
-<li><a href="/core/crypto/groestl">groestl</a></li>
-<li><a href="/core/crypto/haval">haval</a></li>
-<li><a href="/core/crypto/jh">jh</a></li>
-<li><a href="/core/crypto/keccak">keccak</a></li>
-<li><a href="/core/crypto/md2">md2</a></li>
-<li><a href="/core/crypto/md4">md4</a></li>
-<li><a href="/core/crypto/md5">md5</a></li>
+<li><a href="/core/crypto/legacy/keccak">legacy/keccak</a></li>
+<li><a href="/core/crypto/legacy/md5">legacy/md5</a></li>
+<li><a href="/core/crypto/legacy/sha1">legacy/sha1</a></li>
 <li><a href="/core/crypto/poly1305">poly1305</a></li>
-<li><a href="/core/crypto/ripemd">ripemd</a></li>
-<li><a href="/core/crypto/sha1">sha1</a></li>
 <li><a href="/core/crypto/sha2">sha2</a></li>
 <li><a href="/core/crypto/sha3">sha3</a></li>
 <li><a href="/core/crypto/shake">shake</a></li>
 <li><a href="/core/crypto/sm3">sm3</a></li>
-<li><a href="/core/crypto/streebog">streebog</a></li>
-<li><a href="/core/crypto/tiger">tiger</a></li>
-<li><a href="/core/crypto/tiger2">tiger2</a></li>
-<li><a href="/core/crypto/util">util</a></li>
-<li><a href="/core/crypto/whirlpool">whirlpool</a></li>
 <li><a href="/core/crypto/x25519">x25519</a></li>
 </ul>
 
@@ -110,6 +97,7 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
+<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -530,7 +518,7 @@ If a file format parser doesn't (yet) support plural slots, each of the slots wi
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="parse_qt_linguist_file"><span><a class="doc-id-link" href="#parse_qt_linguist_file">parse_qt_linguist_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/i18n/qt_linguist.odin#L171"><em>Source</em></a></div></h3>
+<h3 id="parse_qt_linguist_file"><span><a class="doc-id-link" href="#parse_qt_linguist_file">parse_qt_linguist_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/i18n/qt_linguist.odin#L161"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">parse_qt_linguist_file :: <span class="keyword-type">proc</span>(filename: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, options: <a class="code-typename" href="/core/text/i18n/#Parse_Options">Parse_Options</a> = DEFAULT_PARSE_OPTIONS, pluralizer: <span class="keyword-type">proc</span>(_: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = nil, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (translation: ^<a class="code-typename" href="/core/text/i18n/#Translation">Translation</a>, err: <a class="code-typename" href="/core/text/i18n/#Error">Error</a>) {…}</pre>
 </div>
@@ -589,7 +577,7 @@ If a file format parser doesn't (yet) support plural slots, each of the slots wi
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="parse_qt"><span><a class="doc-id-link" href="#parse_qt">parse_qt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/i18n/qt_linguist.odin#L182"><em>Source</em></a></div></h3>
+<h3 id="parse_qt"><span><a class="doc-id-link" href="#parse_qt">parse_qt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/i18n/qt_linguist.odin#L172"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">parse_qt :: proc{
 	<a class="code-procedure" href="/core/text/i18n/#parse_qt_linguist_file">parse_qt_linguist_file</a>,
@@ -606,7 +594,7 @@ If a file format parser doesn't (yet) support plural slots, each of the slots wi
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/text/i18n/qt_linguist.odin">qt_linguist.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:47:44.742108800 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:51:55.127905000 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

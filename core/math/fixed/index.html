@@ -72,31 +72,18 @@
 
 </li>
 <li class="nav-item"><a href="/core/crypto">crypto</a><ul>
-<li><a href="/core/crypto/blake">blake</a></li>
 <li><a href="/core/crypto/blake2b">blake2b</a></li>
 <li><a href="/core/crypto/blake2s">blake2s</a></li>
 <li><a href="/core/crypto/chacha20">chacha20</a></li>
 <li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
-<li><a href="/core/crypto/gost">gost</a></li>
-<li><a href="/core/crypto/groestl">groestl</a></li>
-<li><a href="/core/crypto/haval">haval</a></li>
-<li><a href="/core/crypto/jh">jh</a></li>
-<li><a href="/core/crypto/keccak">keccak</a></li>
-<li><a href="/core/crypto/md2">md2</a></li>
-<li><a href="/core/crypto/md4">md4</a></li>
-<li><a href="/core/crypto/md5">md5</a></li>
+<li><a href="/core/crypto/legacy/keccak">legacy/keccak</a></li>
+<li><a href="/core/crypto/legacy/md5">legacy/md5</a></li>
+<li><a href="/core/crypto/legacy/sha1">legacy/sha1</a></li>
 <li><a href="/core/crypto/poly1305">poly1305</a></li>
-<li><a href="/core/crypto/ripemd">ripemd</a></li>
-<li><a href="/core/crypto/sha1">sha1</a></li>
 <li><a href="/core/crypto/sha2">sha2</a></li>
 <li><a href="/core/crypto/sha3">sha3</a></li>
 <li><a href="/core/crypto/shake">shake</a></li>
 <li><a href="/core/crypto/sm3">sm3</a></li>
-<li><a href="/core/crypto/streebog">streebog</a></li>
-<li><a href="/core/crypto/tiger">tiger</a></li>
-<li><a href="/core/crypto/tiger2">tiger2</a></li>
-<li><a href="/core/crypto/util">util</a></li>
-<li><a href="/core/crypto/whirlpool">whirlpool</a></li>
 <li><a href="/core/crypto/x25519">x25519</a></li>
 </ul>
 
@@ -110,6 +97,7 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
+<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -422,37 +410,37 @@ Procedure Groups (0)</summary>
 <p class="pkg-empty-section">This section is empty.</p>
 <h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
 <div class="pkg-entity">
-<h3 id="add"><span><a class="doc-id-link" href="#add">add<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L56"><em>Source</em></a></div></h3>
+<h3 id="add"><span><a class="doc-id-link" href="#add">add<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L58"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">add :: <span class="keyword-type">proc</span>(x, y: $T/<a class="code-typename" href="/core/math/fixed/#Fixed">Fixed</a>) -> $T/<a class="code-typename" href="/core/math/fixed/#Fixed">Fixed</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="append"><span><a class="doc-id-link" href="#append">append<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L105"><em>Source</em></a></div></h3>
+<h3 id="append"><span><a class="doc-id-link" href="#append">append<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L107"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">append :: <span class="keyword-type">proc</span>(dst: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, x: $T/<a class="code-typename" href="/core/math/fixed/#Fixed">Fixed</a>($Backing, $Fraction_Width=)) -> <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="ceil"><span><a class="doc-id-link" href="#ceil">ceil<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L92"><em>Source</em></a></div></h3>
+<h3 id="ceil"><span><a class="doc-id-link" href="#ceil">ceil<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L94"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">ceil :: <span class="keyword-type">proc</span>(x: $T/<a class="code-typename" href="/core/math/fixed/#Fixed">Fixed</a>($Backing, $Fraction_Width=)) -> $T {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="div"><span><a class="doc-id-link" href="#div">div<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L76"><em>Source</em></a></div></h3>
+<h3 id="div"><span><a class="doc-id-link" href="#div">div<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L78"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">div :: <span class="keyword-type">proc</span>(x, y: $T/<a class="code-typename" href="/core/math/fixed/#Fixed">Fixed</a>($Backing, $Fraction_Width=)) -> (z: $T/<a class="code-typename" href="/core/math/fixed/#Fixed">Fixed</a>($Backing, $Fraction_Width=)) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="div_sat"><span><a class="doc-id-link" href="#div_sat">div_sat<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L81"><em>Source</em></a></div></h3>
+<h3 id="div_sat"><span><a class="doc-id-link" href="#div_sat">div_sat<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L83"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">div_sat :: <span class="keyword-type">proc</span>(x, y: $T/<a class="code-typename" href="/core/math/fixed/#Fixed">Fixed</a>($Backing, $Fraction_Width=)) -> (z: $T/<a class="code-typename" href="/core/math/fixed/#Fixed">Fixed</a>($Backing, $Fraction_Width=)) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="floor"><span><a class="doc-id-link" href="#floor">floor<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L88"><em>Source</em></a></div></h3>
+<h3 id="floor"><span><a class="doc-id-link" href="#floor">floor<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L90"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">floor :: <span class="keyword-type">proc</span>(x: $T/<a class="code-typename" href="/core/math/fixed/#Fixed">Fixed</a>($Backing, $Fraction_Width=)) -> $T {…}</pre>
 </div>
@@ -464,43 +452,43 @@ Procedure Groups (0)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="init_from_parts"><span><a class="doc-id-link" href="#init_from_parts">init_from_parts<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L39"><em>Source</em></a></div></h3>
+<h3 id="init_from_parts"><span><a class="doc-id-link" href="#init_from_parts">init_from_parts<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L41"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">init_from_parts :: <span class="keyword-type">proc</span>(x: ^$T/<a class="code-typename" href="/core/math/fixed/#Fixed">Fixed</a>($Backing, $Fraction_Width=), integer, fraction: $T) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="mul"><span><a class="doc-id-link" href="#mul">mul<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L65"><em>Source</em></a></div></h3>
+<h3 id="mul"><span><a class="doc-id-link" href="#mul">mul<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L67"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">mul :: <span class="keyword-type">proc</span>(x, y: $T/<a class="code-typename" href="/core/math/fixed/#Fixed">Fixed</a>($Backing, $Fraction_Width=)) -> (z: $T/<a class="code-typename" href="/core/math/fixed/#Fixed">Fixed</a>($Backing, $Fraction_Width=)) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="mul_sat"><span><a class="doc-id-link" href="#mul_sat">mul_sat<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L70"><em>Source</em></a></div></h3>
+<h3 id="mul_sat"><span><a class="doc-id-link" href="#mul_sat">mul_sat<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L72"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">mul_sat :: <span class="keyword-type">proc</span>(x, y: $T/<a class="code-typename" href="/core/math/fixed/#Fixed">Fixed</a>($Backing, $Fraction_Width=)) -> (z: $T/<a class="code-typename" href="/core/math/fixed/#Fixed">Fixed</a>($Backing, $Fraction_Width=)) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="round"><span><a class="doc-id-link" href="#round">round<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L97"><em>Source</em></a></div></h3>
+<h3 id="round"><span><a class="doc-id-link" href="#round">round<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L99"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">round :: <span class="keyword-type">proc</span>(x: $T/<a class="code-typename" href="/core/math/fixed/#Fixed">Fixed</a>($Backing, $Fraction_Width=)) -> $T {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="sub"><span><a class="doc-id-link" href="#sub">sub<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L60"><em>Source</em></a></div></h3>
+<h3 id="sub"><span><a class="doc-id-link" href="#sub">sub<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L62"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">sub :: <span class="keyword-type">proc</span>(x, y: $T/<a class="code-typename" href="/core/math/fixed/#Fixed">Fixed</a>) -> $T/<a class="code-typename" href="/core/math/fixed/#Fixed">Fixed</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="to_f64"><span><a class="doc-id-link" href="#to_f64">to_f64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L46"><em>Source</em></a></div></h3>
+<h3 id="to_f64"><span><a class="doc-id-link" href="#to_f64">to_f64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L48"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">to_f64 :: <span class="keyword-type">proc</span>(x: $T/<a class="code-typename" href="/core/math/fixed/#Fixed">Fixed</a>($Backing, $Fraction_Width=)) -> <a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="to_string"><span><a class="doc-id-link" href="#to_string">to_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L139"><em>Source</em></a></div></h3>
+<h3 id="to_string"><span><a class="doc-id-link" href="#to_string">to_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin#L141"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">to_string :: <span class="keyword-type">proc</span>(x: $T/<a class="code-typename" href="/core/math/fixed/#Fixed">Fixed</a>($Backing, $Fraction_Width=), allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
 </div>
@@ -513,7 +501,7 @@ Procedure Groups (0)</summary>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/math/fixed/fixed.odin">fixed.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:47:44.680820100 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:51:55.179615800 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

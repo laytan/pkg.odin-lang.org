@@ -72,31 +72,18 @@
 
 </li>
 <li class="nav-item"><a href="/core/crypto">crypto</a><ul>
-<li><a href="/core/crypto/blake">blake</a></li>
 <li><a href="/core/crypto/blake2b">blake2b</a></li>
 <li><a href="/core/crypto/blake2s">blake2s</a></li>
 <li><a href="/core/crypto/chacha20">chacha20</a></li>
 <li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
-<li><a href="/core/crypto/gost">gost</a></li>
-<li><a href="/core/crypto/groestl">groestl</a></li>
-<li><a href="/core/crypto/haval">haval</a></li>
-<li><a href="/core/crypto/jh">jh</a></li>
-<li><a href="/core/crypto/keccak">keccak</a></li>
-<li><a href="/core/crypto/md2">md2</a></li>
-<li><a href="/core/crypto/md4">md4</a></li>
-<li><a href="/core/crypto/md5">md5</a></li>
+<li><a href="/core/crypto/legacy/keccak">legacy/keccak</a></li>
+<li><a href="/core/crypto/legacy/md5">legacy/md5</a></li>
+<li><a href="/core/crypto/legacy/sha1">legacy/sha1</a></li>
 <li><a href="/core/crypto/poly1305">poly1305</a></li>
-<li><a href="/core/crypto/ripemd">ripemd</a></li>
-<li><a href="/core/crypto/sha1">sha1</a></li>
 <li><a href="/core/crypto/sha2">sha2</a></li>
 <li><a href="/core/crypto/sha3">sha3</a></li>
 <li><a href="/core/crypto/shake">shake</a></li>
 <li><a href="/core/crypto/sm3">sm3</a></li>
-<li><a href="/core/crypto/streebog">streebog</a></li>
-<li><a href="/core/crypto/tiger">tiger</a></li>
-<li><a href="/core/crypto/tiger2">tiger2</a></li>
-<li><a href="/core/crypto/util">util</a></li>
-<li><a href="/core/crypto/whirlpool">whirlpool</a></li>
 <li><a href="/core/crypto/x25519">x25519</a></li>
 </ul>
 
@@ -110,6 +97,7 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
+<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -859,7 +847,7 @@ MJSON
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="opt_write_end"><span><a class="doc-id-link" href="#opt_write_end">opt_write_end<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/marshal.odin#L476"><em>Source</em></a></div></h3>
+<h3 id="opt_write_end"><span><a class="doc-id-link" href="#opt_write_end">opt_write_end<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/marshal.odin#L475"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">opt_write_end :: <span class="keyword-type">proc</span>(w: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, opt: ^<a class="code-typename" href="/core/encoding/json/#Marshal_Options">Marshal_Options</a>, c: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
@@ -869,7 +857,7 @@ MJSON
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="opt_write_indentation"><span><a class="doc-id-link" href="#opt_write_indentation">opt_write_indentation<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/marshal.odin#L496"><em>Source</em></a></div></h3>
+<h3 id="opt_write_indentation"><span><a class="doc-id-link" href="#opt_write_indentation">opt_write_indentation<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/marshal.odin#L495"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">opt_write_indentation :: <span class="keyword-type">proc</span>(w: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, opt: ^<a class="code-typename" href="/core/encoding/json/#Marshal_Options">Marshal_Options</a>) -> (err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
@@ -879,7 +867,7 @@ MJSON
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="opt_write_iteration"><span><a class="doc-id-link" href="#opt_write_iteration">opt_write_iteration<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/marshal.odin#L445"><em>Source</em></a></div></h3>
+<h3 id="opt_write_iteration"><span><a class="doc-id-link" href="#opt_write_iteration">opt_write_iteration<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/marshal.odin#L444"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">opt_write_iteration :: <span class="keyword-type">proc</span>(w: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, opt: ^<a class="code-typename" href="/core/encoding/json/#Marshal_Options">Marshal_Options</a>, iteration: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> (err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
@@ -889,7 +877,7 @@ MJSON
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="opt_write_key"><span><a class="doc-id-link" href="#opt_write_key">opt_write_key<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/marshal.odin#L403"><em>Source</em></a></div></h3>
+<h3 id="opt_write_key"><span><a class="doc-id-link" href="#opt_write_key">opt_write_key<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/marshal.odin#L402"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">opt_write_key :: <span class="keyword-type">proc</span>(w: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, opt: ^<a class="code-typename" href="/core/encoding/json/#Marshal_Options">Marshal_Options</a>, name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> (err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
@@ -899,7 +887,7 @@ MJSON
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="opt_write_start"><span><a class="doc-id-link" href="#opt_write_start">opt_write_start<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/marshal.odin#L427"><em>Source</em></a></div></h3>
+<h3 id="opt_write_start"><span><a class="doc-id-link" href="#opt_write_start">opt_write_start<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/marshal.odin#L426"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">opt_write_start :: <span class="keyword-type">proc</span>(w: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, opt: ^<a class="code-typename" href="/core/encoding/json/#Marshal_Options">Marshal_Options</a>, c: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
@@ -933,7 +921,7 @@ MJSON
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="parse_object"><span><a class="doc-id-link" href="#parse_object">parse_object<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/parser.odin#L275"><em>Source</em></a></div></h3>
+<h3 id="parse_object"><span><a class="doc-id-link" href="#parse_object">parse_object<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/parser.odin#L284"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">parse_object :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/encoding/json/#Parser">Parser</a>) -> (value: <a class="code-typename" href="/core/encoding/json/#Value">Value</a>, err: <a class="code-typename" href="/core/encoding/json/#Error">Error</a>) {…}</pre>
 </div>
@@ -987,7 +975,7 @@ MJSON
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="unquote_string"><span><a class="doc-id-link" href="#unquote_string">unquote_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/parser.odin#L284"><em>Source</em></a></div></h3>
+<h3 id="unquote_string"><span><a class="doc-id-link" href="#unquote_string">unquote_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/parser.odin#L293"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">unquote_string :: <span class="keyword-type">proc</span>(token: <a class="code-typename" href="/core/encoding/json/#Token">Token</a>, spec: <a class="code-typename" href="/core/encoding/json/#Specification">Specification</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (value: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, err: <a class="code-typename" href="/core/encoding/json/#Error">Error</a>) {…}</pre>
 </div>
@@ -1039,7 +1027,7 @@ MJSON
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/json/validator.odin">validator.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:47:44.670757500 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:51:55.136800300 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

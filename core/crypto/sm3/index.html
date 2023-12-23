@@ -72,31 +72,18 @@
 
 </li>
 <li class="nav-item"><a href="/core/crypto">crypto</a><ul>
-<li><a href="/core/crypto/blake">blake</a></li>
 <li><a href="/core/crypto/blake2b">blake2b</a></li>
 <li><a href="/core/crypto/blake2s">blake2s</a></li>
 <li><a href="/core/crypto/chacha20">chacha20</a></li>
 <li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
-<li><a href="/core/crypto/gost">gost</a></li>
-<li><a href="/core/crypto/groestl">groestl</a></li>
-<li><a href="/core/crypto/haval">haval</a></li>
-<li><a href="/core/crypto/jh">jh</a></li>
-<li><a href="/core/crypto/keccak">keccak</a></li>
-<li><a href="/core/crypto/md2">md2</a></li>
-<li><a href="/core/crypto/md4">md4</a></li>
-<li><a href="/core/crypto/md5">md5</a></li>
+<li><a href="/core/crypto/legacy/keccak">legacy/keccak</a></li>
+<li><a href="/core/crypto/legacy/md5">legacy/md5</a></li>
+<li><a href="/core/crypto/legacy/sha1">legacy/sha1</a></li>
 <li><a href="/core/crypto/poly1305">poly1305</a></li>
-<li><a href="/core/crypto/ripemd">ripemd</a></li>
-<li><a href="/core/crypto/sha1">sha1</a></li>
 <li><a href="/core/crypto/sha2">sha2</a></li>
 <li><a href="/core/crypto/sha3">sha3</a></li>
 <li><a href="/core/crypto/shake">shake</a></li>
 <li><a class="active" href="/core/crypto/sm3">sm3</a></li>
-<li><a href="/core/crypto/streebog">streebog</a></li>
-<li><a href="/core/crypto/tiger">tiger</a></li>
-<li><a href="/core/crypto/tiger2">tiger2</a></li>
-<li><a href="/core/crypto/util">util</a></li>
-<li><a href="/core/crypto/whirlpool">whirlpool</a></li>
 <li><a href="/core/crypto/x25519">x25519</a></li>
 </ul>
 
@@ -110,6 +97,7 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
+<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -254,15 +242,16 @@
 <summary id="#doc-index-Types-header">
 Types (1)</summary>
 <ul>
-<li><a href="#Sm3_Context">Sm3_Context</a></li>
+<li><a href="#Context">Context</a></li>
 </ul>
 </details>
 </div>
 <div>
 <details class="doc-index" id="doc-index-Constants" aria-labelledby="#doc-index-Constants-header">
 <summary id="#doc-index-Constants-header">
-Constants (1)</summary>
+Constants (2)</summary>
 <ul>
+<li><a href="#BLOCK_SIZE">BLOCK_SIZE</a></li>
 <li><a href="#DIGEST_SIZE">DIGEST_SIZE</a></li>
 </ul>
 </details>
@@ -270,18 +259,15 @@ Constants (1)</summary>
 <div>
 <details class="doc-index" id="doc-index-Variables" aria-labelledby="#doc-index-Variables-header">
 <summary id="#doc-index-Variables-header">
-Variables (1)</summary>
-<ul>
-<li><a href="#IV">IV</a></li>
-</ul>
+Variables (0)</summary>
+<p class="pkg-empty-section">This section is empty.</p>
 </details>
 </div>
 <div>
 <details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
 <summary id="#doc-index-Procedures-header">
-Procedures (10)</summary>
+Procedures (9)</summary>
 <ul>
-<li><a href="#block">block</a></li>
 <li><a href="#final">final</a></li>
 <li><a href="#hash_bytes">hash_bytes</a></li>
 <li><a href="#hash_bytes_to_buffer">hash_bytes_to_buffer</a></li>
@@ -308,18 +294,18 @@ Procedure Groups (1)</summary>
 <section class="documentation">
 <h2 id="pkg-Types" class="pkg-header">Types</h2>
 <div class="pkg-entity">
-<h3 id="Sm3_Context"><span><a class="doc-id-link" href="#Sm3_Context">Sm3_Context<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sm3/sm3.odin#L168"><em>Source</em></a></div></h3>
+<h3 id="Context"><span><a class="doc-id-link" href="#Context">Context<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sm3/sm3.odin#L181"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Sm3_Context :: <span class="keyword-type">struct</span> {
-	state:     [8]<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
-	x:         [64]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
-	bitlength: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>,
-	length:    <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>,
+<pre class="doc-code">Context :: <span class="keyword-type">struct</span> {
+	state:          [8]<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	x:              [64]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	bitlength:      <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>,
+	length:         <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>,
+	is_initialized: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
 <ul>
-<li><a href="/core/crypto/sm3/#block">block</a></li>
 <li><a href="/core/crypto/sm3/#final">final</a></li>
 <li><a href="/core/crypto/sm3/#init">init</a></li>
 <li><a href="/core/crypto/sm3/#update">update</a></li>
@@ -327,29 +313,24 @@ Procedure Groups (1)</summary>
 </div>
 <h2 id="pkg-Constants" class="pkg-header">Constants</h2>
 <div class="pkg-entity">
+<h3 id="BLOCK_SIZE"><span><a class="doc-id-link" href="#BLOCK_SIZE">BLOCK_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sm3/sm3.odin#L179"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">BLOCK_SIZE :: 64</pre>
+</div>
+</div>
+<div class="pkg-entity">
 <h3 id="DIGEST_SIZE"><span><a class="doc-id-link" href="#DIGEST_SIZE">DIGEST_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sm3/sm3.odin#L22"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">DIGEST_SIZE :: 32</pre>
 </div>
 </div>
 <h2 id="pkg-Variables" class="pkg-header">Variables</h2>
-<div class="pkg-entity">
-<h3 id="IV"><span><a class="doc-id-link" href="#IV">IV<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sm3/sm3.odin#L175"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">IV: [8]<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> = …</pre>
-</div>
-</div>
+<p class="pkg-empty-section">This section is empty.</p>
 <h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
 <div class="pkg-entity">
-<h3 id="block"><span><a class="doc-id-link" href="#block">block<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sm3/sm3.odin#L180"><em>Source</em></a></div></h3>
+<h3 id="final"><span><a class="doc-id-link" href="#final">final<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sm3/sm3.odin#L146"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">block :: <span class="keyword-type">proc</span> "contextless" (ctx: ^<a class="code-typename" href="/core/crypto/sm3/#Sm3_Context">Sm3_Context</a>, buf: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="final"><span><a class="doc-id-link" href="#final">final<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sm3/sm3.odin#L138"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">final :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/sm3/#Sm3_Context">Sm3_Context</a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">final :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/sm3/#Context">Context</a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -376,7 +357,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_file"><span><a class="doc-id-link" href="#hash_file">hash_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sm3/sm3.odin#L80"><em>Source</em></a></div></h3>
+<h3 id="hash_file"><span><a class="doc-id-link" href="#hash_file">hash_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sm3/sm3.odin#L81"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_file :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
@@ -387,7 +368,7 @@ and compute a hash</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_stream"><span><a class="doc-id-link" href="#hash_stream">hash_stream<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sm3/sm3.odin#L61"><em>Source</em></a></div></h3>
+<h3 id="hash_stream"><span><a class="doc-id-link" href="#hash_stream">hash_stream<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sm3/sm3.odin#L60"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_stream :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
@@ -421,20 +402,20 @@ It requires that the destination buffer is at least as big as the digest size</p
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="init"><span><a class="doc-id-link" href="#init">init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sm3/sm3.odin#L104"><em>Source</em></a></div></h3>
+<h3 id="init"><span><a class="doc-id-link" href="#init">init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sm3/sm3.odin#L105"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">init :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/sm3/#Sm3_Context">Sm3_Context</a>) {…}</pre>
+<pre class="doc-code">init :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/sm3/#Context">Context</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="update"><span><a class="doc-id-link" href="#update">update<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sm3/sm3.odin#L115"><em>Source</em></a></div></h3>
+<h3 id="update"><span><a class="doc-id-link" href="#update">update<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sm3/sm3.odin#L121"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">update :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/sm3/#Sm3_Context">Sm3_Context</a>, data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">update :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/sm3/#Context">Context</a>, data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
 <div class="pkg-entity">
-<h3 id="hash"><span><a class="doc-id-link" href="#hash">hash<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sm3/sm3.odin#L91"><em>Source</em></a></div></h3>
+<h3 id="hash"><span><a class="doc-id-link" href="#hash">hash<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sm3/sm3.odin#L92"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash :: proc{
 	<a class="code-procedure" href="/core/crypto/sm3/#hash_stream">hash_stream</a>,
@@ -453,25 +434,21 @@ It requires that the destination buffer is at least as big as the digest size</p
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sm3/sm3.odin">sm3.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:47:44.574730300 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:51:55.126038200 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
 <ul>
 <li><a href="#pkg-Types">Types</a><ul>
-<li><a href="#Sm3_Context">Sm3_Context</a></li>
+<li><a href="#Context">Context</a></li>
 </ul>
 </li>
 <li><a href="#pkg-Constants">Constants</a><ul>
+<li><a href="#BLOCK_SIZE">BLOCK_SIZE</a></li>
 <li><a href="#DIGEST_SIZE">DIGEST_SIZE</a></li>
 </ul>
 </li>
-<li><a href="#pkg-Variables">Variables</a><ul>
-<li><a href="#IV">IV</a></li>
-</ul>
-</li>
 <li><a href="#pkg-Procedures">Procedures</a><ul>
-<li><a href="#block">block</a></li>
 <li><a href="#final">final</a></li>
 <li><a href="#hash_bytes">hash_bytes</a></li>
 <li><a href="#hash_bytes_to_buffer">hash_bytes_to_buffer</a></li>

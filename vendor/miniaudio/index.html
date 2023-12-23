@@ -46,34 +46,19 @@
 <li class="nav-item">botan<ul>
 <li><a href="/vendor/botan/bindings">bindings</a></li>
 <li><a href="/vendor/botan/blake2b">blake2b</a></li>
-<li><a href="/vendor/botan/gost">gost</a></li>
-<li><a href="/vendor/botan/keccak">keccak</a></li>
-<li><a href="/vendor/botan/md4">md4</a></li>
-<li><a href="/vendor/botan/md5">md5</a></li>
-<li><a href="/vendor/botan/ripemd">ripemd</a></li>
-<li><a href="/vendor/botan/sha1">sha1</a></li>
+<li><a href="/vendor/botan/legacy/keccak">legacy/keccak</a></li>
+<li><a href="/vendor/botan/legacy/md5">legacy/md5</a></li>
+<li><a href="/vendor/botan/legacy/sha1">legacy/sha1</a></li>
 <li><a href="/vendor/botan/sha2">sha2</a></li>
 <li><a href="/vendor/botan/sha3">sha3</a></li>
 <li><a href="/vendor/botan/shake">shake</a></li>
 <li><a href="/vendor/botan/siphash">siphash</a></li>
-<li><a href="/vendor/botan/skein512">skein512</a></li>
 <li><a href="/vendor/botan/sm3">sm3</a></li>
-<li><a href="/vendor/botan/streebog">streebog</a></li>
-<li><a href="/vendor/botan/tiger">tiger</a></li>
-<li><a href="/vendor/botan/whirlpool">whirlpool</a></li>
 </ul>
 
 </li>
 <li class="nav-item"><a href="/vendor/cgltf">cgltf</a></li>
 <li class="nav-item"><a href="/vendor/commonmark">commonmark</a></li>
-<li class="nav-item">darwin<ul>
-<li><a href="/vendor/darwin/Foundation">Foundation</a></li>
-<li><a href="/vendor/darwin/Metal">Metal</a></li>
-<li><a href="/vendor/darwin/MetalKit">MetalKit</a></li>
-<li><a href="/vendor/darwin/QuartzCore">QuartzCore</a></li>
-</ul>
-
-</li>
 <li class="nav-item">directx<ul>
 <li><a href="/vendor/directx/d3d11">d3d11</a></li>
 <li><a href="/vendor/directx/d3d12">d3d12</a></li>
@@ -404,7 +389,7 @@ Types (234)</summary>
 <div>
 <details class="doc-index" id="doc-index-Constants" aria-labelledby="#doc-index-Constants-header">
 <summary id="#doc-index-Constants-header">
-Constants (35)</summary>
+Constants (36)</summary>
 <ul>
 <li><a href="#BACKEND_COUNT">BACKEND_COUNT</a></li>
 <li><a href="#CHANNEL_INDEX_NULL">CHANNEL_INDEX_NULL</a></li>
@@ -419,6 +404,7 @@ Constants (35)</summary>
 <li><a href="#MAX_LOG_CALLBACKS">MAX_LOG_CALLBACKS</a></li>
 <li><a href="#MAX_NODE_BUS_COUNT">MAX_NODE_BUS_COUNT</a></li>
 <li><a href="#MAX_NODE_LOCAL_BUS_COUNT">MAX_NODE_LOCAL_BUS_COUNT</a></li>
+<li><a href="#MINIAUDIO_SHARED">MINIAUDIO_SHARED</a></li>
 <li><a href="#MIN_CHANNELS">MIN_CHANNELS</a></li>
 <li><a href="#NODE_BUS_COUNT_UNKNOWN">NODE_BUS_COUNT_UNKNOWN</a></li>
 <li><a href="#NO_THREADING">NO_THREADING</a></li>
@@ -1433,7 +1419,7 @@ Procedure Groups (0)</summary>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="allocation_callbacks"><span><a class="doc-id-link" href="#allocation_callbacks">allocation_callbacks<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L250"><em>Source</em></a></div></h3>
+<h3 id="allocation_callbacks"><span><a class="doc-id-link" href="#allocation_callbacks">allocation_callbacks<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L256"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">allocation_callbacks :: <span class="keyword-type">struct</span> {
 	pUserData: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>,
@@ -2052,7 +2038,7 @@ wake up the audio thread.</p>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="channel"><span><a class="doc-id-link" href="#channel">channel<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L27"><em>Source</em></a></div></h3>
+<h3 id="channel"><span><a class="doc-id-link" href="#channel">channel<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L33"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">channel :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	NONE               = 0, 
@@ -2200,7 +2186,7 @@ wake up the audio thread.</p>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="channel_mix_mode"><span><a class="doc-id-link" href="#channel_mix_mode">channel_mix_mode<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L225"><em>Source</em></a></div></h3>
+<h3 id="channel_mix_mode"><span><a class="doc-id-link" href="#channel_mix_mode">channel_mix_mode<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L231"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">channel_mix_mode :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	rectangular    = 0, <span class="comment">// Simple averaging based on the plane(s) the channel is sitting on.</span>
@@ -3532,7 +3518,7 @@ Android backends will report this notification.</p>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="dither_mode"><span><a class="doc-id-link" href="#dither_mode">dither_mode<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L179"><em>Source</em></a></div></h3>
+<h3 id="dither_mode"><span><a class="doc-id-link" href="#dither_mode">dither_mode<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L185"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">dither_mode :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	none      = 0, 
@@ -4041,7 +4027,7 @@ counter hits zero.</p>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="format"><span><a class="doc-id-link" href="#format">format<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L185"><em>Source</em></a></div></h3>
+<h3 id="format"><span><a class="doc-id-link" href="#format">format<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L191"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">format :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	<span class="comment">// 	I like to keep these explicitly defined because they're used as a key into a lookup table. When items are</span>
@@ -4169,7 +4155,7 @@ counter hits zero.</p>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="handle"><span><a class="doc-id-link" href="#handle">handle<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L13"><em>Source</em></a></div></h3>
+<h3 id="handle"><span><a class="doc-id-link" href="#handle">handle<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L19"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">handle :: <span class="keyword-type">distinct</span> <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a></pre>
 </div>
@@ -4705,7 +4691,7 @@ ma_job_queue_post(). ma_job_queue_next() will return MA_NO_DATA_AVAILABLE if not
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="lcg"><span><a class="doc-id-link" href="#lcg">lcg<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L257"><em>Source</em></a></div></h3>
+<h3 id="lcg"><span><a class="doc-id-link" href="#lcg">lcg<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L263"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">lcg :: <span class="keyword-type">struct</span> {
 	state: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
@@ -4863,7 +4849,7 @@ Do not modify the state of the device from inside the callback.</p>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="log_level"><span><a class="doc-id-link" href="#log_level">log_level<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L19"><em>Source</em></a></div></h3>
+<h3 id="log_level"><span><a class="doc-id-link" href="#log_level">log_level<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L25"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">log_level :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	LOG_LEVEL_DEBUG   = 4, 
@@ -5960,7 +5946,7 @@ thread at a time can read and seek.</p>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="performance_profile"><span><a class="doc-id-link" href="#performance_profile">performance_profile<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L244"><em>Source</em></a></div></h3>
+<h3 id="performance_profile"><span><a class="doc-id-link" href="#performance_profile">performance_profile<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L250"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">performance_profile :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	low_latency  = 0, 
@@ -6563,7 +6549,7 @@ TODO: Remove this block in version 0.12.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="result"><span><a class="doc-id-link" href="#result">result<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L85"><em>Source</em></a></div></h3>
+<h3 id="result"><span><a class="doc-id-link" href="#result">result<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L91"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">result :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	SUCCESS                        = 0, 
@@ -7610,7 +7596,7 @@ as the insertion point for an object.</p>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="spinlock"><span><a class="doc-id-link" href="#spinlock">spinlock<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L263"><em>Source</em></a></div></h3>
+<h3 id="spinlock"><span><a class="doc-id-link" href="#spinlock">spinlock<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L269"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">spinlock :: <span class="keyword-type">distinct</span> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a></pre>
 </div>
@@ -7660,7 +7646,7 @@ as the insertion point for an object.</p>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="standard_channel_map"><span><a class="doc-id-link" href="#standard_channel_map">standard_channel_map<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L232"><em>Source</em></a></div></h3>
+<h3 id="standard_channel_map"><span><a class="doc-id-link" href="#standard_channel_map">standard_channel_map<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L238"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">standard_channel_map :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	microsoft, 
@@ -7680,7 +7666,7 @@ as the insertion point for an object.</p>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="standard_sample_rate"><span><a class="doc-id-link" href="#standard_sample_rate">standard_sample_rate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L198"><em>Source</em></a></div></h3>
+<h3 id="standard_sample_rate"><span><a class="doc-id-link" href="#standard_sample_rate">standard_sample_rate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L204"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">standard_sample_rate :: <span class="keyword-type">enum</span> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {
 	<span class="comment">// Standard rates need to be in priority order. </span>
@@ -7725,7 +7711,7 @@ Do not restart or uninitialize the device from the callback.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="stream_format"><span><a class="doc-id-link" href="#stream_format">stream_format<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L170"><em>Source</em></a></div></h3>
+<h3 id="stream_format"><span><a class="doc-id-link" href="#stream_format">stream_format<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L176"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">stream_format :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	pcm = 0, 
@@ -7733,7 +7719,7 @@ Do not restart or uninitialize the device from the callback.</p>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="stream_layout"><span><a class="doc-id-link" href="#stream_layout">stream_layout<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L174"><em>Source</em></a></div></h3>
+<h3 id="stream_layout"><span><a class="doc-id-link" href="#stream_layout">stream_layout<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L180"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">stream_layout :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	interleaved   = 0, 
@@ -7748,7 +7734,7 @@ Do not restart or uninitialize the device from the callback.</p>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="thread_priority"><span><a class="doc-id-link" href="#thread_priority">thread_priority<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L269"><em>Source</em></a></div></h3>
+<h3 id="thread_priority"><span><a class="doc-id-link" href="#thread_priority">thread_priority<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L275"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">thread_priority :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	idle     = -5, 
@@ -7993,7 +7979,7 @@ appropriate for a given situation.</p>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="MAX_CHANNELS"><span><a class="doc-id-link" href="#MAX_CHANNELS">MAX_CHANNELS<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L165"><em>Source</em></a></div></h3>
+<h3 id="MAX_CHANNELS"><span><a class="doc-id-link" href="#MAX_CHANNELS">MAX_CHANNELS<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L171"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">MAX_CHANNELS :: 254</pre>
 </div>
@@ -8005,7 +7991,7 @@ appropriate for a given situation.</p>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="MAX_FILTER_ORDER"><span><a class="doc-id-link" href="#MAX_FILTER_ORDER">MAX_FILTER_ORDER<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L167"><em>Source</em></a></div></h3>
+<h3 id="MAX_FILTER_ORDER"><span><a class="doc-id-link" href="#MAX_FILTER_ORDER">MAX_FILTER_ORDER<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L173"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">MAX_FILTER_ORDER :: 8</pre>
 </div>
@@ -8037,7 +8023,13 @@ appropriate for a given situation.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="MIN_CHANNELS"><span><a class="doc-id-link" href="#MIN_CHANNELS">MIN_CHANNELS<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L164"><em>Source</em></a></div></h3>
+<h3 id="MINIAUDIO_SHARED"><span><a class="doc-id-link" href="#MINIAUDIO_SHARED">MINIAUDIO_SHARED<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L5"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MINIAUDIO_SHARED :: #config(MINIAUDIO_SHARED, false)</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="MIN_CHANNELS"><span><a class="doc-id-link" href="#MIN_CHANNELS">MIN_CHANNELS<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L170"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">MIN_CHANNELS :: 1</pre>
 </div>
@@ -8053,7 +8045,7 @@ appropriate for a given situation.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="NO_THREADING"><span><a class="doc-id-link" href="#NO_THREADING">NO_THREADING<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L265"><em>Source</em></a></div></h3>
+<h3 id="NO_THREADING"><span><a class="doc-id-link" href="#NO_THREADING">NO_THREADING<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L271"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">NO_THREADING :: false</pre>
 </div>
@@ -8069,7 +8061,7 @@ appropriate for a given situation.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="SIMD_ALIGNMENT"><span><a class="doc-id-link" href="#SIMD_ALIGNMENT">SIMD_ALIGNMENT<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L17"><em>Source</em></a></div></h3>
+<h3 id="SIMD_ALIGNMENT"><span><a class="doc-id-link" href="#SIMD_ALIGNMENT">SIMD_ALIGNMENT<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L23"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">SIMD_ALIGNMENT :: 32</pre>
 </div>
@@ -8204,7 +8196,7 @@ appropriate for a given situation.</p>
 <p class="pkg-empty-section">This section is empty.</p>
 <h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
 <div class="pkg-entity">
-<h3 id="aligned_free"><span><a class="doc-id-link" href="#aligned_free">aligned_free<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L331"><em>Source</em></a></div></h3>
+<h3 id="aligned_free"><span><a class="doc-id-link" href="#aligned_free">aligned_free<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L337"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">aligned_free :: <span class="keyword-type">proc</span> "c" (p: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, pAllocationCallbacks: ^<a class="code-typename" href="/vendor/miniaudio/#allocation_callbacks">allocation_callbacks</a>) ---</pre>
 </div>
@@ -8214,7 +8206,7 @@ appropriate for a given situation.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="aligned_malloc"><span><a class="doc-id-link" href="#aligned_malloc">aligned_malloc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L326"><em>Source</em></a></div></h3>
+<h3 id="aligned_malloc"><span><a class="doc-id-link" href="#aligned_malloc">aligned_malloc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L332"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">aligned_malloc :: <span class="keyword-type">proc</span> "c" (sz, alignment: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>, pAllocationCallbacks: ^<a class="code-typename" href="/vendor/miniaudio/#allocation_callbacks">allocation_callbacks</a>) -> <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a> ---</pre>
 </div>
@@ -8581,7 +8573,7 @@ appropriate for a given situation.</p>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="blend_f32"><span><a class="doc-id-link" href="#blend_f32">blend_f32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L341"><em>Source</em></a></div></h3>
+<h3 id="blend_f32"><span><a class="doc-id-link" href="#blend_f32">blend_f32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L347"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">blend_f32 :: <span class="keyword-type">proc</span> "c" (pOut, pInA, pInB: [^]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, factor: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, channels: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) ---</pre>
 </div>
@@ -8788,7 +8780,7 @@ is also zero, `MA_DEFAULT_SAMPLE_RATE` will be used instead.
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="calloc"><span><a class="doc-id-link" href="#calloc">calloc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L311"><em>Source</em></a></div></h3>
+<h3 id="calloc"><span><a class="doc-id-link" href="#calloc">calloc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L317"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">calloc :: <span class="keyword-type">proc</span> "c" (sz: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>, pAllocationCallbacks: ^<a class="code-typename" href="/vendor/miniaudio/#allocation_callbacks">allocation_callbacks</a>) -> <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a> ---</pre>
 </div>
@@ -11812,7 +11804,7 @@ ma_device_stop()
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="free"><span><a class="doc-id-link" href="#free">free<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L321"><em>Source</em></a></div></h3>
+<h3 id="free"><span><a class="doc-id-link" href="#free">free<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L327"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">free :: <span class="keyword-type">proc</span> "c" (p: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, pAllocationCallbacks: ^<a class="code-typename" href="/vendor/miniaudio/#allocation_callbacks">allocation_callbacks</a>) ---</pre>
 </div>
@@ -11880,13 +11872,13 @@ ma_device_stop()
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="get_bytes_per_frame"><span><a class="doc-id-link" href="#get_bytes_per_frame">get_bytes_per_frame<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L359"><em>Source</em></a></div></h3>
+<h3 id="get_bytes_per_frame"><span><a class="doc-id-link" href="#get_bytes_per_frame">get_bytes_per_frame<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L365"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">get_bytes_per_frame :: <span class="keyword-type">proc</span> "c" (format: <a class="code-typename" href="/vendor/miniaudio/#format">format</a>, channels: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="get_bytes_per_sample"><span><a class="doc-id-link" href="#get_bytes_per_sample">get_bytes_per_sample<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L351"><em>Source</em></a></div></h3>
+<h3 id="get_bytes_per_sample"><span><a class="doc-id-link" href="#get_bytes_per_sample">get_bytes_per_sample<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L357"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">get_bytes_per_sample :: <span class="keyword-type">proc</span> "c" (format: <a class="code-typename" href="/vendor/miniaudio/#format">format</a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> ---</pre>
 </div>
@@ -11978,7 +11970,7 @@ ma_is_backend_enabled()
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="get_format_name"><span><a class="doc-id-link" href="#get_format_name">get_format_name<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L336"><em>Source</em></a></div></h3>
+<h3 id="get_format_name"><span><a class="doc-id-link" href="#get_format_name">get_format_name<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L342"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">get_format_name :: <span class="keyword-type">proc</span> "c" (format: <a class="code-typename" href="/vendor/miniaudio/#format">format</a>) -> <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
 </div>
@@ -12412,7 +12404,7 @@ ma_is_backend_enabled()
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="log_level_to_string"><span><a class="doc-id-link" href="#log_level_to_string">log_level_to_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L356"><em>Source</em></a></div></h3>
+<h3 id="log_level_to_string"><span><a class="doc-id-link" href="#log_level_to_string">log_level_to_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L362"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">log_level_to_string :: <span class="keyword-type">proc</span> "c" (logLevel: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
 </div>
@@ -12764,7 +12756,7 @@ ma_is_backend_enabled()
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="malloc"><span><a class="doc-id-link" href="#malloc">malloc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L306"><em>Source</em></a></div></h3>
+<h3 id="malloc"><span><a class="doc-id-link" href="#malloc">malloc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L312"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">malloc :: <span class="keyword-type">proc</span> "c" (sz: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>, pAllocationCallbacks: ^<a class="code-typename" href="/vendor/miniaudio/#allocation_callbacks">allocation_callbacks</a>) -> <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a> ---</pre>
 </div>
@@ -13740,7 +13732,7 @@ ma_is_backend_enabled()
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="realloc"><span><a class="doc-id-link" href="#realloc">realloc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L316"><em>Source</em></a></div></h3>
+<h3 id="realloc"><span><a class="doc-id-link" href="#realloc">realloc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L322"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">realloc :: <span class="keyword-type">proc</span> "c" (p: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, sz: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>, pAllocationCallbacks: ^<a class="code-typename" href="/vendor/miniaudio/#allocation_callbacks">allocation_callbacks</a>) -> <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a> ---</pre>
 </div>
@@ -14399,7 +14391,7 @@ It is an error for both [pFrameCountOut] and [pFrameCountIn] to be NULL.
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="result_description"><span><a class="doc-id-link" href="#result_description">result_description<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L301"><em>Source</em></a></div></h3>
+<h3 id="result_description"><span><a class="doc-id-link" href="#result_description">result_description<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L307"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">result_description :: <span class="keyword-type">proc</span> "c" (result: <a class="code-typename" href="/vendor/miniaudio/#result">result</a>) -> <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
 </div>
@@ -15618,13 +15610,13 @@ makes more sense for the purpose of mixing to initialize it to the center point.
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="version"><span><a class="doc-id-link" href="#version">version<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L284"><em>Source</em></a></div></h3>
+<h3 id="version"><span><a class="doc-id-link" href="#version">version<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L290"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">version :: <span class="keyword-type">proc</span> "c" (pMajor, pMinor, pRevision: ^<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="version_string"><span><a class="doc-id-link" href="#version_string">version_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L285"><em>Source</em></a></div></h3>
+<h3 id="version_string"><span><a class="doc-id-link" href="#version_string">version_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/miniaudio/common.odin#L291"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">version_string :: <span class="keyword-type">proc</span> "c" () -> <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
 </div>
@@ -15790,7 +15782,7 @@ makes more sense for the purpose of mixing to initialize it to the center point.
 <li><em>(hidden platform specific files)</em></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:47:45.223019000 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:51:55.524320500 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
@@ -16046,6 +16038,7 @@ makes more sense for the purpose of mixing to initialize it to the center point.
 <li><a href="#MAX_LOG_CALLBACKS">MAX_LOG_CALLBACKS</a></li>
 <li><a href="#MAX_NODE_BUS_COUNT">MAX_NODE_BUS_COUNT</a></li>
 <li><a href="#MAX_NODE_LOCAL_BUS_COUNT">MAX_NODE_LOCAL_BUS_COUNT</a></li>
+<li><a href="#MINIAUDIO_SHARED">MINIAUDIO_SHARED</a></li>
 <li><a href="#MIN_CHANNELS">MIN_CHANNELS</a></li>
 <li><a href="#NODE_BUS_COUNT_UNKNOWN">NODE_BUS_COUNT_UNKNOWN</a></li>
 <li><a href="#NO_THREADING">NO_THREADING</a></li>

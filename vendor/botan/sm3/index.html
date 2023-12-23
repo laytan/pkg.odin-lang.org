@@ -46,34 +46,19 @@
 <li class="nav-item">botan<ul>
 <li><a href="/vendor/botan/bindings">bindings</a></li>
 <li><a href="/vendor/botan/blake2b">blake2b</a></li>
-<li><a href="/vendor/botan/gost">gost</a></li>
-<li><a href="/vendor/botan/keccak">keccak</a></li>
-<li><a href="/vendor/botan/md4">md4</a></li>
-<li><a href="/vendor/botan/md5">md5</a></li>
-<li><a href="/vendor/botan/ripemd">ripemd</a></li>
-<li><a href="/vendor/botan/sha1">sha1</a></li>
+<li><a href="/vendor/botan/legacy/keccak">legacy/keccak</a></li>
+<li><a href="/vendor/botan/legacy/md5">legacy/md5</a></li>
+<li><a href="/vendor/botan/legacy/sha1">legacy/sha1</a></li>
 <li><a href="/vendor/botan/sha2">sha2</a></li>
 <li><a href="/vendor/botan/sha3">sha3</a></li>
 <li><a href="/vendor/botan/shake">shake</a></li>
 <li><a href="/vendor/botan/siphash">siphash</a></li>
-<li><a href="/vendor/botan/skein512">skein512</a></li>
 <li><a class="active" href="/vendor/botan/sm3">sm3</a></li>
-<li><a href="/vendor/botan/streebog">streebog</a></li>
-<li><a href="/vendor/botan/tiger">tiger</a></li>
-<li><a href="/vendor/botan/whirlpool">whirlpool</a></li>
 </ul>
 
 </li>
 <li class="nav-item"><a href="/vendor/cgltf">cgltf</a></li>
 <li class="nav-item"><a href="/vendor/commonmark">commonmark</a></li>
-<li class="nav-item">darwin<ul>
-<li><a href="/vendor/darwin/Foundation">Foundation</a></li>
-<li><a href="/vendor/darwin/Metal">Metal</a></li>
-<li><a href="/vendor/darwin/MetalKit">MetalKit</a></li>
-<li><a href="/vendor/darwin/QuartzCore">QuartzCore</a></li>
-</ul>
-
-</li>
 <li class="nav-item">directx<ul>
 <li><a href="/vendor/directx/d3d11">d3d11</a></li>
 <li><a href="/vendor/directx/d3d12">d3d12</a></li>
@@ -165,7 +150,7 @@
 <summary id="#doc-index-Types-header">
 Types (1)</summary>
 <ul>
-<li><a href="#Sm3_Context">Sm3_Context</a></li>
+<li><a href="#Context">Context</a></li>
 </ul>
 </details>
 </div>
@@ -216,9 +201,9 @@ Procedure Groups (1)</summary>
 <section class="documentation">
 <h2 id="pkg-Types" class="pkg-header">Types</h2>
 <div class="pkg-entity">
-<h3 id="Sm3_Context"><span><a class="doc-id-link" href="#Sm3_Context">Sm3_Context<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sm3/sm3.odin#L108"><em>Source</em></a></div></h3>
+<h3 id="Context"><span><a class="doc-id-link" href="#Context">Context<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sm3/sm3.odin#L105"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Sm3_Context :: ^vendor_botan.<a class="code-typename" href="/vendor/botan/bindings/#hash_struct">hash_struct</a></pre>
+<pre class="doc-code">Context :: ^vendor_botan.<a class="code-typename" href="/vendor/botan/bindings/#hash_struct">hash_struct</a></pre>
 </div>
 </div>
 <h2 id="pkg-Constants" class="pkg-header">Constants</h2>
@@ -232,7 +217,7 @@ Procedure Groups (1)</summary>
 <p class="pkg-empty-section">This section is empty.</p>
 <h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
 <div class="pkg-entity">
-<h3 id="final"><span><a class="doc-id-link" href="#final">final<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sm3/sm3.odin#L118"><em>Source</em></a></div></h3>
+<h3 id="final"><span><a class="doc-id-link" href="#final">final<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sm3/sm3.odin#L115"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">final :: <span class="keyword-type">proc</span> "contextless" (ctx: ^^vendor_botan.<a class="code-typename" href="/vendor/botan/bindings/#hash_struct">hash_struct</a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
@@ -249,7 +234,7 @@ computed hash</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_bytes_to_buffer"><span><a class="doc-id-link" href="#hash_bytes_to_buffer">hash_bytes_to_buffer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sm3/sm3.odin#L53"><em>Source</em></a></div></h3>
+<h3 id="hash_bytes_to_buffer"><span><a class="doc-id-link" href="#hash_bytes_to_buffer">hash_bytes_to_buffer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sm3/sm3.odin#L52"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_bytes_to_buffer :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
@@ -261,7 +246,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_file"><span><a class="doc-id-link" href="#hash_file">hash_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sm3/sm3.odin#L84"><em>Source</em></a></div></h3>
+<h3 id="hash_file"><span><a class="doc-id-link" href="#hash_file">hash_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sm3/sm3.odin#L81"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_file :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
@@ -272,7 +257,7 @@ and compute a hash</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_stream"><span><a class="doc-id-link" href="#hash_stream">hash_stream<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sm3/sm3.odin#L64"><em>Source</em></a></div></h3>
+<h3 id="hash_stream"><span><a class="doc-id-link" href="#hash_stream">hash_stream<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sm3/sm3.odin#L62"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_stream :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
@@ -294,7 +279,7 @@ computed hash</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_string_to_buffer"><span><a class="doc-id-link" href="#hash_string_to_buffer">hash_string_to_buffer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sm3/sm3.odin#L46"><em>Source</em></a></div></h3>
+<h3 id="hash_string_to_buffer"><span><a class="doc-id-link" href="#hash_string_to_buffer">hash_string_to_buffer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sm3/sm3.odin#L45"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_string_to_buffer :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
@@ -306,20 +291,20 @@ It requires that the destination buffer is at least as big as the digest size</p
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="init"><span><a class="doc-id-link" href="#init">init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sm3/sm3.odin#L110"><em>Source</em></a></div></h3>
+<h3 id="init"><span><a class="doc-id-link" href="#init">init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sm3/sm3.odin#L107"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">init :: <span class="keyword-type">proc</span> "contextless" (ctx: ^^vendor_botan.<a class="code-typename" href="/vendor/botan/bindings/#hash_struct">hash_struct</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="update"><span><a class="doc-id-link" href="#update">update<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sm3/sm3.odin#L114"><em>Source</em></a></div></h3>
+<h3 id="update"><span><a class="doc-id-link" href="#update">update<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sm3/sm3.odin#L111"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">update :: <span class="keyword-type">proc</span> "contextless" (ctx: ^^vendor_botan.<a class="code-typename" href="/vendor/botan/bindings/#hash_struct">hash_struct</a>, data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
 <div class="pkg-entity">
-<h3 id="hash"><span><a class="doc-id-link" href="#hash">hash<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sm3/sm3.odin#L95"><em>Source</em></a></div></h3>
+<h3 id="hash"><span><a class="doc-id-link" href="#hash">hash<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sm3/sm3.odin#L92"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash :: proc{
 	<a class="code-procedure" href="/vendor/botan/sm3/#hash_stream">hash_stream</a>,
@@ -338,13 +323,13 @@ It requires that the destination buffer is at least as big as the digest size</p
 <li><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sm3/sm3.odin">sm3.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:47:45.370121700 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:51:55.570619700 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
 <ul>
 <li><a href="#pkg-Types">Types</a><ul>
-<li><a href="#Sm3_Context">Sm3_Context</a></li>
+<li><a href="#Context">Context</a></li>
 </ul>
 </li>
 <li><a href="#pkg-Constants">Constants</a><ul>

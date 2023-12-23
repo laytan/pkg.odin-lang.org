@@ -72,31 +72,18 @@
 
 </li>
 <li class="nav-item"><a href="/core/crypto">crypto</a><ul>
-<li><a href="/core/crypto/blake">blake</a></li>
 <li><a href="/core/crypto/blake2b">blake2b</a></li>
 <li><a href="/core/crypto/blake2s">blake2s</a></li>
 <li><a href="/core/crypto/chacha20">chacha20</a></li>
 <li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
-<li><a href="/core/crypto/gost">gost</a></li>
-<li><a href="/core/crypto/groestl">groestl</a></li>
-<li><a href="/core/crypto/haval">haval</a></li>
-<li><a href="/core/crypto/jh">jh</a></li>
-<li><a href="/core/crypto/keccak">keccak</a></li>
-<li><a href="/core/crypto/md2">md2</a></li>
-<li><a href="/core/crypto/md4">md4</a></li>
-<li><a href="/core/crypto/md5">md5</a></li>
+<li><a href="/core/crypto/legacy/keccak">legacy/keccak</a></li>
+<li><a href="/core/crypto/legacy/md5">legacy/md5</a></li>
+<li><a href="/core/crypto/legacy/sha1">legacy/sha1</a></li>
 <li><a href="/core/crypto/poly1305">poly1305</a></li>
-<li><a href="/core/crypto/ripemd">ripemd</a></li>
-<li><a href="/core/crypto/sha1">sha1</a></li>
 <li><a href="/core/crypto/sha2">sha2</a></li>
 <li><a href="/core/crypto/sha3">sha3</a></li>
 <li><a href="/core/crypto/shake">shake</a></li>
 <li><a href="/core/crypto/sm3">sm3</a></li>
-<li><a href="/core/crypto/streebog">streebog</a></li>
-<li><a href="/core/crypto/tiger">tiger</a></li>
-<li><a href="/core/crypto/tiger2">tiger2</a></li>
-<li><a href="/core/crypto/util">util</a></li>
-<li><a href="/core/crypto/whirlpool">whirlpool</a></li>
 <li><a href="/core/crypto/x25519">x25519</a></li>
 </ul>
 
@@ -110,6 +97,7 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
+<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -268,41 +256,29 @@
 <tr id="pkg-container_queue" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/container/queue/">queue</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
 <tr id="pkg-container_small_array" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/container/small_array/">small_array</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
 <tr id="pkg-container_topological_sort" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/container/topological_sort/">topological_sort</a></td><td class="pkg-line pkg-line-doc">The following is a generic O(V+E) topological sorter implementation.</td></td></tr>
-<tr aria-controls="pkg-blake pkg-blake2b pkg-blake2s pkg-chacha20 pkg-chacha20poly1305 pkg-gost pkg-groestl pkg-haval pkg-jh pkg-keccak pkg-md2 pkg-md4 pkg-md5 pkg-poly1305 pkg-ripemd pkg-sha1 pkg-sha2 pkg-sha3 pkg-shake pkg-sm3 pkg-streebog pkg-tiger pkg-tiger2 pkg-util pkg-whirlpool pkg-x25519 " class="directory-pkg"><td class="pkg-line pkg-name" data-aria-owns="pkg-blake pkg-blake2b pkg-blake2s pkg-chacha20 pkg-chacha20poly1305 pkg-gost pkg-groestl pkg-haval pkg-jh pkg-keccak pkg-md2 pkg-md4 pkg-md5 pkg-poly1305 pkg-ripemd pkg-sha1 pkg-sha2 pkg-sha3 pkg-shake pkg-sm3 pkg-streebog pkg-tiger pkg-tiger2 pkg-util pkg-whirlpool pkg-x25519 " id="pkg-crypto"><a href="/core/crypto">crypto</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
-<tr id="pkg-blake" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/blake/">blake</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr aria-controls="pkg-blake2b pkg-blake2s pkg-chacha20 pkg-chacha20poly1305 pkg-keccak pkg-md5 pkg-sha1 pkg-poly1305 pkg-sha2 pkg-sha3 pkg-shake pkg-sm3 pkg-x25519 " class="directory-pkg"><td class="pkg-line pkg-name" data-aria-owns="pkg-blake2b pkg-blake2s pkg-chacha20 pkg-chacha20poly1305 pkg-keccak pkg-md5 pkg-sha1 pkg-poly1305 pkg-sha2 pkg-sha3 pkg-shake pkg-sm3 pkg-x25519 " id="pkg-crypto"><a href="/core/crypto">crypto</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
 <tr id="pkg-blake2b" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/blake2b/">blake2b</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
 <tr id="pkg-blake2s" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/blake2s/">blake2s</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
 <tr id="pkg-chacha20" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/chacha20/">chacha20</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
 <tr id="pkg-chacha20poly1305" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/chacha20poly1305/">chacha20poly1305</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
-<tr id="pkg-gost" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/gost/">gost</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
-<tr id="pkg-groestl" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/groestl/">groestl</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
-<tr id="pkg-haval" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/haval/">haval</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
-<tr id="pkg-jh" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/jh/">jh</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
-<tr id="pkg-keccak" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/keccak/">keccak</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
-<tr id="pkg-md2" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/md2/">md2</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
-<tr id="pkg-md4" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/md4/">md4</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
-<tr id="pkg-md5" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/md5/">md5</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-keccak" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/legacy/keccak/">legacy/keccak</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-md5" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/legacy/md5/">legacy/md5</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-sha1" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/legacy/sha1/">legacy/sha1</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
 <tr id="pkg-poly1305" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/poly1305/">poly1305</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
-<tr id="pkg-ripemd" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/ripemd/">ripemd</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
-<tr id="pkg-sha1" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/sha1/">sha1</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
 <tr id="pkg-sha2" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/sha2/">sha2</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
 <tr id="pkg-sha3" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/sha3/">sha3</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
 <tr id="pkg-shake" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/shake/">shake</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
 <tr id="pkg-sm3" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/sm3/">sm3</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
-<tr id="pkg-streebog" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/streebog/">streebog</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
-<tr id="pkg-tiger" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/tiger/">tiger</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
-<tr id="pkg-tiger2" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/tiger2/">tiger2</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
-<tr id="pkg-util" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/util/">util</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
-<tr id="pkg-whirlpool" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/whirlpool/">whirlpool</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
 <tr id="pkg-x25519" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/x25519/">x25519</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
 <tr aria-controls="pkg-debug_pe " class="directory-pkg"><td class="pkg-line pkg-name" data-aria-owns="pkg-debug_pe " id="pkg-debug">debug</td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
 <tr id="pkg-debug_pe" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/debug/pe/">pe</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
 <tr id="pkg-dynlib" class="directory-pkg"><td class="pkg-name"><a href="/core/dynlib">dynlib</a></td><td class="pkg-line pkg-line-doc">Package core:dynlib implements loading of shared libraries/DLLs and their symbols.</td></tr>
-<tr aria-controls="pkg-base32 pkg-base64 pkg-csv pkg-encoding_endian pkg-unicode_entity pkg-hex pkg-encoding_hxa pkg-json pkg-varint pkg-xml " class="directory-pkg"><td class="pkg-line pkg-name" data-aria-owns="pkg-base32 pkg-base64 pkg-csv pkg-encoding_endian pkg-unicode_entity pkg-hex pkg-encoding_hxa pkg-json pkg-varint pkg-xml " id="pkg-encoding">encoding</td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
+<tr aria-controls="pkg-base32 pkg-base64 pkg-cbor pkg-csv pkg-encoding_endian pkg-unicode_entity pkg-hex pkg-encoding_hxa pkg-json pkg-varint pkg-xml " class="directory-pkg"><td class="pkg-line pkg-name" data-aria-owns="pkg-base32 pkg-base64 pkg-cbor pkg-csv pkg-encoding_endian pkg-unicode_entity pkg-hex pkg-encoding_hxa pkg-json pkg-varint pkg-xml " id="pkg-encoding">encoding</td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
 <tr id="pkg-base32" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/encoding/base32/">base32</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
 <tr id="pkg-base64" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/encoding/base64/">base64</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
+<tr id="pkg-cbor" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/encoding/cbor/">cbor</a></td><td class="pkg-line pkg-line-doc">Package cbor encodes, decodes, marshals and unmarshals types from/into RCF 8949 compatible CBOR binary.</td></td></tr>
 <tr id="pkg-csv" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/encoding/csv/">csv</a></td><td class="pkg-line pkg-line-doc">package csv reads and writes comma-separated values (CSV) files.</td></td></tr>
-<tr id="pkg-encoding_endian" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/encoding/endian/">endian</a></td><td class="pkg-line pkg-line-doc">Package endian implements sa simple translation between bytes and numbers with</td></td></tr>
+<tr id="pkg-encoding_endian" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/encoding/endian/">endian</a></td><td class="pkg-line pkg-line-doc">Package endian implements a simple translation between bytes and numbers with</td></td></tr>
 <tr id="pkg-unicode_entity" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/encoding/entity/">entity</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
 <tr id="pkg-hex" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/encoding/hex/">hex</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
 <tr id="pkg-encoding_hxa" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/encoding/hxa/">hxa</a></td><td class="pkg-line pkg-line-doc">Implementation of the HxA 3D asset format</td></td></tr>

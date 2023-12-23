@@ -72,31 +72,18 @@
 
 </li>
 <li class="nav-item"><a href="/core/crypto">crypto</a><ul>
-<li><a href="/core/crypto/blake">blake</a></li>
 <li><a href="/core/crypto/blake2b">blake2b</a></li>
 <li><a href="/core/crypto/blake2s">blake2s</a></li>
 <li><a href="/core/crypto/chacha20">chacha20</a></li>
 <li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
-<li><a href="/core/crypto/gost">gost</a></li>
-<li><a href="/core/crypto/groestl">groestl</a></li>
-<li><a href="/core/crypto/haval">haval</a></li>
-<li><a href="/core/crypto/jh">jh</a></li>
-<li><a href="/core/crypto/keccak">keccak</a></li>
-<li><a href="/core/crypto/md2">md2</a></li>
-<li><a href="/core/crypto/md4">md4</a></li>
-<li><a href="/core/crypto/md5">md5</a></li>
+<li><a href="/core/crypto/legacy/keccak">legacy/keccak</a></li>
+<li><a href="/core/crypto/legacy/md5">legacy/md5</a></li>
+<li><a href="/core/crypto/legacy/sha1">legacy/sha1</a></li>
 <li><a href="/core/crypto/poly1305">poly1305</a></li>
-<li><a href="/core/crypto/ripemd">ripemd</a></li>
-<li><a href="/core/crypto/sha1">sha1</a></li>
 <li><a href="/core/crypto/sha2">sha2</a></li>
 <li><a href="/core/crypto/sha3">sha3</a></li>
 <li><a href="/core/crypto/shake">shake</a></li>
 <li><a href="/core/crypto/sm3">sm3</a></li>
-<li><a href="/core/crypto/streebog">streebog</a></li>
-<li><a href="/core/crypto/tiger">tiger</a></li>
-<li><a href="/core/crypto/tiger2">tiger2</a></li>
-<li><a href="/core/crypto/util">util</a></li>
-<li><a href="/core/crypto/whirlpool">whirlpool</a></li>
 <li><a href="/core/crypto/x25519">x25519</a></li>
 </ul>
 
@@ -110,6 +97,7 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
+<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -339,8 +327,11 @@ Procedures (312)</summary>
 <li><a href="#int_add_digit">int_add_digit</a></li>
 <li><a href="#int_add_rat">int_add_rat</a></li>
 <li><a href="#int_addmod">int_addmod</a></li>
-<li><a href="#int_and">int_and</a></li>
 <li><a href="#int_atoi">int_atoi</a></li>
+<li><a href="#int_bit_and">int_bit_and</a></li>
+<li><a href="#int_bit_complement">int_bit_complement</a></li>
+<li><a href="#int_bit_or">int_bit_or</a></li>
+<li><a href="#int_bit_xor">int_bit_xor</a></li>
 <li><a href="#int_bitfield_extract">int_bitfield_extract</a></li>
 <li><a href="#int_bitfield_extract_single">int_bitfield_extract_single</a></li>
 <li><a href="#int_choose_digit">int_choose_digit</a></li>
@@ -351,7 +342,6 @@ Procedures (312)</summary>
 <li><a href="#int_compare">int_compare</a></li>
 <li><a href="#int_compare_digit">int_compare_digit</a></li>
 <li><a href="#int_compare_magnitude">int_compare_magnitude</a></li>
-<li><a href="#int_complement">int_complement</a></li>
 <li><a href="#int_copy">int_copy</a></li>
 <li><a href="#int_count_lsb">int_count_lsb</a></li>
 <li><a href="#int_destroy">int_destroy</a></li>
@@ -420,7 +410,6 @@ Procedures (312)</summary>
 <li><a href="#int_nan">int_nan</a></li>
 <li><a href="#int_neg">int_neg</a></li>
 <li><a href="#int_one">int_one</a></li>
-<li><a href="#int_or">int_or</a></li>
 <li><a href="#int_pow">int_pow</a></li>
 <li><a href="#int_pow_int">int_pow_int</a></li>
 <li><a href="#int_random">int_random</a></li>
@@ -446,7 +435,6 @@ Procedures (312)</summary>
 <li><a href="#int_to_bytes_size">int_to_bytes_size</a></li>
 <li><a href="#int_to_cstring">int_to_cstring</a></li>
 <li><a href="#int_to_string">int_to_string</a></li>
-<li><a href="#int_xor">int_xor</a></li>
 <li><a href="#internal_assert_initialized">internal_assert_initialized</a></li>
 <li><a href="#internal_clamp">internal_clamp</a></li>
 <li><a href="#internal_clear_if_uninitialized_multi">internal_clear_if_uninitialized_multi</a></li>
@@ -643,9 +631,12 @@ Procedure Groups (187)</summary>
 <li><a href="#abs">abs</a></li>
 <li><a href="#add">add</a></li>
 <li><a href="#addmod">addmod</a></li>
-<li><a href="#and">and</a></li>
 <li><a href="#assert_if_nil">assert_if_nil</a></li>
 <li><a href="#atoi">atoi</a></li>
+<li><a href="#bit_and">bit_and</a></li>
+<li><a href="#bit_complement">bit_complement</a></li>
+<li><a href="#bit_or">bit_or</a></li>
+<li><a href="#bit_xor">bit_xor</a></li>
 <li><a href="#choose">choose</a></li>
 <li><a href="#clear">clear</a></li>
 <li><a href="#clear_if_uninitialized">clear_if_uninitialized</a></li>
@@ -653,7 +644,6 @@ Procedure Groups (187)</summary>
 <li><a href="#cmp_mag">cmp_mag</a></li>
 <li><a href="#compare">compare</a></li>
 <li><a href="#compare_magnitude">compare_magnitude</a></li>
-<li><a href="#complement">complement</a></li>
 <li><a href="#copy">copy</a></li>
 <li><a href="#count_lsb">count_lsb</a></li>
 <li><a href="#destroy">destroy</a></li>
@@ -807,7 +797,6 @@ Procedure Groups (187)</summary>
 <li><a href="#nan">nan</a></li>
 <li><a href="#neg">neg</a></li>
 <li><a href="#one">one</a></li>
-<li><a href="#or">or</a></li>
 <li><a href="#pow">pow</a></li>
 <li><a href="#random">random</a></li>
 <li><a href="#rat_set_frac">rat_set_frac</a></li>
@@ -825,7 +814,6 @@ Procedure Groups (187)</summary>
 <li><a href="#sub">sub</a></li>
 <li><a href="#submod">submod</a></li>
 <li><a href="#swap">swap</a></li>
-<li><a href="#xor">xor</a></li>
 <li><a href="#zero">zero</a></li>
 </ul>
 </details>
@@ -972,8 +960,11 @@ Procedure Groups (187)</summary>
 <li><a href="/core/math/big/#int_add_digit">int_add_digit</a></li>
 <li><a href="/core/math/big/#int_add_rat">int_add_rat</a></li>
 <li><a href="/core/math/big/#int_addmod">int_addmod</a></li>
-<li><a href="/core/math/big/#int_and">int_and</a></li>
 <li><a href="/core/math/big/#int_atoi">int_atoi</a></li>
+<li><a href="/core/math/big/#int_bit_and">int_bit_and</a></li>
+<li><a href="/core/math/big/#int_bit_complement">int_bit_complement</a></li>
+<li><a href="/core/math/big/#int_bit_or">int_bit_or</a></li>
+<li><a href="/core/math/big/#int_bit_xor">int_bit_xor</a></li>
 <li><a href="/core/math/big/#int_bitfield_extract">int_bitfield_extract</a></li>
 <li><a href="/core/math/big/#int_bitfield_extract_single">int_bitfield_extract_single</a></li>
 <li><a href="/core/math/big/#int_choose_digit">int_choose_digit</a></li>
@@ -981,7 +972,6 @@ Procedure Groups (187)</summary>
 <li><a href="/core/math/big/#int_compare">int_compare</a></li>
 <li><a href="/core/math/big/#int_compare_digit">int_compare_digit</a></li>
 <li><a href="/core/math/big/#int_compare_magnitude">int_compare_magnitude</a></li>
-<li><a href="/core/math/big/#int_complement">int_complement</a></li>
 <li><a href="/core/math/big/#int_copy">int_copy</a></li>
 <li><a href="/core/math/big/#int_count_lsb">int_count_lsb</a></li>
 <li><a href="/core/math/big/#int_div">int_div</a></li>
@@ -1048,7 +1038,6 @@ Procedure Groups (187)</summary>
 <li><a href="/core/math/big/#int_nan">int_nan</a></li>
 <li><a href="/core/math/big/#int_neg">int_neg</a></li>
 <li><a href="/core/math/big/#int_one">int_one</a></li>
-<li><a href="/core/math/big/#int_or">int_or</a></li>
 <li><a href="/core/math/big/#int_pow">int_pow</a></li>
 <li><a href="/core/math/big/#int_pow_int">int_pow_int</a></li>
 <li><a href="/core/math/big/#int_random">int_random</a></li>
@@ -1070,7 +1059,6 @@ Procedure Groups (187)</summary>
 <li><a href="/core/math/big/#int_to_bytes_little">int_to_bytes_little</a></li>
 <li><a href="/core/math/big/#int_to_bytes_little_python">int_to_bytes_little_python</a></li>
 <li><a href="/core/math/big/#int_to_bytes_size">int_to_bytes_size</a></li>
-<li><a href="/core/math/big/#int_xor">int_xor</a></li>
 <li><a href="/core/math/big/#internal_clamp">internal_clamp</a></li>
 <li><a href="/core/math/big/#internal_clear_if_uninitialized_multi">internal_clear_if_uninitialized_multi</a></li>
 <li><a href="/core/math/big/#internal_clear_if_uninitialized_single">internal_clear_if_uninitialized_single</a></li>
@@ -1207,8 +1195,11 @@ Procedure Groups (187)</summary>
 <li><a href="/core/math/big/#abs">abs</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#add">add</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#addmod">addmod</a>&nbsp;<em>(procedure groups)</em></li>
-<li><a href="/core/math/big/#and">and</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#atoi">atoi</a>&nbsp;<em>(procedure groups)</em></li>
+<li><a href="/core/math/big/#bit_and">bit_and</a>&nbsp;<em>(procedure groups)</em></li>
+<li><a href="/core/math/big/#bit_complement">bit_complement</a>&nbsp;<em>(procedure groups)</em></li>
+<li><a href="/core/math/big/#bit_or">bit_or</a>&nbsp;<em>(procedure groups)</em></li>
+<li><a href="/core/math/big/#bit_xor">bit_xor</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#choose">choose</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#clear">clear</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#clear_if_uninitialized">clear_if_uninitialized</a>&nbsp;<em>(procedure groups)</em></li>
@@ -1216,7 +1207,6 @@ Procedure Groups (187)</summary>
 <li><a href="/core/math/big/#cmp_mag">cmp_mag</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#compare">compare</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#compare_magnitude">compare_magnitude</a>&nbsp;<em>(procedure groups)</em></li>
-<li><a href="/core/math/big/#complement">complement</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#copy">copy</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#count_lsb">count_lsb</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#div">div</a>&nbsp;<em>(procedure groups)</em></li>
@@ -1332,7 +1322,6 @@ Procedure Groups (187)</summary>
 <li><a href="/core/math/big/#nan">nan</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#neg">neg</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#one">one</a>&nbsp;<em>(procedure groups)</em></li>
-<li><a href="/core/math/big/#or">or</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#pow">pow</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#random">random</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#rat_set_frac">rat_set_frac</a>&nbsp;<em>(procedure groups)</em></li>
@@ -1349,7 +1338,6 @@ Procedure Groups (187)</summary>
 <li><a href="/core/math/big/#sqrt">sqrt</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#sub">sub</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#submod">submod</a>&nbsp;<em>(procedure groups)</em></li>
-<li><a href="/core/math/big/#xor">xor</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#zero">zero</a>&nbsp;<em>(procedure groups)</em></li>
 </ul>
 </div>
@@ -1392,8 +1380,11 @@ Procedure Groups (187)</summary>
 <li><a href="/core/math/big/#int_add_digit">int_add_digit</a></li>
 <li><a href="/core/math/big/#int_add_rat">int_add_rat</a></li>
 <li><a href="/core/math/big/#int_addmod">int_addmod</a></li>
-<li><a href="/core/math/big/#int_and">int_and</a></li>
 <li><a href="/core/math/big/#int_atoi">int_atoi</a></li>
+<li><a href="/core/math/big/#int_bit_and">int_bit_and</a></li>
+<li><a href="/core/math/big/#int_bit_complement">int_bit_complement</a></li>
+<li><a href="/core/math/big/#int_bit_or">int_bit_or</a></li>
+<li><a href="/core/math/big/#int_bit_xor">int_bit_xor</a></li>
 <li><a href="/core/math/big/#int_bitfield_extract">int_bitfield_extract</a></li>
 <li><a href="/core/math/big/#int_bitfield_extract_single">int_bitfield_extract_single</a></li>
 <li><a href="/core/math/big/#int_choose_digit">int_choose_digit</a></li>
@@ -1401,7 +1392,6 @@ Procedure Groups (187)</summary>
 <li><a href="/core/math/big/#int_compare">int_compare</a></li>
 <li><a href="/core/math/big/#int_compare_digit">int_compare_digit</a></li>
 <li><a href="/core/math/big/#int_compare_magnitude">int_compare_magnitude</a></li>
-<li><a href="/core/math/big/#int_complement">int_complement</a></li>
 <li><a href="/core/math/big/#int_copy">int_copy</a></li>
 <li><a href="/core/math/big/#int_count_lsb">int_count_lsb</a></li>
 <li><a href="/core/math/big/#int_div">int_div</a></li>
@@ -1468,7 +1458,6 @@ Procedure Groups (187)</summary>
 <li><a href="/core/math/big/#int_nan">int_nan</a></li>
 <li><a href="/core/math/big/#int_neg">int_neg</a></li>
 <li><a href="/core/math/big/#int_one">int_one</a></li>
-<li><a href="/core/math/big/#int_or">int_or</a></li>
 <li><a href="/core/math/big/#int_pow">int_pow</a></li>
 <li><a href="/core/math/big/#int_pow_int">int_pow_int</a></li>
 <li><a href="/core/math/big/#int_random">int_random</a></li>
@@ -1491,7 +1480,6 @@ Procedure Groups (187)</summary>
 <li><a href="/core/math/big/#int_to_bytes_little">int_to_bytes_little</a></li>
 <li><a href="/core/math/big/#int_to_bytes_little_python">int_to_bytes_little_python</a></li>
 <li><a href="/core/math/big/#int_to_bytes_size">int_to_bytes_size</a></li>
-<li><a href="/core/math/big/#int_xor">int_xor</a></li>
 <li><a href="/core/math/big/#internal_assert_initialized">internal_assert_initialized</a></li>
 <li><a href="/core/math/big/#internal_clamp">internal_clamp</a></li>
 <li><a href="/core/math/big/#internal_clear_if_uninitialized_single">internal_clear_if_uninitialized_single</a></li>
@@ -1632,8 +1620,11 @@ Procedure Groups (187)</summary>
 <li><a href="/core/math/big/#abs">abs</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#add">add</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#addmod">addmod</a>&nbsp;<em>(procedure groups)</em></li>
-<li><a href="/core/math/big/#and">and</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#atoi">atoi</a>&nbsp;<em>(procedure groups)</em></li>
+<li><a href="/core/math/big/#bit_and">bit_and</a>&nbsp;<em>(procedure groups)</em></li>
+<li><a href="/core/math/big/#bit_complement">bit_complement</a>&nbsp;<em>(procedure groups)</em></li>
+<li><a href="/core/math/big/#bit_or">bit_or</a>&nbsp;<em>(procedure groups)</em></li>
+<li><a href="/core/math/big/#bit_xor">bit_xor</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#choose">choose</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#clear">clear</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#clear_if_uninitialized">clear_if_uninitialized</a>&nbsp;<em>(procedure groups)</em></li>
@@ -1641,7 +1632,6 @@ Procedure Groups (187)</summary>
 <li><a href="/core/math/big/#cmp_mag">cmp_mag</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#compare">compare</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#compare_magnitude">compare_magnitude</a>&nbsp;<em>(procedure groups)</em></li>
-<li><a href="/core/math/big/#complement">complement</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#copy">copy</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#count_lsb">count_lsb</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#div">div</a>&nbsp;<em>(procedure groups)</em></li>
@@ -1791,7 +1781,6 @@ Procedure Groups (187)</summary>
 <li><a href="/core/math/big/#nan">nan</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#neg">neg</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#one">one</a>&nbsp;<em>(procedure groups)</em></li>
-<li><a href="/core/math/big/#or">or</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#pow">pow</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#random">random</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#rat_set_frac">rat_set_frac</a>&nbsp;<em>(procedure groups)</em></li>
@@ -1809,7 +1798,6 @@ Procedure Groups (187)</summary>
 <li><a href="/core/math/big/#sub">sub</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#submod">submod</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#swap">swap</a>&nbsp;<em>(procedure groups)</em></li>
-<li><a href="/core/math/big/#xor">xor</a>&nbsp;<em>(procedure groups)</em></li>
 <li><a href="/core/math/big/#zero">zero</a>&nbsp;<em>(procedure groups)</em></li>
 </ul>
 </div>
@@ -2305,16 +2293,6 @@ dest = a + digit;
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="int_and"><span><a class="doc-id-link" href="#int_and">int_and<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/big/logical.odin#L25"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">int_and :: <span class="keyword-type">proc</span>(dest, a, b: ^<a class="code-typename" href="/core/math/big/#Int">Int</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: <a class="code-typename" href="/core/math/big/#Error">Error</a>) {…}</pre>
-</div>
-<details class="odin-doc-toggle" open>
-<summary class="hideme"><span>&nbsp;</span></summary>
-<p>2's complement <code>and</code>, returns <code>dest = a & b;</code></p>
-</details>
-</div>
-<div class="pkg-entity">
 <h3 id="int_atoi"><span><a class="doc-id-link" href="#int_atoi">int_atoi<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/big/radix.odin#L234"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">int_atoi :: <span class="keyword-type">proc</span>(res: ^<a class="code-typename" href="/core/math/big/#Int">Int</a>, input: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, radix: <a href="/core/builtin#i8"><span class="doc-builtin">i8</span></a> = i8(10), allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: <a class="code-typename" href="/core/math/big/#Error">Error</a>) {…}</pre>
@@ -2322,6 +2300,46 @@ dest = a + digit;
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
 <p>Read a string [ASCII] in a given radix.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="int_bit_and"><span><a class="doc-id-link" href="#int_bit_and">int_bit_and<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/big/logical.odin#L25"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">int_bit_and :: <span class="keyword-type">proc</span>(dest, a, b: ^<a class="code-typename" href="/core/math/big/#Int">Int</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: <a class="code-typename" href="/core/math/big/#Error">Error</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>2's complement <code>and</code>, returns <code>dest = a & b;</code></p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="int_bit_complement"><span><a class="doc-id-link" href="#int_bit_complement">int_bit_complement<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/big/logical.odin#L61"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">int_bit_complement :: <span class="keyword-type">proc</span>(dest, src: ^<a class="code-typename" href="/core/math/big/#Int">Int</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: <a class="code-typename" href="/core/math/big/#Error">Error</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>dest = ~src</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="int_bit_or"><span><a class="doc-id-link" href="#int_bit_or">int_bit_or<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/big/logical.odin#L37"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">int_bit_or :: <span class="keyword-type">proc</span>(dest, a, b: ^<a class="code-typename" href="/core/math/big/#Int">Int</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: <a class="code-typename" href="/core/math/big/#Error">Error</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>2's complement <code>or</code>, returns <code>dest = a | b;</code></p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="int_bit_xor"><span><a class="doc-id-link" href="#int_bit_xor">int_bit_xor<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/big/logical.odin#L49"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">int_bit_xor :: <span class="keyword-type">proc</span>(dest, a, b: ^<a class="code-typename" href="/core/math/big/#Int">Int</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: <a class="code-typename" href="/core/math/big/#Error">Error</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>2's complement <code>xor</code>, returns <code>dest = a ^ b;</code></p>
 </details>
 </div>
 <div class="pkg-entity">
@@ -2430,16 +2448,6 @@ So:
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
 <p>Compare the magnitude of two <code>Int</code>s, unsigned.</p>
-</details>
-</div>
-<div class="pkg-entity">
-<h3 id="int_complement"><span><a class="doc-id-link" href="#int_complement">int_complement<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/big/logical.odin#L61"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">int_complement :: <span class="keyword-type">proc</span>(dest, src: ^<a class="code-typename" href="/core/math/big/#Int">Int</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: <a class="code-typename" href="/core/math/big/#Error">Error</a>) {…}</pre>
-</div>
-<details class="odin-doc-toggle" open>
-<summary class="hideme"><span>&nbsp;</span></summary>
-<p>dest = ~src</p>
 </details>
 </div>
 <div class="pkg-entity">
@@ -3086,16 +3094,6 @@ denominator &lt; remainder &lt;= 0 if denominator &lt; 0
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="int_or"><span><a class="doc-id-link" href="#int_or">int_or<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/big/logical.odin#L37"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">int_or :: <span class="keyword-type">proc</span>(dest, a, b: ^<a class="code-typename" href="/core/math/big/#Int">Int</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: <a class="code-typename" href="/core/math/big/#Error">Error</a>) {…}</pre>
-</div>
-<details class="odin-doc-toggle" open>
-<summary class="hideme"><span>&nbsp;</span></summary>
-<p>2's complement <code>or</code>, returns <code>dest = a | b;</code></p>
-</details>
-</div>
-<div class="pkg-entity">
 <h3 id="int_pow"><span><a class="doc-id-link" href="#int_pow">int_pow<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/big/public.odin#L412"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">int_pow :: <span class="keyword-type">proc</span>(dest, base: ^<a class="code-typename" href="/core/math/big/#Int">Int</a>, power: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: <a class="code-typename" href="/core/math/big/#Error">Error</a>) {…}</pre>
@@ -3349,16 +3347,6 @@ This helper swaps completely.
 <p>This version of <code>itoa</code> allocates on behalf of the caller. The caller must free the string.</p>
 <pre>The radix defaults to 10.
 </pre>
-</details>
-</div>
-<div class="pkg-entity">
-<h3 id="int_xor"><span><a class="doc-id-link" href="#int_xor">int_xor<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/big/logical.odin#L49"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">int_xor :: <span class="keyword-type">proc</span>(dest, a, b: ^<a class="code-typename" href="/core/math/big/#Int">Int</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: <a class="code-typename" href="/core/math/big/#Error">Error</a>) {…}</pre>
-</div>
-<details class="odin-doc-toggle" open>
-<summary class="hideme"><span>&nbsp;</span></summary>
-<p>2's complement <code>xor</code>, returns <code>dest = a ^ b;</code></p>
 </details>
 </div>
 <div class="pkg-entity">
@@ -5165,15 +5153,6 @@ This is possibly the mother of all prime generation functions, muahahahahaha!
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="and"><span><a class="doc-id-link" href="#and">and<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/big/logical.odin#L32"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">and :: proc{
-	<a class="code-procedure" href="/core/math/big/#int_and">int_and</a>,
-}
-</pre>
-</div>
-</div>
-<div class="pkg-entity">
 <h3 id="assert_if_nil"><span><a class="doc-id-link" href="#assert_if_nil">assert_if_nil<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/big/helpers.odin#L805"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">assert_if_nil :: proc{
@@ -5188,6 +5167,42 @@ This is possibly the mother of all prime generation functions, muahahahahaha!
 <div>
 <pre class="doc-code">atoi :: proc{
 	<a class="code-procedure" href="/core/math/big/#int_atoi">int_atoi</a>,
+}
+</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="bit_and"><span><a class="doc-id-link" href="#bit_and">bit_and<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/big/logical.odin#L32"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">bit_and :: proc{
+	<a class="code-procedure" href="/core/math/big/#int_bit_and">int_bit_and</a>,
+}
+</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="bit_complement"><span><a class="doc-id-link" href="#bit_complement">bit_complement<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/big/logical.odin#L71"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">bit_complement :: proc{
+	<a class="code-procedure" href="/core/math/big/#int_bit_complement">int_bit_complement</a>,
+}
+</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="bit_or"><span><a class="doc-id-link" href="#bit_or">bit_or<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/big/logical.odin#L44"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">bit_or :: proc{
+	<a class="code-procedure" href="/core/math/big/#int_bit_or">int_bit_or</a>,
+}
+</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="bit_xor"><span><a class="doc-id-link" href="#bit_xor">bit_xor<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/big/logical.odin#L56"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">bit_xor :: proc{
+	<a class="code-procedure" href="/core/math/big/#int_bit_xor">int_bit_xor</a>,
 }
 </pre>
 </div>
@@ -5254,15 +5269,6 @@ This is possibly the mother of all prime generation functions, muahahahahaha!
 <div>
 <pre class="doc-code">compare_magnitude :: proc{
 	<a class="code-procedure" href="/core/math/big/#int_compare_magnitude">int_compare_magnitude</a>,
-}
-</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="complement"><span><a class="doc-id-link" href="#complement">complement<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/big/logical.odin#L71"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">complement :: proc{
-	<a class="code-procedure" href="/core/math/big/#int_complement">int_complement</a>,
 }
 </pre>
 </div>
@@ -6712,15 +6718,6 @@ This is possibly the mother of all prime generation functions, muahahahahaha!
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="or"><span><a class="doc-id-link" href="#or">or<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/big/logical.odin#L44"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">or :: proc{
-	<a class="code-procedure" href="/core/math/big/#int_or">int_or</a>,
-}
-</pre>
-</div>
-</div>
-<div class="pkg-entity">
 <h3 id="pow"><span><a class="doc-id-link" href="#pow">pow<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/big/public.odin#L430"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">pow :: proc{
@@ -6897,15 +6894,6 @@ This is possibly the mother of all prime generation functions, muahahahahaha!
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="xor"><span><a class="doc-id-link" href="#xor">xor<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/big/logical.odin#L56"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">xor :: proc{
-	<a class="code-procedure" href="/core/math/big/#int_xor">int_xor</a>,
-}
-</pre>
-</div>
-</div>
-<div class="pkg-entity">
 <h3 id="zero"><span><a class="doc-id-link" href="#zero">zero<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/big/helpers.odin#L186"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">zero :: proc{
@@ -6930,7 +6918,7 @@ This is possibly the mother of all prime generation functions, muahahahahaha!
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/math/big/rat.odin">rat.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:47:44.815649700 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:51:55.196945100 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
@@ -7000,8 +6988,11 @@ This is possibly the mother of all prime generation functions, muahahahahaha!
 <li><a href="#int_add_digit">int_add_digit</a></li>
 <li><a href="#int_add_rat">int_add_rat</a></li>
 <li><a href="#int_addmod">int_addmod</a></li>
-<li><a href="#int_and">int_and</a></li>
 <li><a href="#int_atoi">int_atoi</a></li>
+<li><a href="#int_bit_and">int_bit_and</a></li>
+<li><a href="#int_bit_complement">int_bit_complement</a></li>
+<li><a href="#int_bit_or">int_bit_or</a></li>
+<li><a href="#int_bit_xor">int_bit_xor</a></li>
 <li><a href="#int_bitfield_extract">int_bitfield_extract</a></li>
 <li><a href="#int_bitfield_extract_single">int_bitfield_extract_single</a></li>
 <li><a href="#int_choose_digit">int_choose_digit</a></li>
@@ -7012,7 +7003,6 @@ This is possibly the mother of all prime generation functions, muahahahahaha!
 <li><a href="#int_compare">int_compare</a></li>
 <li><a href="#int_compare_digit">int_compare_digit</a></li>
 <li><a href="#int_compare_magnitude">int_compare_magnitude</a></li>
-<li><a href="#int_complement">int_complement</a></li>
 <li><a href="#int_copy">int_copy</a></li>
 <li><a href="#int_count_lsb">int_count_lsb</a></li>
 <li><a href="#int_destroy">int_destroy</a></li>
@@ -7081,7 +7071,6 @@ This is possibly the mother of all prime generation functions, muahahahahaha!
 <li><a href="#int_nan">int_nan</a></li>
 <li><a href="#int_neg">int_neg</a></li>
 <li><a href="#int_one">int_one</a></li>
-<li><a href="#int_or">int_or</a></li>
 <li><a href="#int_pow">int_pow</a></li>
 <li><a href="#int_pow_int">int_pow_int</a></li>
 <li><a href="#int_random">int_random</a></li>
@@ -7107,7 +7096,6 @@ This is possibly the mother of all prime generation functions, muahahahahaha!
 <li><a href="#int_to_bytes_size">int_to_bytes_size</a></li>
 <li><a href="#int_to_cstring">int_to_cstring</a></li>
 <li><a href="#int_to_string">int_to_string</a></li>
-<li><a href="#int_xor">int_xor</a></li>
 <li><a href="#internal_assert_initialized">internal_assert_initialized</a></li>
 <li><a href="#internal_clamp">internal_clamp</a></li>
 <li><a href="#internal_clear_if_uninitialized_multi">internal_clear_if_uninitialized_multi</a></li>
@@ -7299,9 +7287,12 @@ This is possibly the mother of all prime generation functions, muahahahahaha!
 <li><a href="#abs">abs</a></li>
 <li><a href="#add">add</a></li>
 <li><a href="#addmod">addmod</a></li>
-<li><a href="#and">and</a></li>
 <li><a href="#assert_if_nil">assert_if_nil</a></li>
 <li><a href="#atoi">atoi</a></li>
+<li><a href="#bit_and">bit_and</a></li>
+<li><a href="#bit_complement">bit_complement</a></li>
+<li><a href="#bit_or">bit_or</a></li>
+<li><a href="#bit_xor">bit_xor</a></li>
 <li><a href="#choose">choose</a></li>
 <li><a href="#clear">clear</a></li>
 <li><a href="#clear_if_uninitialized">clear_if_uninitialized</a></li>
@@ -7309,7 +7300,6 @@ This is possibly the mother of all prime generation functions, muahahahahaha!
 <li><a href="#cmp_mag">cmp_mag</a></li>
 <li><a href="#compare">compare</a></li>
 <li><a href="#compare_magnitude">compare_magnitude</a></li>
-<li><a href="#complement">complement</a></li>
 <li><a href="#copy">copy</a></li>
 <li><a href="#count_lsb">count_lsb</a></li>
 <li><a href="#destroy">destroy</a></li>
@@ -7463,7 +7453,6 @@ This is possibly the mother of all prime generation functions, muahahahahaha!
 <li><a href="#nan">nan</a></li>
 <li><a href="#neg">neg</a></li>
 <li><a href="#one">one</a></li>
-<li><a href="#or">or</a></li>
 <li><a href="#pow">pow</a></li>
 <li><a href="#random">random</a></li>
 <li><a href="#rat_set_frac">rat_set_frac</a></li>
@@ -7481,7 +7470,6 @@ This is possibly the mother of all prime generation functions, muahahahahaha!
 <li><a href="#sub">sub</a></li>
 <li><a href="#submod">submod</a></li>
 <li><a href="#swap">swap</a></li>
-<li><a href="#xor">xor</a></li>
 <li><a href="#zero">zero</a></li>
 </ul>
 </li>

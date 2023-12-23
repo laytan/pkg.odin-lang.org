@@ -46,34 +46,19 @@
 <li class="nav-item">botan<ul>
 <li><a href="/vendor/botan/bindings">bindings</a></li>
 <li><a href="/vendor/botan/blake2b">blake2b</a></li>
-<li><a href="/vendor/botan/gost">gost</a></li>
-<li><a href="/vendor/botan/keccak">keccak</a></li>
-<li><a href="/vendor/botan/md4">md4</a></li>
-<li><a href="/vendor/botan/md5">md5</a></li>
-<li><a href="/vendor/botan/ripemd">ripemd</a></li>
-<li><a href="/vendor/botan/sha1">sha1</a></li>
+<li><a href="/vendor/botan/legacy/keccak">legacy/keccak</a></li>
+<li><a href="/vendor/botan/legacy/md5">legacy/md5</a></li>
+<li><a href="/vendor/botan/legacy/sha1">legacy/sha1</a></li>
 <li><a href="/vendor/botan/sha2">sha2</a></li>
 <li><a href="/vendor/botan/sha3">sha3</a></li>
 <li><a href="/vendor/botan/shake">shake</a></li>
 <li><a href="/vendor/botan/siphash">siphash</a></li>
-<li><a href="/vendor/botan/skein512">skein512</a></li>
 <li><a href="/vendor/botan/sm3">sm3</a></li>
-<li><a href="/vendor/botan/streebog">streebog</a></li>
-<li><a href="/vendor/botan/tiger">tiger</a></li>
-<li><a href="/vendor/botan/whirlpool">whirlpool</a></li>
 </ul>
 
 </li>
 <li class="nav-item"><a href="/vendor/cgltf">cgltf</a></li>
 <li class="nav-item"><a href="/vendor/commonmark">commonmark</a></li>
-<li class="nav-item">darwin<ul>
-<li><a href="/vendor/darwin/Foundation">Foundation</a></li>
-<li><a href="/vendor/darwin/Metal">Metal</a></li>
-<li><a href="/vendor/darwin/MetalKit">MetalKit</a></li>
-<li><a href="/vendor/darwin/QuartzCore">QuartzCore</a></li>
-</ul>
-
-</li>
 <li class="nav-item">directx<ul>
 <li><a href="/vendor/directx/d3d11">d3d11</a></li>
 <li><a href="/vendor/directx/d3d12">d3d12</a></li>
@@ -179,7 +164,7 @@ Types (9)</summary>
 <div>
 <details class="doc-index" id="doc-index-Constants" aria-labelledby="#doc-index-Constants-header">
 <summary id="#doc-index-Constants-header">
-Constants (25)</summary>
+Constants (26)</summary>
 <ul>
 <li><a href="#DEFAULT_SYSEX_BUFFER_SIZE">DEFAULT_SYSEX_BUFFER_SIZE</a></li>
 <li><a href="#FILT_ACTIVE">FILT_ACTIVE</a></li>
@@ -206,6 +191,7 @@ Constants (25)</summary>
 <li><a href="#HDRLENGTH">HDRLENGTH</a></li>
 <li><a href="#HOST_ERROR_MSG_LEN">HOST_ERROR_MSG_LEN</a></li>
 <li><a href="#NoDevice">NoDevice</a></li>
+<li><a href="#PORTMIDI_SHARED">PORTMIDI_SHARED</a></li>
 </ul>
 </details>
 </div>
@@ -273,7 +259,7 @@ Procedure Groups (0)</summary>
 <section class="documentation">
 <h2 id="pkg-Types" class="pkg-header">Types</h2>
 <div class="pkg-entity">
-<h3 id="DeviceID"><span><a class="doc-id-link" href="#DeviceID">DeviceID<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L108"><em>Source</em></a></div></h3>
+<h3 id="DeviceID"><span><a class="doc-id-link" href="#DeviceID">DeviceID<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L114"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">DeviceID :: <span class="keyword-type">distinct</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a></pre>
 </div>
@@ -290,7 +276,7 @@ Procedure Groups (0)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="DeviceInfo"><span><a class="doc-id-link" href="#DeviceInfo">DeviceInfo<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L110"><em>Source</em></a></div></h3>
+<h3 id="DeviceInfo"><span><a class="doc-id-link" href="#DeviceInfo">DeviceInfo<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L116"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">DeviceInfo :: <span class="keyword-type">struct</span> {
 	structVersion: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
@@ -312,7 +298,7 @@ Procedure Groups (0)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Error"><span><a class="doc-id-link" href="#Error">Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L20"><em>Source</em></a></div></h3>
+<h3 id="Error"><span><a class="doc-id-link" href="#Error">Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L26"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	NoError            = 0, 
@@ -361,7 +347,7 @@ Procedure Groups (0)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Event"><span><a class="doc-id-link" href="#Event">Event<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L458"><em>Source</em></a></div></h3>
+<h3 id="Event"><span><a class="doc-id-link" href="#Event">Event<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L464"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Event :: <span class="keyword-type">struct</span> {
 	message:   <a class="code-typename" href="/vendor/portmidi/#Message">Message</a>,
@@ -438,7 +424,7 @@ non-decreasing.
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="Message"><span><a class="doc-id-link" href="#Message">Message<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L392"><em>Source</em></a></div></h3>
+<h3 id="Message"><span><a class="doc-id-link" href="#Message">Message<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L398"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Message :: <span class="keyword-type">distinct</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a></pre>
 </div>
@@ -476,7 +462,7 @@ non-decreasing.
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Stream"><span><a class="doc-id-link" href="#Stream">Stream<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L44"><em>Source</em></a></div></h3>
+<h3 id="Stream"><span><a class="doc-id-link" href="#Stream">Stream<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L50"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Stream :: <span class="keyword-type">distinct</span> <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a></pre>
 </div>
@@ -502,7 +488,7 @@ non-decreasing.
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="TimeProc"><span><a class="doc-id-link" href="#TimeProc">TimeProc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L134"><em>Source</em></a></div></h3>
+<h3 id="TimeProc"><span><a class="doc-id-link" href="#TimeProc">TimeProc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L140"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">TimeProc :: <span class="keyword-type">proc</span> "c" (time_info: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>) -> <a class="code-typename" href="/vendor/portmidi/#Timestamp">Timestamp</a></pre>
 </div>
@@ -513,7 +499,7 @@ non-decreasing.
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Timestamp"><span><a class="doc-id-link" href="#Timestamp">Timestamp<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L133"><em>Source</em></a></div></h3>
+<h3 id="Timestamp"><span><a class="doc-id-link" href="#Timestamp">Timestamp<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L139"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Timestamp :: <span class="keyword-type">distinct</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a></pre>
 </div>
@@ -532,13 +518,13 @@ non-decreasing.
 </div>
 <h2 id="pkg-Constants" class="pkg-header">Constants</h2>
 <div class="pkg-entity">
-<h3 id="DEFAULT_SYSEX_BUFFER_SIZE"><span><a class="doc-id-link" href="#DEFAULT_SYSEX_BUFFER_SIZE">DEFAULT_SYSEX_BUFFER_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L18"><em>Source</em></a></div></h3>
+<h3 id="DEFAULT_SYSEX_BUFFER_SIZE"><span><a class="doc-id-link" href="#DEFAULT_SYSEX_BUFFER_SIZE">DEFAULT_SYSEX_BUFFER_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L24"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">DEFAULT_SYSEX_BUFFER_SIZE :: 1024</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="FILT_ACTIVE"><span><a class="doc-id-link" href="#FILT_ACTIVE">FILT_ACTIVE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L255"><em>Source</em></a></div></h3>
+<h3 id="FILT_ACTIVE"><span><a class="doc-id-link" href="#FILT_ACTIVE">FILT_ACTIVE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L261"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">FILT_ACTIVE :: 1 << 0x0E</pre>
 </div>
@@ -549,7 +535,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="FILT_AFTERTOUCH"><span><a class="doc-id-link" href="#FILT_AFTERTOUCH">FILT_AFTERTOUCH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L279"><em>Source</em></a></div></h3>
+<h3 id="FILT_AFTERTOUCH"><span><a class="doc-id-link" href="#FILT_AFTERTOUCH">FILT_AFTERTOUCH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L285"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">FILT_AFTERTOUCH :: FILT_CHANNEL_AFTERTOUCH | FILT_POLY_AFTERTOUCH</pre>
 </div>
@@ -559,7 +545,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="FILT_CHANNEL_AFTERTOUCH"><span><a class="doc-id-link" href="#FILT_CHANNEL_AFTERTOUCH">FILT_CHANNEL_AFTERTOUCH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L275"><em>Source</em></a></div></h3>
+<h3 id="FILT_CHANNEL_AFTERTOUCH"><span><a class="doc-id-link" href="#FILT_CHANNEL_AFTERTOUCH">FILT_CHANNEL_AFTERTOUCH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L281"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">FILT_CHANNEL_AFTERTOUCH :: 1 << 0x1D</pre>
 </div>
@@ -569,7 +555,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="FILT_CLOCK"><span><a class="doc-id-link" href="#FILT_CLOCK">FILT_CLOCK<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L259"><em>Source</em></a></div></h3>
+<h3 id="FILT_CLOCK"><span><a class="doc-id-link" href="#FILT_CLOCK">FILT_CLOCK<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L265"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">FILT_CLOCK :: 1 << 0x08</pre>
 </div>
@@ -579,7 +565,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="FILT_CONTROL"><span><a class="doc-id-link" href="#FILT_CONTROL">FILT_CONTROL<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L283"><em>Source</em></a></div></h3>
+<h3 id="FILT_CONTROL"><span><a class="doc-id-link" href="#FILT_CONTROL">FILT_CONTROL<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L289"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">FILT_CONTROL :: 1 << 0x1B</pre>
 </div>
@@ -589,7 +575,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="FILT_FD"><span><a class="doc-id-link" href="#FILT_FD">FILT_FD<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L265"><em>Source</em></a></div></h3>
+<h3 id="FILT_FD"><span><a class="doc-id-link" href="#FILT_FD">FILT_FD<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L271"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">FILT_FD :: 1 << 0x0D</pre>
 </div>
@@ -599,7 +585,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="FILT_MTC"><span><a class="doc-id-link" href="#FILT_MTC">FILT_MTC<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L287"><em>Source</em></a></div></h3>
+<h3 id="FILT_MTC"><span><a class="doc-id-link" href="#FILT_MTC">FILT_MTC<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L293"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">FILT_MTC :: 1 << 0x01</pre>
 </div>
@@ -609,7 +595,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="FILT_NOTE"><span><a class="doc-id-link" href="#FILT_NOTE">FILT_NOTE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L273"><em>Source</em></a></div></h3>
+<h3 id="FILT_NOTE"><span><a class="doc-id-link" href="#FILT_NOTE">FILT_NOTE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L279"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">FILT_NOTE :: (1 << 0x19) | (1 << 0x18)</pre>
 </div>
@@ -619,7 +605,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="FILT_PITCHBEND"><span><a class="doc-id-link" href="#FILT_PITCHBEND">FILT_PITCHBEND<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L285"><em>Source</em></a></div></h3>
+<h3 id="FILT_PITCHBEND"><span><a class="doc-id-link" href="#FILT_PITCHBEND">FILT_PITCHBEND<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L291"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">FILT_PITCHBEND :: 1 << 0x1E</pre>
 </div>
@@ -629,7 +615,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="FILT_PLAY"><span><a class="doc-id-link" href="#FILT_PLAY">FILT_PLAY<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L261"><em>Source</em></a></div></h3>
+<h3 id="FILT_PLAY"><span><a class="doc-id-link" href="#FILT_PLAY">FILT_PLAY<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L267"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">FILT_PLAY :: (1 << 0x0A) | (1 << 0x0C) | (1 << 0x0B)</pre>
 </div>
@@ -639,7 +625,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="FILT_POLY_AFTERTOUCH"><span><a class="doc-id-link" href="#FILT_POLY_AFTERTOUCH">FILT_POLY_AFTERTOUCH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L277"><em>Source</em></a></div></h3>
+<h3 id="FILT_POLY_AFTERTOUCH"><span><a class="doc-id-link" href="#FILT_POLY_AFTERTOUCH">FILT_POLY_AFTERTOUCH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L283"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">FILT_POLY_AFTERTOUCH :: 1 << 0x1A</pre>
 </div>
@@ -649,7 +635,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="FILT_PROGRAM"><span><a class="doc-id-link" href="#FILT_PROGRAM">FILT_PROGRAM<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L281"><em>Source</em></a></div></h3>
+<h3 id="FILT_PROGRAM"><span><a class="doc-id-link" href="#FILT_PROGRAM">FILT_PROGRAM<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L287"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">FILT_PROGRAM :: 1 << 0x1C</pre>
 </div>
@@ -659,7 +645,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="FILT_REALTIME"><span><a class="doc-id-link" href="#FILT_REALTIME">FILT_REALTIME<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L271"><em>Source</em></a></div></h3>
+<h3 id="FILT_REALTIME"><span><a class="doc-id-link" href="#FILT_REALTIME">FILT_REALTIME<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L277"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">FILT_REALTIME :: FILT_ACTIVE | FILT_SYSEX | FILT_CLOCK | FILT_PLAY | FILT_UNDEFINED | FILT_RESET | FILT_TICK</pre>
 </div>
@@ -669,7 +655,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="FILT_RESET"><span><a class="doc-id-link" href="#FILT_RESET">FILT_RESET<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L269"><em>Source</em></a></div></h3>
+<h3 id="FILT_RESET"><span><a class="doc-id-link" href="#FILT_RESET">FILT_RESET<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L275"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">FILT_RESET :: 1 << 0x0F</pre>
 </div>
@@ -679,7 +665,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="FILT_SONG_POSITION"><span><a class="doc-id-link" href="#FILT_SONG_POSITION">FILT_SONG_POSITION<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L289"><em>Source</em></a></div></h3>
+<h3 id="FILT_SONG_POSITION"><span><a class="doc-id-link" href="#FILT_SONG_POSITION">FILT_SONG_POSITION<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L295"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">FILT_SONG_POSITION :: 1 << 0x02</pre>
 </div>
@@ -689,7 +675,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="FILT_SONG_SELECT"><span><a class="doc-id-link" href="#FILT_SONG_SELECT">FILT_SONG_SELECT<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L291"><em>Source</em></a></div></h3>
+<h3 id="FILT_SONG_SELECT"><span><a class="doc-id-link" href="#FILT_SONG_SELECT">FILT_SONG_SELECT<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L297"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">FILT_SONG_SELECT :: 1 << 0x03</pre>
 </div>
@@ -699,7 +685,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="FILT_SYSEX"><span><a class="doc-id-link" href="#FILT_SYSEX">FILT_SYSEX<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L257"><em>Source</em></a></div></h3>
+<h3 id="FILT_SYSEX"><span><a class="doc-id-link" href="#FILT_SYSEX">FILT_SYSEX<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L263"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">FILT_SYSEX :: 1 << 0x00</pre>
 </div>
@@ -709,7 +695,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="FILT_SYSTEMCOMMON"><span><a class="doc-id-link" href="#FILT_SYSTEMCOMMON">FILT_SYSTEMCOMMON<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L295"><em>Source</em></a></div></h3>
+<h3 id="FILT_SYSTEMCOMMON"><span><a class="doc-id-link" href="#FILT_SYSTEMCOMMON">FILT_SYSTEMCOMMON<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L301"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">FILT_SYSTEMCOMMON :: FILT_MTC | FILT_SONG_POSITION | FILT_SONG_SELECT | FILT_TUNE</pre>
 </div>
@@ -719,7 +705,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="FILT_TICK"><span><a class="doc-id-link" href="#FILT_TICK">FILT_TICK<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L263"><em>Source</em></a></div></h3>
+<h3 id="FILT_TICK"><span><a class="doc-id-link" href="#FILT_TICK">FILT_TICK<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L269"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">FILT_TICK :: 1 << 0x09</pre>
 </div>
@@ -729,7 +715,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="FILT_TUNE"><span><a class="doc-id-link" href="#FILT_TUNE">FILT_TUNE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L293"><em>Source</em></a></div></h3>
+<h3 id="FILT_TUNE"><span><a class="doc-id-link" href="#FILT_TUNE">FILT_TUNE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L299"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">FILT_TUNE :: 1 << 0x06</pre>
 </div>
@@ -739,7 +725,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="FILT_UNDEFINED"><span><a class="doc-id-link" href="#FILT_UNDEFINED">FILT_UNDEFINED<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L267"><em>Source</em></a></div></h3>
+<h3 id="FILT_UNDEFINED"><span><a class="doc-id-link" href="#FILT_UNDEFINED">FILT_UNDEFINED<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L273"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">FILT_UNDEFINED :: FILT_FD</pre>
 </div>
@@ -749,13 +735,13 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="HDRLENGTH"><span><a class="doc-id-link" href="#HDRLENGTH">HDRLENGTH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L104"><em>Source</em></a></div></h3>
+<h3 id="HDRLENGTH"><span><a class="doc-id-link" href="#HDRLENGTH">HDRLENGTH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L110"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">HDRLENGTH :: 50</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="HOST_ERROR_MSG_LEN"><span><a class="doc-id-link" href="#HOST_ERROR_MSG_LEN">HOST_ERROR_MSG_LEN<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L105"><em>Source</em></a></div></h3>
+<h3 id="HOST_ERROR_MSG_LEN"><span><a class="doc-id-link" href="#HOST_ERROR_MSG_LEN">HOST_ERROR_MSG_LEN<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L111"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">HOST_ERROR_MSG_LEN :: 256</pre>
 </div>
@@ -766,16 +752,22 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="NoDevice"><span><a class="doc-id-link" href="#NoDevice">NoDevice<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L109"><em>Source</em></a></div></h3>
+<h3 id="NoDevice"><span><a class="doc-id-link" href="#NoDevice">NoDevice<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L115"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">NoDevice :: DeviceID(-1)</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="PORTMIDI_SHARED"><span><a class="doc-id-link" href="#PORTMIDI_SHARED">PORTMIDI_SHARED<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L6"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">PORTMIDI_SHARED :: #config(PORTMIDI_SHARED, false)</pre>
 </div>
 </div>
 <h2 id="pkg-Variables" class="pkg-header">Variables</h2>
 <p class="pkg-empty-section">This section is empty.</p>
 <h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
 <div class="pkg-entity">
-<h3 id="Abort"><span><a class="doc-id-link" href="#Abort">Abort<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L328"><em>Source</em></a></div></h3>
+<h3 id="Abort"><span><a class="doc-id-link" href="#Abort">Abort<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L334"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Abort :: <span class="keyword-type">proc</span> "c" (stream: <a class="code-typename" href="/vendor/portmidi/#Stream">Stream</a>) -> <a class="code-typename" href="/vendor/portmidi/#Error">Error</a> ---</pre>
 </div>
@@ -792,19 +784,19 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="Before"><span><a class="doc-id-link" href="#Before">Before<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L136"><em>Source</em></a></div></h3>
+<h3 id="Before"><span><a class="doc-id-link" href="#Before">Before<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L142"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Before :: <span class="keyword-type">proc</span> "c" (t1, t2: <a class="code-typename" href="/vendor/portmidi/#Timestamp">Timestamp</a>) -> <a href="/core/builtin#b32"><span class="doc-builtin">b32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Channel"><span><a class="doc-id-link" href="#Channel">Channel<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L297"><em>Source</em></a></div></h3>
+<h3 id="Channel"><span><a class="doc-id-link" href="#Channel">Channel<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L303"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Channel :: <span class="keyword-type">proc</span> "c" (channel: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Close"><span><a class="doc-id-link" href="#Close">Close<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L335"><em>Source</em></a></div></h3>
+<h3 id="Close"><span><a class="doc-id-link" href="#Close">Close<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L341"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Close :: <span class="keyword-type">proc</span> "c" (stream: <a class="code-typename" href="/vendor/portmidi/#Stream">Stream</a>) -> <a class="code-typename" href="/vendor/portmidi/#Error">Error</a> ---</pre>
 </div>
@@ -818,7 +810,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="CountDevices"><span><a class="doc-id-link" href="#CountDevices">CountDevices<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L122"><em>Source</em></a></div></h3>
+<h3 id="CountDevices"><span><a class="doc-id-link" href="#CountDevices">CountDevices<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L128"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">CountDevices :: <span class="keyword-type">proc</span> "c" () -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
@@ -858,19 +850,19 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="GetDefaultInputDeviceID"><span><a class="doc-id-link" href="#GetDefaultInputDeviceID">GetDefaultInputDeviceID<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L124"><em>Source</em></a></div></h3>
+<h3 id="GetDefaultInputDeviceID"><span><a class="doc-id-link" href="#GetDefaultInputDeviceID">GetDefaultInputDeviceID<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L130"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">GetDefaultInputDeviceID :: <span class="keyword-type">proc</span> "c" () -> <a class="code-typename" href="/vendor/portmidi/#DeviceID">DeviceID</a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="GetDefaultOutputDeviceID"><span><a class="doc-id-link" href="#GetDefaultOutputDeviceID">GetDefaultOutputDeviceID<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L125"><em>Source</em></a></div></h3>
+<h3 id="GetDefaultOutputDeviceID"><span><a class="doc-id-link" href="#GetDefaultOutputDeviceID">GetDefaultOutputDeviceID<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L131"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">GetDefaultOutputDeviceID :: <span class="keyword-type">proc</span> "c" () -> <a class="code-typename" href="/vendor/portmidi/#DeviceID">DeviceID</a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="GetDeviceInfo"><span><a class="doc-id-link" href="#GetDeviceInfo">GetDeviceInfo<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L151"><em>Source</em></a></div></h3>
+<h3 id="GetDeviceInfo"><span><a class="doc-id-link" href="#GetDeviceInfo">GetDeviceInfo<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L157"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">GetDeviceInfo :: <span class="keyword-type">proc</span> "c" (id: <a class="code-typename" href="/vendor/portmidi/#DeviceID">DeviceID</a>) -> ^<a class="code-typename" href="/vendor/portmidi/#DeviceInfo">DeviceInfo</a> ---</pre>
 </div>
@@ -888,7 +880,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="GetErrorText"><span><a class="doc-id-link" href="#GetErrorText">GetErrorText<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L81"><em>Source</em></a></div></h3>
+<h3 id="GetErrorText"><span><a class="doc-id-link" href="#GetErrorText">GetErrorText<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L87"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">GetErrorText :: <span class="keyword-type">proc</span>(errnum: <a class="code-typename" href="/vendor/portmidi/#Error">Error</a>) -> <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
 </div>
@@ -900,7 +892,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="GetHostErrorText"><span><a class="doc-id-link" href="#GetHostErrorText">GetHostErrorText<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L93"><em>Source</em></a></div></h3>
+<h3 id="GetHostErrorText"><span><a class="doc-id-link" href="#GetHostErrorText">GetHostErrorText<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L99"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">GetHostErrorText :: <span class="keyword-type">proc</span>(buf: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
 </div>
@@ -912,7 +904,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="HasHostError"><span><a class="doc-id-link" href="#HasHostError">HasHostError<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L74"><em>Source</em></a></div></h3>
+<h3 id="HasHostError"><span><a class="doc-id-link" href="#HasHostError">HasHostError<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L80"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">HasHostError :: <span class="keyword-type">proc</span> "c" (stream: <a class="code-typename" href="/vendor/portmidi/#Stream">Stream</a>) -> <a href="/core/builtin#b32"><span class="doc-builtin">b32</span></a> ---</pre>
 </div>
@@ -935,7 +927,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="Initialize"><span><a class="doc-id-link" href="#Initialize">Initialize<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L52"><em>Source</em></a></div></h3>
+<h3 id="Initialize"><span><a class="doc-id-link" href="#Initialize">Initialize<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L58"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Initialize :: <span class="keyword-type">proc</span> "c" () -> <a class="code-typename" href="/vendor/portmidi/#Error">Error</a> ---</pre>
 </div>
@@ -948,7 +940,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="MessageCompose"><span><a class="doc-id-link" href="#MessageCompose">MessageCompose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L370"><em>Source</em></a></div></h3>
+<h3 id="MessageCompose"><span><a class="doc-id-link" href="#MessageCompose">MessageCompose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L376"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">MessageCompose :: <a class="code-procedure" href="/vendor/portmidi/#MessageMake">MessageMake</a></pre>
 </div>
@@ -962,25 +954,25 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="MessageData1"><span><a class="doc-id-link" href="#MessageData1">MessageData1<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L376"><em>Source</em></a></div></h3>
+<h3 id="MessageData1"><span><a class="doc-id-link" href="#MessageData1">MessageData1<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L382"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">MessageData1 :: <span class="keyword-type">proc</span> "c" (msg: <a class="code-typename" href="/vendor/portmidi/#Message">Message</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="MessageData2"><span><a class="doc-id-link" href="#MessageData2">MessageData2<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L379"><em>Source</em></a></div></h3>
+<h3 id="MessageData2"><span><a class="doc-id-link" href="#MessageData2">MessageData2<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L385"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">MessageData2 :: <span class="keyword-type">proc</span> "c" (msg: <a class="code-typename" href="/vendor/portmidi/#Message">Message</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="MessageDecompose"><span><a class="doc-id-link" href="#MessageDecompose">MessageDecompose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L384"><em>Source</em></a></div></h3>
+<h3 id="MessageDecompose"><span><a class="doc-id-link" href="#MessageDecompose">MessageDecompose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L390"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">MessageDecompose :: <span class="keyword-type">proc</span> "c" (msg: <a class="code-typename" href="/vendor/portmidi/#Message">Message</a>) -> (status: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, data1, data2: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="MessageMake"><span><a class="doc-id-link" href="#MessageMake">MessageMake<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L370"><em>Source</em></a></div></h3>
+<h3 id="MessageMake"><span><a class="doc-id-link" href="#MessageMake">MessageMake<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L376"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">MessageMake :: <span class="keyword-type">proc</span> "c" (status: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, data1, data2: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/portmidi/#Message">Message</a> {…}</pre>
 </div>
@@ -994,13 +986,13 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="MessageStatus"><span><a class="doc-id-link" href="#MessageStatus">MessageStatus<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L373"><em>Source</em></a></div></h3>
+<h3 id="MessageStatus"><span><a class="doc-id-link" href="#MessageStatus">MessageStatus<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L379"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">MessageStatus :: <span class="keyword-type">proc</span> "c" (msg: <a class="code-typename" href="/vendor/portmidi/#Message">Message</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="OpenInput"><span><a class="doc-id-link" href="#OpenInput">OpenInput<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L216"><em>Source</em></a></div></h3>
+<h3 id="OpenInput"><span><a class="doc-id-link" href="#OpenInput">OpenInput<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L222"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">OpenInput :: <span class="keyword-type">proc</span> "c" (
 	stream:          ^<a class="code-typename" href="/vendor/portmidi/#Stream">Stream</a>, 
@@ -1079,7 +1071,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="OpenOutput"><span><a class="doc-id-link" href="#OpenOutput">OpenOutput<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L223"><em>Source</em></a></div></h3>
+<h3 id="OpenOutput"><span><a class="doc-id-link" href="#OpenOutput">OpenOutput<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L229"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">OpenOutput :: <span class="keyword-type">proc</span> "c" (
 	stream:           ^<a class="code-typename" href="/vendor/portmidi/#Stream">Stream</a>, 
@@ -1093,7 +1085,7 @@ filter active sensing messages (0xFE):</p>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Poll"><span><a class="doc-id-link" href="#Poll">Poll<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L495"><em>Source</em></a></div></h3>
+<h3 id="Poll"><span><a class="doc-id-link" href="#Poll">Poll<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L501"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Poll :: <span class="keyword-type">proc</span> "c" (stream: <a class="code-typename" href="/vendor/portmidi/#Stream">Stream</a>) -> <a class="code-typename" href="/vendor/portmidi/#Error">Error</a> ---</pre>
 </div>
@@ -1173,7 +1165,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="Read"><span><a class="doc-id-link" href="#Read">Read<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L490"><em>Source</em></a></div></h3>
+<h3 id="Read"><span><a class="doc-id-link" href="#Read">Read<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L496"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Read :: <span class="keyword-type">proc</span> "c" (stream: <a class="code-typename" href="/vendor/portmidi/#Stream">Stream</a>, buffer: [^]<a class="code-typename" href="/vendor/portmidi/#Event">Event</a>, length: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
@@ -1205,7 +1197,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="SetChannelMask"><span><a class="doc-id-link" href="#SetChannelMask">SetChannelMask<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L318"><em>Source</em></a></div></h3>
+<h3 id="SetChannelMask"><span><a class="doc-id-link" href="#SetChannelMask">SetChannelMask<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L324"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">SetChannelMask :: <span class="keyword-type">proc</span> "c" (stream: <a class="code-typename" href="/vendor/portmidi/#Stream">Stream</a>, mask: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/portmidi/#Error">Error</a> ---</pre>
 </div>
@@ -1229,7 +1221,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="SetFilter"><span><a class="doc-id-link" href="#SetFilter">SetFilter<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L249"><em>Source</em></a></div></h3>
+<h3 id="SetFilter"><span><a class="doc-id-link" href="#SetFilter">SetFilter<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L255"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">SetFilter :: <span class="keyword-type">proc</span> "c" (stream: <a class="code-typename" href="/vendor/portmidi/#Stream">Stream</a>, filters: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/portmidi/#Error">Error</a> ---</pre>
 </div>
@@ -1268,7 +1260,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="Synchronize"><span><a class="doc-id-link" href="#Synchronize">Synchronize<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L360"><em>Source</em></a></div></h3>
+<h3 id="Synchronize"><span><a class="doc-id-link" href="#Synchronize">Synchronize<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L366"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Synchronize :: <span class="keyword-type">proc</span> "c" (stream: <a class="code-typename" href="/vendor/portmidi/#Stream">Stream</a>) -> <a class="code-typename" href="/vendor/portmidi/#Error">Error</a> ---</pre>
 </div>
@@ -1300,7 +1292,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="Terminate"><span><a class="doc-id-link" href="#Terminate">Terminate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L58"><em>Source</em></a></div></h3>
+<h3 id="Terminate"><span><a class="doc-id-link" href="#Terminate">Terminate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L64"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Terminate :: <span class="keyword-type">proc</span> "c" () -> <a class="code-typename" href="/vendor/portmidi/#Error">Error</a> ---</pre>
 </div>
@@ -1313,7 +1305,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="Write"><span><a class="doc-id-link" href="#Write">Write<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L510"><em>Source</em></a></div></h3>
+<h3 id="Write"><span><a class="doc-id-link" href="#Write">Write<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L516"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Write :: <span class="keyword-type">proc</span> "c" (stream: <a class="code-typename" href="/vendor/portmidi/#Stream">Stream</a>, buffer: [^]<a class="code-typename" href="/vendor/portmidi/#Event">Event</a>, length: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/portmidi/#Error">Error</a> ---</pre>
 </div>
@@ -1334,7 +1326,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="WriteShort"><span><a class="doc-id-link" href="#WriteShort">WriteShort<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L518"><em>Source</em></a></div></h3>
+<h3 id="WriteShort"><span><a class="doc-id-link" href="#WriteShort">WriteShort<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L524"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">WriteShort :: <span class="keyword-type">proc</span> "c" (stream: <a class="code-typename" href="/vendor/portmidi/#Stream">Stream</a>, whence: <a class="code-typename" href="/vendor/portmidi/#Timestamp">Timestamp</a>, msg: <a class="code-typename" href="/vendor/portmidi/#Message">Message</a>) -> <a class="code-typename" href="/vendor/portmidi/#Error">Error</a> ---</pre>
 </div>
@@ -1349,7 +1341,7 @@ filter active sensing messages (0xFE):</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="WriteSysEx"><span><a class="doc-id-link" href="#WriteSysEx">WriteSysEx<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L523"><em>Source</em></a></div></h3>
+<h3 id="WriteSysEx"><span><a class="doc-id-link" href="#WriteSysEx">WriteSysEx<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/portmidi.odin#L529"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">WriteSysEx :: <span class="keyword-type">proc</span> "c" (stream: <a class="code-typename" href="/vendor/portmidi/#Stream">Stream</a>, whence: <a class="code-typename" href="/vendor/portmidi/#Timestamp">Timestamp</a>, msg: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> <a class="code-typename" href="/vendor/portmidi/#Error">Error</a> ---</pre>
 </div>
@@ -1370,7 +1362,7 @@ filter active sensing messages (0xFE):</p>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/vendor/portmidi/util.odin">util.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:47:46.049142800 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:51:55.671485300 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
@@ -1413,6 +1405,7 @@ filter active sensing messages (0xFE):</p>
 <li><a href="#HDRLENGTH">HDRLENGTH</a></li>
 <li><a href="#HOST_ERROR_MSG_LEN">HOST_ERROR_MSG_LEN</a></li>
 <li><a href="#NoDevice">NoDevice</a></li>
+<li><a href="#PORTMIDI_SHARED">PORTMIDI_SHARED</a></li>
 </ul>
 </li>
 <li><a href="#pkg-Procedures">Procedures</a><ul>

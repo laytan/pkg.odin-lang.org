@@ -72,31 +72,18 @@
 
 </li>
 <li class="nav-item"><a href="/core/crypto">crypto</a><ul>
-<li><a href="/core/crypto/blake">blake</a></li>
 <li><a href="/core/crypto/blake2b">blake2b</a></li>
 <li><a href="/core/crypto/blake2s">blake2s</a></li>
 <li><a href="/core/crypto/chacha20">chacha20</a></li>
 <li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
-<li><a href="/core/crypto/gost">gost</a></li>
-<li><a href="/core/crypto/groestl">groestl</a></li>
-<li><a href="/core/crypto/haval">haval</a></li>
-<li><a href="/core/crypto/jh">jh</a></li>
-<li><a href="/core/crypto/keccak">keccak</a></li>
-<li><a href="/core/crypto/md2">md2</a></li>
-<li><a href="/core/crypto/md4">md4</a></li>
-<li><a href="/core/crypto/md5">md5</a></li>
+<li><a href="/core/crypto/legacy/keccak">legacy/keccak</a></li>
+<li><a href="/core/crypto/legacy/md5">legacy/md5</a></li>
+<li><a href="/core/crypto/legacy/sha1">legacy/sha1</a></li>
 <li><a href="/core/crypto/poly1305">poly1305</a></li>
-<li><a href="/core/crypto/ripemd">ripemd</a></li>
-<li><a href="/core/crypto/sha1">sha1</a></li>
 <li><a href="/core/crypto/sha2">sha2</a></li>
 <li><a href="/core/crypto/sha3">sha3</a></li>
 <li><a href="/core/crypto/shake">shake</a></li>
 <li><a href="/core/crypto/sm3">sm3</a></li>
-<li><a href="/core/crypto/streebog">streebog</a></li>
-<li><a href="/core/crypto/tiger">tiger</a></li>
-<li><a href="/core/crypto/tiger2">tiger2</a></li>
-<li><a href="/core/crypto/util">util</a></li>
-<li><a href="/core/crypto/whirlpool">whirlpool</a></li>
 <li><a href="/core/crypto/x25519">x25519</a></li>
 </ul>
 
@@ -110,6 +97,7 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
+<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -337,7 +325,7 @@ Procedure Groups (2)</summary>
 <section class="documentation">
 <h2 id="pkg-Types" class="pkg-header">Types</h2>
 <div class="pkg-entity">
-<h3 id="Allocator_Error"><span><a class="doc-id-link" href="#Allocator_Error">Allocator_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L8"><em>Source</em></a></div></h3>
+<h3 id="Allocator_Error"><span><a class="doc-id-link" href="#Allocator_Error">Allocator_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L10"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Allocator_Error :: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a></pre>
 </div>
@@ -413,7 +401,7 @@ All uses of an <code>Arena_Temp</code> must be handled by ending them with <code
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Memory_Block"><span><a class="doc-id-link" href="#Memory_Block">Memory_Block<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L49"><em>Source</em></a></div></h3>
+<h3 id="Memory_Block"><span><a class="doc-id-link" href="#Memory_Block">Memory_Block<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L51"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Memory_Block :: <span class="keyword-type">struct</span> {
 	prev:      ^<a class="code-typename" href="/core/mem/virtual/#Memory_Block">Memory_Block</a>,
@@ -434,7 +422,7 @@ All uses of an <code>Arena_Temp</code> must be handled by ending them with <code
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Memory_Block_Flag"><span><a class="doc-id-link" href="#Memory_Block_Flag">Memory_Block_Flag<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L56"><em>Source</em></a></div></h3>
+<h3 id="Memory_Block_Flag"><span><a class="doc-id-link" href="#Memory_Block_Flag">Memory_Block_Flag<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L58"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Memory_Block_Flag :: <span class="keyword-type">enum</span> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {
 	Overflow_Protection, 
@@ -442,7 +430,7 @@ All uses of an <code>Arena_Temp</code> must be handled by ending them with <code
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Memory_Block_Flags"><span><a class="doc-id-link" href="#Memory_Block_Flags">Memory_Block_Flags<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L59"><em>Source</em></a></div></h3>
+<h3 id="Memory_Block_Flags"><span><a class="doc-id-link" href="#Memory_Block_Flags">Memory_Block_Flags<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L61"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Memory_Block_Flags :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/mem/virtual/#Memory_Block_Flag">Memory_Block_Flag</a>; <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>]</pre>
 </div>
@@ -452,7 +440,7 @@ All uses of an <code>Arena_Temp</code> must be handled by ending them with <code
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Protect_Flag"><span><a class="doc-id-link" href="#Protect_Flag">Protect_Flag<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L34"><em>Source</em></a></div></h3>
+<h3 id="Protect_Flag"><span><a class="doc-id-link" href="#Protect_Flag">Protect_Flag<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L36"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Protect_Flag :: <span class="keyword-type">enum</span> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {
 	Read, 
@@ -462,7 +450,7 @@ All uses of an <code>Arena_Temp</code> must be handled by ending them with <code
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Protect_Flags"><span><a class="doc-id-link" href="#Protect_Flags">Protect_Flags<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L39"><em>Source</em></a></div></h3>
+<h3 id="Protect_Flags"><span><a class="doc-id-link" href="#Protect_Flags">Protect_Flags<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L41"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Protect_Flags :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/mem/virtual/#Protect_Flag">Protect_Flag</a>; <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>]</pre>
 </div>
@@ -499,21 +487,21 @@ All uses of an <code>Arena_Temp</code> must be handled by ending them with <code
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="Protect_No_Access"><span><a class="doc-id-link" href="#Protect_No_Access">Protect_No_Access<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L40"><em>Source</em></a></div></h3>
+<h3 id="Protect_No_Access"><span><a class="doc-id-link" href="#Protect_No_Access">Protect_No_Access<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L42"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Protect_No_Access :: Protect_Flags{}</pre>
 </div>
 </div>
 <h2 id="pkg-Variables" class="pkg-header">Variables</h2>
 <div class="pkg-entity">
-<h3 id="DEFAULT_PAGE_SIZE"><span><a class="doc-id-link" href="#DEFAULT_PAGE_SIZE">DEFAULT_PAGE_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L6"><em>Source</em></a></div></h3>
+<h3 id="DEFAULT_PAGE_SIZE"><span><a class="doc-id-link" href="#DEFAULT_PAGE_SIZE">DEFAULT_PAGE_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L8"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">DEFAULT_PAGE_SIZE: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a> = …</pre>
 </div>
 </div>
 <h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
 <div class="pkg-entity">
-<h3 id="alloc_from_memory_block"><span><a class="doc-id-link" href="#alloc_from_memory_block">alloc_from_memory_block<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L107"><em>Source</em></a></div></h3>
+<h3 id="alloc_from_memory_block"><span><a class="doc-id-link" href="#alloc_from_memory_block">alloc_from_memory_block<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L115"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">alloc_from_memory_block :: <span class="keyword-type">proc</span>(block: ^<a class="code-typename" href="/core/mem/virtual/#Memory_Block">Memory_Block</a>, min_size, alignment: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> (data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) {…}</pre>
 </div>
@@ -641,7 +629,7 @@ A growing arena is a linked list of <code>Memory_Block</code>s allocated with vi
 <div class="pkg-entity">
 <h3 id="arena_init_static"><span><a class="doc-id-link" href="#arena_init_static">arena_init_static<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/arena.odin#L54"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">arena_init_static :: <span class="keyword-type">proc</span>(arena: ^<a class="code-typename" href="/core/mem/virtual/#Arena">Arena</a>, reserved: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>, commit_size: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a> = DEFAULT_ARENA_STATIC_COMMIT_SIZE) -> (err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) {…}</pre>
+<pre class="doc-code">arena_init_static :: <span class="keyword-type">proc</span>(arena: ^<a class="code-typename" href="/core/mem/virtual/#Arena">Arena</a>, reserved: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a> = DEFAULT_ARENA_STATIC_RESERVE_SIZE, commit_size: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a> = DEFAULT_ARENA_STATIC_COMMIT_SIZE) -> (err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -710,49 +698,49 @@ A static arena contains a single <code>Memory_Block</code> allocated with virtua
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="commit"><span><a class="doc-id-link" href="#commit">commit<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L15"><em>Source</em></a></div></h3>
+<h3 id="commit"><span><a class="doc-id-link" href="#commit">commit<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L17"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">commit :: <span class="keyword-type">proc</span> "contextless" (data: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, size: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="decommit"><span><a class="doc-id-link" href="#decommit">decommit<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L26"><em>Source</em></a></div></h3>
+<h3 id="decommit"><span><a class="doc-id-link" href="#decommit">decommit<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L28"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">decommit :: <span class="keyword-type">proc</span> "contextless" (data: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, size: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="memory_block_alloc"><span><a class="doc-id-link" href="#memory_block_alloc">memory_block_alloc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L63"><em>Source</em></a></div></h3>
+<h3 id="memory_block_alloc"><span><a class="doc-id-link" href="#memory_block_alloc">memory_block_alloc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L71"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">memory_block_alloc :: <span class="keyword-type">proc</span>(committed, reserved: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>, flags: <a class="code-typename" href="/core/mem/virtual/#Memory_Block_Flags">Memory_Block_Flags</a>) -> (block: ^<a class="code-typename" href="/core/mem/virtual/#Memory_Block">Memory_Block</a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) {…}</pre>
+<pre class="doc-code">memory_block_alloc :: <span class="keyword-type">proc</span>(committed, reserved: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>, alignment: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a> = 0, flags: <a class="code-typename" href="/core/mem/virtual/#Memory_Block_Flags">Memory_Block_Flags</a> = {}) -> (block: ^<a class="code-typename" href="/core/mem/virtual/#Memory_Block">Memory_Block</a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="memory_block_dealloc"><span><a class="doc-id-link" href="#memory_block_dealloc">memory_block_dealloc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L159"><em>Source</em></a></div></h3>
+<h3 id="memory_block_dealloc"><span><a class="doc-id-link" href="#memory_block_dealloc">memory_block_dealloc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L174"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">memory_block_dealloc :: <span class="keyword-type">proc</span>(block_to_free: ^<a class="code-typename" href="/core/mem/virtual/#Memory_Block">Memory_Block</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="protect"><span><a class="doc-id-link" href="#protect">protect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L42"><em>Source</em></a></div></h3>
+<h3 id="protect"><span><a class="doc-id-link" href="#protect">protect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L44"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">protect :: <span class="keyword-type">proc</span> "contextless" (data: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, size: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>, flags: <a class="code-typename" href="/core/mem/virtual/#Protect_Flags">Protect_Flags</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="release"><span><a class="doc-id-link" href="#release">release<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L30"><em>Source</em></a></div></h3>
+<h3 id="release"><span><a class="doc-id-link" href="#release">release<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L32"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">release :: <span class="keyword-type">proc</span> "contextless" (data: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, size: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="reserve"><span><a class="doc-id-link" href="#reserve">reserve<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L11"><em>Source</em></a></div></h3>
+<h3 id="reserve"><span><a class="doc-id-link" href="#reserve">reserve<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L13"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">reserve :: <span class="keyword-type">proc</span> "contextless" (size: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> (data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="reserve_and_commit"><span><a class="doc-id-link" href="#reserve_and_commit">reserve_and_commit<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L20"><em>Source</em></a></div></h3>
+<h3 id="reserve_and_commit"><span><a class="doc-id-link" href="#reserve_and_commit">reserve_and_commit<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/mem/virtual/virtual.odin#L22"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">reserve_and_commit :: <span class="keyword-type">proc</span> "contextless" (size: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> (data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, err: runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) {…}</pre>
 </div>
@@ -795,7 +783,7 @@ A static arena contains a single <code>Memory_Block</code> allocated with virtua
 <li><em>(hidden platform specific files)</em></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:47:44.566553200 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:51:54.916932300 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

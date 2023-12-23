@@ -46,34 +46,19 @@
 <li class="nav-item">botan<ul>
 <li><a href="/vendor/botan/bindings">bindings</a></li>
 <li><a href="/vendor/botan/blake2b">blake2b</a></li>
-<li><a href="/vendor/botan/gost">gost</a></li>
-<li><a href="/vendor/botan/keccak">keccak</a></li>
-<li><a href="/vendor/botan/md4">md4</a></li>
-<li><a href="/vendor/botan/md5">md5</a></li>
-<li><a href="/vendor/botan/ripemd">ripemd</a></li>
-<li><a href="/vendor/botan/sha1">sha1</a></li>
+<li><a href="/vendor/botan/legacy/keccak">legacy/keccak</a></li>
+<li><a href="/vendor/botan/legacy/md5">legacy/md5</a></li>
+<li><a href="/vendor/botan/legacy/sha1">legacy/sha1</a></li>
 <li><a href="/vendor/botan/sha2">sha2</a></li>
 <li><a href="/vendor/botan/sha3">sha3</a></li>
 <li><a href="/vendor/botan/shake">shake</a></li>
 <li><a href="/vendor/botan/siphash">siphash</a></li>
-<li><a href="/vendor/botan/skein512">skein512</a></li>
 <li><a href="/vendor/botan/sm3">sm3</a></li>
-<li><a href="/vendor/botan/streebog">streebog</a></li>
-<li><a href="/vendor/botan/tiger">tiger</a></li>
-<li><a href="/vendor/botan/whirlpool">whirlpool</a></li>
 </ul>
 
 </li>
 <li class="nav-item"><a href="/vendor/cgltf">cgltf</a></li>
 <li class="nav-item"><a href="/vendor/commonmark">commonmark</a></li>
-<li class="nav-item">darwin<ul>
-<li><a href="/vendor/darwin/Foundation">Foundation</a></li>
-<li><a href="/vendor/darwin/Metal">Metal</a></li>
-<li><a href="/vendor/darwin/MetalKit">MetalKit</a></li>
-<li><a href="/vendor/darwin/QuartzCore">QuartzCore</a></li>
-</ul>
-
-</li>
 <li class="nav-item">directx<ul>
 <li><a href="/vendor/directx/d3d11">d3d11</a></li>
 <li><a href="/vendor/directx/d3d12">d3d12</a></li>
@@ -224,7 +209,7 @@ Types (54)</summary>
 <div>
 <details class="doc-index" id="doc-index-Constants" aria-labelledby="#doc-index-Constants-header">
 <summary id="#doc-index-Constants-header">
-Constants (11)</summary>
+Constants (12)</summary>
 <ul>
 <li><a href="#CONTEXT_FLAG_DISABLE_CHUNK_RECONSTRUCTION">CONTEXT_FLAG_DISABLE_CHUNK_RECONSTRUCTION</a></li>
 <li><a href="#CONTEXT_FLAG_SILENT_HEADER_PARSE">CONTEXT_FLAG_SILENT_HEADER_PARSE</a></li>
@@ -237,6 +222,7 @@ Constants (11)</summary>
 <li><a href="#ENCODE_DATA_SAMPLE_COUNTS_ARE_INDIVIDUAL">ENCODE_DATA_SAMPLE_COUNTS_ARE_INDIVIDUAL</a></li>
 <li><a href="#ENCODE_NON_IMAGE_DATA_AS_POINTERS">ENCODE_NON_IMAGE_DATA_AS_POINTERS</a></li>
 <li><a href="#ENCODE_PIPELINE_INITIALIZER">ENCODE_PIPELINE_INITIALIZER</a></li>
+<li><a href="#OPENEXRCORE_SHARED">OPENEXRCORE_SHARED</a></li>
 </ul>
 </details>
 </div>
@@ -1884,7 +1870,7 @@ Procedure Groups (0)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="memory_allocation_func_t"><span><a class="doc-id-link" href="#memory_allocation_func_t">memory_allocation_func_t<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L26"><em>Source</em></a></div></h3>
+<h3 id="memory_allocation_func_t"><span><a class="doc-id-link" href="#memory_allocation_func_t">memory_allocation_func_t<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L32"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">memory_allocation_func_t :: <span class="keyword-type">proc</span> "c" (bytes: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a></pre>
 </div>
@@ -1911,7 +1897,7 @@ Procedure Groups (0)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="memory_free_func_t"><span><a class="doc-id-link" href="#memory_free_func_t">memory_free_func_t<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L42"><em>Source</em></a></div></h3>
+<h3 id="memory_free_func_t"><span><a class="doc-id-link" href="#memory_free_func_t">memory_free_func_t<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L48"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">memory_free_func_t :: <span class="keyword-type">proc</span> "c" (ptr: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>)</pre>
 </div>
@@ -2505,6 +2491,12 @@ Return type for all functions.</p>
 <h3 id="ENCODE_PIPELINE_INITIALIZER"><span><a class="doc-id-link" href="#ENCODE_PIPELINE_INITIALIZER">ENCODE_PIPELINE_INITIALIZER<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_encode.odin#L267"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">ENCODE_PIPELINE_INITIALIZER :: encode_pipeline_t{}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="OPENEXRCORE_SHARED"><span><a class="doc-id-link" href="#OPENEXRCORE_SHARED">OPENEXRCORE_SHARED<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L3"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">OPENEXRCORE_SHARED :: #config(OPENEXRCORE_SHARED, false)</pre>
 </div>
 </div>
 <h2 id="pkg-Variables" class="pkg-header">Variables</h2>
@@ -3312,7 +3304,7 @@ Return type for all functions.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="get_default_dwa_compression_quality"><span><a class="doc-id-link" href="#get_default_dwa_compression_quality">get_default_dwa_compression_quality<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L158"><em>Source</em></a></div></h3>
+<h3 id="get_default_dwa_compression_quality"><span><a class="doc-id-link" href="#get_default_dwa_compression_quality">get_default_dwa_compression_quality<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L164"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">get_default_dwa_compression_quality :: <span class="keyword-type">proc</span> "c" (q: ^<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) ---</pre>
 </div>
@@ -3335,7 +3327,7 @@ Return type for all functions.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="get_default_maximum_image_size"><span><a class="doc-id-link" href="#get_default_maximum_image_size">get_default_maximum_image_size<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L88"><em>Source</em></a></div></h3>
+<h3 id="get_default_maximum_image_size"><span><a class="doc-id-link" href="#get_default_maximum_image_size">get_default_maximum_image_size<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L94"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">get_default_maximum_image_size :: <span class="keyword-type">proc</span> "c" (w, h: ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) ---</pre>
 </div>
@@ -3348,7 +3340,7 @@ Return type for all functions.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="get_default_maximum_tile_size"><span><a class="doc-id-link" href="#get_default_maximum_tile_size">get_default_maximum_tile_size<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L129"><em>Source</em></a></div></h3>
+<h3 id="get_default_maximum_tile_size"><span><a class="doc-id-link" href="#get_default_maximum_tile_size">get_default_maximum_tile_size<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L135"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">get_default_maximum_tile_size :: <span class="keyword-type">proc</span> "c" (w, h: ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) ---</pre>
 </div>
@@ -3361,7 +3353,7 @@ Return type for all functions.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="get_default_zip_compression_level"><span><a class="doc-id-link" href="#get_default_zip_compression_level">get_default_zip_compression_level<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L147"><em>Source</em></a></div></h3>
+<h3 id="get_default_zip_compression_level"><span><a class="doc-id-link" href="#get_default_zip_compression_level">get_default_zip_compression_level<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L153"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">get_default_zip_compression_level :: <span class="keyword-type">proc</span> "c" (l: ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) ---</pre>
 </div>
@@ -3445,7 +3437,7 @@ Return type for all functions.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="get_library_version"><span><a class="doc-id-link" href="#get_library_version">get_library_version<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L50"><em>Source</em></a></div></h3>
+<h3 id="get_library_version"><span><a class="doc-id-link" href="#get_library_version">get_library_version<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L56"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">get_library_version :: <span class="keyword-type">proc</span> "c" (maj, min, patch: ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, extra: ^<a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>) ---</pre>
 </div>
@@ -3799,7 +3791,7 @@ Return type for all functions.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="set_default_dwa_compression_quality"><span><a class="doc-id-link" href="#set_default_dwa_compression_quality">set_default_dwa_compression_quality<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L154"><em>Source</em></a></div></h3>
+<h3 id="set_default_dwa_compression_quality"><span><a class="doc-id-link" href="#set_default_dwa_compression_quality">set_default_dwa_compression_quality<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L160"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">set_default_dwa_compression_quality :: <span class="keyword-type">proc</span> "c" (q: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) ---</pre>
 </div>
@@ -3813,7 +3805,7 @@ Return type for all functions.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="set_default_maximum_image_size"><span><a class="doc-id-link" href="#set_default_maximum_image_size">set_default_maximum_image_size<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L82"><em>Source</em></a></div></h3>
+<h3 id="set_default_maximum_image_size"><span><a class="doc-id-link" href="#set_default_maximum_image_size">set_default_maximum_image_size<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L88"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">set_default_maximum_image_size :: <span class="keyword-type">proc</span> "c" (w, h: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) ---</pre>
 </div>
@@ -3852,7 +3844,7 @@ Return type for all functions.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="set_default_maximum_tile_size"><span><a class="doc-id-link" href="#set_default_maximum_tile_size">set_default_maximum_tile_size<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L123"><em>Source</em></a></div></h3>
+<h3 id="set_default_maximum_tile_size"><span><a class="doc-id-link" href="#set_default_maximum_tile_size">set_default_maximum_tile_size<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L129"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">set_default_maximum_tile_size :: <span class="keyword-type">proc</span> "c" (w, h: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) ---</pre>
 </div>
@@ -3894,7 +3886,7 @@ Return type for all functions.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="set_default_memory_routines"><span><a class="doc-id-link" href="#set_default_memory_routines">set_default_memory_routines<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L173"><em>Source</em></a></div></h3>
+<h3 id="set_default_memory_routines"><span><a class="doc-id-link" href="#set_default_memory_routines">set_default_memory_routines<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L179"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">set_default_memory_routines :: <span class="keyword-type">proc</span> "c" (alloc_func: <a class="code-typename" href="/vendor/OpenEXRCore/#memory_allocation_func_t">memory_allocation_func_t</a>, free_func: <a class="code-typename" href="/vendor/OpenEXRCore/#memory_free_func_t">memory_free_func_t</a>) ---</pre>
 </div>
@@ -3916,7 +3908,7 @@ Return type for all functions.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="set_default_zip_compression_level"><span><a class="doc-id-link" href="#set_default_zip_compression_level">set_default_zip_compression_level<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L143"><em>Source</em></a></div></h3>
+<h3 id="set_default_zip_compression_level"><span><a class="doc-id-link" href="#set_default_zip_compression_level">set_default_zip_compression_level<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_base.odin#L149"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">set_default_zip_compression_level :: <span class="keyword-type">proc</span> "c" (l: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) ---</pre>
 </div>
@@ -4296,7 +4288,7 @@ Return type for all functions.</p>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenEXRCore/exr_part.odin">exr_part.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:47:45.048485900 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:51:55.818318700 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
@@ -4370,6 +4362,7 @@ Return type for all functions.</p>
 <li><a href="#ENCODE_DATA_SAMPLE_COUNTS_ARE_INDIVIDUAL">ENCODE_DATA_SAMPLE_COUNTS_ARE_INDIVIDUAL</a></li>
 <li><a href="#ENCODE_NON_IMAGE_DATA_AS_POINTERS">ENCODE_NON_IMAGE_DATA_AS_POINTERS</a></li>
 <li><a href="#ENCODE_PIPELINE_INITIALIZER">ENCODE_PIPELINE_INITIALIZER</a></li>
+<li><a href="#OPENEXRCORE_SHARED">OPENEXRCORE_SHARED</a></li>
 </ul>
 </li>
 <li><a href="#pkg-Procedures">Procedures</a><ul>

@@ -46,34 +46,19 @@
 <li class="nav-item">botan<ul>
 <li><a href="/vendor/botan/bindings">bindings</a></li>
 <li><a href="/vendor/botan/blake2b">blake2b</a></li>
-<li><a href="/vendor/botan/gost">gost</a></li>
-<li><a href="/vendor/botan/keccak">keccak</a></li>
-<li><a href="/vendor/botan/md4">md4</a></li>
-<li><a href="/vendor/botan/md5">md5</a></li>
-<li><a href="/vendor/botan/ripemd">ripemd</a></li>
-<li><a href="/vendor/botan/sha1">sha1</a></li>
+<li><a href="/vendor/botan/legacy/keccak">legacy/keccak</a></li>
+<li><a href="/vendor/botan/legacy/md5">legacy/md5</a></li>
+<li><a href="/vendor/botan/legacy/sha1">legacy/sha1</a></li>
 <li><a href="/vendor/botan/sha2">sha2</a></li>
 <li><a class="active" href="/vendor/botan/sha3">sha3</a></li>
 <li><a href="/vendor/botan/shake">shake</a></li>
 <li><a href="/vendor/botan/siphash">siphash</a></li>
-<li><a href="/vendor/botan/skein512">skein512</a></li>
 <li><a href="/vendor/botan/sm3">sm3</a></li>
-<li><a href="/vendor/botan/streebog">streebog</a></li>
-<li><a href="/vendor/botan/tiger">tiger</a></li>
-<li><a href="/vendor/botan/whirlpool">whirlpool</a></li>
 </ul>
 
 </li>
 <li class="nav-item"><a href="/vendor/cgltf">cgltf</a></li>
 <li class="nav-item"><a href="/vendor/commonmark">commonmark</a></li>
-<li class="nav-item">darwin<ul>
-<li><a href="/vendor/darwin/Foundation">Foundation</a></li>
-<li><a href="/vendor/darwin/Metal">Metal</a></li>
-<li><a href="/vendor/darwin/MetalKit">MetalKit</a></li>
-<li><a href="/vendor/darwin/QuartzCore">QuartzCore</a></li>
-</ul>
-
-</li>
 <li class="nav-item">directx<ul>
 <li><a href="/vendor/directx/d3d11">d3d11</a></li>
 <li><a href="/vendor/directx/d3d12">d3d12</a></li>
@@ -165,7 +150,7 @@
 <summary id="#doc-index-Types-header">
 Types (1)</summary>
 <ul>
-<li><a href="#Sha3_Context">Sha3_Context</a></li>
+<li><a href="#Context">Context</a></li>
 </ul>
 </details>
 </div>
@@ -240,9 +225,9 @@ Procedure Groups (4)</summary>
 <section class="documentation">
 <h2 id="pkg-Types" class="pkg-header">Types</h2>
 <div class="pkg-entity">
-<h3 id="Sha3_Context"><span><a class="doc-id-link" href="#Sha3_Context">Sha3_Context<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L348"><em>Source</em></a></div></h3>
+<h3 id="Context"><span><a class="doc-id-link" href="#Context">Context<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L336"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Sha3_Context :: ^vendor_botan.<a class="code-typename" href="/vendor/botan/bindings/#hash_struct">hash_struct</a></pre>
+<pre class="doc-code">Context :: ^vendor_botan.<a class="code-typename" href="/vendor/botan/bindings/#hash_struct">hash_struct</a></pre>
 </div>
 </div>
 <h2 id="pkg-Constants" class="pkg-header">Constants</h2>
@@ -274,7 +259,7 @@ Procedure Groups (4)</summary>
 <p class="pkg-empty-section">This section is empty.</p>
 <h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
 <div class="pkg-entity">
-<h3 id="final"><span><a class="doc-id-link" href="#final">final<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L363"><em>Source</em></a></div></h3>
+<h3 id="final"><span><a class="doc-id-link" href="#final">final<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L351"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">final :: <span class="keyword-type">proc</span> "contextless" (ctx: ^^vendor_botan.<a class="code-typename" href="/vendor/botan/bindings/#hash_struct">hash_struct</a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
@@ -291,7 +276,7 @@ computed hash</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_bytes_256"><span><a class="doc-id-link" href="#hash_bytes_256">hash_bytes_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L115"><em>Source</em></a></div></h3>
+<h3 id="hash_bytes_256"><span><a class="doc-id-link" href="#hash_bytes_256">hash_bytes_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L112"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_bytes_256 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
@@ -302,7 +287,7 @@ computed hash</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_bytes_384"><span><a class="doc-id-link" href="#hash_bytes_384">hash_bytes_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L194"><em>Source</em></a></div></h3>
+<h3 id="hash_bytes_384"><span><a class="doc-id-link" href="#hash_bytes_384">hash_bytes_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L188"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_bytes_384 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [48]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
@@ -313,7 +298,7 @@ computed hash</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_bytes_512"><span><a class="doc-id-link" href="#hash_bytes_512">hash_bytes_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L273"><em>Source</em></a></div></h3>
+<h3 id="hash_bytes_512"><span><a class="doc-id-link" href="#hash_bytes_512">hash_bytes_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L264"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_bytes_512 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [64]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
@@ -324,7 +309,7 @@ computed hash</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_bytes_to_buffer_224"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_224">hash_bytes_to_buffer_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L56"><em>Source</em></a></div></h3>
+<h3 id="hash_bytes_to_buffer_224"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_224">hash_bytes_to_buffer_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L55"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_bytes_to_buffer_224 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
@@ -336,7 +321,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_bytes_to_buffer_256"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_256">hash_bytes_to_buffer_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L135"><em>Source</em></a></div></h3>
+<h3 id="hash_bytes_to_buffer_256"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_256">hash_bytes_to_buffer_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L131"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_bytes_to_buffer_256 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
@@ -348,7 +333,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_bytes_to_buffer_384"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_384">hash_bytes_to_buffer_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L214"><em>Source</em></a></div></h3>
+<h3 id="hash_bytes_to_buffer_384"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_384">hash_bytes_to_buffer_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L207"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_bytes_to_buffer_384 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
@@ -360,7 +345,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_bytes_to_buffer_512"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_512">hash_bytes_to_buffer_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L293"><em>Source</em></a></div></h3>
+<h3 id="hash_bytes_to_buffer_512"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_512">hash_bytes_to_buffer_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L283"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_bytes_to_buffer_512 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
@@ -372,7 +357,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_file_224"><span><a class="doc-id-link" href="#hash_file_224">hash_file_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L87"><em>Source</em></a></div></h3>
+<h3 id="hash_file_224"><span><a class="doc-id-link" href="#hash_file_224">hash_file_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L84"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_file_224 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([28]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
@@ -383,7 +368,7 @@ and compute a hash</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_file_256"><span><a class="doc-id-link" href="#hash_file_256">hash_file_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L166"><em>Source</em></a></div></h3>
+<h3 id="hash_file_256"><span><a class="doc-id-link" href="#hash_file_256">hash_file_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L160"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_file_256 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
@@ -394,7 +379,7 @@ and compute a hash</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_file_384"><span><a class="doc-id-link" href="#hash_file_384">hash_file_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L245"><em>Source</em></a></div></h3>
+<h3 id="hash_file_384"><span><a class="doc-id-link" href="#hash_file_384">hash_file_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L236"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_file_384 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([48]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
@@ -405,7 +390,7 @@ and compute a hash</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_file_512"><span><a class="doc-id-link" href="#hash_file_512">hash_file_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L324"><em>Source</em></a></div></h3>
+<h3 id="hash_file_512"><span><a class="doc-id-link" href="#hash_file_512">hash_file_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L312"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_file_512 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([64]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
@@ -416,7 +401,7 @@ and compute a hash</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_stream_224"><span><a class="doc-id-link" href="#hash_stream_224">hash_stream_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L67"><em>Source</em></a></div></h3>
+<h3 id="hash_stream_224"><span><a class="doc-id-link" href="#hash_stream_224">hash_stream_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L65"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_stream_224 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([28]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
@@ -427,7 +412,7 @@ hash from its contents</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_stream_256"><span><a class="doc-id-link" href="#hash_stream_256">hash_stream_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L146"><em>Source</em></a></div></h3>
+<h3 id="hash_stream_256"><span><a class="doc-id-link" href="#hash_stream_256">hash_stream_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L141"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_stream_256 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
@@ -438,7 +423,7 @@ hash from its contents</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_stream_384"><span><a class="doc-id-link" href="#hash_stream_384">hash_stream_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L225"><em>Source</em></a></div></h3>
+<h3 id="hash_stream_384"><span><a class="doc-id-link" href="#hash_stream_384">hash_stream_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L217"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_stream_384 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([48]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
@@ -449,7 +434,7 @@ hash from its contents</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_stream_512"><span><a class="doc-id-link" href="#hash_stream_512">hash_stream_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L304"><em>Source</em></a></div></h3>
+<h3 id="hash_stream_512"><span><a class="doc-id-link" href="#hash_stream_512">hash_stream_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L293"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_stream_512 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([64]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
@@ -471,7 +456,7 @@ computed hash</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_string_256"><span><a class="doc-id-link" href="#hash_string_256">hash_string_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L109"><em>Source</em></a></div></h3>
+<h3 id="hash_string_256"><span><a class="doc-id-link" href="#hash_string_256">hash_string_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L106"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_string_256 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
@@ -482,7 +467,7 @@ computed hash</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_string_384"><span><a class="doc-id-link" href="#hash_string_384">hash_string_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L188"><em>Source</em></a></div></h3>
+<h3 id="hash_string_384"><span><a class="doc-id-link" href="#hash_string_384">hash_string_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L182"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_string_384 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [48]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
@@ -493,7 +478,7 @@ computed hash</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_string_512"><span><a class="doc-id-link" href="#hash_string_512">hash_string_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L267"><em>Source</em></a></div></h3>
+<h3 id="hash_string_512"><span><a class="doc-id-link" href="#hash_string_512">hash_string_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L258"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_string_512 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [64]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
@@ -504,7 +489,7 @@ computed hash</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_string_to_buffer_224"><span><a class="doc-id-link" href="#hash_string_to_buffer_224">hash_string_to_buffer_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L49"><em>Source</em></a></div></h3>
+<h3 id="hash_string_to_buffer_224"><span><a class="doc-id-link" href="#hash_string_to_buffer_224">hash_string_to_buffer_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L48"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_string_to_buffer_224 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
@@ -516,7 +501,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_string_to_buffer_256"><span><a class="doc-id-link" href="#hash_string_to_buffer_256">hash_string_to_buffer_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L128"><em>Source</em></a></div></h3>
+<h3 id="hash_string_to_buffer_256"><span><a class="doc-id-link" href="#hash_string_to_buffer_256">hash_string_to_buffer_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L124"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_string_to_buffer_256 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
@@ -528,7 +513,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_string_to_buffer_384"><span><a class="doc-id-link" href="#hash_string_to_buffer_384">hash_string_to_buffer_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L207"><em>Source</em></a></div></h3>
+<h3 id="hash_string_to_buffer_384"><span><a class="doc-id-link" href="#hash_string_to_buffer_384">hash_string_to_buffer_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L200"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_string_to_buffer_384 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
@@ -540,7 +525,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_string_to_buffer_512"><span><a class="doc-id-link" href="#hash_string_to_buffer_512">hash_string_to_buffer_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L286"><em>Source</em></a></div></h3>
+<h3 id="hash_string_to_buffer_512"><span><a class="doc-id-link" href="#hash_string_to_buffer_512">hash_string_to_buffer_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L276"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_string_to_buffer_512 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
@@ -552,20 +537,20 @@ It requires that the destination buffer is at least as big as the digest size</p
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="init"><span><a class="doc-id-link" href="#init">init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L350"><em>Source</em></a></div></h3>
+<h3 id="init"><span><a class="doc-id-link" href="#init">init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L338"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">init :: <span class="keyword-type">proc</span> "contextless" (ctx: ^^vendor_botan.<a class="code-typename" href="/vendor/botan/bindings/#hash_struct">hash_struct</a>, hash_size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = 512) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="update"><span><a class="doc-id-link" href="#update">update<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L359"><em>Source</em></a></div></h3>
+<h3 id="update"><span><a class="doc-id-link" href="#update">update<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L347"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">update :: <span class="keyword-type">proc</span> "contextless" (ctx: ^^vendor_botan.<a class="code-typename" href="/vendor/botan/bindings/#hash_struct">hash_struct</a>, data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
 <div class="pkg-entity">
-<h3 id="hash_224"><span><a class="doc-id-link" href="#hash_224">hash_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L98"><em>Source</em></a></div></h3>
+<h3 id="hash_224"><span><a class="doc-id-link" href="#hash_224">hash_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L95"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_224 :: proc{
 	<a class="code-procedure" href="/vendor/botan/sha3/#hash_stream_224">hash_stream_224</a>,
@@ -579,7 +564,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_256"><span><a class="doc-id-link" href="#hash_256">hash_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L177"><em>Source</em></a></div></h3>
+<h3 id="hash_256"><span><a class="doc-id-link" href="#hash_256">hash_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L171"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_256 :: proc{
 	<a class="code-procedure" href="/vendor/botan/sha3/#hash_stream_256">hash_stream_256</a>,
@@ -593,7 +578,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_384"><span><a class="doc-id-link" href="#hash_384">hash_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L256"><em>Source</em></a></div></h3>
+<h3 id="hash_384"><span><a class="doc-id-link" href="#hash_384">hash_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L247"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_384 :: proc{
 	<a class="code-procedure" href="/vendor/botan/sha3/#hash_stream_384">hash_stream_384</a>,
@@ -607,7 +592,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_512"><span><a class="doc-id-link" href="#hash_512">hash_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L335"><em>Source</em></a></div></h3>
+<h3 id="hash_512"><span><a class="doc-id-link" href="#hash_512">hash_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin#L323"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hash_512 :: proc{
 	<a class="code-procedure" href="/vendor/botan/sha3/#hash_stream_512">hash_stream_512</a>,
@@ -626,13 +611,13 @@ It requires that the destination buffer is at least as big as the digest size</p
 <li><a href="https://github.com/odin-lang/Odin/tree/master/vendor/botan/sha3/sha3.odin">sha3.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:47:45.319468200 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:51:55.570043100 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
 <ul>
 <li><a href="#pkg-Types">Types</a><ul>
-<li><a href="#Sha3_Context">Sha3_Context</a></li>
+<li><a href="#Context">Context</a></li>
 </ul>
 </li>
 <li><a href="#pkg-Constants">Constants</a><ul>

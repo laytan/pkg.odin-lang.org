@@ -46,34 +46,19 @@
 <li class="nav-item">botan<ul>
 <li><a href="/vendor/botan/bindings">bindings</a></li>
 <li><a href="/vendor/botan/blake2b">blake2b</a></li>
-<li><a href="/vendor/botan/gost">gost</a></li>
-<li><a href="/vendor/botan/keccak">keccak</a></li>
-<li><a href="/vendor/botan/md4">md4</a></li>
-<li><a href="/vendor/botan/md5">md5</a></li>
-<li><a href="/vendor/botan/ripemd">ripemd</a></li>
-<li><a href="/vendor/botan/sha1">sha1</a></li>
+<li><a href="/vendor/botan/legacy/keccak">legacy/keccak</a></li>
+<li><a href="/vendor/botan/legacy/md5">legacy/md5</a></li>
+<li><a href="/vendor/botan/legacy/sha1">legacy/sha1</a></li>
 <li><a href="/vendor/botan/sha2">sha2</a></li>
 <li><a href="/vendor/botan/sha3">sha3</a></li>
 <li><a href="/vendor/botan/shake">shake</a></li>
 <li><a href="/vendor/botan/siphash">siphash</a></li>
-<li><a href="/vendor/botan/skein512">skein512</a></li>
 <li><a href="/vendor/botan/sm3">sm3</a></li>
-<li><a href="/vendor/botan/streebog">streebog</a></li>
-<li><a href="/vendor/botan/tiger">tiger</a></li>
-<li><a href="/vendor/botan/whirlpool">whirlpool</a></li>
 </ul>
 
 </li>
 <li class="nav-item"><a href="/vendor/cgltf">cgltf</a></li>
 <li class="nav-item"><a href="/vendor/commonmark">commonmark</a></li>
-<li class="nav-item">darwin<ul>
-<li><a href="/vendor/darwin/Foundation">Foundation</a></li>
-<li><a href="/vendor/darwin/Metal">Metal</a></li>
-<li><a href="/vendor/darwin/MetalKit">MetalKit</a></li>
-<li><a href="/vendor/darwin/QuartzCore">QuartzCore</a></li>
-</ul>
-
-</li>
 <li class="nav-item">directx<ul>
 <li><a href="/vendor/directx/d3d11">d3d11</a></li>
 <li><a href="/vendor/directx/d3d12">d3d12</a></li>
@@ -347,7 +332,7 @@ Procedure Groups (2)</summary>
 <section class="documentation">
 <h2 id="pkg-Types" class="pkg-header">Types</h2>
 <div class="pkg-entity">
-<h3 id="Clip"><span><a class="doc-id-link" href="#Clip">Clip<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L45"><em>Source</em></a></div></h3>
+<h3 id="Clip"><span><a class="doc-id-link" href="#Clip">Clip<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L46"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Clip :: <span class="keyword-type">enum</span> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {
 	NONE, 
@@ -361,7 +346,7 @@ Procedure Groups (2)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Color"><span><a class="doc-id-link" href="#Color">Color<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L122"><em>Source</em></a></div></h3>
+<h3 id="Color"><span><a class="doc-id-link" href="#Color">Color<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L123"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Color :: <span class="keyword-type">struct</span> {
 	r,
@@ -379,7 +364,7 @@ Procedure Groups (2)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Color_Type"><span><a class="doc-id-link" href="#Color_Type">Color_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L51"><em>Source</em></a></div></h3>
+<h3 id="Color_Type"><span><a class="doc-id-link" href="#Color_Type">Color_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L52"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Color_Type :: <span class="keyword-type">enum</span> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {
 	TEXT, 
@@ -405,7 +390,7 @@ Procedure Groups (2)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Command"><span><a class="doc-id-link" href="#Command">Command<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L134"><em>Source</em></a></div></h3>
+<h3 id="Command"><span><a class="doc-id-link" href="#Command">Command<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L135"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Command :: <span class="keyword-type">struct</span> {
 	variant: <a class="code-typename" href="/vendor/microui/#Command_Variant">Command_Variant</a>,
@@ -414,7 +399,7 @@ Procedure Groups (2)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Command_Clip"><span><a class="doc-id-link" href="#Command_Clip">Command_Clip<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L142"><em>Source</em></a></div></h3>
+<h3 id="Command_Clip"><span><a class="doc-id-link" href="#Command_Clip">Command_Clip<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L143"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Command_Clip :: <span class="keyword-type">struct</span> {
 	<span class="keyword-type">using</span> command: <a class="code-typename" href="/vendor/microui/#Command">Command</a>,
@@ -423,7 +408,7 @@ Procedure Groups (2)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Command_Icon"><span><a class="doc-id-link" href="#Command_Icon">Command_Icon<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L158"><em>Source</em></a></div></h3>
+<h3 id="Command_Icon"><span><a class="doc-id-link" href="#Command_Icon">Command_Icon<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L159"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Command_Icon :: <span class="keyword-type">struct</span> {
 	<span class="keyword-type">using</span> command: <a class="code-typename" href="/vendor/microui/#Command">Command</a>,
@@ -434,7 +419,7 @@ Procedure Groups (2)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Command_Jump"><span><a class="doc-id-link" href="#Command_Jump">Command_Jump<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L138"><em>Source</em></a></div></h3>
+<h3 id="Command_Jump"><span><a class="doc-id-link" href="#Command_Jump">Command_Jump<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L139"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Command_Jump :: <span class="keyword-type">struct</span> {
 	<span class="keyword-type">using</span> command: <a class="code-typename" href="/vendor/microui/#Command">Command</a>,
@@ -443,7 +428,7 @@ Procedure Groups (2)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Command_Rect"><span><a class="doc-id-link" href="#Command_Rect">Command_Rect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L146"><em>Source</em></a></div></h3>
+<h3 id="Command_Rect"><span><a class="doc-id-link" href="#Command_Rect">Command_Rect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L147"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Command_Rect :: <span class="keyword-type">struct</span> {
 	<span class="keyword-type">using</span> command: <a class="code-typename" href="/vendor/microui/#Command">Command</a>,
@@ -453,7 +438,7 @@ Procedure Groups (2)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Command_Text"><span><a class="doc-id-link" href="#Command_Text">Command_Text<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L151"><em>Source</em></a></div></h3>
+<h3 id="Command_Text"><span><a class="doc-id-link" href="#Command_Text">Command_Text<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L152"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Command_Text :: <span class="keyword-type">struct</span> {
 	<span class="keyword-type">using</span> command: <a class="code-typename" href="/vendor/microui/#Command">Command</a>,
@@ -465,7 +450,7 @@ Procedure Groups (2)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Command_Variant"><span><a class="doc-id-link" href="#Command_Variant">Command_Variant<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L127"><em>Source</em></a></div></h3>
+<h3 id="Command_Variant"><span><a class="doc-id-link" href="#Command_Variant">Command_Variant<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L128"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Command_Variant :: <span class="keyword-type">union</span> {
 	^<a class="code-typename" href="/vendor/microui/#Command_Jump">Command_Jump</a>, 
@@ -481,7 +466,7 @@ Procedure Groups (2)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Container"><span><a class="doc-id-link" href="#Container">Container<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L177"><em>Source</em></a></div></h3>
+<h3 id="Container"><span><a class="doc-id-link" href="#Container">Container<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L178"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Container :: <span class="keyword-type">struct</span> {
 	head,
@@ -505,7 +490,7 @@ Procedure Groups (2)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Context"><span><a class="doc-id-link" href="#Context">Context<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L199"><em>Source</em></a></div></h3>
+<h3 id="Context"><span><a class="doc-id-link" href="#Context">Context<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L200"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Context :: <span class="keyword-type">struct</span> {
 	<span class="comment">// callbacks </span>
@@ -637,7 +622,7 @@ Procedure Groups (2)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Font"><span><a class="doc-id-link" href="#Font">Font<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L119"><em>Source</em></a></div></h3>
+<h3 id="Font"><span><a class="doc-id-link" href="#Font">Font<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L120"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Font :: <span class="keyword-type">distinct</span> <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a></pre>
 </div>
@@ -649,13 +634,13 @@ Procedure Groups (2)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Frame_Index"><span><a class="doc-id-link" href="#Frame_Index">Frame_Index<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L123"><em>Source</em></a></div></h3>
+<h3 id="Frame_Index"><span><a class="doc-id-link" href="#Frame_Index">Frame_Index<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L124"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Frame_Index :: <span class="keyword-type">distinct</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a></pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Icon"><span><a class="doc-id-link" href="#Icon">Icon<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L68"><em>Source</em></a></div></h3>
+<h3 id="Icon"><span><a class="doc-id-link" href="#Icon">Icon<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L69"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Icon :: <span class="keyword-type">enum</span> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {
 	NONE, 
@@ -673,7 +658,7 @@ Procedure Groups (2)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Id"><span><a class="doc-id-link" href="#Id">Id<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L117"><em>Source</em></a></div></h3>
+<h3 id="Id"><span><a class="doc-id-link" href="#Id">Id<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L118"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Id :: <span class="keyword-type">distinct</span> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a></pre>
 </div>
@@ -697,7 +682,7 @@ Procedure Groups (2)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Key"><span><a class="doc-id-link" href="#Key">Key<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L108"><em>Source</em></a></div></h3>
+<h3 id="Key"><span><a class="doc-id-link" href="#Key">Key<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L109"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Key :: <span class="keyword-type">enum</span> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {
 	SHIFT, 
@@ -714,13 +699,13 @@ Procedure Groups (2)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Key_Set"><span><a class="doc-id-link" href="#Key_Set">Key_Set<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L115"><em>Source</em></a></div></h3>
+<h3 id="Key_Set"><span><a class="doc-id-link" href="#Key_Set">Key_Set<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L116"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Key_Set :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/microui/#Key">Key</a>; <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>]</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Layout"><span><a class="doc-id-link" href="#Layout">Layout<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L168"><em>Source</em></a></div></h3>
+<h3 id="Layout"><span><a class="doc-id-link" href="#Layout">Layout<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L169"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Layout :: <span class="keyword-type">struct</span> {
 	body,
@@ -742,7 +727,7 @@ Procedure Groups (2)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Layout_Type"><span><a class="doc-id-link" href="#Layout_Type">Layout_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L166"><em>Source</em></a></div></h3>
+<h3 id="Layout_Type"><span><a class="doc-id-link" href="#Layout_Type">Layout_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L167"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Layout_Type :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
 	NONE     = 0, 
@@ -752,7 +737,7 @@ Procedure Groups (2)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Mouse"><span><a class="doc-id-link" href="#Mouse">Mouse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L101"><em>Source</em></a></div></h3>
+<h3 id="Mouse"><span><a class="doc-id-link" href="#Mouse">Mouse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L102"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Mouse :: <span class="keyword-type">enum</span> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {
 	LEFT, 
@@ -767,13 +752,13 @@ Procedure Groups (2)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Mouse_Set"><span><a class="doc-id-link" href="#Mouse_Set">Mouse_Set<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L106"><em>Source</em></a></div></h3>
+<h3 id="Mouse_Set"><span><a class="doc-id-link" href="#Mouse_Set">Mouse_Set<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L107"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Mouse_Set :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/microui/#Mouse">Mouse</a>; <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>]</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Opt"><span><a class="doc-id-link" href="#Opt">Opt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L84"><em>Source</em></a></div></h3>
+<h3 id="Opt"><span><a class="doc-id-link" href="#Opt">Opt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L85"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Opt :: <span class="keyword-type">enum</span> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {
 	ALIGN_CENTER, 
@@ -793,7 +778,7 @@ Procedure Groups (2)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Options"><span><a class="doc-id-link" href="#Options">Options<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L99"><em>Source</em></a></div></h3>
+<h3 id="Options"><span><a class="doc-id-link" href="#Options">Options<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L100"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Options :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/microui/#Opt">Opt</a>; <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>]</pre>
 </div>
@@ -819,7 +804,7 @@ Procedure Groups (2)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Pool_Item"><span><a class="doc-id-link" href="#Pool_Item">Pool_Item<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L124"><em>Source</em></a></div></h3>
+<h3 id="Pool_Item"><span><a class="doc-id-link" href="#Pool_Item">Pool_Item<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L125"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Pool_Item :: <span class="keyword-type">struct</span> {
 	id:          <a class="code-typename" href="/vendor/microui/#Id">Id</a>,
@@ -832,13 +817,13 @@ Procedure Groups (2)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Real"><span><a class="doc-id-link" href="#Real">Real<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L118"><em>Source</em></a></div></h3>
+<h3 id="Real"><span><a class="doc-id-link" href="#Real">Real<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L119"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Real :: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a></pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Rect"><span><a class="doc-id-link" href="#Rect">Rect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L121"><em>Source</em></a></div></h3>
+<h3 id="Rect"><span><a class="doc-id-link" href="#Rect">Rect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L122"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Rect :: <span class="keyword-type">struct</span> {
 	x,
@@ -876,7 +861,7 @@ Procedure Groups (2)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Result"><span><a class="doc-id-link" href="#Result">Result<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L77"><em>Source</em></a></div></h3>
+<h3 id="Result"><span><a class="doc-id-link" href="#Result">Result<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L78"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Result :: <span class="keyword-type">enum</span> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {
 	ACTIVE, 
@@ -886,13 +871,13 @@ Procedure Groups (2)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Result_Set"><span><a class="doc-id-link" href="#Result_Set">Result_Set<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L82"><em>Source</em></a></div></h3>
+<h3 id="Result_Set"><span><a class="doc-id-link" href="#Result_Set">Result_Set<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L83"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Result_Set :: <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/microui/#Result">Result</a>; <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>]</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Stack"><span><a class="doc-id-link" href="#Stack">Stack<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L239"><em>Source</em></a></div></h3>
+<h3 id="Stack"><span><a class="doc-id-link" href="#Stack">Stack<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L240"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Stack :: <span class="keyword-type">struct</span>($T: typeid, $N: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = ) {}</pre>
 </div>
@@ -903,7 +888,7 @@ Procedure Groups (2)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Style"><span><a class="doc-id-link" href="#Style">Style<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L186"><em>Source</em></a></div></h3>
+<h3 id="Style"><span><a class="doc-id-link" href="#Style">Style<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L187"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Style :: <span class="keyword-type">struct</span> {
 	font:           <a class="code-typename" href="/vendor/microui/#Font">Font</a>,
@@ -920,7 +905,7 @@ Procedure Groups (2)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Vec2"><span><a class="doc-id-link" href="#Vec2">Vec2<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L120"><em>Source</em></a></div></h3>
+<h3 id="Vec2"><span><a class="doc-id-link" href="#Vec2">Vec2<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L121"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Vec2 :: <span class="keyword-type">distinct</span> [2]<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a></pre>
 </div>
@@ -932,25 +917,25 @@ Procedure Groups (2)</summary>
 </div>
 <h2 id="pkg-Constants" class="pkg-header">Constants</h2>
 <div class="pkg-entity">
-<h3 id="CLIP_STACK_SIZE"><span><a class="doc-id-link" href="#CLIP_STACK_SIZE">CLIP_STACK_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L35"><em>Source</em></a></div></h3>
+<h3 id="CLIP_STACK_SIZE"><span><a class="doc-id-link" href="#CLIP_STACK_SIZE">CLIP_STACK_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L36"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">CLIP_STACK_SIZE :: #config(MICROUI_CLIP_STACK_SIZE, 32)</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="COMMAND_LIST_SIZE"><span><a class="doc-id-link" href="#COMMAND_LIST_SIZE">COMMAND_LIST_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L32"><em>Source</em></a></div></h3>
+<h3 id="COMMAND_LIST_SIZE"><span><a class="doc-id-link" href="#COMMAND_LIST_SIZE">COMMAND_LIST_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L33"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">COMMAND_LIST_SIZE :: #config(MICROUI_COMMAND_LIST_SIZE, 256 * 1024)</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="CONTAINER_POOL_SIZE"><span><a class="doc-id-link" href="#CONTAINER_POOL_SIZE">CONTAINER_POOL_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L38"><em>Source</em></a></div></h3>
+<h3 id="CONTAINER_POOL_SIZE"><span><a class="doc-id-link" href="#CONTAINER_POOL_SIZE">CONTAINER_POOL_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L39"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">CONTAINER_POOL_SIZE :: #config(MICROUI_CONTAINER_POOL_SIZE, 48)</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="CONTAINER_STACK_SIZE"><span><a class="doc-id-link" href="#CONTAINER_STACK_SIZE">CONTAINER_STACK_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L34"><em>Source</em></a></div></h3>
+<h3 id="CONTAINER_STACK_SIZE"><span><a class="doc-id-link" href="#CONTAINER_STACK_SIZE">CONTAINER_STACK_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L35"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">CONTAINER_STACK_SIZE :: #config(MICROUI_CONTAINER_STACK_SIZE, 32)</pre>
 </div>
@@ -1010,49 +995,49 @@ Procedure Groups (2)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="ID_STACK_SIZE"><span><a class="doc-id-link" href="#ID_STACK_SIZE">ID_STACK_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L36"><em>Source</em></a></div></h3>
+<h3 id="ID_STACK_SIZE"><span><a class="doc-id-link" href="#ID_STACK_SIZE">ID_STACK_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L37"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">ID_STACK_SIZE :: #config(MICROUI_ID_STACK_SIZE, 32)</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="LAYOUT_STACK_SIZE"><span><a class="doc-id-link" href="#LAYOUT_STACK_SIZE">LAYOUT_STACK_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L37"><em>Source</em></a></div></h3>
+<h3 id="LAYOUT_STACK_SIZE"><span><a class="doc-id-link" href="#LAYOUT_STACK_SIZE">LAYOUT_STACK_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L38"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">LAYOUT_STACK_SIZE :: #config(MICROUI_LAYOUT_STACK_SIZE, 16)</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="MAX_FMT"><span><a class="doc-id-link" href="#MAX_FMT">MAX_FMT<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L42"><em>Source</em></a></div></h3>
+<h3 id="MAX_FMT"><span><a class="doc-id-link" href="#MAX_FMT">MAX_FMT<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L43"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">MAX_FMT :: #config(MICROUI_MAX_FMT, 127)</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="MAX_TEXT_STORE"><span><a class="doc-id-link" href="#MAX_TEXT_STORE">MAX_TEXT_STORE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L43"><em>Source</em></a></div></h3>
+<h3 id="MAX_TEXT_STORE"><span><a class="doc-id-link" href="#MAX_TEXT_STORE">MAX_TEXT_STORE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L44"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">MAX_TEXT_STORE :: #config(MICROUI_MAX_TEXT_STORE, 1024)</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="MAX_WIDTHS"><span><a class="doc-id-link" href="#MAX_WIDTHS">MAX_WIDTHS<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L40"><em>Source</em></a></div></h3>
+<h3 id="MAX_WIDTHS"><span><a class="doc-id-link" href="#MAX_WIDTHS">MAX_WIDTHS<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L41"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">MAX_WIDTHS :: #config(MICROUI_MAX_WIDTHS, 16)</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="ROOT_LIST_SIZE"><span><a class="doc-id-link" href="#ROOT_LIST_SIZE">ROOT_LIST_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L33"><em>Source</em></a></div></h3>
+<h3 id="ROOT_LIST_SIZE"><span><a class="doc-id-link" href="#ROOT_LIST_SIZE">ROOT_LIST_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L34"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">ROOT_LIST_SIZE :: #config(MICROUI_ROOT_LIST_SIZE, 32)</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="SLIDER_FMT"><span><a class="doc-id-link" href="#SLIDER_FMT">SLIDER_FMT<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L41"><em>Source</em></a></div></h3>
+<h3 id="SLIDER_FMT"><span><a class="doc-id-link" href="#SLIDER_FMT">SLIDER_FMT<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L42"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">SLIDER_FMT :: #config(MICROUI_SLIDER_FMT, "%.2f")</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="TREENODE_POOL_SIZE"><span><a class="doc-id-link" href="#TREENODE_POOL_SIZE">TREENODE_POOL_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L39"><em>Source</em></a></div></h3>
+<h3 id="TREENODE_POOL_SIZE"><span><a class="doc-id-link" href="#TREENODE_POOL_SIZE">TREENODE_POOL_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L40"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">TREENODE_POOL_SIZE :: #config(MICROUI_TREENODE_POOL_SIZE, 48)</pre>
 </div>
@@ -1071,68 +1056,68 @@ Procedure Groups (2)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="default_style"><span><a class="doc-id-link" href="#default_style">default_style<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L255"><em>Source</em></a></div></h3>
+<h3 id="default_style"><span><a class="doc-id-link" href="#default_style">default_style<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L256"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">default_style: <a class="code-typename" href="/vendor/microui/#Style">Style</a> = …</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="unclipped_rect"><span><a class="doc-id-link" href="#unclipped_rect">unclipped_rect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L253"><em>Source</em></a></div></h3>
+<h3 id="unclipped_rect"><span><a class="doc-id-link" href="#unclipped_rect">unclipped_rect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L254"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">unclipped_rect: <a class="code-typename" href="/vendor/microui/#Rect">Rect</a> = …</pre>
 </div>
 </div>
 <h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
 <div class="pkg-entity">
-<h3 id="begin"><span><a class="doc-id-link" href="#begin">begin<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L315"><em>Source</em></a></div></h3>
+<h3 id="begin"><span><a class="doc-id-link" href="#begin">begin<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L316"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">begin :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="begin_panel"><span><a class="doc-id-link" href="#begin_panel">begin_panel<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1425"><em>Source</em></a></div></h3>
+<h3 id="begin_panel"><span><a class="doc-id-link" href="#begin_panel">begin_panel<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1426"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">begin_panel :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, opt: <a class="code-typename" href="/vendor/microui/#Options">Options</a> = Options{}) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="begin_popup"><span><a class="doc-id-link" href="#begin_popup">begin_popup<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1403"><em>Source</em></a></div></h3>
+<h3 id="begin_popup"><span><a class="doc-id-link" href="#begin_popup">begin_popup<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1404"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">begin_popup :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="begin_treenode"><span><a class="doc-id-link" href="#begin_treenode">begin_treenode<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1161"><em>Source</em></a></div></h3>
+<h3 id="begin_treenode"><span><a class="doc-id-link" href="#begin_treenode">begin_treenode<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1162"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">begin_treenode :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, label: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, opt: <a class="code-typename" href="/vendor/microui/#Options">Options</a> = Options{}) -> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/microui/#Result">Result</a>; <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>] {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="begin_window"><span><a class="doc-id-link" href="#begin_window">begin_window<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1288"><em>Source</em></a></div></h3>
+<h3 id="begin_window"><span><a class="doc-id-link" href="#begin_window">begin_window<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1289"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">begin_window :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, title: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, rect: <a class="code-typename" href="/vendor/microui/#Rect">Rect</a>, opt: <a class="code-typename" href="/vendor/microui/#Options">Options</a> = Options{}) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="bring_to_front"><span><a class="doc-id-link" href="#bring_to_front">bring_to_front<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L512"><em>Source</em></a></div></h3>
+<h3 id="bring_to_front"><span><a class="doc-id-link" href="#bring_to_front">bring_to_front<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L513"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">bring_to_front :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, cnt: ^<a class="code-typename" href="/vendor/microui/#Container">Container</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="button"><span><a class="doc-id-link" href="#button">button<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L927"><em>Source</em></a></div></h3>
+<h3 id="button"><span><a class="doc-id-link" href="#button">button<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L928"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">button :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, label: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, icon: <a class="code-typename" href="/vendor/microui/#Icon">Icon</a> = .NONE, opt: <a class="code-typename" href="/vendor/microui/#Options">Options</a> = {.ALIGN_CENTER}) -> (res: <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/microui/#Result">Result</a>; <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>]) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="check_clip"><span><a class="doc-id-link" href="#check_clip">check_clip<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L444"><em>Source</em></a></div></h3>
+<h3 id="check_clip"><span><a class="doc-id-link" href="#check_clip">check_clip<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L445"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">check_clip :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, r: <a class="code-typename" href="/vendor/microui/#Rect">Rect</a>) -> <a class="code-typename" href="/vendor/microui/#Clip">Clip</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="checkbox"><span><a class="doc-id-link" href="#checkbox">checkbox<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L946"><em>Source</em></a></div></h3>
+<h3 id="checkbox"><span><a class="doc-id-link" href="#checkbox">checkbox<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L947"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">checkbox :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, label: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, state: ^<a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) -> (res: <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/microui/#Result">Result</a>; <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>]) {…}</pre>
 </div>
@@ -1150,319 +1135,319 @@ Procedure Groups (2)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="draw_box"><span><a class="doc-id-link" href="#draw_box">draw_box<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L650"><em>Source</em></a></div></h3>
+<h3 id="draw_box"><span><a class="doc-id-link" href="#draw_box">draw_box<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L651"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">draw_box :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, rect: <a class="code-typename" href="/vendor/microui/#Rect">Rect</a>, color: <a class="code-typename" href="/vendor/microui/#Color">Color</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="draw_control_frame"><span><a class="doc-id-link" href="#draw_control_frame">draw_control_frame<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L826"><em>Source</em></a></div></h3>
+<h3 id="draw_control_frame"><span><a class="doc-id-link" href="#draw_control_frame">draw_control_frame<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L827"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">draw_control_frame :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, id: <a class="code-typename" href="/vendor/microui/#Id">Id</a>, rect: <a class="code-typename" href="/vendor/microui/#Rect">Rect</a>, colorid: <a class="code-typename" href="/vendor/microui/#Color_Type">Color_Type</a>, opt: <a class="code-typename" href="/vendor/microui/#Options">Options</a> = Options{}) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="draw_control_text"><span><a class="doc-id-link" href="#draw_control_text">draw_control_text<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L836"><em>Source</em></a></div></h3>
+<h3 id="draw_control_text"><span><a class="doc-id-link" href="#draw_control_text">draw_control_text<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L837"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">draw_control_text :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, str: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, rect: <a class="code-typename" href="/vendor/microui/#Rect">Rect</a>, colorid: <a class="code-typename" href="/vendor/microui/#Color_Type">Color_Type</a>, opt: <a class="code-typename" href="/vendor/microui/#Options">Options</a> = Options{}) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="draw_icon"><span><a class="doc-id-link" href="#draw_icon">draw_icon<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L680"><em>Source</em></a></div></h3>
+<h3 id="draw_icon"><span><a class="doc-id-link" href="#draw_icon">draw_icon<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L681"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">draw_icon :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, id: <a class="code-typename" href="/vendor/microui/#Icon">Icon</a>, rect: <a class="code-typename" href="/vendor/microui/#Rect">Rect</a>, color: <a class="code-typename" href="/vendor/microui/#Color">Color</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="draw_rect"><span><a class="doc-id-link" href="#draw_rect">draw_rect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L640"><em>Source</em></a></div></h3>
+<h3 id="draw_rect"><span><a class="doc-id-link" href="#draw_rect">draw_rect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L641"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">draw_rect :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, rect: <a class="code-typename" href="/vendor/microui/#Rect">Rect</a>, color: <a class="code-typename" href="/vendor/microui/#Color">Color</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="draw_text"><span><a class="doc-id-link" href="#draw_text">draw_text<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L657"><em>Source</em></a></div></h3>
+<h3 id="draw_text"><span><a class="doc-id-link" href="#draw_text">draw_text<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L658"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">draw_text :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, font: <a class="code-typename" href="/vendor/microui/#Font">Font</a>, str: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, pos: <a class="code-typename" href="/vendor/microui/#Vec2">Vec2</a>, color: <a class="code-typename" href="/vendor/microui/#Color">Color</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="end"><span><a class="doc-id-link" href="#end">end<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L328"><em>Source</em></a></div></h3>
+<h3 id="end"><span><a class="doc-id-link" href="#end">end<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L329"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">end :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="end_panel"><span><a class="doc-id-link" href="#end_panel">end_panel<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1438"><em>Source</em></a></div></h3>
+<h3 id="end_panel"><span><a class="doc-id-link" href="#end_panel">end_panel<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1439"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">end_panel :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="end_popup"><span><a class="doc-id-link" href="#end_popup">end_popup<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1408"><em>Source</em></a></div></h3>
+<h3 id="end_popup"><span><a class="doc-id-link" href="#end_popup">end_popup<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1409"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">end_popup :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="end_treenode"><span><a class="doc-id-link" href="#end_treenode">end_treenode<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1170"><em>Source</em></a></div></h3>
+<h3 id="end_treenode"><span><a class="doc-id-link" href="#end_treenode">end_treenode<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1171"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">end_treenode :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="end_window"><span><a class="doc-id-link" href="#end_window">end_window<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1374"><em>Source</em></a></div></h3>
+<h3 id="end_window"><span><a class="doc-id-link" href="#end_window">end_window<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1375"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">end_window :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="expand_rect"><span><a class="doc-id-link" href="#expand_rect">expand_rect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L278"><em>Source</em></a></div></h3>
+<h3 id="expand_rect"><span><a class="doc-id-link" href="#expand_rect">expand_rect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L279"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">expand_rect :: <span class="keyword-type">proc</span>(rect: <a class="code-typename" href="/vendor/microui/#Rect">Rect</a>, n: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/microui/#Rect">Rect</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="get_clip_rect"><span><a class="doc-id-link" href="#get_clip_rect">get_clip_rect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L439"><em>Source</em></a></div></h3>
+<h3 id="get_clip_rect"><span><a class="doc-id-link" href="#get_clip_rect">get_clip_rect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L440"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">get_clip_rect :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>) -> <a class="code-typename" href="/vendor/microui/#Rect">Rect</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="get_container"><span><a class="doc-id-link" href="#get_container">get_container<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L507"><em>Source</em></a></div></h3>
+<h3 id="get_container"><span><a class="doc-id-link" href="#get_container">get_container<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L508"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">get_container :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, opt: <a class="code-typename" href="/vendor/microui/#Options">Options</a> = Options{}) -> ^<a class="code-typename" href="/vendor/microui/#Container">Container</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="get_current_container"><span><a class="doc-id-link" href="#get_current_container">get_current_container<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L482"><em>Source</em></a></div></h3>
+<h3 id="get_current_container"><span><a class="doc-id-link" href="#get_current_container">get_current_container<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L483"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">get_current_container :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>) -> ^<a class="code-typename" href="/vendor/microui/#Container">Container</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="get_id_bytes"><span><a class="doc-id-link" href="#get_id_bytes">get_id_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L401"><em>Source</em></a></div></h3>
+<h3 id="get_id_bytes"><span><a class="doc-id-link" href="#get_id_bytes">get_id_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L402"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">get_id_bytes :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, bytes: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a class="code-typename" href="/vendor/microui/#Id">Id</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="get_id_rawptr"><span><a class="doc-id-link" href="#get_id_rawptr">get_id_rawptr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L396"><em>Source</em></a></div></h3>
+<h3 id="get_id_rawptr"><span><a class="doc-id-link" href="#get_id_rawptr">get_id_rawptr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L397"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">get_id_rawptr :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, data: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a class="code-typename" href="/vendor/microui/#Id">Id</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="get_id_string"><span><a class="doc-id-link" href="#get_id_string">get_id_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L395"><em>Source</em></a></div></h3>
+<h3 id="get_id_string"><span><a class="doc-id-link" href="#get_id_string">get_id_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L396"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">get_id_string :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, str: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> <a class="code-typename" href="/vendor/microui/#Id">Id</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="get_id_uintptr"><span><a class="doc-id-link" href="#get_id_uintptr">get_id_uintptr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L397"><em>Source</em></a></div></h3>
+<h3 id="get_id_uintptr"><span><a class="doc-id-link" href="#get_id_uintptr">get_id_uintptr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L398"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">get_id_uintptr :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, ptr: <a href="/core/builtin#uintptr"><span class="doc-builtin">uintptr</span></a>) -> <a class="code-typename" href="/vendor/microui/#Id">Id</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="get_layout"><span><a class="doc-id-link" href="#get_layout">get_layout<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L457"><em>Source</em></a></div></h3>
+<h3 id="get_layout"><span><a class="doc-id-link" href="#get_layout">get_layout<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L458"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">get_layout :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>) -> ^<a class="code-typename" href="/vendor/microui/#Layout">Layout</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="header"><span><a class="doc-id-link" href="#header">header<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1157"><em>Source</em></a></div></h3>
+<h3 id="header"><span><a class="doc-id-link" href="#header">header<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1158"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">header :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, label: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, opt: <a class="code-typename" href="/vendor/microui/#Options">Options</a> = Options{}) -> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/microui/#Result">Result</a>; <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>] {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="init"><span><a class="doc-id-link" href="#init">init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L307"><em>Source</em></a></div></h3>
+<h3 id="init"><span><a class="doc-id-link" href="#init">init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L308"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">init :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="input_key_down"><span><a class="doc-id-link" href="#input_key_down">input_key_down<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L574"><em>Source</em></a></div></h3>
+<h3 id="input_key_down"><span><a class="doc-id-link" href="#input_key_down">input_key_down<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L575"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">input_key_down :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, key: <a class="code-typename" href="/vendor/microui/#Key">Key</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="input_key_up"><span><a class="doc-id-link" href="#input_key_up">input_key_up<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L579"><em>Source</em></a></div></h3>
+<h3 id="input_key_up"><span><a class="doc-id-link" href="#input_key_up">input_key_up<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L580"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">input_key_up :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, key: <a class="code-typename" href="/vendor/microui/#Key">Key</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="input_mouse_down"><span><a class="doc-id-link" href="#input_mouse_down">input_mouse_down<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L557"><em>Source</em></a></div></h3>
+<h3 id="input_mouse_down"><span><a class="doc-id-link" href="#input_mouse_down">input_mouse_down<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L558"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">input_mouse_down :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, x, y: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, btn: <a class="code-typename" href="/vendor/microui/#Mouse">Mouse</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="input_mouse_move"><span><a class="doc-id-link" href="#input_mouse_move">input_mouse_move<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L553"><em>Source</em></a></div></h3>
+<h3 id="input_mouse_move"><span><a class="doc-id-link" href="#input_mouse_move">input_mouse_move<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L554"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">input_mouse_move :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, x, y: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="input_mouse_up"><span><a class="doc-id-link" href="#input_mouse_up">input_mouse_up<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L563"><em>Source</em></a></div></h3>
+<h3 id="input_mouse_up"><span><a class="doc-id-link" href="#input_mouse_up">input_mouse_up<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L564"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">input_mouse_up :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, x, y: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, btn: <a class="code-typename" href="/vendor/microui/#Mouse">Mouse</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="input_scroll"><span><a class="doc-id-link" href="#input_scroll">input_scroll<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L569"><em>Source</em></a></div></h3>
+<h3 id="input_scroll"><span><a class="doc-id-link" href="#input_scroll">input_scroll<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L570"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">input_scroll :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, x, y: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="input_text"><span><a class="doc-id-link" href="#input_text">input_text<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L583"><em>Source</em></a></div></h3>
+<h3 id="input_text"><span><a class="doc-id-link" href="#input_text">input_text<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L584"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">input_text :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, text: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="intersect_rects"><span><a class="doc-id-link" href="#intersect_rects">intersect_rects<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L282"><em>Source</em></a></div></h3>
+<h3 id="intersect_rects"><span><a class="doc-id-link" href="#intersect_rects">intersect_rects<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L283"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">intersect_rects :: <span class="keyword-type">proc</span>(r1, r2: <a class="code-typename" href="/vendor/microui/#Rect">Rect</a>) -> <a class="code-typename" href="/vendor/microui/#Rect">Rect</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="label"><span><a class="doc-id-link" href="#label">label<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L923"><em>Source</em></a></div></h3>
+<h3 id="label"><span><a class="doc-id-link" href="#label">label<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L924"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">label :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, text: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="layout_begin_column"><span><a class="doc-id-link" href="#layout_begin_column">layout_begin_column<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L703"><em>Source</em></a></div></h3>
+<h3 id="layout_begin_column"><span><a class="doc-id-link" href="#layout_begin_column">layout_begin_column<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L704"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">layout_begin_column :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="layout_column"><span><a class="doc-id-link" href="#layout_column">layout_column<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L719"><em>Source</em></a></div></h3>
+<h3 id="layout_column"><span><a class="doc-id-link" href="#layout_column">layout_column<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L720"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">layout_column :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="layout_end_column"><span><a class="doc-id-link" href="#layout_end_column">layout_end_column<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L707"><em>Source</em></a></div></h3>
+<h3 id="layout_end_column"><span><a class="doc-id-link" href="#layout_end_column">layout_end_column<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L708"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">layout_end_column :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="layout_height"><span><a class="doc-id-link" href="#layout_height">layout_height<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L749"><em>Source</em></a></div></h3>
+<h3 id="layout_height"><span><a class="doc-id-link" href="#layout_height">layout_height<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L750"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">layout_height :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, height: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="layout_next"><span><a class="doc-id-link" href="#layout_next">layout_next<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L759"><em>Source</em></a></div></h3>
+<h3 id="layout_next"><span><a class="doc-id-link" href="#layout_next">layout_next<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L760"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">layout_next :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>) -> (res: <a class="code-typename" href="/vendor/microui/#Rect">Rect</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="layout_row"><span><a class="doc-id-link" href="#layout_row">layout_row<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L724"><em>Source</em></a></div></h3>
+<h3 id="layout_row"><span><a class="doc-id-link" href="#layout_row">layout_row<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L725"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">layout_row :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, widths: []<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, height: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> = 0) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="layout_row_items"><span><a class="doc-id-link" href="#layout_row_items">layout_row_items<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L736"><em>Source</em></a></div></h3>
+<h3 id="layout_row_items"><span><a class="doc-id-link" href="#layout_row_items">layout_row_items<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L737"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">layout_row_items :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, items: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, height: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> = 0) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="layout_set_next"><span><a class="doc-id-link" href="#layout_set_next">layout_set_next<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L753"><em>Source</em></a></div></h3>
+<h3 id="layout_set_next"><span><a class="doc-id-link" href="#layout_set_next">layout_set_next<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L754"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">layout_set_next :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, r: <a class="code-typename" href="/vendor/microui/#Rect">Rect</a>, relative: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="layout_width"><span><a class="doc-id-link" href="#layout_width">layout_width<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L745"><em>Source</em></a></div></h3>
+<h3 id="layout_width"><span><a class="doc-id-link" href="#layout_width">layout_width<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L746"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">layout_width :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, width: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="mouse_over"><span><a class="doc-id-link" href="#mouse_over">mouse_over<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L853"><em>Source</em></a></div></h3>
+<h3 id="mouse_over"><span><a class="doc-id-link" href="#mouse_over">mouse_over<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L854"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">mouse_over :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, rect: <a class="code-typename" href="/vendor/microui/#Rect">Rect</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="next_command"><span><a class="doc-id-link" href="#next_command">next_command<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L601"><em>Source</em></a></div></h3>
+<h3 id="next_command"><span><a class="doc-id-link" href="#next_command">next_command<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L602"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">next_command :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, pcmd: ^^<a class="code-typename" href="/vendor/microui/#Command">Command</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="next_command_iterator"><span><a class="doc-id-link" href="#next_command_iterator">next_command_iterator<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L622"><em>Source</em></a></div></h3>
+<h3 id="next_command_iterator"><span><a class="doc-id-link" href="#next_command_iterator">next_command_iterator<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L623"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">next_command_iterator :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, pcm: ^^<a class="code-typename" href="/vendor/microui/#Command">Command</a>) -> (<a class="code-typename" href="/vendor/microui/#Command_Variant">Command_Variant</a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="number"><span><a class="doc-id-link" href="#number">number<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1089"><em>Source</em></a></div></h3>
+<h3 id="number"><span><a class="doc-id-link" href="#number">number<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1090"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">number :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, value: ^<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, step: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, fmt_string: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> = SLIDER_FMT, opt: <a class="code-typename" href="/vendor/microui/#Options">Options</a> = {.ALIGN_CENTER}) -> (res: <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/microui/#Result">Result</a>; <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>]) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="number_textbox"><span><a class="doc-id-link" href="#number_textbox">number_textbox<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1024"><em>Source</em></a></div></h3>
+<h3 id="number_textbox"><span><a class="doc-id-link" href="#number_textbox">number_textbox<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1025"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">number_textbox :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, value: ^<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, r: <a class="code-typename" href="/vendor/microui/#Rect">Rect</a>, id: <a class="code-typename" href="/vendor/microui/#Id">Id</a>, fmt_string: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="open_popup"><span><a class="doc-id-link" href="#open_popup">open_popup<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1392"><em>Source</em></a></div></h3>
+<h3 id="open_popup"><span><a class="doc-id-link" href="#open_popup">open_popup<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1393"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">open_popup :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="pool_get"><span><a class="doc-id-link" href="#pool_get">pool_get<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L536"><em>Source</em></a></div></h3>
+<h3 id="pool_get"><span><a class="doc-id-link" href="#pool_get">pool_get<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L537"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">pool_get :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, items: []<a class="code-typename" href="/vendor/microui/#Pool_Item">Pool_Item</a>, id: <a class="code-typename" href="/vendor/microui/#Id">Id</a>) -> (<a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="pool_init"><span><a class="doc-id-link" href="#pool_init">pool_init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L521"><em>Source</em></a></div></h3>
+<h3 id="pool_init"><span><a class="doc-id-link" href="#pool_init">pool_init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L522"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">pool_init :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, items: []<a class="code-typename" href="/vendor/microui/#Pool_Item">Pool_Item</a>, id: <a class="code-typename" href="/vendor/microui/#Id">Id</a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="pool_update"><span><a class="doc-id-link" href="#pool_update">pool_update<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L545"><em>Source</em></a></div></h3>
+<h3 id="pool_update"><span><a class="doc-id-link" href="#pool_update">pool_update<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L546"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">pool_update :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, item: ^<a class="code-typename" href="/vendor/microui/#Pool_Item">Pool_Item</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="pop"><span><a class="doc-id-link" href="#pop">pop<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L248"><em>Source</em></a></div></h3>
+<h3 id="pop"><span><a class="doc-id-link" href="#pop">pop<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L249"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">pop :: <span class="keyword-type">proc</span>(stk: ^$T/<a class="code-typename" href="/vendor/microui/#Stack">Stack</a>($T, $N=)) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="pop_clip_rect"><span><a class="doc-id-link" href="#pop_clip_rect">pop_clip_rect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L435"><em>Source</em></a></div></h3>
+<h3 id="pop_clip_rect"><span><a class="doc-id-link" href="#pop_clip_rect">pop_clip_rect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L436"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">pop_clip_rect :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="pop_id"><span><a class="doc-id-link" href="#pop_id">pop_id<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L426"><em>Source</em></a></div></h3>
+<h3 id="pop_id"><span><a class="doc-id-link" href="#pop_id">pop_id<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L427"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">pop_id :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="popup"><span><a class="doc-id-link" href="#popup">popup<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1415"><em>Source</em></a></div></h3>
+<h3 id="popup"><span><a class="doc-id-link" href="#popup">popup<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1416"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">popup :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
@@ -1472,85 +1457,85 @@ Procedure Groups (2)</summary>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="push"><span><a class="doc-id-link" href="#push">push<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L243"><em>Source</em></a></div></h3>
+<h3 id="push"><span><a class="doc-id-link" href="#push">push<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L244"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">push :: <span class="keyword-type">proc</span>(stk: ^$T/<a class="code-typename" href="/vendor/microui/#Stack">Stack</a>($T, $N=), val: $T) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="push_clip_rect"><span><a class="doc-id-link" href="#push_clip_rect">push_clip_rect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L430"><em>Source</em></a></div></h3>
+<h3 id="push_clip_rect"><span><a class="doc-id-link" href="#push_clip_rect">push_clip_rect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L431"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">push_clip_rect :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, rect: <a class="code-typename" href="/vendor/microui/#Rect">Rect</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="push_command"><span><a class="doc-id-link" href="#push_command">push_command<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L591"><em>Source</em></a></div></h3>
+<h3 id="push_command"><span><a class="doc-id-link" href="#push_command">push_command<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L592"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">push_command :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, $Type: <a href="/core/builtin#typeid"><span class="doc-builtin">typeid</span></a>, extra_size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = 0) -> ^<a href="/core/builtin#typeid"><span class="doc-builtin">typeid</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="push_id_bytes"><span><a class="doc-id-link" href="#push_id_bytes">push_id_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L424"><em>Source</em></a></div></h3>
+<h3 id="push_id_bytes"><span><a class="doc-id-link" href="#push_id_bytes">push_id_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L425"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">push_id_bytes :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, bytes: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="push_id_rawptr"><span><a class="doc-id-link" href="#push_id_rawptr">push_id_rawptr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L422"><em>Source</em></a></div></h3>
+<h3 id="push_id_rawptr"><span><a class="doc-id-link" href="#push_id_rawptr">push_id_rawptr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L423"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">push_id_rawptr :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, data: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="push_id_string"><span><a class="doc-id-link" href="#push_id_string">push_id_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L421"><em>Source</em></a></div></h3>
+<h3 id="push_id_string"><span><a class="doc-id-link" href="#push_id_string">push_id_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L422"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">push_id_string :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, str: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="push_id_uintptr"><span><a class="doc-id-link" href="#push_id_uintptr">push_id_uintptr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L423"><em>Source</em></a></div></h3>
+<h3 id="push_id_uintptr"><span><a class="doc-id-link" href="#push_id_uintptr">push_id_uintptr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L424"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">push_id_uintptr :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, ptr: <a href="/core/builtin#uintptr"><span class="doc-builtin">uintptr</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="rect_overlaps_vec2"><span><a class="doc-id-link" href="#rect_overlaps_vec2">rect_overlaps_vec2<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L292"><em>Source</em></a></div></h3>
+<h3 id="rect_overlaps_vec2"><span><a class="doc-id-link" href="#rect_overlaps_vec2">rect_overlaps_vec2<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L293"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">rect_overlaps_vec2 :: <span class="keyword-type">proc</span>(r: <a class="code-typename" href="/vendor/microui/#Rect">Rect</a>, p: <a class="code-typename" href="/vendor/microui/#Vec2">Vec2</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="scoped_end_popup"><span><a class="doc-id-link" href="#scoped_end_popup">scoped_end_popup<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1419"><em>Source</em></a></div></h3>
+<h3 id="scoped_end_popup"><span><a class="doc-id-link" href="#scoped_end_popup">scoped_end_popup<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1420"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">scoped_end_popup :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, _: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="scoped_end_treenode"><span><a class="doc-id-link" href="#scoped_end_treenode">scoped_end_treenode<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1177"><em>Source</em></a></div></h3>
+<h3 id="scoped_end_treenode"><span><a class="doc-id-link" href="#scoped_end_treenode">scoped_end_treenode<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1178"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">scoped_end_treenode :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, _: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, _: <a class="code-typename" href="/vendor/microui/#Options">Options</a>, result_set: <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/microui/#Result">Result</a>; <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>]) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="scoped_end_window"><span><a class="doc-id-link" href="#scoped_end_window">scoped_end_window<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1386"><em>Source</em></a></div></h3>
+<h3 id="scoped_end_window"><span><a class="doc-id-link" href="#scoped_end_window">scoped_end_window<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1387"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">scoped_end_window :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, _: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, _: <a class="code-typename" href="/vendor/microui/#Rect">Rect</a>, _: <a class="code-typename" href="/vendor/microui/#Options">Options</a>, ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="set_clip"><span><a class="doc-id-link" href="#set_clip">set_clip<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L635"><em>Source</em></a></div></h3>
+<h3 id="set_clip"><span><a class="doc-id-link" href="#set_clip">set_clip<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L636"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">set_clip :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, rect: <a class="code-typename" href="/vendor/microui/#Rect">Rect</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="set_focus"><span><a class="doc-id-link" href="#set_focus">set_focus<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L387"><em>Source</em></a></div></h3>
+<h3 id="set_focus"><span><a class="doc-id-link" href="#set_focus">set_focus<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L388"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">set_focus :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, id: <a class="code-typename" href="/vendor/microui/#Id">Id</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="slider"><span><a class="doc-id-link" href="#slider">slider<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1048"><em>Source</em></a></div></h3>
+<h3 id="slider"><span><a class="doc-id-link" href="#slider">slider<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1049"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">slider :: <span class="keyword-type">proc</span>(
 	ctx:        ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, 
@@ -1563,19 +1548,19 @@ Procedure Groups (2)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="text"><span><a class="doc-id-link" href="#text">text<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L890"><em>Source</em></a></div></h3>
+<h3 id="text"><span><a class="doc-id-link" href="#text">text<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L891"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">text :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, text: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="textbox"><span><a class="doc-id-link" href="#textbox">textbox<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1042"><em>Source</em></a></div></h3>
+<h3 id="textbox"><span><a class="doc-id-link" href="#textbox">textbox<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1043"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">textbox :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, buf: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, textlen: ^<a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, opt: <a class="code-typename" href="/vendor/microui/#Options">Options</a> = Options{}) -> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/microui/#Result">Result</a>; <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>] {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="textbox_raw"><span><a class="doc-id-link" href="#textbox_raw">textbox_raw<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L966"><em>Source</em></a></div></h3>
+<h3 id="textbox_raw"><span><a class="doc-id-link" href="#textbox_raw">textbox_raw<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L967"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">textbox_raw :: <span class="keyword-type">proc</span>(
 	ctx:     ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, 
@@ -1588,7 +1573,7 @@ Procedure Groups (2)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="treenode"><span><a class="doc-id-link" href="#treenode">treenode<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1185"><em>Source</em></a></div></h3>
+<h3 id="treenode"><span><a class="doc-id-link" href="#treenode">treenode<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1186"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">treenode :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, label: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, opt: <a class="code-typename" href="/vendor/microui/#Options">Options</a> = Options{}) -> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/microui/#Result">Result</a>; <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>] {…}</pre>
 </div>
@@ -1598,13 +1583,13 @@ Procedure Groups (2)</summary>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="update_control"><span><a class="doc-id-link" href="#update_control">update_control<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L859"><em>Source</em></a></div></h3>
+<h3 id="update_control"><span><a class="doc-id-link" href="#update_control">update_control<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L860"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">update_control :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, id: <a class="code-typename" href="/vendor/microui/#Id">Id</a>, rect: <a class="code-typename" href="/vendor/microui/#Rect">Rect</a>, opt: <a class="code-typename" href="/vendor/microui/#Options">Options</a> = Options{}) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="window"><span><a class="doc-id-link" href="#window">window<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1382"><em>Source</em></a></div></h3>
+<h3 id="window"><span><a class="doc-id-link" href="#window">window<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L1383"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">window :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/microui/#Context">Context</a>, title: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, rect: <a class="code-typename" href="/vendor/microui/#Rect">Rect</a>, opt: <a class="code-typename" href="/vendor/microui/#Options">Options</a> = Options{}) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
@@ -1615,7 +1600,7 @@ Procedure Groups (2)</summary>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
 <div class="pkg-entity">
-<h3 id="get_id"><span><a class="doc-id-link" href="#get_id">get_id<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L394"><em>Source</em></a></div></h3>
+<h3 id="get_id"><span><a class="doc-id-link" href="#get_id">get_id<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L395"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">get_id :: proc{
 	<a class="code-procedure" href="/vendor/microui/#get_id_string">get_id_string</a>,
@@ -1627,7 +1612,7 @@ Procedure Groups (2)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="push_id"><span><a class="doc-id-link" href="#push_id">push_id<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L420"><em>Source</em></a></div></h3>
+<h3 id="push_id"><span><a class="doc-id-link" href="#push_id">push_id<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin#L421"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">push_id :: proc{
 	<a class="code-procedure" href="/vendor/microui/#push_id_string">push_id_string</a>,
@@ -1645,7 +1630,7 @@ Procedure Groups (2)</summary>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/vendor/microui/microui.odin">microui.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:47:45.324449000 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 18:51:55.346960800 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
