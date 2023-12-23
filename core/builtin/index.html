@@ -375,23 +375,53 @@ Procedures (110)</summary>
 <li><a href="/core/runtime">runtime</a>.<a href="#ordered_remove">ordered_remove</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#remove_range">remove_range</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#pop">pop</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#hermitian_adjoint">hermitian_adjoint</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#pop_safe">pop_safe</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#pop_front">pop_front</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#matrix_trace">matrix_trace</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#pop_front_safe">pop_front_safe</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#matrix_minor">matrix_minor</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#matrix1x1_determinant">matrix1x1_determinant</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#matrix2x2_determinant">matrix2x2_determinant</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#matrix3x3_determinant">matrix3x3_determinant</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#matrix4x4_determinant">matrix4x4_determinant</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#matrix1x1_adjugate">matrix1x1_adjugate</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#matrix2x2_adjugate">matrix2x2_adjugate</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#matrix3x3_adjugate">matrix3x3_adjugate</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#matrix4x4_adjugate">matrix4x4_adjugate</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#matrix1x1_inverse_transpose">matrix1x1_inverse_transpose</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#matrix2x2_inverse_transpose">matrix2x2_inverse_transpose</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#matrix3x3_inverse_transpose">matrix3x3_inverse_transpose</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#matrix4x4_inverse_transpose">matrix4x4_inverse_transpose</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#delete_string">delete_string</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#delete_cstring">delete_cstring</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#matrix1x1_inverse">matrix1x1_inverse</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#matrix2x2_inverse">matrix2x2_inverse</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#delete_dynamic_array">delete_dynamic_array</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#matrix3x3_inverse">matrix3x3_inverse</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#matrix4x4_inverse">matrix4x4_inverse</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#delete_slice">delete_slice</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#delete_map">delete_map</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#raw_soa_footer_slice">raw_soa_footer_slice</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#raw_soa_footer_dynamic_array">raw_soa_footer_dynamic_array</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#new">new</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#make_soa_aligned">make_soa_aligned</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#new_clone">new_clone</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#make_soa_slice">make_soa_slice</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#make_soa_dynamic_array">make_soa_dynamic_array</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#make_slice">make_slice</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#make_dynamic_array">make_dynamic_array</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#make_dynamic_array_len">make_dynamic_array_len</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#make_dynamic_array_len_cap">make_dynamic_array_len_cap</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#make_soa_dynamic_array_len">make_soa_dynamic_array_len</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#make_map">make_map</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#make_soa_dynamic_array_len_cap">make_soa_dynamic_array_len_cap</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#resize_soa">resize_soa</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#make_multi_pointer">make_multi_pointer</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#reserve_soa">reserve_soa</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#append_soa_elem">append_soa_elem</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#clear_map">clear_map</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#append_soa_elems">append_soa_elems</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#reserve_map">reserve_map</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#shrink_map">shrink_map</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#delete_key">delete_key</a></li>
@@ -420,36 +450,6 @@ Procedures (110)</summary>
 <li><a href="/core/runtime">runtime</a>.<a href="#assert">assert</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#panic">panic</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#unimplemented">unimplemented</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#hermitian_adjoint">hermitian_adjoint</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#matrix_trace">matrix_trace</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#matrix_minor">matrix_minor</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#matrix1x1_determinant">matrix1x1_determinant</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#matrix2x2_determinant">matrix2x2_determinant</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#matrix3x3_determinant">matrix3x3_determinant</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#matrix4x4_determinant">matrix4x4_determinant</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#matrix1x1_adjugate">matrix1x1_adjugate</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#matrix2x2_adjugate">matrix2x2_adjugate</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#matrix3x3_adjugate">matrix3x3_adjugate</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#matrix4x4_adjugate">matrix4x4_adjugate</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#matrix1x1_inverse_transpose">matrix1x1_inverse_transpose</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#matrix2x2_inverse_transpose">matrix2x2_inverse_transpose</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#matrix3x3_inverse_transpose">matrix3x3_inverse_transpose</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#matrix4x4_inverse_transpose">matrix4x4_inverse_transpose</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#matrix1x1_inverse">matrix1x1_inverse</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#matrix2x2_inverse">matrix2x2_inverse</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#matrix3x3_inverse">matrix3x3_inverse</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#matrix4x4_inverse">matrix4x4_inverse</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#raw_soa_footer_slice">raw_soa_footer_slice</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#raw_soa_footer_dynamic_array">raw_soa_footer_dynamic_array</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#make_soa_aligned">make_soa_aligned</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#make_soa_slice">make_soa_slice</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#make_soa_dynamic_array">make_soa_dynamic_array</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#make_soa_dynamic_array_len">make_soa_dynamic_array_len</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#make_soa_dynamic_array_len_cap">make_soa_dynamic_array_len_cap</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#resize_soa">resize_soa</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#reserve_soa">reserve_soa</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#append_soa_elem">append_soa_elem</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#append_soa_elems">append_soa_elems</a></li>
 </ul>
 </details>
 </div>
@@ -458,7 +458,11 @@ Procedures (110)</summary>
 <summary id="#doc-index-Procedure Groups-header">
 Procedure Groups (21)</summary>
 <ul>
+<li><a href="/core/runtime">runtime</a>.<a href="#determinant">determinant</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#adjugate">adjugate</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#inverse_transpose">inverse_transpose</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#copy">copy</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#inverse">inverse</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#clear">clear</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#reserve">reserve</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#resize">resize</a></li>
@@ -466,19 +470,15 @@ Procedure Groups (21)</summary>
 <li><a href="/core/runtime">runtime</a>.<a href="#free">free</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#free_all">free_all</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#delete">delete</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#make_soa">make_soa</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#make">make</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#append_soa">append_soa</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#delete_soa">delete_soa</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#append">append</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#inject_at">inject_at</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#assign_at">assign_at</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#incl">incl</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#excl">excl</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#determinant">determinant</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#adjugate">adjugate</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#inverse_transpose">inverse_transpose</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#inverse">inverse</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#make_soa">make_soa</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#append_soa">append_soa</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#delete_soa">delete_soa</a></li>
 </ul>
 </details>
 </div>
@@ -1557,6 +1557,12 @@ Note: If the range is out of bounds, this procedure will panic.</p>
 </details>
 </div>
 <div class="pkg-entity">
+<h3 id="hermitian_adjoint"><span><a class="doc-id-link" href="#hermitian_adjoint">hermitian_adjoint<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L41"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hermitian_adjoint :: <span class="keyword-type">proc</span> "contextless" (m: $M/<span class="keyword-type">matrix</span>[0, 0]$T) -> $M/<span class="keyword-type">matrix</span>[0, 0]$T {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
 <h3 id="pop_safe"><span><a class="doc-id-link" href="#pop_safe">pop_safe<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin.odin#L125"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">pop_safe :: <span class="keyword-type">proc</span>(array: ^$T/[<span class="keyword">dynamic</span>]$T) -> (res: $T, ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
@@ -1579,6 +1585,12 @@ If the operation is not possible, it will return false.</p>
 </details>
 </div>
 <div class="pkg-entity">
+<h3 id="matrix_trace"><span><a class="doc-id-link" href="#matrix_trace">matrix_trace<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L46"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">matrix_trace :: <span class="keyword-type">proc</span> "contextless" (m: $M/<span class="keyword-type">matrix</span>[0, 0]$T) -> (trace: $T) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
 <h3 id="pop_front_safe"><span><a class="doc-id-link" href="#pop_front_safe">pop_front_safe<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin.odin#L151"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">pop_front_safe :: <span class="keyword-type">proc</span>(array: ^$T/[<span class="keyword">dynamic</span>]$T) -> (res: $T, ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
@@ -1588,6 +1600,84 @@ If the operation is not possible, it will return false.</p>
 <p><code>pop_front_safe</code> trys to return and remove the first value of dynamic array <code>array</code> and reduces the length of <code>array</code> by 1.
 If the operation is not possible, it will return false.</p>
 </details>
+</div>
+<div class="pkg-entity">
+<h3 id="matrix_minor"><span><a class="doc-id-link" href="#matrix_minor">matrix_minor<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L54"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">matrix_minor :: <span class="keyword-type">proc</span> "contextless" (m: $M/<span class="keyword-type">matrix</span>[0, 0]$T, row, column: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> (minor: $T) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="matrix1x1_determinant"><span><a class="doc-id-link" href="#matrix1x1_determinant">matrix1x1_determinant<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L70"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">matrix1x1_determinant :: <span class="keyword-type">proc</span> "contextless" (m: $M/<span class="keyword-type">matrix</span>[1, 1]$T) -> (det: $T) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="matrix2x2_determinant"><span><a class="doc-id-link" href="#matrix2x2_determinant">matrix2x2_determinant<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L75"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">matrix2x2_determinant :: <span class="keyword-type">proc</span> "contextless" (m: $M/<span class="keyword-type">matrix</span>[2, 2]$T) -> (det: $T) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="matrix3x3_determinant"><span><a class="doc-id-link" href="#matrix3x3_determinant">matrix3x3_determinant<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L79"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">matrix3x3_determinant :: <span class="keyword-type">proc</span> "contextless" (m: $A/<span class="keyword-type">matrix</span>[3, 3]$T) -> (det: $T) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="matrix4x4_determinant"><span><a class="doc-id-link" href="#matrix4x4_determinant">matrix4x4_determinant<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L86"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">matrix4x4_determinant :: <span class="keyword-type">proc</span> "contextless" (m: $M/<span class="keyword-type">matrix</span>[4, 4]$T) -> (det: $T) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="matrix1x1_adjugate"><span><a class="doc-id-link" href="#matrix1x1_adjugate">matrix1x1_adjugate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L98"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">matrix1x1_adjugate :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[1, 1]$T) -> (y: $M/<span class="keyword-type">matrix</span>[1, 1]$T) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="matrix2x2_adjugate"><span><a class="doc-id-link" href="#matrix2x2_adjugate">matrix2x2_adjugate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L104"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">matrix2x2_adjugate :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[2, 2]$T) -> (y: $M/<span class="keyword-type">matrix</span>[2, 2]$T) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="matrix3x3_adjugate"><span><a class="doc-id-link" href="#matrix3x3_adjugate">matrix3x3_adjugate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L113"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">matrix3x3_adjugate :: <span class="keyword-type">proc</span> "contextless" (m: $A/<span class="keyword-type">matrix</span>[3, 3]$T) -> (y: $A/<span class="keyword-type">matrix</span>[3, 3]$T) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="matrix4x4_adjugate"><span><a class="doc-id-link" href="#matrix4x4_adjugate">matrix4x4_adjugate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L128"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">matrix4x4_adjugate :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[4, 4]$T) -> (y: $M/<span class="keyword-type">matrix</span>[4, 4]$T) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="matrix1x1_inverse_transpose"><span><a class="doc-id-link" href="#matrix1x1_inverse_transpose">matrix1x1_inverse_transpose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L139"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">matrix1x1_inverse_transpose :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[1, 1]$T) -> (y: $M/<span class="keyword-type">matrix</span>[1, 1]$T) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="matrix2x2_inverse_transpose"><span><a class="doc-id-link" href="#matrix2x2_inverse_transpose">matrix2x2_inverse_transpose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L145"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">matrix2x2_inverse_transpose :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[2, 2]$T) -> (y: $M/<span class="keyword-type">matrix</span>[2, 2]$T) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="matrix3x3_inverse_transpose"><span><a class="doc-id-link" href="#matrix3x3_inverse_transpose">matrix3x3_inverse_transpose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L163"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">matrix3x3_inverse_transpose :: <span class="keyword-type">proc</span> "contextless" (x: $A/<span class="keyword-type">matrix</span>[3, 3]$T) -> (y: $A/<span class="keyword-type">matrix</span>[3, 3]$T) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="matrix4x4_inverse_transpose"><span><a class="doc-id-link" href="#matrix4x4_inverse_transpose">matrix4x4_inverse_transpose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L184"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">matrix4x4_inverse_transpose :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[4, 4]$T) -> (y: $M/<span class="keyword-type">matrix</span>[4, 4]$T) {…}</pre>
+</div>
 </div>
 <div class="pkg-entity">
 <h3 id="delete_string"><span><a class="doc-id-link" href="#delete_string">delete_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin.odin#L194"><em>Source</em></a></div></h3>
@@ -1612,6 +1702,18 @@ If the operation is not possible, it will return false.</p>
 </details>
 </div>
 <div class="pkg-entity">
+<h3 id="matrix1x1_inverse"><span><a class="doc-id-link" href="#matrix1x1_inverse">matrix1x1_inverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L208"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">matrix1x1_inverse :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[1, 1]$T) -> (y: $M/<span class="keyword-type">matrix</span>[1, 1]$T) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="matrix2x2_inverse"><span><a class="doc-id-link" href="#matrix2x2_inverse">matrix2x2_inverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L214"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">matrix2x2_inverse :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[2, 2]$T) -> (y: $M/<span class="keyword-type">matrix</span>[2, 2]$T) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
 <h3 id="delete_dynamic_array"><span><a class="doc-id-link" href="#delete_dynamic_array">delete_dynamic_array<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin.odin#L208"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">delete_dynamic_array :: <span class="keyword-type">proc</span>(array: $T/[<span class="keyword">dynamic</span>]$T, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> <a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a> {…}</pre>
@@ -1621,6 +1723,18 @@ If the operation is not possible, it will return false.</p>
 <p><code>delete_dynamic_array</code> will try to free the underlying data of the passed dynamic array, with the given <code>allocator</code> if the allocator supports this operation.</p>
 <p>Note: Prefer the procedure group <code>delete</code>.</p>
 </details>
+</div>
+<div class="pkg-entity">
+<h3 id="matrix3x3_inverse"><span><a class="doc-id-link" href="#matrix3x3_inverse">matrix3x3_inverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L232"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">matrix3x3_inverse :: <span class="keyword-type">proc</span> "contextless" (x: $A/<span class="keyword-type">matrix</span>[3, 3]$T) -> (y: $A/<span class="keyword-type">matrix</span>[3, 3]$T) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="matrix4x4_inverse"><span><a class="doc-id-link" href="#matrix4x4_inverse">matrix4x4_inverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L253"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">matrix4x4_inverse :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[4, 4]$T) -> (y: $M/<span class="keyword-type">matrix</span>[4, 4]$T) {…}</pre>
+</div>
 </div>
 <div class="pkg-entity">
 <h3 id="delete_slice"><span><a class="doc-id-link" href="#delete_slice">delete_slice<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin.odin#L215"><em>Source</em></a></div></h3>
@@ -1645,6 +1759,18 @@ If the operation is not possible, it will return false.</p>
 </details>
 </div>
 <div class="pkg-entity">
+<h3 id="raw_soa_footer_slice"><span><a class="doc-id-link" href="#raw_soa_footer_slice">raw_soa_footer_slice<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L54"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">raw_soa_footer_slice :: <span class="keyword-type">proc</span>(array: ^$T/<span class="directive">#soa</span>[]$T) -> (footer: ^<a class="code-typename" href="/core/runtime/#Raw_SOA_Footer_Slice">Raw_SOA_Footer_Slice</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="raw_soa_footer_dynamic_array"><span><a class="doc-id-link" href="#raw_soa_footer_dynamic_array">raw_soa_footer_dynamic_array<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L63"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">raw_soa_footer_dynamic_array :: <span class="keyword-type">proc</span>(array: ^$T/<span class="directive">#soa</span>[<span class="keyword">dynamic</span>]$T) -> (footer: ^<a class="code-typename" href="/core/runtime/#Raw_SOA_Footer_Dynamic_Array">Raw_SOA_Footer_Dynamic_Array</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
 <h3 id="new"><span><a class="doc-id-link" href="#new">new<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin.odin#L243"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">new :: <span class="keyword-type">proc</span>($T: <a href="/core/builtin#typeid"><span class="doc-builtin">typeid</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (^<a href="/core/builtin#typeid"><span class="doc-builtin">typeid</span></a>, <a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
@@ -1656,9 +1782,27 @@ return is a pointer to a newly allocated value of that type using the specified 
 </details>
 </div>
 <div class="pkg-entity">
+<h3 id="make_soa_aligned"><span><a class="doc-id-link" href="#make_soa_aligned">make_soa_aligned<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L84"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">make_soa_aligned :: <span class="keyword-type">proc</span>($T: typeid/<span class="directive">#soa</span>[]T, length: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, alignment: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (array: T, err: <a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
 <h3 id="new_clone"><span><a class="doc-id-link" href="#new_clone">new_clone<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin.odin#L254"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">new_clone :: <span class="keyword-type">proc</span>(data: $T, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (t: ^$T, err: <a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="make_soa_slice"><span><a class="doc-id-link" href="#make_soa_slice">make_soa_slice<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L143"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">make_soa_slice :: <span class="keyword-type">proc</span>($T: typeid/<span class="directive">#soa</span>[]T, length: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (array: T, err: <a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="make_soa_dynamic_array"><span><a class="doc-id-link" href="#make_soa_dynamic_array">make_soa_dynamic_array<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L148"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">make_soa_dynamic_array :: <span class="keyword-type">proc</span>($T: typeid/<span class="directive">#soa</span>[<span class="keyword">dynamic</span>]T, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (array: T, err: <a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -1710,6 +1854,12 @@ Unlike <code>new</code>, <code>make</code>'s return value is the same as the typ
 </details>
 </div>
 <div class="pkg-entity">
+<h3 id="make_soa_dynamic_array_len"><span><a class="doc-id-link" href="#make_soa_dynamic_array_len">make_soa_dynamic_array_len<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L155"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">make_soa_dynamic_array_len :: <span class="keyword-type">proc</span>($T: typeid/<span class="directive">#soa</span>[<span class="keyword">dynamic</span>]T, <span class="keyword-type">#any_int</span> length: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (array: T, err: <a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
 <h3 id="make_map"><span><a class="doc-id-link" href="#make_map">make_map<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin.odin#L320"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">make_map :: <span class="keyword-type">proc</span>($T: typeid/<span class="keyword-type">map</span>[T]T, <span class="keyword-type">#any_int</span> capacity: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = 1 &lt;&lt; MAP_MIN_LOG2_CAPACITY, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (m: T, err: <a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
@@ -1720,6 +1870,18 @@ Unlike <code>new</code>, <code>make</code>'s return value is the same as the typ
 Unlike <code>new</code>, <code>make</code>'s return value is the same as the type of its argument, not a pointer to it.</p>
 <p>Note: Prefer using the procedure group <code>make</code>.</p>
 </details>
+</div>
+<div class="pkg-entity">
+<h3 id="make_soa_dynamic_array_len_cap"><span><a class="doc-id-link" href="#make_soa_dynamic_array_len_cap">make_soa_dynamic_array_len_cap<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L162"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">make_soa_dynamic_array_len_cap :: <span class="keyword-type">proc</span>($T: typeid/<span class="directive">#soa</span>[<span class="keyword">dynamic</span>]T, <span class="keyword-type">#any_int</span> length, <span class="keyword-type">#any_int</span> capacity: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (array: T, err: <a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="resize_soa"><span><a class="doc-id-link" href="#resize_soa">resize_soa<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L180"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">resize_soa :: <span class="keyword-type">proc</span>(array: ^$T/<span class="directive">#soa</span>[<span class="keyword">dynamic</span>]$T, length: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> <a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a> {…}</pre>
+</div>
 </div>
 <div class="pkg-entity">
 <h3 id="make_multi_pointer"><span><a class="doc-id-link" href="#make_multi_pointer">make_multi_pointer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin.odin#L334"><em>Source</em></a></div></h3>
@@ -1735,6 +1897,18 @@ Unlike <code>new</code>, <code>make</code>'s return value is the same as the typ
 </details>
 </div>
 <div class="pkg-entity">
+<h3 id="reserve_soa"><span><a class="doc-id-link" href="#reserve_soa">reserve_soa<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L191"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">reserve_soa :: <span class="keyword-type">proc</span>(array: ^$T/<span class="directive">#soa</span>[<span class="keyword">dynamic</span>]$T, capacity: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> <a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="append_soa_elem"><span><a class="doc-id-link" href="#append_soa_elem">append_soa_elem<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L277"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">append_soa_elem :: <span class="keyword-type">proc</span>(array: ^$T/<span class="directive">#soa</span>[<span class="keyword">dynamic</span>]$T, arg: $T, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, err: <a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
 <h3 id="clear_map"><span><a class="doc-id-link" href="#clear_map">clear_map<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin.odin#L366"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">clear_map :: <span class="keyword-type">proc</span> "contextless" (m: ^$T/<span class="keyword-type">map</span>[$T]$T) {…}</pre>
@@ -1744,6 +1918,12 @@ Unlike <code>new</code>, <code>make</code>'s return value is the same as the typ
 <p><code>clear_map</code> will set the length of a passed map to <code>0</code></p>
 <p>Note: Prefer the procedure group <code>clear</code></p>
 </details>
+</div>
+<div class="pkg-entity">
+<h3 id="append_soa_elems"><span><a class="doc-id-link" href="#append_soa_elems">append_soa_elems<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L329"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">append_soa_elems :: <span class="keyword-type">proc</span>(array: ^$T/<span class="directive">#soa</span>[<span class="keyword">dynamic</span>]$T, args: ..$T, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, err: <a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
+</div>
 </div>
 <div class="pkg-entity">
 <h3 id="reserve_map"><span><a class="doc-id-link" href="#reserve_map">reserve_map<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin.odin#L377"><em>Source</em></a></div></h3>
@@ -1951,187 +2131,43 @@ If m is nil, or there is no such element, this procedure is a no-op</p>
 <pre class="doc-code">unimplemented :: <span class="keyword-type">proc</span>(message: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> ! {…}</pre>
 </div>
 </div>
-<div class="pkg-entity">
-<h3 id="hermitian_adjoint"><span><a class="doc-id-link" href="#hermitian_adjoint">hermitian_adjoint<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L41"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">hermitian_adjoint :: <span class="keyword-type">proc</span> "contextless" (m: $M/<span class="keyword-type">matrix</span>[0, 0]$T) -> $M/<span class="keyword-type">matrix</span>[0, 0]$T {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="matrix_trace"><span><a class="doc-id-link" href="#matrix_trace">matrix_trace<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L46"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">matrix_trace :: <span class="keyword-type">proc</span> "contextless" (m: $M/<span class="keyword-type">matrix</span>[0, 0]$T) -> (trace: $T) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="matrix_minor"><span><a class="doc-id-link" href="#matrix_minor">matrix_minor<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L54"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">matrix_minor :: <span class="keyword-type">proc</span> "contextless" (m: $M/<span class="keyword-type">matrix</span>[0, 0]$T, row, column: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> (minor: $T) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="matrix1x1_determinant"><span><a class="doc-id-link" href="#matrix1x1_determinant">matrix1x1_determinant<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L70"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">matrix1x1_determinant :: <span class="keyword-type">proc</span> "contextless" (m: $M/<span class="keyword-type">matrix</span>[1, 1]$T) -> (det: $T) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="matrix2x2_determinant"><span><a class="doc-id-link" href="#matrix2x2_determinant">matrix2x2_determinant<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L75"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">matrix2x2_determinant :: <span class="keyword-type">proc</span> "contextless" (m: $M/<span class="keyword-type">matrix</span>[2, 2]$T) -> (det: $T) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="matrix3x3_determinant"><span><a class="doc-id-link" href="#matrix3x3_determinant">matrix3x3_determinant<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L79"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">matrix3x3_determinant :: <span class="keyword-type">proc</span> "contextless" (m: $A/<span class="keyword-type">matrix</span>[3, 3]$T) -> (det: $T) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="matrix4x4_determinant"><span><a class="doc-id-link" href="#matrix4x4_determinant">matrix4x4_determinant<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L86"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">matrix4x4_determinant :: <span class="keyword-type">proc</span> "contextless" (m: $M/<span class="keyword-type">matrix</span>[4, 4]$T) -> (det: $T) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="matrix1x1_adjugate"><span><a class="doc-id-link" href="#matrix1x1_adjugate">matrix1x1_adjugate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L98"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">matrix1x1_adjugate :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[1, 1]$T) -> (y: $M/<span class="keyword-type">matrix</span>[1, 1]$T) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="matrix2x2_adjugate"><span><a class="doc-id-link" href="#matrix2x2_adjugate">matrix2x2_adjugate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L104"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">matrix2x2_adjugate :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[2, 2]$T) -> (y: $M/<span class="keyword-type">matrix</span>[2, 2]$T) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="matrix3x3_adjugate"><span><a class="doc-id-link" href="#matrix3x3_adjugate">matrix3x3_adjugate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L113"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">matrix3x3_adjugate :: <span class="keyword-type">proc</span> "contextless" (m: $A/<span class="keyword-type">matrix</span>[3, 3]$T) -> (y: $A/<span class="keyword-type">matrix</span>[3, 3]$T) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="matrix4x4_adjugate"><span><a class="doc-id-link" href="#matrix4x4_adjugate">matrix4x4_adjugate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L128"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">matrix4x4_adjugate :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[4, 4]$T) -> (y: $M/<span class="keyword-type">matrix</span>[4, 4]$T) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="matrix1x1_inverse_transpose"><span><a class="doc-id-link" href="#matrix1x1_inverse_transpose">matrix1x1_inverse_transpose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L139"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">matrix1x1_inverse_transpose :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[1, 1]$T) -> (y: $M/<span class="keyword-type">matrix</span>[1, 1]$T) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="matrix2x2_inverse_transpose"><span><a class="doc-id-link" href="#matrix2x2_inverse_transpose">matrix2x2_inverse_transpose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L145"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">matrix2x2_inverse_transpose :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[2, 2]$T) -> (y: $M/<span class="keyword-type">matrix</span>[2, 2]$T) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="matrix3x3_inverse_transpose"><span><a class="doc-id-link" href="#matrix3x3_inverse_transpose">matrix3x3_inverse_transpose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L163"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">matrix3x3_inverse_transpose :: <span class="keyword-type">proc</span> "contextless" (x: $A/<span class="keyword-type">matrix</span>[3, 3]$T) -> (y: $A/<span class="keyword-type">matrix</span>[3, 3]$T) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="matrix4x4_inverse_transpose"><span><a class="doc-id-link" href="#matrix4x4_inverse_transpose">matrix4x4_inverse_transpose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L184"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">matrix4x4_inverse_transpose :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[4, 4]$T) -> (y: $M/<span class="keyword-type">matrix</span>[4, 4]$T) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="matrix1x1_inverse"><span><a class="doc-id-link" href="#matrix1x1_inverse">matrix1x1_inverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L208"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">matrix1x1_inverse :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[1, 1]$T) -> (y: $M/<span class="keyword-type">matrix</span>[1, 1]$T) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="matrix2x2_inverse"><span><a class="doc-id-link" href="#matrix2x2_inverse">matrix2x2_inverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L214"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">matrix2x2_inverse :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[2, 2]$T) -> (y: $M/<span class="keyword-type">matrix</span>[2, 2]$T) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="matrix3x3_inverse"><span><a class="doc-id-link" href="#matrix3x3_inverse">matrix3x3_inverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L232"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">matrix3x3_inverse :: <span class="keyword-type">proc</span> "contextless" (x: $A/<span class="keyword-type">matrix</span>[3, 3]$T) -> (y: $A/<span class="keyword-type">matrix</span>[3, 3]$T) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="matrix4x4_inverse"><span><a class="doc-id-link" href="#matrix4x4_inverse">matrix4x4_inverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L253"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">matrix4x4_inverse :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[4, 4]$T) -> (y: $M/<span class="keyword-type">matrix</span>[4, 4]$T) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="raw_soa_footer_slice"><span><a class="doc-id-link" href="#raw_soa_footer_slice">raw_soa_footer_slice<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L54"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">raw_soa_footer_slice :: <span class="keyword-type">proc</span>(array: ^$T/<span class="directive">#soa</span>[]$T) -> (footer: ^<a class="code-typename" href="/core/runtime/#Raw_SOA_Footer_Slice">Raw_SOA_Footer_Slice</a>) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="raw_soa_footer_dynamic_array"><span><a class="doc-id-link" href="#raw_soa_footer_dynamic_array">raw_soa_footer_dynamic_array<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L63"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">raw_soa_footer_dynamic_array :: <span class="keyword-type">proc</span>(array: ^$T/<span class="directive">#soa</span>[<span class="keyword">dynamic</span>]$T) -> (footer: ^<a class="code-typename" href="/core/runtime/#Raw_SOA_Footer_Dynamic_Array">Raw_SOA_Footer_Dynamic_Array</a>) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="make_soa_aligned"><span><a class="doc-id-link" href="#make_soa_aligned">make_soa_aligned<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L84"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">make_soa_aligned :: <span class="keyword-type">proc</span>($T: typeid/<span class="directive">#soa</span>[]T, length: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, alignment: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (array: T, err: <a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="make_soa_slice"><span><a class="doc-id-link" href="#make_soa_slice">make_soa_slice<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L143"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">make_soa_slice :: <span class="keyword-type">proc</span>($T: typeid/<span class="directive">#soa</span>[]T, length: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (array: T, err: <a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="make_soa_dynamic_array"><span><a class="doc-id-link" href="#make_soa_dynamic_array">make_soa_dynamic_array<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L148"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">make_soa_dynamic_array :: <span class="keyword-type">proc</span>($T: typeid/<span class="directive">#soa</span>[<span class="keyword">dynamic</span>]T, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (array: T, err: <a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="make_soa_dynamic_array_len"><span><a class="doc-id-link" href="#make_soa_dynamic_array_len">make_soa_dynamic_array_len<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L155"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">make_soa_dynamic_array_len :: <span class="keyword-type">proc</span>($T: typeid/<span class="directive">#soa</span>[<span class="keyword">dynamic</span>]T, <span class="keyword-type">#any_int</span> length: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (array: T, err: <a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="make_soa_dynamic_array_len_cap"><span><a class="doc-id-link" href="#make_soa_dynamic_array_len_cap">make_soa_dynamic_array_len_cap<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L162"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">make_soa_dynamic_array_len_cap :: <span class="keyword-type">proc</span>($T: typeid/<span class="directive">#soa</span>[<span class="keyword">dynamic</span>]T, <span class="keyword-type">#any_int</span> length, <span class="keyword-type">#any_int</span> capacity: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (array: T, err: <a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="resize_soa"><span><a class="doc-id-link" href="#resize_soa">resize_soa<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L180"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">resize_soa :: <span class="keyword-type">proc</span>(array: ^$T/<span class="directive">#soa</span>[<span class="keyword">dynamic</span>]$T, length: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> <a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a> {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="reserve_soa"><span><a class="doc-id-link" href="#reserve_soa">reserve_soa<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L191"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">reserve_soa :: <span class="keyword-type">proc</span>(array: ^$T/<span class="directive">#soa</span>[<span class="keyword">dynamic</span>]$T, capacity: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> <a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a> {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="append_soa_elem"><span><a class="doc-id-link" href="#append_soa_elem">append_soa_elem<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L277"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">append_soa_elem :: <span class="keyword-type">proc</span>(array: ^$T/<span class="directive">#soa</span>[<span class="keyword">dynamic</span>]$T, arg: $T, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, err: <a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="append_soa_elems"><span><a class="doc-id-link" href="#append_soa_elems">append_soa_elems<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L329"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">append_soa_elems :: <span class="keyword-type">proc</span>(array: ^$T/<span class="directive">#soa</span>[<span class="keyword">dynamic</span>]$T, args: ..$T, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, err: <a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
-</div>
-</div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
+<div class="pkg-entity">
+<h3 id="determinant"><span><a class="doc-id-link" href="#determinant">determinant<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L8"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">determinant :: proc{
+	<a class="code-procedure" href="/core/runtime/#matrix1x1_determinant">matrix1x1_determinant</a>,
+	<a class="code-procedure" href="/core/runtime/#matrix2x2_determinant">matrix2x2_determinant</a>,
+	<a class="code-procedure" href="/core/runtime/#matrix3x3_determinant">matrix3x3_determinant</a>,
+	<a class="code-procedure" href="/core/runtime/#matrix4x4_determinant">matrix4x4_determinant</a>,
+}
+</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="adjugate"><span><a class="doc-id-link" href="#adjugate">adjugate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L16"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">adjugate :: proc{
+	<a class="code-procedure" href="/core/runtime/#matrix1x1_adjugate">matrix1x1_adjugate</a>,
+	<a class="code-procedure" href="/core/runtime/#matrix2x2_adjugate">matrix2x2_adjugate</a>,
+	<a class="code-procedure" href="/core/runtime/#matrix3x3_adjugate">matrix3x3_adjugate</a>,
+	<a class="code-procedure" href="/core/runtime/#matrix4x4_adjugate">matrix4x4_adjugate</a>,
+}
+</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="inverse_transpose"><span><a class="doc-id-link" href="#inverse_transpose">inverse_transpose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L24"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inverse_transpose :: proc{
+	<a class="code-procedure" href="/core/runtime/#matrix1x1_inverse_transpose">matrix1x1_inverse_transpose</a>,
+	<a class="code-procedure" href="/core/runtime/#matrix2x2_inverse_transpose">matrix2x2_inverse_transpose</a>,
+	<a class="code-procedure" href="/core/runtime/#matrix3x3_inverse_transpose">matrix3x3_inverse_transpose</a>,
+	<a class="code-procedure" href="/core/runtime/#matrix4x4_inverse_transpose">matrix4x4_inverse_transpose</a>,
+}
+</pre>
+</div>
+</div>
 <div class="pkg-entity">
 <h3 id="copy"><span><a class="doc-id-link" href="#copy">copy<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin.odin#L60"><em>Source</em></a></div></h3>
 <div>
@@ -2147,6 +2183,18 @@ If m is nil, or there is no such element, this procedure is a no-op</p>
 The source and destination may overlap. Copy returns the number of elements copied, which will be the minimum
 of len(src) and len(dst).</p>
 </details>
+</div>
+<div class="pkg-entity">
+<h3 id="inverse"><span><a class="doc-id-link" href="#inverse">inverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L33"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">inverse :: proc{
+	<a class="code-procedure" href="/core/runtime/#matrix1x1_inverse">matrix1x1_inverse</a>,
+	<a class="code-procedure" href="/core/runtime/#matrix2x2_inverse">matrix2x2_inverse</a>,
+	<a class="code-procedure" href="/core/runtime/#matrix3x3_inverse">matrix3x3_inverse</a>,
+	<a class="code-procedure" href="/core/runtime/#matrix4x4_inverse">matrix4x4_inverse</a>,
+}
+</pre>
+</div>
 </div>
 <div class="pkg-entity">
 <h3 id="clear"><span><a class="doc-id-link" href="#clear">clear<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin.odin#L166"><em>Source</em></a></div></h3>
@@ -2248,6 +2296,18 @@ of len(src) and len(dst).</p>
 </details>
 </div>
 <div class="pkg-entity">
+<h3 id="make_soa"><span><a class="doc-id-link" href="#make_soa">make_soa<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L171"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">make_soa :: proc{
+	<a class="code-procedure" href="/core/runtime/#make_soa_slice">make_soa_slice</a>,
+	<a class="code-procedure" href="/core/runtime/#make_soa_dynamic_array">make_soa_dynamic_array</a>,
+	<a class="code-procedure" href="/core/runtime/#make_soa_dynamic_array_len">make_soa_dynamic_array_len</a>,
+	<a class="code-procedure" href="/core/runtime/#make_soa_dynamic_array_len_cap">make_soa_dynamic_array_len_cap</a>,
+}
+</pre>
+</div>
+</div>
+<div class="pkg-entity">
 <h3 id="make"><span><a class="doc-id-link" href="#make">make<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin.odin#L351"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">make :: proc{
@@ -2267,6 +2327,30 @@ of len(src) and len(dst).</p>
 type of its argument, not a pointer to it.
 Make uses the specified allocator, default is context.allocator, default is context.allocator</p>
 </details>
+</div>
+<div class="pkg-entity">
+<h3 id="append_soa"><span><a class="doc-id-link" href="#append_soa">append_soa<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L385"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">append_soa :: proc{
+	<a class="code-procedure" href="/core/runtime/#append_soa_elem">append_soa_elem</a>,
+	<a class="code-procedure" href="/core/runtime/#append_soa_elems">append_soa_elems</a>,
+}
+</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>The append_soa built-in procedure appends elements to the end of an #soa dynamic array</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="delete_soa"><span><a class="doc-id-link" href="#delete_soa">delete_soa<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L412"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">delete_soa :: proc{
+	<a class="code-procedure" href="/core/runtime/#delete_soa_slice">delete_soa_slice</a>,
+	<a class="code-procedure" href="/core/runtime/#delete_soa_dynamic_array">delete_soa_dynamic_array</a>,
+}
+</pre>
+</div>
 </div>
 <div class="pkg-entity">
 <h3 id="append"><span><a class="doc-id-link" href="#append">append<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin.odin#L494"><em>Source</em></a></div></h3>
@@ -2323,90 +2407,6 @@ Make uses the specified allocator, default is context.allocator, default is cont
 	<a class="code-procedure" href="/core/runtime/#excl_elem">excl_elem</a>,
 	<a class="code-procedure" href="/core/runtime/#excl_elems">excl_elems</a>,
 	<a class="code-procedure" href="/core/runtime/#excl_bit_set">excl_bit_set</a>,
-}
-</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="determinant"><span><a class="doc-id-link" href="#determinant">determinant<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L8"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">determinant :: proc{
-	<a class="code-procedure" href="/core/runtime/#matrix1x1_determinant">matrix1x1_determinant</a>,
-	<a class="code-procedure" href="/core/runtime/#matrix2x2_determinant">matrix2x2_determinant</a>,
-	<a class="code-procedure" href="/core/runtime/#matrix3x3_determinant">matrix3x3_determinant</a>,
-	<a class="code-procedure" href="/core/runtime/#matrix4x4_determinant">matrix4x4_determinant</a>,
-}
-</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="adjugate"><span><a class="doc-id-link" href="#adjugate">adjugate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L16"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">adjugate :: proc{
-	<a class="code-procedure" href="/core/runtime/#matrix1x1_adjugate">matrix1x1_adjugate</a>,
-	<a class="code-procedure" href="/core/runtime/#matrix2x2_adjugate">matrix2x2_adjugate</a>,
-	<a class="code-procedure" href="/core/runtime/#matrix3x3_adjugate">matrix3x3_adjugate</a>,
-	<a class="code-procedure" href="/core/runtime/#matrix4x4_adjugate">matrix4x4_adjugate</a>,
-}
-</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="inverse_transpose"><span><a class="doc-id-link" href="#inverse_transpose">inverse_transpose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L24"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">inverse_transpose :: proc{
-	<a class="code-procedure" href="/core/runtime/#matrix1x1_inverse_transpose">matrix1x1_inverse_transpose</a>,
-	<a class="code-procedure" href="/core/runtime/#matrix2x2_inverse_transpose">matrix2x2_inverse_transpose</a>,
-	<a class="code-procedure" href="/core/runtime/#matrix3x3_inverse_transpose">matrix3x3_inverse_transpose</a>,
-	<a class="code-procedure" href="/core/runtime/#matrix4x4_inverse_transpose">matrix4x4_inverse_transpose</a>,
-}
-</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="inverse"><span><a class="doc-id-link" href="#inverse">inverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_matrix.odin#L33"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">inverse :: proc{
-	<a class="code-procedure" href="/core/runtime/#matrix1x1_inverse">matrix1x1_inverse</a>,
-	<a class="code-procedure" href="/core/runtime/#matrix2x2_inverse">matrix2x2_inverse</a>,
-	<a class="code-procedure" href="/core/runtime/#matrix3x3_inverse">matrix3x3_inverse</a>,
-	<a class="code-procedure" href="/core/runtime/#matrix4x4_inverse">matrix4x4_inverse</a>,
-}
-</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="make_soa"><span><a class="doc-id-link" href="#make_soa">make_soa<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L171"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">make_soa :: proc{
-	<a class="code-procedure" href="/core/runtime/#make_soa_slice">make_soa_slice</a>,
-	<a class="code-procedure" href="/core/runtime/#make_soa_dynamic_array">make_soa_dynamic_array</a>,
-	<a class="code-procedure" href="/core/runtime/#make_soa_dynamic_array_len">make_soa_dynamic_array_len</a>,
-	<a class="code-procedure" href="/core/runtime/#make_soa_dynamic_array_len_cap">make_soa_dynamic_array_len_cap</a>,
-}
-</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="append_soa"><span><a class="doc-id-link" href="#append_soa">append_soa<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L385"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">append_soa :: proc{
-	<a class="code-procedure" href="/core/runtime/#append_soa_elem">append_soa_elem</a>,
-	<a class="code-procedure" href="/core/runtime/#append_soa_elems">append_soa_elems</a>,
-}
-</pre>
-</div>
-<details class="odin-doc-toggle" open>
-<summary class="hideme"><span>&nbsp;</span></summary>
-<p>The append_soa built-in procedure appends elements to the end of an #soa dynamic array</p>
-</details>
-</div>
-<div class="pkg-entity">
-<h3 id="delete_soa"><span><a class="doc-id-link" href="#delete_soa">delete_soa<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/runtime/core_builtin_soa.odin#L412"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">delete_soa :: proc{
-	<a class="code-procedure" href="/core/runtime/#delete_soa_slice">delete_soa_slice</a>,
-	<a class="code-procedure" href="/core/runtime/#delete_soa_dynamic_array">delete_soa_dynamic_array</a>,
 }
 </pre>
 </div>
