@@ -239,7 +239,52 @@
 <div id="pkg-overview">
 <p>Package cbor encodes, decodes, marshals and unmarshals types from/into RCF 8949 compatible CBOR binary.
 Also provided are conversion to and from JSON and the CBOR diagnostic format.</p>
-<p>You can additionally provide custom CBOR tag implementations for your use cases.</p>
+<p><i>Allocations:</i>
+In general, when in the following table it says allocations are done on the <code>context.temp_allocator</code>, these allocations
+are still attempted to be deallocated.
+This allows you to use an allocator with freeing implemented as the <code>context.temp_allocator</code> which is handy with big CBOR.</p>
+<p>If you use the default <code>context.temp_allocator</code> it will be returned back to its state when the process (en/decoding, (un)marshal) started.</p>
+<p>    Encoding:  If the <code>.Deterministic_Map_Sorting</code> flag is set on the encoder, this allocates on <code>context.temp_allocator</code>
+               some space for the keys of maps in order to sort them and then write them.
+               Other than that there are no allocations (only for the final bytes if you use <code>cbor.encode_into_bytes</code>.</p>
+<p>    Decoding:  Allocates everything on the given allocator and input given can be deleted after decoding.
+               <i>No</i> allocations are done on the <code>context.temp_allocator</code>.</p>
+<p>    Marshal:   Same allocation strategy as encoding.</p>
+<p>    Unmarshal: Allocates everything on the given allocator and input given can be deleted after unmarshalling.
+               Some temporary allocations are done on the <code>context.temp_allocator</code>.</p>
+<p><i>Determinism:</i>
+CBOR defines a deterministic en/decoder, which among other things uses the smallest type possible for integers and floats,
+and sorts map keys by their (encoded) lexical bytewise order.</p>
+<p>You can enable this behaviour using a combination of flags, also available as the <code>cbor.ENCODE_FULLY_DETERMINISTIC</code> constant.
+If you just want the small size that comes with this, but not the map sorting (which has a performance cost) you can use the
+<code>cbor.ENCODE_SMALL</code> constant for the flags.</p>
+<p>A deterministic float is a float in the smallest type (f16, f32, f64) that hasn't changed after conversion.
+A deterministic integer is an integer in the smallest representation (u8, u16, u32, u64) it fits in.</p>
+<p><i>Untrusted Input:</i>
+By default input is treated as untrusted, this means the sizes that are encoded in the CBOR are not blindly trusted.
+If you were to trust these sizes, and allocate space for them an attacker would be able to cause massive allocations with small payloads.</p>
+<p>The decoder has a <code>max_pre_alloc</code> field that specifies the maximum amount of bytes (roughly) to pre allocate, a KiB by default.</p>
+<p>This does mean reallocations are more common though, you can, if you know the input is trusted, add the <code>.Trusted_Input</code> flag to the decoder.</p>
+<p><i>Tags:</i>
+CBOR describes tags that you can wrap values with to assign a number to describe what type of data will follow.</p>
+<p>More information and a list of default tags can be found here: https://www.rfc-editor.org/rfc/rfc8949.html#name-tagging-of-items
+A list of registered extension types can be found here: https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml</p>
+<p>Tags can either be assigned to a distinct Odin type (used by default),
+or be used with struct tags (<code>cbor_tag:"base64"</code>, or <code>cbor_tag:"1"</code> for example).</p>
+<p>By default, the following tags are supported/provided by this implementation:
+    1/epoch:   Assign this tag to <code>time.Time</code> or integer fields to use the defined seconds since epoch format.</p>
+<p>    24/cbor:   Assign this tag to string or byte fields to store encoded CBOR (not decoding it).</p>
+<p>    34/base64: Assign this tag to string or byte fields to store and decode the contents in base64.</p>
+<p>    2,3:       Used automatically by the implementation to encode and decode big numbers into/from <code>core:math/big</code>.</p>
+<p>    55799:     Self described CBOR, used when <code>.Self_Described_CBOR</code> flag is used to wrap the entire binary.
+               This shows other implementations that we are dealing with CBOR by just looking at the first byte of input.</p>
+<p>    1010:      An extension tag that defines a string type followed by its value, this is used by this implementation to support Odin's unions.</p>
+<p>Users can provide their own tag implementations using the <code>cbor.tag_register_type</code> to register a tag for a distinct Odin type
+used automatically when it is encountered during marshal and unmarshal.
+Or with <code>cbor.tag_register_number</code> to register a tag number along with an identifier for convenience that can be used with struct tags,
+e.g. <code>cbor_tag:"69"</code> or <code>cbor_tag:"my_tag"</code>.
+You can look at the default tags provided for pointers on how these implementations work.</p>
+<p>TODO: <i>Examples:</i></p>
 </div>
 <div id="pkg-index">
 <h2>Index</h2>
@@ -322,10 +367,8 @@ Variables (0)</summary>
 <div>
 <details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
 <summary id="#doc-index-Procedures-header">
-Procedures (36)</summary>
+Procedures (34)</summary>
 <ul>
-<li><a href="#DECODE_PROGRESS_GUARD">DECODE_PROGRESS_GUARD</a></li>
-<li><a href="#ENCODE_PROGRESS_GUARD">ENCODE_PROGRESS_GUARD</a></li>
 <li><a href="#decode_from_decoder">decode_from_decoder</a></li>
 <li><a href="#decode_from_reader">decode_from_reader</a></li>
 <li><a href="#decode_from_string">decode_from_string</a></li>
@@ -387,7 +430,7 @@ Procedure Groups (11)</summary>
 <section class="documentation">
 <h2 id="pkg-Types" class="pkg-header">Types</h2>
 <div class="pkg-entity">
-<h3 id="Add"><span><a class="doc-id-link" href="#Add">Add<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L66"><em>Source</em></a></div></h3>
+<h3 id="Add"><span><a class="doc-id-link" href="#Add">Add<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L61"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Add :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	False          = 20, 
@@ -408,25 +451,25 @@ Procedure Groups (11)</summary>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="Array"><span><a class="doc-id-link" href="#Array">Array<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L111"><em>Source</em></a></div></h3>
+<h3 id="Array"><span><a class="doc-id-link" href="#Array">Array<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L106"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Array :: []<a class="code-typename" href="/core/encoding/cbor/#Value">Value</a></pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Atom"><span><a class="doc-id-link" href="#Atom">Atom<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L131"><em>Source</em></a></div></h3>
+<h3 id="Atom"><span><a class="doc-id-link" href="#Atom">Atom<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L126"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Atom :: <a class="code-typename" href="/core/encoding/cbor/#Simple">Simple</a></pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Bytes"><span><a class="doc-id-link" href="#Bytes">Bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L108"><em>Source</em></a></div></h3>
+<h3 id="Bytes"><span><a class="doc-id-link" href="#Bytes">Bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L103"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Bytes :: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a></pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Decode_Data_Error"><span><a class="doc-id-link" href="#Decode_Data_Error">Decode_Data_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L161"><em>Source</em></a></div></h3>
+<h3 id="Decode_Data_Error"><span><a class="doc-id-link" href="#Decode_Data_Error">Decode_Data_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L156"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Decode_Data_Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
 	None, 
@@ -442,7 +485,7 @@ Procedure Groups (11)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Decode_Error"><span><a class="doc-id-link" href="#Decode_Error">Decode_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L149"><em>Source</em></a></div></h3>
+<h3 id="Decode_Error"><span><a class="doc-id-link" href="#Decode_Error">Decode_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L144"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Decode_Error :: <span class="keyword-type">union</span> {
 	io.<a class="code-typename" href="/core/io/#Error">Error</a>, 
@@ -479,7 +522,6 @@ Procedure Groups (11)</summary>
 </div>
 <h5>Related Procedures With Parameters</h5>
 <ul>
-<li><a href="/core/encoding/cbor/#DECODE_PROGRESS_GUARD">DECODE_PROGRESS_GUARD</a></li>
 <li><a href="/core/encoding/cbor/#decode_from_decoder">decode_from_decoder</a></li>
 <li><a href="/core/encoding/cbor/#unmarshal_from_decoder">unmarshal_from_decoder</a></li>
 <li><a href="/core/encoding/cbor/#decode">decode</a>&nbsp;<em>(procedure groups)</em></li>
@@ -511,7 +553,7 @@ Procedure Groups (11)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Encode_Data_Error"><span><a class="doc-id-link" href="#Encode_Data_Error">Encode_Data_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L173"><em>Source</em></a></div></h3>
+<h3 id="Encode_Data_Error"><span><a class="doc-id-link" href="#Encode_Data_Error">Encode_Data_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L168"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Encode_Data_Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
 	None, 
@@ -522,7 +564,7 @@ Procedure Groups (11)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Encode_Error"><span><a class="doc-id-link" href="#Encode_Error">Encode_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L155"><em>Source</em></a></div></h3>
+<h3 id="Encode_Error"><span><a class="doc-id-link" href="#Encode_Error">Encode_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L150"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Encode_Error :: <span class="keyword-type">union</span> {
 	io.<a class="code-typename" href="/core/io/#Error">Error</a>, 
@@ -538,7 +580,6 @@ Procedure Groups (11)</summary>
 </ul>
 <h5>Related Procedures With Returns</h5>
 <ul>
-<li><a href="/core/encoding/cbor/#ENCODE_PROGRESS_GUARD">ENCODE_PROGRESS_GUARD</a></li>
 <li><a href="/core/encoding/cbor/#encode_into_builder">encode_into_builder</a></li>
 <li><a href="/core/encoding/cbor/#encode_into_bytes">encode_into_bytes</a></li>
 <li><a href="/core/encoding/cbor/#encode_into_encoder">encode_into_encoder</a></li>
@@ -559,7 +600,6 @@ Procedure Groups (11)</summary>
 </div>
 <h5>Related Procedures With Parameters</h5>
 <ul>
-<li><a href="/core/encoding/cbor/#ENCODE_PROGRESS_GUARD">ENCODE_PROGRESS_GUARD</a></li>
 <li><a href="/core/encoding/cbor/#encode_into_encoder">encode_into_encoder</a></li>
 <li><a href="/core/encoding/cbor/#encode_stream_map_entry">encode_stream_map_entry</a></li>
 <li><a href="/core/encoding/cbor/#marshal_into_encoder">marshal_into_encoder</a></li>
@@ -599,7 +639,7 @@ Procedure Groups (11)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Header"><span><a class="doc-id-link" href="#Header">Header<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L27"><em>Source</em></a></div></h3>
+<h3 id="Header"><span><a class="doc-id-link" href="#Header">Header<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L22"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Header :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	U8        = 24, 
@@ -628,7 +668,7 @@ Higher 3 bits is for the major type and lower 5 bits for the additional informat
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="Major"><span><a class="doc-id-link" href="#Major">Major<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L54"><em>Source</em></a></div></h3>
+<h3 id="Major"><span><a class="doc-id-link" href="#Major">Major<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L49"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Major :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	Unsigned, 
@@ -651,13 +691,13 @@ Higher 3 bits is for the major type and lower 5 bits for the additional informat
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Map"><span><a class="doc-id-link" href="#Map">Map<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L113"><em>Source</em></a></div></h3>
+<h3 id="Map"><span><a class="doc-id-link" href="#Map">Map<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L108"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Map :: []<a class="code-typename" href="/core/encoding/cbor/#Map_Entry">Map_Entry</a></pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Map_Entry"><span><a class="doc-id-link" href="#Map_Entry">Map_Entry<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L114"><em>Source</em></a></div></h3>
+<h3 id="Map_Entry"><span><a class="doc-id-link" href="#Map_Entry">Map_Entry<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L109"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Map_Entry :: <span class="keyword-type">struct</span> {
 	key:   <a class="code-typename" href="/core/encoding/cbor/#Value">Value</a>,
@@ -667,7 +707,7 @@ Higher 3 bits is for the major type and lower 5 bits for the additional informat
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Marshal_Data_Error"><span><a class="doc-id-link" href="#Marshal_Data_Error">Marshal_Data_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L186"><em>Source</em></a></div></h3>
+<h3 id="Marshal_Data_Error"><span><a class="doc-id-link" href="#Marshal_Data_Error">Marshal_Data_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L181"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Marshal_Data_Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
 	None, 
@@ -676,7 +716,7 @@ Higher 3 bits is for the major type and lower 5 bits for the additional informat
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Marshal_Error"><span><a class="doc-id-link" href="#Marshal_Error">Marshal_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L141"><em>Source</em></a></div></h3>
+<h3 id="Marshal_Error"><span><a class="doc-id-link" href="#Marshal_Error">Marshal_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L136"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Marshal_Error :: <span class="keyword-type">union</span> {
 	io.<a class="code-typename" href="/core/io/#Error">Error</a>, 
@@ -700,7 +740,7 @@ Higher 3 bits is for the major type and lower 5 bits for the additional informat
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Negative_U16"><span><a class="doc-id-link" href="#Negative_U16">Negative_U16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L210"><em>Source</em></a></div></h3>
+<h3 id="Negative_U16"><span><a class="doc-id-link" href="#Negative_U16">Negative_U16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L205"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Negative_U16 :: <span class="keyword-type">distinct</span> <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a></pre>
 </div>
@@ -711,7 +751,7 @@ Higher 3 bits is for the major type and lower 5 bits for the additional informat
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Negative_U32"><span><a class="doc-id-link" href="#Negative_U32">Negative_U32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L211"><em>Source</em></a></div></h3>
+<h3 id="Negative_U32"><span><a class="doc-id-link" href="#Negative_U32">Negative_U32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L206"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Negative_U32 :: <span class="keyword-type">distinct</span> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a></pre>
 </div>
@@ -722,7 +762,7 @@ Higher 3 bits is for the major type and lower 5 bits for the additional informat
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Negative_U64"><span><a class="doc-id-link" href="#Negative_U64">Negative_U64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L212"><em>Source</em></a></div></h3>
+<h3 id="Negative_U64"><span><a class="doc-id-link" href="#Negative_U64">Negative_U64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L207"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Negative_U64 :: <span class="keyword-type">distinct</span> <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a></pre>
 </div>
@@ -733,7 +773,7 @@ Higher 3 bits is for the major type and lower 5 bits for the additional informat
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Negative_U8"><span><a class="doc-id-link" href="#Negative_U8">Negative_U8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L209"><em>Source</em></a></div></h3>
+<h3 id="Negative_U8"><span><a class="doc-id-link" href="#Negative_U8">Negative_U8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L204"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Negative_U8 :: <span class="keyword-type">distinct</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a></pre>
 </div>
@@ -744,13 +784,13 @@ Higher 3 bits is for the major type and lower 5 bits for the additional informat
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Nil"><span><a class="doc-id-link" href="#Nil">Nil<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L126"><em>Source</em></a></div></h3>
+<h3 id="Nil"><span><a class="doc-id-link" href="#Nil">Nil<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L121"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Nil :: <span class="keyword-type">distinct</span> <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a></pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Simple"><span><a class="doc-id-link" href="#Simple">Simple<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L130"><em>Source</em></a></div></h3>
+<h3 id="Simple"><span><a class="doc-id-link" href="#Simple">Simple<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L125"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Simple :: <span class="keyword-type">distinct</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a></pre>
 </div>
@@ -760,7 +800,7 @@ Higher 3 bits is for the major type and lower 5 bits for the additional informat
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="Tag"><span><a class="doc-id-link" href="#Tag">Tag<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L119"><em>Source</em></a></div></h3>
+<h3 id="Tag"><span><a class="doc-id-link" href="#Tag">Tag<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L114"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Tag :: <span class="keyword-type">struct</span> {
 	number: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>,
@@ -798,7 +838,7 @@ Higher 3 bits is for the major type and lower 5 bits for the additional informat
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="Tag_Number"><span><a class="doc-id-link" href="#Tag_Number">Tag_Number<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L124"><em>Source</em></a></div></h3>
+<h3 id="Tag_Number"><span><a class="doc-id-link" href="#Tag_Number">Tag_Number<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L119"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Tag_Number :: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a></pre>
 </div>
@@ -814,19 +854,19 @@ Higher 3 bits is for the major type and lower 5 bits for the additional informat
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="Text"><span><a class="doc-id-link" href="#Text">Text<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L109"><em>Source</em></a></div></h3>
+<h3 id="Text"><span><a class="doc-id-link" href="#Text">Text<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L104"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Text :: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a></pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Undefined"><span><a class="doc-id-link" href="#Undefined">Undefined<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L127"><em>Source</em></a></div></h3>
+<h3 id="Undefined"><span><a class="doc-id-link" href="#Undefined">Undefined<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L122"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Undefined :: <span class="keyword-type">distinct</span> <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a></pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Unmarshal_Data_Error"><span><a class="doc-id-link" href="#Unmarshal_Data_Error">Unmarshal_Data_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L180"><em>Source</em></a></div></h3>
+<h3 id="Unmarshal_Data_Error"><span><a class="doc-id-link" href="#Unmarshal_Data_Error">Unmarshal_Data_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L175"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Unmarshal_Data_Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
 	None, 
@@ -836,7 +876,7 @@ Higher 3 bits is for the major type and lower 5 bits for the additional informat
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Unmarshal_Error"><span><a class="doc-id-link" href="#Unmarshal_Error">Unmarshal_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L133"><em>Source</em></a></div></h3>
+<h3 id="Unmarshal_Error"><span><a class="doc-id-link" href="#Unmarshal_Error">Unmarshal_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L128"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Unmarshal_Error :: <span class="keyword-type">union</span> {
 	io.<a class="code-typename" href="/core/io/#Error">Error</a>, 
@@ -859,7 +899,7 @@ Higher 3 bits is for the major type and lower 5 bits for the additional informat
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Unsupported_Type_Error"><span><a class="doc-id-link" href="#Unsupported_Type_Error">Unsupported_Type_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L193"><em>Source</em></a></div></h3>
+<h3 id="Unsupported_Type_Error"><span><a class="doc-id-link" href="#Unsupported_Type_Error">Unsupported_Type_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L188"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Unsupported_Type_Error :: <span class="keyword-type">struct</span> {
 	id:  <a href="/core/builtin#typeid"><span class="doc-builtin">typeid</span></a>,
@@ -874,7 +914,7 @@ as possible/available is added.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="Value"><span><a class="doc-id-link" href="#Value">Value<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L81"><em>Source</em></a></div></h3>
+<h3 id="Value"><span><a class="doc-id-link" href="#Value">Value<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L76"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Value :: <span class="keyword-type">union</span> {
 	<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, 
@@ -927,7 +967,7 @@ as possible/available is added.</p>
 </div>
 <h2 id="pkg-Constants" class="pkg-header">Constants</h2>
 <div class="pkg-entity">
-<h3 id="DEFAULT_MAX_PRE_ALLOC"><span><a class="doc-id-link" href="#DEFAULT_MAX_PRE_ALLOC">DEFAULT_MAX_PRE_ALLOC<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L23"><em>Source</em></a></div></h3>
+<h3 id="DEFAULT_MAX_PRE_ALLOC"><span><a class="doc-id-link" href="#DEFAULT_MAX_PRE_ALLOC">DEFAULT_MAX_PRE_ALLOC<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L18"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">DEFAULT_MAX_PRE_ALLOC :: mem.Kilobyte</pre>
 </div>
@@ -969,7 +1009,7 @@ JS and WASI default to a panic allocator so we don't want to do it on those.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="INITIAL_STREAMED_BYTES_CAPACITY"><span><a class="doc-id-link" href="#INITIAL_STREAMED_BYTES_CAPACITY">INITIAL_STREAMED_BYTES_CAPACITY<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L19"><em>Source</em></a></div></h3>
+<h3 id="INITIAL_STREAMED_BYTES_CAPACITY"><span><a class="doc-id-link" href="#INITIAL_STREAMED_BYTES_CAPACITY">INITIAL_STREAMED_BYTES_CAPACITY<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L14"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">INITIAL_STREAMED_BYTES_CAPACITY :: 16</pre>
 </div>
@@ -979,7 +1019,7 @@ JS and WASI default to a panic allocator so we don't want to do it on those.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="INITIAL_STREAMED_CONTAINER_CAPACITY"><span><a class="doc-id-link" href="#INITIAL_STREAMED_CONTAINER_CAPACITY">INITIAL_STREAMED_CONTAINER_CAPACITY<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L16"><em>Source</em></a></div></h3>
+<h3 id="INITIAL_STREAMED_CONTAINER_CAPACITY"><span><a class="doc-id-link" href="#INITIAL_STREAMED_CONTAINER_CAPACITY">INITIAL_STREAMED_CONTAINER_CAPACITY<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L11"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">INITIAL_STREAMED_CONTAINER_CAPACITY :: 8</pre>
 </div>
@@ -1094,18 +1134,6 @@ These fields use this tag by default, no struct tag required.</p>
 <p class="pkg-empty-section">This section is empty.</p>
 <h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
 <div class="pkg-entity">
-<h3 id="DECODE_PROGRESS_GUARD"><span><a class="doc-id-link" href="#DECODE_PROGRESS_GUARD">DECODE_PROGRESS_GUARD<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/coding.odin#L259"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">DECODE_PROGRESS_GUARD :: <span class="keyword-type">proc</span>(d: ^<a class="code-typename" href="/core/encoding/cbor/#Decoder">Decoder</a>) -> (is_begin: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>, tmp: runtime.<a class="code-typename" href="/core/runtime/#Arena_Temp">Arena_Temp</a>) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="ENCODE_PROGRESS_GUARD"><span><a class="doc-id-link" href="#ENCODE_PROGRESS_GUARD">ENCODE_PROGRESS_GUARD<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/coding.odin#L289"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">ENCODE_PROGRESS_GUARD :: <span class="keyword-type">proc</span>(e: ^<a class="code-typename" href="/core/encoding/cbor/#Encoder">Encoder</a>) -> (is_begin: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>, tmp: runtime.<a class="code-typename" href="/core/runtime/#Arena_Temp">Arena_Temp</a>, err: <a class="code-typename" href="/core/encoding/cbor/#Encode_Error">Encode_Error</a>) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
 <h3 id="decode_from_decoder"><span><a class="doc-id-link" href="#decode_from_decoder">decode_from_decoder<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/coding.odin#L119"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">decode_from_decoder :: <span class="keyword-type">proc</span>(d: <a class="code-typename" href="/core/encoding/cbor/#Decoder">Decoder</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (v: <a class="code-typename" href="/core/encoding/cbor/#Value">Value</a>, err: <a class="code-typename" href="/core/encoding/cbor/#Decode_Error">Decode_Error</a>) {…}</pre>
@@ -1139,25 +1167,25 @@ See docs on the proc group <code>decode</code> for more information.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="decode_to_unmarshal_err"><span><a class="doc-id-link" href="#decode_to_unmarshal_err">decode_to_unmarshal_err<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L261"><em>Source</em></a></div></h3>
+<h3 id="decode_to_unmarshal_err"><span><a class="doc-id-link" href="#decode_to_unmarshal_err">decode_to_unmarshal_err<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L256"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">decode_to_unmarshal_err :: <span class="keyword-type">proc</span>(err: <a class="code-typename" href="/core/encoding/cbor/#Decode_Error">Decode_Error</a>) -> <a class="code-typename" href="/core/encoding/cbor/#Unmarshal_Error">Unmarshal_Error</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="decode_to_unmarshal_err_p"><span><a class="doc-id-link" href="#decode_to_unmarshal_err_p">decode_to_unmarshal_err_p<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L271"><em>Source</em></a></div></h3>
+<h3 id="decode_to_unmarshal_err_p"><span><a class="doc-id-link" href="#decode_to_unmarshal_err_p">decode_to_unmarshal_err_p<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L266"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">decode_to_unmarshal_err_p :: <span class="keyword-type">proc</span>(v: $T, err: <a class="code-typename" href="/core/encoding/cbor/#Decode_Error">Decode_Error</a>) -> ($T, <a class="code-typename" href="/core/encoding/cbor/#Unmarshal_Error">Unmarshal_Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="decode_to_unmarshal_err_p2"><span><a class="doc-id-link" href="#decode_to_unmarshal_err_p2">decode_to_unmarshal_err_p2<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L275"><em>Source</em></a></div></h3>
+<h3 id="decode_to_unmarshal_err_p2"><span><a class="doc-id-link" href="#decode_to_unmarshal_err_p2">decode_to_unmarshal_err_p2<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L270"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">decode_to_unmarshal_err_p2 :: <span class="keyword-type">proc</span>(v: $T, v2: $T, err: <a class="code-typename" href="/core/encoding/cbor/#Decode_Error">Decode_Error</a>) -> ($T, $T, <a class="code-typename" href="/core/encoding/cbor/#Unmarshal_Error">Unmarshal_Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="destroy"><span><a class="doc-id-link" href="#destroy">destroy<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L280"><em>Source</em></a></div></h3>
+<h3 id="destroy"><span><a class="doc-id-link" href="#destroy">destroy<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L275"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">destroy :: <span class="keyword-type">proc</span>(val: <a class="code-typename" href="/core/encoding/cbor/#Value">Value</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) {…}</pre>
 </div>
@@ -1167,7 +1195,7 @@ See docs on the proc group <code>decode</code> for more information.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="diagnose_to_writer"><span><a class="doc-id-link" href="#diagnose_to_writer">diagnose_to_writer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L342"><em>Source</em></a></div></h3>
+<h3 id="diagnose_to_writer"><span><a class="doc-id-link" href="#diagnose_to_writer">diagnose_to_writer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L337"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">diagnose_to_writer :: <span class="keyword-type">proc</span>(w: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, val: <a class="code-typename" href="/core/encoding/cbor/#Value">Value</a>, padding: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = 0) -> io.<a class="code-typename" href="/core/io/#Error">Error</a> {…}</pre>
 </div>
@@ -1178,7 +1206,7 @@ See docs on the proc group <code>diagnose</code> for more info.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="diagnostic_string"><span><a class="doc-id-link" href="#diagnostic_string">diagnostic_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L327"><em>Source</em></a></div></h3>
+<h3 id="diagnostic_string"><span><a class="doc-id-link" href="#diagnostic_string">diagnostic_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L322"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">diagnostic_string :: <span class="keyword-type">proc</span>(val: <a class="code-typename" href="/core/encoding/cbor/#Value">Value</a>, padding: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = 0, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
 </div>
@@ -1251,19 +1279,19 @@ See the docs on the proc group <code>encode_into</code> for more info.</p>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="encode_to_marshal_err"><span><a class="doc-id-link" href="#encode_to_marshal_err">encode_to_marshal_err<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L247"><em>Source</em></a></div></h3>
+<h3 id="encode_to_marshal_err"><span><a class="doc-id-link" href="#encode_to_marshal_err">encode_to_marshal_err<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L242"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">encode_to_marshal_err :: <span class="keyword-type">proc</span>(err: <a class="code-typename" href="/core/encoding/cbor/#Encode_Error">Encode_Error</a>) -> <a class="code-typename" href="/core/encoding/cbor/#Marshal_Error">Marshal_Error</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="encode_to_marshal_err_p2"><span><a class="doc-id-link" href="#encode_to_marshal_err_p2">encode_to_marshal_err_p2<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L257"><em>Source</em></a></div></h3>
+<h3 id="encode_to_marshal_err_p2"><span><a class="doc-id-link" href="#encode_to_marshal_err_p2">encode_to_marshal_err_p2<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L252"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">encode_to_marshal_err_p2 :: <span class="keyword-type">proc</span>(v: $T, v2: $T, err: <a class="code-typename" href="/core/encoding/cbor/#Encode_Error">Encode_Error</a>) -> ($T, $T, <a class="code-typename" href="/core/encoding/cbor/#Marshal_Error">Marshal_Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="from_json"><span><a class="doc-id-link" href="#from_json">from_json<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L482"><em>Source</em></a></div></h3>
+<h3 id="from_json"><span><a class="doc-id-link" href="#from_json">from_json<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L477"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">from_json :: <span class="keyword-type">proc</span>(val: json.<a class="code-typename" href="/core/encoding/json/#Value">Value</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (<a class="code-typename" href="/core/encoding/cbor/#Value">Value</a>, runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
 </div>
@@ -1318,25 +1346,25 @@ See docs on the <code>marshal_into</code> proc group for more info.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="negative_u16_to_int"><span><a class="doc-id-link" href="#negative_u16_to_int">negative_u16_to_int<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L226"><em>Source</em></a></div></h3>
+<h3 id="negative_u16_to_int"><span><a class="doc-id-link" href="#negative_u16_to_int">negative_u16_to_int<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L221"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">negative_u16_to_int :: <span class="keyword-type">proc</span>(u: <a class="code-typename" href="/core/encoding/cbor/#Negative_U16">Negative_U16</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="negative_u32_to_int"><span><a class="doc-id-link" href="#negative_u32_to_int">negative_u32_to_int<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L230"><em>Source</em></a></div></h3>
+<h3 id="negative_u32_to_int"><span><a class="doc-id-link" href="#negative_u32_to_int">negative_u32_to_int<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L225"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">negative_u32_to_int :: <span class="keyword-type">proc</span>(u: <a class="code-typename" href="/core/encoding/cbor/#Negative_U32">Negative_U32</a>) -> <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="negative_u64_to_int"><span><a class="doc-id-link" href="#negative_u64_to_int">negative_u64_to_int<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L234"><em>Source</em></a></div></h3>
+<h3 id="negative_u64_to_int"><span><a class="doc-id-link" href="#negative_u64_to_int">negative_u64_to_int<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L229"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">negative_u64_to_int :: <span class="keyword-type">proc</span>(u: <a class="code-typename" href="/core/encoding/cbor/#Negative_U64">Negative_U64</a>) -> <a href="/core/builtin#i128"><span class="doc-builtin">i128</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="negative_u8_to_int"><span><a class="doc-id-link" href="#negative_u8_to_int">negative_u8_to_int<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L222"><em>Source</em></a></div></h3>
+<h3 id="negative_u8_to_int"><span><a class="doc-id-link" href="#negative_u8_to_int">negative_u8_to_int<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L217"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">negative_u8_to_int :: <span class="keyword-type">proc</span>(u: <a class="code-typename" href="/core/encoding/cbor/#Negative_U8">Negative_U8</a>) -> <a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a> {…}</pre>
 </div>
@@ -1374,7 +1402,7 @@ This is done by default and can be controlled with the <code>CBOR_INITIALIZE_DEF
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="to_json"><span><a class="doc-id-link" href="#to_json">to_json<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L533"><em>Source</em></a></div></h3>
+<h3 id="to_json"><span><a class="doc-id-link" href="#to_json">to_json<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L528"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">to_json :: <span class="keyword-type">proc</span>(val: <a class="code-typename" href="/core/encoding/cbor/#Value">Value</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (json.<a class="code-typename" href="/core/encoding/json/#Value">Value</a>, runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>) <span class="directive">#optional_ok</span> {…}</pre>
 </div>
@@ -1446,7 +1474,7 @@ an input.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="diagnose"><span><a class="doc-id-link" href="#diagnose">diagnose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L320"><em>Source</em></a></div></h3>
+<h3 id="diagnose"><span><a class="doc-id-link" href="#diagnose">diagnose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L315"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">diagnose :: proc{
 	<a class="code-procedure" href="/core/encoding/cbor/#diagnostic_string">diagnostic_string</a>,
@@ -1516,7 +1544,7 @@ allocations until the end.</p>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="err_conv"><span><a class="doc-id-link" href="#err_conv">err_conv<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L239"><em>Source</em></a></div></h3>
+<h3 id="err_conv"><span><a class="doc-id-link" href="#err_conv">err_conv<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L234"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">err_conv :: proc{
 	<a class="code-procedure" href="/core/encoding/cbor/#encode_to_marshal_err">encode_to_marshal_err</a>,
@@ -1574,7 +1602,7 @@ allocations until the end.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="negative_to_int"><span><a class="doc-id-link" href="#negative_to_int">negative_to_int<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L215"><em>Source</em></a></div></h3>
+<h3 id="negative_to_int"><span><a class="doc-id-link" href="#negative_to_int">negative_to_int<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin#L210"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">negative_to_int :: proc{
 	<a class="code-procedure" href="/core/encoding/cbor/#negative_u8_to_int">negative_u8_to_int</a>,
@@ -1618,12 +1646,13 @@ an input.</p>
 <ul>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/cbor.odin">cbor.odin</a></li>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/coding.odin">coding.odin</a></li>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/doc.odin">doc.odin</a></li>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/marshal.odin">marshal.odin</a></li>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/tags.odin">tags.odin</a></li>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/cbor/unmarshal.odin">unmarshal.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 19:04:37.449052800 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:08:39.971819700 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
@@ -1688,8 +1717,6 @@ an input.</p>
 </ul>
 </li>
 <li><a href="#pkg-Procedures">Procedures</a><ul>
-<li><a href="#DECODE_PROGRESS_GUARD">DECODE_PROGRESS_GUARD</a></li>
-<li><a href="#ENCODE_PROGRESS_GUARD">ENCODE_PROGRESS_GUARD</a></li>
 <li><a href="#decode_from_decoder">decode_from_decoder</a></li>
 <li><a href="#decode_from_reader">decode_from_reader</a></li>
 <li><a href="#decode_from_string">decode_from_string</a></li>
