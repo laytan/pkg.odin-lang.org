@@ -59,6 +59,14 @@
 </li>
 <li class="nav-item"><a href="/vendor/cgltf">cgltf</a></li>
 <li class="nav-item"><a href="/vendor/commonmark">commonmark</a></li>
+<li class="nav-item">darwin<ul>
+<li><a href="/vendor/darwin/Foundation">Foundation</a></li>
+<li><a href="/vendor/darwin/Metal">Metal</a></li>
+<li><a href="/vendor/darwin/MetalKit">MetalKit</a></li>
+<li><a href="/vendor/darwin/QuartzCore">QuartzCore</a></li>
+</ul>
+
+</li>
 <li class="nav-item">directx<ul>
 <li><a href="/vendor/directx/d3d11">d3d11</a></li>
 <li><a href="/vendor/directx/d3d12">d3d12</a></li>
@@ -220,7 +228,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="ErrorCode"><span><a class="doc-id-link" href="#ErrorCode">ErrorCode<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L64"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">ErrorCode :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
+<pre class="doc-code">ErrorCode :: <span class="keyword-type">enum</span> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	OK                    = 0, 
 	SUCCESS               = 0, 
 	GENERAL_FAILURE       = -1, 
@@ -266,8 +274,8 @@ Procedure Groups (0)</summary>
 		},
 		synchronizing:          <span class="keyword-type">struct</span> {
 			player: <a class="code-typename" href="/vendor/ggpo/#PlayerHandle">PlayerHandle</a>,
-			count:  <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
-			total:  <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+			count:  <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>,
+			total:  <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>,
 		},
 		synchronized:           <span class="keyword-type">struct</span> {
 			player: <a class="code-typename" href="/vendor/ggpo/#PlayerHandle">PlayerHandle</a>,
@@ -276,11 +284,11 @@ Procedure Groups (0)</summary>
 			player: <a class="code-typename" href="/vendor/ggpo/#PlayerHandle">PlayerHandle</a>,
 		},
 		timesync:               <span class="keyword-type">struct</span> {
-			frames_ahead: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+			frames_ahead: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>,
 		},
 		connection_interrupted: <span class="keyword-type">struct</span> {
 			player:             <a class="code-typename" href="/vendor/ggpo/#PlayerHandle">PlayerHandle</a>,
-			disconnect_timeout: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+			disconnect_timeout: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>,
 		},
 		connection_resumed:     <span class="keyword-type">struct</span> {
 			player: <a class="code-typename" href="/vendor/ggpo/#PlayerHandle">PlayerHandle</a>,
@@ -292,7 +300,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="EventCode"><span><a class="doc-id-link" href="#EventCode">EventCode<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L109"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">EventCode :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
+<pre class="doc-code">EventCode :: <span class="keyword-type">enum</span> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	CONNECTED_TO_PEER       = 1000, 
 	SYNCHRONIZING_WITH_PEER = 1001, 
 	SYNCHRONIZED_WITH_PEER  = 1002, 
@@ -335,7 +343,7 @@ Procedure Groups (0)</summary>
 <h3 id="LocalEndpoint"><span><a class="doc-id-link" href="#LocalEndpoint">LocalEndpoint<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L60"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">LocalEndpoint :: <span class="keyword-type">struct</span> {
-	player_num: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+	player_num: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>,
 }</pre>
 </div>
 </div>
@@ -344,14 +352,14 @@ Procedure Groups (0)</summary>
 <div>
 <pre class="doc-code">NetworkStats :: <span class="keyword-type">struct</span> {
 	network:  <span class="keyword-type">struct</span> {
-		send_queue_len: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
-		recv_queue_len: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
-		ping:           <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
-		kbps_sent:      <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+		send_queue_len: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>,
+		recv_queue_len: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>,
+		ping:           <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>,
+		kbps_sent:      <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>,
 	},
 	timesync: <span class="keyword-type">struct</span> {
-		local_frames_behind:  <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
-		remote_frames_behind: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+		local_frames_behind:  <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>,
+		remote_frames_behind: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>,
 	},
 }</pre>
 </div>
@@ -399,14 +407,14 @@ Procedure Groups (0)</summary>
 <h3 id="Player"><span><a class="doc-id-link" href="#Player">Player<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L47"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Player :: <span class="keyword-type">struct</span> {
-	size:       <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+	size:       <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>,
 	type:       <a class="code-typename" href="/vendor/ggpo/#PlayerType">PlayerType</a>,
-	player_num: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+	player_num: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>,
 	<span class="keyword-type">using</span> u:    <span class="keyword-type">struct</span> <span class="directive">#raw_union</span> {
 		local:  <span class="keyword-type">struct</span> {},
 		remote: <span class="keyword-type">struct</span> {
-			ip_address: [32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
-			port:       <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>,
+			ip_address: [32]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+			port:       <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>,
 		},
 	},
 }</pre>
@@ -419,7 +427,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="PlayerHandle"><span><a class="doc-id-link" href="#PlayerHandle">PlayerHandle<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L15"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">PlayerHandle :: <span class="keyword-type">distinct</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a></pre>
+<pre class="doc-code">PlayerHandle :: <span class="keyword-type">distinct</span> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a></pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
 <ul>
@@ -433,7 +441,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="PlayerType"><span><a class="doc-id-link" href="#PlayerType">PlayerType<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L16"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">PlayerType :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
+<pre class="doc-code">PlayerType :: <span class="keyword-type">enum</span> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	LOCAL, 
 	REMOTE, 
 	SPECTATOR, 
@@ -443,7 +451,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="Session"><span><a class="doc-id-link" href="#Session">Session<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L7"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Session :: <span class="keyword-type">distinct</span> <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a></pre>
+<pre class="doc-code">Session :: <span class="keyword-type">distinct</span> <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a></pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
 <ul>
@@ -468,25 +476,25 @@ Procedure Groups (0)</summary>
 <pre class="doc-code">SessionCallbacks :: <span class="keyword-type">struct</span> {
 	<span class="comment">// 	 * begin_game callback - This callback has been deprecated.  You must</span>
 	<span class="comment">// 	 * implement it, but should ignore the 'game' parameter.</span>
-	begin_game:      <span class="keyword-type">proc</span> "c" (game: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	begin_game:      <span class="keyword-type">proc</span> "c" (game: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 	<span class="comment">// 	 * save_game_state - The client should allocate a buffer, copy the</span>
 	<span class="comment">// 	 * entire contents of the current game state into it, and copy the</span>
 	<span class="comment">// 	 * length into the len parameter.  Optionally, the client can compute</span>
 	<span class="comment">// 	 * a checksum of the data and store it in the checksum argument.</span>
-	save_game_state: <span class="keyword-type">proc</span> "c" (buffer: ^[^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, len: ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, checksum: ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, frame: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	save_game_state: <span class="keyword-type">proc</span> "c" (buffer: ^[^]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, len: ^<a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, checksum: ^<a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, frame: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 	<span class="comment">// 	 * load_game_state - GGPO.net will call this function at the beginning</span>
 	<span class="comment">// 	 * of a rollback.  The buffer and len parameters contain a previously</span>
 	<span class="comment">// 	 * saved state returned from the save_game_state function.  The client</span>
 	<span class="comment">// 	 * should make the current game state match the state contained in the</span>
 	<span class="comment">// 	 * buffer.</span>
-	load_game_state: <span class="keyword-type">proc</span> "c" (buffer: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, len: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	load_game_state: <span class="keyword-type">proc</span> "c" (buffer: [^]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, len: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 	<span class="comment">// 	 * log_game_state - Used in diagnostic testing.  The client should use</span>
 	<span class="comment">// 	 * the log function to write the contents of the specified save</span>
 	<span class="comment">// 	 * state in a human readible form.</span>
-	log_game_state:  <span class="keyword-type">proc</span> "c" (filename: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>, buffer: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, len: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	log_game_state:  <span class="keyword-type">proc</span> "c" (filename: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>, buffer: [^]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, len: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 	<span class="comment">// 	 * free_buffer - Frees a game state allocated in save_game_state.  You</span>
 	<span class="comment">// 	 * should deallocate the memory contained in the buffer.</span>
-	free_buffer:     <span class="keyword-type">proc</span> "c" (buffer: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>),
+	free_buffer:     <span class="keyword-type">proc</span> "c" (buffer: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>),
 	<span class="comment">// 	 * advance_frame - Called during a rollback.  You should advance your game</span>
 	<span class="comment">// 	 * state by exactly one frame.  Before each frame, call synchronize_input</span>
 	<span class="comment">// 	 * to retrieve the inputs you should use for that frame.  After each frame,</span>
@@ -494,10 +502,10 @@ Procedure Groups (0)</summary>
 	<span class="comment">// 	 * finished.</span>
 	<span class="comment">// 	 *</span>
 	<span class="comment">// 	 * The flags parameter is reserved.  It can safely be ignored at this time.</span>
-	advance_frame:   <span class="keyword-type">proc</span> "c" (flags: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	advance_frame:   <span class="keyword-type">proc</span> "c" (flags: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 	<span class="comment">// 	 * on_event - Notification that something has happened.  See the EventCode</span>
 	<span class="comment">// 	 * structure above for more information.</span>
-	on_event:        <span class="keyword-type">proc</span> "c" (info: ^<a class="code-typename" href="/vendor/ggpo/#Event">Event</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	on_event:        <span class="keyword-type">proc</span> "c" (info: ^<a class="code-typename" href="/vendor/ggpo/#Event">Event</a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 }</pre>
 </div>
 <details class="odin-doc-toggle" open>
@@ -550,7 +558,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="add_local_input"><span><a class="doc-id-link" href="#add_local_input">add_local_input<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L423"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">add_local_input :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, player: <a class="code-typename" href="/vendor/ggpo/#PlayerHandle">PlayerHandle</a>, values: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, size: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
+<pre class="doc-code">add_local_input :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, player: <a class="code-typename" href="/vendor/ggpo/#PlayerHandle">PlayerHandle</a>, values: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, size: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -653,7 +661,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="idle"><span><a class="doc-id-link" href="#idle">idle<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L405"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">idle :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, timeout: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
+<pre class="doc-code">idle :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, timeout: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -670,7 +678,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="log"><span><a class="doc-id-link" href="#log">log<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L518"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">log :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, fmt: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>, args: ..<a href="/core/builtin#any"><span class="doc-builtin">any</span></a>) ---</pre>
+<pre class="doc-code">log :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, fmt: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>, args: ..<a href="/base/builtin#any"><span class="doc-builtin">any</span></a>) ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -686,7 +694,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="logv"><span><a class="doc-id-link" href="#logv">logv<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L525"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">logv :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, fmt: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>, args: libc.<a class="code-typename" href="/core/c/libc/#va_list">va_list</a>) ---</pre>
+<pre class="doc-code">logv :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, fmt: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>, args: libc.<a class="code-typename" href="/core/c/libc/#va_list">va_list</a>) ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -700,7 +708,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="set_disconnect_notify_start"><span><a class="doc-id-link" href="#set_disconnect_notify_start">set_disconnect_notify_start<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L507"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">set_disconnect_notify_start :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, timeout: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
+<pre class="doc-code">set_disconnect_notify_start :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, timeout: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -717,7 +725,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="set_disconnect_timeout"><span><a class="doc-id-link" href="#set_disconnect_timeout">set_disconnect_timeout<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L495"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">set_disconnect_timeout :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, timeout: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
+<pre class="doc-code">set_disconnect_timeout :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, timeout: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -737,7 +745,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="set_frame_delay"><span><a class="doc-id-link" href="#set_frame_delay">set_frame_delay<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L392"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">set_frame_delay :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, player: <a class="code-typename" href="/vendor/ggpo/#PlayerHandle">PlayerHandle</a>, frame_delay: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
+<pre class="doc-code">set_frame_delay :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, player: <a class="code-typename" href="/vendor/ggpo/#PlayerHandle">PlayerHandle</a>, frame_delay: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -754,10 +762,10 @@ Procedure Groups (0)</summary>
 <pre class="doc-code">start_session :: <span class="keyword-type">proc</span> "c" (
 	session:     ^^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, 
 	cb:          ^<a class="code-typename" href="/vendor/ggpo/#SessionCallbacks">SessionCallbacks</a>, 
-	game:        <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>, 
-	num_players: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
-	input_size:  <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
-	localport:   <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, 
+	game:        <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>, 
+	num_players: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+	input_size:  <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+	localport:   <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>, 
 ) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
@@ -792,12 +800,12 @@ Procedure Groups (0)</summary>
 <pre class="doc-code">start_spectating :: <span class="keyword-type">proc</span> "c" (
 	session:     ^^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, 
 	cb:          ^<a class="code-typename" href="/vendor/ggpo/#SessionCallbacks">SessionCallbacks</a>, 
-	game:        <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>, 
-	num_players: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
-	input_size:  <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
-	local_port:  <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, 
-	host_ip:     <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>, 
-	host_port:   <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, 
+	game:        <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>, 
+	num_players: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+	input_size:  <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+	local_port:  <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>, 
+	host_ip:     <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>, 
+	host_port:   <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>, 
 ) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
@@ -833,10 +841,10 @@ Procedure Groups (0)</summary>
 <pre class="doc-code">start_synctest :: <span class="keyword-type">proc</span> "c" (
 	session:     ^^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, 
 	cb:          ^<a class="code-typename" href="/vendor/ggpo/#SessionCallbacks">SessionCallbacks</a>, 
-	game:        <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>, 
-	num_players: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
-	input_size:  <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
-	frames:      <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+	game:        <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>, 
+	num_players: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+	input_size:  <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+	frames:      <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, 
 ) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
@@ -869,7 +877,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="synchronize_input"><span><a class="doc-id-link" href="#synchronize_input">synchronize_input<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin#L445"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">synchronize_input :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, values: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, size: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, disconnect_flags: ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
+<pre class="doc-code">synchronize_input :: <span class="keyword-type">proc</span> "c" (session: ^<a class="code-typename" href="/vendor/ggpo/#Session">Session</a>, values: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, size: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, disconnect_flags: ^<a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/ggpo/#ErrorCode">ErrorCode</a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -899,7 +907,7 @@ Procedure Groups (0)</summary>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/vendor/ggpo/ggpo.odin">ggpo.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.355452500 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.684683700 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

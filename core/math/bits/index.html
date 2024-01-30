@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -396,55 +393,55 @@ Procedure Groups (8)</summary>
 <div class="pkg-entity">
 <h3 id="I16_MAX"><span><a class="doc-id-link" href="#I16_MAX">I16_MAX<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L21"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">I16_MAX :: 1 << 15 - 1</pre>
+<pre class="doc-code">I16_MAX :: 1 &lt;&lt; 15 - 1</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="I16_MIN"><span><a class="doc-id-link" href="#I16_MIN">I16_MIN<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L16"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">I16_MIN :: -1 << 15</pre>
+<pre class="doc-code">I16_MIN :: -1 &lt;&lt; 15</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="I32_MAX"><span><a class="doc-id-link" href="#I32_MAX">I32_MAX<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L22"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">I32_MAX :: 1 << 31 - 1</pre>
+<pre class="doc-code">I32_MAX :: 1 &lt;&lt; 31 - 1</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="I32_MIN"><span><a class="doc-id-link" href="#I32_MIN">I32_MIN<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L17"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">I32_MIN :: -1 << 31</pre>
+<pre class="doc-code">I32_MIN :: -1 &lt;&lt; 31</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="I64_MAX"><span><a class="doc-id-link" href="#I64_MAX">I64_MAX<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L23"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">I64_MAX :: 1 << 63 - 1</pre>
+<pre class="doc-code">I64_MAX :: 1 &lt;&lt; 63 - 1</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="I64_MIN"><span><a class="doc-id-link" href="#I64_MIN">I64_MIN<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L18"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">I64_MIN :: -1 << 63</pre>
+<pre class="doc-code">I64_MIN :: -1 &lt;&lt; 63</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="I8_MAX"><span><a class="doc-id-link" href="#I8_MAX">I8_MAX<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L20"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">I8_MAX :: 1 << 7 - 1</pre>
+<pre class="doc-code">I8_MAX :: 1 &lt;&lt; 7 - 1</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="I8_MIN"><span><a class="doc-id-link" href="#I8_MIN">I8_MIN<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L15"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">I8_MIN :: -1 << 7</pre>
+<pre class="doc-code">I8_MIN :: -1 &lt;&lt; 7</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="U16_MAX"><span><a class="doc-id-link" href="#U16_MAX">U16_MAX<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L11"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">U16_MAX :: 1 << 16 - 1</pre>
+<pre class="doc-code">U16_MAX :: 1 &lt;&lt; 16 - 1</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -456,7 +453,7 @@ Procedure Groups (8)</summary>
 <div class="pkg-entity">
 <h3 id="U32_MAX"><span><a class="doc-id-link" href="#U32_MAX">U32_MAX<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L12"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">U32_MAX :: 1 << 32 - 1</pre>
+<pre class="doc-code">U32_MAX :: 1 &lt;&lt; 32 - 1</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -468,7 +465,7 @@ Procedure Groups (8)</summary>
 <div class="pkg-entity">
 <h3 id="U64_MAX"><span><a class="doc-id-link" href="#U64_MAX">U64_MAX<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L13"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">U64_MAX :: 1 << 64 - 1</pre>
+<pre class="doc-code">U64_MAX :: 1 &lt;&lt; 64 - 1</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -480,7 +477,7 @@ Procedure Groups (8)</summary>
 <div class="pkg-entity">
 <h3 id="U8_MAX"><span><a class="doc-id-link" href="#U8_MAX">U8_MAX<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L10"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">U8_MAX :: 1 << 8 - 1</pre>
+<pre class="doc-code">U8_MAX :: 1 &lt;&lt; 8 - 1</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -495,367 +492,367 @@ Procedure Groups (8)</summary>
 <div class="pkg-entity">
 <h3 id="add_u32"><span><a class="doc-id-link" href="#add_u32">add_u32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L181"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">add_u32 :: <span class="keyword-type">proc</span> "contextless" (x, y, carry: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> (sum, carry_out: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
+<pre class="doc-code">add_u32 :: <span class="keyword-type">proc</span> "contextless" (x, y, carry: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) -> (sum, carry_out: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="add_u64"><span><a class="doc-id-link" href="#add_u64">add_u64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L189"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">add_u64 :: <span class="keyword-type">proc</span> "contextless" (x, y, carry: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (sum, carry_out: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">add_u64 :: <span class="keyword-type">proc</span> "contextless" (x, y, carry: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (sum, carry_out: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="add_uint"><span><a class="doc-id-link" href="#add_uint">add_uint<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L197"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">add_uint :: <span class="keyword-type">proc</span> "contextless" (x, y, carry: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> (sum, carry_out: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) {…}</pre>
+<pre class="doc-code">add_uint :: <span class="keyword-type">proc</span> "contextless" (x, y, carry: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> (sum, carry_out: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bitfield_extract_i128"><span><a class="doc-id-link" href="#bitfield_extract_i128">bitfield_extract_i128<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L418"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">bitfield_extract_i128 :: <span class="keyword-type">proc</span> "contextless" (value: <a href="/core/builtin#i128"><span class="doc-builtin">i128</span></a>, offset, bits: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#i128"><span class="doc-builtin">i128</span></a> {…}</pre>
+<pre class="doc-code">bitfield_extract_i128 :: <span class="keyword-type">proc</span> "contextless" (value: <a href="/base/builtin#i128"><span class="doc-builtin">i128</span></a>, offset, bits: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#i128"><span class="doc-builtin">i128</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bitfield_extract_i16"><span><a class="doc-id-link" href="#bitfield_extract_i16">bitfield_extract_i16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L397"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">bitfield_extract_i16 :: <span class="keyword-type">proc</span> "contextless" (value: <a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>, offset, bits: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a> {…}</pre>
+<pre class="doc-code">bitfield_extract_i16 :: <span class="keyword-type">proc</span> "contextless" (value: <a href="/base/builtin#i16"><span class="doc-builtin">i16</span></a>, offset, bits: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#i16"><span class="doc-builtin">i16</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bitfield_extract_i32"><span><a class="doc-id-link" href="#bitfield_extract_i32">bitfield_extract_i32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L404"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">bitfield_extract_i32 :: <span class="keyword-type">proc</span> "contextless" (value: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, offset, bits: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {…}</pre>
+<pre class="doc-code">bitfield_extract_i32 :: <span class="keyword-type">proc</span> "contextless" (value: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, offset, bits: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bitfield_extract_i64"><span><a class="doc-id-link" href="#bitfield_extract_i64">bitfield_extract_i64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L411"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">bitfield_extract_i64 :: <span class="keyword-type">proc</span> "contextless" (value: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>, offset, bits: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a> {…}</pre>
+<pre class="doc-code">bitfield_extract_i64 :: <span class="keyword-type">proc</span> "contextless" (value: <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>, offset, bits: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bitfield_extract_i8"><span><a class="doc-id-link" href="#bitfield_extract_i8">bitfield_extract_i8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L390"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">bitfield_extract_i8 :: <span class="keyword-type">proc</span> "contextless" (value: <a href="/core/builtin#i8"><span class="doc-builtin">i8</span></a>, offset, bits: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#i8"><span class="doc-builtin">i8</span></a> {…}</pre>
+<pre class="doc-code">bitfield_extract_i8 :: <span class="keyword-type">proc</span> "contextless" (value: <a href="/base/builtin#i8"><span class="doc-builtin">i8</span></a>, offset, bits: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#i8"><span class="doc-builtin">i8</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bitfield_extract_int"><span><a class="doc-id-link" href="#bitfield_extract_int">bitfield_extract_int<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L425"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">bitfield_extract_int :: <span class="keyword-type">proc</span> "contextless" (value: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, offset, bits: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">bitfield_extract_int :: <span class="keyword-type">proc</span> "contextless" (value: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, offset, bits: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bitfield_extract_u128"><span><a class="doc-id-link" href="#bitfield_extract_u128">bitfield_extract_u128<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L385"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">bitfield_extract_u128 :: <span class="keyword-type">proc</span> "contextless" (value: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>, offset, bits: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a> {…}</pre>
+<pre class="doc-code">bitfield_extract_u128 :: <span class="keyword-type">proc</span> "contextless" (value: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>, offset, bits: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bitfield_extract_u16"><span><a class="doc-id-link" href="#bitfield_extract_u16">bitfield_extract_u16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L379"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">bitfield_extract_u16 :: <span class="keyword-type">proc</span> "contextless" (value: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, offset, bits: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a> {…}</pre>
+<pre class="doc-code">bitfield_extract_u16 :: <span class="keyword-type">proc</span> "contextless" (value: <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>, offset, bits: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bitfield_extract_u32"><span><a class="doc-id-link" href="#bitfield_extract_u32">bitfield_extract_u32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L381"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">bitfield_extract_u32 :: <span class="keyword-type">proc</span> "contextless" (value: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, offset, bits: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+<pre class="doc-code">bitfield_extract_u32 :: <span class="keyword-type">proc</span> "contextless" (value: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>, offset, bits: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bitfield_extract_u64"><span><a class="doc-id-link" href="#bitfield_extract_u64">bitfield_extract_u64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L383"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">bitfield_extract_u64 :: <span class="keyword-type">proc</span> "contextless" (value: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, offset, bits: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
+<pre class="doc-code">bitfield_extract_u64 :: <span class="keyword-type">proc</span> "contextless" (value: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, offset, bits: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bitfield_extract_u8"><span><a class="doc-id-link" href="#bitfield_extract_u8">bitfield_extract_u8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L377"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">bitfield_extract_u8 :: <span class="keyword-type">proc</span> "contextless" (value: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, offset, bits: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">bitfield_extract_u8 :: <span class="keyword-type">proc</span> "contextless" (value: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, offset, bits: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bitfield_extract_uint"><span><a class="doc-id-link" href="#bitfield_extract_uint">bitfield_extract_uint<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L387"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">bitfield_extract_uint :: <span class="keyword-type">proc</span> "contextless" (value: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>, offset, bits: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a> {…}</pre>
+<pre class="doc-code">bitfield_extract_uint :: <span class="keyword-type">proc</span> "contextless" (value: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>, offset, bits: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bitfield_insert_i128"><span><a class="doc-id-link" href="#bitfield_insert_i128">bitfield_insert_i128<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L501"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">bitfield_insert_i128 :: <span class="keyword-type">proc</span> "contextless" (base, insert: <a href="/core/builtin#i128"><span class="doc-builtin">i128</span></a>, offset, bits: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#i128"><span class="doc-builtin">i128</span></a> {…}</pre>
+<pre class="doc-code">bitfield_insert_i128 :: <span class="keyword-type">proc</span> "contextless" (base, insert: <a href="/base/builtin#i128"><span class="doc-builtin">i128</span></a>, offset, bits: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#i128"><span class="doc-builtin">i128</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bitfield_insert_i16"><span><a class="doc-id-link" href="#bitfield_insert_i16">bitfield_insert_i16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L486"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">bitfield_insert_i16 :: <span class="keyword-type">proc</span> "contextless" (base, insert: <a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>, offset, bits: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a> {…}</pre>
+<pre class="doc-code">bitfield_insert_i16 :: <span class="keyword-type">proc</span> "contextless" (base, insert: <a href="/base/builtin#i16"><span class="doc-builtin">i16</span></a>, offset, bits: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#i16"><span class="doc-builtin">i16</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bitfield_insert_i32"><span><a class="doc-id-link" href="#bitfield_insert_i32">bitfield_insert_i32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L491"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">bitfield_insert_i32 :: <span class="keyword-type">proc</span> "contextless" (base, insert: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, offset, bits: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {…}</pre>
+<pre class="doc-code">bitfield_insert_i32 :: <span class="keyword-type">proc</span> "contextless" (base, insert: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, offset, bits: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bitfield_insert_i64"><span><a class="doc-id-link" href="#bitfield_insert_i64">bitfield_insert_i64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L496"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">bitfield_insert_i64 :: <span class="keyword-type">proc</span> "contextless" (base, insert: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>, offset, bits: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a> {…}</pre>
+<pre class="doc-code">bitfield_insert_i64 :: <span class="keyword-type">proc</span> "contextless" (base, insert: <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>, offset, bits: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bitfield_insert_i8"><span><a class="doc-id-link" href="#bitfield_insert_i8">bitfield_insert_i8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L481"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">bitfield_insert_i8 :: <span class="keyword-type">proc</span> "contextless" (base, insert: <a href="/core/builtin#i8"><span class="doc-builtin">i8</span></a>, offset, bits: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#i8"><span class="doc-builtin">i8</span></a> {…}</pre>
+<pre class="doc-code">bitfield_insert_i8 :: <span class="keyword-type">proc</span> "contextless" (base, insert: <a href="/base/builtin#i8"><span class="doc-builtin">i8</span></a>, offset, bits: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#i8"><span class="doc-builtin">i8</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bitfield_insert_int"><span><a class="doc-id-link" href="#bitfield_insert_int">bitfield_insert_int<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L506"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">bitfield_insert_int :: <span class="keyword-type">proc</span> "contextless" (base, insert: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, offset, bits: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">bitfield_insert_int :: <span class="keyword-type">proc</span> "contextless" (base, insert: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, offset, bits: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bitfield_insert_u128"><span><a class="doc-id-link" href="#bitfield_insert_u128">bitfield_insert_u128<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L470"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">bitfield_insert_u128 :: <span class="keyword-type">proc</span> "contextless" (base, insert: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>, offset, bits: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a> {…}</pre>
+<pre class="doc-code">bitfield_insert_u128 :: <span class="keyword-type">proc</span> "contextless" (base, insert: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>, offset, bits: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bitfield_insert_u16"><span><a class="doc-id-link" href="#bitfield_insert_u16">bitfield_insert_u16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L455"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">bitfield_insert_u16 :: <span class="keyword-type">proc</span> "contextless" (base, insert: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, offset, bits: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a> {…}</pre>
+<pre class="doc-code">bitfield_insert_u16 :: <span class="keyword-type">proc</span> "contextless" (base, insert: <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>, offset, bits: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bitfield_insert_u32"><span><a class="doc-id-link" href="#bitfield_insert_u32">bitfield_insert_u32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L460"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">bitfield_insert_u32 :: <span class="keyword-type">proc</span> "contextless" (base, insert: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, offset, bits: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+<pre class="doc-code">bitfield_insert_u32 :: <span class="keyword-type">proc</span> "contextless" (base, insert: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>, offset, bits: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bitfield_insert_u64"><span><a class="doc-id-link" href="#bitfield_insert_u64">bitfield_insert_u64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L465"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">bitfield_insert_u64 :: <span class="keyword-type">proc</span> "contextless" (base, insert: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, offset, bits: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
+<pre class="doc-code">bitfield_insert_u64 :: <span class="keyword-type">proc</span> "contextless" (base, insert: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, offset, bits: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bitfield_insert_u8"><span><a class="doc-id-link" href="#bitfield_insert_u8">bitfield_insert_u8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L450"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">bitfield_insert_u8 :: <span class="keyword-type">proc</span> "contextless" (base, insert: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, offset, bits: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">bitfield_insert_u8 :: <span class="keyword-type">proc</span> "contextless" (base, insert: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, offset, bits: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="bitfield_insert_uint"><span><a class="doc-id-link" href="#bitfield_insert_uint">bitfield_insert_uint<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L475"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">bitfield_insert_uint :: <span class="keyword-type">proc</span> "contextless" (base, insert: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>, offset, bits: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a> {…}</pre>
+<pre class="doc-code">bitfield_insert_uint :: <span class="keyword-type">proc</span> "contextless" (base, insert: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>, offset, bits: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="byte_swap"><span><a class="doc-id-link" href="#byte_swap">byte_swap<span class="a-hidden">&nbsp;¶</span></a></span></h3>
 <div>
-<pre class="doc-code">byte_swap :: intrinsics.byte_swap</pre>
+<pre class="doc-code">byte_swap :: <a href="/base/intrinsics#byte_swap">intrinsics</a>.byte_swap</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="count_leading_zeros"><span><a class="doc-id-link" href="#count_leading_zeros">count_leading_zeros<span class="a-hidden">&nbsp;¶</span></a></span></h3>
 <div>
-<pre class="doc-code">count_leading_zeros :: intrinsics.count_leading_zeros</pre>
+<pre class="doc-code">count_leading_zeros :: <a href="/base/intrinsics#count_leading_zeros">intrinsics</a>.count_leading_zeros</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="count_ones"><span><a class="doc-id-link" href="#count_ones">count_ones<span class="a-hidden">&nbsp;¶</span></a></span></h3>
 <div>
-<pre class="doc-code">count_ones :: intrinsics.count_ones</pre>
+<pre class="doc-code">count_ones :: <a href="/base/intrinsics#count_ones">intrinsics</a>.count_ones</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="count_trailing_zeros"><span><a class="doc-id-link" href="#count_trailing_zeros">count_trailing_zeros<span class="a-hidden">&nbsp;¶</span></a></span></h3>
 <div>
-<pre class="doc-code">count_trailing_zeros :: intrinsics.count_trailing_zeros</pre>
+<pre class="doc-code">count_trailing_zeros :: <a href="/base/intrinsics#count_trailing_zeros">intrinsics</a>.count_trailing_zeros</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="count_zeros"><span><a class="doc-id-link" href="#count_zeros">count_zeros<span class="a-hidden">&nbsp;¶</span></a></span></h3>
 <div>
-<pre class="doc-code">count_zeros :: intrinsics.count_zeros</pre>
+<pre class="doc-code">count_zeros :: <a href="/base/intrinsics#count_zeros">intrinsics</a>.count_zeros</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="div_u32"><span><a class="doc-id-link" href="#div_u32">div_u32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L266"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">div_u32 :: <span class="keyword-type">proc</span>(hi, lo, y: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> (quo, rem: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
+<pre class="doc-code">div_u32 :: <span class="keyword-type">proc</span>(hi, lo, y: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) -> (quo, rem: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="div_u64"><span><a class="doc-id-link" href="#div_u64">div_u64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L273"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">div_u64 :: <span class="keyword-type">proc</span>(hi, lo, y: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (quo, rem: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">div_u64 :: <span class="keyword-type">proc</span>(hi, lo, y: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (quo, rem: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="div_uint"><span><a class="doc-id-link" href="#div_uint">div_uint<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L319"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">div_uint :: <span class="keyword-type">proc</span>(hi, lo, y: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> (quo, rem: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) {…}</pre>
+<pre class="doc-code">div_uint :: <span class="keyword-type">proc</span>(hi, lo, y: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> (quo, rem: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="from_be_u16"><span><a class="doc-id-link" href="#from_be_u16">from_be_u16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L80"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">from_be_u16 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>) -> <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a> {…}</pre>
+<pre class="doc-code">from_be_u16 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>) -> <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="from_be_u32"><span><a class="doc-id-link" href="#from_be_u32">from_be_u32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L82"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">from_be_u32 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+<pre class="doc-code">from_be_u32 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="from_be_u64"><span><a class="doc-id-link" href="#from_be_u64">from_be_u64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L84"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">from_be_u64 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
+<pre class="doc-code">from_be_u64 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="from_be_u8"><span><a class="doc-id-link" href="#from_be_u8">from_be_u8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L78"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">from_be_u8 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">from_be_u8 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="from_be_uint"><span><a class="doc-id-link" href="#from_be_uint">from_be_uint<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L86"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">from_be_uint :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a> {…}</pre>
+<pre class="doc-code">from_be_uint :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="from_le_u16"><span><a class="doc-id-link" href="#from_le_u16">from_le_u16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L91"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">from_le_u16 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>) -> <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a> {…}</pre>
+<pre class="doc-code">from_le_u16 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>) -> <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="from_le_u32"><span><a class="doc-id-link" href="#from_le_u32">from_le_u32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L93"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">from_le_u32 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+<pre class="doc-code">from_le_u32 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="from_le_u64"><span><a class="doc-id-link" href="#from_le_u64">from_le_u64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L95"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">from_le_u64 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
+<pre class="doc-code">from_le_u64 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="from_le_u8"><span><a class="doc-id-link" href="#from_le_u8">from_le_u8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L89"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">from_le_u8 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">from_le_u8 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="from_le_uint"><span><a class="doc-id-link" href="#from_le_uint">from_le_uint<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L97"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">from_le_uint :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a> {…}</pre>
+<pre class="doc-code">from_le_uint :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="is_power_of_two_i16"><span><a class="doc-id-link" href="#is_power_of_two_i16">is_power_of_two_i16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L339"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">is_power_of_two_i16 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">is_power_of_two_i16 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#i16"><span class="doc-builtin">i16</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="is_power_of_two_i32"><span><a class="doc-id-link" href="#is_power_of_two_i32">is_power_of_two_i32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L343"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">is_power_of_two_i32 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">is_power_of_two_i32 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="is_power_of_two_i64"><span><a class="doc-id-link" href="#is_power_of_two_i64">is_power_of_two_i64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L347"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">is_power_of_two_i64 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">is_power_of_two_i64 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="is_power_of_two_i8"><span><a class="doc-id-link" href="#is_power_of_two_i8">is_power_of_two_i8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L335"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">is_power_of_two_i8 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#i8"><span class="doc-builtin">i8</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">is_power_of_two_i8 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#i8"><span class="doc-builtin">i8</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="is_power_of_two_int"><span><a class="doc-id-link" href="#is_power_of_two_int">is_power_of_two_int<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L351"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">is_power_of_two_int :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">is_power_of_two_int :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="is_power_of_two_u16"><span><a class="doc-id-link" href="#is_power_of_two_u16">is_power_of_two_u16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L337"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">is_power_of_two_u16 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">is_power_of_two_u16 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="is_power_of_two_u32"><span><a class="doc-id-link" href="#is_power_of_two_u32">is_power_of_two_u32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L341"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">is_power_of_two_u32 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">is_power_of_two_u32 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="is_power_of_two_u64"><span><a class="doc-id-link" href="#is_power_of_two_u64">is_power_of_two_u64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L345"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">is_power_of_two_u64 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">is_power_of_two_u64 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="is_power_of_two_u8"><span><a class="doc-id-link" href="#is_power_of_two_u8">is_power_of_two_u8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L333"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">is_power_of_two_u8 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">is_power_of_two_u8 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="is_power_of_two_uint"><span><a class="doc-id-link" href="#is_power_of_two_uint">is_power_of_two_uint<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L349"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">is_power_of_two_uint :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">is_power_of_two_uint :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="leading_zeros"><span><a class="doc-id-link" href="#leading_zeros">leading_zeros<span class="a-hidden">&nbsp;¶</span></a></span></h3>
 <div>
-<pre class="doc-code">leading_zeros :: intrinsics.count_leading_zeros</pre>
+<pre class="doc-code">leading_zeros :: <a href="/base/intrinsics#count_leading_zeros">intrinsics</a>.count_leading_zeros</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="len_u16"><span><a class="doc-id-link" href="#len_u16">len_u16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L129"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">len_u16 :: <span class="keyword-type">proc</span> "contextless" (x: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>) -> (n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">len_u16 :: <span class="keyword-type">proc</span> "contextless" (x: <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>) -> (n: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="len_u32"><span><a class="doc-id-link" href="#len_u32">len_u32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L138"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">len_u32 :: <span class="keyword-type">proc</span> "contextless" (x: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> (n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">len_u32 :: <span class="keyword-type">proc</span> "contextless" (x: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) -> (n: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="len_u64"><span><a class="doc-id-link" href="#len_u64">len_u64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L151"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">len_u64 :: <span class="keyword-type">proc</span> "contextless" (x: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">len_u64 :: <span class="keyword-type">proc</span> "contextless" (x: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (n: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="len_u8"><span><a class="doc-id-link" href="#len_u8">len_u8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L125"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">len_u8 :: <span class="keyword-type">proc</span> "contextless" (x: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">len_u8 :: <span class="keyword-type">proc</span> "contextless" (x: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="len_uint"><span><a class="doc-id-link" href="#len_uint">len_uint<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L168"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">len_uint :: <span class="keyword-type">proc</span> "contextless" (x: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> (n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">len_uint :: <span class="keyword-type">proc</span> "contextless" (x: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> (n: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -867,157 +864,157 @@ Procedure Groups (8)</summary>
 <div class="pkg-entity">
 <h3 id="mul_u32"><span><a class="doc-id-link" href="#mul_u32">mul_u32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L239"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">mul_u32 :: <span class="keyword-type">proc</span> "contextless" (x, y: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> (hi, lo: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
+<pre class="doc-code">mul_u32 :: <span class="keyword-type">proc</span> "contextless" (x, y: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) -> (hi, lo: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="mul_u64"><span><a class="doc-id-link" href="#mul_u64">mul_u64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L245"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">mul_u64 :: <span class="keyword-type">proc</span> "contextless" (x, y: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (hi, lo: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">mul_u64 :: <span class="keyword-type">proc</span> "contextless" (x, y: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (hi, lo: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="mul_uint"><span><a class="doc-id-link" href="#mul_uint">mul_uint<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L252"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">mul_uint :: <span class="keyword-type">proc</span> "contextless" (x, y: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> (hi, lo: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) {…}</pre>
+<pre class="doc-code">mul_uint :: <span class="keyword-type">proc</span> "contextless" (x, y: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> (hi, lo: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="overflowing_add"><span><a class="doc-id-link" href="#overflowing_add">overflowing_add<span class="a-hidden">&nbsp;¶</span></a></span></h3>
 <div>
-<pre class="doc-code">overflowing_add :: intrinsics.overflow_add</pre>
+<pre class="doc-code">overflowing_add :: <a href="/base/intrinsics#overflow_add">intrinsics</a>.overflow_add</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="overflowing_mul"><span><a class="doc-id-link" href="#overflowing_mul">overflowing_mul<span class="a-hidden">&nbsp;¶</span></a></span></h3>
 <div>
-<pre class="doc-code">overflowing_mul :: intrinsics.overflow_mul</pre>
+<pre class="doc-code">overflowing_mul :: <a href="/base/intrinsics#overflow_mul">intrinsics</a>.overflow_mul</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="overflowing_sub"><span><a class="doc-id-link" href="#overflowing_sub">overflowing_sub<span class="a-hidden">&nbsp;¶</span></a></span></h3>
 <div>
-<pre class="doc-code">overflowing_sub :: intrinsics.overflow_sub</pre>
+<pre class="doc-code">overflowing_sub :: <a href="/base/intrinsics#overflow_sub">intrinsics</a>.overflow_sub</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="reverse_bits"><span><a class="doc-id-link" href="#reverse_bits">reverse_bits<span class="a-hidden">&nbsp;¶</span></a></span></h3>
 <div>
-<pre class="doc-code">reverse_bits :: intrinsics.reverse_bits</pre>
+<pre class="doc-code">reverse_bits :: <a href="/base/intrinsics#reverse_bits">intrinsics</a>.reverse_bits</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="rotate_left"><span><a class="doc-id-link" href="#rotate_left">rotate_left<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L71"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">rotate_left :: <span class="keyword-type">proc</span> "contextless" (x: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>, k: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a> {…}</pre>
+<pre class="doc-code">rotate_left :: <span class="keyword-type">proc</span> "contextless" (x: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>, k: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="rotate_left16"><span><a class="doc-id-link" href="#rotate_left16">rotate_left16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L52"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">rotate_left16 :: <span class="keyword-type">proc</span> "contextless" (x: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, k: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a> {…}</pre>
+<pre class="doc-code">rotate_left16 :: <span class="keyword-type">proc</span> "contextless" (x: <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>, k: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="rotate_left32"><span><a class="doc-id-link" href="#rotate_left32">rotate_left32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L58"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">rotate_left32 :: <span class="keyword-type">proc</span> "contextless" (x: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, k: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+<pre class="doc-code">rotate_left32 :: <span class="keyword-type">proc</span> "contextless" (x: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>, k: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="rotate_left64"><span><a class="doc-id-link" href="#rotate_left64">rotate_left64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L64"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">rotate_left64 :: <span class="keyword-type">proc</span> "contextless" (x: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, k: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
+<pre class="doc-code">rotate_left64 :: <span class="keyword-type">proc</span> "contextless" (x: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, k: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="rotate_left8"><span><a class="doc-id-link" href="#rotate_left8">rotate_left8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L46"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">rotate_left8 :: <span class="keyword-type">proc</span> "contextless" (x: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, k: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">rotate_left8 :: <span class="keyword-type">proc</span> "contextless" (x: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, k: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="sub_u32"><span><a class="doc-id-link" href="#sub_u32">sub_u32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L210"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">sub_u32 :: <span class="keyword-type">proc</span> "contextless" (x, y, borrow: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> (diff, borrow_out: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
+<pre class="doc-code">sub_u32 :: <span class="keyword-type">proc</span> "contextless" (x, y, borrow: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) -> (diff, borrow_out: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="sub_u64"><span><a class="doc-id-link" href="#sub_u64">sub_u64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L218"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">sub_u64 :: <span class="keyword-type">proc</span> "contextless" (x, y, borrow: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (diff, borrow_out: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">sub_u64 :: <span class="keyword-type">proc</span> "contextless" (x, y, borrow: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (diff, borrow_out: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="sub_uint"><span><a class="doc-id-link" href="#sub_uint">sub_uint<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L226"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">sub_uint :: <span class="keyword-type">proc</span> "contextless" (x, y, borrow: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> (diff, borrow_out: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) {…}</pre>
+<pre class="doc-code">sub_uint :: <span class="keyword-type">proc</span> "contextless" (x, y, borrow: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> (diff, borrow_out: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="to_be_u16"><span><a class="doc-id-link" href="#to_be_u16">to_be_u16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L102"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">to_be_u16 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>) -> <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a> {…}</pre>
+<pre class="doc-code">to_be_u16 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>) -> <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="to_be_u32"><span><a class="doc-id-link" href="#to_be_u32">to_be_u32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L104"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">to_be_u32 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+<pre class="doc-code">to_be_u32 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="to_be_u64"><span><a class="doc-id-link" href="#to_be_u64">to_be_u64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L106"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">to_be_u64 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
+<pre class="doc-code">to_be_u64 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="to_be_u8"><span><a class="doc-id-link" href="#to_be_u8">to_be_u8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L100"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">to_be_u8 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">to_be_u8 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="to_be_uint"><span><a class="doc-id-link" href="#to_be_uint">to_be_uint<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L108"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">to_be_uint :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a> {…}</pre>
+<pre class="doc-code">to_be_uint :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="to_le_u16"><span><a class="doc-id-link" href="#to_le_u16">to_le_u16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L114"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">to_le_u16 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>) -> <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a> {…}</pre>
+<pre class="doc-code">to_le_u16 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>) -> <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="to_le_u32"><span><a class="doc-id-link" href="#to_le_u32">to_le_u32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L116"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">to_le_u32 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+<pre class="doc-code">to_le_u32 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="to_le_u64"><span><a class="doc-id-link" href="#to_le_u64">to_le_u64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L118"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">to_le_u64 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
+<pre class="doc-code">to_le_u64 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="to_le_u8"><span><a class="doc-id-link" href="#to_le_u8">to_le_u8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L112"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">to_le_u8 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">to_le_u8 :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="to_le_uint"><span><a class="doc-id-link" href="#to_le_uint">to_le_uint<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin#L120"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">to_le_uint :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a> {…}</pre>
+<pre class="doc-code">to_le_uint :: <span class="keyword-type">proc</span> "contextless" (i: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="trailing_zeros"><span><a class="doc-id-link" href="#trailing_zeros">trailing_zeros<span class="a-hidden">&nbsp;¶</span></a></span></h3>
 <div>
-<pre class="doc-code">trailing_zeros :: intrinsics.count_trailing_zeros</pre>
+<pre class="doc-code">trailing_zeros :: <a href="/base/intrinsics#count_trailing_zeros">intrinsics</a>.count_trailing_zeros</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
@@ -1146,7 +1143,7 @@ Procedure Groups (8)</summary>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/math/bits/bits.odin">bits.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.000005500 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.147466100 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

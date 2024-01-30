@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -356,10 +353,10 @@ Procedure Groups (3)</summary>
 <h3 id="Alpha_Key"><span><a class="doc-id-link" href="#Alpha_Key">Alpha_Key<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L598"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Alpha_Key :: <span class="keyword-type">union</span> {
-	[2]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, 
-	[4]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, 
-	[2]<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, 
-	[4]<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, 
+	[2]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, 
+	[4]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, 
+	[2]<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>, 
+	[4]<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>, 
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -371,7 +368,7 @@ Procedure Groups (3)</summary>
 <div class="pkg-entity">
 <h3 id="Channel"><span><a class="doc-id-link" href="#Channel">Channel<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L457"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Channel :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+<pre class="doc-code">Channel :: <span class="keyword-type">enum</span> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	R = 1, 
 	G = 2, 
 	B = 3, 
@@ -405,7 +402,7 @@ Procedure Groups (3)</summary>
 	compress.<a class="code-typename" href="/core/compress/#General_Error">General_Error</a>, 
 	compress.<a class="code-typename" href="/core/compress/#Deflate_Error">Deflate_Error</a>, 
 	compress.<a class="code-typename" href="/core/compress/#ZLIB_Error">ZLIB_Error</a>, 
-	runtime.<a class="code-typename" href="/core/runtime/#Allocator_Error">Allocator_Error</a>, 
+	runtime.<a class="code-typename" href="/base/runtime/#Allocator_Error">Allocator_Error</a>, 
 }</pre>
 </div>
 <h5>Related Procedures With Returns</h5>
@@ -418,19 +415,19 @@ Procedure Groups (3)</summary>
 <div class="pkg-entity">
 <h3 id="GA_Pixel"><span><a class="doc-id-link" href="#GA_Pixel">GA_Pixel<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L40"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GA_Pixel :: [2]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a></pre>
+<pre class="doc-code">GA_Pixel :: [2]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a></pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GA_Pixel_16"><span><a class="doc-id-link" href="#GA_Pixel_16">GA_Pixel_16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L42"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GA_Pixel_16 :: [2]<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a></pre>
+<pre class="doc-code">GA_Pixel_16 :: [2]<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a></pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="G_Pixel"><span><a class="doc-id-link" href="#G_Pixel">G_Pixel<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L39"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">G_Pixel :: [1]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a></pre>
+<pre class="doc-code">G_Pixel :: [1]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a></pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -440,13 +437,13 @@ Procedure Groups (3)</summary>
 <div class="pkg-entity">
 <h3 id="G_Pixel_16"><span><a class="doc-id-link" href="#G_Pixel_16">G_Pixel_16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L41"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">G_Pixel_16 :: [1]<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a></pre>
+<pre class="doc-code">G_Pixel_16 :: [1]<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a></pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="General_Image_Error"><span><a class="doc-id-link" href="#General_Image_Error">General_Image_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L170"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">General_Image_Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">General_Image_Error :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	None                          = 0, 
 	Unsupported_Option, 
 	<span class="comment">// File I/O</span>
@@ -476,16 +473,16 @@ Procedure Groups (3)</summary>
 <h3 id="Image"><span><a class="doc-id-link" href="#Image">Image<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L44"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Image :: <span class="keyword-type">struct</span> {
-	width:      <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	height:     <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	channels:   <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	depth:      <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	width:      <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	height:     <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	channels:   <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	depth:      <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 	<span class="comment">// Channel depth in bits, typically 8 or 16</span>
 	pixels:     bytes.<a class="code-typename" href="/core/bytes/#Buffer">Buffer</a> "fmt:\"-\"",
 	<span class="comment">// 		Some image loaders/writers can return/take an optional background color.</span>
 	<span class="comment">// 		For convenience, we return them as u16 so we don't need to switch on the type</span>
 	<span class="comment">// 		in our viewer, and can just test against nil.</span>
-	background: runtime.<a class="code-typename" href="/core/runtime/#Maybe">Maybe</a>($T=[3]u16),
+	background: runtime.<a class="code-typename" href="/base/runtime/#Maybe">Maybe</a>($T=[3]u16),
 	metadata:   <a class="code-typename" href="/core/image/#Image_Metadata">Image_Metadata</a>,
 	which:      <a class="code-typename" href="/core/image/#Which_File_Type">Which_File_Type</a>,
 }</pre>
@@ -525,7 +522,7 @@ Procedure Groups (3)</summary>
 <div class="pkg-entity">
 <h3 id="Loader_Proc"><span><a class="doc-id-link" href="#Loader_Proc">Loader_Proc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/general.odin#L6"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Loader_Proc :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, options: <a class="code-typename" href="/core/image/#Options">Options</a>, allocator: runtime.<a class="code-typename" href="/core/runtime/#Allocator">Allocator</a>) -> (img: ^<a class="code-typename" href="/core/image/#Image">Image</a>, err: <a class="code-typename" href="/core/image/#Error">Error</a>)</pre>
+<pre class="doc-code">Loader_Proc :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, options: <a class="code-typename" href="/core/image/#Options">Options</a>, allocator: runtime.<a class="code-typename" href="/base/runtime/#Allocator">Allocator</a>) -> (img: ^<a class="code-typename" href="/core/image/#Image">Image</a>, err: <a class="code-typename" href="/core/image/#Error">Error</a>)</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
 <ul>
@@ -535,7 +532,7 @@ Procedure Groups (3)</summary>
 <div class="pkg-entity">
 <h3 id="Netpbm_Error"><span><a class="doc-id-link" href="#Netpbm_Error">Netpbm_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L222"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Netpbm_Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Netpbm_Error :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	None                           = 0, 
 	<span class="comment">// reading</span>
 	Invalid_Header_Token_Character, 
@@ -553,7 +550,7 @@ Procedure Groups (3)</summary>
 <div class="pkg-entity">
 <h3 id="Netpbm_Format"><span><a class="doc-id-link" href="#Netpbm_Format">Netpbm_Format<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L202"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Netpbm_Format :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Netpbm_Format :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	P1, 
 	P2, 
 	P3, 
@@ -575,14 +572,14 @@ Procedure Groups (3)</summary>
 <div>
 <pre class="doc-code">Netpbm_Header :: <span class="keyword-type">struct</span> {
 	format:        <a class="code-typename" href="/core/image/#Netpbm_Format">Netpbm_Format</a>,
-	width:         <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	height:        <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	channels:      <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	depth:         <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	maxval:        <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	tupltype:      <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
-	scale:         <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
-	little_endian: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	width:         <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	height:        <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	channels:      <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	depth:         <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	maxval:        <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	tupltype:      <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
+	scale:         <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	little_endian: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 }</pre>
 </div>
 </div>
@@ -597,7 +594,7 @@ Procedure Groups (3)</summary>
 <div class="pkg-entity">
 <h3 id="Option"><span><a class="doc-id-link" href="#Option">Option<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L136"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Option :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Option :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	<span class="comment">// LOAD OPTIONS</span>
 	info                    = 0, 
 	do_not_decompress_image, 
@@ -634,8 +631,8 @@ Procedure Groups (3)</summary>
 <div>
 <pre class="doc-code">PNG_Chunk :: <span class="keyword-type">struct</span> <span class="directive">#packed</span> {
 	header: <a class="code-typename" href="/core/image/#PNG_Chunk_Header">PNG_Chunk_Header</a>,
-	data:   []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
-	crc:    <a href="/core/builtin#u32be"><span class="doc-builtin">u32be</span></a>,
+	data:   []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	crc:    <a href="/base/builtin#u32be"><span class="doc-builtin">u32be</span></a>,
 }</pre>
 </div>
 </div>
@@ -643,7 +640,7 @@ Procedure Groups (3)</summary>
 <h3 id="PNG_Chunk_Header"><span><a class="doc-id-link" href="#PNG_Chunk_Header">PNG_Chunk_Header<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L269"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">PNG_Chunk_Header :: <span class="keyword-type">struct</span> <span class="directive">#packed</span> {
-	length: <a href="/core/builtin#u32be"><span class="doc-builtin">u32be</span></a>,
+	length: <a href="/base/builtin#u32be"><span class="doc-builtin">u32be</span></a>,
 	type:   <a class="code-typename" href="/core/image/#PNG_Chunk_Type">PNG_Chunk_Type</a>,
 }</pre>
 </div>
@@ -651,7 +648,7 @@ Procedure Groups (3)</summary>
 <div class="pkg-entity">
 <h3 id="PNG_Chunk_Type"><span><a class="doc-id-link" href="#PNG_Chunk_Type">PNG_Chunk_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L280"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">PNG_Chunk_Type :: <span class="keyword-type">enum</span> <a href="/core/builtin#u32be"><span class="doc-builtin">u32be</span></a> {
+<pre class="doc-code">PNG_Chunk_Type :: <span class="keyword-type">enum</span> <a href="/base/builtin#u32be"><span class="doc-builtin">u32be</span></a> {
 	<span class="comment">// IHDR must come first in a file</span>
 	IHDR = 1229472850, 
 	<span class="comment">// PLTE must precede the first IDAT chunk</span>
@@ -693,23 +690,23 @@ Procedure Groups (3)</summary>
 <div class="pkg-entity">
 <h3 id="PNG_Color_Type"><span><a class="doc-id-link" href="#PNG_Color_Type">PNG_Color_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L346"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">PNG_Color_Type :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/image/#PNG_Color_Value">PNG_Color_Value</a>; <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>]</pre>
+<pre class="doc-code">PNG_Color_Type :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/image/#PNG_Color_Value">PNG_Color_Value</a>; <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>]</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="PNG_Color_Value"><span><a class="doc-id-link" href="#PNG_Color_Value">PNG_Color_Value<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L341"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">PNG_Color_Value :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
-	Paletted = 0, <span class="comment">// 1 << 0 = 1</span>
-	Color    = 1, <span class="comment">// 1 << 1 = 2</span>
-	Alpha    = 2, <span class="comment">// 1 << 2 = 4</span>
+<pre class="doc-code">PNG_Color_Value :: <span class="keyword-type">enum</span> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {
+	Paletted = 0, <span class="comment">// 1 &lt;&lt; 0 = 1</span>
+	Color    = 1, <span class="comment">// 1 &lt;&lt; 1 = 2</span>
+	Alpha    = 2, <span class="comment">// 1 &lt;&lt; 2 = 4</span>
 }</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="PNG_Error"><span><a class="doc-id-link" href="#PNG_Error">PNG_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L241"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">PNG_Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">PNG_Error :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	None                          = 0, 
 	IHDR_Not_First_Chunk, 
 	IHDR_Corrupt, 
@@ -741,12 +738,12 @@ Procedure Groups (3)</summary>
 <h3 id="PNG_IHDR"><span><a class="doc-id-link" href="#PNG_IHDR">PNG_IHDR<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L329"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">PNG_IHDR :: <span class="keyword-type">struct</span> <span class="directive">#packed</span> {
-	width:              <a href="/core/builtin#u32be"><span class="doc-builtin">u32be</span></a>,
-	height:             <a href="/core/builtin#u32be"><span class="doc-builtin">u32be</span></a>,
-	bit_depth:          <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	width:              <a href="/base/builtin#u32be"><span class="doc-builtin">u32be</span></a>,
+	height:             <a href="/base/builtin#u32be"><span class="doc-builtin">u32be</span></a>,
+	bit_depth:          <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
 	color_type:         <a class="code-typename" href="/core/image/#PNG_Color_Type">PNG_Color_Type</a>,
-	compression_method: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
-	filter_method:      <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	compression_method: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	filter_method:      <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
 	interlace_method:   <a class="code-typename" href="/core/image/#PNG_Interlace_Method">PNG_Interlace_Method</a>,
 }</pre>
 </div>
@@ -763,7 +760,7 @@ Procedure Groups (3)</summary>
 <div class="pkg-entity">
 <h3 id="PNG_Interlace_Method"><span><a class="doc-id-link" href="#PNG_Interlace_Method">PNG_Interlace_Method<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L348"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">PNG_Interlace_Method :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+<pre class="doc-code">PNG_Interlace_Method :: <span class="keyword-type">enum</span> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	None  = 0, 
 	Adam7 = 1, 
 }</pre>
@@ -772,7 +769,7 @@ Procedure Groups (3)</summary>
 <div class="pkg-entity">
 <h3 id="QOI_Color_Space"><span><a class="doc-id-link" href="#QOI_Color_Space">QOI_Color_Space<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L363"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">QOI_Color_Space :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+<pre class="doc-code">QOI_Color_Space :: <span class="keyword-type">enum</span> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	sRGB   = 0, 
 	Linear = 1, 
 }</pre>
@@ -781,7 +778,7 @@ Procedure Groups (3)</summary>
 <div class="pkg-entity">
 <h3 id="QOI_Error"><span><a class="doc-id-link" href="#QOI_Error">QOI_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L356"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">QOI_Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">QOI_Error :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	None                       = 0, 
 	Missing_Or_Corrupt_Trailer,     <span class="comment">// Image seemed to have decoded okay, but trailer is missing or corrupt.</span>
 }</pre>
@@ -795,10 +792,10 @@ Procedure Groups (3)</summary>
 <h3 id="QOI_Header"><span><a class="doc-id-link" href="#QOI_Header">QOI_Header<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L368"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">QOI_Header :: <span class="keyword-type">struct</span> <span class="directive">#packed</span> {
-	magic:       <a href="/core/builtin#u32be"><span class="doc-builtin">u32be</span></a>,
-	width:       <a href="/core/builtin#u32be"><span class="doc-builtin">u32be</span></a>,
-	height:      <a href="/core/builtin#u32be"><span class="doc-builtin">u32be</span></a>,
-	channels:    <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	magic:       <a href="/base/builtin#u32be"><span class="doc-builtin">u32be</span></a>,
+	width:       <a href="/base/builtin#u32be"><span class="doc-builtin">u32be</span></a>,
+	height:      <a href="/base/builtin#u32be"><span class="doc-builtin">u32be</span></a>,
+	channels:    <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
 	color_space: <a class="code-typename" href="/core/image/#QOI_Color_Space">QOI_Color_Space</a>,
 }</pre>
 </div>
@@ -814,19 +811,19 @@ Procedure Groups (3)</summary>
 <div class="pkg-entity">
 <h3 id="RGBA_Pixel"><span><a class="doc-id-link" href="#RGBA_Pixel">RGBA_Pixel<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L35"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">RGBA_Pixel :: [4]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a></pre>
+<pre class="doc-code">RGBA_Pixel :: [4]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a></pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="RGBA_Pixel_16"><span><a class="doc-id-link" href="#RGBA_Pixel_16">RGBA_Pixel_16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L37"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">RGBA_Pixel_16 :: [4]<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a></pre>
+<pre class="doc-code">RGBA_Pixel_16 :: [4]<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a></pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="RGB_Pixel"><span><a class="doc-id-link" href="#RGB_Pixel">RGB_Pixel<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L34"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">RGB_Pixel :: [3]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a></pre>
+<pre class="doc-code">RGB_Pixel :: [3]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a></pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -836,13 +833,13 @@ Procedure Groups (3)</summary>
 <div class="pkg-entity">
 <h3 id="RGB_Pixel_16"><span><a class="doc-id-link" href="#RGB_Pixel_16">RGB_Pixel_16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L36"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">RGB_Pixel_16 :: [3]<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a></pre>
+<pre class="doc-code">RGB_Pixel_16 :: [3]<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a></pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="TGA_Alpha_Kind"><span><a class="doc-id-link" href="#TGA_Alpha_Kind">TGA_Alpha_Kind<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L436"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">TGA_Alpha_Kind :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+<pre class="doc-code">TGA_Alpha_Kind :: <span class="keyword-type">enum</span> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	None, 
 	Undefined_Ignore, 
 	Undefined_Retain, 
@@ -854,7 +851,7 @@ Procedure Groups (3)</summary>
 <div class="pkg-entity">
 <h3 id="TGA_Data_Type"><span><a class="doc-id-link" href="#TGA_Data_Type">TGA_Data_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L381"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">TGA_Data_Type :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+<pre class="doc-code">TGA_Data_Type :: <span class="keyword-type">enum</span> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	No_Image_Data             = 0, 
 	Uncompressed_Color_Mapped = 1, 
 	Uncompressed_RGB          = 2, 
@@ -869,11 +866,11 @@ Procedure Groups (3)</summary>
 <h3 id="TGA_Extension"><span><a class="doc-id-link" href="#TGA_Extension">TGA_Extension<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L414"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">TGA_Extension :: <span class="keyword-type">struct</span> <span class="directive">#packed</span> {
-	extension_size:          <a href="/core/builtin#u16le"><span class="doc-builtin">u16le</span></a>,
+	extension_size:          <a href="/base/builtin#u16le"><span class="doc-builtin">u16le</span></a>,
 	<span class="comment">// Size of this struct. If not 495 bytes it means it's an unsupported version.</span>
-	author_name:             [41]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> "fmt:\"s,0\"",
+	author_name:             [41]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> "fmt:\"s,0\"",
 	<span class="comment">// Author name, ASCII. Zero-terminated</span>
-	author_comments:         [324]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> "fmt:\"s,0\"",
+	author_comments:         [324]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> "fmt:\"s,0\"",
 	<span class="comment">// Author comments, formatted as 4 lines of 80 character lines, each zero terminated.</span>
 	datetime:                <span class="keyword-type">struct</span> {
 		month,
@@ -881,33 +878,33 @@ Procedure Groups (3)</summary>
 		year,
 		hour,
 		minute,
-		second: <a href="/core/builtin#u16le"><span class="doc-builtin">u16le</span></a>,
+		second: <a href="/base/builtin#u16le"><span class="doc-builtin">u16le</span></a>,
 	},
-	job_name:                [41]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> "fmt:\"s,0\"",
+	job_name:                [41]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> "fmt:\"s,0\"",
 	<span class="comment">// Author name, ASCII. Zero-terminated</span>
 	job_time:                <span class="keyword-type">struct</span> {
 		hour,
 		minute,
-		second: <a href="/core/builtin#u16le"><span class="doc-builtin">u16le</span></a>,
+		second: <a href="/base/builtin#u16le"><span class="doc-builtin">u16le</span></a>,
 	},
-	software_id:             [41]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> "fmt:\"s,0\"",
+	software_id:             [41]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> "fmt:\"s,0\"",
 	<span class="comment">// Software ID name, ASCII. Zero-terminated</span>
 	software_version:        <span class="keyword-type">struct</span> <span class="directive">#packed</span> {
-		number: <a href="/core/builtin#u16le"><span class="doc-builtin">u16le</span></a>,
+		number: <a href="/base/builtin#u16le"><span class="doc-builtin">u16le</span></a>,
 		<span class="comment">// Version number * 100</span>
-		letter: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> "fmt:\"r\"",
+		letter: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> "fmt:\"r\"",
 	},
-	key_color:               [4]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	key_color:               [4]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
 	<span class="comment">// ARGB key color used at time of production</span>
-	aspect_ratio:            [2]<a href="/core/builtin#u16le"><span class="doc-builtin">u16le</span></a>,
+	aspect_ratio:            [2]<a href="/base/builtin#u16le"><span class="doc-builtin">u16le</span></a>,
 	<span class="comment">// Numerator / Denominator</span>
-	gamma:                   [2]<a href="/core/builtin#u16le"><span class="doc-builtin">u16le</span></a>,
+	gamma:                   [2]<a href="/base/builtin#u16le"><span class="doc-builtin">u16le</span></a>,
 	<span class="comment">// Numerator / Denominator, range should be 0.0..10.0</span>
-	color_correction_offset: <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
+	color_correction_offset: <a href="/base/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
 	<span class="comment">// 0 if no color correction information</span>
-	postage_stamp_offset:    <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
+	postage_stamp_offset:    <a href="/base/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
 	<span class="comment">// 0 if no thumbnail</span>
-	scanline_offset:         <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
+	scanline_offset:         <a href="/base/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
 	<span class="comment">// 0 if no scanline table</span>
 	attributes:              <a class="code-typename" href="/core/image/#TGA_Alpha_Kind">TGA_Alpha_Kind</a>,
 }</pre>
@@ -917,9 +914,9 @@ Procedure Groups (3)</summary>
 <h3 id="TGA_Footer"><span><a class="doc-id-link" href="#TGA_Footer">TGA_Footer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L407"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">TGA_Footer :: <span class="keyword-type">struct</span> <span class="directive">#packed</span> {
-	extension_area_offset:      <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
-	developer_directory_offset: <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
-	signature:                  [18]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> "fmt:\"s,0\"",
+	extension_area_offset:      <a href="/base/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
+	developer_directory_offset: <a href="/base/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
+	signature:                  [18]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> "fmt:\"s,0\"",
 }</pre>
 </div>
 </div>
@@ -927,16 +924,16 @@ Procedure Groups (3)</summary>
 <h3 id="TGA_Header"><span><a class="doc-id-link" href="#TGA_Header">TGA_Header<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L391"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">TGA_Header :: <span class="keyword-type">struct</span> <span class="directive">#packed</span> {
-	id_length:        <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
-	color_map_type:   <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	id_length:        <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	color_map_type:   <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
 	data_type_code:   <a class="code-typename" href="/core/image/#TGA_Data_Type">TGA_Data_Type</a>,
-	color_map_origin: <a href="/core/builtin#u16le"><span class="doc-builtin">u16le</span></a>,
-	color_map_length: <a href="/core/builtin#u16le"><span class="doc-builtin">u16le</span></a>,
-	color_map_depth:  <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
-	origin:           [2]<a href="/core/builtin#u16le"><span class="doc-builtin">u16le</span></a>,
-	dimensions:       [2]<a href="/core/builtin#u16le"><span class="doc-builtin">u16le</span></a>,
-	bits_per_pixel:   <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
-	image_descriptor: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	color_map_origin: <a href="/base/builtin#u16le"><span class="doc-builtin">u16le</span></a>,
+	color_map_length: <a href="/base/builtin#u16le"><span class="doc-builtin">u16le</span></a>,
+	color_map_depth:  <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	origin:           [2]<a href="/base/builtin#u16le"><span class="doc-builtin">u16le</span></a>,
+	dimensions:       [2]<a href="/base/builtin#u16le"><span class="doc-builtin">u16le</span></a>,
+	bits_per_pixel:   <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	image_descriptor: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
 }</pre>
 </div>
 </div>
@@ -945,16 +942,16 @@ Procedure Groups (3)</summary>
 <div>
 <pre class="doc-code">TGA_Info :: <span class="keyword-type">struct</span> {
 	header:    <a class="code-typename" href="/core/image/#TGA_Header">TGA_Header</a>,
-	image_id:  <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
-	footer:    runtime.<a class="code-typename" href="/core/runtime/#Maybe">Maybe</a>($T=TGA_Footer),
-	extension: runtime.<a class="code-typename" href="/core/runtime/#Maybe">Maybe</a>($T=TGA_Extension),
+	image_id:  <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
+	footer:    runtime.<a class="code-typename" href="/base/runtime/#Maybe">Maybe</a>($T=TGA_Footer),
+	extension: runtime.<a class="code-typename" href="/base/runtime/#Maybe">Maybe</a>($T=TGA_Extension),
 }</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="Which_File_Type"><span><a class="doc-id-link" href="#Which_File_Type">Which_File_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/general.odin#L47"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Which_File_Type :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Which_File_Type :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	Unknown, 
 	BMP, 
 	DjVu,      <span class="comment">// AT&T DjVu file format</span>
@@ -1038,7 +1035,7 @@ except in very specific circumstances.
 <div class="pkg-entity">
 <h3 id="alpha_add_if_missing"><span><a class="doc-id-link" href="#alpha_add_if_missing">alpha_add_if_missing<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L618"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">alpha_add_if_missing :: <span class="keyword-type">proc</span>(img: ^<a class="code-typename" href="/core/image/#Image">Image</a>, alpha_key: <a class="code-typename" href="/core/image/#Alpha_Key">Alpha_Key</a> = Alpha_Key{}, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">alpha_add_if_missing :: <span class="keyword-type">proc</span>(img: ^<a class="code-typename" href="/core/image/#Image">Image</a>, alpha_key: <a class="code-typename" href="/core/image/#Alpha_Key">Alpha_Key</a> = Alpha_Key{}, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1078,7 +1075,7 @@ Otherwise, an opaque alpha channel will be added.
 <div class="pkg-entity">
 <h3 id="alpha_drop_if_present"><span><a class="doc-id-link" href="#alpha_drop_if_present">alpha_drop_if_present<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L792"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">alpha_drop_if_present :: <span class="keyword-type">proc</span>(img: ^<a class="code-typename" href="/core/image/#Image">Image</a>, options: <a class="code-typename" href="/core/image/#Options">Options</a> = Options{}, alpha_key: <a class="code-typename" href="/core/image/#Alpha_Key">Alpha_Key</a> = Alpha_Key{}, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">alpha_drop_if_present :: <span class="keyword-type">proc</span>(img: ^<a class="code-typename" href="/core/image/#Image">Image</a>, options: <a class="code-typename" href="/core/image/#Options">Options</a> = Options{}, alpha_key: <a class="code-typename" href="/core/image/#Alpha_Key">Alpha_Key</a> = Alpha_Key{}, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1105,7 +1102,7 @@ In this case a keyed alpha pixel will be replaced with the background color.
 <div class="pkg-entity">
 <h3 id="apply_palette_rgb"><span><a class="doc-id-link" href="#apply_palette_rgb">apply_palette_rgb<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L1063"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">apply_palette_rgb :: <span class="keyword-type">proc</span>(img: ^<a class="code-typename" href="/core/image/#Image">Image</a>, palette: [256][3]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">apply_palette_rgb :: <span class="keyword-type">proc</span>(img: ^<a class="code-typename" href="/core/image/#Image">Image</a>, palette: [256][3]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1116,7 +1113,7 @@ If the image given is not a valid 8-bit single channel image, the procedure will
 <div class="pkg-entity">
 <h3 id="apply_palette_rgba"><span><a class="doc-id-link" href="#apply_palette_rgba">apply_palette_rgba<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L1100"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">apply_palette_rgba :: <span class="keyword-type">proc</span>(img: ^<a class="code-typename" href="/core/image/#Image">Image</a>, palette: [256][4]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">apply_palette_rgba :: <span class="keyword-type">proc</span>(img: ^<a class="code-typename" href="/core/image/#Image">Image</a>, palette: [256][4]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1127,7 +1124,7 @@ If the image given is not a valid 8-bit single channel image, the procedure will
 <div class="pkg-entity">
 <h3 id="compute_buffer_size"><span><a class="doc-id-link" href="#compute_buffer_size">compute_buffer_size<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L452"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">compute_buffer_size :: <span class="keyword-type">proc</span>(width, height, channels, depth: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, extra_row_bytes: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = int(0)) -> (size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">compute_buffer_size :: <span class="keyword-type">proc</span>(width, height, channels, depth: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, extra_row_bytes: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = int(0)) -> (size: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1143,7 +1140,7 @@ If the image given is not a valid 8-bit single channel image, the procedure will
 <div class="pkg-entity">
 <h3 id="expand_grayscale"><span><a class="doc-id-link" href="#expand_grayscale">expand_grayscale<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L1139"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">expand_grayscale :: <span class="keyword-type">proc</span>(img: ^<a class="code-typename" href="/core/image/#Image">Image</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">expand_grayscale :: <span class="keyword-type">proc</span>(img: ^<a class="code-typename" href="/core/image/#Image">Image</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1154,7 +1151,7 @@ Returns early with <code>false</code> if already an RGB(A) image.</p>
 <div class="pkg-entity">
 <h3 id="is_valid_color_image"><span><a class="doc-id-link" href="#is_valid_color_image">is_valid_color_image<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L560"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">is_valid_color_image :: <span class="keyword-type">proc</span>(img: ^<a class="code-typename" href="/core/image/#Image">Image</a>) -> (ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">is_valid_color_image :: <span class="keyword-type">proc</span>(img: ^<a class="code-typename" href="/core/image/#Image">Image</a>) -> (ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1165,7 +1162,7 @@ Is the pointer valid, are the dimensions valid?</p>
 <div class="pkg-entity">
 <h3 id="is_valid_grayscale_image"><span><a class="doc-id-link" href="#is_valid_grayscale_image">is_valid_grayscale_image<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L531"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">is_valid_grayscale_image :: <span class="keyword-type">proc</span>(img: ^<a class="code-typename" href="/core/image/#Image">Image</a>) -> (ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">is_valid_grayscale_image :: <span class="keyword-type">proc</span>(img: ^<a class="code-typename" href="/core/image/#Image">Image</a>) -> (ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1176,7 +1173,7 @@ Is the pointer valid, are the dimensions valid?</p>
 <div class="pkg-entity">
 <h3 id="is_valid_image"><span><a class="doc-id-link" href="#is_valid_image">is_valid_image<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L589"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">is_valid_image :: <span class="keyword-type">proc</span>(img: ^<a class="code-typename" href="/core/image/#Image">Image</a>) -> (ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">is_valid_image :: <span class="keyword-type">proc</span>(img: ^<a class="code-typename" href="/core/image/#Image">Image</a>) -> (ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1187,19 +1184,19 @@ Is the pointer valid, are the dimensions valid?</p>
 <div class="pkg-entity">
 <h3 id="load_from_bytes"><span><a class="doc-id-link" href="#load_from_bytes">load_from_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/general.odin#L23"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">load_from_bytes :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, options: <a class="code-typename" href="/core/image/#Options">Options</a>, allocator: runtime.<a class="code-typename" href="/core/runtime/#Allocator">Allocator</a>) -> (img: ^<a class="code-typename" href="/core/image/#Image">Image</a>, err: <a class="code-typename" href="/core/image/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">load_from_bytes :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, options: <a class="code-typename" href="/core/image/#Options">Options</a>, allocator: runtime.<a class="code-typename" href="/base/runtime/#Allocator">Allocator</a>) -> (img: ^<a class="code-typename" href="/core/image/#Image">Image</a>, err: <a class="code-typename" href="/core/image/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="load_from_file"><span><a class="doc-id-link" href="#load_from_file">load_from_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/general_os.odin#L12"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">load_from_file :: <span class="keyword-type">proc</span>(filename: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, options: <a class="code-typename" href="/core/image/#Options">Options</a> = Options{}, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (img: ^<a class="code-typename" href="/core/image/#Image">Image</a>, err: <a class="code-typename" href="/core/image/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">load_from_file :: <span class="keyword-type">proc</span>(filename: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, options: <a class="code-typename" href="/core/image/#Options">Options</a> = Options{}, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (img: ^<a class="code-typename" href="/core/image/#Image">Image</a>, err: <a class="code-typename" href="/core/image/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="read_data"><span><a class="doc-id-link" href="#read_data">read_data<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L1220"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">read_data :: <span class="keyword-type">proc</span>(z: $T, $T: <a href="/core/builtin#typeid"><span class="doc-builtin">typeid</span></a>) -> (res: <a href="/core/builtin#typeid"><span class="doc-builtin">typeid</span></a>, err: compress.<a class="code-typename" href="/core/compress/#General_Error">General_Error</a>) {…}</pre>
+<pre class="doc-code">read_data :: <span class="keyword-type">proc</span>(z: $T, $T: <a href="/base/builtin#typeid"><span class="doc-builtin">typeid</span></a>) -> (res: <a href="/base/builtin#typeid"><span class="doc-builtin">typeid</span></a>, err: compress.<a class="code-typename" href="/core/compress/#General_Error">General_Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1209,7 +1206,7 @@ Is the pointer valid, are the dimensions valid?</p>
 <div class="pkg-entity">
 <h3 id="read_u8"><span><a class="doc-id-link" href="#read_u8">read_u8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L1229"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">read_u8 :: <span class="keyword-type">proc</span>(z: $T) -> (res: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, err: compress.<a class="code-typename" href="/core/compress/#General_Error">General_Error</a>) {…}</pre>
+<pre class="doc-code">read_u8 :: <span class="keyword-type">proc</span>(z: $T) -> (res: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, err: compress.<a class="code-typename" href="/core/compress/#General_Error">General_Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -1221,7 +1218,7 @@ Is the pointer valid, are the dimensions valid?</p>
 <div class="pkg-entity">
 <h3 id="return_single_channel"><span><a class="doc-id-link" href="#return_single_channel">return_single_channel<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L465"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">return_single_channel :: <span class="keyword-type">proc</span>(img: ^<a class="code-typename" href="/core/image/#Image">Image</a>, channel: <a class="code-typename" href="/core/image/#Channel">Channel</a>) -> (res: ^<a class="code-typename" href="/core/image/#Image">Image</a>, ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">return_single_channel :: <span class="keyword-type">proc</span>(img: ^<a class="code-typename" href="/core/image/#Image">Image</a>, channel: <a class="code-typename" href="/core/image/#Channel">Channel</a>) -> (res: ^<a class="code-typename" href="/core/image/#Image">Image</a>, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1231,19 +1228,19 @@ Is the pointer valid, are the dimensions valid?</p>
 <div class="pkg-entity">
 <h3 id="which_bytes"><span><a class="doc-id-link" href="#which_bytes">which_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/general.odin#L73"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">which_bytes :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a class="code-typename" href="/core/image/#Which_File_Type">Which_File_Type</a> {…}</pre>
+<pre class="doc-code">which_bytes :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a class="code-typename" href="/core/image/#Which_File_Type">Which_File_Type</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="which_file"><span><a class="doc-id-link" href="#which_file">which_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/general_os.odin#L28"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">which_file :: <span class="keyword-type">proc</span>(path: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> <a class="code-typename" href="/core/image/#Which_File_Type">Which_File_Type</a> {…}</pre>
+<pre class="doc-code">which_file :: <span class="keyword-type">proc</span>(path: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> <a class="code-typename" href="/core/image/#Which_File_Type">Which_File_Type</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="write_bytes"><span><a class="doc-id-link" href="#write_bytes">write_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/common.odin#L1237"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">write_bytes :: <span class="keyword-type">proc</span>(buf: ^bytes.<a class="code-typename" href="/core/bytes/#Buffer">Buffer</a>, data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: compress.<a class="code-typename" href="/core/compress/#General_Error">General_Error</a>) {…}</pre>
+<pre class="doc-code">write_bytes :: <span class="keyword-type">proc</span>(buf: ^bytes.<a class="code-typename" href="/core/bytes/#Buffer">Buffer</a>, data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: compress.<a class="code-typename" href="/core/compress/#General_Error">General_Error</a>) {…}</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
@@ -1285,7 +1282,7 @@ Is the pointer valid, are the dimensions valid?</p>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/image/general_os.odin">general_os.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.280314700 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.140281400 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

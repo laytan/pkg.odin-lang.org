@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -401,7 +398,7 @@ Procedure Groups (2)</summary>
 <section class="documentation">
 <h2 id="pkg-Types" class="pkg-header">Types</h2>
 <div class="pkg-entity">
-<h3 id="Any_Expr"><span><a class="doc-id-link" href="#Any_Expr">Any_Expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L929"><em>Source</em></a></div></h3>
+<h3 id="Any_Expr"><span><a class="doc-id-link" href="#Any_Expr">Any_Expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L930"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Any_Expr :: <span class="keyword-type">union</span> {
 	^<a class="code-typename" href="/core/odin/ast/#Bad_Expr">Bad_Expr</a>, 
@@ -456,7 +453,7 @@ Procedure Groups (2)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Any_Node"><span><a class="doc-id-link" href="#Any_Node">Any_Node<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L841"><em>Source</em></a></div></h3>
+<h3 id="Any_Node"><span><a class="doc-id-link" href="#Any_Node">Any_Node<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L842"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Any_Node :: <span class="keyword-type">union</span> {
 	^<a class="code-typename" href="/core/odin/ast/#Package">Package</a>, 
@@ -541,7 +538,7 @@ Procedure Groups (2)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Any_Stmt"><span><a class="doc-id-link" href="#Any_Stmt">Any_Stmt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L983"><em>Source</em></a></div></h3>
+<h3 id="Any_Stmt"><span><a class="doc-id-link" href="#Any_Stmt">Any_Stmt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L984"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Any_Stmt :: <span class="keyword-type">union</span> {
 	^<a class="code-typename" href="/core/odin/ast/#Bad_Stmt">Bad_Stmt</a>, 
@@ -745,7 +742,7 @@ Procedure Groups (2)</summary>
 <pre class="doc-code">Basic_Directive :: <span class="keyword-type">struct</span> {
 	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
 	tok:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
-	name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
 }</pre>
 </div>
 <h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
@@ -815,7 +812,7 @@ Procedure Groups (2)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Bit_Set_Type"><span><a class="doc-id-link" href="#Bit_Set_Type">Bit_Set_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L809"><em>Source</em></a></div></h3>
+<h3 id="Bit_Set_Type"><span><a class="doc-id-link" href="#Bit_Set_Type">Bit_Set_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L810"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Bit_Set_Type :: <span class="keyword-type">struct</span> {
 	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
@@ -851,7 +848,7 @@ Procedure Groups (2)</summary>
 	open:    odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
 	stmts:   []^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
 	close:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
-	uses_do: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	uses_do: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 }</pre>
 </div>
 <h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
@@ -1164,7 +1161,7 @@ Procedure Groups (2)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Enum_Type"><span><a class="doc-id-link" href="#Enum_Type">Enum_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L798"><em>Source</em></a></div></h3>
+<h3 id="Enum_Type"><span><a class="doc-id-link" href="#Enum_Type">Enum_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L799"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Enum_Type :: <span class="keyword-type">struct</span> {
 	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
@@ -1173,7 +1170,7 @@ Procedure Groups (2)</summary>
 	open:      odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
 	fields:    []^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
 	close:     odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
-	is_using:  <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	is_using:  <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 }</pre>
 </div>
 <h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
@@ -1266,7 +1263,7 @@ Procedure Groups (2)</summary>
 <div class="pkg-entity">
 <h3 id="Field_Flag"><span><a class="doc-id-link" href="#Field_Flag">Field_Flag<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L588"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Field_Flag :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Field_Flag :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	Invalid, 
 	Unknown, 
 	Ellipsis, 
@@ -1341,20 +1338,20 @@ Procedure Groups (2)</summary>
 <div>
 <pre class="doc-code">File :: <span class="keyword-type">struct</span> {
 	<span class="keyword-type">using</span> node:           <a class="code-typename" href="/core/odin/ast/#Node">Node</a>,
-	id:                   <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	id:                   <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 	pkg:                  ^<a class="code-typename" href="/core/odin/ast/#Package">Package</a>,
-	fullpath:             <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
-	src:                  <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	fullpath:             <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
+	src:                  <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
 	docs:                 ^<a class="code-typename" href="/core/odin/ast/#Comment_Group">Comment_Group</a>,
 	pkg_decl:             ^<a class="code-typename" href="/core/odin/ast/#Package_Decl">Package_Decl</a>,
 	pkg_token:            odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
-	pkg_name:             <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	pkg_name:             <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
 	decls:                [<span class="keyword">dynamic</span>]^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
 	imports:              [<span class="keyword">dynamic</span>]^<a class="code-typename" href="/core/odin/ast/#Import_Decl">Import_Decl</a>,
-	directive_count:      <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	directive_count:      <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 	comments:             [<span class="keyword">dynamic</span>]^<a class="code-typename" href="/core/odin/ast/#Comment_Group">Comment_Group</a>,
-	syntax_warning_count: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	syntax_error_count:   <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	syntax_warning_count: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	syntax_error_count:   <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 }</pre>
 </div>
 <h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
@@ -1436,8 +1433,8 @@ Procedure Groups (2)</summary>
 	foreign_tok:     odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
 	import_tok:      odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
 	name:            ^<a class="code-typename" href="/core/odin/ast/#Ident">Ident</a>,
-	collection_name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
-	fullpaths:       []<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	collection_name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
+	fullpaths:       []<a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
 	comment:         ^<a class="code-typename" href="/core/odin/ast/#Comment_Group">Comment_Group</a>,
 }</pre>
 </div>
@@ -1489,7 +1486,7 @@ Procedure Groups (2)</summary>
 <div>
 <pre class="doc-code">Ident :: <span class="keyword-type">struct</span> {
 	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
-	name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
 }</pre>
 </div>
 <h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
@@ -1590,11 +1587,11 @@ Procedure Groups (2)</summary>
 <pre class="doc-code">Import_Decl :: <span class="keyword-type">struct</span> {
 	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Decl">Decl</a>,
 	docs:       ^<a class="code-typename" href="/core/odin/ast/#Comment_Group">Comment_Group</a>,
-	is_using:   <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	is_using:   <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 	import_tok: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
 	name:       odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
 	relpath:    odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
-	fullpath:   <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	fullpath:   <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
 	comment:    ^<a class="code-typename" href="/core/odin/ast/#Comment_Group">Comment_Group</a>,
 }</pre>
 </div>
@@ -1646,7 +1643,7 @@ Procedure Groups (2)</summary>
 <div class="pkg-entity">
 <h3 id="Inline_Asm_Dialect"><span><a class="doc-id-link" href="#Inline_Asm_Dialect">Inline_Asm_Dialect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L318"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Inline_Asm_Dialect :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+<pre class="doc-code">Inline_Asm_Dialect :: <span class="keyword-type">enum</span> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	Default = 0, 
 	ATT     = 1, 
 	Intel   = 2, 
@@ -1661,8 +1658,8 @@ Procedure Groups (2)</summary>
 	tok:                odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
 	param_types:        []^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
 	return_type:        ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
-	has_side_effects:   <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
-	is_align_stack:     <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	has_side_effects:   <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	is_align_stack:     <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 	dialect:            <a class="code-typename" href="/core/odin/ast/#Inline_Asm_Dialect">Inline_Asm_Dialect</a>,
 	open:               odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
 	constraints_string: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
@@ -1716,7 +1713,7 @@ Procedure Groups (2)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Map_Type"><span><a class="doc-id-link" href="#Map_Type">Map_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L818"><em>Source</em></a></div></h3>
+<h3 id="Map_Type"><span><a class="doc-id-link" href="#Map_Type">Map_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L819"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Map_Type :: <span class="keyword-type">struct</span> {
 	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
@@ -1770,7 +1767,7 @@ Procedure Groups (2)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Matrix_Type"><span><a class="doc-id-link" href="#Matrix_Type">Matrix_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L832"><em>Source</em></a></div></h3>
+<h3 id="Matrix_Type"><span><a class="doc-id-link" href="#Matrix_Type">Matrix_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L833"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Matrix_Type :: <span class="keyword-type">struct</span> {
 	<span class="keyword-type">using</span> node:   <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
@@ -1846,7 +1843,7 @@ Procedure Groups (2)</summary>
 <div class="pkg-entity">
 <h3 id="Node_State_Flag"><span><a class="doc-id-link" href="#Node_State_Flag">Node_State_Flag<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L27"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Node_State_Flag :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Node_State_Flag :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	Bounds_Check, 
 	No_Bounds_Check, 
 }</pre>
@@ -1941,11 +1938,11 @@ Procedure Groups (2)</summary>
 <pre class="doc-code">Package :: <span class="keyword-type">struct</span> {
 	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Node">Node</a>,
 	kind:      <a class="code-typename" href="/core/odin/ast/#Package_Kind">Package_Kind</a>,
-	id:        <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	name:      <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
-	fullpath:  <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
-	files:     <span class="keyword-type">map</span>[<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>]^<a class="code-typename" href="/core/odin/ast/#File">File</a>,
-	user_data: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>,
+	id:        <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	name:      <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
+	fullpath:  <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
+	files:     <span class="keyword-type">map</span>[<a href="/base/builtin#string"><span class="doc-builtin">string</span></a>]^<a class="code-typename" href="/core/odin/ast/#File">File</a>,
+	user_data: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>,
 }</pre>
 </div>
 <h6>Procedures Through `using` From <a href="/core/odin/ast/#Node">Node</a></h6>
@@ -1965,7 +1962,7 @@ Procedure Groups (2)</summary>
 	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Decl">Decl</a>,
 	docs:    ^<a class="code-typename" href="/core/odin/ast/#Comment_Group">Comment_Group</a>,
 	token:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
-	name:    <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	name:    <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
 	comment: ^<a class="code-typename" href="/core/odin/ast/#Comment_Group">Comment_Group</a>,
 }</pre>
 </div>
@@ -1990,7 +1987,7 @@ Procedure Groups (2)</summary>
 <div class="pkg-entity">
 <h3 id="Package_Kind"><span><a class="doc-id-link" href="#Package_Kind">Package_Kind<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L45"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Package_Kind :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Package_Kind :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	Normal, 
 	Runtime, 
 	Init, 
@@ -2079,7 +2076,7 @@ Procedure Groups (2)</summary>
 <h3 id="Proc_Calling_Convention"><span><a class="doc-id-link" href="#Proc_Calling_Convention">Proc_Calling_Convention<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L22"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Proc_Calling_Convention :: <span class="keyword-type">union</span> {
-	<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, 
+	<a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, 
 	<a class="code-typename" href="/core/odin/ast/#Proc_Calling_Convention_Extra">Proc_Calling_Convention_Extra</a>, 
 }</pre>
 </div>
@@ -2087,7 +2084,7 @@ Procedure Groups (2)</summary>
 <div class="pkg-entity">
 <h3 id="Proc_Calling_Convention_Extra"><span><a class="doc-id-link" href="#Proc_Calling_Convention_Extra">Proc_Calling_Convention_Extra<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L19"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Proc_Calling_Convention_Extra :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
+<pre class="doc-code">Proc_Calling_Convention_Extra :: <span class="keyword-type">enum</span> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	Foreign_Block_Default, 
 }</pre>
 </div>
@@ -2122,7 +2119,7 @@ Procedure Groups (2)</summary>
 <div class="pkg-entity">
 <h3 id="Proc_Inlining"><span><a class="doc-id-link" href="#Proc_Inlining">Proc_Inlining<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L13"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Proc_Inlining :: <span class="keyword-type">enum</span> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {
+<pre class="doc-code">Proc_Inlining :: <span class="keyword-type">enum</span> <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> {
 	None      = 0, 
 	Inline    = 1, 
 	No_Inline = 2, 
@@ -2161,7 +2158,7 @@ Procedure Groups (2)</summary>
 <div class="pkg-entity">
 <h3 id="Proc_Tag"><span><a class="doc-id-link" href="#Proc_Tag">Proc_Tag<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L5"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Proc_Tag :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Proc_Tag :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	Bounds_Check, 
 	No_Bounds_Check, 
 	Optional_Ok, 
@@ -2172,7 +2169,7 @@ Procedure Groups (2)</summary>
 <div class="pkg-entity">
 <h3 id="Proc_Tags"><span><a class="doc-id-link" href="#Proc_Tags">Proc_Tags<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L11"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Proc_Tags :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/odin/ast/#Proc_Tag">Proc_Tag</a>; <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>]</pre>
+<pre class="doc-code">Proc_Tags :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/odin/ast/#Proc_Tag">Proc_Tag</a>; <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>]</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -2186,8 +2183,8 @@ Procedure Groups (2)</summary>
 	arrow:              odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
 	results:            ^<a class="code-typename" href="/core/odin/ast/#Field_List">Field_List</a>,
 	tags:               <a class="code-typename" href="/core/odin/ast/#Proc_Tags">Proc_Tags</a>,
-	generic:            <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
-	diverging:          <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	generic:            <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	diverging:          <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 }</pre>
 </div>
 <h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
@@ -2217,7 +2214,7 @@ Procedure Groups (2)</summary>
 	in_pos:  odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
 	expr:    ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
 	body:    ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
-	reverse: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	reverse: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 }</pre>
 </div>
 <h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
@@ -2235,7 +2232,7 @@ Procedure Groups (2)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Relative_Type"><span><a class="doc-id-link" href="#Relative_Type">Relative_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L826"><em>Source</em></a></div></h3>
+<h3 id="Relative_Type"><span><a class="doc-id-link" href="#Relative_Type">Relative_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L827"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Relative_Type :: <span class="keyword-type">struct</span> {
 	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
@@ -2288,7 +2285,7 @@ Procedure Groups (2)</summary>
 	<span class="keyword-type">using</span> node:    <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
 	expr:          ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
 	call:          ^<a class="code-typename" href="/core/odin/ast/#Call_Expr">Call_Expr</a>,
-	modified_call: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	modified_call: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 }</pre>
 </div>
 <h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
@@ -2392,13 +2389,14 @@ Procedure Groups (2)</summary>
 	tok_pos:       odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
 	poly_params:   ^<a class="code-typename" href="/core/odin/ast/#Field_List">Field_List</a>,
 	align:         ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
+	field_align:   ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
 	where_token:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
 	where_clauses: []^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
-	is_packed:     <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
-	is_raw_union:  <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
-	is_no_copy:    <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	is_packed:     <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	is_raw_union:  <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	is_no_copy:    <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 	fields:        ^<a class="code-typename" href="/core/odin/ast/#Field_List">Field_List</a>,
-	name_count:    <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	name_count:    <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 }</pre>
 </div>
 <h6>Procedures Through `using` From <a href="/core/odin/ast/#Expr">Expr</a></h6>
@@ -2427,7 +2425,7 @@ Procedure Groups (2)</summary>
 	init:       ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
 	cond:       ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
 	body:       ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
-	partial:    <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	partial:    <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 }</pre>
 </div>
 <h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
@@ -2450,7 +2448,7 @@ Procedure Groups (2)</summary>
 <pre class="doc-code">Tag_Expr :: <span class="keyword-type">struct</span> {
 	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
 	op:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
-	name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
 	expr: ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
 }</pre>
 </div>
@@ -2476,7 +2474,7 @@ Procedure Groups (2)</summary>
 <pre class="doc-code">Tag_Stmt :: <span class="keyword-type">struct</span> {
 	<span class="keyword-type">using</span> node: <a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
 	op:   odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token">Token</a>,
-	name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
 	stmt: ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
 }</pre>
 </div>
@@ -2616,7 +2614,7 @@ Procedure Groups (2)</summary>
 	tag:        ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
 	expr:       ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
 	body:       ^<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>,
-	partial:    <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	partial:    <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 }</pre>
 </div>
 <h6>Procedures Through `using` From <a href="/core/odin/ast/#Stmt">Stmt</a></h6>
@@ -2712,7 +2710,7 @@ Procedure Groups (2)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Union_Type"><span><a class="doc-id-link" href="#Union_Type">Union_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L787"><em>Source</em></a></div></h3>
+<h3 id="Union_Type"><span><a class="doc-id-link" href="#Union_Type">Union_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L788"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Union_Type :: <span class="keyword-type">struct</span> {
 	<span class="keyword-type">using</span> node:    <a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
@@ -2742,9 +2740,9 @@ Procedure Groups (2)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Union_Type_Kind"><span><a class="doc-id-link" href="#Union_Type_Kind">Union_Type_Kind<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L780"><em>Source</em></a></div></h3>
+<h3 id="Union_Type_Kind"><span><a class="doc-id-link" href="#Union_Type_Kind">Union_Type_Kind<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L781"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Union_Type_Kind :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+<pre class="doc-code">Union_Type_Kind :: <span class="keyword-type">enum</span> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	Normal, 
 	maybe, 
 	no_nil, 
@@ -2786,8 +2784,8 @@ Procedure Groups (2)</summary>
 	type:       ^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
 	values:     []^<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>,
 	comment:    ^<a class="code-typename" href="/core/odin/ast/#Comment_Group">Comment_Group</a>,
-	is_using:   <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
-	is_mutable: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	is_using:   <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	is_mutable: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 }</pre>
 </div>
 <h6>Procedures Through `using` From <a href="/core/odin/ast/#Decl">Decl</a></h6>
@@ -2813,7 +2811,7 @@ Procedure Groups (2)</summary>
 <div>
 <pre class="doc-code">Visitor :: <span class="keyword-type">struct</span> {
 	visit: <span class="keyword-type">proc</span>(visitor: ^<a class="code-typename" href="/core/odin/ast/#Visitor">Visitor</a>, node: ^<a class="code-typename" href="/core/odin/ast/#Node">Node</a>) -> ^<a class="code-typename" href="/core/odin/ast/#Visitor">Visitor</a>,
-	data:  <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>,
+	data:  <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>,
 }</pre>
 </div>
 <details class="odin-doc-toggle" open>
@@ -2887,14 +2885,14 @@ followed by a call of v.visit(v, nil)</p>
 <div class="pkg-entity">
 <h3 id="field_flag_strings"><span><a class="doc-id-link" href="#field_flag_strings">field_flag_strings<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L607"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">field_flag_strings: [<a class="code-typename" href="/core/odin/ast/#Field_Flag">Field_Flag</a>]<a href="/core/builtin#string"><span class="doc-builtin">string</span></a> = …</pre>
+<pre class="doc-code">field_flag_strings: [<a class="code-typename" href="/core/odin/ast/#Field_Flag">Field_Flag</a>]<a href="/base/builtin#string"><span class="doc-builtin">string</span></a> = …</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="field_hash_flag_strings"><span><a class="doc-id-link" href="#field_hash_flag_strings">field_hash_flag_strings<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/ast.odin#L626"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">field_hash_flag_strings: []<span class="keyword-type">struct</span> {
-	key:  <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	key:  <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
 	flag: <a class="code-typename" href="/core/odin/ast/#Field_Flag">Field_Flag</a>,
 } = …</pre>
 </div>
@@ -2939,7 +2937,7 @@ followed by a call of v.visit(v, nil)</p>
 <div class="pkg-entity">
 <h3 id="inspect"><span><a class="doc-id-link" href="#inspect">inspect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/walk.odin#L18"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">inspect :: <span class="keyword-type">proc</span>(node: ^<a class="code-typename" href="/core/odin/ast/#Node">Node</a>, f: <span class="keyword-type">proc</span>(_: ^<a class="code-typename" href="/core/odin/ast/#Node">Node</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">inspect :: <span class="keyword-type">proc</span>(node: ^<a class="code-typename" href="/core/odin/ast/#Node">Node</a>, f: <span class="keyword-type">proc</span>(_: ^<a class="code-typename" href="/core/odin/ast/#Node">Node</a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -2952,13 +2950,13 @@ followed by a call of f(nil)</p>
 <div class="pkg-entity">
 <h3 id="new_from_pos_and_end_node"><span><a class="doc-id-link" href="#new_from_pos_and_end_node">new_from_pos_and_end_node<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/clone.odin#L26"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">new_from_pos_and_end_node :: <span class="keyword-type">proc</span>($T: <a href="/core/builtin#typeid"><span class="doc-builtin">typeid</span></a>, pos: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>, end: ^<a class="code-typename" href="/core/odin/ast/#Node">Node</a>) -> ^<a href="/core/builtin#typeid"><span class="doc-builtin">typeid</span></a> {…}</pre>
+<pre class="doc-code">new_from_pos_and_end_node :: <span class="keyword-type">proc</span>($T: <a href="/base/builtin#typeid"><span class="doc-builtin">typeid</span></a>, pos: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>, end: ^<a class="code-typename" href="/core/odin/ast/#Node">Node</a>) -> ^<a href="/base/builtin#typeid"><span class="doc-builtin">typeid</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="new_from_positions"><span><a class="doc-id-link" href="#new_from_positions">new_from_positions<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/clone.odin#L10"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">new_from_positions :: <span class="keyword-type">proc</span>($T: <a href="/core/builtin#typeid"><span class="doc-builtin">typeid</span></a>, pos, end: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>) -> ^<a href="/core/builtin#typeid"><span class="doc-builtin">typeid</span></a> {…}</pre>
+<pre class="doc-code">new_from_positions :: <span class="keyword-type">proc</span>($T: <a href="/base/builtin#typeid"><span class="doc-builtin">typeid</span></a>, pos, end: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>) -> ^<a href="/base/builtin#typeid"><span class="doc-builtin">typeid</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -3022,7 +3020,7 @@ each of the non-nil children of node, followed by a call of the new visit proced
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/ast/walk.odin">walk.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.270092900 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.081940400 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

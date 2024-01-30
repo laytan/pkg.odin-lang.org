@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -301,7 +298,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="Compression"><span><a class="doc-id-link" href="#Compression">Compression<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/gzip/gzip.odin#L88"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Compression :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+<pre class="doc-code">Compression :: <span class="keyword-type">enum</span> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	DEFLATE = 8, 
 }</pre>
 </div>
@@ -309,7 +306,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="Compression_Flags"><span><a class="doc-id-link" href="#Compression_Flags">Compression_Flags<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/gzip/gzip.odin#L92"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Compression_Flags :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+<pre class="doc-code">Compression_Flags :: <span class="keyword-type">enum</span> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	Maximum_Compression = 2, 
 	Fastest_Compression = 4, 
 }</pre>
@@ -352,7 +349,7 @@ Procedure Groups (1)</summary>
 	magic:              <a class="code-typename" href="/core/compress/gzip/#Magic">Magic</a>,
 	compression_method: <a class="code-typename" href="/core/compress/gzip/#Compression">Compression</a>,
 	flags:              <a class="code-typename" href="/core/compress/gzip/#Header_Flags">Header_Flags</a>,
-	modification_time:  <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
+	modification_time:  <a href="/base/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
 	xfl:                <a class="code-typename" href="/core/compress/gzip/#Compression_Flags">Compression_Flags</a>,
 	os:                 <a class="code-typename" href="/core/compress/gzip/#OS">OS</a>,
 }</pre>
@@ -361,7 +358,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="Header_Flag"><span><a class="doc-id-link" href="#Header_Flag">Header_Flag<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/gzip/gzip.odin#L38"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Header_Flag :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+<pre class="doc-code">Header_Flag :: <span class="keyword-type">enum</span> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	<span class="comment">// Order is important</span>
 	text       = 0, 
 	header_crc = 1, 
@@ -377,13 +374,13 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="Header_Flags"><span><a class="doc-id-link" href="#Header_Flags">Header_Flags<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/gzip/gzip.odin#L49"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Header_Flags :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/compress/gzip/#Header_Flag">Header_Flag</a>; <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>]</pre>
+<pre class="doc-code">Header_Flags :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/compress/gzip/#Header_Flag">Header_Flag</a>; <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>]</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="Magic"><span><a class="doc-id-link" href="#Magic">Magic<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/gzip/gzip.odin#L24"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Magic :: <span class="keyword-type">enum</span> <a href="/core/builtin#u16le"><span class="doc-builtin">u16le</span></a> {
+<pre class="doc-code">Magic :: <span class="keyword-type">enum</span> <a href="/base/builtin#u16le"><span class="doc-builtin">u16le</span></a> {
 	GZIP = 35615, 
 }</pre>
 </div>
@@ -391,7 +388,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="OS"><span><a class="doc-id-link" href="#OS">OS<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/gzip/gzip.odin#L51"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">OS :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+<pre class="doc-code">OS :: <span class="keyword-type">enum</span> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	FAT          = 0, 
 	Amiga        = 1, 
 	VMS          = 2, 
@@ -421,7 +418,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="OS_Name"><span><a class="doc-id-link" href="#OS_Name">OS_Name<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/gzip/gzip.odin#L69"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">OS_Name: [<a class="code-typename" href="/core/compress/gzip/#OS">OS</a>]<a href="/core/builtin#string"><span class="doc-builtin">string</span></a> : [OS]string{._Unknown = "", .FAT = "FAT", .Amiga = "Amiga", .VMS = "VMS/OpenVMS", .Unix = "Unix", .VM_CMS = "VM/CMS", .Atari_TOS = "Atari TOS", .HPFS = "HPFS", .Macintosh = "Macintosh", .Z_System = "Z-System", .CP_M = "CP/M", .TOPS_20 = "TOPS-20", .NTFS = "NTFS", .QDOS = "QDOS", .Acorn_RISCOS = "Acorn RISCOS", .Unknown = "Unknown"}</pre>
+<pre class="doc-code">OS_Name: [<a class="code-typename" href="/core/compress/gzip/#OS">OS</a>]<a href="/base/builtin#string"><span class="doc-builtin">string</span></a> : [OS]string{._Unknown = "", .FAT = "FAT", .Amiga = "Amiga", .VMS = "VMS/OpenVMS", .Unix = "Unix", .VM_CMS = "VM/CMS", .Atari_TOS = "Atari TOS", .HPFS = "HPFS", .Macintosh = "Macintosh", .Z_System = "Z-System", .CP_M = "CP/M", .TOPS_20 = "TOPS-20", .NTFS = "NTFS", .QDOS = "QDOS", .Acorn_RISCOS = "Acorn RISCOS", .Unknown = "Unknown"}</pre>
 </div>
 </div>
 <h2 id="pkg-Variables" class="pkg-header">Variables</h2>
@@ -430,19 +427,19 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="load_from_bytes"><span><a class="doc-id-link" href="#load_from_bytes">load_from_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/gzip/gzip.odin#L120"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">load_from_bytes :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, buf: ^bytes.<a class="code-typename" href="/core/bytes/#Buffer">Buffer</a>, known_gzip_size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = -1, expected_output_size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = -1, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">load_from_bytes :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, buf: ^bytes.<a class="code-typename" href="/core/bytes/#Buffer">Buffer</a>, known_gzip_size: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = -1, expected_output_size: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = -1, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="load_from_context"><span><a class="doc-id-link" href="#load_from_context">load_from_context<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/gzip/gzip.odin#L130"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">load_from_context :: <span class="keyword-type">proc</span>(z: ^$T, buf: ^bytes.<a class="code-typename" href="/core/bytes/#Buffer">Buffer</a>, known_gzip_size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = -1, expected_output_size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = -1, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">load_from_context :: <span class="keyword-type">proc</span>(z: ^$T, buf: ^bytes.<a class="code-typename" href="/core/bytes/#Buffer">Buffer</a>, known_gzip_size: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = -1, expected_output_size: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = -1, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="load_from_file"><span><a class="doc-id-link" href="#load_from_file">load_from_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/gzip/gzip.odin#L107"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">load_from_file :: <span class="keyword-type">proc</span>(filename: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, buf: ^bytes.<a class="code-typename" href="/core/bytes/#Buffer">Buffer</a>, expected_output_size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = -1, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">load_from_file :: <span class="keyword-type">proc</span>(filename: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, buf: ^bytes.<a class="code-typename" href="/core/bytes/#Buffer">Buffer</a>, expected_output_size: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = -1, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
@@ -463,7 +460,7 @@ Procedure Groups (1)</summary>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/gzip/gzip.odin">gzip.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.001684100 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.321510600 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

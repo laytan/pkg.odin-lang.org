@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -354,13 +351,13 @@ Procedure Groups (4)</summary>
 <div class="pkg-entity">
 <h3 id="final"><span><a class="doc-id-link" href="#final">final<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L375"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">final :: <span class="keyword-type">proc</span>(ctx: ^_sha3.<a class="code-typename" href="//#Sha3_Context">Sha3_Context</a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">final :: <span class="keyword-type">proc</span>(ctx: ^_sha3.<a class="code-typename" href="//#Sha3_Context">Sha3_Context</a>, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="hash_bytes_224"><span><a class="doc-id-link" href="#hash_bytes_224">hash_bytes_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L36"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_bytes_224 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [28]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">hash_bytes_224 :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [28]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -371,7 +368,7 @@ computed hash</p>
 <div class="pkg-entity">
 <h3 id="hash_bytes_256"><span><a class="doc-id-link" href="#hash_bytes_256">hash_bytes_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L119"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_bytes_256 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">hash_bytes_256 :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [32]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -382,7 +379,7 @@ computed hash</p>
 <div class="pkg-entity">
 <h3 id="hash_bytes_384"><span><a class="doc-id-link" href="#hash_bytes_384">hash_bytes_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L202"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_bytes_384 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [48]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">hash_bytes_384 :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [48]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -393,7 +390,7 @@ computed hash</p>
 <div class="pkg-entity">
 <h3 id="hash_bytes_512"><span><a class="doc-id-link" href="#hash_bytes_512">hash_bytes_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L285"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_bytes_512 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [64]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">hash_bytes_512 :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [64]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -404,7 +401,7 @@ computed hash</p>
 <div class="pkg-entity">
 <h3 id="hash_bytes_to_buffer_224"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_224">hash_bytes_to_buffer_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L57"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_bytes_to_buffer_224 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">hash_bytes_to_buffer_224 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -416,7 +413,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 <div class="pkg-entity">
 <h3 id="hash_bytes_to_buffer_256"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_256">hash_bytes_to_buffer_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L140"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_bytes_to_buffer_256 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">hash_bytes_to_buffer_256 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -428,7 +425,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 <div class="pkg-entity">
 <h3 id="hash_bytes_to_buffer_384"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_384">hash_bytes_to_buffer_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L223"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_bytes_to_buffer_384 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">hash_bytes_to_buffer_384 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -440,7 +437,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 <div class="pkg-entity">
 <h3 id="hash_bytes_to_buffer_512"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_512">hash_bytes_to_buffer_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L306"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_bytes_to_buffer_512 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">hash_bytes_to_buffer_512 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -452,7 +449,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 <div class="pkg-entity">
 <h3 id="hash_file_224"><span><a class="doc-id-link" href="#hash_file_224">hash_file_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L91"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_file_224 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([28]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">hash_file_224 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([28]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -463,7 +460,7 @@ and compute a hash</p>
 <div class="pkg-entity">
 <h3 id="hash_file_256"><span><a class="doc-id-link" href="#hash_file_256">hash_file_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L174"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_file_256 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">hash_file_256 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([32]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -474,7 +471,7 @@ and compute a hash</p>
 <div class="pkg-entity">
 <h3 id="hash_file_384"><span><a class="doc-id-link" href="#hash_file_384">hash_file_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L257"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_file_384 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([48]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">hash_file_384 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([48]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -485,7 +482,7 @@ and compute a hash</p>
 <div class="pkg-entity">
 <h3 id="hash_file_512"><span><a class="doc-id-link" href="#hash_file_512">hash_file_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L340"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_file_512 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([64]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">hash_file_512 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([64]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -496,7 +493,7 @@ and compute a hash</p>
 <div class="pkg-entity">
 <h3 id="hash_stream_224"><span><a class="doc-id-link" href="#hash_stream_224">hash_stream_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L68"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_stream_224 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([28]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">hash_stream_224 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([28]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -507,7 +504,7 @@ hash from its contents</p>
 <div class="pkg-entity">
 <h3 id="hash_stream_256"><span><a class="doc-id-link" href="#hash_stream_256">hash_stream_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L151"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_stream_256 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">hash_stream_256 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([32]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -518,7 +515,7 @@ hash from its contents</p>
 <div class="pkg-entity">
 <h3 id="hash_stream_384"><span><a class="doc-id-link" href="#hash_stream_384">hash_stream_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L234"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_stream_384 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([48]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">hash_stream_384 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([48]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -529,7 +526,7 @@ hash from its contents</p>
 <div class="pkg-entity">
 <h3 id="hash_stream_512"><span><a class="doc-id-link" href="#hash_stream_512">hash_stream_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L317"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_stream_512 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([64]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">hash_stream_512 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([64]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -540,7 +537,7 @@ hash from its contents</p>
 <div class="pkg-entity">
 <h3 id="hash_string_224"><span><a class="doc-id-link" href="#hash_string_224">hash_string_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L30"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_string_224 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [28]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">hash_string_224 :: <span class="keyword-type">proc</span>(data: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> [28]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -551,7 +548,7 @@ computed hash</p>
 <div class="pkg-entity">
 <h3 id="hash_string_256"><span><a class="doc-id-link" href="#hash_string_256">hash_string_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L113"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_string_256 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">hash_string_256 :: <span class="keyword-type">proc</span>(data: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> [32]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -562,7 +559,7 @@ computed hash</p>
 <div class="pkg-entity">
 <h3 id="hash_string_384"><span><a class="doc-id-link" href="#hash_string_384">hash_string_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L196"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_string_384 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [48]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">hash_string_384 :: <span class="keyword-type">proc</span>(data: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> [48]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -573,7 +570,7 @@ computed hash</p>
 <div class="pkg-entity">
 <h3 id="hash_string_512"><span><a class="doc-id-link" href="#hash_string_512">hash_string_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L279"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_string_512 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [64]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">hash_string_512 :: <span class="keyword-type">proc</span>(data: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> [64]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -584,7 +581,7 @@ computed hash</p>
 <div class="pkg-entity">
 <h3 id="hash_string_to_buffer_224"><span><a class="doc-id-link" href="#hash_string_to_buffer_224">hash_string_to_buffer_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L50"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_string_to_buffer_224 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">hash_string_to_buffer_224 :: <span class="keyword-type">proc</span>(data: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -596,7 +593,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 <div class="pkg-entity">
 <h3 id="hash_string_to_buffer_256"><span><a class="doc-id-link" href="#hash_string_to_buffer_256">hash_string_to_buffer_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L133"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_string_to_buffer_256 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">hash_string_to_buffer_256 :: <span class="keyword-type">proc</span>(data: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -608,7 +605,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 <div class="pkg-entity">
 <h3 id="hash_string_to_buffer_384"><span><a class="doc-id-link" href="#hash_string_to_buffer_384">hash_string_to_buffer_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L216"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_string_to_buffer_384 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">hash_string_to_buffer_384 :: <span class="keyword-type">proc</span>(data: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -620,7 +617,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 <div class="pkg-entity">
 <h3 id="hash_string_to_buffer_512"><span><a class="doc-id-link" href="#hash_string_to_buffer_512">hash_string_to_buffer_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L299"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_string_to_buffer_512 :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">hash_string_to_buffer_512 :: <span class="keyword-type">proc</span>(data: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -638,7 +635,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 <div class="pkg-entity">
 <h3 id="update"><span><a class="doc-id-link" href="#update">update<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin#L371"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">update :: <span class="keyword-type">proc</span>(ctx: ^_sha3.<a class="code-typename" href="//#Sha3_Context">Sha3_Context</a>, data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">update :: <span class="keyword-type">proc</span>(ctx: ^_sha3.<a class="code-typename" href="//#Sha3_Context">Sha3_Context</a>, data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
@@ -704,7 +701,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/legacy/keccak/keccak.odin">keccak.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.149491200 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.190032600 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

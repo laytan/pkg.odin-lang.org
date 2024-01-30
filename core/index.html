@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a class="active" href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -237,7 +234,6 @@
 <div>
 	<table class="doc-directory mt-4 mb-4">
 		<tbody>
-<tr id="pkg-builtin" class="directory-pkg"><td class="pkg-name"><a href="/core/builtin">builtin</a></td><td class="pkg-line pkg-line-doc">package builtin provides documentation for Odin's predeclared identifiers.</td></tr>
 <tr id="pkg-bufio" class="directory-pkg"><td class="pkg-name"><a href="/core/bufio">bufio</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
 <tr id="pkg-bytes" class="directory-pkg"><td class="pkg-name"><a href="/core/bytes">bytes</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
 <tr aria-controls="pkg-c_frontend_preprocess pkg-c_frontend_tokenizer pkg-libc " class="directory-pkg"><td class="pkg-line pkg-name" data-aria-owns="pkg-c_frontend_preprocess pkg-c_frontend_tokenizer pkg-libc " id="pkg-c"><a href="/core/c">c</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
@@ -272,11 +268,10 @@
 <tr id="pkg-x25519" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/crypto/x25519/">x25519</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
 <tr aria-controls="pkg-debug_pe " class="directory-pkg"><td class="pkg-line pkg-name" data-aria-owns="pkg-debug_pe " id="pkg-debug">debug</td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
 <tr id="pkg-debug_pe" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/debug/pe/">pe</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
-<tr id="pkg-dynlib" class="directory-pkg"><td class="pkg-name"><a href="/core/dynlib">dynlib</a></td><td class="pkg-line pkg-line-doc">Package core:dynlib implements loading of shared libraries/DLLs and their symbols.</td></tr>
-<tr aria-controls="pkg-base32 pkg-base64 pkg-cbor pkg-csv pkg-encoding_endian pkg-unicode_entity pkg-hex pkg-encoding_hxa pkg-json pkg-varint pkg-xml " class="directory-pkg"><td class="pkg-line pkg-name" data-aria-owns="pkg-base32 pkg-base64 pkg-cbor pkg-csv pkg-encoding_endian pkg-unicode_entity pkg-hex pkg-encoding_hxa pkg-json pkg-varint pkg-xml " id="pkg-encoding">encoding</td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
+<tr id="pkg-dynlib" class="directory-pkg"><td class="pkg-name"><a href="/core/dynlib">dynlib</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
+<tr aria-controls="pkg-base32 pkg-base64 pkg-csv pkg-encoding_endian pkg-unicode_entity pkg-hex pkg-encoding_hxa pkg-json pkg-varint pkg-xml " class="directory-pkg"><td class="pkg-line pkg-name" data-aria-owns="pkg-base32 pkg-base64 pkg-csv pkg-encoding_endian pkg-unicode_entity pkg-hex pkg-encoding_hxa pkg-json pkg-varint pkg-xml " id="pkg-encoding">encoding</td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
 <tr id="pkg-base32" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/encoding/base32/">base32</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
 <tr id="pkg-base64" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/encoding/base64/">base64</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
-<tr id="pkg-cbor" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/encoding/cbor/">cbor</a></td><td class="pkg-line pkg-line-doc">Package cbor encodes, decodes, marshals and unmarshals types from/into RCF 8949 compatible CBOR binary.</td></td></tr>
 <tr id="pkg-csv" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/encoding/csv/">csv</a></td><td class="pkg-line pkg-line-doc">package csv reads and writes comma-separated values (CSV) files.</td></td></tr>
 <tr id="pkg-encoding_endian" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/encoding/endian/">endian</a></td><td class="pkg-line pkg-line-doc">Package endian implements a simple translation between bytes and numbers with</td></td></tr>
 <tr id="pkg-unicode_entity" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/encoding/entity/">entity</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
@@ -284,7 +279,7 @@
 <tr id="pkg-encoding_hxa" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/encoding/hxa/">hxa</a></td><td class="pkg-line pkg-line-doc">Implementation of the HxA 3D asset format</td></td></tr>
 <tr id="pkg-json" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/encoding/json/">json</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></td></tr>
 <tr id="pkg-varint" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/encoding/varint/">varint</a></td><td class="pkg-line pkg-line-doc">Implementation of the LEB128 variable integer encoding as used by DWARF encoding and DEX files, among others.</td></td></tr>
-<tr id="pkg-xml" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/encoding/xml/">xml</a></td><td class="pkg-line pkg-line-doc">An XML 1.0 / 1.1 parser</td></td></tr>
+<tr id="pkg-xml" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/encoding/xml/">xml</a></td><td class="pkg-line pkg-line-doc">XML 1.0 / 1.1 parser</td></td></tr>
 <tr id="pkg-fmt" class="directory-pkg"><td class="pkg-name"><a href="/core/fmt">fmt</a></td><td class="pkg-line pkg-line-doc">package fmt implemented formatted I/O with procedures similar to C's printf and Python's format.</td></tr>
 <tr aria-controls="pkg-xxhash " class="directory-pkg"><td class="pkg-line pkg-name" data-aria-owns="pkg-xxhash " id="pkg-hash"><a href="/core/hash">hash</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
 <tr id="pkg-xxhash" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/hash/xxhash/">xxhash</a></td><td class="pkg-line pkg-line-doc">An implementation of Yann Collet's [xxhash Fast Hash Algorithm](https://cyan4973.github.io/xxHash/).</td></td></tr>
@@ -323,7 +318,6 @@
 <tr aria-controls="pkg-spall " class="directory-pkg"><td class="pkg-line pkg-name" data-aria-owns="pkg-spall " id="pkg-prof">prof</td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
 <tr id="pkg-spall" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/prof/spall/">spall</a></td><td class="pkg-line pkg-line-doc">import "core:prof/spall"</td></td></tr>
 <tr id="pkg-reflect" class="directory-pkg"><td class="pkg-name"><a href="/core/reflect">reflect</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
-<tr id="pkg-runtime" class="directory-pkg"><td class="pkg-name"><a href="/core/runtime">runtime</a></td><td class="pkg-line pkg-line-doc">This is the runtime code required by the compiler</td></tr>
 <tr id="pkg-simd" class="directory-pkg"><td class="pkg-name"><a href="/core/simd">simd</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
 <tr aria-controls="pkg-heap " class="directory-pkg"><td class="pkg-line pkg-name" data-aria-owns="pkg-heap " id="pkg-slice"><a href="/core/slice">slice</a></td><td class="pkg-line pkg-line-doc">&nbsp;</td></tr>
 <tr id="pkg-heap" class="directory-pkg directory-child"><td class="pkg-line pkg-name"><a href="/core/slice/heap/">heap</a></td><td class="pkg-line pkg-line-doc">Package implements a generic max heap in-place on a slice for any type.</td></td></tr>

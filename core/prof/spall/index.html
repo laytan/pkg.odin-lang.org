@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -325,12 +322,12 @@ Procedure Groups (1)</summary>
 <div>
 <pre class="doc-code">Begin_Event :: <span class="keyword-type">struct</span> <span class="directive">#packed</span> {
 	type:     <a class="code-typename" href="/core/prof/spall/#Manual_Event_Type">Manual_Event_Type</a>,
-	category: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
-	pid:      <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
-	tid:      <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
-	ts:       <a href="/core/builtin#f64le"><span class="doc-builtin">f64le</span></a>,
-	name_len: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
-	args_len: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	category: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	pid:      <a href="/base/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
+	tid:      <a href="/base/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
+	ts:       <a href="/base/builtin#f64le"><span class="doc-builtin">f64le</span></a>,
+	name_len: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	args_len: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
 }</pre>
 </div>
 </div>
@@ -338,10 +335,10 @@ Procedure Groups (1)</summary>
 <h3 id="Buffer"><span><a class="doc-id-link" href="#Buffer">Buffer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/prof/spall/spall.odin#L60"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Buffer :: <span class="keyword-type">struct</span> {
-	data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
-	head: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	tid:  <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
-	pid:  <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	head: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	tid:  <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	pid:  <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -359,8 +356,8 @@ Procedure Groups (1)</summary>
 <h3 id="Context"><span><a class="doc-id-link" href="#Context">Context<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/prof/spall/spall.odin#L54"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Context :: <span class="keyword-type">struct</span> {
-	precise_time:    <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
-	timestamp_scale: <a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a>,
+	precise_time:    <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	timestamp_scale: <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a>,
 	fd:              os.<a class="code-typename" href="/core/os/#Handle">Handle</a>,
 }</pre>
 </div>
@@ -383,16 +380,16 @@ Procedure Groups (1)</summary>
 <div>
 <pre class="doc-code">End_Event :: <span class="keyword-type">struct</span> <span class="directive">#packed</span> {
 	type: <a class="code-typename" href="/core/prof/spall/#Manual_Event_Type">Manual_Event_Type</a>,
-	pid:  <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
-	tid:  <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
-	ts:   <a href="/core/builtin#f64le"><span class="doc-builtin">f64le</span></a>,
+	pid:  <a href="/base/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
+	tid:  <a href="/base/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
+	ts:   <a href="/base/builtin#f64le"><span class="doc-builtin">f64le</span></a>,
 }</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="Manual_Event_Type"><span><a class="doc-id-link" href="#Manual_Event_Type">Manual_Event_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/prof/spall/spall.odin#L19"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Manual_Event_Type :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+<pre class="doc-code">Manual_Event_Type :: <span class="keyword-type">enum</span> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	Invalid  = 0, 
 	Begin    = 3, 
 	End      = 4, 
@@ -405,10 +402,10 @@ Procedure Groups (1)</summary>
 <h3 id="Manual_Header"><span><a class="doc-id-link" href="#Manual_Header">Manual_Header<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/prof/spall/spall.odin#L12"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Manual_Header :: <span class="keyword-type">struct</span> <span class="directive">#packed</span> {
-	magic:           <a href="/core/builtin#u64le"><span class="doc-builtin">u64le</span></a>,
-	version:         <a href="/core/builtin#u64le"><span class="doc-builtin">u64le</span></a>,
-	timestamp_scale: <a href="/core/builtin#f64le"><span class="doc-builtin">f64le</span></a>,
-	reserved:        <a href="/core/builtin#u64le"><span class="doc-builtin">u64le</span></a>,
+	magic:           <a href="/base/builtin#u64le"><span class="doc-builtin">u64le</span></a>,
+	version:         <a href="/base/builtin#u64le"><span class="doc-builtin">u64le</span></a>,
+	timestamp_scale: <a href="/base/builtin#f64le"><span class="doc-builtin">f64le</span></a>,
+	reserved:        <a href="/base/builtin#u64le"><span class="doc-builtin">u64le</span></a>,
 }</pre>
 </div>
 </div>
@@ -417,7 +414,7 @@ Procedure Groups (1)</summary>
 <div>
 <pre class="doc-code">Pad_Skip :: <span class="keyword-type">struct</span> <span class="directive">#packed</span> {
 	type: <a class="code-typename" href="/core/prof/spall/#Manual_Event_Type">Manual_Event_Type</a>,
-	size: <a href="/core/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
+	size: <a href="/base/builtin#u32le"><span class="doc-builtin">u32le</span></a>,
 }</pre>
 </div>
 </div>
@@ -446,13 +443,13 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="SCOPED_EVENT"><span><a class="doc-id-link" href="#SCOPED_EVENT">SCOPED_EVENT<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/prof/spall/spall.odin#L133"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">SCOPED_EVENT :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/prof/spall/#Context">Context</a>, buffer: ^<a class="code-typename" href="/core/prof/spall/#Buffer">Buffer</a>, name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, args: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> = "", location := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">SCOPED_EVENT :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/prof/spall/#Context">Context</a>, buffer: ^<a class="code-typename" href="/core/prof/spall/#Buffer">Buffer</a>, name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, args: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> = "", location := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="buffer_create"><span><a class="doc-id-link" href="#buffer_create">buffer_create<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/prof/spall/spall.odin#L104"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">buffer_create :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, tid: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> = 0, pid: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> = 0) -> (buffer: <a class="code-typename" href="/core/prof/spall/#Buffer">Buffer</a>, ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) <span class="directive">#optional_ok</span> {…}</pre>
+<pre class="doc-code">buffer_create :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, tid: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> = 0, pid: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> = 0) -> (buffer: <a class="code-typename" href="/core/prof/spall/#Buffer">Buffer</a>, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) <span class="directive">#optional_ok</span> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -470,13 +467,13 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="context_create_with_scale"><span><a class="doc-id-link" href="#context_create_with_scale">context_create_with_scale<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/prof/spall/spall.odin#L70"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">context_create_with_scale :: <span class="keyword-type">proc</span>(filename: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, precise_time: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>, timestamp_scale: <a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a>) -> (ctx: <a class="code-typename" href="/core/prof/spall/#Context">Context</a>, ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) <span class="directive">#optional_ok</span> {…}</pre>
+<pre class="doc-code">context_create_with_scale :: <span class="keyword-type">proc</span>(filename: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, precise_time: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>, timestamp_scale: <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a>) -> (ctx: <a class="code-typename" href="/core/prof/spall/#Context">Context</a>, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) <span class="directive">#optional_ok</span> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="context_create_with_sleep"><span><a class="doc-id-link" href="#context_create_with_sleep">context_create_with_sleep<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/prof/spall/spall.odin#L87"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">context_create_with_sleep :: <span class="keyword-type">proc</span>(filename: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, sleep: time.<a class="code-typename" href="/core/time/#Duration">Duration</a> = 2 * time.Second) -> (ctx: <a class="code-typename" href="/core/prof/spall/#Context">Context</a>, ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) <span class="directive">#optional_ok</span> {…}</pre>
+<pre class="doc-code">context_create_with_sleep :: <span class="keyword-type">proc</span>(filename: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, sleep: time.<a class="code-typename" href="/core/time/#Duration">Duration</a> = 2 * time.Second) -> (ctx: <a class="code-typename" href="/core/prof/spall/#Context">Context</a>, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) <span class="directive">#optional_ok</span> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -503,7 +500,7 @@ Procedure Groups (1)</summary>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/prof/spall/spall.odin">spall.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.150258800 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.171970900 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -311,13 +308,13 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="final"><span><a class="doc-id-link" href="#final">final<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/blake2s/blake2s.odin#L125"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">final :: <span class="keyword-type">proc</span>(ctx: ^_blake2.<a class="code-typename" href="//#Blake2s_Context">Blake2s_Context</a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">final :: <span class="keyword-type">proc</span>(ctx: ^_blake2.<a class="code-typename" href="//#Blake2s_Context">Blake2s_Context</a>, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="hash_bytes"><span><a class="doc-id-link" href="#hash_bytes">hash_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/blake2s/blake2s.odin#L33"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_bytes :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">hash_bytes :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [32]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -328,7 +325,7 @@ computed hash</p>
 <div class="pkg-entity">
 <h3 id="hash_bytes_to_buffer"><span><a class="doc-id-link" href="#hash_bytes_to_buffer">hash_bytes_to_buffer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/blake2s/blake2s.odin#L55"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_bytes_to_buffer :: <span class="keyword-type">proc</span>(data, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">hash_bytes_to_buffer :: <span class="keyword-type">proc</span>(data, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -340,7 +337,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 <div class="pkg-entity">
 <h3 id="hash_file"><span><a class="doc-id-link" href="#hash_file">hash_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/blake2s/blake2s.odin#L91"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_file :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">hash_file :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([32]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -351,7 +348,7 @@ and compute a hash</p>
 <div class="pkg-entity">
 <h3 id="hash_stream"><span><a class="doc-id-link" href="#hash_stream">hash_stream<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/blake2s/blake2s.odin#L67"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_stream :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">hash_stream :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([32]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -362,7 +359,7 @@ hash from its contents</p>
 <div class="pkg-entity">
 <h3 id="hash_string"><span><a class="doc-id-link" href="#hash_string">hash_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/blake2s/blake2s.odin#L27"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_string :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> [32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">hash_string :: <span class="keyword-type">proc</span>(data: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> [32]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -373,7 +370,7 @@ computed hash</p>
 <div class="pkg-entity">
 <h3 id="hash_string_to_buffer"><span><a class="doc-id-link" href="#hash_string_to_buffer">hash_string_to_buffer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/blake2s/blake2s.odin#L48"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_string_to_buffer :: <span class="keyword-type">proc</span>(data: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">hash_string_to_buffer :: <span class="keyword-type">proc</span>(data: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -391,7 +388,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 <div class="pkg-entity">
 <h3 id="update"><span><a class="doc-id-link" href="#update">update<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/blake2s/blake2s.odin#L121"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">update :: <span class="keyword-type">proc</span>(ctx: ^_blake2.<a class="code-typename" href="//#Blake2s_Context">Blake2s_Context</a>, data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">update :: <span class="keyword-type">proc</span>(ctx: ^_blake2.<a class="code-typename" href="//#Blake2s_Context">Blake2s_Context</a>, data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
@@ -415,7 +412,7 @@ It requires that the destination buffer is at least as big as the digest size</p
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/blake2s/blake2s.odin">blake2s.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.040425600 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.149200000 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

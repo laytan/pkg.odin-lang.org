@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -301,12 +298,12 @@ Procedure Groups (0)</summary>
 <h3 id="Decimal"><span><a class="doc-id-link" href="#Decimal">Decimal<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strconv/decimal/decimal.odin#L5"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Decimal :: <span class="keyword-type">struct</span> {
-	digits:        [384]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	digits:        [384]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
 	<span class="comment">// big-endian digits</span>
-	count:         <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	decimal_point: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	count:         <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	decimal_point: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 	neg,
-	trunc:         <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	trunc:         <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -333,7 +330,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="assign"><span><a class="doc-id-link" href="#assign">assign<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strconv/decimal/decimal.odin#L173"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">assign :: <span class="keyword-type">proc</span>(a: ^<a class="code-typename" href="/core/strconv/decimal/#Decimal">Decimal</a>, idx: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">assign :: <span class="keyword-type">proc</span>(a: ^<a class="code-typename" href="/core/strconv/decimal/#Decimal">Decimal</a>, idx: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -347,7 +344,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="can_round_up"><span><a class="doc-id-link" href="#can_round_up">can_round_up<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strconv/decimal/decimal.odin#L444"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">can_round_up :: <span class="keyword-type">proc</span>(a: ^<a class="code-typename" href="/core/strconv/decimal/#Decimal">Decimal</a>, nd: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">can_round_up :: <span class="keyword-type">proc</span>(a: ^<a class="code-typename" href="/core/strconv/decimal/#Decimal">Decimal</a>, nd: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -361,7 +358,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="decimal_to_string"><span><a class="doc-id-link" href="#decimal_to_string">decimal_to_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strconv/decimal/decimal.odin#L114"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">decimal_to_string :: <span class="keyword-type">proc</span>(buf: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, a: ^<a class="code-typename" href="/core/strconv/decimal/#Decimal">Decimal</a>) -> <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
+<pre class="doc-code">decimal_to_string :: <span class="keyword-type">proc</span>(buf: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, a: ^<a class="code-typename" href="/core/strconv/decimal/#Decimal">Decimal</a>) -> <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -376,13 +373,13 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="println"><span><a class="doc-id-link" href="#println">println<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strconv/decimal/decimal.odin#L253"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">println :: <span class="keyword-type">proc</span>(args: ..<a href="/core/builtin#any"><span class="doc-builtin">any</span></a>) {…}</pre>
+<pre class="doc-code">println :: <span class="keyword-type">proc</span>(args: ..<a href="/base/builtin#any"><span class="doc-builtin">any</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="round"><span><a class="doc-id-link" href="#round">round<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strconv/decimal/decimal.odin#L462"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">round :: <span class="keyword-type">proc</span>(a: ^<a class="code-typename" href="/core/strconv/decimal/#Decimal">Decimal</a>, nd: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">round :: <span class="keyword-type">proc</span>(a: ^<a class="code-typename" href="/core/strconv/decimal/#Decimal">Decimal</a>, nd: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -395,7 +392,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="round_down"><span><a class="doc-id-link" href="#round_down">round_down<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strconv/decimal/decimal.odin#L517"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">round_down :: <span class="keyword-type">proc</span>(a: ^<a class="code-typename" href="/core/strconv/decimal/#Decimal">Decimal</a>, nd: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">round_down :: <span class="keyword-type">proc</span>(a: ^<a class="code-typename" href="/core/strconv/decimal/#Decimal">Decimal</a>, nd: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -424,7 +421,7 @@ round_down_example :: proc() {
 <div class="pkg-entity">
 <h3 id="round_up"><span><a class="doc-id-link" href="#round_up">round_up<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strconv/decimal/decimal.odin#L477"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">round_up :: <span class="keyword-type">proc</span>(a: ^<a class="code-typename" href="/core/strconv/decimal/#Decimal">Decimal</a>, nd: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">round_up :: <span class="keyword-type">proc</span>(a: ^<a class="code-typename" href="/core/strconv/decimal/#Decimal">Decimal</a>, nd: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -437,7 +434,7 @@ round_down_example :: proc() {
 <div class="pkg-entity">
 <h3 id="rounded_integer"><span><a class="doc-id-link" href="#rounded_integer">rounded_integer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strconv/decimal/decimal.odin#L547"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">rounded_integer :: <span class="keyword-type">proc</span>(a: ^<a class="code-typename" href="/core/strconv/decimal/#Decimal">Decimal</a>) -> <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
+<pre class="doc-code">rounded_integer :: <span class="keyword-type">proc</span>(a: ^<a class="code-typename" href="/core/strconv/decimal/#Decimal">Decimal</a>) -> <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -465,7 +462,7 @@ rounded_integer_example :: proc() {
 <div class="pkg-entity">
 <h3 id="set"><span><a class="doc-id-link" href="#set">set<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strconv/decimal/decimal.odin#L22"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">set :: <span class="keyword-type">proc</span>(d: ^<a class="code-typename" href="/core/strconv/decimal/#Decimal">Decimal</a>, s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> (ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">set :: <span class="keyword-type">proc</span>(d: ^<a class="code-typename" href="/core/strconv/decimal/#Decimal">Decimal</a>, s: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> (ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -481,7 +478,7 @@ If parsing fails, the Decimal will be left in an undefined state.</p>
 <div class="pkg-entity">
 <h3 id="shift"><span><a class="doc-id-link" href="#shift">shift<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strconv/decimal/decimal.odin#L412"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">shift :: <span class="keyword-type">proc</span>(a: ^<a class="code-typename" href="/core/strconv/decimal/#Decimal">Decimal</a>, i: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">shift :: <span class="keyword-type">proc</span>(a: ^<a class="code-typename" href="/core/strconv/decimal/#Decimal">Decimal</a>, i: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -494,7 +491,7 @@ If parsing fails, the Decimal will be left in an undefined state.</p>
 <div class="pkg-entity">
 <h3 id="shift_left"><span><a class="doc-id-link" href="#shift_left">shift_left<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strconv/decimal/decimal.odin#L351"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">shift_left :: <span class="keyword-type">proc</span>(a: ^<a class="code-typename" href="/core/strconv/decimal/#Decimal">Decimal</a>, k: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) {…}</pre>
+<pre class="doc-code">shift_left :: <span class="keyword-type">proc</span>(a: ^<a class="code-typename" href="/core/strconv/decimal/#Decimal">Decimal</a>, k: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -508,7 +505,7 @@ If parsing fails, the Decimal will be left in an undefined state.</p>
 <div class="pkg-entity">
 <h3 id="shift_right"><span><a class="doc-id-link" href="#shift_right">shift_right<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/strconv/decimal/decimal.odin#L201"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">shift_right :: <span class="keyword-type">proc</span>(a: ^<a class="code-typename" href="/core/strconv/decimal/#Decimal">Decimal</a>, k: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) {…}</pre>
+<pre class="doc-code">shift_right :: <span class="keyword-type">proc</span>(a: ^<a class="code-typename" href="/core/strconv/decimal/#Decimal">Decimal</a>, k: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -539,7 +536,7 @@ If parsing fails, the Decimal will be left in an undefined state.</p>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/strconv/decimal/decimal.odin">decimal.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:14.923427100 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.012468700 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

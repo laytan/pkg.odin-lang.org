@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a class="active" href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -331,7 +328,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="Byte_Order"><span><a class="doc-id-link" href="#Byte_Order">Byte_Order<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L6"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Byte_Order :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+<pre class="doc-code">Byte_Order :: <span class="keyword-type">enum</span> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	Little, 
 	Big, 
 }</pre>
@@ -371,181 +368,181 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="get_f16"><span><a class="doc-id-link" href="#get_f16">get_f16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L79"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">get_f16 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>) -> (<a href="/core/builtin#f16"><span class="doc-builtin">f16</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">get_f16 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>) -> (<a href="/base/builtin#f16"><span class="doc-builtin">f16</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="get_f32"><span><a class="doc-id-link" href="#get_f32">get_f32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L83"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">get_f32 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>) -> (<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">get_f32 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>) -> (<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="get_f64"><span><a class="doc-id-link" href="#get_f64">get_f64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L87"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">get_f64 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>) -> (<a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">get_f64 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>) -> (<a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="get_i16"><span><a class="doc-id-link" href="#get_i16">get_i16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L66"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">get_i16 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>) -> (<a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">get_i16 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>) -> (<a href="/base/builtin#i16"><span class="doc-builtin">i16</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="get_i32"><span><a class="doc-id-link" href="#get_i32">get_i32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L70"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">get_i32 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>) -> (<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">get_i32 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>) -> (<a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="get_i64"><span><a class="doc-id-link" href="#get_i64">get_i64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L74"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">get_i64 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>) -> (<a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">get_i64 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>) -> (<a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="get_u16"><span><a class="doc-id-link" href="#get_u16">get_u16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L32"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">get_u16 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>) -> (v: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">get_u16 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>) -> (v: <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="get_u32"><span><a class="doc-id-link" href="#get_u32">get_u32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L43"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">get_u32 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>) -> (v: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">get_u32 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>) -> (v: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="get_u64"><span><a class="doc-id-link" href="#get_u64">get_u64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L54"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">get_u64 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>) -> (v: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">get_u64 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>) -> (v: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="put_f16"><span><a class="doc-id-link" href="#put_f16">put_f16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L155"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">put_f16 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>, v: <a href="/core/builtin#f16"><span class="doc-builtin">f16</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">put_f16 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>, v: <a href="/base/builtin#f16"><span class="doc-builtin">f16</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="put_f32"><span><a class="doc-id-link" href="#put_f32">put_f32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L158"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">put_f32 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>, v: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">put_f32 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>, v: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="put_f64"><span><a class="doc-id-link" href="#put_f64">put_f64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L161"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">put_f64 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>, v: <a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">put_f64 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>, v: <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="put_i16"><span><a class="doc-id-link" href="#put_i16">put_i16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L145"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">put_i16 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>, v: <a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">put_i16 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>, v: <a href="/base/builtin#i16"><span class="doc-builtin">i16</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="put_i32"><span><a class="doc-id-link" href="#put_i32">put_i32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L148"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">put_i32 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>, v: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">put_i32 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>, v: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="put_i64"><span><a class="doc-id-link" href="#put_i64">put_i64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L151"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">put_i64 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>, v: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">put_i64 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>, v: <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="put_u16"><span><a class="doc-id-link" href="#put_u16">put_u16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L111"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">put_u16 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>, v: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">put_u16 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>, v: <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="put_u32"><span><a class="doc-id-link" href="#put_u32">put_u32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L122"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">put_u32 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>, v: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">put_u32 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>, v: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="put_u64"><span><a class="doc-id-link" href="#put_u64">put_u64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L133"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">put_u64 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>, v: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">put_u64 :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, order: <a class="code-typename" href="/core/encoding/endian/#Byte_Order">Byte_Order</a>, v: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="unchecked_get_u16be"><span><a class="doc-id-link" href="#unchecked_get_u16be">unchecked_get_u16be<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L22"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">unchecked_get_u16be :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a> {…}</pre>
+<pre class="doc-code">unchecked_get_u16be :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="unchecked_get_u16le"><span><a class="doc-id-link" href="#unchecked_get_u16le">unchecked_get_u16le<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L13"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">unchecked_get_u16le :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a> {…}</pre>
+<pre class="doc-code">unchecked_get_u16le :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="unchecked_get_u32be"><span><a class="doc-id-link" href="#unchecked_get_u32be">unchecked_get_u32be<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L25"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">unchecked_get_u32be :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+<pre class="doc-code">unchecked_get_u32be :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="unchecked_get_u32le"><span><a class="doc-id-link" href="#unchecked_get_u32le">unchecked_get_u32le<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L16"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">unchecked_get_u32le :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+<pre class="doc-code">unchecked_get_u32le :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="unchecked_get_u64be"><span><a class="doc-id-link" href="#unchecked_get_u64be">unchecked_get_u64be<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L28"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">unchecked_get_u64be :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
+<pre class="doc-code">unchecked_get_u64be :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="unchecked_get_u64le"><span><a class="doc-id-link" href="#unchecked_get_u64le">unchecked_get_u64le<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L19"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">unchecked_get_u64le :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
+<pre class="doc-code">unchecked_get_u64le :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="unchecked_put_u16be"><span><a class="doc-id-link" href="#unchecked_put_u16be">unchecked_put_u16be<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L101"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">unchecked_put_u16be :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, v: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>) {…}</pre>
+<pre class="doc-code">unchecked_put_u16be :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, v: <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="unchecked_put_u16le"><span><a class="doc-id-link" href="#unchecked_put_u16le">unchecked_put_u16le<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L92"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">unchecked_put_u16le :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, v: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>) {…}</pre>
+<pre class="doc-code">unchecked_put_u16le :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, v: <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="unchecked_put_u32be"><span><a class="doc-id-link" href="#unchecked_put_u32be">unchecked_put_u32be<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L104"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">unchecked_put_u32be :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, v: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
+<pre class="doc-code">unchecked_put_u32be :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, v: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="unchecked_put_u32le"><span><a class="doc-id-link" href="#unchecked_put_u32le">unchecked_put_u32le<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L95"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">unchecked_put_u32le :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, v: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
+<pre class="doc-code">unchecked_put_u32le :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, v: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="unchecked_put_u64be"><span><a class="doc-id-link" href="#unchecked_put_u64be">unchecked_put_u64be<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L107"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">unchecked_put_u64be :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, v: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">unchecked_put_u64be :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, v: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="unchecked_put_u64le"><span><a class="doc-id-link" href="#unchecked_put_u64le">unchecked_put_u64le<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin#L98"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">unchecked_put_u64le :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, v: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">unchecked_put_u64le :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, v: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
@@ -557,7 +554,7 @@ Procedure Groups (0)</summary>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/endian/endian.odin">endian.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.151751300 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.015707800 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

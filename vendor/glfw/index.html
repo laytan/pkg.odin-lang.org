@@ -59,6 +59,14 @@
 </li>
 <li class="nav-item"><a href="/vendor/cgltf">cgltf</a></li>
 <li class="nav-item"><a href="/vendor/commonmark">commonmark</a></li>
+<li class="nav-item">darwin<ul>
+<li><a href="/vendor/darwin/Foundation">Foundation</a></li>
+<li><a href="/vendor/darwin/Metal">Metal</a></li>
+<li><a href="/vendor/darwin/MetalKit">MetalKit</a></li>
+<li><a href="/vendor/darwin/QuartzCore">QuartzCore</a></li>
+</ul>
+
+</li>
 <li class="nav-item">directx<ul>
 <li><a href="/vendor/directx/d3d11">d3d11</a></li>
 <li><a href="/vendor/directx/d3d12">d3d12</a></li>
@@ -2678,91 +2686,91 @@ Versions</p>
 <div class="pkg-entity">
 <h3 id="GetClipboardString"><span><a class="doc-id-link" href="#GetClipboardString">GetClipboardString<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L110"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetClipboardString :: <span class="keyword-type">proc</span> "c" (window: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#WindowHandle">WindowHandle</a>) -> <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
+<pre class="doc-code">GetClipboardString :: <span class="keyword-type">proc</span> "c" (window: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#WindowHandle">WindowHandle</a>) -> <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetCursorPos"><span><a class="doc-id-link" href="#GetCursorPos">GetCursorPos<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L156"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetCursorPos :: <span class="keyword-type">proc</span> "c" (window: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#WindowHandle">WindowHandle</a>) -> (xpos, ypos: <a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a>) {…}</pre>
+<pre class="doc-code">GetCursorPos :: <span class="keyword-type">proc</span> "c" (window: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#WindowHandle">WindowHandle</a>) -> (xpos, ypos: <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetError"><span><a class="doc-id-link" href="#GetError">GetError<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L15"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetError :: <span class="keyword-type">proc</span> "c" () -> (description: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, code: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) {…}</pre>
+<pre class="doc-code">GetError :: <span class="keyword-type">proc</span> "c" () -> (description: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, code: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetFramebufferSize"><span><a class="doc-id-link" href="#GetFramebufferSize">GetFramebufferSize<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L88"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetFramebufferSize :: <span class="keyword-type">proc</span> "c" (window: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#WindowHandle">WindowHandle</a>) -> (width, height: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) {…}</pre>
+<pre class="doc-code">GetFramebufferSize :: <span class="keyword-type">proc</span> "c" (window: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#WindowHandle">WindowHandle</a>) -> (width, height: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetGamepadName"><span><a class="doc-id-link" href="#GetGamepadName">GetGamepadName<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L189"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetGamepadName :: <span class="keyword-type">proc</span> "c" (jid: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
+<pre class="doc-code">GetGamepadName :: <span class="keyword-type">proc</span> "c" (jid: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetJoystickAxes"><span><a class="doc-id-link" href="#GetJoystickAxes">GetJoystickAxes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L167"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetJoystickAxes :: <span class="keyword-type">proc</span> "c" (joy: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> []<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+<pre class="doc-code">GetJoystickAxes :: <span class="keyword-type">proc</span> "c" (joy: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> []<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetJoystickButtons"><span><a class="doc-id-link" href="#GetJoystickButtons">GetJoystickButtons<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L172"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetJoystickButtons :: <span class="keyword-type">proc</span> "c" (joy: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">GetJoystickButtons :: <span class="keyword-type">proc</span> "c" (joy: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetJoystickGUID"><span><a class="doc-id-link" href="#GetJoystickGUID">GetJoystickGUID<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L182"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetJoystickGUID :: <span class="keyword-type">proc</span> "c" (jid: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
+<pre class="doc-code">GetJoystickGUID :: <span class="keyword-type">proc</span> "c" (jid: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetJoystickHats"><span><a class="doc-id-link" href="#GetJoystickHats">GetJoystickHats<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L177"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetJoystickHats :: <span class="keyword-type">proc</span> "c" (jid: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">GetJoystickHats :: <span class="keyword-type">proc</span> "c" (jid: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetJoystickName"><span><a class="doc-id-link" href="#GetJoystickName">GetJoystickName<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L125"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetJoystickName :: <span class="keyword-type">proc</span> "c" (joy: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
+<pre class="doc-code">GetJoystickName :: <span class="keyword-type">proc</span> "c" (joy: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetKeyName"><span><a class="doc-id-link" href="#GetKeyName">GetKeyName<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L120"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetKeyName :: <span class="keyword-type">proc</span> "c" (key, scancode: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
+<pre class="doc-code">GetKeyName :: <span class="keyword-type">proc</span> "c" (key, scancode: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetMonitorContentScale"><span><a class="doc-id-link" href="#GetMonitorContentScale">GetMonitorContentScale<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L36"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetMonitorContentScale :: <span class="keyword-type">proc</span> "c" (monitor: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#MonitorHandle">MonitorHandle</a>) -> (xscale, yscale: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">GetMonitorContentScale :: <span class="keyword-type">proc</span> "c" (monitor: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#MonitorHandle">MonitorHandle</a>) -> (xscale, yscale: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetMonitorName"><span><a class="doc-id-link" href="#GetMonitorName">GetMonitorName<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L107"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetMonitorName :: <span class="keyword-type">proc</span> "c" (monitor: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#MonitorHandle">MonitorHandle</a>) -> <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
+<pre class="doc-code">GetMonitorName :: <span class="keyword-type">proc</span> "c" (monitor: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#MonitorHandle">MonitorHandle</a>) -> <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetMonitorPhysicalSize"><span><a class="doc-id-link" href="#GetMonitorPhysicalSize">GetMonitorPhysicalSize<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L32"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetMonitorPhysicalSize :: <span class="keyword-type">proc</span> "c" (monitor: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#MonitorHandle">MonitorHandle</a>) -> (widthMM, heightMM: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) {…}</pre>
+<pre class="doc-code">GetMonitorPhysicalSize :: <span class="keyword-type">proc</span> "c" (monitor: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#MonitorHandle">MonitorHandle</a>) -> (widthMM, heightMM: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetMonitorPos"><span><a class="doc-id-link" href="#GetMonitorPos">GetMonitorPos<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L28"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetMonitorPos :: <span class="keyword-type">proc</span> "c" (monitor: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#MonitorHandle">MonitorHandle</a>) -> (xpos, ypos: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) {…}</pre>
+<pre class="doc-code">GetMonitorPos :: <span class="keyword-type">proc</span> "c" (monitor: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#MonitorHandle">MonitorHandle</a>) -> (xpos, ypos: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -2774,19 +2782,19 @@ Versions</p>
 <div class="pkg-entity">
 <h3 id="GetRequiredInstanceExtensions"><span><a class="doc-id-link" href="#GetRequiredInstanceExtensions">GetRequiredInstanceExtensions<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L207"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetRequiredInstanceExtensions :: <span class="keyword-type">proc</span> "c" () -> []<a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a> {…}</pre>
+<pre class="doc-code">GetRequiredInstanceExtensions :: <span class="keyword-type">proc</span> "c" () -> []<a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetVersion"><span><a class="doc-id-link" href="#GetVersion">GetVersion<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L11"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetVersion :: <span class="keyword-type">proc</span> "c" () -> (major, minor, rev: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) {…}</pre>
+<pre class="doc-code">GetVersion :: <span class="keyword-type">proc</span> "c" () -> (major, minor, rev: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetVersionString"><span><a class="doc-id-link" href="#GetVersionString">GetVersionString<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L104"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetVersionString :: <span class="keyword-type">proc</span> "c" () -> <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
+<pre class="doc-code">GetVersionString :: <span class="keyword-type">proc</span> "c" () -> <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -2798,19 +2806,19 @@ Versions</p>
 <div class="pkg-entity">
 <h3 id="GetWGLContext"><span><a class="doc-id-link" href="#GetWGLContext">GetWGLContext<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/native_windows.odin#L28"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetWGLContext :: <span class="keyword-type">proc</span> "c" (window: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#WindowHandle">WindowHandle</a>) -> <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a> ---</pre>
+<pre class="doc-code">GetWGLContext :: <span class="keyword-type">proc</span> "c" (window: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#WindowHandle">WindowHandle</a>) -> <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetWin32Adapter"><span><a class="doc-id-link" href="#GetWin32Adapter">GetWin32Adapter<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/native_windows.odin#L25"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetWin32Adapter :: <span class="keyword-type">proc</span> "c" (monitor: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#MonitorHandle">MonitorHandle</a>) -> <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
+<pre class="doc-code">GetWin32Adapter :: <span class="keyword-type">proc</span> "c" (monitor: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#MonitorHandle">MonitorHandle</a>) -> <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetWin32Monitor"><span><a class="doc-id-link" href="#GetWin32Monitor">GetWin32Monitor<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/native_windows.odin#L26"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetWin32Monitor :: <span class="keyword-type">proc</span> "c" (monitor: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#MonitorHandle">MonitorHandle</a>) -> <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
+<pre class="doc-code">GetWin32Monitor :: <span class="keyword-type">proc</span> "c" (monitor: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#MonitorHandle">MonitorHandle</a>) -> <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -2822,25 +2830,25 @@ Versions</p>
 <div class="pkg-entity">
 <h3 id="GetWindowContentScale"><span><a class="doc-id-link" href="#GetWindowContentScale">GetWindowContentScale<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L97"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetWindowContentScale :: <span class="keyword-type">proc</span> "c" (window: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#WindowHandle">WindowHandle</a>) -> (xscale, yscale: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">GetWindowContentScale :: <span class="keyword-type">proc</span> "c" (window: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#WindowHandle">WindowHandle</a>) -> (xscale, yscale: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetWindowFrameSize"><span><a class="doc-id-link" href="#GetWindowFrameSize">GetWindowFrameSize<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L92"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetWindowFrameSize :: <span class="keyword-type">proc</span> "c" (window: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#WindowHandle">WindowHandle</a>) -> (left, top, right, bottom: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) {…}</pre>
+<pre class="doc-code">GetWindowFrameSize :: <span class="keyword-type">proc</span> "c" (window: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#WindowHandle">WindowHandle</a>) -> (left, top, right, bottom: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetWindowPos"><span><a class="doc-id-link" href="#GetWindowPos">GetWindowPos<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L80"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetWindowPos :: <span class="keyword-type">proc</span> "c" (window: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#WindowHandle">WindowHandle</a>) -> (xpos, ypos: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) {…}</pre>
+<pre class="doc-code">GetWindowPos :: <span class="keyword-type">proc</span> "c" (window: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#WindowHandle">WindowHandle</a>) -> (xpos, ypos: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetWindowSize"><span><a class="doc-id-link" href="#GetWindowSize">GetWindowSize<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L84"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetWindowSize :: <span class="keyword-type">proc</span> "c" (window: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#WindowHandle">WindowHandle</a>) -> (width, height: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) {…}</pre>
+<pre class="doc-code">GetWindowSize :: <span class="keyword-type">proc</span> "c" (window: glfw_bindings.<a class="code-typename" href="/vendor/glfw/bindings/#WindowHandle">WindowHandle</a>) -> (width, height: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -2852,19 +2860,19 @@ Versions</p>
 <div class="pkg-entity">
 <h3 id="WindowHint_bool"><span><a class="doc-id-link" href="#WindowHint_bool">WindowHint_bool<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L56"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">WindowHint_bool :: <span class="keyword-type">proc</span> "contextless" (hint: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, value: <a href="/core/builtin#b32"><span class="doc-builtin">b32</span></a>) {…}</pre>
+<pre class="doc-code">WindowHint_bool :: <span class="keyword-type">proc</span> "contextless" (hint: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, value: <a href="/base/builtin#b32"><span class="doc-builtin">b32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="WindowHint_int"><span><a class="doc-id-link" href="#WindowHint_int">WindowHint_int<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L52"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">WindowHint_int :: <span class="keyword-type">proc</span> "contextless" (hint: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, value: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) {…}</pre>
+<pre class="doc-code">WindowHint_int :: <span class="keyword-type">proc</span> "contextless" (hint: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, value: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="gl_set_proc_address"><span><a class="doc-id-link" href="#gl_set_proc_address">gl_set_proc_address<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/glfw/wrapper.odin#L241"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">gl_set_proc_address :: <span class="keyword-type">proc</span>(p: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, name: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>) {…}</pre>
+<pre class="doc-code">gl_set_proc_address :: <span class="keyword-type">proc</span>(p: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, name: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -2891,7 +2899,7 @@ Versions</p>
 <li><em>(hidden platform specific files)</em></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.948351300 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.781434700 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

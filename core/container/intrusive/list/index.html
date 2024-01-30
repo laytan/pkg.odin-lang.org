@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -376,37 +373,37 @@ of the parent structure. The parent type and field name are given to
 <div class="pkg-entity">
 <h3 id="is_empty"><span><a class="doc-id-link" href="#is_empty">is_empty<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/container/intrusive/list/intrusive_list.odin#L109"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">is_empty :: <span class="keyword-type">proc</span> "contextless" (list: ^<a class="code-typename" href="/core/container/intrusive/list/#List">List</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">is_empty :: <span class="keyword-type">proc</span> "contextless" (list: ^<a class="code-typename" href="/core/container/intrusive/list/#List">List</a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="iterate_next"><span><a class="doc-id-link" href="#iterate_next">iterate_next<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/container/intrusive/list/intrusive_list.odin#L177"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">iterate_next :: <span class="keyword-type">proc</span> "contextless" (it: ^<a class="code-typename" href="/core/container/intrusive/list/#Iterator">Iterator</a>($T)) -> (ptr: ^$T, ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">iterate_next :: <span class="keyword-type">proc</span> "contextless" (it: ^<a class="code-typename" href="/core/container/intrusive/list/#Iterator">Iterator</a>($T)) -> (ptr: ^$T, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="iterate_prev"><span><a class="doc-id-link" href="#iterate_prev">iterate_prev<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/container/intrusive/list/intrusive_list.odin#L187"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">iterate_prev :: <span class="keyword-type">proc</span> "contextless" (it: ^<a class="code-typename" href="/core/container/intrusive/list/#Iterator">Iterator</a>($T)) -> (ptr: ^$T, ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">iterate_prev :: <span class="keyword-type">proc</span> "contextless" (it: ^<a class="code-typename" href="/core/container/intrusive/list/#Iterator">Iterator</a>($T)) -> (ptr: ^$T, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="iterator_from_node"><span><a class="doc-id-link" href="#iterator_from_node">iterator_from_node<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/container/intrusive/list/intrusive_list.odin#L171"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">iterator_from_node :: <span class="keyword-type">proc</span> "contextless" (node: ^<a class="code-typename" href="/core/container/intrusive/list/#Node">Node</a>, $T: <a href="/core/builtin#typeid"><span class="doc-builtin">typeid</span></a>, $field_name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> = ) -> <a class="code-typename" href="/core/container/intrusive/list/#Iterator">Iterator</a>($T=typeid) {…}</pre>
+<pre class="doc-code">iterator_from_node :: <span class="keyword-type">proc</span> "contextless" (node: ^<a class="code-typename" href="/core/container/intrusive/list/#Node">Node</a>, $T: <a href="/base/builtin#typeid"><span class="doc-builtin">typeid</span></a>, $field_name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> = ) -> <a class="code-typename" href="/core/container/intrusive/list/#Iterator">Iterator</a>($T=typeid) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="iterator_head"><span><a class="doc-id-link" href="#iterator_head">iterator_head<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/container/intrusive/list/intrusive_list.odin#L159"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">iterator_head :: <span class="keyword-type">proc</span> "contextless" (list: <a class="code-typename" href="/core/container/intrusive/list/#List">List</a>, $T: <a href="/core/builtin#typeid"><span class="doc-builtin">typeid</span></a>, $field_name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> = ) -> <a class="code-typename" href="/core/container/intrusive/list/#Iterator">Iterator</a>($T=typeid) {…}</pre>
+<pre class="doc-code">iterator_head :: <span class="keyword-type">proc</span> "contextless" (list: <a class="code-typename" href="/core/container/intrusive/list/#List">List</a>, $T: <a href="/base/builtin#typeid"><span class="doc-builtin">typeid</span></a>, $field_name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> = ) -> <a class="code-typename" href="/core/container/intrusive/list/#Iterator">Iterator</a>($T=typeid) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="iterator_tail"><span><a class="doc-id-link" href="#iterator_tail">iterator_tail<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/container/intrusive/list/intrusive_list.odin#L165"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">iterator_tail :: <span class="keyword-type">proc</span> "contextless" (list: <a class="code-typename" href="/core/container/intrusive/list/#List">List</a>, $T: <a href="/core/builtin#typeid"><span class="doc-builtin">typeid</span></a>, $field_name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> = ) -> <a class="code-typename" href="/core/container/intrusive/list/#Iterator">Iterator</a>($T=typeid) {…}</pre>
+<pre class="doc-code">iterator_tail :: <span class="keyword-type">proc</span> "contextless" (list: <a class="code-typename" href="/core/container/intrusive/list/#List">List</a>, $T: <a href="/base/builtin#typeid"><span class="doc-builtin">typeid</span></a>, $field_name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> = ) -> <a class="code-typename" href="/core/container/intrusive/list/#Iterator">Iterator</a>($T=typeid) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -442,13 +439,13 @@ of the parent structure. The parent type and field name are given to
 <div class="pkg-entity">
 <h3 id="remove_by_proc"><span><a class="doc-id-link" href="#remove_by_proc">remove_by_proc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/container/intrusive/list/intrusive_list.odin#L65"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">remove_by_proc :: <span class="keyword-type">proc</span>(list: ^<a class="code-typename" href="/core/container/intrusive/list/#List">List</a>, to_erase: <span class="keyword-type">proc</span>(_: ^<a class="code-typename" href="/core/container/intrusive/list/#Node">Node</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">remove_by_proc :: <span class="keyword-type">proc</span>(list: ^<a class="code-typename" href="/core/container/intrusive/list/#List">List</a>, to_erase: <span class="keyword-type">proc</span>(_: ^<a class="code-typename" href="/core/container/intrusive/list/#Node">Node</a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="remove_by_proc_contextless"><span><a class="doc-id-link" href="#remove_by_proc_contextless">remove_by_proc_contextless<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/container/intrusive/list/intrusive_list.odin#L86"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">remove_by_proc_contextless :: <span class="keyword-type">proc</span>(list: ^<a class="code-typename" href="/core/container/intrusive/list/#List">List</a>, to_erase: <span class="keyword-type">proc</span> "contextless" (_: ^<a class="code-typename" href="/core/container/intrusive/list/#Node">Node</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">remove_by_proc_contextless :: <span class="keyword-type">proc</span>(list: ^<a class="code-typename" href="/core/container/intrusive/list/#List">List</a>, to_erase: <span class="keyword-type">proc</span> "contextless" (_: ^<a class="code-typename" href="/core/container/intrusive/list/#Node">Node</a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
@@ -459,7 +456,7 @@ of the parent structure. The parent type and field name are given to
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/container/intrusive/list/intrusive_list.odin">intrusive_list.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.047009400 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.188104900 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

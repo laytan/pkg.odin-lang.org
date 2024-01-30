@@ -59,6 +59,14 @@
 </li>
 <li class="nav-item"><a href="/vendor/cgltf">cgltf</a></li>
 <li class="nav-item"><a href="/vendor/commonmark">commonmark</a></li>
+<li class="nav-item">darwin<ul>
+<li><a href="/vendor/darwin/Foundation">Foundation</a></li>
+<li><a href="/vendor/darwin/Metal">Metal</a></li>
+<li><a href="/vendor/darwin/MetalKit">MetalKit</a></li>
+<li><a href="/vendor/darwin/QuartzCore">QuartzCore</a></li>
+</ul>
+
+</li>
 <li class="nav-item">directx<ul>
 <li><a href="/vendor/directx/d3d11">d3d11</a></li>
 <li><a href="/vendor/directx/d3d12">d3d12</a></li>
@@ -324,10 +332,10 @@ Procedure Groups (0)</summary>
 <h3 id="Chunk"><span><a class="doc-id-link" href="#Chunk">Chunk<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L45"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Chunk :: <span class="keyword-type">struct</span> {
-	allocated: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
-	abuf:      [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
-	alen:      <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
-	volume:    <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	allocated: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>,
+	abuf:      [^]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	alen:      <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	volume:    <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -351,7 +359,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="EffectDone_t"><span><a class="doc-id-link" href="#EffectDone_t">EffectDone_t<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L147"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">EffectDone_t :: <span class="keyword-type">proc</span> "c" (chan: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, udata: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>)</pre>
+<pre class="doc-code">EffectDone_t :: <span class="keyword-type">proc</span> "c" (chan: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, udata: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>)</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
 <ul>
@@ -361,7 +369,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="EffectFunc_t"><span><a class="doc-id-link" href="#EffectFunc_t">EffectFunc_t<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L146"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">EffectFunc_t :: <span class="keyword-type">proc</span> "c" (chan: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, stream: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, len: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, udata: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>)</pre>
+<pre class="doc-code">EffectFunc_t :: <span class="keyword-type">proc</span> "c" (chan: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, stream: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, len: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, udata: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>)</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
 <ul>
@@ -372,7 +380,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="Fading"><span><a class="doc-id-link" href="#Fading">Fading<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L52"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Fading :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
+<pre class="doc-code">Fading :: <span class="keyword-type">enum</span> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	NO_FADING, 
 	FADING_OUT, 
 	FADING_IN, 
@@ -387,7 +395,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="InitFlag"><span><a class="doc-id-link" href="#InitFlag">InitFlag<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L22"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">InitFlag :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
+<pre class="doc-code">InitFlag :: <span class="keyword-type">enum</span> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	FLAC = 0, 
 	MOD  = 1, 
 	MP3  = 3, 
@@ -400,7 +408,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="InitFlags"><span><a class="doc-id-link" href="#InitFlags">InitFlags<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L31"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">InitFlags :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/sdl2/mixer/#InitFlag">InitFlag</a>; <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>]</pre>
+<pre class="doc-code">InitFlags :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/sdl2/mixer/#InitFlag">InitFlag</a>; <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>]</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
 <ul>
@@ -410,7 +418,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="MixFunc"><span><a class="doc-id-link" href="#MixFunc">MixFunc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L102"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">MixFunc :: <span class="keyword-type">proc</span> "c" (udata: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, stream: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, len: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>)</pre>
+<pre class="doc-code">MixFunc :: <span class="keyword-type">proc</span> "c" (udata: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, stream: [^]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, len: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>)</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
 <ul>
@@ -452,7 +460,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="MusicType"><span><a class="doc-id-link" href="#MusicType">MusicType<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L62"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">MusicType :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
+<pre class="doc-code">MusicType :: <span class="keyword-type">enum</span> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	NONE, 
 	CMD, 
 	WAV, 
@@ -668,13 +676,13 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="AllocateChannels"><span><a class="doc-id-link" href="#AllocateChannels">AllocateChannels<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L113"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">AllocateChannels :: <span class="keyword-type">proc</span> "c" (numchans: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">AllocateChannels :: <span class="keyword-type">proc</span> "c" (numchans: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="ChannelFinished"><span><a class="doc-id-link" href="#ChannelFinished">ChannelFinished<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L141"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">ChannelFinished :: <span class="keyword-type">proc</span> "c" (channel_finished: <span class="keyword-type">proc</span> "c" (channel: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>)) ---</pre>
+<pre class="doc-code">ChannelFinished :: <span class="keyword-type">proc</span> "c" (channel_finished: <span class="keyword-type">proc</span> "c" (channel: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>)) ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -686,61 +694,61 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="EachSoundFont"><span><a class="doc-id-link" href="#EachSoundFont">EachSoundFont<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L215"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">EachSoundFont :: <span class="keyword-type">proc</span> "c" (function: <span class="keyword-type">proc</span> "c" (_: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>, _: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, data: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">EachSoundFont :: <span class="keyword-type">proc</span> "c" (function: <span class="keyword-type">proc</span> "c" (_: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>, _: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, data: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="ExpireChannel"><span><a class="doc-id-link" href="#ExpireChannel">ExpireChannel<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L188"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">ExpireChannel :: <span class="keyword-type">proc</span> "c" (channel: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, ticks: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">ExpireChannel :: <span class="keyword-type">proc</span> "c" (channel: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, ticks: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="FadeInChannel"><span><a class="doc-id-link" href="#FadeInChannel">FadeInChannel<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L154"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">FadeInChannel :: <span class="keyword-type">proc</span> "c" (channel: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, chunk: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Chunk">Chunk</a>, loops: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, ms: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {…}</pre>
+<pre class="doc-code">FadeInChannel :: <span class="keyword-type">proc</span> "c" (channel: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, chunk: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Chunk">Chunk</a>, loops: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, ms: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="FadeInChannelTimed"><span><a class="doc-id-link" href="#FadeInChannelTimed">FadeInChannelTimed<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L180"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">FadeInChannelTimed :: <span class="keyword-type">proc</span> "c" (channel: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, chunk: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Chunk">Chunk</a>, loops: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, ms: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, ticks: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">FadeInChannelTimed :: <span class="keyword-type">proc</span> "c" (channel: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, chunk: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Chunk">Chunk</a>, loops: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, ms: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, ticks: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="FadeInMusic"><span><a class="doc-id-link" href="#FadeInMusic">FadeInMusic<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L178"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">FadeInMusic :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>, loops: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, ms: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">FadeInMusic :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>, loops: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, ms: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="FadeInMusicPos"><span><a class="doc-id-link" href="#FadeInMusicPos">FadeInMusicPos<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L179"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">FadeInMusicPos :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>, loops: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, ms: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, position: <a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">FadeInMusicPos :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>, loops: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, ms: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, position: <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="FadeOutChannel"><span><a class="doc-id-link" href="#FadeOutChannel">FadeOutChannel<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L189"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">FadeOutChannel :: <span class="keyword-type">proc</span> "c" (which: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, ms: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">FadeOutChannel :: <span class="keyword-type">proc</span> "c" (which: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, ms: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="FadeOutGroup"><span><a class="doc-id-link" href="#FadeOutGroup">FadeOutGroup<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L190"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">FadeOutGroup :: <span class="keyword-type">proc</span> "c" (tag: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, ms: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">FadeOutGroup :: <span class="keyword-type">proc</span> "c" (tag: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, ms: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="FadeOutMusic"><span><a class="doc-id-link" href="#FadeOutMusic">FadeOutMusic<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L191"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">FadeOutMusic :: <span class="keyword-type">proc</span> "c" (ms: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">FadeOutMusic :: <span class="keyword-type">proc</span> "c" (ms: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="FadingChannel"><span><a class="doc-id-link" href="#FadingChannel">FadingChannel<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L193"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">FadingChannel :: <span class="keyword-type">proc</span> "c" (which: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/sdl2/mixer/#Fading">Fading</a> ---</pre>
+<pre class="doc-code">FadingChannel :: <span class="keyword-type">proc</span> "c" (which: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a class="code-typename" href="/vendor/sdl2/mixer/#Fading">Fading</a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -764,79 +772,79 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="GetChunk"><span><a class="doc-id-link" href="#GetChunk">GetChunk<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L218"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetChunk :: <span class="keyword-type">proc</span> "c" (channel: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> ^<a class="code-typename" href="/vendor/sdl2/mixer/#Chunk">Chunk</a> ---</pre>
+<pre class="doc-code">GetChunk :: <span class="keyword-type">proc</span> "c" (channel: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> ^<a class="code-typename" href="/vendor/sdl2/mixer/#Chunk">Chunk</a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetChunkDecoder"><span><a class="doc-id-link" href="#GetChunkDecoder">GetChunkDecoder<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L124"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetChunkDecoder :: <span class="keyword-type">proc</span> "c" (index: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
+<pre class="doc-code">GetChunkDecoder :: <span class="keyword-type">proc</span> "c" (index: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetMusicAlbumTag"><span><a class="doc-id-link" href="#GetMusicAlbumTag">GetMusicAlbumTag<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L133"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetMusicAlbumTag :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>) -> <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
+<pre class="doc-code">GetMusicAlbumTag :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>) -> <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetMusicArtistTag"><span><a class="doc-id-link" href="#GetMusicArtistTag">GetMusicArtistTag<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L132"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetMusicArtistTag :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>) -> <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
+<pre class="doc-code">GetMusicArtistTag :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>) -> <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetMusicCopyrightTag"><span><a class="doc-id-link" href="#GetMusicCopyrightTag">GetMusicCopyrightTag<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L134"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetMusicCopyrightTag :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>) -> <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
+<pre class="doc-code">GetMusicCopyrightTag :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>) -> <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetMusicDecoder"><span><a class="doc-id-link" href="#GetMusicDecoder">GetMusicDecoder<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L127"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetMusicDecoder :: <span class="keyword-type">proc</span> "c" (index: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
+<pre class="doc-code">GetMusicDecoder :: <span class="keyword-type">proc</span> "c" (index: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetMusicHookData"><span><a class="doc-id-link" href="#GetMusicHookData">GetMusicHookData<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L139"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetMusicHookData :: <span class="keyword-type">proc</span> "c" () -> <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a> ---</pre>
+<pre class="doc-code">GetMusicHookData :: <span class="keyword-type">proc</span> "c" () -> <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetMusicLoopEndTime"><span><a class="doc-id-link" href="#GetMusicLoopEndTime">GetMusicLoopEndTime<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L206"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetMusicLoopEndTime :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>) -> <a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a> ---</pre>
+<pre class="doc-code">GetMusicLoopEndTime :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>) -> <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetMusicLoopLengthTime"><span><a class="doc-id-link" href="#GetMusicLoopLengthTime">GetMusicLoopLengthTime<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L207"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetMusicLoopLengthTime :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>) -> <a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a> ---</pre>
+<pre class="doc-code">GetMusicLoopLengthTime :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>) -> <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetMusicLoopStartTime"><span><a class="doc-id-link" href="#GetMusicLoopStartTime">GetMusicLoopStartTime<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L205"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetMusicLoopStartTime :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>) -> <a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a> ---</pre>
+<pre class="doc-code">GetMusicLoopStartTime :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>) -> <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetMusicPosition"><span><a class="doc-id-link" href="#GetMusicPosition">GetMusicPosition<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L203"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetMusicPosition :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>) -> <a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a> ---</pre>
+<pre class="doc-code">GetMusicPosition :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>) -> <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetMusicTitle"><span><a class="doc-id-link" href="#GetMusicTitle">GetMusicTitle<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L130"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetMusicTitle :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>) -> <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
+<pre class="doc-code">GetMusicTitle :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>) -> <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetMusicTitleTag"><span><a class="doc-id-link" href="#GetMusicTitleTag">GetMusicTitleTag<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L131"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetMusicTitleTag :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>) -> <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
+<pre class="doc-code">GetMusicTitleTag :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>) -> <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -848,109 +856,109 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="GetMusicVolume"><span><a class="doc-id-link" href="#GetMusicVolume">GetMusicVolume<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L184"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetMusicVolume :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">GetMusicVolume :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetNumChunkDecoders"><span><a class="doc-id-link" href="#GetNumChunkDecoders">GetNumChunkDecoders<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L123"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetNumChunkDecoders :: <span class="keyword-type">proc</span> "c" () -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">GetNumChunkDecoders :: <span class="keyword-type">proc</span> "c" () -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetNumMusicDecoders"><span><a class="doc-id-link" href="#GetNumMusicDecoders">GetNumMusicDecoders<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L126"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetNumMusicDecoders :: <span class="keyword-type">proc</span> "c" () -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">GetNumMusicDecoders :: <span class="keyword-type">proc</span> "c" () -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetSoundFonts"><span><a class="doc-id-link" href="#GetSoundFonts">GetSoundFonts<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L214"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetSoundFonts :: <span class="keyword-type">proc</span> "c" () -> <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
+<pre class="doc-code">GetSoundFonts :: <span class="keyword-type">proc</span> "c" () -> <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetSynchroValue"><span><a class="doc-id-link" href="#GetSynchroValue">GetSynchroValue<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L212"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetSynchroValue :: <span class="keyword-type">proc</span> "c" () -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">GetSynchroValue :: <span class="keyword-type">proc</span> "c" () -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GetTimidityCfg"><span><a class="doc-id-link" href="#GetTimidityCfg">GetTimidityCfg<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L217"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetTimidityCfg :: <span class="keyword-type">proc</span> "c" () -> <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
+<pre class="doc-code">GetTimidityCfg :: <span class="keyword-type">proc</span> "c" () -> <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GroupAvailable"><span><a class="doc-id-link" href="#GroupAvailable">GroupAvailable<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L172"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GroupAvailable :: <span class="keyword-type">proc</span> "c" (tag: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">GroupAvailable :: <span class="keyword-type">proc</span> "c" (tag: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GroupChannel"><span><a class="doc-id-link" href="#GroupChannel">GroupChannel<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L170"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GroupChannel :: <span class="keyword-type">proc</span> "c" (which: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, tag: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">GroupChannel :: <span class="keyword-type">proc</span> "c" (which: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, tag: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GroupChannels"><span><a class="doc-id-link" href="#GroupChannels">GroupChannels<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L171"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GroupChannels :: <span class="keyword-type">proc</span> "c" (from, to: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, tag: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">GroupChannels :: <span class="keyword-type">proc</span> "c" (from, to: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, tag: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GroupCount"><span><a class="doc-id-link" href="#GroupCount">GroupCount<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L173"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GroupCount :: <span class="keyword-type">proc</span> "c" (tag: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">GroupCount :: <span class="keyword-type">proc</span> "c" (tag: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GroupNewer"><span><a class="doc-id-link" href="#GroupNewer">GroupNewer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L175"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GroupNewer :: <span class="keyword-type">proc</span> "c" (tag: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">GroupNewer :: <span class="keyword-type">proc</span> "c" (tag: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GroupOldest"><span><a class="doc-id-link" href="#GroupOldest">GroupOldest<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L174"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GroupOldest :: <span class="keyword-type">proc</span> "c" (tag: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">GroupOldest :: <span class="keyword-type">proc</span> "c" (tag: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="HaltChannel"><span><a class="doc-id-link" href="#HaltChannel">HaltChannel<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L185"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">HaltChannel :: <span class="keyword-type">proc</span> "c" (channel: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">HaltChannel :: <span class="keyword-type">proc</span> "c" (channel: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="HaltGroup"><span><a class="doc-id-link" href="#HaltGroup">HaltGroup<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L186"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">HaltGroup :: <span class="keyword-type">proc</span> "c" (tag: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">HaltGroup :: <span class="keyword-type">proc</span> "c" (tag: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="HaltMusic"><span><a class="doc-id-link" href="#HaltMusic">HaltMusic<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L187"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">HaltMusic :: <span class="keyword-type">proc</span> "c" () -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">HaltMusic :: <span class="keyword-type">proc</span> "c" () -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="HasChunkDecoder"><span><a class="doc-id-link" href="#HasChunkDecoder">HasChunkDecoder<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L125"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">HasChunkDecoder :: <span class="keyword-type">proc</span> "c" (name: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> sdl2.<a class="code-typename" href="/vendor/sdl2/#bool">bool</a> ---</pre>
+<pre class="doc-code">HasChunkDecoder :: <span class="keyword-type">proc</span> "c" (name: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> sdl2.<a class="code-typename" href="/vendor/sdl2/#bool">bool</a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="HasMusicDecoder"><span><a class="doc-id-link" href="#HasMusicDecoder">HasMusicDecoder<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L128"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">HasMusicDecoder :: <span class="keyword-type">proc</span> "c" (name: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> sdl2.<a class="code-typename" href="/vendor/sdl2/#bool">bool</a> ---</pre>
+<pre class="doc-code">HasMusicDecoder :: <span class="keyword-type">proc</span> "c" (name: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> sdl2.<a class="code-typename" href="/vendor/sdl2/#bool">bool</a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="HookMusic"><span><a class="doc-id-link" href="#HookMusic">HookMusic<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L137"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">HookMusic :: <span class="keyword-type">proc</span> "c" (mix_func: <a class="code-typename" href="/vendor/sdl2/mixer/#MixFunc">MixFunc</a>, arg: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>) ---</pre>
+<pre class="doc-code">HookMusic :: <span class="keyword-type">proc</span> "c" (mix_func: <a class="code-typename" href="/vendor/sdl2/mixer/#MixFunc">MixFunc</a>, arg: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>) ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -962,7 +970,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="Init"><span><a class="doc-id-link" href="#Init">Init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L108"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Init :: <span class="keyword-type">proc</span> "c" (flags: <a class="code-typename" href="/vendor/sdl2/mixer/#InitFlags">InitFlags</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">Init :: <span class="keyword-type">proc</span> "c" (flags: <a class="code-typename" href="/vendor/sdl2/mixer/#InitFlags">InitFlags</a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -974,7 +982,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="LoadMUS"><span><a class="doc-id-link" href="#LoadMUS">LoadMUS<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L116"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">LoadMUS :: <span class="keyword-type">proc</span> "c" (file: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a> ---</pre>
+<pre class="doc-code">LoadMUS :: <span class="keyword-type">proc</span> "c" (file: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -992,7 +1000,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="LoadWAV"><span><a class="doc-id-link" href="#LoadWAV">LoadWAV<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L97"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">LoadWAV :: <span class="keyword-type">proc</span> "c" (file: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> ^<a class="code-typename" href="/vendor/sdl2/mixer/#Chunk">Chunk</a> {…}</pre>
+<pre class="doc-code">LoadWAV :: <span class="keyword-type">proc</span> "c" (file: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> ^<a class="code-typename" href="/vendor/sdl2/mixer/#Chunk">Chunk</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -1004,38 +1012,38 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="ModMusicJumpToOrder"><span><a class="doc-id-link" href="#ModMusicJumpToOrder">ModMusicJumpToOrder<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L201"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">ModMusicJumpToOrder :: <span class="keyword-type">proc</span> "c" (order: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">ModMusicJumpToOrder :: <span class="keyword-type">proc</span> "c" (order: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="MusicDuration"><span><a class="doc-id-link" href="#MusicDuration">MusicDuration<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L204"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">MusicDuration :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>) -> <a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a> ---</pre>
+<pre class="doc-code">MusicDuration :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>) -> <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="OpenAudio"><span><a class="doc-id-link" href="#OpenAudio">OpenAudio<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L111"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">OpenAudio :: <span class="keyword-type">proc</span> "c" (frequency: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, format: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, channels: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, chunksize: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">OpenAudio :: <span class="keyword-type">proc</span> "c" (frequency: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, format: <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>, channels: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, chunksize: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="OpenAudioDevice"><span><a class="doc-id-link" href="#OpenAudioDevice">OpenAudioDevice<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L112"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">OpenAudioDevice :: <span class="keyword-type">proc</span> "c" (
-	frequency:       <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
-	format:          <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, 
-	channels:        <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
-	chunksize:       <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
-	device:          <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>, 
-	allowed_changed: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
-) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+	frequency:       <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+	format:          <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>, 
+	channels:        <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+	chunksize:       <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+	device:          <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>, 
+	allowed_changed: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="Pause"><span><a class="doc-id-link" href="#Pause">Pause<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L194"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Pause :: <span class="keyword-type">proc</span> "c" (channel: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) ---</pre>
+<pre class="doc-code">Pause :: <span class="keyword-type">proc</span> "c" (channel: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -1047,61 +1055,61 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="Paused"><span><a class="doc-id-link" href="#Paused">Paused<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L196"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Paused :: <span class="keyword-type">proc</span> "c" (channel: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">Paused :: <span class="keyword-type">proc</span> "c" (channel: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="PausedMusic"><span><a class="doc-id-link" href="#PausedMusic">PausedMusic<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L200"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">PausedMusic :: <span class="keyword-type">proc</span> "c" () -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">PausedMusic :: <span class="keyword-type">proc</span> "c" () -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="PlayChannel"><span><a class="doc-id-link" href="#PlayChannel">PlayChannel<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L151"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">PlayChannel :: <span class="keyword-type">proc</span> "c" (channel: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, chunk: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Chunk">Chunk</a>, loops: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {…}</pre>
+<pre class="doc-code">PlayChannel :: <span class="keyword-type">proc</span> "c" (channel: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, chunk: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Chunk">Chunk</a>, loops: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="PlayChannelTimed"><span><a class="doc-id-link" href="#PlayChannelTimed">PlayChannelTimed<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L176"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">PlayChannelTimed :: <span class="keyword-type">proc</span> "c" (channel: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, chunk: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Chunk">Chunk</a>, loops: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, ticks: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">PlayChannelTimed :: <span class="keyword-type">proc</span> "c" (channel: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, chunk: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Chunk">Chunk</a>, loops: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, ticks: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="PlayMusic"><span><a class="doc-id-link" href="#PlayMusic">PlayMusic<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L177"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">PlayMusic :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>, loops: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">PlayMusic :: <span class="keyword-type">proc</span> "c" (music: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Music">Music</a>, loops: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="Playing"><span><a class="doc-id-link" href="#Playing">Playing<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L208"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Playing :: <span class="keyword-type">proc</span> "c" (channel: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">Playing :: <span class="keyword-type">proc</span> "c" (channel: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="PlayingMusic"><span><a class="doc-id-link" href="#PlayingMusic">PlayingMusic<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L209"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">PlayingMusic :: <span class="keyword-type">proc</span> "c" () -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">PlayingMusic :: <span class="keyword-type">proc</span> "c" () -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="QuerySpec"><span><a class="doc-id-link" href="#QuerySpec">QuerySpec<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L114"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">QuerySpec :: <span class="keyword-type">proc</span> "c" (frequency: ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, format: ^<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, channels: ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">QuerySpec :: <span class="keyword-type">proc</span> "c" (frequency: ^<a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, format: ^<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>, channels: ^<a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="QuickLoad_RAW"><span><a class="doc-id-link" href="#QuickLoad_RAW">QuickLoad_RAW<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L120"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">QuickLoad_RAW :: <span class="keyword-type">proc</span> "c" (mem: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, len: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> ^<a class="code-typename" href="/vendor/sdl2/mixer/#Chunk">Chunk</a> ---</pre>
+<pre class="doc-code">QuickLoad_RAW :: <span class="keyword-type">proc</span> "c" (mem: [^]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, len: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) -> ^<a class="code-typename" href="/vendor/sdl2/mixer/#Chunk">Chunk</a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="QuickLoad_WAV"><span><a class="doc-id-link" href="#QuickLoad_WAV">QuickLoad_WAV<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L119"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">QuickLoad_WAV :: <span class="keyword-type">proc</span> "c" (mem: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> ^<a class="code-typename" href="/vendor/sdl2/mixer/#Chunk">Chunk</a> ---</pre>
+<pre class="doc-code">QuickLoad_WAV :: <span class="keyword-type">proc</span> "c" (mem: [^]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> ^<a class="code-typename" href="/vendor/sdl2/mixer/#Chunk">Chunk</a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -1113,19 +1121,19 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="RegisterEffect"><span><a class="doc-id-link" href="#RegisterEffect">RegisterEffect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L161"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">RegisterEffect :: <span class="keyword-type">proc</span> "c" (chan: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, f: <a class="code-typename" href="/vendor/sdl2/mixer/#EffectFunc_t">EffectFunc_t</a>, d: <a class="code-typename" href="/vendor/sdl2/mixer/#EffectDone_t">EffectDone_t</a>, arg: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">RegisterEffect :: <span class="keyword-type">proc</span> "c" (chan: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, f: <a class="code-typename" href="/vendor/sdl2/mixer/#EffectFunc_t">EffectFunc_t</a>, d: <a class="code-typename" href="/vendor/sdl2/mixer/#EffectDone_t">EffectDone_t</a>, arg: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="ReserveChannels"><span><a class="doc-id-link" href="#ReserveChannels">ReserveChannels<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L169"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">ReserveChannels :: <span class="keyword-type">proc</span> "c" (num: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">ReserveChannels :: <span class="keyword-type">proc</span> "c" (num: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="Resume"><span><a class="doc-id-link" href="#Resume">Resume<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L195"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Resume :: <span class="keyword-type">proc</span> "c" (channel: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) ---</pre>
+<pre class="doc-code">Resume :: <span class="keyword-type">proc</span> "c" (channel: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -1143,91 +1151,91 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="SetDistance"><span><a class="doc-id-link" href="#SetDistance">SetDistance<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L167"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">SetDistance :: <span class="keyword-type">proc</span> "c" (channel: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, distance: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">SetDistance :: <span class="keyword-type">proc</span> "c" (channel: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, distance: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="SetMusicCMD"><span><a class="doc-id-link" href="#SetMusicCMD">SetMusicCMD<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L210"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">SetMusicCMD :: <span class="keyword-type">proc</span> "c" (command: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">SetMusicCMD :: <span class="keyword-type">proc</span> "c" (command: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="SetMusicPosition"><span><a class="doc-id-link" href="#SetMusicPosition">SetMusicPosition<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L202"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">SetMusicPosition :: <span class="keyword-type">proc</span> "c" (position: <a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">SetMusicPosition :: <span class="keyword-type">proc</span> "c" (position: <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="SetPanning"><span><a class="doc-id-link" href="#SetPanning">SetPanning<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L165"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">SetPanning :: <span class="keyword-type">proc</span> "c" (channel: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, left, right: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">SetPanning :: <span class="keyword-type">proc</span> "c" (channel: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, left, right: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="SetPosition"><span><a class="doc-id-link" href="#SetPosition">SetPosition<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L166"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">SetPosition :: <span class="keyword-type">proc</span> "c" (channel: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, angle: <a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>, distance: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">SetPosition :: <span class="keyword-type">proc</span> "c" (channel: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, angle: <a href="/base/builtin#i16"><span class="doc-builtin">i16</span></a>, distance: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="SetPostMix"><span><a class="doc-id-link" href="#SetPostMix">SetPostMix<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L136"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">SetPostMix :: <span class="keyword-type">proc</span> "c" (mix_func: <a class="code-typename" href="/vendor/sdl2/mixer/#MixFunc">MixFunc</a>, arg: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>) ---</pre>
+<pre class="doc-code">SetPostMix :: <span class="keyword-type">proc</span> "c" (mix_func: <a class="code-typename" href="/vendor/sdl2/mixer/#MixFunc">MixFunc</a>, arg: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>) ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="SetReverseStereo"><span><a class="doc-id-link" href="#SetReverseStereo">SetReverseStereo<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L168"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">SetReverseStereo :: <span class="keyword-type">proc</span> "c" (channel: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, flip: sdl2.<a class="code-typename" href="/vendor/sdl2/#bool">bool</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">SetReverseStereo :: <span class="keyword-type">proc</span> "c" (channel: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, flip: sdl2.<a class="code-typename" href="/vendor/sdl2/#bool">bool</a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="SetSoundFonts"><span><a class="doc-id-link" href="#SetSoundFonts">SetSoundFonts<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L213"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">SetSoundFonts :: <span class="keyword-type">proc</span> "c" (paths: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">SetSoundFonts :: <span class="keyword-type">proc</span> "c" (paths: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="SetSynchroValue"><span><a class="doc-id-link" href="#SetSynchroValue">SetSynchroValue<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L211"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">SetSynchroValue :: <span class="keyword-type">proc</span> "c" (value: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">SetSynchroValue :: <span class="keyword-type">proc</span> "c" (value: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="SetTimidityCfg"><span><a class="doc-id-link" href="#SetTimidityCfg">SetTimidityCfg<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L216"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">SetTimidityCfg :: <span class="keyword-type">proc</span> "c" (path: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">SetTimidityCfg :: <span class="keyword-type">proc</span> "c" (path: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="UnregisterAllEffects"><span><a class="doc-id-link" href="#UnregisterAllEffects">UnregisterAllEffects<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L163"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">UnregisterAllEffects :: <span class="keyword-type">proc</span> "c" (channel: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">UnregisterAllEffects :: <span class="keyword-type">proc</span> "c" (channel: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="UnregisterEffect"><span><a class="doc-id-link" href="#UnregisterEffect">UnregisterEffect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L162"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">UnregisterEffect :: <span class="keyword-type">proc</span> "c" (channel: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, f: <a class="code-typename" href="/vendor/sdl2/mixer/#EffectFunc_t">EffectFunc_t</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">UnregisterEffect :: <span class="keyword-type">proc</span> "c" (channel: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, f: <a class="code-typename" href="/vendor/sdl2/mixer/#EffectFunc_t">EffectFunc_t</a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="Volume"><span><a class="doc-id-link" href="#Volume">Volume<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L181"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Volume :: <span class="keyword-type">proc</span> "c" (channel: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, volume: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">Volume :: <span class="keyword-type">proc</span> "c" (channel: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, volume: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="VolumeChunk"><span><a class="doc-id-link" href="#VolumeChunk">VolumeChunk<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L182"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">VolumeChunk :: <span class="keyword-type">proc</span> "c" (chunk: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Chunk">Chunk</a>, volume: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">VolumeChunk :: <span class="keyword-type">proc</span> "c" (chunk: ^<a class="code-typename" href="/vendor/sdl2/mixer/#Chunk">Chunk</a>, volume: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="VolumeMusic"><span><a class="doc-id-link" href="#VolumeMusic">VolumeMusic<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin#L183"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">VolumeMusic :: <span class="keyword-type">proc</span> "c" (volume: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">VolumeMusic :: <span class="keyword-type">proc</span> "c" (volume: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
@@ -1238,7 +1246,7 @@ Procedure Groups (0)</summary>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/mixer/sdl_mixer.odin">sdl_mixer.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.352519800 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:22.048851300 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

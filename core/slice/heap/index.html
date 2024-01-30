@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a class="active" href="/core/slice/heap">heap</a></li>
@@ -296,7 +293,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="is_heap"><span><a class="doc-id-link" href="#is_heap">is_heap<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/slice/heap/heap.odin#L123"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">is_heap :: <span class="keyword-type">proc</span>(data: []$T, less: <span class="keyword-type">proc</span>(a, b: $T) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">is_heap :: <span class="keyword-type">proc</span>(data: []$T, less: <span class="keyword-type">proc</span>(a, b: $T) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -308,7 +305,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="is_heap_until"><span><a class="doc-id-link" href="#is_heap_until">is_heap_until<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/slice/heap/heap.odin#L100"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">is_heap_until :: <span class="keyword-type">proc</span>(data: []$T, less: <span class="keyword-type">proc</span>(a, b: $T) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">is_heap_until :: <span class="keyword-type">proc</span>(data: []$T, less: <span class="keyword-type">proc</span>(a, b: $T) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -325,7 +322,7 @@ At most O(n) comparisons where N = len(data) will be performed.
 <div class="pkg-entity">
 <h3 id="make"><span><a class="doc-id-link" href="#make">make<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/slice/heap/heap.odin#L26"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">make :: <span class="keyword-type">proc</span>(data: []$T, less: <span class="keyword-type">proc</span>(a, b: $T) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">make :: <span class="keyword-type">proc</span>(data: []$T, less: <span class="keyword-type">proc</span>(a, b: $T) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -347,7 +344,7 @@ max heap (less than) or min heap (greater than) for T.
 <div class="pkg-entity">
 <h3 id="pop"><span><a class="doc-id-link" href="#pop">pop<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/slice/heap/heap.odin#L56"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">pop :: <span class="keyword-type">proc</span>(data: []$T, less: <span class="keyword-type">proc</span>(a, b: $T) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">pop :: <span class="keyword-type">proc</span>(data: []$T, less: <span class="keyword-type">proc</span>(a, b: $T) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -362,7 +359,7 @@ At most 2 * log(N) comparisons where N = len(data) will be performed.
 <div class="pkg-entity">
 <h3 id="push"><span><a class="doc-id-link" href="#push">push<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/slice/heap/heap.odin#L45"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">push :: <span class="keyword-type">proc</span>(data: []$T, less: <span class="keyword-type">proc</span>(a, b: $T) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">push :: <span class="keyword-type">proc</span>(data: []$T, less: <span class="keyword-type">proc</span>(a, b: $T) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -376,7 +373,7 @@ At most log(N) comparisons where N = len(data) will be performed.
 <div class="pkg-entity">
 <h3 id="sort"><span><a class="doc-id-link" href="#sort">sort<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/slice/heap/heap.odin#L85"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">sort :: <span class="keyword-type">proc</span>(data: []$T, less: <span class="keyword-type">proc</span>(a, b: $T) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">sort :: <span class="keyword-type">proc</span>(data: []$T, less: <span class="keyword-type">proc</span>(a, b: $T) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -395,7 +392,7 @@ At most 2 * N * log(N) comparisons where N = len(data) will be performed.
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/slice/heap/heap.odin">heap.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.150805000 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.327746600 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

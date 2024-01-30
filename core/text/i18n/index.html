@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -307,7 +304,7 @@ Procedure Groups (4)</summary>
 <div class="pkg-entity">
 <h3 id="Error"><span><a class="doc-id-link" href="#Error">Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/i18n/i18n.odin#L39"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Error :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	<span class="comment">// 		General return values.</span>
 	None                           = 0, 
 	Empty_Translation_Catalog, 
@@ -348,7 +345,7 @@ Procedure Groups (4)</summary>
 <h3 id="Parse_Options"><span><a class="doc-id-link" href="#Parse_Options">Parse_Options<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/i18n/i18n.odin#L79"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Parse_Options :: <span class="keyword-type">struct</span> {
-	merge_sections: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	merge_sections: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -364,17 +361,17 @@ Procedure Groups (4)</summary>
 <div class="pkg-entity">
 <h3 id="Section"><span><a class="doc-id-link" href="#Section">Section<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/i18n/i18n.odin#L30"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Section :: <span class="keyword-type">map</span>[<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>][]<a href="/core/builtin#string"><span class="doc-builtin">string</span></a></pre>
+<pre class="doc-code">Section :: <span class="keyword-type">map</span>[<a href="/base/builtin#string"><span class="doc-builtin">string</span></a>][]<a href="/base/builtin#string"><span class="doc-builtin">string</span></a></pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="Translation"><span><a class="doc-id-link" href="#Translation">Translation<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/i18n/i18n.odin#L32"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Translation :: <span class="keyword-type">struct</span> {
-	k_v:       <span class="keyword-type">map</span>[<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>]<span class="keyword-type">map</span>[<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>][]<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	k_v:       <span class="keyword-type">map</span>[<a href="/base/builtin#string"><span class="doc-builtin">string</span></a>]<span class="keyword-type">map</span>[<a href="/base/builtin#string"><span class="doc-builtin">string</span></a>][]<a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
 	<span class="comment">// k_v[section][key][plural_form] = ...</span>
 	intern:    strings.<a class="code-typename" href="/core/strings/#Intern">Intern</a>,
-	pluralize: <span class="keyword-type">proc</span>(number: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	pluralize: <span class="keyword-type">proc</span>(number: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -448,7 +445,7 @@ Procedure Groups (4)</summary>
 <div class="pkg-entity">
 <h3 id="get_by_section"><span><a class="doc-id-link" href="#get_by_section">get_by_section<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/i18n/i18n.odin#L111"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">get_by_section :: <span class="keyword-type">proc</span>(section, key: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, number: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = 0, catalog: ^<a class="code-typename" href="/core/text/i18n/#Translation">Translation</a> = ACTIVE) -> (value: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
+<pre class="doc-code">get_by_section :: <span class="keyword-type">proc</span>(section, key: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, number: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = 0, catalog: ^<a class="code-typename" href="/core/text/i18n/#Translation">Translation</a> = ACTIVE) -> (value: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -462,7 +459,7 @@ Procedure Groups (4)</summary>
 <div class="pkg-entity">
 <h3 id="get_by_slot_by_section"><span><a class="doc-id-link" href="#get_by_slot_by_section">get_by_slot_by_section<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/i18n/i18n.odin#L144"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">get_by_slot_by_section :: <span class="keyword-type">proc</span>(section, key: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, slot: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = 0, catalog: ^<a class="code-typename" href="/core/text/i18n/#Translation">Translation</a> = ACTIVE) -> (value: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
+<pre class="doc-code">get_by_slot_by_section :: <span class="keyword-type">proc</span>(section, key: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, slot: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = 0, catalog: ^<a class="code-typename" href="/core/text/i18n/#Translation">Translation</a> = ACTIVE) -> (value: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -478,7 +475,7 @@ If a file format parser doesn't (yet) support plural slots, each of the slots wi
 <div class="pkg-entity">
 <h3 id="get_by_slot_single_section"><span><a class="doc-id-link" href="#get_by_slot_single_section">get_by_slot_single_section<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/i18n/i18n.odin#L132"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">get_by_slot_single_section :: <span class="keyword-type">proc</span>(key: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, slot: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = 0, catalog: ^<a class="code-typename" href="/core/text/i18n/#Translation">Translation</a> = ACTIVE) -> (value: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
+<pre class="doc-code">get_by_slot_single_section :: <span class="keyword-type">proc</span>(key: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, slot: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = 0, catalog: ^<a class="code-typename" href="/core/text/i18n/#Translation">Translation</a> = ACTIVE) -> (value: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -494,7 +491,7 @@ If a file format parser doesn't (yet) support plural slots, each of the slots wi
 <div class="pkg-entity">
 <h3 id="get_single_section"><span><a class="doc-id-link" href="#get_single_section">get_single_section<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/i18n/i18n.odin#L93"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">get_single_section :: <span class="keyword-type">proc</span>(key: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, number: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = 0, catalog: ^<a class="code-typename" href="/core/text/i18n/#Translation">Translation</a> = ACTIVE) -> (value: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
+<pre class="doc-code">get_single_section :: <span class="keyword-type">proc</span>(key: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, number: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = 0, catalog: ^<a class="code-typename" href="/core/text/i18n/#Translation">Translation</a> = ACTIVE) -> (value: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -508,37 +505,37 @@ If a file format parser doesn't (yet) support plural slots, each of the slots wi
 <div class="pkg-entity">
 <h3 id="parse_mo_file"><span><a class="doc-id-link" href="#parse_mo_file">parse_mo_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/i18n/gettext.odin#L121"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">parse_mo_file :: <span class="keyword-type">proc</span>(filename: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, options: <a class="code-typename" href="/core/text/i18n/#Parse_Options">Parse_Options</a> = DEFAULT_PARSE_OPTIONS, pluralizer: <span class="keyword-type">proc</span>(_: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = nil, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (translation: ^<a class="code-typename" href="/core/text/i18n/#Translation">Translation</a>, err: <a class="code-typename" href="/core/text/i18n/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">parse_mo_file :: <span class="keyword-type">proc</span>(filename: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, options: <a class="code-typename" href="/core/text/i18n/#Parse_Options">Parse_Options</a> = DEFAULT_PARSE_OPTIONS, pluralizer: <span class="keyword-type">proc</span>(_: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = nil, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (translation: ^<a class="code-typename" href="/core/text/i18n/#Translation">Translation</a>, err: <a class="code-typename" href="/core/text/i18n/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="parse_mo_from_bytes"><span><a class="doc-id-link" href="#parse_mo_from_bytes">parse_mo_from_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/i18n/gettext.odin#L21"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">parse_mo_from_bytes :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, options: <a class="code-typename" href="/core/text/i18n/#Parse_Options">Parse_Options</a> = DEFAULT_PARSE_OPTIONS, pluralizer: <span class="keyword-type">proc</span>(_: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = nil, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (translation: ^<a class="code-typename" href="/core/text/i18n/#Translation">Translation</a>, err: <a class="code-typename" href="/core/text/i18n/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">parse_mo_from_bytes :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, options: <a class="code-typename" href="/core/text/i18n/#Parse_Options">Parse_Options</a> = DEFAULT_PARSE_OPTIONS, pluralizer: <span class="keyword-type">proc</span>(_: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = nil, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (translation: ^<a class="code-typename" href="/core/text/i18n/#Translation">Translation</a>, err: <a class="code-typename" href="/core/text/i18n/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="parse_qt_linguist_file"><span><a class="doc-id-link" href="#parse_qt_linguist_file">parse_qt_linguist_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/i18n/qt_linguist.odin#L161"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">parse_qt_linguist_file :: <span class="keyword-type">proc</span>(filename: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, options: <a class="code-typename" href="/core/text/i18n/#Parse_Options">Parse_Options</a> = DEFAULT_PARSE_OPTIONS, pluralizer: <span class="keyword-type">proc</span>(_: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = nil, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (translation: ^<a class="code-typename" href="/core/text/i18n/#Translation">Translation</a>, err: <a class="code-typename" href="/core/text/i18n/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">parse_qt_linguist_file :: <span class="keyword-type">proc</span>(filename: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, options: <a class="code-typename" href="/core/text/i18n/#Parse_Options">Parse_Options</a> = DEFAULT_PARSE_OPTIONS, pluralizer: <span class="keyword-type">proc</span>(_: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = nil, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (translation: ^<a class="code-typename" href="/core/text/i18n/#Translation">Translation</a>, err: <a class="code-typename" href="/core/text/i18n/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="parse_qt_linguist_from_bytes"><span><a class="doc-id-link" href="#parse_qt_linguist_from_bytes">parse_qt_linguist_from_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/i18n/qt_linguist.odin#L30"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">parse_qt_linguist_from_bytes :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, options: <a class="code-typename" href="/core/text/i18n/#Parse_Options">Parse_Options</a> = DEFAULT_PARSE_OPTIONS, pluralizer: <span class="keyword-type">proc</span>(_: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = nil, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (translation: ^<a class="code-typename" href="/core/text/i18n/#Translation">Translation</a>, err: <a class="code-typename" href="/core/text/i18n/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">parse_qt_linguist_from_bytes :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, options: <a class="code-typename" href="/core/text/i18n/#Parse_Options">Parse_Options</a> = DEFAULT_PARSE_OPTIONS, pluralizer: <span class="keyword-type">proc</span>(_: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = nil, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (translation: ^<a class="code-typename" href="/core/text/i18n/#Translation">Translation</a>, err: <a class="code-typename" href="/core/text/i18n/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="read_u16"><span><a class="doc-id-link" href="#read_u16">read_u16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/i18n/gettext.odin#L153"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">read_u16 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, native_endian: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = true) -> (res: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, err: <a class="code-typename" href="/core/text/i18n/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">read_u16 :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, native_endian: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = true) -> (res: <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>, err: <a class="code-typename" href="/core/text/i18n/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="read_u32"><span><a class="doc-id-link" href="#read_u32">read_u32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/i18n/gettext.odin#L137"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">read_u32 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, native_endian: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = true) -> (res: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, err: <a class="code-typename" href="/core/text/i18n/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">read_u32 :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, native_endian: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = true) -> (res: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>, err: <a class="code-typename" href="/core/text/i18n/#Error">Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -594,7 +591,7 @@ If a file format parser doesn't (yet) support plural slots, each of the slots wi
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/text/i18n/qt_linguist.odin">qt_linguist.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.305014700 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.322824700 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

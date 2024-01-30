@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -360,7 +357,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="Benchmark_Error"><span><a class="doc-id-link" href="#Benchmark_Error">Benchmark_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/perf.odin#L100"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Benchmark_Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Benchmark_Error :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	Okay             = 0, 
 	Allocation_Error, 
 }</pre>
@@ -377,18 +374,18 @@ Procedure Groups (1)</summary>
 	setup:                <span class="keyword-type">proc</span>(options: ^<a class="code-typename" href="/core/time/#Benchmark_Options">Benchmark_Options</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: <a class="code-typename" href="/core/time/#Benchmark_Error">Benchmark_Error</a>),
 	bench:                <span class="keyword-type">proc</span>(options: ^<a class="code-typename" href="/core/time/#Benchmark_Options">Benchmark_Options</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: <a class="code-typename" href="/core/time/#Benchmark_Error">Benchmark_Error</a>),
 	teardown:             <span class="keyword-type">proc</span>(options: ^<a class="code-typename" href="/core/time/#Benchmark_Options">Benchmark_Options</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: <a class="code-typename" href="/core/time/#Benchmark_Error">Benchmark_Error</a>),
-	rounds:               <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	bytes:                <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	input:                []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
-	count:                <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	processed:            <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	output:               []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	rounds:               <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	bytes:                <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	input:                []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	count:                <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	processed:            <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	output:               []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
 	<span class="comment">// Unused for hash benchmarks</span>
-	hash:                 <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>,
+	hash:                 <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>,
 	<span class="comment">// 		Performance</span>
 	duration:             <a class="code-typename" href="/core/time/#Duration">Duration</a>,
-	rounds_per_second:    <a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a>,
-	megabytes_per_second: <a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a>,
+	rounds_per_second:    <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a>,
+	megabytes_per_second: <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -399,7 +396,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="Duration"><span><a class="doc-id-link" href="#Duration">Duration<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L5"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Duration :: <span class="keyword-type">distinct</span> <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a></pre>
+<pre class="doc-code">Duration :: <span class="keyword-type">distinct</span> <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a></pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
 <ul>
@@ -432,7 +429,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="Month"><span><a class="doc-id-link" href="#Month">Month<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L23"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Month :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Month :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	January   = 1, 
 	February, 
 	March, 
@@ -457,7 +454,7 @@ Procedure Groups (1)</summary>
 <h3 id="Stopwatch"><span><a class="doc-id-link" href="#Stopwatch">Stopwatch<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L48"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Stopwatch :: <span class="keyword-type">struct</span> {
-	running:       <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	running:       <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 	_start_time:   <a class="code-typename" href="/core/time/#Tick">Tick</a>,
 	_accumulation: <a class="code-typename" href="/core/time/#Duration">Duration</a>,
 }</pre>
@@ -476,7 +473,7 @@ Procedure Groups (1)</summary>
 <h3 id="Tick"><span><a class="doc-id-link" href="#Tick">Tick<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/perf.odin#L6"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Tick :: <span class="keyword-type">struct</span> {
-	_nsec: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>,
+	_nsec: <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -495,7 +492,7 @@ Procedure Groups (1)</summary>
 <h3 id="Time"><span><a class="doc-id-link" href="#Time">Time<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L19"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Time :: <span class="keyword-type">struct</span> {
-	_nsec: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>,
+	_nsec: <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -523,7 +520,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="Weekday"><span><a class="doc-id-link" href="#Weekday">Weekday<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L38"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Weekday :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Weekday :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	Sunday    = 0, 
 	Monday, 
 	Tuesday, 
@@ -552,7 +549,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="ABSOLUTE_TO_UNIX"><span><a class="doc-id-link" href="#ABSOLUTE_TO_UNIX">ABSOLUTE_TO_UNIX<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L286"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">ABSOLUTE_TO_UNIX: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a> : -UNIX_TO_ABSOLUTE</pre>
+<pre class="doc-code">ABSOLUTE_TO_UNIX: <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a> : -UNIX_TO_ABSOLUTE</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -592,19 +589,19 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="INTERNAL_TO_ABSOLUTE"><span><a class="doc-id-link" href="#INTERNAL_TO_ABSOLUTE">INTERNAL_TO_ABSOLUTE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L277"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">INTERNAL_TO_ABSOLUTE: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a> : -ABSOLUTE_TO_INTERNAL</pre>
+<pre class="doc-code">INTERNAL_TO_ABSOLUTE: <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a> : -ABSOLUTE_TO_INTERNAL</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="INTERNAL_TO_UNIX"><span><a class="doc-id-link" href="#INTERNAL_TO_UNIX">INTERNAL_TO_UNIX<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L280"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">INTERNAL_TO_UNIX: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a> : -UNIX_TO_INTERNAL</pre>
+<pre class="doc-code">INTERNAL_TO_UNIX: <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a> : -UNIX_TO_INTERNAL</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="INTERNAL_TO_WALL"><span><a class="doc-id-link" href="#INTERNAL_TO_WALL">INTERNAL_TO_WALL<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L283"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">INTERNAL_TO_WALL: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a> : -WALL_TO_INTERNAL</pre>
+<pre class="doc-code">INTERNAL_TO_WALL: <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a> : -WALL_TO_INTERNAL</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -616,13 +613,13 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="MAX_DURATION"><span><a class="doc-id-link" href="#MAX_DURATION">MAX_DURATION<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L15"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">MAX_DURATION :: Duration(1 << 63 - 1)</pre>
+<pre class="doc-code">MAX_DURATION :: Duration(1 &lt;&lt; 63 - 1)</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="MIN_DURATION"><span><a class="doc-id-link" href="#MIN_DURATION">MIN_DURATION<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L14"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">MIN_DURATION :: Duration(-1 << 63)</pre>
+<pre class="doc-code">MIN_DURATION :: Duration(-1 &lt;&lt; 63)</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -682,7 +679,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="UNIX_TO_ABSOLUTE"><span><a class="doc-id-link" href="#UNIX_TO_ABSOLUTE">UNIX_TO_ABSOLUTE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L285"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">UNIX_TO_ABSOLUTE: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a> : UNIX_TO_INTERNAL + INTERNAL_TO_ABSOLUTE</pre>
+<pre class="doc-code">UNIX_TO_ABSOLUTE: <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a> : UNIX_TO_INTERNAL + INTERNAL_TO_ABSOLUTE</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -701,7 +698,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="days_before"><span><a class="doc-id-link" href="#days_before">days_before<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L408"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">days_before: [13]<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> = …</pre>
+<pre class="doc-code">days_before: [13]<a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> = …</pre>
 </div>
 </div>
 <h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
@@ -734,46 +731,46 @@ tell Windows to use a more accurate timer for your process.</p>
 <div class="pkg-entity">
 <h3 id="clock_from_duration"><span><a class="doc-id-link" href="#clock_from_duration">clock_from_duration<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L187"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">clock_from_duration :: <span class="keyword-type">proc</span> "contextless" (d: <a class="code-typename" href="/core/time/#Duration">Duration</a>) -> (hour, min, sec: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">clock_from_duration :: <span class="keyword-type">proc</span> "contextless" (d: <a class="code-typename" href="/core/time/#Duration">Duration</a>) -> (hour, min, sec: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="clock_from_seconds"><span><a class="doc-id-link" href="#clock_from_seconds">clock_from_seconds<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L195"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">clock_from_seconds :: <span class="keyword-type">proc</span> "contextless" (nsec: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (hour, min, sec: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">clock_from_seconds :: <span class="keyword-type">proc</span> "contextless" (nsec: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (hour, min, sec: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="clock_from_stopwatch"><span><a class="doc-id-link" href="#clock_from_stopwatch">clock_from_stopwatch<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L191"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">clock_from_stopwatch :: <span class="keyword-type">proc</span> "contextless" (s: <a class="code-typename" href="/core/time/#Stopwatch">Stopwatch</a>) -> (hour, min, sec: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">clock_from_stopwatch :: <span class="keyword-type">proc</span> "contextless" (s: <a class="code-typename" href="/core/time/#Stopwatch">Stopwatch</a>) -> (hour, min, sec: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="clock_from_time"><span><a class="doc-id-link" href="#clock_from_time">clock_from_time<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L183"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">clock_from_time :: <span class="keyword-type">proc</span> "contextless" (t: <a class="code-typename" href="/core/time/#Time">Time</a>) -> (hour, min, sec: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">clock_from_time :: <span class="keyword-type">proc</span> "contextless" (t: <a class="code-typename" href="/core/time/#Time">Time</a>) -> (hour, min, sec: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="date"><span><a class="doc-id-link" href="#date">date<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L155"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">date :: <span class="keyword-type">proc</span> "contextless" (t: <a class="code-typename" href="/core/time/#Time">Time</a>) -> (year: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, month: <a class="code-typename" href="/core/time/#Month">Month</a>, day: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">date :: <span class="keyword-type">proc</span> "contextless" (t: <a class="code-typename" href="/core/time/#Time">Time</a>) -> (year: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, month: <a class="code-typename" href="/core/time/#Month">Month</a>, day: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="datetime_to_time"><span><a class="doc-id-link" href="#datetime_to_time">datetime_to_time<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L363"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">datetime_to_time :: <span class="keyword-type">proc</span> "contextless" (
-	year, month, day, hour, minute, second: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, 
-	nsec:                                   <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = int(0), 
-) -> (t: <a class="code-typename" href="/core/time/#Time">Time</a>, ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+	year, month, day, hour, minute, second: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, 
+	nsec:                                   <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = int(0), 
+) -> (t: <a class="code-typename" href="/core/time/#Time">Time</a>, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="day"><span><a class="doc-id-link" href="#day">day<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L170"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">day :: <span class="keyword-type">proc</span> "contextless" (t: <a class="code-typename" href="/core/time/#Time">Time</a>) -> (day: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">day :: <span class="keyword-type">proc</span> "contextless" (t: <a class="code-typename" href="/core/time/#Time">Time</a>) -> (day: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -785,31 +782,31 @@ tell Windows to use a more accurate timer for your process.</p>
 <div class="pkg-entity">
 <h3 id="duration_hours"><span><a class="doc-id-link" href="#duration_hours">duration_hours<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L116"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">duration_hours :: <span class="keyword-type">proc</span> "contextless" (d: <a class="code-typename" href="/core/time/#Duration">Duration</a>) -> <a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a> {…}</pre>
+<pre class="doc-code">duration_hours :: <span class="keyword-type">proc</span> "contextless" (d: <a class="code-typename" href="/core/time/#Duration">Duration</a>) -> <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="duration_microseconds"><span><a class="doc-id-link" href="#duration_microseconds">duration_microseconds<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L100"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">duration_microseconds :: <span class="keyword-type">proc</span> "contextless" (d: <a class="code-typename" href="/core/time/#Duration">Duration</a>) -> <a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a> {…}</pre>
+<pre class="doc-code">duration_microseconds :: <span class="keyword-type">proc</span> "contextless" (d: <a class="code-typename" href="/core/time/#Duration">Duration</a>) -> <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="duration_milliseconds"><span><a class="doc-id-link" href="#duration_milliseconds">duration_milliseconds<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L103"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">duration_milliseconds :: <span class="keyword-type">proc</span> "contextless" (d: <a class="code-typename" href="/core/time/#Duration">Duration</a>) -> <a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a> {…}</pre>
+<pre class="doc-code">duration_milliseconds :: <span class="keyword-type">proc</span> "contextless" (d: <a class="code-typename" href="/core/time/#Duration">Duration</a>) -> <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="duration_minutes"><span><a class="doc-id-link" href="#duration_minutes">duration_minutes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L111"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">duration_minutes :: <span class="keyword-type">proc</span> "contextless" (d: <a class="code-typename" href="/core/time/#Duration">Duration</a>) -> <a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a> {…}</pre>
+<pre class="doc-code">duration_minutes :: <span class="keyword-type">proc</span> "contextless" (d: <a class="code-typename" href="/core/time/#Duration">Duration</a>) -> <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="duration_nanoseconds"><span><a class="doc-id-link" href="#duration_nanoseconds">duration_nanoseconds<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L97"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">duration_nanoseconds :: <span class="keyword-type">proc</span> "contextless" (d: <a class="code-typename" href="/core/time/#Duration">Duration</a>) -> <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a> {…}</pre>
+<pre class="doc-code">duration_nanoseconds :: <span class="keyword-type">proc</span> "contextless" (d: <a class="code-typename" href="/core/time/#Duration">Duration</a>) -> <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -821,7 +818,7 @@ tell Windows to use a more accurate timer for your process.</p>
 <div class="pkg-entity">
 <h3 id="duration_seconds"><span><a class="doc-id-link" href="#duration_seconds">duration_seconds<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L106"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">duration_seconds :: <span class="keyword-type">proc</span> "contextless" (d: <a class="code-typename" href="/core/time/#Duration">Duration</a>) -> <a href="/core/builtin#f64"><span class="doc-builtin">f64</span></a> {…}</pre>
+<pre class="doc-code">duration_seconds :: <span class="keyword-type">proc</span> "contextless" (d: <a class="code-typename" href="/core/time/#Duration">Duration</a>) -> <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -833,7 +830,7 @@ tell Windows to use a more accurate timer for your process.</p>
 <div class="pkg-entity">
 <h3 id="has_invariant_tsc"><span><a class="doc-id-link" href="#has_invariant_tsc">has_invariant_tsc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/perf.odin#L65"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">has_invariant_tsc :: <span class="keyword-type">proc</span> "contextless" () -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">has_invariant_tsc :: <span class="keyword-type">proc</span> "contextless" () -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -851,7 +848,7 @@ tell Windows to use a more accurate timer for your process.</p>
 <div class="pkg-entity">
 <h3 id="read_cycle_counter"><span><a class="doc-id-link" href="#read_cycle_counter">read_cycle_counter<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L204"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">read_cycle_counter :: <span class="keyword-type">proc</span> "contextless" () -> <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
+<pre class="doc-code">read_cycle_counter :: <span class="keyword-type">proc</span> "contextless" () -> <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -923,13 +920,13 @@ tell Windows to use a more accurate timer for your process.</p>
 <div class="pkg-entity">
 <h3 id="time_to_unix"><span><a class="doc-id-link" href="#time_to_unix">time_to_unix<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L223"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">time_to_unix :: <span class="keyword-type">proc</span> "contextless" (t: <a class="code-typename" href="/core/time/#Time">Time</a>) -> <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a> {…}</pre>
+<pre class="doc-code">time_to_unix :: <span class="keyword-type">proc</span> "contextless" (t: <a class="code-typename" href="/core/time/#Time">Time</a>) -> <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="time_to_unix_nano"><span><a class="doc-id-link" href="#time_to_unix_nano">time_to_unix_nano<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L228"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">time_to_unix_nano :: <span class="keyword-type">proc</span> "contextless" (t: <a class="code-typename" href="/core/time/#Time">Time</a>) -> <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a> {…}</pre>
+<pre class="doc-code">time_to_unix_nano :: <span class="keyword-type">proc</span> "contextless" (t: <a class="code-typename" href="/core/time/#Time">Time</a>) -> <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -947,13 +944,13 @@ tell Windows to use a more accurate timer for your process.</p>
 <div class="pkg-entity">
 <h3 id="tsc_frequency"><span><a class="doc-id-link" href="#tsc_frequency">tsc_frequency<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/perf.odin#L73"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">tsc_frequency :: <span class="keyword-type">proc</span> "contextless" (fallback_sleep: <a class="code-typename" href="/core/time/#Duration">Duration</a> = 2 * Second) -> (<a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">tsc_frequency :: <span class="keyword-type">proc</span> "contextless" (fallback_sleep: <a class="code-typename" href="/core/time/#Duration">Duration</a> = 2 * Second) -> (<a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="unix"><span><a class="doc-id-link" href="#unix">unix<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L208"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">unix :: <span class="keyword-type">proc</span> "contextless" (sec: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>, nsec: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>) -> <a class="code-typename" href="/core/time/#Time">Time</a> {…}</pre>
+<pre class="doc-code">unix :: <span class="keyword-type">proc</span> "contextless" (sec: <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>, nsec: <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>) -> <a class="code-typename" href="/core/time/#Time">Time</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -965,7 +962,7 @@ tell Windows to use a more accurate timer for your process.</p>
 <div class="pkg-entity">
 <h3 id="year"><span><a class="doc-id-link" href="#year">year<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/time/time.odin#L160"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">year :: <span class="keyword-type">proc</span> "contextless" (t: <a class="code-typename" href="/core/time/#Time">Time</a>) -> (year: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">year :: <span class="keyword-type">proc</span> "contextless" (t: <a class="code-typename" href="/core/time/#Time">Time</a>) -> (year: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
@@ -988,7 +985,7 @@ tell Windows to use a more accurate timer for your process.</p>
 <li><em>(hidden platform specific files)</em></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.277951200 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.074152200 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

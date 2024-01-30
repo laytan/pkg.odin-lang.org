@@ -59,6 +59,14 @@
 </li>
 <li class="nav-item"><a href="/vendor/cgltf">cgltf</a></li>
 <li class="nav-item"><a href="/vendor/commonmark">commonmark</a></li>
+<li class="nav-item">darwin<ul>
+<li><a href="/vendor/darwin/Foundation">Foundation</a></li>
+<li><a href="/vendor/darwin/Metal">Metal</a></li>
+<li><a href="/vendor/darwin/MetalKit">MetalKit</a></li>
+<li><a href="/vendor/darwin/QuartzCore">QuartzCore</a></li>
+</ul>
+
+</li>
 <li class="nav-item">directx<ul>
 <li><a href="/vendor/directx/d3d11">d3d11</a></li>
 <li><a href="/vendor/directx/d3d12">d3d12</a></li>
@@ -349,7 +357,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="BlendFactor"><span><a class="doc-id-link" href="#BlendFactor">BlendFactor<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L70"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">BlendFactor :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">BlendFactor :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	ZERO, 
 	ONE, 
 	SRC_COLOR, 
@@ -372,7 +380,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="Codepoint_Type"><span><a class="doc-id-link" href="#Codepoint_Type">Codepoint_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L3046"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Codepoint_Type :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Codepoint_Type :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	Space, 
 	Newline, 
 	Char, 
@@ -383,13 +391,13 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="Color"><span><a class="doc-id-link" href="#Color">Color<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L27"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Color :: [4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a></pre>
+<pre class="doc-code">Color :: [4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a></pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="Commands"><span><a class="doc-id-link" href="#Commands">Commands<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L117"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Commands :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Commands :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	MOVE_TO, 
 	LINE_TO, 
 	BEZIER_TO, 
@@ -401,7 +409,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="CompositeOperation"><span><a class="doc-id-link" href="#CompositeOperation">CompositeOperation<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L84"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">CompositeOperation :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">CompositeOperation :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	SOURCE_OVER, 
 	SOURCE_IN, 
 	SOURCE_OUT, 
@@ -436,27 +444,27 @@ Procedure Groups (1)</summary>
 <div>
 <pre class="doc-code">Context :: <span class="keyword-type">struct</span> {
 	params:         <a class="code-typename" href="/vendor/nanovg/#Params">Params</a>,
-	commands:       [<span class="keyword">dynamic</span>]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	commands:       [<span class="keyword">dynamic</span>]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
 	commandx,
-	commandy:       <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	commandy:       <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
 	states:         [32]<a class="code-typename" href="/vendor/nanovg/#State">State</a>,
-	nstates:        <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	nstates:        <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 	cache:          <a class="code-typename" href="/vendor/nanovg/#PathCache">PathCache</a>,
-	tessTol:        <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
-	distTol:        <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
-	fringeWidth:    <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
-	devicePxRatio:  <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	tessTol:        <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	distTol:        <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	fringeWidth:    <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	devicePxRatio:  <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
 	<span class="comment">// font</span>
 	fs:             fontstash.<a class="code-typename" href="/vendor/fontstash/#FontContext">FontContext</a>,
-	fontImages:     [4]<a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	fontImageIdx:   <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	fontImages:     [4]<a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	fontImageIdx:   <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 	<span class="comment">// stats</span>
-	drawCallCount:  <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	fillTriCount:   <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	strokeTriCount: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	textTriCount:   <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	drawCallCount:  <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	fillTriCount:   <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	strokeTriCount: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	textTriCount:   <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 	<span class="comment">// flush texture</span>
-	textureDirty:   <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	textureDirty:   <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -556,17 +564,17 @@ Procedure Groups (1)</summary>
 <h3 id="Glyph_Position"><span><a class="doc-id-link" href="#Glyph_Position">Glyph_Position<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L3392"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Glyph_Position :: <span class="keyword-type">struct</span> {
-	str:  <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	x:    <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	str:  <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	x:    <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
 	minx,
-	maxx: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	maxx: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
 }</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="ImageFlag"><span><a class="doc-id-link" href="#ImageFlag">ImageFlag<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L31"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">ImageFlag :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">ImageFlag :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	GENERATE_MIPMAPS, 
 	REPEAT_X, 
 	REPEAT_Y, 
@@ -586,7 +594,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="LineCapType"><span><a class="doc-id-link" href="#LineCapType">LineCapType<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L62"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">LineCapType :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">LineCapType :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	BUTT, 
 	ROUND, 
 	SQUARE, 
@@ -603,20 +611,20 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="Matrix"><span><a class="doc-id-link" href="#Matrix">Matrix<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L28"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Matrix :: [6]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a></pre>
+<pre class="doc-code">Matrix :: [6]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a></pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="Paint"><span><a class="doc-id-link" href="#Paint">Paint<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L42"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Paint :: <span class="keyword-type">struct</span> {
-	xform:      [6]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
-	extent:     [2]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
-	radius:     <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
-	feather:    <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
-	innerColor: [4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
-	outerColor: [4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
-	image:      <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	xform:      [6]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	extent:     [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	radius:     <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	feather:    <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	innerColor: [4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	outerColor: [4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	image:      <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -636,23 +644,23 @@ Procedure Groups (1)</summary>
 <h3 id="Params"><span><a class="doc-id-link" href="#Params">Params<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L209"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Params :: <span class="keyword-type">struct</span> {
-	userPtr:              <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>,
-	edgeAntiAlias:        <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	userPtr:              <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>,
+	edgeAntiAlias:        <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 	<span class="comment">// callbacks to fill out</span>
-	renderCreate:         <span class="keyword-type">proc</span>(uptr: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
-	renderDelete:         <span class="keyword-type">proc</span>(uptr: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>),
+	renderCreate:         <span class="keyword-type">proc</span>(uptr: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	renderDelete:         <span class="keyword-type">proc</span>(uptr: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>),
 	<span class="comment">// textures calls</span>
-	renderCreateTexture:  <span class="keyword-type">proc</span>(uptr: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, type: <a class="code-typename" href="/vendor/nanovg/#Texture">Texture</a>, w, h: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, imageFlags: <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/nanovg/#ImageFlag">ImageFlag</a>], data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	renderDeleteTexture:  <span class="keyword-type">proc</span>(uptr: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, image: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
-	renderUpdateTexture:  <span class="keyword-type">proc</span>(uptr: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, image: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, x, y: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, w, h: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
-	renderGetTextureSize: <span class="keyword-type">proc</span>(uptr: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, image: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, w, h: ^<a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	renderCreateTexture:  <span class="keyword-type">proc</span>(uptr: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, type: <a class="code-typename" href="/vendor/nanovg/#Texture">Texture</a>, w, h: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, imageFlags: <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/nanovg/#ImageFlag">ImageFlag</a>], data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	renderDeleteTexture:  <span class="keyword-type">proc</span>(uptr: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, image: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	renderUpdateTexture:  <span class="keyword-type">proc</span>(uptr: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, image: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, x, y: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, w, h: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	renderGetTextureSize: <span class="keyword-type">proc</span>(uptr: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, image: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, w, h: ^<a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 	<span class="comment">// rendering calls</span>
-	renderViewport:       <span class="keyword-type">proc</span>(uptr: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, width, height, devicePixelRatio: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>),
-	renderCancel:         <span class="keyword-type">proc</span>(uptr: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>),
-	renderFlush:          <span class="keyword-type">proc</span>(uptr: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>),
-	renderFill:           <span class="keyword-type">proc</span>(uptr: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, paint: ^<a class="code-typename" href="/vendor/nanovg/#Paint">Paint</a>, compositeOperation: <a class="code-typename" href="/vendor/nanovg/#CompositeOperationState">CompositeOperationState</a>, scissor: ^<a class="code-typename" href="/vendor/nanovg/#ScissorT">ScissorT</a>, fringe: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, bounds: [4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, paths: []<a class="code-typename" href="/vendor/nanovg/#Path">Path</a>),
-	renderStroke:         <span class="keyword-type">proc</span>(uptr: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, paint: ^<a class="code-typename" href="/vendor/nanovg/#Paint">Paint</a>, compositeOperation: <a class="code-typename" href="/vendor/nanovg/#CompositeOperationState">CompositeOperationState</a>, scissor: ^<a class="code-typename" href="/vendor/nanovg/#ScissorT">ScissorT</a>, fringe: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, strokeWidth: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, paths: []<a class="code-typename" href="/vendor/nanovg/#Path">Path</a>),
-	renderTriangles:      <span class="keyword-type">proc</span>(uptr: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, paint: ^<a class="code-typename" href="/vendor/nanovg/#Paint">Paint</a>, compositeOperation: <a class="code-typename" href="/vendor/nanovg/#CompositeOperationState">CompositeOperationState</a>, scissor: ^<a class="code-typename" href="/vendor/nanovg/#ScissorT">ScissorT</a>, verts: [][4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, fringe: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>),
+	renderViewport:       <span class="keyword-type">proc</span>(uptr: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, width, height, devicePixelRatio: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>),
+	renderCancel:         <span class="keyword-type">proc</span>(uptr: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>),
+	renderFlush:          <span class="keyword-type">proc</span>(uptr: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>),
+	renderFill:           <span class="keyword-type">proc</span>(uptr: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, paint: ^<a class="code-typename" href="/vendor/nanovg/#Paint">Paint</a>, compositeOperation: <a class="code-typename" href="/vendor/nanovg/#CompositeOperationState">CompositeOperationState</a>, scissor: ^<a class="code-typename" href="/vendor/nanovg/#ScissorT">ScissorT</a>, fringe: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, bounds: [4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, paths: []<a class="code-typename" href="/vendor/nanovg/#Path">Path</a>),
+	renderStroke:         <span class="keyword-type">proc</span>(uptr: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, paint: ^<a class="code-typename" href="/vendor/nanovg/#Paint">Paint</a>, compositeOperation: <a class="code-typename" href="/vendor/nanovg/#CompositeOperationState">CompositeOperationState</a>, scissor: ^<a class="code-typename" href="/vendor/nanovg/#ScissorT">ScissorT</a>, fringe: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, strokeWidth: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, paths: []<a class="code-typename" href="/vendor/nanovg/#Path">Path</a>),
+	renderTriangles:      <span class="keyword-type">proc</span>(uptr: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, paint: ^<a class="code-typename" href="/vendor/nanovg/#Paint">Paint</a>, compositeOperation: <a class="code-typename" href="/vendor/nanovg/#CompositeOperationState">CompositeOperationState</a>, scissor: ^<a class="code-typename" href="/vendor/nanovg/#ScissorT">ScissorT</a>, verts: [][4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, fringe: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>),
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -664,14 +672,14 @@ Procedure Groups (1)</summary>
 <h3 id="Path"><span><a class="doc-id-link" href="#Path">Path<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L148"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Path :: <span class="keyword-type">struct</span> {
-	first:   <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	count:   <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	closed:  <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
-	nbevel:  <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	fill:    [][4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
-	stroke:  [][4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	first:   <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	count:   <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	closed:  <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	nbevel:  <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	fill:    [][4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	stroke:  [][4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
 	winding: <a class="code-typename" href="/vendor/nanovg/#Winding">Winding</a>,
-	convex:  <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	convex:  <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 }</pre>
 </div>
 </div>
@@ -681,8 +689,8 @@ Procedure Groups (1)</summary>
 <pre class="doc-code">PathCache :: <span class="keyword-type">struct</span> {
 	points: [<span class="keyword">dynamic</span>]<a class="code-typename" href="/vendor/nanovg/#Point">Point</a>,
 	paths:  [<span class="keyword">dynamic</span>]<a class="code-typename" href="/vendor/nanovg/#Path">Path</a>,
-	verts:  [<span class="keyword">dynamic</span>][4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
-	bounds: [4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	verts:  [<span class="keyword">dynamic</span>][4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	bounds: [4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
 }</pre>
 </div>
 </div>
@@ -691,12 +699,12 @@ Procedure Groups (1)</summary>
 <div>
 <pre class="doc-code">Point :: <span class="keyword-type">struct</span> {
 	x,
-	y:     <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	y:     <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
 	dx,
-	dy:    <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
-	len:   <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	dy:    <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	len:   <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
 	dmx,
-	dmy:   <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	dmy:   <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
 	flags: <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/nanovg/#PointFlag">PointFlag</a>],
 }</pre>
 </div>
@@ -704,7 +712,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="PointFlag"><span><a class="doc-id-link" href="#PointFlag">PointFlag<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L125"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">PointFlag :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">PointFlag :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	CORNER, 
 	LEFT, 
 	BEVEL, 
@@ -722,15 +730,15 @@ Procedure Groups (1)</summary>
 <h3 id="ScissorT"><span><a class="doc-id-link" href="#ScissorT">ScissorT<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L112"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">ScissorT :: <span class="keyword-type">struct</span> {
-	xform:  [6]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
-	extent: [2]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	xform:  [6]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	extent: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
 }</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="Solidity"><span><a class="doc-id-link" href="#Solidity">Solidity<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L57"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Solidity :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Solidity :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	SOLID = 1, <span class="comment">// CCW</span>
 	HOLE,      <span class="comment">// CW</span>
 }</pre>
@@ -745,24 +753,24 @@ Procedure Groups (1)</summary>
 <div>
 <pre class="doc-code">State :: <span class="keyword-type">struct</span> {
 	compositeOperation: <a class="code-typename" href="/vendor/nanovg/#CompositeOperationState">CompositeOperationState</a>,
-	shapeAntiAlias:     <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	shapeAntiAlias:     <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 	fill:               <a class="code-typename" href="/vendor/nanovg/#Paint">Paint</a>,
 	stroke:             <a class="code-typename" href="/vendor/nanovg/#Paint">Paint</a>,
-	strokeWidth:        <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
-	miterLimit:         <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	strokeWidth:        <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	miterLimit:         <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
 	lineJoin:           <a class="code-typename" href="/vendor/nanovg/#LineCapType">LineCapType</a>,
 	lineCap:            <a class="code-typename" href="/vendor/nanovg/#LineCapType">LineCapType</a>,
-	alpha:              <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
-	xform:              [6]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	alpha:              <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	xform:              [6]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
 	scissor:            <a class="code-typename" href="/vendor/nanovg/#ScissorT">ScissorT</a>,
 	<span class="comment">// font state</span>
-	fontSize:           <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
-	letterSpacing:      <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
-	lineHeight:         <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
-	fontBlur:           <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	fontSize:           <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	letterSpacing:      <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	lineHeight:         <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	fontBlur:           <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
 	alignHorizontal:    fontstash.<a class="code-typename" href="/vendor/fontstash/#AlignHorizontal">AlignHorizontal</a>,
 	alignVertical:      fontstash.<a class="code-typename" href="/vendor/fontstash/#AlignVertical">AlignVertical</a>,
-	fontId:             <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	fontId:             <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 }</pre>
 </div>
 </div>
@@ -770,12 +778,12 @@ Procedure Groups (1)</summary>
 <h3 id="Text_Row"><span><a class="doc-id-link" href="#Text_Row">Text_Row<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L3038"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Text_Row :: <span class="keyword-type">struct</span> {
-	start: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	end:   <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	next:  <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	width: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	start: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	end:   <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	next:  <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	width: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
 	minx,
-	maxx:  <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>,
+	maxx:  <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>,
 }</pre>
 </div>
 <details class="odin-doc-toggle" open>
@@ -786,7 +794,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="Texture"><span><a class="doc-id-link" href="#Texture">Texture<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L107"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Texture :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Texture :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	Alpha, 
 	RGBA, 
 }</pre>
@@ -795,7 +803,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="Vertex"><span><a class="doc-id-link" href="#Vertex">Vertex<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L29"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Vertex :: [4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a></pre>
+<pre class="doc-code">Vertex :: [4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a></pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -805,7 +813,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="Winding"><span><a class="doc-id-link" href="#Winding">Winding<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L52"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Winding :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Winding :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	CCW = 1, 
 	CW, 
 }</pre>
@@ -886,7 +894,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="AddFallbackFont"><span><a class="doc-id-link" href="#AddFallbackFont">AddFallbackFont<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L2648"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">AddFallbackFont :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, base_font: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, fallback_font: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">AddFallbackFont :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, base_font: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, fallback_font: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -896,7 +904,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="AddFallbackFontId"><span><a class="doc-id-link" href="#AddFallbackFontId">AddFallbackFontId<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L2639"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">AddFallbackFontId :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, base_font, fallback_font: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">AddFallbackFontId :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, base_font, fallback_font: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -908,7 +916,7 @@ Procedure Groups (1)</summary>
 <div>
 <pre class="doc-code">Arc :: <span class="keyword-type">proc</span>(
 	ctx:               ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, 
-	cx, cy, r, a0, a1: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	cx, cy, r, a0, a1: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
 	dir:               <a class="code-typename" href="/vendor/nanovg/#Winding">Winding</a>, 
 ) {…}</pre>
 </div>
@@ -924,9 +932,9 @@ Angles are specified in radians.</p>
 <div>
 <pre class="doc-code">ArcTo :: <span class="keyword-type">proc</span>(
 	ctx:    ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, 
-	x1, y1: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	x2, y2: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	radius: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	x1, y1: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	x2, y2: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	radius: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
 ) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
@@ -937,7 +945,7 @@ Angles are specified in radians.</p>
 <div class="pkg-entity">
 <h3 id="BeginFrame"><span><a class="doc-id-link" href="#BeginFrame">BeginFrame<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L353"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">BeginFrame :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, windowWidth: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, windowHeight: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, devicePixelRatio: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">BeginFrame :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, windowWidth: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, windowHeight: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, devicePixelRatio: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -967,10 +975,10 @@ devicePixelRatio to: frameBufferWidth / windowWidth.
 <div>
 <pre class="doc-code">BezierTo :: <span class="keyword-type">proc</span>(
 	ctx:      ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, 
-	c1x, c1y: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	c2x, c2y: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	c1x, c1y: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	c2x, c2y: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
 	x, 
-	y:        <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	y:        <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
 ) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
@@ -982,12 +990,12 @@ devicePixelRatio to: frameBufferWidth / windowWidth.
 <h3 id="BoxGradient"><span><a class="doc-id-link" href="#BoxGradient">BoxGradient<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L1054"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">BoxGradient :: <span class="keyword-type">proc</span>(
-	x, y: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	w, h: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	r:    <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	f:    <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	icol: [4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	ocol: [4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	x, y: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	w, h: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	r:    <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	f:    <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	icol: [4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	ocol: [4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
 ) -> (p: <a class="code-typename" href="/vendor/nanovg/#Paint">Paint</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
@@ -1011,7 +1019,7 @@ The gradient is transformed by the current transform when it is passed to nvgFil
 <div class="pkg-entity">
 <h3 id="Circle"><span><a class="doc-id-link" href="#Circle">Circle<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L2477"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Circle :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, cx, cy: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, radius: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">Circle :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, cx, cy: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, radius: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1031,7 +1039,7 @@ The gradient is transformed by the current transform when it is passed to nvgFil
 <div class="pkg-entity">
 <h3 id="ColorHex"><span><a class="doc-id-link" href="#ColorHex">ColorHex<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L512"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">ColorHex :: <span class="keyword-type">proc</span>(color: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> (res: [4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">ColorHex :: <span class="keyword-type">proc</span>(color: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) -> (res: [4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1041,7 +1049,7 @@ The gradient is transformed by the current transform when it is passed to nvgFil
 <div class="pkg-entity">
 <h3 id="CreateFont"><span><a class="doc-id-link" href="#CreateFont">CreateFont<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L2619"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">CreateFont :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, name, filename: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">CreateFont :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, name, filename: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1052,7 +1060,7 @@ Returns handle to the font.</p>
 <div class="pkg-entity">
 <h3 id="CreateFontMem"><span><a class="doc-id-link" href="#CreateFontMem">CreateFontMem<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L2625"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">CreateFontMem :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, slice: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, free_loaded_data: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">CreateFontMem :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, slice: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, free_loaded_data: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1063,7 +1071,7 @@ Returns handle to the font.</p>
 <div class="pkg-entity">
 <h3 id="CreateImageMem"><span><a class="doc-id-link" href="#CreateImageMem">CreateImageMem<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L910"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">CreateImageMem :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, imageFlags: <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/nanovg/#ImageFlag">ImageFlag</a>]) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">CreateImageMem :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, imageFlags: <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/nanovg/#ImageFlag">ImageFlag</a>]) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1074,7 +1082,7 @@ Returns handle to the image.</p>
 <div class="pkg-entity">
 <h3 id="CreateImagePath"><span><a class="doc-id-link" href="#CreateImagePath">CreateImagePath<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L892"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">CreateImagePath :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, filename: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>, imageFlags: <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/nanovg/#ImageFlag">ImageFlag</a>]) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">CreateImagePath :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, filename: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>, imageFlags: <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/nanovg/#ImageFlag">ImageFlag</a>]) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1085,7 +1093,7 @@ Returns handle to the image.</p>
 <div class="pkg-entity">
 <h3 id="CreateImageRGBA"><span><a class="doc-id-link" href="#CreateImageRGBA">CreateImageRGBA<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L930"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">CreateImageRGBA :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, w, h: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, imageFlags: <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/nanovg/#ImageFlag">ImageFlag</a>], data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">CreateImageRGBA :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, w, h: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, imageFlags: <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/nanovg/#ImageFlag">ImageFlag</a>], data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1102,7 +1110,7 @@ Returns handle to the image.</p>
 <div class="pkg-entity">
 <h3 id="CurrentTransform"><span><a class="doc-id-link" href="#CurrentTransform">CurrentTransform<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L874"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">CurrentTransform :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, xform: ^[6]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">CurrentTransform :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, xform: ^[6]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1123,13 +1131,13 @@ There should be space for 6 floats in the return buffer for the values a-f.
 <div class="pkg-entity">
 <h3 id="DegToRad"><span><a class="doc-id-link" href="#DegToRad">DegToRad<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L643"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">DegToRad :: <span class="keyword-type">proc</span>(deg: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+<pre class="doc-code">DegToRad :: <span class="keyword-type">proc</span>(deg: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="DeleteImage"><span><a class="doc-id-link" href="#DeleteImage">DeleteImage<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L961"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">DeleteImage :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, image: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">DeleteImage :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, image: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1145,7 +1153,7 @@ There should be space for 6 floats in the return buffer for the values a-f.
 <div class="pkg-entity">
 <h3 id="Ellipse"><span><a class="doc-id-link" href="#Ellipse">Ellipse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L2465"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Ellipse :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, cx, cy, rx, ry: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">Ellipse :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, cx, cy, rx, ry: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1175,7 +1183,7 @@ There should be space for 6 floats in the return buffer for the values a-f.
 <div class="pkg-entity">
 <h3 id="FillColor"><span><a class="doc-id-link" href="#FillColor">FillColor<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L786"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">FillColor :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, color: [4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">FillColor :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, color: [4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1207,7 +1215,7 @@ There should be space for 6 floats in the return buffer for the values a-f.
 <div class="pkg-entity">
 <h3 id="FindFont"><span><a class="doc-id-link" href="#FindFont">FindFont<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L2630"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">FindFont :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">FindFont :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1217,7 +1225,7 @@ There should be space for 6 floats in the return buffer for the values a-f.
 <div class="pkg-entity">
 <h3 id="FontBlur"><span><a class="doc-id-link" href="#FontBlur">FontBlur<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L2673"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">FontBlur :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, blur: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">FontBlur :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, blur: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1227,7 +1235,7 @@ There should be space for 6 floats in the return buffer for the values a-f.
 <div class="pkg-entity">
 <h3 id="FontFace"><span><a class="doc-id-link" href="#FontFace">FontFace<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L2716"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">FontFace :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, font: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
+<pre class="doc-code">FontFace :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, font: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1237,7 +1245,7 @@ There should be space for 6 floats in the return buffer for the values a-f.
 <div class="pkg-entity">
 <h3 id="FontFaceId"><span><a class="doc-id-link" href="#FontFaceId">FontFaceId<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L2710"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">FontFaceId :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, font: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">FontFaceId :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, font: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1247,7 +1255,7 @@ There should be space for 6 floats in the return buffer for the values a-f.
 <div class="pkg-entity">
 <h3 id="FontSize"><span><a class="doc-id-link" href="#FontSize">FontSize<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L2667"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">FontSize :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, size: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">FontSize :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, size: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1257,13 +1265,13 @@ There should be space for 6 floats in the return buffer for the values a-f.
 <div class="pkg-entity">
 <h3 id="FrameScoped"><span><a class="doc-id-link" href="#FrameScoped">FrameScoped<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L374"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">FrameScoped :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, windowWidth: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, windowHeight: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, devicePixelRatio: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) -> ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a> {…}</pre>
+<pre class="doc-code">FrameScoped :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, windowWidth: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, windowHeight: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, devicePixelRatio: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="GlobalAlpha"><span><a class="doc-id-link" href="#GlobalAlpha">GlobalAlpha<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L767"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GlobalAlpha :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, alpha: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">GlobalAlpha :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, alpha: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1304,7 +1312,7 @@ Already transparent paths will get proportionally more transparent as well.</p>
 <div class="pkg-entity">
 <h3 id="HSL"><span><a class="doc-id-link" href="#HSL">HSL<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L467"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">HSL :: <span class="keyword-type">proc</span>(h, s, l: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+<pre class="doc-code">HSL :: <span class="keyword-type">proc</span>(h, s, l: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1315,7 +1323,7 @@ HSL values are all in range [0..1], alpha will be set to 255.</p>
 <div class="pkg-entity">
 <h3 id="HSLA"><span><a class="doc-id-link" href="#HSLA">HSLA<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L473"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">HSLA :: <span class="keyword-type">proc</span>(hue, saturation, lightness: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, a: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (col: [4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">HSLA :: <span class="keyword-type">proc</span>(hue, saturation, lightness: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, a: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (col: [4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1327,11 +1335,11 @@ HSL values are all in range [0..1], alpha in range [0..255]</p>
 <h3 id="ImagePattern"><span><a class="doc-id-link" href="#ImagePattern">ImagePattern<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L1083"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">ImagePattern :: <span class="keyword-type">proc</span>(
-	cx, cy: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	w, h:   <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	angle:  <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	image:  <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, 
-	alpha:  <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	cx, cy: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	w, h:   <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	angle:  <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	image:  <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, 
+	alpha:  <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
 ) -> (p: <a class="code-typename" href="/vendor/nanovg/#Paint">Paint</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
@@ -1345,7 +1353,7 @@ The gradient is transformed by the current transform when it is passed to nvgFil
 <div class="pkg-entity">
 <h3 id="ImageSize"><span><a class="doc-id-link" href="#ImageSize">ImageSize<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L954"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">ImageSize :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, image: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> (w, h: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">ImageSize :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, image: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> (w, h: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1355,7 +1363,7 @@ The gradient is transformed by the current transform when it is passed to nvgFil
 <div class="pkg-entity">
 <h3 id="IntersectScissor"><span><a class="doc-id-link" href="#IntersectScissor">IntersectScissor<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L1139"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">IntersectScissor :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, x, y, w, h: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">IntersectScissor :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, x, y, w, h: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1371,7 +1379,7 @@ transform space. The resulting shape is always rectangle.
 <div class="pkg-entity">
 <h3 id="LerpRGBA"><span><a class="doc-id-link" href="#LerpRGBA">LerpRGBA<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L455"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">LerpRGBA :: <span class="keyword-type">proc</span>(c0, c1: [4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, u: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) -> (cint: [4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">LerpRGBA :: <span class="keyword-type">proc</span>(c0, c1: [4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, u: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> (cint: [4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1403,7 +1411,7 @@ Can be one of NVG_MITER (default), NVG_ROUND, NVG_BEVEL.</p>
 <div class="pkg-entity">
 <h3 id="LineTo"><span><a class="doc-id-link" href="#LineTo">LineTo<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L2238"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">LineTo :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, x, y: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">LineTo :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, x, y: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1414,10 +1422,10 @@ Can be one of NVG_MITER (default), NVG_ROUND, NVG_BEVEL.</p>
 <h3 id="LinearGradient"><span><a class="doc-id-link" href="#LinearGradient">LinearGradient<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L978"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">LinearGradient :: <span class="keyword-type">proc</span>(
-	sx, sy: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	ex, ey: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	icol:   [4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	ocol:   [4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	sx, sy: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	ex, ey: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	icol:   [4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	ocol:   [4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
 ) -> (p: <a class="code-typename" href="/vendor/nanovg/#Paint">Paint</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
@@ -1431,7 +1439,7 @@ The gradient is transformed by the current transform when it is passed to nvgFil
 <div class="pkg-entity">
 <h3 id="MiterLimit"><span><a class="doc-id-link" href="#MiterLimit">MiterLimit<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L746"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">MiterLimit :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, limit: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">MiterLimit :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, limit: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1442,7 +1450,7 @@ Miter limit controls when a sharp corner is beveled.</p>
 <div class="pkg-entity">
 <h3 id="MoveTo"><span><a class="doc-id-link" href="#MoveTo">MoveTo<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L2233"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">MoveTo :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, x, y: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">MoveTo :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, x, y: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1472,7 +1480,7 @@ Miter limit controls when a sharp corner is beveled.</p>
 <div class="pkg-entity">
 <h3 id="QuadTo"><span><a class="doc-id-link" href="#QuadTo">QuadTo<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L2253"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">QuadTo :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, cx, cy, x, y: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">QuadTo :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, cx, cy, x, y: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1482,7 +1490,7 @@ Miter limit controls when a sharp corner is beveled.</p>
 <div class="pkg-entity">
 <h3 id="RGB"><span><a class="doc-id-link" href="#RGB">RGB<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L441"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">RGB :: <span class="keyword-type">proc</span>(r, g, b: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+<pre class="doc-code">RGB :: <span class="keyword-type">proc</span>(r, g, b: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1492,7 +1500,7 @@ Miter limit controls when a sharp corner is beveled.</p>
 <div class="pkg-entity">
 <h3 id="RGBA"><span><a class="doc-id-link" href="#RGBA">RGBA<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L446"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">RGBA :: <span class="keyword-type">proc</span>(r, g, b, a: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (res: [4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">RGBA :: <span class="keyword-type">proc</span>(r, g, b, a: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (res: [4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1502,18 +1510,18 @@ Miter limit controls when a sharp corner is beveled.</p>
 <div class="pkg-entity">
 <h3 id="RadToDeg"><span><a class="doc-id-link" href="#RadToDeg">RadToDeg<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L647"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">RadToDeg :: <span class="keyword-type">proc</span>(rad: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+<pre class="doc-code">RadToDeg :: <span class="keyword-type">proc</span>(rad: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="RadialGradient"><span><a class="doc-id-link" href="#RadialGradient">RadialGradient<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L1023"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">RadialGradient :: <span class="keyword-type">proc</span>(
-	cx, cy: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	inr:    <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	outr:   <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	icol:   [4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	ocol:   [4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	cx, cy: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	inr:    <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	outr:   <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	icol:   [4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	ocol:   [4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
 ) -> (p: <a class="code-typename" href="/vendor/nanovg/#Paint">Paint</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
@@ -1529,7 +1537,7 @@ The gradient is transformed by the current transform when it is passed to nvgFil
 <div class="pkg-entity">
 <h3 id="Rect"><span><a class="doc-id-link" href="#Rect">Rect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L2411"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Rect :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, x, y, w, h: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">Rect :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, x, y, w, h: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1549,7 +1557,7 @@ The gradient is transformed by the current transform when it is passed to nvgFil
 <div class="pkg-entity">
 <h3 id="ResetFallbackFonts"><span><a class="doc-id-link" href="#ResetFallbackFonts">ResetFallbackFonts<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L2662"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">ResetFallbackFonts :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, base_font: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
+<pre class="doc-code">ResetFallbackFonts :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, base_font: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1559,7 +1567,7 @@ The gradient is transformed by the current transform when it is passed to nvgFil
 <div class="pkg-entity">
 <h3 id="ResetFallbackFontsId"><span><a class="doc-id-link" href="#ResetFallbackFontsId">ResetFallbackFontsId<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L2657"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">ResetFallbackFontsId :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, base_font: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">ResetFallbackFontsId :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, base_font: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1599,7 +1607,7 @@ The gradient is transformed by the current transform when it is passed to nvgFil
 <div class="pkg-entity">
 <h3 id="Rotate"><span><a class="doc-id-link" href="#Rotate">Rotate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L836"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Rotate :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, angle: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">Rotate :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, angle: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1612,7 +1620,7 @@ The gradient is transformed by the current transform when it is passed to nvgFil
 <pre class="doc-code">RoundedRect :: <span class="keyword-type">proc</span>(
 	ctx:        ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, 
 	x, y, w, h, 
-	radius:     <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	radius:     <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
 ) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
@@ -1625,12 +1633,12 @@ The gradient is transformed by the current transform when it is passed to nvgFil
 <div>
 <pre class="doc-code">RoundedRectVarying :: <span class="keyword-type">proc</span>(
 	ctx:                 ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, 
-	x, y:                <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	w, h:                <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	radius_top_left:     <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	radius_top_right:    <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	radius_bottom_right: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	radius_bottom_left:  <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	x, y:                <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	w, h:                <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	radius_top_left:     <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	radius_top_right:    <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	radius_bottom_right: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	radius_bottom_left:  <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
 ) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
@@ -1662,7 +1670,7 @@ A matching nvgRestore() must be used to restore the state.</p>
 <div class="pkg-entity">
 <h3 id="Scale"><span><a class="doc-id-link" href="#Scale">Scale<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L860"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Scale :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, x, y: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">Scale :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, x, y: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1672,7 +1680,7 @@ A matching nvgRestore() must be used to restore the state.</p>
 <div class="pkg-entity">
 <h3 id="Scissor"><span><a class="doc-id-link" href="#Scissor">Scissor<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L1113"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Scissor :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, x, y: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, width, height: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">Scissor :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, x, y: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, width, height: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1683,7 +1691,7 @@ The scissor rectangle is transformed by the current transform.</p>
 <div class="pkg-entity">
 <h3 id="ShapeAntiAlias"><span><a class="doc-id-link" href="#ShapeAntiAlias">ShapeAntiAlias<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L733"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">ShapeAntiAlias :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, enabled: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">ShapeAntiAlias :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, enabled: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1693,7 +1701,7 @@ The scissor rectangle is transformed by the current transform.</p>
 <div class="pkg-entity">
 <h3 id="SkewX"><span><a class="doc-id-link" href="#SkewX">SkewX<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L844"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">SkewX :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, angle: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">SkewX :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, angle: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1703,7 +1711,7 @@ The scissor rectangle is transformed by the current transform.</p>
 <div class="pkg-entity">
 <h3 id="SkewY"><span><a class="doc-id-link" href="#SkewY">SkewY<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L852"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">SkewY :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, angle: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">SkewY :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, angle: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1723,7 +1731,7 @@ The scissor rectangle is transformed by the current transform.</p>
 <div class="pkg-entity">
 <h3 id="StrokeColor"><span><a class="doc-id-link" href="#StrokeColor">StrokeColor<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L773"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">StrokeColor :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, color: [4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">StrokeColor :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, color: [4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1749,7 +1757,7 @@ The scissor rectangle is transformed by the current transform.</p>
 <div class="pkg-entity">
 <h3 id="StrokeWidth"><span><a class="doc-id-link" href="#StrokeWidth">StrokeWidth<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L739"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">StrokeWidth :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, width: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">StrokeWidth :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, width: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1759,7 +1767,7 @@ The scissor rectangle is transformed by the current transform.</p>
 <div class="pkg-entity">
 <h3 id="Text"><span><a class="doc-id-link" href="#Text">Text<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L2891"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Text :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, x, y: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, text: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+<pre class="doc-code">Text :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, x, y: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, text: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1799,7 +1807,7 @@ The scissor rectangle is transformed by the current transform.</p>
 <div class="pkg-entity">
 <h3 id="TextBounds"><span><a class="doc-id-link" href="#TextBounds">TextBounds<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L2998"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">TextBounds :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, x, y: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, input: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, bounds: ^[4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a> = nil) -> (advance: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">TextBounds :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, x, y: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, input: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, bounds: ^[4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> = nil) -> (advance: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1812,7 +1820,7 @@ Measured values are returned in local coordinate space.</p>
 <div class="pkg-entity">
 <h3 id="TextBox"><span><a class="doc-id-link" href="#TextBox">TextBox<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L3056"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">TextBox :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, x, y: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, break_row_width: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, input: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
+<pre class="doc-code">TextBox :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, x, y: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, break_row_width: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, input: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1826,10 +1834,10 @@ Words longer than the max width are slit at nearest character (i.e. no hyphenati
 <div>
 <pre class="doc-code">TextBoxBounds :: <span class="keyword-type">proc</span>(
 	ctx:           ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, 
-	x, y:          <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	breakRowWidth: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	input:         <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, 
-	bounds:        ^[4]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	x, y:          <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	breakRowWidth: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	input:         <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, 
+	bounds:        ^[4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
 ) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
@@ -1842,7 +1850,7 @@ Measured values are returned in local coordinate space.</p>
 <div class="pkg-entity">
 <h3 id="TextBreakLines"><span><a class="doc-id-link" href="#TextBreakLines">TextBreakLines<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L3089"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">TextBreakLines :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, text: ^<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, break_row_width: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, rows: ^[]<a class="code-typename" href="/vendor/nanovg/#Text_Row">Text_Row</a>) -> (nrows: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, last: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">TextBreakLines :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, text: ^<a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, break_row_width: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, rows: ^[]<a class="code-typename" href="/vendor/nanovg/#Text_Row">Text_Row</a>) -> (nrows: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, last: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1855,7 +1863,7 @@ Words longer than the max width are slit at nearest character (i.e. no hyphenati
 <div class="pkg-entity">
 <h3 id="TextGlyphPositions"><span><a class="doc-id-link" href="#TextGlyphPositions">TextGlyphPositions<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L3400"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">TextGlyphPositions :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, x, y: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, text: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, positions: ^[]<a class="code-typename" href="/vendor/nanovg/#Glyph_Position">Glyph_Position</a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">TextGlyphPositions :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, x, y: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, text: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, positions: ^[]<a class="code-typename" href="/vendor/nanovg/#Glyph_Position">Glyph_Position</a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1866,7 +1874,7 @@ Measured values are returned in local coordinate space.</p>
 <div class="pkg-entity">
 <h3 id="TextIcon"><span><a class="doc-id-link" href="#TextIcon">TextIcon<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L2810"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">TextIcon :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, xpos, ypos: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, codepoint: <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>) -> <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+<pre class="doc-code">TextIcon :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, xpos, ypos: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, codepoint: <a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1876,7 +1884,7 @@ Measured values are returned in local coordinate space.</p>
 <div class="pkg-entity">
 <h3 id="TextLetterSpacing"><span><a class="doc-id-link" href="#TextLetterSpacing">TextLetterSpacing<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L2679"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">TextLetterSpacing :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, spacing: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">TextLetterSpacing :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, spacing: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1886,7 +1894,7 @@ Measured values are returned in local coordinate space.</p>
 <div class="pkg-entity">
 <h3 id="TextLineHeight"><span><a class="doc-id-link" href="#TextLineHeight">TextLineHeight<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L2685"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">TextLineHeight :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, lineHeight: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">TextLineHeight :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, lineHeight: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1896,7 +1904,7 @@ Measured values are returned in local coordinate space.</p>
 <div class="pkg-entity">
 <h3 id="TextMetrics"><span><a class="doc-id-link" href="#TextMetrics">TextMetrics<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L2970"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">TextMetrics :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>) -> (ascender, descender, lineHeight: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">TextMetrics :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>) -> (ascender, descender, lineHeight: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1910,14 +1918,14 @@ Measured values are returned in local coordinate space.</p>
 <pre class="doc-code">Transform :: <span class="keyword-type">proc</span>(
 	ctx:           ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, 
 	a, b, c, d, e, 
-	f:             <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	f:             <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
 ) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="TransformIdentity"><span><a class="doc-id-link" href="#TransformIdentity">TransformIdentity<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L529"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">TransformIdentity :: <span class="keyword-type">proc</span>(t: ^[6]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">TransformIdentity :: <span class="keyword-type">proc</span>(t: ^[6]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1927,7 +1935,7 @@ Measured values are returned in local coordinate space.</p>
 <div class="pkg-entity">
 <h3 id="TransformInverse"><span><a class="doc-id-link" href="#TransformInverse">TransformInverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L612"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">TransformInverse :: <span class="keyword-type">proc</span>(inv: ^[6]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, t: [6]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">TransformInverse :: <span class="keyword-type">proc</span>(inv: ^[6]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, t: [6]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1938,7 +1946,7 @@ Returns true if the inverse could be calculated, else false.</p>
 <div class="pkg-entity">
 <h3 id="TransformMultiply"><span><a class="doc-id-link" href="#TransformMultiply">TransformMultiply<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L591"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">TransformMultiply :: <span class="keyword-type">proc</span>(t: ^[6]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, s: [6]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">TransformMultiply :: <span class="keyword-type">proc</span>(t: ^[6]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, s: [6]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1948,7 +1956,7 @@ Returns true if the inverse could be calculated, else false.</p>
 <div class="pkg-entity">
 <h3 id="TransformPoint"><span><a class="doc-id-link" href="#TransformPoint">TransformPoint<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L632"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">TransformPoint :: <span class="keyword-type">proc</span>(dx: ^<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, dy: ^<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, t: [6]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, sx: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, sy: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">TransformPoint :: <span class="keyword-type">proc</span>(dx: ^<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, dy: ^<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, t: [6]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, sx: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, sy: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1958,7 +1966,7 @@ Returns true if the inverse could be calculated, else false.</p>
 <div class="pkg-entity">
 <h3 id="TransformPremultiply"><span><a class="doc-id-link" href="#TransformPremultiply">TransformPremultiply<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L604"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">TransformPremultiply :: <span class="keyword-type">proc</span>(t: ^[6]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, s: [6]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">TransformPremultiply :: <span class="keyword-type">proc</span>(t: ^[6]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, s: [6]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1968,7 +1976,7 @@ Returns true if the inverse could be calculated, else false.</p>
 <div class="pkg-entity">
 <h3 id="TransformRotate"><span><a class="doc-id-link" href="#TransformRotate">TransformRotate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L559"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">TransformRotate :: <span class="keyword-type">proc</span>(t: ^[6]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, a: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">TransformRotate :: <span class="keyword-type">proc</span>(t: ^[6]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, a: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1978,7 +1986,7 @@ Returns true if the inverse could be calculated, else false.</p>
 <div class="pkg-entity">
 <h3 id="TransformScale"><span><a class="doc-id-link" href="#TransformScale">TransformScale<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L549"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">TransformScale :: <span class="keyword-type">proc</span>(t: ^[6]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, sx, sy: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">TransformScale :: <span class="keyword-type">proc</span>(t: ^[6]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, sx, sy: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1988,7 +1996,7 @@ Returns true if the inverse could be calculated, else false.</p>
 <div class="pkg-entity">
 <h3 id="TransformSkewX"><span><a class="doc-id-link" href="#TransformSkewX">TransformSkewX<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L571"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">TransformSkewX :: <span class="keyword-type">proc</span>(t: ^[6]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, a: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">TransformSkewX :: <span class="keyword-type">proc</span>(t: ^[6]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, a: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1998,7 +2006,7 @@ Returns true if the inverse could be calculated, else false.</p>
 <div class="pkg-entity">
 <h3 id="TransformSkewY"><span><a class="doc-id-link" href="#TransformSkewY">TransformSkewY<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L581"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">TransformSkewY :: <span class="keyword-type">proc</span>(t: ^[6]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, a: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">TransformSkewY :: <span class="keyword-type">proc</span>(t: ^[6]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, a: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -2008,7 +2016,7 @@ Returns true if the inverse could be calculated, else false.</p>
 <div class="pkg-entity">
 <h3 id="TransformTranslate"><span><a class="doc-id-link" href="#TransformTranslate">TransformTranslate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L539"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">TransformTranslate :: <span class="keyword-type">proc</span>(t: ^[6]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, tx, ty: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">TransformTranslate :: <span class="keyword-type">proc</span>(t: ^[6]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, tx, ty: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -2018,7 +2026,7 @@ Returns true if the inverse could be calculated, else false.</p>
 <div class="pkg-entity">
 <h3 id="Translate"><span><a class="doc-id-link" href="#Translate">Translate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L828"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Translate :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, x, y: <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+<pre class="doc-code">Translate :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, x, y: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -2028,7 +2036,7 @@ Returns true if the inverse could be calculated, else false.</p>
 <div class="pkg-entity">
 <h3 id="UpdateImage"><span><a class="doc-id-link" href="#UpdateImage">UpdateImage<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin#L942"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">UpdateImage :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, image: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">UpdateImage :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/vendor/nanovg/#Context">Context</a>, image: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -2052,7 +2060,7 @@ Returns true if the inverse could be calculated, else false.</p>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/vendor/nanovg/nanovg.odin">nanovg.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.672145000 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.919324700 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -307,43 +304,43 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="decode"><span><a class="doc-id-link" href="#decode">decode<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf16/utf16.odin#L86"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">decode :: <span class="keyword-type">proc</span>(d: []<a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>, s: []<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>) -> (n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">decode :: <span class="keyword-type">proc</span>(d: []<a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>, s: []<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>) -> (n: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="decode_surrogate_pair"><span><a class="doc-id-link" href="#decode_surrogate_pair">decode_surrogate_pair<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf16/utf16.odin#L18"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">decode_surrogate_pair :: <span class="keyword-type">proc</span>(r1, r2: <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>) -> <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a> {…}</pre>
+<pre class="doc-code">decode_surrogate_pair :: <span class="keyword-type">proc</span>(r1, r2: <a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>) -> <a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="decode_to_utf8"><span><a class="doc-id-link" href="#decode_to_utf8">decode_to_utf8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf16/utf16.odin#L110"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">decode_to_utf8 :: <span class="keyword-type">proc</span>(d: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, s: []<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>) -> (n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">decode_to_utf8 :: <span class="keyword-type">proc</span>(d: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, s: []<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>) -> (n: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="encode"><span><a class="doc-id-link" href="#encode">encode<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf16/utf16.odin#L35"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">encode :: <span class="keyword-type">proc</span>(d: []<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, s: []<a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">encode :: <span class="keyword-type">proc</span>(d: []<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>, s: []<a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="encode_string"><span><a class="doc-id-link" href="#encode_string">encode_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf16/utf16.odin#L61"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">encode_string :: <span class="keyword-type">proc</span>(d: []<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">encode_string :: <span class="keyword-type">proc</span>(d: []<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>, s: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="encode_surrogate_pair"><span><a class="doc-id-link" href="#encode_surrogate_pair">encode_surrogate_pair<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf16/utf16.odin#L26"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">encode_surrogate_pair :: <span class="keyword-type">proc</span>(c: <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>) -> (r1, r2: <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>) {…}</pre>
+<pre class="doc-code">encode_surrogate_pair :: <span class="keyword-type">proc</span>(c: <a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>) -> (r1, r2: <a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="is_surrogate"><span><a class="doc-id-link" href="#is_surrogate">is_surrogate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf16/utf16.odin#L14"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">is_surrogate :: <span class="keyword-type">proc</span>(r: <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">is_surrogate :: <span class="keyword-type">proc</span>(r: <a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
@@ -354,7 +351,7 @@ Procedure Groups (0)</summary>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf16/utf16.odin">utf16.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.053705100 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.135729900 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

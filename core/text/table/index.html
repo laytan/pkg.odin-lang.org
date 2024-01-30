@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -312,7 +309,7 @@ Procedure Groups (1)</summary>
 <h3 id="Cell"><span><a class="doc-id-link" href="#Cell">Cell<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/table/table.odin#L17"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Cell :: <span class="keyword-type">struct</span> {
-	text:      <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	text:      <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
 	alignment: <a class="code-typename" href="/core/text/table/#Cell_Alignment">Cell_Alignment</a>,
 }</pre>
 </div>
@@ -324,7 +321,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="Cell_Alignment"><span><a class="doc-id-link" href="#Cell_Alignment">Cell_Alignment<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/table/table.odin#L22"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Cell_Alignment :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Cell_Alignment :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	Left, 
 	Center, 
 	Right, 
@@ -342,22 +339,22 @@ Procedure Groups (1)</summary>
 <div>
 <pre class="doc-code">Table :: <span class="keyword-type">struct</span> {
 	lpad,
-	rpad:             <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	rpad:             <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 	<span class="comment">// Cell padding (left/right)</span>
 	cells:            [<span class="keyword">dynamic</span>]<a class="code-typename" href="/core/text/table/#Cell">Cell</a>,
-	caption:          <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	caption:          <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
 	nr_rows,
-	nr_cols:          <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	has_header_row:   <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
-	table_allocator:  runtime.<a class="code-typename" href="/core/runtime/#Allocator">Allocator</a>,
+	nr_cols:          <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	has_header_row:   <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	table_allocator:  runtime.<a class="code-typename" href="/base/runtime/#Allocator">Allocator</a>,
 	<span class="comment">// Used for allocating cells/colw</span>
-	format_allocator: runtime.<a class="code-typename" href="/core/runtime/#Allocator">Allocator</a>,
+	format_allocator: runtime.<a class="code-typename" href="/base/runtime/#Allocator">Allocator</a>,
 	<span class="comment">// Used for allocating Cell.text when applicable</span>
-	dirty:            <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	dirty:            <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 	<span class="comment">// The following are computed on build()</span>
-	colw:             [<span class="keyword">dynamic</span>]<a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	colw:             [<span class="keyword">dynamic</span>]<a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 	<span class="comment">// Width of each column (including padding, excluding borders)</span>
-	tblw:             <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	tblw:             <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -400,7 +397,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="caption"><span><a class="doc-id-link" href="#caption">caption<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/table/table.odin#L66"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">caption :: <span class="keyword-type">proc</span>(tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>, value: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
+<pre class="doc-code">caption :: <span class="keyword-type">proc</span>(tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>, value: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -412,31 +409,31 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="first_row"><span><a class="doc-id-link" href="#first_row">first_row<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/table/table.odin#L164"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">first_row :: <span class="keyword-type">proc</span>(tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">first_row :: <span class="keyword-type">proc</span>(tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="format"><span><a class="doc-id-link" href="#format">format<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/table/table.odin#L115"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">format :: <span class="keyword-type">proc</span>(tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>, _fmt: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, args: ..<a href="/core/builtin#any"><span class="doc-builtin">any</span></a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
+<pre class="doc-code">format :: <span class="keyword-type">proc</span>(tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>, _fmt: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, args: ..<a href="/base/builtin#any"><span class="doc-builtin">any</span></a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="get_cell"><span><a class="doc-id-link" href="#get_cell">get_cell<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/table/table.odin#L77"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">get_cell :: <span class="keyword-type">proc</span>(tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>, row, col: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> ^<a class="code-typename" href="/core/text/table/#Cell">Cell</a> {…}</pre>
+<pre class="doc-code">get_cell :: <span class="keyword-type">proc</span>(tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>, row, col: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> ^<a class="code-typename" href="/core/text/table/#Cell">Cell</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="header"><span><a class="doc-id-link" href="#header">header<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/table/table.odin#L120"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">header :: <span class="keyword-type">proc</span>(tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>, values: ..<a href="/core/builtin#any"><span class="doc-builtin">any</span></a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) {…}</pre>
+<pre class="doc-code">header :: <span class="keyword-type">proc</span>(tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>, values: ..<a href="/base/builtin#any"><span class="doc-builtin">any</span></a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="header_row"><span><a class="doc-id-link" href="#header_row">header_row<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/table/table.odin#L160"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">header_row :: <span class="keyword-type">proc</span>(tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">header_row :: <span class="keyword-type">proc</span>(tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -460,37 +457,37 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="last_row"><span><a class="doc-id-link" href="#last_row">last_row<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/table/table.odin#L156"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">last_row :: <span class="keyword-type">proc</span>(tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">last_row :: <span class="keyword-type">proc</span>(tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="padding"><span><a class="doc-id-link" href="#padding">padding<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/table/table.odin#L71"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">padding :: <span class="keyword-type">proc</span>(tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>, lpad, rpad: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">padding :: <span class="keyword-type">proc</span>(tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>, lpad, rpad: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="row"><span><a class="doc-id-link" href="#row">row<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/table/table.odin#L140"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">row :: <span class="keyword-type">proc</span>(tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>, values: ..<a href="/core/builtin#any"><span class="doc-builtin">any</span></a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) {…}</pre>
+<pre class="doc-code">row :: <span class="keyword-type">proc</span>(tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>, values: ..<a href="/base/builtin#any"><span class="doc-builtin">any</span></a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="set_cell_alignment"><span><a class="doc-id-link" href="#set_cell_alignment">set_cell_alignment<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/table/table.odin#L109"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">set_cell_alignment :: <span class="keyword-type">proc</span>(tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>, row, col: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, alignment: <a class="code-typename" href="/core/text/table/#Cell_Alignment">Cell_Alignment</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) {…}</pre>
+<pre class="doc-code">set_cell_alignment :: <span class="keyword-type">proc</span>(tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>, row, col: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, alignment: <a class="code-typename" href="/core/text/table/#Cell_Alignment">Cell_Alignment</a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="set_cell_value"><span><a class="doc-id-link" href="#set_cell_value">set_cell_value<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/table/table.odin#L91"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">set_cell_value :: <span class="keyword-type">proc</span>(tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>, row, col: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, value: <a href="/core/builtin#any"><span class="doc-builtin">any</span></a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) {…}</pre>
+<pre class="doc-code">set_cell_value :: <span class="keyword-type">proc</span>(tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>, row, col: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, value: <a href="/base/builtin#any"><span class="doc-builtin">any</span></a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="set_cell_value_and_alignment"><span><a class="doc-id-link" href="#set_cell_value_and_alignment">set_cell_value_and_alignment<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/table/table.odin#L84"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">set_cell_value_and_alignment :: <span class="keyword-type">proc</span>(tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>, row, col: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, value: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, alignment: <a class="code-typename" href="/core/text/table/#Cell_Alignment">Cell_Alignment</a>) {…}</pre>
+<pre class="doc-code">set_cell_value_and_alignment :: <span class="keyword-type">proc</span>(tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>, row, col: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, value: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, alignment: <a class="code-typename" href="/core/text/table/#Cell_Alignment">Cell_Alignment</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -514,7 +511,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="write_byte_repeat"><span><a class="doc-id-link" href="#write_byte_repeat">write_byte_repeat<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/table/table.odin#L351"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">write_byte_repeat :: <span class="keyword-type">proc</span>(w: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, b: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">write_byte_repeat :: <span class="keyword-type">proc</span>(w: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, n: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, b: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -536,7 +533,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="write_table_cell"><span><a class="doc-id-link" href="#write_table_cell">write_table_cell<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/text/table/table.odin#L357"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">write_table_cell :: <span class="keyword-type">proc</span>(w: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>, row, col: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">write_table_cell :: <span class="keyword-type">proc</span>(w: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, tbl: ^<a class="code-typename" href="/core/text/table/#Table">Table</a>, row, col: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -544,8 +541,8 @@ Procedure Groups (1)</summary>
 <div>
 <pre class="doc-code">write_text_align :: <span class="keyword-type">proc</span>(
 	w:                io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, 
-	colw, lpad, rpad: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, 
-	text:             <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, 
+	colw, lpad, rpad: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, 
+	text:             <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, 
 	alignment:        <a class="code-typename" href="/core/text/table/#Cell_Alignment">Cell_Alignment</a>, 
 ) {…}</pre>
 </div>
@@ -570,7 +567,7 @@ Procedure Groups (1)</summary>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/text/table/utility.odin">utility.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.006696000 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.013403400 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -324,7 +321,7 @@ Procedure Groups (2)</summary>
 <div class="pkg-entity">
 <h3 id="Error"><span><a class="doc-id-link" href="#Error">Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/varint/leb128.odin#L18"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Error :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	None             = 0, 
 	Buffer_Too_Small = 1, 
 	Value_Too_Large  = 2, 
@@ -361,7 +358,7 @@ Instead we'll set limits on the values we'll encode/decode
 <div class="pkg-entity">
 <h3 id="decode_ileb128_buffer"><span><a class="doc-id-link" href="#decode_ileb128_buffer">decode_ileb128_buffer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/varint/leb128.odin#L69"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">decode_ileb128_buffer :: <span class="keyword-type">proc</span>(buf: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (val: <a href="/core/builtin#i128"><span class="doc-builtin">i128</span></a>, size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, err: <a class="code-typename" href="/core/encoding/varint/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">decode_ileb128_buffer :: <span class="keyword-type">proc</span>(buf: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (val: <a href="/base/builtin#i128"><span class="doc-builtin">i128</span></a>, size: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, err: <a class="code-typename" href="/core/encoding/varint/#Error">Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -372,7 +369,7 @@ Returns <code>size</code> == 0 for an invalid value, empty slice, or a varint &g
 <div class="pkg-entity">
 <h3 id="decode_ileb128_byte"><span><a class="doc-id-link" href="#decode_ileb128_byte">decode_ileb128_byte<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/varint/leb128.odin#L89"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">decode_ileb128_byte :: <span class="keyword-type">proc</span>(input: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, offset: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, accumulator: <a href="/core/builtin#i128"><span class="doc-builtin">i128</span></a>) -> (val: <a href="/core/builtin#i128"><span class="doc-builtin">i128</span></a>, size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, err: <a class="code-typename" href="/core/encoding/varint/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">decode_ileb128_byte :: <span class="keyword-type">proc</span>(input: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, offset: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, accumulator: <a href="/base/builtin#i128"><span class="doc-builtin">i128</span></a>) -> (val: <a href="/base/builtin#i128"><span class="doc-builtin">i128</span></a>, size: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, err: <a class="code-typename" href="/core/encoding/varint/#Error">Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -383,7 +380,7 @@ Returns <code>size</code> == 0 for an invalid value, empty slice, or a varint &g
 <div class="pkg-entity">
 <h3 id="decode_uleb128_buffer"><span><a class="doc-id-link" href="#decode_uleb128_buffer">decode_uleb128_buffer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/varint/leb128.odin#L26"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">decode_uleb128_buffer :: <span class="keyword-type">proc</span>(buf: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (val: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>, size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, err: <a class="code-typename" href="/core/encoding/varint/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">decode_uleb128_buffer :: <span class="keyword-type">proc</span>(buf: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (val: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>, size: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, err: <a class="code-typename" href="/core/encoding/varint/#Error">Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -394,7 +391,7 @@ Returns <code>size</code> == 0 for an invalid value, empty slice, or a varint &g
 <div class="pkg-entity">
 <h3 id="decode_uleb128_byte"><span><a class="doc-id-link" href="#decode_uleb128_byte">decode_uleb128_byte<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/varint/leb128.odin#L47"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">decode_uleb128_byte :: <span class="keyword-type">proc</span>(input: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, offset: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, accumulator: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>) -> (val: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>, size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, err: <a class="code-typename" href="/core/encoding/varint/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">decode_uleb128_byte :: <span class="keyword-type">proc</span>(input: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, offset: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, accumulator: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>) -> (val: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>, size: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, err: <a class="code-typename" href="/core/encoding/varint/#Error">Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -406,7 +403,7 @@ exceeds the limits of a u128, and <code>.Buffer_Too_Small</code> when it's not y
 <div class="pkg-entity">
 <h3 id="encode_ileb128"><span><a class="doc-id-link" href="#encode_ileb128">encode_ileb128<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/varint/leb128.odin#L137"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">encode_ileb128 :: <span class="keyword-type">proc</span>(buf: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, val: <a href="/core/builtin#i128"><span class="doc-builtin">i128</span></a>) -> (size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, err: <a class="code-typename" href="/core/encoding/varint/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">encode_ileb128 :: <span class="keyword-type">proc</span>(buf: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, val: <a href="/base/builtin#i128"><span class="doc-builtin">i128</span></a>) -> (size: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, err: <a class="code-typename" href="/core/encoding/varint/#Error">Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -417,7 +414,7 @@ exceeds the limits of a u128, and <code>.Buffer_Too_Small</code> when it's not y
 <div class="pkg-entity">
 <h3 id="encode_uleb128"><span><a class="doc-id-link" href="#encode_uleb128">encode_uleb128<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/varint/leb128.odin#L112"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">encode_uleb128 :: <span class="keyword-type">proc</span>(buf: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, val: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>) -> (size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, err: <a class="code-typename" href="/core/encoding/varint/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">encode_uleb128 :: <span class="keyword-type">proc</span>(buf: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, val: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>) -> (size: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, err: <a class="code-typename" href="/core/encoding/varint/#Error">Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -453,7 +450,7 @@ exceeds the limits of a u128, and <code>.Buffer_Too_Small</code> when it's not y
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/varint/leb128.odin">leb128.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:14.992192500 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.171245300 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

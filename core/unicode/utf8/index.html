@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -337,7 +334,7 @@ Procedure Groups (4)</summary>
 <div>
 <pre class="doc-code">Accept_Range :: <span class="keyword-type">struct</span> {
 	lo,
-	hi: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	hi: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
 }</pre>
 </div>
 </div>
@@ -391,19 +388,19 @@ Procedure Groups (4)</summary>
 <div class="pkg-entity">
 <h3 id="RUNE1_MAX"><span><a class="doc-id-link" href="#RUNE1_MAX">RUNE1_MAX<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin#L30"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">RUNE1_MAX :: 1 << 7 - 1</pre>
+<pre class="doc-code">RUNE1_MAX :: 1 &lt;&lt; 7 - 1</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="RUNE2_MAX"><span><a class="doc-id-link" href="#RUNE2_MAX">RUNE2_MAX<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin#L31"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">RUNE2_MAX :: 1 << 11 - 1</pre>
+<pre class="doc-code">RUNE2_MAX :: 1 &lt;&lt; 11 - 1</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="RUNE3_MAX"><span><a class="doc-id-link" href="#RUNE3_MAX">RUNE3_MAX<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin#L32"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">RUNE3_MAX :: 1 << 16 - 1</pre>
+<pre class="doc-code">RUNE3_MAX :: 1 &lt;&lt; 16 - 1</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -415,7 +412,7 @@ Procedure Groups (4)</summary>
 <div class="pkg-entity">
 <h3 id="RUNE_EOF"><span><a class="doc-id-link" href="#RUNE_EOF">RUNE_EOF<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin#L6"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">RUNE_EOF: <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a> : ~rune(0)</pre>
+<pre class="doc-code">RUNE_EOF: <a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a> : ~rune(0)</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -511,44 +508,44 @@ A low/trailing surrogate is in range SURROGATE_LOW_MIN..SURROGATE_MAX.</p>
 <div class="pkg-entity">
 <h3 id="accept_sizes"><span><a class="doc-id-link" href="#accept_sizes">accept_sizes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin#L48"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">accept_sizes: [256]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> = …</pre>
+<pre class="doc-code">accept_sizes: [256]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> = …</pre>
 </div>
 </div>
 <h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
 <div class="pkg-entity">
 <h3 id="decode_last_rune_in_bytes"><span><a class="doc-id-link" href="#decode_last_rune_in_bytes">decode_last_rune_in_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin#L182"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">decode_last_rune_in_bytes :: <span class="keyword-type">proc</span> "contextless" (s: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (<a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>, <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">decode_last_rune_in_bytes :: <span class="keyword-type">proc</span> "contextless" (s: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (<a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>, <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="decode_last_rune_in_string"><span><a class="doc-id-link" href="#decode_last_rune_in_string">decode_last_rune_in_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin#L179"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">decode_last_rune_in_string :: <span class="keyword-type">proc</span> "contextless" (s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> (<a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>, <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">decode_last_rune_in_string :: <span class="keyword-type">proc</span> "contextless" (s: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> (<a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>, <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="decode_rune_in_bytes"><span><a class="doc-id-link" href="#decode_rune_in_bytes">decode_rune_in_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin#L106"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">decode_rune_in_bytes :: <span class="keyword-type">proc</span> "contextless" (s: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (<a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>, <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">decode_rune_in_bytes :: <span class="keyword-type">proc</span> "contextless" (s: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (<a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>, <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="decode_rune_in_string"><span><a class="doc-id-link" href="#decode_rune_in_string">decode_rune_in_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin#L103"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">decode_rune_in_string :: <span class="keyword-type">proc</span> "contextless" (s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> (<a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>, <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">decode_rune_in_string :: <span class="keyword-type">proc</span> "contextless" (s: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> (<a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>, <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="encode_rune"><span><a class="doc-id-link" href="#encode_rune">encode_rune<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin#L62"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">encode_rune :: <span class="keyword-type">proc</span> "contextless" (c: <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>) -> ([4]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">encode_rune :: <span class="keyword-type">proc</span> "contextless" (c: <a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>) -> ([4]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="full_rune_in_bytes"><span><a class="doc-id-link" href="#full_rune_in_bytes">full_rune_in_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin#L383"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">full_rune_in_bytes :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">full_rune_in_bytes :: <span class="keyword-type">proc</span> "contextless" (b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -559,7 +556,7 @@ An invalid encoding is considered a full rune since it will convert as an error 
 <div class="pkg-entity">
 <h3 id="full_rune_in_string"><span><a class="doc-id-link" href="#full_rune_in_string">full_rune_in_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin#L403"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">full_rune_in_string :: <span class="keyword-type">proc</span> "contextless" (s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">full_rune_in_string :: <span class="keyword-type">proc</span> "contextless" (s: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -570,31 +567,31 @@ An invalid encoding is considered a full rune since it will convert as an error 
 <div class="pkg-entity">
 <h3 id="rune_at"><span><a class="doc-id-link" href="#rune_at">rune_at<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin#L245"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">rune_at :: <span class="keyword-type">proc</span> "contextless" (s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, byte_index: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a> {…}</pre>
+<pre class="doc-code">rune_at :: <span class="keyword-type">proc</span> "contextless" (s: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, byte_index: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="rune_at_pos"><span><a class="doc-id-link" href="#rune_at_pos">rune_at_pos<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin#L214"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">rune_at_pos :: <span class="keyword-type">proc</span> "contextless" (s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, pos: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a> {…}</pre>
+<pre class="doc-code">rune_at_pos :: <span class="keyword-type">proc</span> "contextless" (s: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, pos: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="rune_count_in_bytes"><span><a class="doc-id-link" href="#rune_count_in_bytes">rune_count_in_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin#L323"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">rune_count_in_bytes :: <span class="keyword-type">proc</span> "contextless" (s: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">rune_count_in_bytes :: <span class="keyword-type">proc</span> "contextless" (s: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="rune_count_in_string"><span><a class="doc-id-link" href="#rune_count_in_string">rune_count_in_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin#L320"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">rune_count_in_string :: <span class="keyword-type">proc</span>(s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">rune_count_in_string :: <span class="keyword-type">proc</span>(s: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="rune_offset"><span><a class="doc-id-link" href="#rune_offset">rune_offset<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin#L252"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">rune_offset :: <span class="keyword-type">proc</span> "contextless" (s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, pos: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, start: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = 0) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">rune_offset :: <span class="keyword-type">proc</span> "contextless" (s: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, pos: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, start: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = 0) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -605,43 +602,43 @@ Returns -1 if it runs out of the string.</p>
 <div class="pkg-entity">
 <h3 id="rune_size"><span><a class="doc-id-link" href="#rune_size">rune_size<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin#L362"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">rune_size :: <span class="keyword-type">proc</span> "contextless" (r: <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">rune_size :: <span class="keyword-type">proc</span> "contextless" (r: <a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="rune_start"><span><a class="doc-id-link" href="#rune_start">rune_start<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin#L311"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">rune_start :: <span class="keyword-type">proc</span> "contextless" (b: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">rune_start :: <span class="keyword-type">proc</span> "contextless" (b: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="rune_string_at_pos"><span><a class="doc-id-link" href="#rune_string_at_pos">rune_string_at_pos<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin#L229"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">rune_string_at_pos :: <span class="keyword-type">proc</span> "contextless" (s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, pos: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
+<pre class="doc-code">rune_string_at_pos :: <span class="keyword-type">proc</span> "contextless" (s: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, pos: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="runes_to_string"><span><a class="doc-id-link" href="#runes_to_string">runes_to_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin#L155"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">runes_to_string :: <span class="keyword-type">proc</span>(runes: []<a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
+<pre class="doc-code">runes_to_string :: <span class="keyword-type">proc</span>(runes: []<a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="string_to_runes"><span><a class="doc-id-link" href="#string_to_runes">string_to_runes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin#L143"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">string_to_runes :: <span class="keyword-type">proc</span>(s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, allocator: runtime.<a class="code-typename" href="/core/runtime/#Allocator">Allocator</a>) -> (runes: []<a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>) {…}</pre>
+<pre class="doc-code">string_to_runes :: <span class="keyword-type">proc</span>(s: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, allocator: runtime.<a class="code-typename" href="/base/runtime/#Allocator">Allocator</a>) -> (runes: []<a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="valid_rune"><span><a class="doc-id-link" href="#valid_rune">valid_rune<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin#L267"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">valid_rune :: <span class="keyword-type">proc</span> "contextless" (r: <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">valid_rune :: <span class="keyword-type">proc</span> "contextless" (r: <a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="valid_string"><span><a class="doc-id-link" href="#valid_string">valid_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin#L278"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">valid_string :: <span class="keyword-type">proc</span> "contextless" (s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">valid_string :: <span class="keyword-type">proc</span> "contextless" (s: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
@@ -696,7 +693,7 @@ An invalid encoding is considered a full rune since it will convert as an error 
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8.odin">utf8.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.056456800 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.320829800 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

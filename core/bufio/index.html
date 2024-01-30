@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a class="active" href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -345,8 +342,8 @@ Procedure Groups (0)</summary>
 <div>
 <pre class="doc-code">Lookahead_Reader :: <span class="keyword-type">struct</span> {
 	r:   io.<a class="code-typename" href="/core/io/#Stream">Stream</a>,
-	buf: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
-	n:   <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	buf: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	n:   <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 }</pre>
 </div>
 <details class="odin-doc-toggle" open>
@@ -389,19 +386,19 @@ This makes sure that the buffer will not be accidentally read beyond the expecte
 <h3 id="Reader"><span><a class="doc-id-link" href="#Reader">Reader<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/reader.odin#L9"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Reader :: <span class="keyword-type">struct</span> {
-	buf:                         []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
-	buf_allocator:               runtime.<a class="code-typename" href="/core/runtime/#Allocator">Allocator</a>,
+	buf:                         []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	buf_allocator:               runtime.<a class="code-typename" href="/base/runtime/#Allocator">Allocator</a>,
 	rd:                          io.<a class="code-typename" href="/core/io/#Stream">Stream</a>,
 	<span class="comment">// reader</span>
 	r,
-	w:                           <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	w:                           <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 	<span class="comment">// read and write positions for buf</span>
 	err:                         io.<a class="code-typename" href="/core/io/#Error">Error</a>,
-	last_byte:                   <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	last_byte:                   <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 	<span class="comment">// last byte read, invalid is -1</span>
-	last_rune_size:              <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	last_rune_size:              <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 	<span class="comment">// size of last rune read, invalid is -1</span>
-	max_consecutive_empty_reads: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	max_consecutive_empty_reads: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 }</pre>
 </div>
 <details class="odin-doc-toggle" open>
@@ -437,16 +434,16 @@ This makes sure that the buffer will not be accidentally read beyond the expecte
 <pre class="doc-code">Scanner :: <span class="keyword-type">struct</span> {
 	r:                            io.<a class="code-typename" href="/core/io/#Stream">Stream</a>,
 	split:                        <a class="code-typename" href="/core/bufio/#Split_Proc">Split_Proc</a>,
-	buf:                          [<span class="keyword">dynamic</span>]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
-	max_token_size:               <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	start:                        <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	end:                          <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	token:                        []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	buf:                          [<span class="keyword">dynamic</span>]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	max_token_size:               <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	start:                        <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	end:                          <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	token:                        []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
 	_err:                         <a class="code-typename" href="/core/bufio/#Scanner_Error">Scanner_Error</a>,
-	max_consecutive_empty_reads:  <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	successive_empty_token_count: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	scan_called:                  <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
-	done:                         <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	max_consecutive_empty_reads:  <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	successive_empty_token_count: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	scan_called:                  <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	done:                         <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -480,7 +477,7 @@ This makes sure that the buffer will not be accidentally read beyond the expecte
 <div class="pkg-entity">
 <h3 id="Scanner_Extra_Error"><span><a class="doc-id-link" href="#Scanner_Extra_Error">Scanner_Extra_Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/scanner.odin#L10"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Scanner_Extra_Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
+<pre class="doc-code">Scanner_Extra_Error :: <span class="keyword-type">enum</span> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	None, 
 	Negative_Advance, 
 	Advanced_Too_Far, 
@@ -497,7 +494,7 @@ This makes sure that the buffer will not be accidentally read beyond the expecte
 <div class="pkg-entity">
 <h3 id="Split_Proc"><span><a class="doc-id-link" href="#Split_Proc">Split_Proc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/scanner.odin#L25"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Split_Proc :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, at_eof: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) -> (advance: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, token: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, err: <a class="code-typename" href="/core/bufio/#Scanner_Error">Scanner_Error</a>, final_token: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>)</pre>
+<pre class="doc-code">Split_Proc :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, at_eof: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) -> (advance: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, token: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, err: <a class="code-typename" href="/core/bufio/#Scanner_Error">Scanner_Error</a>, final_token: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>)</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -508,12 +505,12 @@ This makes sure that the buffer will not be accidentally read beyond the expecte
 <h3 id="Writer"><span><a class="doc-id-link" href="#Writer">Writer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/writer.odin#L9"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Writer :: <span class="keyword-type">struct</span> {
-	buf:                          []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
-	buf_allocator:                runtime.<a class="code-typename" href="/core/runtime/#Allocator">Allocator</a>,
+	buf:                          []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	buf_allocator:                runtime.<a class="code-typename" href="/base/runtime/#Allocator">Allocator</a>,
 	wr:                           io.<a class="code-typename" href="/core/io/#Stream">Stream</a>,
-	n:                            <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	n:                            <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 	err:                          io.<a class="code-typename" href="/core/io/#Error">Error</a>,
-	max_consecutive_empty_writes: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	max_consecutive_empty_writes: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 }</pre>
 </div>
 <details class="odin-doc-toggle" open>
@@ -550,7 +547,7 @@ This makes sure that the buffer will not be accidentally read beyond the expecte
 <div class="pkg-entity">
 <h3 id="DEFAULT_MAX_SCAN_TOKEN_SIZE"><span><a class="doc-id-link" href="#DEFAULT_MAX_SCAN_TOKEN_SIZE">DEFAULT_MAX_SCAN_TOKEN_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/scanner.odin#L44"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">DEFAULT_MAX_SCAN_TOKEN_SIZE :: 1 << 16</pre>
+<pre class="doc-code">DEFAULT_MAX_SCAN_TOKEN_SIZE :: 1 &lt;&lt; 16</pre>
 </div>
 </div>
 <h2 id="pkg-Variables" class="pkg-header">Variables</h2>
@@ -559,13 +556,13 @@ This makes sure that the buffer will not be accidentally read beyond the expecte
 <div class="pkg-entity">
 <h3 id="lookahead_reader_buffer"><span><a class="doc-id-link" href="#lookahead_reader_buffer">lookahead_reader_buffer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/lookahead_reader.odin#L23"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">lookahead_reader_buffer :: <span class="keyword-type">proc</span>(lr: ^<a class="code-typename" href="/core/bufio/#Lookahead_Reader">Lookahead_Reader</a>) -> []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">lookahead_reader_buffer :: <span class="keyword-type">proc</span>(lr: ^<a class="code-typename" href="/core/bufio/#Lookahead_Reader">Lookahead_Reader</a>) -> []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="lookahead_reader_consume"><span><a class="doc-id-link" href="#lookahead_reader_consume">lookahead_reader_consume<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/lookahead_reader.odin#L67"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">lookahead_reader_consume :: <span class="keyword-type">proc</span>(lr: ^<a class="code-typename" href="/core/bufio/#Lookahead_Reader">Lookahead_Reader</a>, n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> io.<a class="code-typename" href="/core/io/#Error">Error</a> {…}</pre>
+<pre class="doc-code">lookahead_reader_consume :: <span class="keyword-type">proc</span>(lr: ^<a class="code-typename" href="/core/bufio/#Lookahead_Reader">Lookahead_Reader</a>, n: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> io.<a class="code-typename" href="/core/io/#Error">Error</a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -581,13 +578,13 @@ This makes sure that the buffer will not be accidentally read beyond the expecte
 <div class="pkg-entity">
 <h3 id="lookahead_reader_init"><span><a class="doc-id-link" href="#lookahead_reader_init">lookahead_reader_init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/lookahead_reader.odin#L16"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">lookahead_reader_init :: <span class="keyword-type">proc</span>(lr: ^<a class="code-typename" href="/core/bufio/#Lookahead_Reader">Lookahead_Reader</a>, r: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, buf: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> ^<a class="code-typename" href="/core/bufio/#Lookahead_Reader">Lookahead_Reader</a> {…}</pre>
+<pre class="doc-code">lookahead_reader_init :: <span class="keyword-type">proc</span>(lr: ^<a class="code-typename" href="/core/bufio/#Lookahead_Reader">Lookahead_Reader</a>, r: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, buf: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> ^<a class="code-typename" href="/core/bufio/#Lookahead_Reader">Lookahead_Reader</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="lookahead_reader_peek"><span><a class="doc-id-link" href="#lookahead_reader_peek">lookahead_reader_peek<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/lookahead_reader.odin#L31"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">lookahead_reader_peek :: <span class="keyword-type">proc</span>(lr: ^<a class="code-typename" href="/core/bufio/#Lookahead_Reader">Lookahead_Reader</a>, n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> ([]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">lookahead_reader_peek :: <span class="keyword-type">proc</span>(lr: ^<a class="code-typename" href="/core/bufio/#Lookahead_Reader">Lookahead_Reader</a>, n: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> ([]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -599,7 +596,7 @@ NOTE: The returned buffer is not a copy of the underlying buffer</p>
 <div class="pkg-entity">
 <h3 id="lookahead_reader_peek_all"><span><a class="doc-id-link" href="#lookahead_reader_peek_all">lookahead_reader_peek_all<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/lookahead_reader.odin#L61"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">lookahead_reader_peek_all :: <span class="keyword-type">proc</span>(lr: ^<a class="code-typename" href="/core/bufio/#Lookahead_Reader">Lookahead_Reader</a>) -> ([]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">lookahead_reader_peek_all :: <span class="keyword-type">proc</span>(lr: ^<a class="code-typename" href="/core/bufio/#Lookahead_Reader">Lookahead_Reader</a>) -> ([]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -623,7 +620,7 @@ NOTE: The returned buffer is not a copy of the underlying buffer</p>
 <div class="pkg-entity">
 <h3 id="reader_buffered"><span><a class="doc-id-link" href="#reader_buffered">reader_buffered<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/reader.odin#L140"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">reader_buffered :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">reader_buffered :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -643,7 +640,7 @@ NOTE: The returned buffer is not a copy of the underlying buffer</p>
 <div class="pkg-entity">
 <h3 id="reader_discard"><span><a class="doc-id-link" href="#reader_discard">reader_discard<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/reader.odin#L145"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">reader_discard :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>, n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> (discarded: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">reader_discard :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>, n: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> (discarded: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -653,19 +650,19 @@ NOTE: The returned buffer is not a copy of the underlying buffer</p>
 <div class="pkg-entity">
 <h3 id="reader_init"><span><a class="doc-id-link" href="#reader_init">reader_init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/reader.odin#L32"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">reader_init :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>, rd: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = DEFAULT_BUF_SIZE, allocator := <a href="/core/runtime/#Context">context.allocator</a>) {…}</pre>
+<pre class="doc-code">reader_init :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>, rd: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, size: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = DEFAULT_BUF_SIZE, allocator := <a href="/core/runtime/#Context">context.allocator</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="reader_init_with_buf"><span><a class="doc-id-link" href="#reader_init_with_buf">reader_init_with_buf<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/reader.odin#L40"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">reader_init_with_buf :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>, rd: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, buf: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">reader_init_with_buf :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>, rd: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, buf: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="reader_peek"><span><a class="doc-id-link" href="#reader_peek">reader_peek<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/reader.odin#L111"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">reader_peek :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>, n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> (data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">reader_peek :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>, n: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> (data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -679,7 +676,7 @@ The error will be .Buffer_Full if n is larger than the internal buffer size</p>
 <div class="pkg-entity">
 <h3 id="reader_read"><span><a class="doc-id-link" href="#reader_read">reader_read<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/reader.odin#L176"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">reader_read :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>, p: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">reader_read :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>, p: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (n: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -690,7 +687,7 @@ The bytes are taken from at most one read on the underlying Reader, which means 
 <div class="pkg-entity">
 <h3 id="reader_read_byte"><span><a class="doc-id-link" href="#reader_read_byte">reader_read_byte<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/reader.odin#L222"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">reader_read_byte :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>) -> (c: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">reader_read_byte :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>) -> (c: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -701,7 +698,7 @@ If no byte is available, it return an error</p>
 <div class="pkg-entity">
 <h3 id="reader_read_bytes"><span><a class="doc-id-link" href="#reader_read_bytes">reader_read_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/reader.odin#L403"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">reader_read_bytes :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>, delim: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (buf: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">reader_read_bytes :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>, delim: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (buf: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -712,7 +709,7 @@ It returns an allocated slice containing the data up to and including the delimi
 <div class="pkg-entity">
 <h3 id="reader_read_rune"><span><a class="doc-id-link" href="#reader_read_rune">reader_read_rune<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/reader.odin#L256"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">reader_read_rune :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>) -> (r: <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>, size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">reader_read_rune :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>) -> (r: <a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>, size: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -724,7 +721,7 @@ If the encoded rune is invalid, it consumes one byte and returns utf8.RUNE_ERROR
 <div class="pkg-entity">
 <h3 id="reader_read_slice"><span><a class="doc-id-link" href="#reader_read_slice">reader_read_slice<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/reader.odin#L364"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">reader_read_slice :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>, delim: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (line: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">reader_read_slice :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>, delim: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (line: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -741,7 +738,7 @@ next IO operation, reader_read_bytes or reader_read_string is usually preferred<
 <div class="pkg-entity">
 <h3 id="reader_read_string"><span><a class="doc-id-link" href="#reader_read_string">reader_read_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/reader.odin#L427"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">reader_read_string :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>, delim: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">reader_read_string :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>, delim: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (<a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -758,7 +755,7 @@ It returns an allocated string containing the data up to and including the delim
 <div class="pkg-entity">
 <h3 id="reader_size"><span><a class="doc-id-link" href="#reader_size">reader_size<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/reader.odin#L52"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">reader_size :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">reader_size :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -794,37 +791,37 @@ It returns an allocated string containing the data up to and including the delim
 <div class="pkg-entity">
 <h3 id="reader_write_to"><span><a class="doc-id-link" href="#reader_write_to">reader_write_to<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/reader.odin#L289"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">reader_write_to :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>, w: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> (n: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>, err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">reader_write_to :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Reader">Reader</a>, w: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> (n: <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>, err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="scan_bytes"><span><a class="doc-id-link" href="#scan_bytes">scan_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/scanner.odin#L232"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">scan_bytes :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, at_eof: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) -> (advance: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, token: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, err: <a class="code-typename" href="/core/bufio/#Scanner_Error">Scanner_Error</a>, final_token: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">scan_bytes :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, at_eof: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) -> (advance: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, token: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, err: <a class="code-typename" href="/core/bufio/#Scanner_Error">Scanner_Error</a>, final_token: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="scan_lines"><span><a class="doc-id-link" href="#scan_lines">scan_lines<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/scanner.odin#L315"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">scan_lines :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, at_eof: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) -> (advance: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, token: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, err: <a class="code-typename" href="/core/bufio/#Scanner_Error">Scanner_Error</a>, final_token: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">scan_lines :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, at_eof: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) -> (advance: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, token: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, err: <a class="code-typename" href="/core/bufio/#Scanner_Error">Scanner_Error</a>, final_token: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="scan_runes"><span><a class="doc-id-link" href="#scan_runes">scan_runes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/scanner.odin#L239"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">scan_runes :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, at_eof: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) -> (advance: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, token: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, err: <a class="code-typename" href="/core/bufio/#Scanner_Error">Scanner_Error</a>, final_token: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">scan_runes :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, at_eof: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) -> (advance: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, token: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, err: <a class="code-typename" href="/core/bufio/#Scanner_Error">Scanner_Error</a>, final_token: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="scan_words"><span><a class="doc-id-link" href="#scan_words">scan_words<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/scanner.odin#L268"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">scan_words :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, at_eof: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) -> (advance: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, token: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, err: <a class="code-typename" href="/core/bufio/#Scanner_Error">Scanner_Error</a>, final_token: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">scan_words :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, at_eof: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) -> (advance: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, token: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, err: <a class="code-typename" href="/core/bufio/#Scanner_Error">Scanner_Error</a>, final_token: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="scanner_bytes"><span><a class="doc-id-link" href="#scanner_bytes">scanner_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/scanner.odin#L82"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">scanner_bytes :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/bufio/#Scanner">Scanner</a>) -> []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">scanner_bytes :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/bufio/#Scanner">Scanner</a>) -> []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -859,13 +856,13 @@ Treat the returned value as if it is immutable.</p>
 <div class="pkg-entity">
 <h3 id="scanner_init_with_buffer"><span><a class="doc-id-link" href="#scanner_init_with_buffer">scanner_init_with_buffer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/scanner.odin#L56"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">scanner_init_with_buffer :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/bufio/#Scanner">Scanner</a>, r: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, buf: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> ^<a class="code-typename" href="/core/bufio/#Scanner">Scanner</a> {…}</pre>
+<pre class="doc-code">scanner_init_with_buffer :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/bufio/#Scanner">Scanner</a>, r: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, buf: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> ^<a class="code-typename" href="/core/bufio/#Scanner">Scanner</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="scanner_scan"><span><a class="doc-id-link" href="#scanner_scan">scanner_scan<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/scanner.odin#L95"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">scanner_scan :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/bufio/#Scanner">Scanner</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">scanner_scan :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/bufio/#Scanner">Scanner</a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -875,7 +872,7 @@ Treat the returned value as if it is immutable.</p>
 <div class="pkg-entity">
 <h3 id="scanner_text"><span><a class="doc-id-link" href="#scanner_text">scanner_text<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/scanner.odin#L90"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">scanner_text :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/bufio/#Scanner">Scanner</a>) -> <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
+<pre class="doc-code">scanner_text :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/bufio/#Scanner">Scanner</a>) -> <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -888,7 +885,7 @@ Treat the returned value as if it is immutable.</p>
 <div class="pkg-entity">
 <h3 id="writer_available"><span><a class="doc-id-link" href="#writer_available">writer_available<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/writer.odin#L80"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">writer_available :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Writer">Writer</a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">writer_available :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Writer">Writer</a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -898,7 +895,7 @@ Treat the returned value as if it is immutable.</p>
 <div class="pkg-entity">
 <h3 id="writer_buffered"><span><a class="doc-id-link" href="#writer_buffered">writer_buffered<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/writer.odin#L85"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">writer_buffered :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Writer">Writer</a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">writer_buffered :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Writer">Writer</a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -928,19 +925,19 @@ Treat the returned value as if it is immutable.</p>
 <div class="pkg-entity">
 <h3 id="writer_init"><span><a class="doc-id-link" href="#writer_init">writer_init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/writer.odin#L22"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">writer_init :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Writer">Writer</a>, wr: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = DEFAULT_BUF_SIZE, allocator := <a href="/core/runtime/#Context">context.allocator</a>) {…}</pre>
+<pre class="doc-code">writer_init :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Writer">Writer</a>, wr: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, size: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = DEFAULT_BUF_SIZE, allocator := <a href="/core/runtime/#Context">context.allocator</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="writer_init_with_buf"><span><a class="doc-id-link" href="#writer_init_with_buf">writer_init_with_buf<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/writer.odin#L30"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">writer_init_with_buf :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Writer">Writer</a>, wr: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, buf: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">writer_init_with_buf :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Writer">Writer</a>, wr: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, buf: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="writer_read_from"><span><a class="doc-id-link" href="#writer_read_from">writer_read_from<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/writer.odin#L172"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">writer_read_from :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Writer">Writer</a>, r: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> (n: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>, err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">writer_read_from :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Writer">Writer</a>, r: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> (n: <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>, err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -958,7 +955,7 @@ this procedure calls the underlying read_from implementation without buffering</
 <div class="pkg-entity">
 <h3 id="writer_size"><span><a class="doc-id-link" href="#writer_size">writer_size<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/writer.odin#L43"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">writer_size :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Writer">Writer</a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">writer_size :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Writer">Writer</a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -988,7 +985,7 @@ this procedure calls the underlying read_from implementation without buffering</
 <div class="pkg-entity">
 <h3 id="writer_write"><span><a class="doc-id-link" href="#writer_write">writer_write<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/writer.odin#L92"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">writer_write :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Writer">Writer</a>, p: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">writer_write :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Writer">Writer</a>, p: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (n: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1000,7 +997,7 @@ If n &lt; len(p), it will return an error explaining why the write is short</p>
 <div class="pkg-entity">
 <h3 id="writer_write_byte"><span><a class="doc-id-link" href="#writer_write_byte">writer_write_byte<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/writer.odin#L116"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">writer_write_byte :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Writer">Writer</a>, c: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> io.<a class="code-typename" href="/core/io/#Error">Error</a> {…}</pre>
+<pre class="doc-code">writer_write_byte :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Writer">Writer</a>, c: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> io.<a class="code-typename" href="/core/io/#Error">Error</a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1010,7 +1007,7 @@ If n &lt; len(p), it will return an error explaining why the write is short</p>
 <div class="pkg-entity">
 <h3 id="writer_write_rune"><span><a class="doc-id-link" href="#writer_write_rune">writer_write_rune<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/writer.odin#L129"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">writer_write_rune :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Writer">Writer</a>, r: <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>) -> (size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">writer_write_rune :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Writer">Writer</a>, r: <a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>) -> (size: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1020,7 +1017,7 @@ If n &lt; len(p), it will return an error explaining why the write is short</p>
 <div class="pkg-entity">
 <h3 id="writer_write_string"><span><a class="doc-id-link" href="#writer_write_string">writer_write_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/writer.odin#L165"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">writer_write_string :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Writer">Writer</a>, s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> (<a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">writer_write_string :: <span class="keyword-type">proc</span>(b: ^<a class="code-typename" href="/core/bufio/#Writer">Writer</a>, s: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> (<a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1041,7 +1038,7 @@ If n &lt; len(p), it will return an error explaining why the write is short</p>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/bufio/writer.odin">writer.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:14.985005100 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.334608900 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

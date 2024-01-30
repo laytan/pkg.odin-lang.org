@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -317,7 +314,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="Alignment_Style"><span><a class="doc-id-link" href="#Alignment_Style">Alignment_Style<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L90"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Alignment_Style :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Alignment_Style :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	Align_On_Type_And_Equals, 
 	Align_On_Colon_And_Equals, 
 }</pre>
@@ -326,7 +323,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="Block_Type"><span><a class="doc-id-link" href="#Block_Type">Block_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L81"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Block_Type :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Block_Type :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	None, 
 	If_Stmt, 
 	Proc, 
@@ -343,7 +340,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="Brace_Style"><span><a class="doc-id-link" href="#Brace_Style">Brace_Style<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L74"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Brace_Style :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Brace_Style :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	_1TBS, 
 	Allman, 
 	Stroustrup, 
@@ -355,25 +352,25 @@ Procedure Groups (0)</summary>
 <h3 id="Config"><span><a class="doc-id-link" href="#Config">Config<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L56"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Config :: <span class="keyword-type">struct</span> {
-	spaces:               <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	spaces:               <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 	<span class="comment">// Spaces per indentation</span>
-	newline_limit:        <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	newline_limit:        <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 	<span class="comment">// The limit of newlines between statements and declarations.</span>
-	tabs:                 <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	tabs:                 <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 	<span class="comment">// Enable or disable tabs</span>
-	convert_do:           <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	convert_do:           <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 	<span class="comment">// Convert all do statements to brace blocks</span>
-	semicolons:           <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	semicolons:           <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 	<span class="comment">// Enable semicolons</span>
-	split_multiple_stmts: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
-	align_switch:         <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	split_multiple_stmts: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	align_switch:         <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 	brace_style:          <a class="code-typename" href="/core/odin/printer/#Brace_Style">Brace_Style</a>,
-	align_assignments:    <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
-	align_structs:        <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	align_assignments:    <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	align_structs:        <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 	align_style:          <a class="code-typename" href="/core/odin/printer/#Alignment_Style">Alignment_Style</a>,
-	align_enums:          <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
-	align_length_break:   <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	indent_cases:         <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	align_enums:          <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	align_length_break:   <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	indent_cases:         <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 	newline_style:        <a class="code-typename" href="/core/odin/printer/#Newline_Style">Newline_Style</a>,
 }</pre>
 </div>
@@ -387,10 +384,10 @@ Procedure Groups (0)</summary>
 <div>
 <pre class="doc-code">Format_Token :: <span class="keyword-type">struct</span> {
 	kind:            odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token_Kind">Token_Kind</a>,
-	text:            <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	text:            <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
 	type:            <a class="code-typename" href="/core/odin/printer/#Type_Enum">Type_Enum</a>,
-	spaces_before:   <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	parameter_count: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	spaces_before:   <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	parameter_count: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 }</pre>
 </div>
 <details class="odin-doc-toggle" open>
@@ -407,9 +404,9 @@ Procedure Groups (0)</summary>
 <div>
 <pre class="doc-code">Line :: <span class="keyword-type">struct</span> {
 	format_tokens: [<span class="keyword">dynamic</span>]<a class="code-typename" href="/core/odin/printer/#Format_Token">Format_Token</a>,
-	finalized:     <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
-	used:          <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
-	depth:         <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	finalized:     <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	used:          <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	depth:         <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 	types:         <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/odin/printer/#Type_Enum">Type_Enum</a>],
 }</pre>
 </div>
@@ -427,7 +424,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="List_Option"><span><a class="doc-id-link" href="#List_Option">List_Option<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/visit.odin#L1342"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">List_Option :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+<pre class="doc-code">List_Option :: <span class="keyword-type">enum</span> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	Add_Comma, 
 	Trailing, 
 	Enforce_Newline, 
@@ -448,7 +445,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="Newline_Style"><span><a class="doc-id-link" href="#Newline_Style">Newline_Style<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L95"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Newline_Style :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Newline_Style :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	CRLF, 
 	LF, 
 }</pre>
@@ -460,24 +457,24 @@ Procedure Groups (0)</summary>
 <pre class="doc-code">Printer :: <span class="keyword-type">struct</span> {
 	string_builder:       strings.<a class="code-typename" href="/core/strings/#Builder">Builder</a>,
 	config:               <a class="code-typename" href="/core/odin/printer/#Config">Config</a>,
-	depth:                <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	depth:                <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 	<span class="comment">// the identation depth</span>
 	comments:             [<span class="keyword">dynamic</span>]^odin_ast.<a class="code-typename" href="/core/odin/ast/#Comment_Group">Comment_Group</a>,
-	latest_comment_index: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	allocator:            runtime.<a class="code-typename" href="/core/runtime/#Allocator">Allocator</a>,
+	latest_comment_index: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	allocator:            runtime.<a class="code-typename" href="/base/runtime/#Allocator">Allocator</a>,
 	file:                 ^odin_ast.<a class="code-typename" href="/core/odin/ast/#File">File</a>,
 	source_position:      odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
 	last_source_position: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>,
 	lines:                [<span class="keyword">dynamic</span>]<a class="code-typename" href="/core/odin/printer/#Line">Line</a>,
 	<span class="comment">// need to look into a better data structure, one that can handle inserting lines rather than appending</span>
-	skip_semicolon:       <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	skip_semicolon:       <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 	current_line:         ^<a class="code-typename" href="/core/odin/printer/#Line">Line</a>,
-	current_line_index:   <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	last_line_index:      <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	current_line_index:   <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	last_line_index:      <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 	last_token:           ^<a class="code-typename" href="/core/odin/printer/#Format_Token">Format_Token</a>,
-	merge_next_token:     <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
-	space_next_token:     <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
-	debug:                <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	merge_next_token:     <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	space_next_token:     <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	debug:                <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -511,7 +508,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="Type_Enum"><span><a class="doc-id-link" href="#Type_Enum">Type_Enum<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L9"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Type_Enum :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Type_Enum :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	Line_Comment, 
 	Value_Decl, 
 	Switch_Stmt, 
@@ -544,19 +541,19 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="align_enum"><span><a class="doc-id-link" href="#align_enum">align_enum<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L686"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">align_enum :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, index: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">align_enum :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, index: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="align_struct"><span><a class="doc-id-link" href="#align_struct">align_struct<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L749"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">align_struct :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, index: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">align_struct :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, index: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="align_switch_stmt"><span><a class="doc-id-link" href="#align_switch_stmt">align_switch_stmt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L612"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">align_switch_stmt :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, index: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">align_switch_stmt :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, index: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -580,13 +577,13 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="format_assignment"><span><a class="doc-id-link" href="#format_assignment">format_assignment<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L273"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">format_assignment :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, index: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">format_assignment :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, index: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="format_call"><span><a class="doc-id-link" href="#format_call">format_call<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L276"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">format_call :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, line_index: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, format_index: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">format_call :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, line_index: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, format_index: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -598,13 +595,13 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="format_keyword_to_brace"><span><a class="doc-id-link" href="#format_keyword_to_brace">format_keyword_to_brace<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L347"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">format_keyword_to_brace :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, line_index: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, format_index: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, keyword: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token_Kind">Token_Kind</a>) {…}</pre>
+<pre class="doc-code">format_keyword_to_brace :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, line_index: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, format_index: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, keyword: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Token_Kind">Token_Kind</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="format_value_decl"><span><a class="doc-id-link" href="#format_value_decl">format_value_decl<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L210"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">format_value_decl :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, index: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
+<pre class="doc-code">format_value_decl :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, index: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -616,13 +613,13 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="print"><span><a class="doc-id-link" href="#print">print<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/printer.odin#L126"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">print :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, file: ^odin_ast.<a class="code-typename" href="/core/odin/ast/#File">File</a>) -> <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
+<pre class="doc-code">print :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, file: ^odin_ast.<a class="code-typename" href="/core/odin/ast/#File">File</a>) -> <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="visit_begin_brace"><span><a class="doc-id-link" href="#visit_begin_brace">visit_begin_brace<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/visit.odin#L1301"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">visit_begin_brace :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, begin: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>, type: <a class="code-typename" href="/core/odin/printer/#Block_Type">Block_Type</a>, count: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = 0, same_line_spaces_before: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = 1) {…}</pre>
+<pre class="doc-code">visit_begin_brace :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, begin: odin_tokenizer.<a class="code-typename" href="/core/odin/tokenizer/#Pos">Pos</a>, type: <a class="code-typename" href="/core/odin/printer/#Block_Type">Block_Type</a>, count: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = 0, same_line_spaces_before: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = 1) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -634,13 +631,13 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="visit_block_stmts"><span><a class="doc-id-link" href="#visit_block_stmts">visit_block_stmts<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/visit.odin#L1332"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">visit_block_stmts :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, stmts: []^odin_ast.<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>, split: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) {…}</pre>
+<pre class="doc-code">visit_block_stmts :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, stmts: []^odin_ast.<a class="code-typename" href="/core/odin/ast/#Stmt">Stmt</a>, split: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="visit_call_exprs"><span><a class="doc-id-link" href="#visit_call_exprs">visit_call_exprs<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/visit.odin#L1491"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">visit_call_exprs :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, list: []^odin_ast.<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>, ellipsis: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) {…}</pre>
+<pre class="doc-code">visit_call_exprs :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, list: []^odin_ast.<a class="code-typename" href="/core/odin/ast/#Expr">Expr</a>, ellipsis: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -658,13 +655,13 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="visit_proc_type"><span><a class="doc-id-link" href="#visit_proc_type">visit_proc_type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/visit.odin#L1393"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">visit_proc_type :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, proc_type: ^odin_ast.<a class="code-typename" href="/core/odin/ast/#Proc_Type">Proc_Type</a>, is_proc_lit: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) {…}</pre>
+<pre class="doc-code">visit_proc_type :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, proc_type: ^odin_ast.<a class="code-typename" href="/core/odin/ast/#Proc_Type">Proc_Type</a>, is_proc_lit: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="visit_signature_list"><span><a class="doc-id-link" href="#visit_signature_list">visit_signature_list<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/visit.odin#L1527"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">visit_signature_list :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, list: ^odin_ast.<a class="code-typename" href="/core/odin/ast/#Field_List">Field_List</a>, remove_blank: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = true) {…}</pre>
+<pre class="doc-code">visit_signature_list :: <span class="keyword-type">proc</span>(p: ^<a class="code-typename" href="/core/odin/printer/#Printer">Printer</a>, list: ^odin_ast.<a class="code-typename" href="/core/odin/ast/#Field_List">Field_List</a>, remove_blank: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = true) {…}</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
@@ -676,7 +673,7 @@ Procedure Groups (0)</summary>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/odin/printer/visit.odin">visit.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.281477500 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.326031700 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

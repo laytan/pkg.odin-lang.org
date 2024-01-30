@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a class="active" href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -297,7 +294,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="Error"><span><a class="doc-id-link" href="#Error">Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L31"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+<pre class="doc-code">Error :: <span class="keyword-type">enum</span> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	None                    = 0, 
 	Tokenizer_Is_Nil, 
 	Illegal_NUL_Character, 
@@ -318,11 +315,11 @@ Procedure Groups (0)</summary>
 <h3 id="Tokenizer"><span><a class="doc-id-link" href="#Tokenizer">Tokenizer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L44"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Tokenizer :: <span class="keyword-type">struct</span> {
-	r:           <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>,
-	w:           <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	src:         <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
-	offset:      <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	read_offset: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	r:           <a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>,
+	w:           <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	src:         <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
+	offset:      <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	read_offset: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -333,7 +330,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="XML_Decode_Option"><span><a class="doc-id-link" href="#XML_Decode_Option">XML_Decode_Option<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L62"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XML_Decode_Option :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+<pre class="doc-code">XML_Decode_Option :: <span class="keyword-type">enum</span> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	<span class="comment">// 		Do not decode & entities. It decodes by default.</span>
 	<span class="comment">// 		If given, overrides `Decode_CDATA`.</span>
 	No_Entity_Decode, 
@@ -354,32 +351,32 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="XML_Decode_Options"><span><a class="doc-id-link" href="#XML_Decode_Options">XML_Decode_Options<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L85"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XML_Decode_Options :: <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/encoding/entity/#XML_Decode_Option">XML_Decode_Option</a>; <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>]</pre>
+<pre class="doc-code">XML_Decode_Options :: <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/encoding/entity/#XML_Decode_Option">XML_Decode_Option</a>; <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>]</pre>
 </div>
 </div>
 <h2 id="pkg-Constants" class="pkg-header">Constants</h2>
 <div class="pkg-entity">
 <h3 id="CDATA_END"><span><a class="doc-id-link" href="#CDATA_END">CDATA_END<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L54"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">CDATA_END :: "]]>"</pre>
+<pre class="doc-code">CDATA_END :: "]]&gt;"</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="CDATA_START"><span><a class="doc-id-link" href="#CDATA_START">CDATA_START<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L53"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">CDATA_START :: "<![CDATA["</pre>
+<pre class="doc-code">CDATA_START :: "&lt;![CDATA["</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="COMMENT_END"><span><a class="doc-id-link" href="#COMMENT_END">COMMENT_END<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L57"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">COMMENT_END :: "-->"</pre>
+<pre class="doc-code">COMMENT_END :: "--&gt;"</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="COMMENT_START"><span><a class="doc-id-link" href="#COMMENT_START">COMMENT_START<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L56"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">COMMENT_START :: "<!--"</pre>
+<pre class="doc-code">COMMENT_START :: "&lt;!--"</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -389,7 +386,7 @@ Procedure Groups (0)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="XML_NAME_TO_RUNE_MAX_LENGTH"><span><a class="doc-id-link" href="#XML_NAME_TO_RUNE_MAX_LENGTH">XML_NAME_TO_RUNE_MAX_LENGTH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/generated.odin#L32"><em>Source</em></a></div></h3>
+<h3 id="XML_NAME_TO_RUNE_MAX_LENGTH"><span><a class="doc-id-link" href="#XML_NAME_TO_RUNE_MAX_LENGTH">XML_NAME_TO_RUNE_MAX_LENGTH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/generated.odin#L38"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">XML_NAME_TO_RUNE_MAX_LENGTH :: 31</pre>
 </div>
@@ -399,7 +396,7 @@ Procedure Groups (0)</summary>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="XML_NAME_TO_RUNE_MIN_LENGTH"><span><a class="doc-id-link" href="#XML_NAME_TO_RUNE_MIN_LENGTH">XML_NAME_TO_RUNE_MIN_LENGTH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/generated.odin#L30"><em>Source</em></a></div></h3>
+<h3 id="XML_NAME_TO_RUNE_MIN_LENGTH"><span><a class="doc-id-link" href="#XML_NAME_TO_RUNE_MIN_LENGTH">XML_NAME_TO_RUNE_MIN_LENGTH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/generated.odin#L36"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">XML_NAME_TO_RUNE_MIN_LENGTH :: 2</pre>
 </div>
@@ -420,7 +417,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="decode_xml"><span><a class="doc-id-link" href="#decode_xml">decode_xml<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L91"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">decode_xml :: <span class="keyword-type">proc</span>(input: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, options: <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/encoding/entity/#XML_Decode_Option">XML_Decode_Option</a>; <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>] = XML_Decode_Options{}, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (decoded: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, err: <a class="code-typename" href="/core/encoding/entity/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">decode_xml :: <span class="keyword-type">proc</span>(input: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, options: <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/encoding/entity/#XML_Decode_Option">XML_Decode_Option</a>; <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>] = XML_Decode_Options{}, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (decoded: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, err: <a class="code-typename" href="/core/encoding/entity/#Error">Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -430,9 +427,9 @@ Procedure Groups (0)</summary>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="named_xml_entity_to_rune"><span><a class="doc-id-link" href="#named_xml_entity_to_rune">named_xml_entity_to_rune<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/generated.odin#L45"><em>Source</em></a></div></h3>
+<h3 id="named_xml_entity_to_rune"><span><a class="doc-id-link" href="#named_xml_entity_to_rune">named_xml_entity_to_rune<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/generated.odin#L51"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">named_xml_entity_to_rune :: <span class="keyword-type">proc</span>(name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> (decoded: <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>, ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">named_xml_entity_to_rune :: <span class="keyword-type">proc</span>(name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> (decoded: <a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -450,7 +447,7 @@ IMPORTANT: XML processors (including browsers) treat these names as case-sensiti
 <div class="pkg-entity">
 <h3 id="xml_decode_entity"><span><a class="doc-id-link" href="#xml_decode_entity">xml_decode_entity<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L212"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">xml_decode_entity :: <span class="keyword-type">proc</span>(entity: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> (decoded: <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>, ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">xml_decode_entity :: <span class="keyword-type">proc</span>(entity: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> (decoded: <a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
@@ -462,7 +459,7 @@ IMPORTANT: XML processors (including browsers) treat these names as case-sensiti
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/generated.odin">generated.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.263106700 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.084151500 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

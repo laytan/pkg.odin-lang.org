@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -308,25 +305,25 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="adler32"><span><a class="doc-id-link" href="#adler32">adler32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/hash.odin#L7"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">adler32 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> = u32(0)) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+<pre class="doc-code">adler32 :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> = u32(0)) -> <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="crc32"><span><a class="doc-id-link" href="#crc32">crc32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/crc32.odin#L6"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">crc32 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> = u32(0)) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+<pre class="doc-code">crc32 :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> = u32(0)) -> <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="crc64_ecma_182"><span><a class="doc-id-link" href="#crc64_ecma_182">crc64_ecma_182<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/crc.odin#L4"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">crc64_ecma_182 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> = u64(0)) -> (result: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">crc64_ecma_182 :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> = u64(0)) -> (result: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="crc64_iso_3306"><span><a class="doc-id-link" href="#crc64_iso_3306">crc64_iso_3306<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/crc.odin#L56"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">crc64_iso_3306 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> = u64(0)) -> <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
+<pre class="doc-code">crc64_iso_3306 :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> = u64(0)) -> <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -336,13 +333,13 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="crc64_iso_3306_inverse"><span><a class="doc-id-link" href="#crc64_iso_3306_inverse">crc64_iso_3306_inverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/crc.odin#L73"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">crc64_iso_3306_inverse :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> = u64(0)) -> <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
+<pre class="doc-code">crc64_iso_3306_inverse :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> = u64(0)) -> <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="crc64_xz"><span><a class="doc-id-link" href="#crc64_xz">crc64_xz<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/crc.odin#L18"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">crc64_xz :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> = u64(0)) -> <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
+<pre class="doc-code">crc64_xz :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> = u64(0)) -> <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -355,13 +352,13 @@ Based on Mark Adler's v1.4 implementation in C under the ZLIB license.
 <div class="pkg-entity">
 <h3 id="djb2"><span><a class="doc-id-link" href="#djb2">djb2<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/hash.odin#L50"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">djb2 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> = u32(0)) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+<pre class="doc-code">djb2 :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> = u32(0)) -> <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="djbx33a"><span><a class="doc-id-link" href="#djbx33a">djbx33a<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/hash.odin#L58"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">djbx33a :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> = u32(0)) -> (result: [16]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">djbx33a :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> = u32(0)) -> (result: [16]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -377,7 +374,7 @@ Based on Mark Adler's v1.4 implementation in C under the ZLIB license.
 <div class="pkg-entity">
 <h3 id="fnv32_no_a"><span><a class="doc-id-link" href="#fnv32_no_a">fnv32_no_a<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/hash.odin#L77"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">fnv32_no_a :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> = u32(0)) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+<pre class="doc-code">fnv32_no_a :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> = u32(0)) -> <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -387,7 +384,7 @@ Based on Mark Adler's v1.4 implementation in C under the ZLIB license.
 <div class="pkg-entity">
 <h3 id="fnv32a"><span><a class="doc-id-link" href="#fnv32a">fnv32a<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/hash.odin#L98"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">fnv32a :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> = u32(0)) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+<pre class="doc-code">fnv32a :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> = u32(0)) -> <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -403,7 +400,7 @@ Based on Mark Adler's v1.4 implementation in C under the ZLIB license.
 <div class="pkg-entity">
 <h3 id="fnv64_no_a"><span><a class="doc-id-link" href="#fnv64_no_a">fnv64_no_a<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/hash.odin#L90"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">fnv64_no_a :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> = u64(0)) -> <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
+<pre class="doc-code">fnv64_no_a :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> = u64(0)) -> <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -413,49 +410,49 @@ Based on Mark Adler's v1.4 implementation in C under the ZLIB license.
 <div class="pkg-entity">
 <h3 id="fnv64a"><span><a class="doc-id-link" href="#fnv64a">fnv64a<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/hash.odin#L107"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">fnv64a :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> = u64(0)) -> <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
+<pre class="doc-code">fnv64a :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> = u64(0)) -> <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="ginger16"><span><a class="doc-id-link" href="#ginger16">ginger16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/mini.odin#L34"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">ginger16 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a> {…}</pre>
+<pre class="doc-code">ginger16 :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="ginger8"><span><a class="doc-id-link" href="#ginger8">ginger8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/mini.odin#L27"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">ginger8 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">ginger8 :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="ginger_hash16"><span><a class="doc-id-link" href="#ginger_hash16">ginger_hash16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/mini.odin#L14"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">ginger_hash16 :: <span class="keyword-type">proc</span>(x: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>) -> <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a> {…}</pre>
+<pre class="doc-code">ginger_hash16 :: <span class="keyword-type">proc</span>(x: <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>) -> <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="ginger_hash8"><span><a class="doc-id-link" href="#ginger_hash8">ginger_hash8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/mini.odin#L3"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">ginger_hash8 :: <span class="keyword-type">proc</span>(x: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">ginger_hash8 :: <span class="keyword-type">proc</span>(x: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="jenkins"><span><a class="doc-id-link" href="#jenkins">jenkins<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/hash.odin#L116"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">jenkins :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> = u32(0)) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+<pre class="doc-code">jenkins :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> = u32(0)) -> <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="murmur32"><span><a class="doc-id-link" href="#murmur32">murmur32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/hash.odin#L130"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">murmur32 :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> = u32(0)) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+<pre class="doc-code">murmur32 :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> = u32(0)) -> <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="murmur64a"><span><a class="doc-id-link" href="#murmur64a">murmur64a<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/hash.odin#L181"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">murmur64a :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> = u64(0)) -> <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
+<pre class="doc-code">murmur64a :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> = u64(0)) -> <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -465,7 +462,7 @@ Based on Mark Adler's v1.4 implementation in C under the ZLIB license.
 <div class="pkg-entity">
 <h3 id="murmur64b"><span><a class="doc-id-link" href="#murmur64b">murmur64b<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/hash.odin#L222"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">murmur64b :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> = u64(0)) -> <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
+<pre class="doc-code">murmur64b :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> = u64(0)) -> <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -475,7 +472,7 @@ Based on Mark Adler's v1.4 implementation in C under the ZLIB license.
 <div class="pkg-entity">
 <h3 id="sdbm"><span><a class="doc-id-link" href="#sdbm">sdbm<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/hash.odin#L290"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">sdbm :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> = u32(0)) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
+<pre class="doc-code">sdbm :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> = u32(0)) -> <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
@@ -489,7 +486,7 @@ Based on Mark Adler's v1.4 implementation in C under the ZLIB license.
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/mini.odin">mini.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:14.968267800 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.241194100 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

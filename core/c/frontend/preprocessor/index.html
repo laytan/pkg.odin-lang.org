@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -355,7 +352,7 @@ Procedure Groups (0)</summary>
 	next:     ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Cond_Incl">Cond_Incl</a>,
 	tok:      ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>,
 	state:    <a class="code-typename" href="/core/c/frontend/preprocessor/#Cond_Incl_State">Cond_Incl_State</a>,
-	included: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	included: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Returns</h5>
@@ -366,7 +363,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="Cond_Incl_State"><span><a class="doc-id-link" href="#Cond_Incl_State">Cond_Incl_State<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L48"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Cond_Incl_State :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+<pre class="doc-code">Cond_Incl_State :: <span class="keyword-type">enum</span> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	In_Then, 
 	In_Elif, 
 	In_Else, 
@@ -383,10 +380,10 @@ Procedure Groups (0)</summary>
 <h3 id="Macro"><span><a class="doc-id-link" href="#Macro">Macro<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L39"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Macro :: <span class="keyword-type">struct</span> {
-	name:         <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	name:         <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
 	kind:         <a class="code-typename" href="/core/c/frontend/preprocessor/#Macro_Kind">Macro_Kind</a>,
 	params:       ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Macro_Param">Macro_Param</a>,
-	va_args_name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	va_args_name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
 	body:         ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>,
 	handler:      <a class="code-typename" href="/core/c/frontend/preprocessor/#Macro_Handler">Macro_Handler</a>,
 }</pre>
@@ -403,9 +400,9 @@ Procedure Groups (0)</summary>
 <div>
 <pre class="doc-code">Macro_Arg :: <span class="keyword-type">struct</span> {
 	next:       ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Macro_Arg">Macro_Arg</a>,
-	name:       <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	name:       <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
 	tok:        ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>,
-	is_va_args: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	is_va_args: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -433,7 +430,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="Macro_Kind"><span><a class="doc-id-link" href="#Macro_Kind">Macro_Kind<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L32"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Macro_Kind :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+<pre class="doc-code">Macro_Kind :: <span class="keyword-type">enum</span> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	Function_Like, 
 	Value_Like, 
 }</pre>
@@ -448,7 +445,7 @@ Procedure Groups (0)</summary>
 <div>
 <pre class="doc-code">Macro_Param :: <span class="keyword-type">struct</span> {
 	next: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Macro_Param">Macro_Param</a>,
-	name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -471,25 +468,25 @@ Procedure Groups (0)</summary>
 <div>
 <pre class="doc-code">Preprocessor :: <span class="keyword-type">struct</span> {
 	<span class="comment">// Lookup tables</span>
-	macros:             <span class="keyword-type">map</span>[<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>]^<a class="code-typename" href="/core/c/frontend/preprocessor/#Macro">Macro</a>,
-	pragma_once:        <span class="keyword-type">map</span>[<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>]<a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
-	include_guards:     <span class="keyword-type">map</span>[<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>]<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
-	filepath_cache:     <span class="keyword-type">map</span>[<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>]<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	macros:             <span class="keyword-type">map</span>[<a href="/base/builtin#string"><span class="doc-builtin">string</span></a>]^<a class="code-typename" href="/core/c/frontend/preprocessor/#Macro">Macro</a>,
+	pragma_once:        <span class="keyword-type">map</span>[<a href="/base/builtin#string"><span class="doc-builtin">string</span></a>]<a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	include_guards:     <span class="keyword-type">map</span>[<a href="/base/builtin#string"><span class="doc-builtin">string</span></a>]<a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
+	filepath_cache:     <span class="keyword-type">map</span>[<a href="/base/builtin#string"><span class="doc-builtin">string</span></a>]<a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
 	<span class="comment">// Include path data</span>
-	include_paths:      []<a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
+	include_paths:      []<a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
 	<span class="comment">// Counter for __COUNTER__ macro</span>
-	counter:            <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>,
+	counter:            <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>,
 	<span class="comment">// Include information</span>
 	cond_incl:          ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Cond_Incl">Cond_Incl</a>,
-	include_level:      <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	include_next_index: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	wide_char_size:     <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	include_level:      <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	include_next_index: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	wide_char_size:     <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 	<span class="comment">// Mutable data</span>
 	err:                c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Error_Handler">Error_Handler</a>,
 	warn:               c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Error_Handler">Error_Handler</a>,
 	pragma_handler:     <a class="code-typename" href="/core/c/frontend/preprocessor/#Pragma_Handler">Pragma_Handler</a>,
-	error_count:        <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	warning_count:      <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	error_count:        <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	warning_count:      <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -549,13 +546,13 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="add_builtin"><span><a class="doc-id-link" href="#add_builtin">add_builtin<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L579"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">add_builtin :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, handler: <a class="code-typename" href="/core/c/frontend/preprocessor/#Macro_Handler">Macro_Handler</a>) -> ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Macro">Macro</a> {…}</pre>
+<pre class="doc-code">add_builtin :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, handler: <a class="code-typename" href="/core/c/frontend/preprocessor/#Macro_Handler">Macro_Handler</a>) -> ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Macro">Macro</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="add_macro"><span><a class="doc-id-link" href="#add_macro">add_macro<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L565"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">add_macro :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, kind: <a class="code-typename" href="/core/c/frontend/preprocessor/#Macro_Kind">Macro_Kind</a>, body: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>) -> ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Macro">Macro</a> {…}</pre>
+<pre class="doc-code">add_macro :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, kind: <a class="code-typename" href="/core/c/frontend/preprocessor/#Macro_Kind">Macro_Kind</a>, body: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>) -> ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Macro">Macro</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -567,19 +564,19 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="check_for_include_guard"><span><a class="doc-id-link" href="#check_for_include_guard">check_for_include_guard<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L774"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">check_for_include_guard :: <span class="keyword-type">proc</span>(tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>) -> (guard: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">check_for_include_guard :: <span class="keyword-type">proc</span>(tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>) -> (guard: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="const_expr"><span><a class="doc-id-link" href="#const_expr">const_expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/const_expr.odin#L5"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">const_expr :: <span class="keyword-type">proc</span>(rest: ^^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>) -> <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a> {…}</pre>
+<pre class="doc-code">const_expr :: <span class="keyword-type">proc</span>(rest: ^^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>) -> <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="consume"><span><a class="doc-id-link" href="#consume">consume<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L593"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">consume :: <span class="keyword-type">proc</span>(rest: ^^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, lit: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">consume :: <span class="keyword-type">proc</span>(rest: ^^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, lit: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -627,25 +624,25 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="define_macro"><span><a class="doc-id-link" href="#define_macro">define_macro<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L1441"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">define_macro :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, name, def: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
+<pre class="doc-code">define_macro :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, name, def: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="error"><span><a class="doc-id-link" href="#error">error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L93"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">error :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, msg: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, args: ..<a href="/core/builtin#any"><span class="doc-builtin">any</span></a>) {…}</pre>
+<pre class="doc-code">error :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, msg: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, args: ..<a href="/base/builtin#any"><span class="doc-builtin">any</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="eval_const_expr"><span><a class="doc-id-link" href="#eval_const_expr">eval_const_expr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L1183"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">eval_const_expr :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, rest: ^^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>) -> (val: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>) {…}</pre>
+<pre class="doc-code">eval_const_expr :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, rest: ^^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>) -> (val: <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="expand_macro"><span><a class="doc-id-link" href="#expand_macro">expand_macro<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L1069"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">expand_macro :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, rest: ^^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">expand_macro :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, rest: ^^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -669,19 +666,19 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="from_hex"><span><a class="doc-id-link" href="#from_hex">from_hex<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L148"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">from_hex :: <span class="keyword-type">proc</span>(x: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {…}</pre>
+<pre class="doc-code">from_hex :: <span class="keyword-type">proc</span>(x: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="has_varargs"><span><a class="doc-id-link" href="#has_varargs">has_varargs<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L867"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">has_varargs :: <span class="keyword-type">proc</span>(args: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Macro_Arg">Macro_Arg</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">has_varargs :: <span class="keyword-type">proc</span>(args: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Macro_Arg">Macro_Arg</a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="include_file"><span><a class="doc-id-link" href="#include_file">include_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L812"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">include_file :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, path: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, filename_tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>) -> ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a> {…}</pre>
+<pre class="doc-code">include_file :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, path: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, filename_tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>) -> ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -705,13 +702,13 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="is_hash"><span><a class="doc-id-link" href="#is_hash">is_hash<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L107"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">is_hash :: <span class="keyword-type">proc</span>(tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">is_hash :: <span class="keyword-type">proc</span>(tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="is_hex_digit"><span><a class="doc-id-link" href="#is_hex_digit">is_hex_digit<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L141"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">is_hex_digit :: <span class="keyword-type">proc</span>(x: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">is_hex_digit :: <span class="keyword-type">proc</span>(x: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -723,7 +720,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="join_tokens"><span><a class="doc-id-link" href="#join_tokens">join_tokens<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L677"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">join_tokens :: <span class="keyword-type">proc</span>(tok, end: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>) -> <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
+<pre class="doc-code">join_tokens :: <span class="keyword-type">proc</span>(tok, end: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>) -> <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -735,13 +732,13 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="new_number_token"><span><a class="doc-id-link" href="#new_number_token">new_number_token<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L548"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">new_number_token :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, i: <a href="/core/builtin#i64"><span class="doc-builtin">i64</span></a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>) -> ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a> {…}</pre>
+<pre class="doc-code">new_number_token :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, i: <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>) -> ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="new_string_token"><span><a class="doc-id-link" href="#new_string_token">new_string_token<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L534"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">new_string_token :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, str: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>) -> ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a> {…}</pre>
+<pre class="doc-code">new_string_token :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, str: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>) -> ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -765,13 +762,13 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="push_cond_incl"><span><a class="doc-id-link" href="#push_cond_incl">push_cond_incl<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L1212"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">push_cond_incl :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, included: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) -> ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Cond_Incl">Cond_Incl</a> {…}</pre>
+<pre class="doc-code">push_cond_incl :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, included: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) -> ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Cond_Incl">Cond_Incl</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="quote_string"><span><a class="doc-id-link" href="#quote_string">quote_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L521"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">quote_string :: <span class="keyword-type">proc</span>(s: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">quote_string :: <span class="keyword-type">proc</span>(s: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -783,7 +780,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="read_include_filename"><span><a class="doc-id-link" href="#read_include_filename">read_include_filename<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L701"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">read_include_filename :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, rest: ^^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>) -> (filename: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, is_quote: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">read_include_filename :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, rest: ^^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>) -> (filename: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, is_quote: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -795,13 +792,13 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="read_macro_arg_one"><span><a class="doc-id-link" href="#read_macro_arg_one">read_macro_arg_one<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L993"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">read_macro_arg_one :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, rest: ^^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, read_rest: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) -> ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Macro_Arg">Macro_Arg</a> {…}</pre>
+<pre class="doc-code">read_macro_arg_one :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, rest: ^^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, read_rest: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) -> ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Macro_Arg">Macro_Arg</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="read_macro_args"><span><a class="doc-id-link" href="#read_macro_args">read_macro_args<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L1027"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">read_macro_args :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, rest: ^^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, params: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Macro_Param">Macro_Param</a>, va_args_name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Macro_Arg">Macro_Arg</a> {…}</pre>
+<pre class="doc-code">read_macro_args :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, rest: ^^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, params: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Macro_Param">Macro_Param</a>, va_args_name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Macro_Arg">Macro_Arg</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -813,25 +810,25 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="read_macro_params"><span><a class="doc-id-link" href="#read_macro_params">read_macro_params<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L602"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">read_macro_params :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, rest: ^^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>) -> (param: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Macro_Param">Macro_Param</a>, va_args_name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
+<pre class="doc-code">read_macro_params :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, rest: ^^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>) -> (param: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Macro_Param">Macro_Param</a>, va_args_name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="search_include_next"><span><a class="doc-id-link" href="#search_include_next">search_include_next<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L1119"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">search_include_next :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, filename: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> (path: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">search_include_next :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, filename: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> (path: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="search_include_paths"><span><a class="doc-id-link" href="#search_include_paths">search_include_paths<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L1129"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">search_include_paths :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, filename: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> (path: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, ok: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">search_include_paths :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, filename: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> (path: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="skip"><span><a class="doc-id-link" href="#skip">skip<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L586"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">skip :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, op: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a> {…}</pre>
+<pre class="doc-code">skip :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, op: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -861,31 +858,31 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="undef_macro"><span><a class="doc-id-link" href="#undef_macro">undef_macro<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L575"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">undef_macro :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, name: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
+<pre class="doc-code">undef_macro :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="unquote_char"><span><a class="doc-id-link" href="#unquote_char">unquote_char<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/unquote.odin#L5"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">unquote_char :: <span class="keyword-type">proc</span>(str: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, quote: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (r: <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>, multiple_bytes: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>, tail_string: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, success: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">unquote_char :: <span class="keyword-type">proc</span>(str: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, quote: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (r: <a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>, multiple_bytes: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>, tail_string: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, success: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="unquote_string"><span><a class="doc-id-link" href="#unquote_string">unquote_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/unquote.odin#L100"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">unquote_string :: <span class="keyword-type">proc</span>(lit: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (res: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, allocated, success: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">unquote_string :: <span class="keyword-type">proc</span>(lit: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (res: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, allocated, success: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="warn"><span><a class="doc-id-link" href="#warn">warn<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L100"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">warn :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, msg: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, args: ..<a href="/core/builtin#any"><span class="doc-builtin">any</span></a>) {…}</pre>
+<pre class="doc-code">warn :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>, tok: ^c_frontend_tokenizer.<a class="code-typename" href="/core/c/frontend/tokenizer/#Token">Token</a>, msg: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, args: ..<a href="/base/builtin#any"><span class="doc-builtin">any</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="wide_char_size"><span><a class="doc-id-link" href="#wide_char_size">wide_char_size<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/preprocess.odin#L259"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">wide_char_size :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">wide_char_size :: <span class="keyword-type">proc</span>(cpp: ^<a class="code-typename" href="/core/c/frontend/preprocessor/#Preprocessor">Preprocessor</a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
@@ -898,7 +895,7 @@ Procedure Groups (0)</summary>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/c/frontend/preprocessor/unquote.odin">unquote.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.275065400 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.033421800 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

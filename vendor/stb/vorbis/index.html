@@ -59,6 +59,14 @@
 </li>
 <li class="nav-item"><a href="/vendor/cgltf">cgltf</a></li>
 <li class="nav-item"><a href="/vendor/commonmark">commonmark</a></li>
+<li class="nav-item">darwin<ul>
+<li><a href="/vendor/darwin/Foundation">Foundation</a></li>
+<li><a href="/vendor/darwin/Metal">Metal</a></li>
+<li><a href="/vendor/darwin/MetalKit">MetalKit</a></li>
+<li><a href="/vendor/darwin/QuartzCore">QuartzCore</a></li>
+</ul>
+
+</li>
 <li class="nav-item">directx<ul>
 <li><a href="/vendor/directx/d3d11">d3d11</a></li>
 <li><a href="/vendor/directx/d3d12">d3d12</a></li>
@@ -223,9 +231,9 @@ Procedure Groups (0)</summary>
 <section class="documentation">
 <h2 id="pkg-Types" class="pkg-header">Types</h2>
 <div class="pkg-entity">
-<h3 id="Error"><span><a class="doc-id-link" href="#Error">Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L288"><em>Source</em></a></div></h3>
+<h3 id="Error"><span><a class="doc-id-link" href="#Error">Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L289"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
+<pre class="doc-code">Error :: <span class="keyword-type">enum</span> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	none                             = 0, 
 	need_more_data                   = 1,  <span class="comment">// not a real error</span>
 	invalid_api_mixing,                    <span class="comment">// can't mix API modes</span>
@@ -261,7 +269,7 @@ Procedure Groups (0)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="vorbis"><span><a class="doc-id-link" href="#vorbis">vorbis<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L46"><em>Source</em></a></div></h3>
+<h3 id="vorbis"><span><a class="doc-id-link" href="#vorbis">vorbis<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L47"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">vorbis :: <span class="keyword-type">struct</span> {}</pre>
 </div>
@@ -298,11 +306,11 @@ Procedure Groups (0)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="vorbis_alloc"><span><a class="doc-id-link" href="#vorbis_alloc">vorbis_alloc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L41"><em>Source</em></a></div></h3>
+<h3 id="vorbis_alloc"><span><a class="doc-id-link" href="#vorbis_alloc">vorbis_alloc<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L42"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">vorbis_alloc :: <span class="keyword-type">struct</span> {
-	alloc_buffer:                 [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
-	alloc_buffer_length_in_bytes: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+	alloc_buffer:                 [^]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	alloc_buffer_length_in_bytes: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -315,12 +323,12 @@ Procedure Groups (0)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="vorbis_comment"><span><a class="doc-id-link" href="#vorbis_comment">vorbis_comment<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L59"><em>Source</em></a></div></h3>
+<h3 id="vorbis_comment"><span><a class="doc-id-link" href="#vorbis_comment">vorbis_comment<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L60"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">vorbis_comment :: <span class="keyword-type">struct</span> {
-	vendor:              <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>,
-	comment_list_length: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
-	comment_list:        [^]<a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>,
+	vendor:              <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>,
+	comment_list_length: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>,
+	comment_list:        [^]<a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Returns</h5>
@@ -329,15 +337,15 @@ Procedure Groups (0)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="vorbis_info"><span><a class="doc-id-link" href="#vorbis_info">vorbis_info<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L48"><em>Source</em></a></div></h3>
+<h3 id="vorbis_info"><span><a class="doc-id-link" href="#vorbis_info">vorbis_info<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L49"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">vorbis_info :: <span class="keyword-type">struct</span> {
-	sample_rate:                <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
-	channels:                   <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
-	setup_memory_required:      <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
-	setup_temp_memory_required: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
-	temp_memory_required:       <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
-	max_frame_size:             <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+	sample_rate:                <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	channels:                   <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>,
+	setup_memory_required:      <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	setup_temp_memory_required: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	temp_memory_required:       <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	max_frame_size:             <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Returns</h5>
@@ -347,7 +355,7 @@ Procedure Groups (0)</summary>
 </div>
 <h2 id="pkg-Constants" class="pkg-header">Constants</h2>
 <div class="pkg-entity">
-<h3 id="FAST_HUFFMAN_LENGTH"><span><a class="doc-id-link" href="#FAST_HUFFMAN_LENGTH">FAST_HUFFMAN_LENGTH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L353"><em>Source</em></a></div></h3>
+<h3 id="FAST_HUFFMAN_LENGTH"><span><a class="doc-id-link" href="#FAST_HUFFMAN_LENGTH">FAST_HUFFMAN_LENGTH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L354"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">FAST_HUFFMAN_LENGTH :: 10</pre>
 </div>
@@ -361,7 +369,7 @@ Procedure Groups (0)</summary>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="MAX_CHANNELS"><span><a class="doc-id-link" href="#MAX_CHANNELS">MAX_CHANNELS<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L332"><em>Source</em></a></div></h3>
+<h3 id="MAX_CHANNELS"><span><a class="doc-id-link" href="#MAX_CHANNELS">MAX_CHANNELS<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L333"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">MAX_CHANNELS :: 16</pre>
 </div>
@@ -378,7 +386,7 @@ Procedure Groups (0)</summary>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="PUSHDATA_CRC_COUNT"><span><a class="doc-id-link" href="#PUSHDATA_CRC_COUNT">PUSHDATA_CRC_COUNT<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L346"><em>Source</em></a></div></h3>
+<h3 id="PUSHDATA_CRC_COUNT"><span><a class="doc-id-link" href="#PUSHDATA_CRC_COUNT">PUSHDATA_CRC_COUNT<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L347"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">PUSHDATA_CRC_COUNT :: 4</pre>
 </div>
@@ -402,7 +410,7 @@ Procedure Groups (0)</summary>
 <p class="pkg-empty-section">This section is empty.</p>
 <h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
 <div class="pkg-entity">
-<h3 id="close"><span><a class="doc-id-link" href="#close">close<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L78"><em>Source</em></a></div></h3>
+<h3 id="close"><span><a class="doc-id-link" href="#close">close<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L79"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">close :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) ---</pre>
 </div>
@@ -412,9 +420,9 @@ Procedure Groups (0)</summary>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="decode_filename"><span><a class="doc-id-link" href="#decode_filename">decode_filename<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L185"><em>Source</em></a></div></h3>
+<h3 id="decode_filename"><span><a class="doc-id-link" href="#decode_filename">decode_filename<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L186"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">decode_filename :: <span class="keyword-type">proc</span> "c" (filename: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>, channels, sample_rate: ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, output: ^[^]<a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">decode_filename :: <span class="keyword-type">proc</span> "c" (filename: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>, channels, sample_rate: ^<a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, output: ^[^]<a href="/base/builtin#i16"><span class="doc-builtin">i16</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -425,16 +433,16 @@ When you're done with it, just free() the pointer returned in *output.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="decode_frame_pushdata"><span><a class="doc-id-link" href="#decode_frame_pushdata">decode_frame_pushdata<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L148"><em>Source</em></a></div></h3>
+<h3 id="decode_frame_pushdata"><span><a class="doc-id-link" href="#decode_frame_pushdata">decode_frame_pushdata<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L149"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">decode_frame_pushdata :: <span class="keyword-type">proc</span> "c" (
 	f:                         ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, 
-	datablock:                 [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, 
-	datablock_length_in_bytes: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
-	channels:                  ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
-	output:                    ^[^]^<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, 
-	samples:                   ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, 
-) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+	datablock:                 [^]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, 
+	datablock_length_in_bytes: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+	channels:                  ^<a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+	output:                    ^[^]^<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+	samples:                   ^<a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, 
+) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -464,13 +472,13 @@ you need before then.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="decode_memory"><span><a class="doc-id-link" href="#decode_memory">decode_memory<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L186"><em>Source</em></a></div></h3>
+<h3 id="decode_memory"><span><a class="doc-id-link" href="#decode_memory">decode_memory<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L187"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">decode_memory :: <span class="keyword-type">proc</span> "c" (mem: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, len: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, channels, sample_rate: ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, output: ^[^]<a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">decode_memory :: <span class="keyword-type">proc</span> "c" (mem: [^]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, len: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, channels, sample_rate: ^<a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, output: ^[^]<a href="/base/builtin#i16"><span class="doc-builtin">i16</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="flush_pushdata"><span><a class="doc-id-link" href="#flush_pushdata">flush_pushdata<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L166"><em>Source</em></a></div></h3>
+<h3 id="flush_pushdata"><span><a class="doc-id-link" href="#flush_pushdata">flush_pushdata<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L167"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">flush_pushdata :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) ---</pre>
 </div>
@@ -488,7 +496,7 @@ if you don't like the result, seek your file again and repeat.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="get_comment"><span><a class="doc-id-link" href="#get_comment">get_comment<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L72"><em>Source</em></a></div></h3>
+<h3 id="get_comment"><span><a class="doc-id-link" href="#get_comment">get_comment<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L73"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">get_comment :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) -> <a class="code-typename" href="/vendor/stb/vorbis/#vorbis_comment">vorbis_comment</a> ---</pre>
 </div>
@@ -498,9 +506,9 @@ if you don't like the result, seek your file again and repeat.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="get_error"><span><a class="doc-id-link" href="#get_error">get_error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L75"><em>Source</em></a></div></h3>
+<h3 id="get_error"><span><a class="doc-id-link" href="#get_error">get_error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L76"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">get_error :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">get_error :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -508,9 +516,9 @@ if you don't like the result, seek your file again and repeat.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="get_file_offset"><span><a class="doc-id-link" href="#get_file_offset">get_file_offset<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L89"><em>Source</em></a></div></h3>
+<h3 id="get_file_offset"><span><a class="doc-id-link" href="#get_file_offset">get_file_offset<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L90"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">get_file_offset :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> ---</pre>
+<pre class="doc-code">get_file_offset :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) -> <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -519,9 +527,9 @@ of the memory buffer. In pushdata mode it returns 0.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="get_frame_float"><span><a class="doc-id-link" href="#get_frame_float">get_frame_float<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L242"><em>Source</em></a></div></h3>
+<h3 id="get_frame_float"><span><a class="doc-id-link" href="#get_frame_float">get_frame_float<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L243"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">get_frame_float :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, channels: ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, output: ^[^]^<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">get_frame_float :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, channels: ^<a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, output: ^[^]^<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -535,15 +543,15 @@ and stb_vorbis_get_samples_*(), since the latter calls the former.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="get_frame_short"><span><a class="doc-id-link" href="#get_frame_short">get_frame_short<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L256"><em>Source</em></a></div></h3>
+<h3 id="get_frame_short"><span><a class="doc-id-link" href="#get_frame_short">get_frame_short<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L257"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">get_frame_short :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, num_c: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, buffer: ^[^]<a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>, num_samples: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">get_frame_short :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, num_c: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, buffer: ^[^]<a href="/base/builtin#i16"><span class="doc-builtin">i16</span></a>, num_samples: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="get_frame_short_interleaved"><span><a class="doc-id-link" href="#get_frame_short_interleaved">get_frame_short_interleaved<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L255"><em>Source</em></a></div></h3>
+<h3 id="get_frame_short_interleaved"><span><a class="doc-id-link" href="#get_frame_short_interleaved">get_frame_short_interleaved<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L256"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">get_frame_short_interleaved :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, num_c: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, buffer: [^]<a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>, num_shorts: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">get_frame_short_interleaved :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, num_c: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, buffer: [^]<a href="/base/builtin#i16"><span class="doc-builtin">i16</span></a>, num_shorts: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -560,7 +568,7 @@ per channel.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="get_info"><span><a class="doc-id-link" href="#get_info">get_info<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L69"><em>Source</em></a></div></h3>
+<h3 id="get_info"><span><a class="doc-id-link" href="#get_info">get_info<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L70"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">get_info :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) -> <a class="code-typename" href="/vendor/stb/vorbis/#vorbis_info">vorbis_info</a> ---</pre>
 </div>
@@ -570,9 +578,9 @@ per channel.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="get_sample_offset"><span><a class="doc-id-link" href="#get_sample_offset">get_sample_offset<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L85"><em>Source</em></a></div></h3>
+<h3 id="get_sample_offset"><span><a class="doc-id-link" href="#get_sample_offset">get_sample_offset<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L86"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">get_sample_offset :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">get_sample_offset :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -584,15 +592,15 @@ NOT WORKING YET after a seek with PULLDATA API</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="get_samples_float"><span><a class="doc-id-link" href="#get_samples_float">get_samples_float<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L276"><em>Source</em></a></div></h3>
+<h3 id="get_samples_float"><span><a class="doc-id-link" href="#get_samples_float">get_samples_float<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L277"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">get_samples_float :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, channels: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, buffer: ^[^]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, num_samples: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">get_samples_float :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, channels: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, buffer: ^[^]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, num_samples: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="get_samples_float_interleaved"><span><a class="doc-id-link" href="#get_samples_float_interleaved">get_samples_float_interleaved<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L275"><em>Source</em></a></div></h3>
+<h3 id="get_samples_float_interleaved"><span><a class="doc-id-link" href="#get_samples_float_interleaved">get_samples_float_interleaved<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L276"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">get_samples_float_interleaved :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, channels: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, buffer: [^]<a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a>, num_floats: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">get_samples_float_interleaved :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, channels: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, buffer: [^]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, num_floats: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -603,15 +611,15 @@ at the end of the file. If there are no more samples in the file, returns 0.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="get_samples_short"><span><a class="doc-id-link" href="#get_samples_short">get_samples_short<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L284"><em>Source</em></a></div></h3>
+<h3 id="get_samples_short"><span><a class="doc-id-link" href="#get_samples_short">get_samples_short<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L285"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">get_samples_short :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, channels: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, buffer: ^[^]<a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>, num_samples: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">get_samples_short :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, channels: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, buffer: ^[^]<a href="/base/builtin#i16"><span class="doc-builtin">i16</span></a>, num_samples: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="get_samples_short_interleaved"><span><a class="doc-id-link" href="#get_samples_short_interleaved">get_samples_short_interleaved<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L283"><em>Source</em></a></div></h3>
+<h3 id="get_samples_short_interleaved"><span><a class="doc-id-link" href="#get_samples_short_interleaved">get_samples_short_interleaved<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L284"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">get_samples_short_interleaved :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, channels: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, buffer: [^]<a href="/core/builtin#i16"><span class="doc-builtin">i16</span></a>, num_shorts: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">get_samples_short_interleaved :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, channels: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, buffer: [^]<a href="/base/builtin#i16"><span class="doc-builtin">i16</span></a>, num_shorts: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -623,9 +631,9 @@ samples in the file, returns 0.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="open_file"><span><a class="doc-id-link" href="#open_file">open_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L207"><em>Source</em></a></div></h3>
+<h3 id="open_file"><span><a class="doc-id-link" href="#open_file">open_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L208"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">open_file :: <span class="keyword-type">proc</span> "c" (f: ^libc.<a class="code-typename" href="/core/c/libc/#FILE">FILE</a>, close_handle_on_close: <a href="/core/builtin#b32"><span class="doc-builtin">b32</span></a>, error: ^<a class="code-typename" href="/vendor/stb/vorbis/#Error">Error</a>, alloc_buffer: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis_alloc">vorbis_alloc</a>) -> ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a> ---</pre>
+<pre class="doc-code">open_file :: <span class="keyword-type">proc</span> "c" (f: ^libc.<a class="code-typename" href="/core/c/libc/#FILE">FILE</a>, close_handle_on_close: <a href="/base/builtin#b32"><span class="doc-builtin">b32</span></a>, error: ^<a class="code-typename" href="/vendor/stb/vorbis/#Error">Error</a>, alloc_buffer: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis_alloc">vorbis_alloc</a>) -> ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -639,9 +647,9 @@ function, stb_vorbis_open_file_section(), to limit it.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="open_file_section"><span><a class="doc-id-link" href="#open_file_section">open_file_section<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L215"><em>Source</em></a></div></h3>
+<h3 id="open_file_section"><span><a class="doc-id-link" href="#open_file_section">open_file_section<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L216"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">open_file_section :: <span class="keyword-type">proc</span> "c" (f: ^libc.<a class="code-typename" href="/core/c/libc/#FILE">FILE</a>, close_handle_on_close: <a href="/core/builtin#b32"><span class="doc-builtin">b32</span></a>, error: ^<a class="code-typename" href="/vendor/stb/vorbis/#Error">Error</a>, alloc_buffer: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis_alloc">vorbis_alloc</a>, len: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a> ---</pre>
+<pre class="doc-code">open_file_section :: <span class="keyword-type">proc</span> "c" (f: ^libc.<a class="code-typename" href="/core/c/libc/#FILE">FILE</a>, close_handle_on_close: <a href="/base/builtin#b32"><span class="doc-builtin">b32</span></a>, error: ^<a class="code-typename" href="/vendor/stb/vorbis/#Error">Error</a>, alloc_buffer: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis_alloc">vorbis_alloc</a>, len: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) -> ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -653,9 +661,9 @@ confused.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="open_filename"><span><a class="doc-id-link" href="#open_filename">open_filename<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L197"><em>Source</em></a></div></h3>
+<h3 id="open_filename"><span><a class="doc-id-link" href="#open_filename">open_filename<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L198"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">open_filename :: <span class="keyword-type">proc</span> "c" (filename: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>, error: ^<a class="code-typename" href="/vendor/stb/vorbis/#Error">Error</a>, alloc_buffer: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis_alloc">vorbis_alloc</a>) -> ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a> ---</pre>
+<pre class="doc-code">open_filename :: <span class="keyword-type">proc</span> "c" (filename: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>, error: ^<a class="code-typename" href="/vendor/stb/vorbis/#Error">Error</a>, alloc_buffer: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis_alloc">vorbis_alloc</a>) -> ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -664,9 +672,9 @@ returns NULL and sets *error (possibly to VORBIS_file_open_failure).</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="open_memory"><span><a class="doc-id-link" href="#open_memory">open_memory<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L192"><em>Source</em></a></div></h3>
+<h3 id="open_memory"><span><a class="doc-id-link" href="#open_memory">open_memory<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L193"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">open_memory :: <span class="keyword-type">proc</span> "c" (data: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, len: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, error: ^<a class="code-typename" href="/vendor/stb/vorbis/#Error">Error</a>, alloc_buffer: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis_alloc">vorbis_alloc</a>) -> ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a> ---</pre>
+<pre class="doc-code">open_memory :: <span class="keyword-type">proc</span> "c" (data: [^]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, len: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, error: ^<a class="code-typename" href="/vendor/stb/vorbis/#Error">Error</a>, alloc_buffer: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis_alloc">vorbis_alloc</a>) -> ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -675,9 +683,9 @@ this must be the entire stream!). on failure, returns NULL and sets *error</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="open_pushdata"><span><a class="doc-id-link" href="#open_pushdata">open_pushdata<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L113"><em>Source</em></a></div></h3>
+<h3 id="open_pushdata"><span><a class="doc-id-link" href="#open_pushdata">open_pushdata<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L114"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">open_pushdata :: <span class="keyword-type">proc</span> "c" (datablock: [^]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, datablock_length_in_bytes: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, datablock_memory_consumed_in_bytes: ^<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>, error: ^<a class="code-typename" href="/vendor/stb/vorbis/#Error">Error</a>, alloc_buffer: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis_alloc">vorbis_alloc</a>) -> ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a> ---</pre>
+<pre class="doc-code">open_pushdata :: <span class="keyword-type">proc</span> "c" (datablock: [^]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, datablock_length_in_bytes: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, datablock_memory_consumed_in_bytes: ^<a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>, error: ^<a class="code-typename" href="/vendor/stb/vorbis/#Error">Error</a>, alloc_buffer: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis_alloc">vorbis_alloc</a>) -> ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -692,15 +700,15 @@ if returns NULL and *error is VORBIS_need_more_data, then the input block was
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="seek"><span><a class="doc-id-link" href="#seek">seek<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L225"><em>Source</em></a></div></h3>
+<h3 id="seek"><span><a class="doc-id-link" href="#seek">seek<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L226"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">seek :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, sample_number: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">seek :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, sample_number: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="seek_frame"><span><a class="doc-id-link" href="#seek_frame">seek_frame<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L224"><em>Source</em></a></div></h3>
+<h3 id="seek_frame"><span><a class="doc-id-link" href="#seek_frame">seek_frame<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L225"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">seek_frame :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, sample_number: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">seek_frame :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>, sample_number: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -713,9 +721,9 @@ you can also use seek_frame().</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="seek_start"><span><a class="doc-id-link" href="#seek_start">seek_start<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L228"><em>Source</em></a></div></h3>
+<h3 id="seek_start"><span><a class="doc-id-link" href="#seek_start">seek_start<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L229"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">seek_start :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">seek_start :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -723,9 +731,9 @@ you can also use seek_frame().</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="stream_length_in_samples"><span><a class="doc-id-link" href="#stream_length_in_samples">stream_length_in_samples<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L231"><em>Source</em></a></div></h3>
+<h3 id="stream_length_in_samples"><span><a class="doc-id-link" href="#stream_length_in_samples">stream_length_in_samples<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L232"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">stream_length_in_samples :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) -> <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> ---</pre>
+<pre class="doc-code">stream_length_in_samples :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) -> <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -733,9 +741,9 @@ you can also use seek_frame().</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="stream_length_in_seconds"><span><a class="doc-id-link" href="#stream_length_in_seconds">stream_length_in_seconds<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L232"><em>Source</em></a></div></h3>
+<h3 id="stream_length_in_seconds"><span><a class="doc-id-link" href="#stream_length_in_seconds">stream_length_in_seconds<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin#L233"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">stream_length_in_seconds :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) -> <a href="/core/builtin#f32"><span class="doc-builtin">f32</span></a> ---</pre>
+<pre class="doc-code">stream_length_in_seconds :: <span class="keyword-type">proc</span> "c" (f: ^<a class="code-typename" href="/vendor/stb/vorbis/#vorbis">vorbis</a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> ---</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
@@ -746,7 +754,7 @@ you can also use seek_frame().</p>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/vendor/stb/vorbis/stb_vorbis.odin">stb_vorbis.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.353995800 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:22.015493500 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

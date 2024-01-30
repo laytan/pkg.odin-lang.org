@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -290,15 +287,15 @@ Procedure Groups (0)</summary>
 <h3 id="String"><span><a class="doc-id-link" href="#String">String<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8string/string.odin#L7"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">String :: <span class="keyword-type">struct</span> {
-	contents:   <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>,
-	rune_count: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	contents:   <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
+	rune_count: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 	<span class="comment">// cached information</span>
-	non_ascii:  <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	non_ascii:  <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 	<span class="comment">// index to non-ascii code points</span>
-	width:      <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	width:      <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 	<span class="comment">// 0 if ascii</span>
-	byte_pos:   <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	rune_pos:   <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
+	byte_pos:   <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	rune_pos:   <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -319,37 +316,37 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="at"><span><a class="doc-id-link" href="#at">at<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8string/string.odin#L54"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">at :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/unicode/utf8/utf8string/#String">String</a>, i: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (r: <a href="/core/builtin#rune"><span class="doc-builtin">rune</span></a>) {…}</pre>
+<pre class="doc-code">at :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/unicode/utf8/utf8string/#String">String</a>, i: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> (r: <a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="init"><span><a class="doc-id-link" href="#init">init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8string/string.odin#L21"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">init :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/unicode/utf8/utf8string/#String">String</a>, contents: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> ^<a class="code-typename" href="/core/unicode/utf8/utf8string/#String">String</a> {…}</pre>
+<pre class="doc-code">init :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/unicode/utf8/utf8string/#String">String</a>, contents: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> ^<a class="code-typename" href="/core/unicode/utf8/utf8string/#String">String</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="is_ascii"><span><a class="doc-id-link" href="#is_ascii">is_ascii<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8string/string.odin#L50"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">is_ascii :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/unicode/utf8/utf8string/#String">String</a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">is_ascii :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/unicode/utf8/utf8string/#String">String</a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="len"><span><a class="doc-id-link" href="#len">len<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8string/string.odin#L45"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">len :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/unicode/utf8/utf8string/#String">String</a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">len :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/unicode/utf8/utf8string/#String">String</a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="slice"><span><a class="doc-id-link" href="#slice">slice<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8string/string.odin#L126"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">slice :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/unicode/utf8/utf8string/#String">String</a>, i, j: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
+<pre class="doc-code">slice :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/unicode/utf8/utf8string/#String">String</a>, i, j: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="to_string"><span><a class="doc-id-link" href="#to_string">to_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8string/string.odin#L41"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">to_string :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/unicode/utf8/utf8string/#String">String</a>) -> <a href="/core/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
+<pre class="doc-code">to_string :: <span class="keyword-type">proc</span>(s: ^<a class="code-typename" href="/core/unicode/utf8/utf8string/#String">String</a>) -> <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
@@ -360,7 +357,7 @@ Procedure Groups (0)</summary>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/unicode/utf8/utf8string/string.odin">string.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.053186200 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.178269900 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

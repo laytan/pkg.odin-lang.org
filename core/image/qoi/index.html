@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -323,7 +320,7 @@ Procedure Groups (2)</summary>
 <div class="pkg-entity">
 <h3 id="QOI_Opcode_Tag"><span><a class="doc-id-link" href="#QOI_Opcode_Tag">QOI_Opcode_Tag<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/qoi/qoi.odin#L354"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">QOI_Opcode_Tag :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+<pre class="doc-code">QOI_Opcode_Tag :: <span class="keyword-type">enum</span> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	<span class="comment">// 2-bit tags</span>
 	INDEX = 0,   <span class="comment">// 6-bit index into color array follows</span>
 	DIFF  = 64,  <span class="comment">// 3x (RGB) 2-bit difference follows (-2..1), bias of 2.</span>
@@ -338,13 +335,13 @@ Procedure Groups (2)</summary>
 <div class="pkg-entity">
 <h3 id="RGBA_Pixel"><span><a class="doc-id-link" href="#RGBA_Pixel">RGBA_Pixel<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/qoi/qoi.odin#L24"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">RGBA_Pixel :: [4]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a></pre>
+<pre class="doc-code">RGBA_Pixel :: [4]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a></pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="RGB_Pixel"><span><a class="doc-id-link" href="#RGB_Pixel">RGB_Pixel<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/qoi/qoi.odin#L23"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">RGB_Pixel :: [3]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a></pre>
+<pre class="doc-code">RGB_Pixel :: [3]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a></pre>
 </div>
 </div>
 <h2 id="pkg-Constants" class="pkg-header">Constants</h2>
@@ -376,7 +373,7 @@ Procedure Groups (2)</summary>
 <div class="pkg-entity">
 <h3 id="load_from_bytes"><span><a class="doc-id-link" href="#load_from_bytes">load_from_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/qoi/qoi.odin#L168"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">load_from_bytes :: <span class="keyword-type">proc</span>(data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, options: image.<a class="code-typename" href="/core/image/#Options">Options</a>, allocator: runtime.<a class="code-typename" href="/core/runtime/#Allocator">Allocator</a>) -> (img: ^image.<a class="code-typename" href="/core/image/#Image">Image</a>, err: image.<a class="code-typename" href="/core/image/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">load_from_bytes :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, options: image.<a class="code-typename" href="/core/image/#Options">Options</a>, allocator: runtime.<a class="code-typename" href="/base/runtime/#Allocator">Allocator</a>) -> (img: ^image.<a class="code-typename" href="/core/image/#Image">Image</a>, err: image.<a class="code-typename" href="/core/image/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -388,13 +385,13 @@ Procedure Groups (2)</summary>
 <div class="pkg-entity">
 <h3 id="load_from_file"><span><a class="doc-id-link" href="#load_from_file">load_from_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/qoi/qoi_os.odin#L26"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">load_from_file :: <span class="keyword-type">proc</span>(filename: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, options: image.<a class="code-typename" href="/core/image/#Options">Options</a> = Options{}, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (img: ^image.<a class="code-typename" href="/core/image/#Image">Image</a>, err: image.<a class="code-typename" href="/core/image/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">load_from_file :: <span class="keyword-type">proc</span>(filename: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, options: image.<a class="code-typename" href="/core/image/#Options">Options</a> = Options{}, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (img: ^image.<a class="code-typename" href="/core/image/#Image">Image</a>, err: image.<a class="code-typename" href="/core/image/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="qoi_hash"><span><a class="doc-id-link" href="#qoi_hash">qoi_hash<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/qoi/qoi.odin#L369"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">qoi_hash :: <span class="keyword-type">proc</span>(pixel: [4]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (index: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">qoi_hash :: <span class="keyword-type">proc</span>(pixel: [4]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (index: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -406,7 +403,7 @@ Procedure Groups (2)</summary>
 <div class="pkg-entity">
 <h3 id="save_to_file"><span><a class="doc-id-link" href="#save_to_file">save_to_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/image/qoi/qoi_os.odin#L10"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">save_to_file :: <span class="keyword-type">proc</span>(output: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, img: ^image.<a class="code-typename" href="/core/image/#Image">Image</a>, options: image.<a class="code-typename" href="/core/image/#Options">Options</a> = Options{}, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: image.<a class="code-typename" href="/core/image/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">save_to_file :: <span class="keyword-type">proc</span>(output: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, img: ^image.<a class="code-typename" href="/core/image/#Image">Image</a>, options: image.<a class="code-typename" href="/core/image/#Options">Options</a> = Options{}, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: image.<a class="code-typename" href="/core/image/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
@@ -438,7 +435,7 @@ Procedure Groups (2)</summary>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/image/qoi/qoi_os.odin">qoi_os.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:14.989326500 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.249397800 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

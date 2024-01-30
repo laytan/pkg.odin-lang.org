@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -292,11 +289,11 @@ Procedure Groups (0)</summary>
 <h3 id="Context"><span><a class="doc-id-link" href="#Context">Context<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/chacha20/chacha20.odin#L30"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Context :: <span class="keyword-type">struct</span> {
-	_s:              [16]<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
-	_buffer:         [64]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
-	_off:            <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	_is_ietf_flavor: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
-	_is_initialized: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	_s:              [16]<a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	_buffer:         [64]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	_off:            <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	_is_ietf_flavor: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	_is_initialized: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -333,13 +330,13 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="init"><span><a class="doc-id-link" href="#init">init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/chacha20/chacha20.odin#L40"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">init :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/chacha20/#Context">Context</a>, key, nonce: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">init :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/chacha20/#Context">Context</a>, key, nonce: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="keystream_bytes"><span><a class="doc-id-link" href="#keystream_bytes">keystream_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/chacha20/chacha20.odin#L150"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">keystream_bytes :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/chacha20/#Context">Context</a>, dst: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">keystream_bytes :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/chacha20/#Context">Context</a>, dst: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -351,13 +348,13 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="seek"><span><a class="doc-id-link" href="#seek">seek<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/chacha20/chacha20.odin#L92"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">seek :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/chacha20/#Context">Context</a>, block_nr: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">seek :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/chacha20/#Context">Context</a>, block_nr: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="xor_bytes"><span><a class="doc-id-link" href="#xor_bytes">xor_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/chacha20/chacha20.odin#L106"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">xor_bytes :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/chacha20/#Context">Context</a>, dst, src: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">xor_bytes :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/chacha20/#Context">Context</a>, dst, src: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
@@ -368,7 +365,7 @@ Procedure Groups (0)</summary>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/chacha20/chacha20.odin">chacha20.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.039863400 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.135271400 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

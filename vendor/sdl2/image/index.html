@@ -59,6 +59,14 @@
 </li>
 <li class="nav-item"><a href="/vendor/cgltf">cgltf</a></li>
 <li class="nav-item"><a href="/vendor/commonmark">commonmark</a></li>
+<li class="nav-item">darwin<ul>
+<li><a href="/vendor/darwin/Foundation">Foundation</a></li>
+<li><a href="/vendor/darwin/Metal">Metal</a></li>
+<li><a href="/vendor/darwin/MetalKit">MetalKit</a></li>
+<li><a href="/vendor/darwin/QuartzCore">QuartzCore</a></li>
+</ul>
+
+</li>
 <li class="nav-item">directx<ul>
 <li><a href="/vendor/directx/d3d11">d3d11</a></li>
 <li><a href="/vendor/directx/d3d12">d3d12</a></li>
@@ -253,10 +261,10 @@ Procedure Groups (0)</summary>
 <div>
 <pre class="doc-code">Animation :: <span class="keyword-type">struct</span> {
 	w,
-	h:      <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
-	count:  <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+	h:      <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>,
+	count:  <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>,
 	frames: [^]^sdl2.<a class="code-typename" href="/vendor/sdl2/#Surface">Surface</a>,
-	delays: [^]<a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>,
+	delays: [^]<a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>,
 }</pre>
 </div>
 <details class="odin-doc-toggle" open>
@@ -279,7 +287,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="InitFlag"><span><a class="doc-id-link" href="#InitFlag">InitFlag<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/image/sdl_image.odin#L23"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">InitFlag :: <span class="keyword-type">enum</span> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> {
+<pre class="doc-code">InitFlag :: <span class="keyword-type">enum</span> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	JPG  = 0, 
 	PNG  = 1, 
 	TIF  = 2, 
@@ -290,7 +298,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="InitFlags"><span><a class="doc-id-link" href="#InitFlags">InitFlags<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/image/sdl_image.odin#L30"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">InitFlags :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/sdl2/image/#InitFlag">InitFlag</a>; <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>]</pre>
+<pre class="doc-code">InitFlags :: <span class="keyword-type">distinct</span> <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/vendor/sdl2/image/#InitFlag">InitFlag</a>; <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>]</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
 <ul>
@@ -370,7 +378,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="Load"><span><a class="doc-id-link" href="#Load">Load<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/image/sdl_image.odin#L65"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Load :: <span class="keyword-type">proc</span> "c" (file: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> ^sdl2.<a class="code-typename" href="/vendor/sdl2/#Surface">Surface</a> ---</pre>
+<pre class="doc-code">Load :: <span class="keyword-type">proc</span> "c" (file: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> ^sdl2.<a class="code-typename" href="/vendor/sdl2/#Surface">Surface</a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -380,13 +388,13 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="LoadAnimation"><span><a class="doc-id-link" href="#LoadAnimation">LoadAnimation<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/image/sdl_image.odin#L116"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">LoadAnimation :: <span class="keyword-type">proc</span> "c" (file: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> ^<a class="code-typename" href="/vendor/sdl2/image/#Animation">Animation</a> ---</pre>
+<pre class="doc-code">LoadAnimation :: <span class="keyword-type">proc</span> "c" (file: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> ^<a class="code-typename" href="/vendor/sdl2/image/#Animation">Animation</a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="LoadAnimationTyped_RW"><span><a class="doc-id-link" href="#LoadAnimationTyped_RW">LoadAnimationTyped_RW<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/image/sdl_image.odin#L118"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">LoadAnimationTyped_RW :: <span class="keyword-type">proc</span> "c" (src: ^sdl2.<a class="code-typename" href="/vendor/sdl2/#RWops">RWops</a>, freesrc: sdl2.<a class="code-typename" href="/vendor/sdl2/#bool">bool</a>, type: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> ^<a class="code-typename" href="/vendor/sdl2/image/#Animation">Animation</a> ---</pre>
+<pre class="doc-code">LoadAnimationTyped_RW :: <span class="keyword-type">proc</span> "c" (src: ^sdl2.<a class="code-typename" href="/vendor/sdl2/#RWops">RWops</a>, freesrc: sdl2.<a class="code-typename" href="/vendor/sdl2/#bool">bool</a>, type: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> ^<a class="code-typename" href="/vendor/sdl2/image/#Animation">Animation</a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -484,7 +492,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="LoadTexture"><span><a class="doc-id-link" href="#LoadTexture">LoadTexture<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/image/sdl_image.odin#L69"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">LoadTexture :: <span class="keyword-type">proc</span> "c" (renderer: ^sdl2.<a class="code-typename" href="/vendor/sdl2/#Renderer">Renderer</a>, file: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> ^sdl2.<a class="code-typename" href="/vendor/sdl2/#Texture">Texture</a> ---</pre>
+<pre class="doc-code">LoadTexture :: <span class="keyword-type">proc</span> "c" (renderer: ^sdl2.<a class="code-typename" href="/vendor/sdl2/#Renderer">Renderer</a>, file: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> ^sdl2.<a class="code-typename" href="/vendor/sdl2/#Texture">Texture</a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -494,7 +502,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="LoadTextureTyped_RW"><span><a class="doc-id-link" href="#LoadTextureTyped_RW">LoadTextureTyped_RW<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/image/sdl_image.odin#L71"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">LoadTextureTyped_RW :: <span class="keyword-type">proc</span> "c" (renderer: ^sdl2.<a class="code-typename" href="/vendor/sdl2/#Renderer">Renderer</a>, src: ^sdl2.<a class="code-typename" href="/vendor/sdl2/#RWops">RWops</a>, freesrc: sdl2.<a class="code-typename" href="/vendor/sdl2/#bool">bool</a>, type: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> ^sdl2.<a class="code-typename" href="/vendor/sdl2/#Texture">Texture</a> ---</pre>
+<pre class="doc-code">LoadTextureTyped_RW :: <span class="keyword-type">proc</span> "c" (renderer: ^sdl2.<a class="code-typename" href="/vendor/sdl2/#Renderer">Renderer</a>, src: ^sdl2.<a class="code-typename" href="/vendor/sdl2/#RWops">RWops</a>, freesrc: sdl2.<a class="code-typename" href="/vendor/sdl2/#bool">bool</a>, type: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> ^sdl2.<a class="code-typename" href="/vendor/sdl2/#Texture">Texture</a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -506,7 +514,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="LoadTyped_RW"><span><a class="doc-id-link" href="#LoadTyped_RW">LoadTyped_RW<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/image/sdl_image.odin#L63"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">LoadTyped_RW :: <span class="keyword-type">proc</span> "c" (src: ^sdl2.<a class="code-typename" href="/vendor/sdl2/#RWops">RWops</a>, freesrc: sdl2.<a class="code-typename" href="/vendor/sdl2/#bool">bool</a>, type: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> ^sdl2.<a class="code-typename" href="/vendor/sdl2/#Surface">Surface</a> ---</pre>
+<pre class="doc-code">LoadTyped_RW :: <span class="keyword-type">proc</span> "c" (src: ^sdl2.<a class="code-typename" href="/vendor/sdl2/#RWops">RWops</a>, freesrc: sdl2.<a class="code-typename" href="/vendor/sdl2/#bool">bool</a>, type: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> ^sdl2.<a class="code-typename" href="/vendor/sdl2/#Surface">Surface</a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -558,25 +566,25 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="ReadXPMFromArray"><span><a class="doc-id-link" href="#ReadXPMFromArray">ReadXPMFromArray<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/image/sdl_image.odin#L108"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">ReadXPMFromArray :: <span class="keyword-type">proc</span> "c" (xpm: [^]<a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> ^sdl2.<a class="code-typename" href="/vendor/sdl2/#Surface">Surface</a> ---</pre>
+<pre class="doc-code">ReadXPMFromArray :: <span class="keyword-type">proc</span> "c" (xpm: [^]<a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> ^sdl2.<a class="code-typename" href="/vendor/sdl2/#Surface">Surface</a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="SaveJPG"><span><a class="doc-id-link" href="#SaveJPG">SaveJPG<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/image/sdl_image.odin#L113"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">SaveJPG :: <span class="keyword-type">proc</span> "c" (surface: ^sdl2.<a class="code-typename" href="/vendor/sdl2/#Surface">Surface</a>, file: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>, quality: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">SaveJPG :: <span class="keyword-type">proc</span> "c" (surface: ^sdl2.<a class="code-typename" href="/vendor/sdl2/#Surface">Surface</a>, file: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>, quality: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="SaveJPG_RW"><span><a class="doc-id-link" href="#SaveJPG_RW">SaveJPG_RW<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/image/sdl_image.odin#L114"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">SaveJPG_RW :: <span class="keyword-type">proc</span> "c" (surface: ^sdl2.<a class="code-typename" href="/vendor/sdl2/#Surface">Surface</a>, dst: ^sdl2.<a class="code-typename" href="/vendor/sdl2/#RWops">RWops</a>, freedst: sdl2.<a class="code-typename" href="/vendor/sdl2/#bool">bool</a>, quality: <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">SaveJPG_RW :: <span class="keyword-type">proc</span> "c" (surface: ^sdl2.<a class="code-typename" href="/vendor/sdl2/#Surface">Surface</a>, dst: ^sdl2.<a class="code-typename" href="/vendor/sdl2/#RWops">RWops</a>, freedst: sdl2.<a class="code-typename" href="/vendor/sdl2/#bool">bool</a>, quality: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="SavePNG"><span><a class="doc-id-link" href="#SavePNG">SavePNG<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/image/sdl_image.odin#L111"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">SavePNG :: <span class="keyword-type">proc</span> "c" (surface: ^sdl2.<a class="code-typename" href="/vendor/sdl2/#Surface">Surface</a>, file: <a href="/core/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">SavePNG :: <span class="keyword-type">proc</span> "c" (surface: ^sdl2.<a class="code-typename" href="/vendor/sdl2/#Surface">Surface</a>, file: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -586,7 +594,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="SavePNG_RW"><span><a class="doc-id-link" href="#SavePNG_RW">SavePNG_RW<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/image/sdl_image.odin#L112"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">SavePNG_RW :: <span class="keyword-type">proc</span> "c" (surface: ^sdl2.<a class="code-typename" href="/vendor/sdl2/#Surface">Surface</a>, dst: ^sdl2.<a class="code-typename" href="/vendor/sdl2/#RWops">RWops</a>, freedst: sdl2.<a class="code-typename" href="/vendor/sdl2/#bool">bool</a>) -> <a href="/core/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">SavePNG_RW :: <span class="keyword-type">proc</span> "c" (surface: ^sdl2.<a class="code-typename" href="/vendor/sdl2/#Surface">Surface</a>, dst: ^sdl2.<a class="code-typename" href="/vendor/sdl2/#RWops">RWops</a>, freedst: sdl2.<a class="code-typename" href="/vendor/sdl2/#bool">bool</a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -691,7 +699,7 @@ Procedure Groups (0)</summary>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2/image/sdl_image.odin">sdl_image.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.590765000 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.734640700 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

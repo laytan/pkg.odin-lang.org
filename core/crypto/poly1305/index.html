@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -295,9 +292,9 @@ Procedure Groups (0)</summary>
 	_r:              field_poly1305.<a class="code-typename" href="//#Tight_Field_Element">Tight_Field_Element</a>,
 	_a:              field_poly1305.<a class="code-typename" href="//#Tight_Field_Element">Tight_Field_Element</a>,
 	_s:              field_poly1305.<a class="code-typename" href="//#Tight_Field_Element">Tight_Field_Element</a>,
-	_buffer:         [16]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
-	_leftover:       <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	_is_initialized: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	_buffer:         [16]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	_leftover:       <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	_is_initialized: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -327,13 +324,13 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="final"><span><a class="doc-id-link" href="#final">final<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/poly1305/poly1305.odin#L108"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">final :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/poly1305/#Context">Context</a>, dst: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">final :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/poly1305/#Context">Context</a>, dst: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="init"><span><a class="doc-id-link" href="#init">init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/poly1305/poly1305.odin#L48"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">init :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/poly1305/#Context">Context</a>, key: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">init :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/poly1305/#Context">Context</a>, key: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -345,19 +342,19 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="sum"><span><a class="doc-id-link" href="#sum">sum<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/poly1305/poly1305.odin#L14"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">sum :: <span class="keyword-type">proc</span>(dst, msg, key: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">sum :: <span class="keyword-type">proc</span>(dst, msg, key: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="update"><span><a class="doc-id-link" href="#update">update<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/poly1305/poly1305.odin#L71"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">update :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/poly1305/#Context">Context</a>, data: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">update :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/poly1305/#Context">Context</a>, data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="verify"><span><a class="doc-id-link" href="#verify">verify<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/poly1305/poly1305.odin#L22"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">verify :: <span class="keyword-type">proc</span>(tag, msg, key: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+<pre class="doc-code">verify :: <span class="keyword-type">proc</span>(tag, msg, key: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
@@ -368,7 +365,7 @@ Procedure Groups (0)</summary>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/poly1305/poly1305.odin">poly1305.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:14.971159300 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.082581000 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

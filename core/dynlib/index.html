@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -234,12 +231,6 @@
 </div>
 <ul id="odin-search-results"></ul>
 <div id="pkg-top">
-<h2>Overview</h2>
-<div id="pkg-overview">
-<p>Package core:dynlib implements loading of shared libraries/DLLs and their symbols.</p>
-<p>The behaviour of dynamically loaded libraries is specific to the target platform of the program.
-For in depth detail on the underlying behaviour please refer to your target platform's documentation.</p>
-</div>
 <div id="pkg-index">
 <h2>Index</h2>
 <div>
@@ -268,8 +259,10 @@ Variables (0)</summary>
 <div>
 <details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
 <summary id="#doc-index-Procedures-header">
-Procedures (3)</summary>
+Procedures (5)</summary>
 <ul>
+<li><a href="#initialize_symbols">initialize_symbols</a></li>
+<li><a href="#last_error">last_error</a></li>
 <li><a href="#load_library">load_library</a></li>
 <li><a href="#symbol_address">symbol_address</a></li>
 <li><a href="#unload_library">unload_library</a></li>
@@ -288,9 +281,9 @@ Procedure Groups (0)</summary>
 <section class="documentation">
 <h2 id="pkg-Types" class="pkg-header">Types</h2>
 <div class="pkg-entity">
-<h3 id="Library"><span><a class="doc-id-link" href="#Library">Library<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/dynlib/lib.odin#L6"><em>Source</em></a></div></h3>
+<h3 id="Library"><span><a class="doc-id-link" href="#Library">Library<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/dynlib/lib.odin#L13"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Library :: <span class="keyword-type">distinct</span> <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a></pre>
+<pre class="doc-code">Library :: <span class="keyword-type">distinct</span> <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a></pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -312,9 +305,36 @@ Procedure Groups (0)</summary>
 <p class="pkg-empty-section">This section is empty.</p>
 <h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
 <div class="pkg-entity">
-<h3 id="load_library"><span><a class="doc-id-link" href="#load_library">load_library<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/dynlib/lib.odin#L35"><em>Source</em></a></div></h3>
+<h3 id="initialize_symbols"><span><a class="doc-id-link" href="#initialize_symbols">initialize_symbols<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/dynlib/lib.odin#L126"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">load_library :: <span class="keyword-type">proc</span>(path: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>, global_symbols: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> (library: <a class="code-typename" href="/core/dynlib/#Library">Library</a>, did_load: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">initialize_symbols :: <span class="keyword-type">proc</span>(symbol_table: ^$T, library_path: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, symbol_prefix: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> = "", handle_field_name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> = "__handle") -> (count: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Scans a dynamic library for symbols matching a struct's members, assigning found procedure pointers to the corresponding entry.
+Optionally takes a symbol prefix added to the struct's member name to construct the symbol looked up in the library.
+Optionally also takes the struct member to assign the library handle to, <code>__handle</code> by default.</p>
+<p>This allows using one struct to hold library handles and symbol pointers for more than 1 dynamic library.</p>
+<p>Loading the same library twice unloads the previous incarnation, allowing for straightforward hot reload support.</p>
+<p><b>Returns:</b><br><code>-1, false</code> if the library could not be loaded.
+The number of symbols assigned on success. <code>ok</code> = true if <code>count</code> &gt; 0</p>
+<p>See doc.odin for an example.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="last_error"><span><a class="doc-id-link" href="#last_error">last_error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/dynlib/lib.odin#L190"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">last_error :: <span class="keyword-type">proc</span>() -> <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Returns an error message for the last failed procedure call.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="load_library"><span><a class="doc-id-link" href="#load_library">load_library<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/dynlib/lib.odin#L43"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">load_library :: <span class="keyword-type">proc</span>(path: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, global_symbols: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> (library: <a class="code-typename" href="/core/dynlib/#Library">Library</a>, did_load: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -322,10 +342,10 @@ Procedure Groups (0)</summary>
 library available to resolve references in subsequently loaded libraries.</p>
 <p>The paramater <code>global_symbols</code> is only used for the platforms <code>linux</code>, <code>darwin</code>, <code>freebsd</code> and <code>openbsd</code>.
 On <code>windows</code> this paramater is ignored.</p>
-<p>The underlying behaviour is platform specific.<br>
-On <code>linux</code>, <code>darwin</code>, <code>freebsd</code> and <code>openbsd</code> refer to <code>dlopen</code>.<br>
+<p>The underlying behaviour is platform specific.
+On <code>linux</code>, <code>darwin</code>, <code>freebsd</code> and <code>openbsd</code> refer to <code>dlopen</code>.
 On <code>windows</code> refer to <code>LoadLibraryW</code>.</p>
-<p><b>Implicit Allocators</b><br>
+<p><b>Implicit Allocators</b>
 <code>context.temp_allocator</code></p>
 <details open class="code-example">
 <summary><b>Example:</b></summary>
@@ -336,6 +356,7 @@ load_my_library :: proc() {
 	LIBRARY_PATH :: "my_library.dll"
 	library, ok := dynlib.load_library(LIBRARY_PATH)
 	if ! ok {
+		fmt.eprintln(dynlib.last_error())
 		return
 	}
 	fmt.println("The library %q was successfully loaded", LIBRARY_PATH)
@@ -345,17 +366,17 @@ load_my_library :: proc() {
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="symbol_address"><span><a class="doc-id-link" href="#symbol_address">symbol_address<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/dynlib/lib.odin#L92"><em>Source</em></a></div></h3>
+<h3 id="symbol_address"><span><a class="doc-id-link" href="#symbol_address">symbol_address<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/dynlib/lib.odin#L107"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">symbol_address :: <span class="keyword-type">proc</span>(library: <a class="code-typename" href="/core/dynlib/#Library">Library</a>, symbol: <a href="/core/builtin#string"><span class="doc-builtin">string</span></a>) -> (ptr: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, found: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) <span class="directive">#optional_ok</span> {…}</pre>
+<pre class="doc-code">symbol_address :: <span class="keyword-type">proc</span>(library: <a class="code-typename" href="/core/dynlib/#Library">Library</a>, symbol: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> (ptr: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, found: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) <span class="directive">#optional_ok</span> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
 <p>Loads the address of a procedure/variable from a dynamic library.</p>
-<p>The underlying behaviour is platform specific.<br>
-On <code>linux</code>, <code>darwin</code>, <code>freebsd</code> and <code>openbsd</code> refer to <code>dlsym</code>.<br>
+<p>The underlying behaviour is platform specific.
+On <code>linux</code>, <code>darwin</code>, <code>freebsd</code> and <code>openbsd</code> refer to <code>dlsym</code>.
 On <code>windows</code> refer to <code>GetProcAddress</code>.</p>
-<p><b>Implicit Allocators</b><br>
+<p><b>Implicit Allocators</b>
 <code>context.temp_allocator</code></p>
 <details open class="code-example">
 <summary><b>Example:</b></summary>
@@ -366,26 +387,31 @@ find_a_in_my_library :: proc() {
 	LIBRARY_PATH :: "my_library.dll"
 	library, ok := dynlib.load_library(LIBRARY_PATH)
 	if ! ok {
+		fmt.eprintln(dynlib.last_error())
 		return
 	}
 
 	a, found_a := dynlib.symbol_address(library, "a")
-	if found_a do fmt.printf("The symbol %q was found at the address %v", "a", a)
+	if found_a {
+		fmt.printf("The symbol %q was found at the address %v", "a", a)
+	} else {
+		fmt.eprintln(dynlib.last_error())
+	}
 }
 </code></pre>
 </details>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="unload_library"><span><a class="doc-id-link" href="#unload_library">unload_library<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/dynlib/lib.odin#L63"><em>Source</em></a></div></h3>
+<h3 id="unload_library"><span><a class="doc-id-link" href="#unload_library">unload_library<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/dynlib/lib.odin#L73"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">unload_library :: <span class="keyword-type">proc</span>(library: <a class="code-typename" href="/core/dynlib/#Library">Library</a>) -> (did_unload: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">unload_library :: <span class="keyword-type">proc</span>(library: <a class="code-typename" href="/core/dynlib/#Library">Library</a>) -> (did_unload: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
 <p>Unloads a dynamic library.</p>
-<p>The underlying behaviour is platform specific.<br>
-On <code>linux</code>, <code>darwin</code>, <code>freebsd</code> and <code>openbsd</code> refer to <code>dlclose</code>.<br>
+<p>The underlying behaviour is platform specific.
+On <code>linux</code>, <code>darwin</code>, <code>freebsd</code> and <code>openbsd</code> refer to <code>dlclose</code>.
 On <code>windows</code> refer to <code>FreeLibrary</code>.</p>
 <details open class="code-example">
 <summary><b>Example:</b></summary>
@@ -396,10 +422,12 @@ load_then_unload_my_library :: proc() {
 	LIBRARY_PATH :: "my_library.dll"
 	library, ok := dynlib.load_library(LIBRARY_PATH)
 	if ! ok {
+		fmt.eprintln(dynlib.last_error())
 		return
 	}
 	did_unload := dynlib.unload_library(library)
 	if ! did_unload {
+		fmt.eprintln(dynlib.last_error())
 		return
 	}
 	fmt.println("The library %q was successfully unloaded", LIBRARY_PATH)
@@ -413,21 +441,22 @@ load_then_unload_my_library :: proc() {
 </section>
 <h2 id="pkg-source-files">Source Files</h2>
 <ul>
-<li><a href="https://github.com/odin-lang/Odin/tree/master/core/dynlib/doc.odin">doc.odin</a></li>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/dynlib/lib.odin">lib.odin</a></li>
 <li><em>(hidden platform specific files)</em></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.261383900 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.010190500 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
 <ul>
-<li><a href="#pkg-overview">Overview</a><li><a href="#pkg-Types">Types</a><ul>
+<li><a href="#pkg-Types">Types</a><ul>
 <li><a href="#Library">Library</a></li>
 </ul>
 </li>
 <li><a href="#pkg-Procedures">Procedures</a><ul>
+<li><a href="#initialize_symbols">initialize_symbols</a></li>
+<li><a href="#last_error">last_error</a></li>
 <li><a href="#load_library">load_library</a></li>
 <li><a href="#symbol_address">symbol_address</a></li>
 <li><a href="#unload_library">unload_library</a></li>

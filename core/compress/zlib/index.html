@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -323,7 +320,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="Compression_Level"><span><a class="doc-id-link" href="#Compression_Level">Compression_Level<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L39"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Compression_Level :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+<pre class="doc-code">Compression_Level :: <span class="keyword-type">enum</span> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	Fastest = 0, 
 	Fast    = 1, 
 	Default = 2, 
@@ -334,7 +331,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="Compression_Method"><span><a class="doc-id-link" href="#Compression_Method">Compression_Method<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L34"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Compression_Method :: <span class="keyword-type">enum</span> <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> {
+<pre class="doc-code">Compression_Method :: <span class="keyword-type">enum</span> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {
 	DEFLATE  = 8, 
 	Reserved = 15, 
 }</pre>
@@ -362,12 +359,12 @@ Procedure Groups (1)</summary>
 <h3 id="Huffman_Table"><span><a class="doc-id-link" href="#Huffman_Table">Huffman_Table<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L113"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Huffman_Table :: <span class="keyword-type">struct</span> {
-	fast:        [512]<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>,
-	firstcode:   [17]<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>,
-	maxcode:     [17]<a href="/core/builtin#int"><span class="doc-builtin">int</span></a>,
-	firstsymbol: [17]<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>,
-	size:        [288]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
-	value:       [288]<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>,
+	fast:        [512]<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>,
+	firstcode:   [17]<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>,
+	maxcode:     [17]<a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	firstsymbol: [17]<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>,
+	size:        [288]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	value:       [288]<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>,
 }</pre>
 </div>
 <details class="odin-doc-toggle" open>
@@ -392,8 +389,8 @@ Procedure Groups (1)</summary>
 <h3 id="Options"><span><a class="doc-id-link" href="#Options">Options<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L46"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Options :: <span class="keyword-type">struct</span> {
-	window_size: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>,
-	level:       <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	window_size: <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>,
+	level:       <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
 }</pre>
 </div>
 </div>
@@ -437,7 +434,7 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="HUFFMAN_FAST_MASK"><span><a class="doc-id-link" href="#HUFFMAN_FAST_MASK">HUFFMAN_FAST_MASK<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L63"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">HUFFMAN_FAST_MASK :: (1 << HUFFMAN_FAST_BITS) - 1</pre>
+<pre class="doc-code">HUFFMAN_FAST_MASK :: (1 &lt;&lt; HUFFMAN_FAST_BITS) - 1</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -459,50 +456,50 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="ZFAST_MASK"><span><a class="doc-id-link" href="#ZFAST_MASK">ZFAST_MASK<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L107"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">ZFAST_MASK :: (1 << ZFAST_BITS) - 1</pre>
+<pre class="doc-code">ZFAST_MASK :: (1 &lt;&lt; ZFAST_BITS) - 1</pre>
 </div>
 </div>
 <h2 id="pkg-Variables" class="pkg-header">Variables</h2>
 <div class="pkg-entity">
 <h3 id="Z_DIST_BASE"><span><a class="doc-id-link" href="#Z_DIST_BASE">Z_DIST_BASE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L74"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Z_DIST_BASE: [32]<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a> = …</pre>
+<pre class="doc-code">Z_DIST_BASE: [32]<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a> = …</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="Z_DIST_EXTRA"><span><a class="doc-id-link" href="#Z_DIST_EXTRA">Z_DIST_EXTRA<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L79"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Z_DIST_EXTRA: [32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> = …</pre>
+<pre class="doc-code">Z_DIST_EXTRA: [32]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> = …</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="Z_FIXED_DIST"><span><a class="doc-id-link" href="#Z_FIXED_DIST">Z_FIXED_DIST<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L99"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Z_FIXED_DIST: [32]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> = …</pre>
+<pre class="doc-code">Z_FIXED_DIST: [32]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> = …</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="Z_FIXED_LENGTH"><span><a class="doc-id-link" href="#Z_FIXED_LENGTH">Z_FIXED_LENGTH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L87"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Z_FIXED_LENGTH: [288]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> = …</pre>
+<pre class="doc-code">Z_FIXED_LENGTH: [288]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> = …</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="Z_LENGTH_BASE"><span><a class="doc-id-link" href="#Z_LENGTH_BASE">Z_LENGTH_BASE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L65"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Z_LENGTH_BASE: [31]<a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a> = …</pre>
+<pre class="doc-code">Z_LENGTH_BASE: [31]<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a> = …</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="Z_LENGTH_DEZIGZAG"><span><a class="doc-id-link" href="#Z_LENGTH_DEZIGZAG">Z_LENGTH_DEZIGZAG<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L83"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Z_LENGTH_DEZIGZAG: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> = …</pre>
+<pre class="doc-code">Z_LENGTH_DEZIGZAG: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> = …</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="Z_LENGTH_EXTRA"><span><a class="doc-id-link" href="#Z_LENGTH_EXTRA">Z_LENGTH_EXTRA<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L70"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Z_LENGTH_EXTRA: [31]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> = …</pre>
+<pre class="doc-code">Z_LENGTH_EXTRA: [31]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> = …</pre>
 </div>
 </div>
 <h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
@@ -515,49 +512,49 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="build_huffman"><span><a class="doc-id-link" href="#build_huffman">build_huffman<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L238"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">build_huffman :: <span class="keyword-type">proc</span>(z: ^<a class="code-typename" href="/core/compress/zlib/#Huffman_Table">Huffman_Table</a>, code_lengths: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">build_huffman :: <span class="keyword-type">proc</span>(z: ^<a class="code-typename" href="/core/compress/zlib/#Huffman_Table">Huffman_Table</a>, code_lengths: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="decode_huffman"><span><a class="doc-id-link" href="#decode_huffman">decode_huffman<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L328"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">decode_huffman :: <span class="keyword-type">proc</span>(z: ^$T, t: ^<a class="code-typename" href="/core/compress/zlib/#Huffman_Table">Huffman_Table</a>) -> (r: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">decode_huffman :: <span class="keyword-type">proc</span>(z: ^$T, t: ^<a class="code-typename" href="/core/compress/zlib/#Huffman_Table">Huffman_Table</a>) -> (r: <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>, err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="decode_huffman_slowpath"><span><a class="doc-id-link" href="#decode_huffman_slowpath">decode_huffman_slowpath<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L297"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">decode_huffman_slowpath :: <span class="keyword-type">proc</span>(z: ^$T, t: ^<a class="code-typename" href="/core/compress/zlib/#Huffman_Table">Huffman_Table</a>) -> (r: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">decode_huffman_slowpath :: <span class="keyword-type">proc</span>(z: ^$T, t: ^<a class="code-typename" href="/core/compress/zlib/#Huffman_Table">Huffman_Table</a>) -> (r: <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>, err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="grow_buffer"><span><a class="doc-id-link" href="#grow_buffer">grow_buffer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L140"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">grow_buffer :: <span class="keyword-type">proc</span>(buf: ^[<span class="keyword">dynamic</span>]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">grow_buffer :: <span class="keyword-type">proc</span>(buf: ^[<span class="keyword">dynamic</span>]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="inflate_from_byte_array"><span><a class="doc-id-link" href="#inflate_from_byte_array">inflate_from_byte_array<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L655"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">inflate_from_byte_array :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, buf: ^bytes.<a class="code-typename" href="/core/bytes/#Buffer">Buffer</a>, raw: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false, expected_output_size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = -1) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">inflate_from_byte_array :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, buf: ^bytes.<a class="code-typename" href="/core/bytes/#Buffer">Buffer</a>, raw: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false, expected_output_size: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = -1) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="inflate_from_byte_array_raw"><span><a class="doc-id-link" href="#inflate_from_byte_array_raw">inflate_from_byte_array_raw<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L664"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">inflate_from_byte_array_raw :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, buf: ^bytes.<a class="code-typename" href="/core/bytes/#Buffer">Buffer</a>, raw: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false, expected_output_size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = -1) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">inflate_from_byte_array_raw :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, buf: ^bytes.<a class="code-typename" href="/core/bytes/#Buffer">Buffer</a>, raw: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false, expected_output_size: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = -1) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="inflate_from_context"><span><a class="doc-id-link" href="#inflate_from_context">inflate_from_context<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L417"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">inflate_from_context :: <span class="keyword-type">proc</span>(<span class="keyword-type">using</span> ctx: ^compress.<a class="code-typename" href="/core/compress/#Context_Memory_Input">Context_Memory_Input</a>, raw: <a href="/core/builtin#bool"><span class="doc-builtin">bool</span></a> = false, expected_output_size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = -1, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">inflate_from_context :: <span class="keyword-type">proc</span>(<span class="keyword-type">using</span> ctx: ^compress.<a class="code-typename" href="/core/compress/#Context_Memory_Input">Context_Memory_Input</a>, raw: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false, expected_output_size: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = -1, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="inflate_raw"><span><a class="doc-id-link" href="#inflate_raw">inflate_raw<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L490"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">inflate_raw :: <span class="keyword-type">proc</span>(z: ^$T, expected_output_size: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> = -1, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">inflate_raw :: <span class="keyword-type">proc</span>(z: ^$T, expected_output_size: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = -1, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (err: compress.<a class="code-typename" href="/core/compress/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -569,25 +566,25 @@ Procedure Groups (1)</summary>
 <div class="pkg-entity">
 <h3 id="repl_byte"><span><a class="doc-id-link" href="#repl_byte">repl_byte<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L177"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">repl_byte :: <span class="keyword-type">proc</span>(z: ^$T, count: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, c: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">repl_byte :: <span class="keyword-type">proc</span>(z: ^$T, count: <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>, c: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="repl_bytes"><span><a class="doc-id-link" href="#repl_bytes">repl_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L205"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">repl_bytes :: <span class="keyword-type">proc</span>(z: ^$T, count: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, distance: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>) -> (err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">repl_bytes :: <span class="keyword-type">proc</span>(z: ^$T, count: <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>, distance: <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>) -> (err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="write_byte"><span><a class="doc-id-link" href="#write_byte">write_byte<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L158"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">write_byte :: <span class="keyword-type">proc</span>(z: ^$T, c: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">write_byte :: <span class="keyword-type">proc</span>(z: ^$T, c: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="z_bit_reverse"><span><a class="doc-id-link" href="#z_bit_reverse">z_bit_reverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin#L124"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">z_bit_reverse :: <span class="keyword-type">proc</span>(n: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>, bits: <a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (r: <a href="/core/builtin#u16"><span class="doc-builtin">u16</span></a>) {…}</pre>
+<pre class="doc-code">z_bit_reverse :: <span class="keyword-type">proc</span>(n: <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>, bits: <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (r: <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -611,7 +608,7 @@ Procedure Groups (1)</summary>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/compress/zlib/zlib.odin">zlib.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.147001400 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.177460900 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

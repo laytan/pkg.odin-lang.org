@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>base library - pkg.odin-lang.org</title>	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/scss/custom.min.css">
+	<link rel=stylesheet href="//odin-lang.org/lib/highlight/styles/github-dark.min.css">
+	<script src="//odin-lang.org/lib/highlight/highlight.min.js"></script>
+
+	<script>hljs.registerLanguage("odin",function(a){return{aliases:["odin","odinlang","odin-lang"],keywords:{keyword:"auto_cast bit_set break case cast context continue defer distinct do dynamic else enum fallthrough for foreign if import in map not_in or_else or_return package proc return struct switch transmute type_of typeid union using when where",literal:"true false nil",built_in:"abs align_of cap clamp complex conj expand_to_tuple imag jmag kmag len max min offset_of quaternion real size_of soa_unzip soa_zip swizzle type_info_of type_of typeid_of"},illegal:"</",contains:[a.C_LINE_COMMENT_MODE,a.C_BLOCK_COMMENT_MODE,{className:"string",variants:[a.QUOTE_STRING_MODE,{begin:"'",end:"[^\\\\]'"},{begin:"`",end:"`"}]},{className:"number",variants:[{begin:a.C_NUMBER_RE+"[ijk]",relevance:1},a.C_NUMBER_MODE]}]}})</script>
+	<script>hljs.highlightAll()</script>
+	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/css/style.css">
+
+	<link rel="stylesheet" type="text/css" href="/style.css">
+
+	</style>
+</head>
+<body>
+<header class="sticky-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary odin-menu">
+		<div class="container">
+			<a class="navbar-brand" href="https://odin-lang.org/">
+			<img src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#odin-navbar-content" aria-controls="odin-navbar-content" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="odin-navbar-content">
+			<ul class="navbar-nav ms-md-auto">
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/docs">Docs</a></li>
+				<li class="nav-item"><a class="nav-link active" href="/">Packages</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/news">News</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/showcase">Showcase</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/community">Community</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://github.com/odin-lang/Odin" target="_blank">GitHub</a></li>
+			</ul>
+		</div>
+		</div>
+	</nav>
+</header>
+<main>
+<div class="container">
+<div class="row odin-main my-4">
+<nav id="pkg-sidebar" class="col-lg-2 odin-sidebar-border navbar-light sticky-top odin-below-navbar">
+<div class="py-3">
+<h4><a style="text-transform: capitalize; color: inherit;" href="/base">base Library</a></h4>
+<ul>
+<li class="nav-item"><a class="active" href="/base/builtin">builtin</a></li>
+<li class="nav-item"><a class="active" href="/base/intrinsics">intrinsics</a></li>
+<li class="nav-item"><a href="/base/runtime">runtime</a></li>
+</ul>
+</div>
+</nav>
+<article class="col-lg-10 p-4">
+<article class="p-4">
+<header class="collection-header">
+<h1 style="text-transform: capitalize">base Library Collection</h1>
+<ul class="license">
+<li>License: <a href="https://github.com/odin-lang/Odin/tree/master/LICENSE">BSD-3-Clause</a></li>
+<li>Repository: <a href="https://github.com/odin-lang/Odin/tree/master/base">https://github.com/odin-lang/Odin/tree/master/base</a></li>
+</ul>
+
+		<div class="odin-search-wrapper">
+			<input type="search" id="odin-search" class="odin-search-collection" autocomplete="off" spellcheck="false" placeholder="Fuzzy Search...">
+			<div class="odin-search-shortcut">
+				<div class="odin-search-key key-macos">⌘K</div>
+				<div class="odin-search-key key-windows">Ctrl+K</div>
+				<span class="odin-search-or">or</span>
+				<div class="odin-search-key">/</div>
+			</div>
+		</div>
+	
+<div id="odin-search-info">
+<div id="odin-search-time"></div>
+</div>
+<ul id="odin-search-results"></ul>
+</header>
+</article>
+<hr class="collection-hr">
+<header>
+<h2><i class="bi bi-folder"></i>Directories</h2>
+</header>
+<div>
+	<table class="doc-directory mt-4 mb-4">
+		<tbody>
+<tr id="pkg-builtin" class="directory-pkg"><td class="pkg-name"><a href="/base/builtin">builtin</a></td><td class="pkg-line pkg-line-doc">package builtin provides documentation for Odin's predeclared identifiers.</td></tr>
+<tr id="pkg-intrinsics" class="directory-pkg"><td class="pkg-name"><a href="/base/intrinsics">intrinsics</a></td><td class="pkg-line pkg-line-doc">package intrinsics provides documentation for Odin's compiler intrinsics.</td></tr>
+<tr id="pkg-runtime" class="directory-pkg"><td class="pkg-name"><a href="/base/runtime">runtime</a></td><td class="pkg-line pkg-line-doc">This is the runtime code required by the compiler</td></tr>
+		</tbody>
+	</table>
+</div>
+</article>
+</div>
+
+</div>
+</main>
+
+<footer class="odin-footer">
+	<div class="container pb-5 pt-5">
+		<div class="row g-4">
+		<div class="col">
+		<a class="navbar-brand" href="https://odin-lang.org">
+		<img class="mb-3" src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+		<p>
+		The Data-Oriented Language for Sane Software Development.
+		</p>
+		</div>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Resources</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://odin-lang.org/docs" class="link-light">Docs</a></li>
+			<li><a href="https://pkg.odin-lang.org/" class="link-light">Packages</a></li>
+			<li><a href="https://odin-lang.org/news" class="link-light">News</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Community</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin" target="_blank" class="link-light">GitHub</a></li>
+			<li><a href="https://discord.com/invite/sVBPHEv" target="_blank" class="link-light">Discord</a></li>
+			<li><a href="https://www.twitch.tv/ginger_bill" target="_blank" class="link-light">Twitch</a></li>
+			<li><a href="https://www.youtube.com/channel/UCUSck1dOH7VKmG4lRW7tZXg" target="_blank" class="link-light">YouTube</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Contribute</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin/issues" target="_blank" class="link-light">Issues</a></li>
+			<li><a href="https://www.patreon.com/gingerbill" target="_blank" class="link-light">Donate</a></li>
+			</ul>
+			</nav>
+		</div>
+		<div class="mt-4 text-muted">© 2016–2023 Ginger Bill</div>
+	</div>
+</footer>
+
+<script src="https://odin-lang.org/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://odin-lang.org/js/script.js"></script>
+<script src="/pkg-data.js"></script>
+<script src="/search.js"></script>
+</body>
+</html>

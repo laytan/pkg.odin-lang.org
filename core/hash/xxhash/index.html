@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -485,7 +482,7 @@ Procedure Groups (2)</summary>
 <div class="pkg-entity">
 <h3 id="Alignment"><span><a class="doc-id-link" href="#Alignment">Alignment<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/common.odin#L38"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Alignment :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Alignment :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	Aligned, 
 	Unaligned, 
 }</pre>
@@ -503,7 +500,7 @@ Procedure Groups (2)</summary>
 <div class="pkg-entity">
 <h3 id="Error"><span><a class="doc-id-link" href="#Error">Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/common.odin#L43"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Error :: <span class="keyword-type">enum</span> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {
+<pre class="doc-code">Error :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
 	None  = 0, 
 	Error, 
 }</pre>
@@ -531,7 +528,7 @@ Procedure Groups (2)</summary>
 <h3 id="XXH128_canonical"><span><a class="doc-id-link" href="#XXH128_canonical">XXH128_canonical<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L103"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">XXH128_canonical :: <span class="keyword-type">struct</span> {
-	digest: [16]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	digest: [16]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -548,11 +545,11 @@ Procedure Groups (2)</summary>
 <div>
 <pre class="doc-code">XXH128_hash_t :: <span class="keyword-type">struct</span> <span class="directive">#raw_union</span> {
 	<span class="keyword-type">using</span> raw: <span class="keyword-type">struct</span> {
-		low:  <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>,
-		<span class="comment">// !< `value & 0xFFFFFFFFFFFFFFFF` </span>
-		high: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>,
+		low:  <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>,
+		<span class="comment">// !&lt; `value & 0xFFFFFFFFFFFFFFFF` </span>
+		high: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>,
 	},
-	h:   <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>,
+	h:   <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -564,7 +561,7 @@ Procedure Groups (2)</summary>
 <h3 id="XXH32_canonical"><span><a class="doc-id-link" href="#XXH32_canonical">XXH32_canonical<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_32.odin#L33"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">XXH32_canonical :: <span class="keyword-type">struct</span> {
-	digest: [4]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	digest: [4]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -579,7 +576,7 @@ Procedure Groups (2)</summary>
 <div class="pkg-entity">
 <h3 id="XXH32_hash"><span><a class="doc-id-link" href="#XXH32_hash">XXH32_hash<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_32.odin#L17"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH32_hash :: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a></pre>
+<pre class="doc-code">XXH32_hash :: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a></pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -590,23 +587,23 @@ Procedure Groups (2)</summary>
 <h3 id="XXH32_state"><span><a class="doc-id-link" href="#XXH32_state">XXH32_state<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_32.odin#L21"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">XXH32_state :: <span class="keyword-type">struct</span> {
-	total_len_32: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
-	<span class="comment">// !< Total length hashed, modulo 2^32 </span>
-	large_len:    <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
-	<span class="comment">// !< Whether the hash is >= 16 (handles @ref total_len_32 overflow) </span>
-	v1:           <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
-	<span class="comment">// !< First accumulator lane </span>
-	v2:           <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
-	<span class="comment">// !< Second accumulator lane </span>
-	v3:           <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
-	<span class="comment">// !< Third accumulator lane </span>
-	v4:           <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
-	<span class="comment">// !< Fourth accumulator lane </span>
-	mem32:        [4]<a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
-	<span class="comment">// !< Internal buffer for partial reads. Treated as unsigned char[16]. </span>
-	memsize:      <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
-	<span class="comment">// !< Amount of data in @ref mem32 </span>
-	reserved:     <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	total_len_32: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	<span class="comment">// !&lt; Total length hashed, modulo 2^32 </span>
+	large_len:    <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	<span class="comment">// !&lt; Whether the hash is &gt;= 16 (handles @ref total_len_32 overflow) </span>
+	v1:           <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	<span class="comment">// !&lt; First accumulator lane </span>
+	v2:           <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	<span class="comment">// !&lt; Second accumulator lane </span>
+	v3:           <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	<span class="comment">// !&lt; Third accumulator lane </span>
+	v4:           <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	<span class="comment">// !&lt; Fourth accumulator lane </span>
+	mem32:        [4]<a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	<span class="comment">// !&lt; Internal buffer for partial reads. Treated as unsigned char[16]. </span>
+	memsize:      <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	<span class="comment">// !&lt; Amount of data in @ref mem32 </span>
+	reserved:     <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -625,13 +622,13 @@ Procedure Groups (2)</summary>
 <div class="pkg-entity">
 <h3 id="XXH3_128_hash"><span><a class="doc-id-link" href="#XXH3_128_hash">XXH3_128_hash<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L92"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_128_hash :: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a></pre>
+<pre class="doc-code">XXH3_128_hash :: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a></pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_accumulate_512_f"><span><a class="doc-id-link" href="#XXH3_accumulate_512_f">XXH3_accumulate_512_f<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L731"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_accumulate_512_f :: <span class="keyword-type">proc</span>(acc: []<a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>)</pre>
+<pre class="doc-code">XXH3_accumulate_512_f :: <span class="keyword-type">proc</span>(acc: []<a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>)</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
 <ul>
@@ -648,7 +645,7 @@ Procedure Groups (2)</summary>
 <div class="pkg-entity">
 <h3 id="XXH3_hashLong128_f"><span><a class="doc-id-link" href="#XXH3_hashLong128_f">XXH3_hashLong128_f<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L449"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_hashLong128_f :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (res: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>)</pre>
+<pre class="doc-code">XXH3_hashLong128_f :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (res: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>)</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
 <ul>
@@ -658,7 +655,7 @@ Procedure Groups (2)</summary>
 <div class="pkg-entity">
 <h3 id="XXH3_hashLong64_f"><span><a class="doc-id-link" href="#XXH3_hashLong64_f">XXH3_hashLong64_f<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L924"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_hashLong64_f :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (res: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>)</pre>
+<pre class="doc-code">XXH3_hashLong64_f :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (res: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>)</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
 <ul>
@@ -668,7 +665,7 @@ Procedure Groups (2)</summary>
 <div class="pkg-entity">
 <h3 id="XXH3_init_custom_secret_f"><span><a class="doc-id-link" href="#XXH3_init_custom_secret_f">XXH3_init_custom_secret_f<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L733"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_init_custom_secret_f :: <span class="keyword-type">proc</span>(custom_secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed64: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>)</pre>
+<pre class="doc-code">XXH3_init_custom_secret_f :: <span class="keyword-type">proc</span>(custom_secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed64: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>)</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
 <ul>
@@ -679,7 +676,7 @@ Procedure Groups (2)</summary>
 <div class="pkg-entity">
 <h3 id="XXH3_scramble_accumulator_f"><span><a class="doc-id-link" href="#XXH3_scramble_accumulator_f">XXH3_scramble_accumulator_f<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L732"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_scramble_accumulator_f :: <span class="keyword-type">proc</span>(acc: []<a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>)</pre>
+<pre class="doc-code">XXH3_scramble_accumulator_f :: <span class="keyword-type">proc</span>(acc: []<a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>)</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
 <ul>
@@ -696,18 +693,18 @@ Procedure Groups (2)</summary>
 <h3 id="XXH3_state"><span><a class="doc-id-link" href="#XXH3_state">XXH3_state<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L67"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">XXH3_state :: <span class="keyword-type">struct</span> {
-	acc:               [8]<a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>,
-	custom_secret:     [192]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
-	buffer:            [256]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
-	buffered_size:     <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
-	reserved32:        <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
-	stripes_so_far:    <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>,
-	total_length:      <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>,
-	stripes_per_block: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>,
-	secret_limit:      <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>,
-	seed:              <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>,
-	reserved64:        <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>,
-	external_secret:   []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	acc:               [8]<a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>,
+	custom_secret:     [192]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	buffer:            [256]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	buffered_size:     <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	reserved32:        <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	stripes_so_far:    <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>,
+	total_length:      <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>,
+	stripes_per_block: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>,
+	secret_limit:      <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>,
+	seed:              <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>,
+	reserved64:        <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>,
+	external_secret:   []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
 }</pre>
 </div>
 <details class="odin-doc-toggle" open>
@@ -742,7 +739,7 @@ Use`XXH3_create_state` and `XXH3_destroy_state, or stack allocation.
 <h3 id="XXH64_canonical"><span><a class="doc-id-link" href="#XXH64_canonical">XXH64_canonical<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_64.odin#L33"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">XXH64_canonical :: <span class="keyword-type">struct</span> {
-	digest: [8]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	digest: [8]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -757,7 +754,7 @@ Use`XXH3_create_state` and `XXH3_destroy_state, or stack allocation.
 <div class="pkg-entity">
 <h3 id="XXH64_hash"><span><a class="doc-id-link" href="#XXH64_hash">XXH64_hash<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_64.odin#L17"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH64_hash :: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a></pre>
+<pre class="doc-code">XXH64_hash :: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a></pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -768,23 +765,23 @@ Use`XXH3_create_state` and `XXH3_destroy_state, or stack allocation.
 <h3 id="XXH64_state"><span><a class="doc-id-link" href="#XXH64_state">XXH64_state<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_64.odin#L21"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">XXH64_state :: <span class="keyword-type">struct</span> {
-	total_len:  <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>,
-	<span class="comment">// !< Total length hashed. This is always 64-bit. </span>
-	v1:         <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>,
-	<span class="comment">// !< First accumulator lane </span>
-	v2:         <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>,
-	<span class="comment">// !< Second accumulator lane </span>
-	v3:         <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>,
-	<span class="comment">// !< Third accumulator lane </span>
-	v4:         <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>,
-	<span class="comment">// !< Fourth accumulator lane </span>
-	mem64:      [4]<a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>,
-	<span class="comment">// !< Internal buffer for partial reads. Treated as unsigned char[32]. </span>
-	memsize:    <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
-	<span class="comment">// !< Amount of data in @ref mem64 </span>
-	reserved32: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>,
-	<span class="comment">// !< Reserved field, needed for padding anyways</span>
-	reserved64: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>,
+	total_len:  <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>,
+	<span class="comment">// !&lt; Total length hashed. This is always 64-bit. </span>
+	v1:         <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>,
+	<span class="comment">// !&lt; First accumulator lane </span>
+	v2:         <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>,
+	<span class="comment">// !&lt; Second accumulator lane </span>
+	v3:         <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>,
+	<span class="comment">// !&lt; Third accumulator lane </span>
+	v4:         <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>,
+	<span class="comment">// !&lt; Fourth accumulator lane </span>
+	mem64:      [4]<a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>,
+	<span class="comment">// !&lt; Internal buffer for partial reads. Treated as unsigned char[32]. </span>
+	memsize:    <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	<span class="comment">// !&lt; Amount of data in @ref mem64 </span>
+	reserved32: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
+	<span class="comment">// !&lt; Reserved field, needed for padding anyways</span>
+	reserved64: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>,
 }</pre>
 </div>
 <h5>Related Procedures With Parameters</h5>
@@ -803,7 +800,7 @@ Use`XXH3_create_state` and `XXH3_destroy_state, or stack allocation.
 <div class="pkg-entity">
 <h3 id="xxh_u128"><span><a class="doc-id-link" href="#xxh_u128">xxh_u128<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L91"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">xxh_u128 :: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a></pre>
+<pre class="doc-code">xxh_u128 :: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a></pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -813,26 +810,26 @@ Use`XXH3_create_state` and `XXH3_destroy_state, or stack allocation.
 <div class="pkg-entity">
 <h3 id="xxh_u32"><span><a class="doc-id-link" href="#xxh_u32">xxh_u32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_32.odin#L18"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">xxh_u32 :: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a></pre>
+<pre class="doc-code">xxh_u32 :: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a></pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="xxh_u64"><span><a class="doc-id-link" href="#xxh_u64">xxh_u64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_64.odin#L18"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">xxh_u64 :: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a></pre>
+<pre class="doc-code">xxh_u64 :: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a></pre>
 </div>
 </div>
 <h2 id="pkg-Constants" class="pkg-header">Constants</h2>
 <div class="pkg-entity">
 <h3 id="XXH32_DEFAULT_SEED"><span><a class="doc-id-link" href="#XXH32_DEFAULT_SEED">XXH32_DEFAULT_SEED<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_32.odin#L19"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH32_DEFAULT_SEED: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> : XXH32_hash(0)</pre>
+<pre class="doc-code">XXH32_DEFAULT_SEED: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> : XXH32_hash(0)</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_INIT_ACC"><span><a class="doc-id-link" href="#XXH3_INIT_ACC">XXH3_INIT_ACC<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L375"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_INIT_ACC: [8]<a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> : [XXH_ACC_NB]xxh_u64{XXH_PRIME32_3, XXH_PRIME64_1, XXH_PRIME64_2, XXH_PRIME64_3, XXH_PRIME64_4, XXH_PRIME32_2, XXH_PRIME64_5, XXH_PRIME32_1}</pre>
+<pre class="doc-code">XXH3_INIT_ACC: [8]<a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> : [XXH_ACC_NB]xxh_u64{XXH_PRIME32_3, XXH_PRIME64_1, XXH_PRIME64_2, XXH_PRIME64_3, XXH_PRIME64_4, XXH_PRIME32_2, XXH_PRIME64_5, XXH_PRIME32_1}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -876,7 +873,7 @@ Use`XXH3_create_state` and `XXH3_destroy_state, or stack allocation.
 <div class="pkg-entity">
 <h3 id="XXH64_DEFAULT_SEED"><span><a class="doc-id-link" href="#XXH64_DEFAULT_SEED">XXH64_DEFAULT_SEED<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_64.odin#L19"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH64_DEFAULT_SEED: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> : XXH64_hash(0)</pre>
+<pre class="doc-code">XXH64_DEFAULT_SEED: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> : XXH64_hash(0)</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -1119,7 +1116,7 @@ Use`XXH3_create_state` and `XXH3_destroy_state, or stack allocation.
 <div class="pkg-entity">
 <h3 id="XXH3_kSecret"><span><a class="doc-id-link" href="#XXH3_kSecret">XXH3_kSecret<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L33"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_kSecret: [192]<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a> = …</pre>
+<pre class="doc-code">XXH3_kSecret: [192]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> = …</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -1132,7 +1129,7 @@ Use`XXH3_create_state` and `XXH3_destroy_state, or stack allocation.
 <div class="pkg-entity">
 <h3 id="XXH128_mix32B"><span><a class="doc-id-link" href="#XXH128_mix32B">XXH128_mix32B<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L283"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH128_mix32B :: <span class="keyword-type">proc</span>(acc: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>, input_1: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, input_2: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
+<pre class="doc-code">XXH128_mix32B :: <span class="keyword-type">proc</span>(acc: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>, input_1: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, input_2: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1142,13 +1139,13 @@ Use`XXH3_create_state` and `XXH3_destroy_state, or stack allocation.
 <div class="pkg-entity">
 <h3 id="XXH32"><span><a class="doc-id-link" href="#XXH32">XXH32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_32.odin#L173"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH32 :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> = XXH32_DEFAULT_SEED) -> (digest: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
+<pre class="doc-code">XXH32 :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> = XXH32_DEFAULT_SEED) -> (digest: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH32_avalanche"><span><a class="doc-id-link" href="#XXH32_avalanche">XXH32_avalanche<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_32.odin#L57"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH32_avalanche :: <span class="keyword-type">proc</span>(h32: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> (res: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
+<pre class="doc-code">XXH32_avalanche :: <span class="keyword-type">proc</span>(h32: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) -> (res: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1158,7 +1155,7 @@ Use`XXH3_create_state` and `XXH3_destroy_state, or stack allocation.
 <div class="pkg-entity">
 <h3 id="XXH32_canonical_from_hash"><span><a class="doc-id-link" href="#XXH32_canonical_from_hash">XXH32_canonical_from_hash<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_32.odin#L311"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH32_canonical_from_hash :: <span class="keyword-type">proc</span>(hash: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> (canonical: <a class="code-typename" href="/core/hash/xxhash/#XXH32_canonical">XXH32_canonical</a>) {…}</pre>
+<pre class="doc-code">XXH32_canonical_from_hash :: <span class="keyword-type">proc</span>(hash: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) -> (canonical: <a class="code-typename" href="/core/hash/xxhash/#XXH32_canonical">XXH32_canonical</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1201,49 +1198,49 @@ canonical format.
 <div class="pkg-entity">
 <h3 id="XXH32_digest"><span><a class="doc-id-link" href="#XXH32_digest">XXH32_digest<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_32.odin#L283"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH32_digest :: <span class="keyword-type">proc</span>(state: ^<a class="code-typename" href="/core/hash/xxhash/#XXH32_state">XXH32_state</a>) -> (res: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
+<pre class="doc-code">XXH32_digest :: <span class="keyword-type">proc</span>(state: ^<a class="code-typename" href="/core/hash/xxhash/#XXH32_state">XXH32_state</a>) -> (res: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH32_endian_align"><span><a class="doc-id-link" href="#XXH32_endian_align">XXH32_endian_align<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_32.odin#L147"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH32_endian_align :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> = XXH32_DEFAULT_SEED, alignment: <a class="code-typename" href="/core/hash/xxhash/#Alignment">Alignment</a>) -> (res: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
+<pre class="doc-code">XXH32_endian_align :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> = XXH32_DEFAULT_SEED, alignment: <a class="code-typename" href="/core/hash/xxhash/#Alignment">Alignment</a>) -> (res: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH32_finalize"><span><a class="doc-id-link" href="#XXH32_finalize">XXH32_finalize<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_32.odin#L69"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH32_finalize :: <span class="keyword-type">proc</span>(h32: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>, buf: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, alignment: <a class="code-typename" href="/core/hash/xxhash/#Alignment">Alignment</a>) -> (res: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
+<pre class="doc-code">XXH32_finalize :: <span class="keyword-type">proc</span>(h32: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>, buf: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, alignment: <a class="code-typename" href="/core/hash/xxhash/#Alignment">Alignment</a>) -> (res: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH32_hash_from_canonical"><span><a class="doc-id-link" href="#XXH32_hash_from_canonical">XXH32_hash_from_canonical<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_32.odin#L318"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH32_hash_from_canonical :: <span class="keyword-type">proc</span>(canonical: ^<a class="code-typename" href="/core/hash/xxhash/#XXH32_canonical">XXH32_canonical</a>) -> (hash: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
+<pre class="doc-code">XXH32_hash_from_canonical :: <span class="keyword-type">proc</span>(canonical: ^<a class="code-typename" href="/core/hash/xxhash/#XXH32_canonical">XXH32_canonical</a>) -> (hash: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH32_read32"><span><a class="doc-id-link" href="#XXH32_read32">XXH32_read32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/common.odin#L81"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH32_read32 :: <span class="keyword-type">proc</span>(buf: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, alignment: <a class="code-typename" href="/core/hash/xxhash/#Alignment">Alignment</a> = Alignment.Unaligned) -> (res: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
+<pre class="doc-code">XXH32_read32 :: <span class="keyword-type">proc</span>(buf: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, alignment: <a class="code-typename" href="/core/hash/xxhash/#Alignment">Alignment</a> = Alignment.Unaligned) -> (res: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH32_reset_state"><span><a class="doc-id-link" href="#XXH32_reset_state">XXH32_reset_state<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_32.odin#L214"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH32_reset_state :: <span class="keyword-type">proc</span>(state_ptr: ^<a class="code-typename" href="/core/hash/xxhash/#XXH32_state">XXH32_state</a>, seed: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a> = XXH32_DEFAULT_SEED) -> (err: <a class="code-typename" href="/core/hash/xxhash/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">XXH32_reset_state :: <span class="keyword-type">proc</span>(state_ptr: ^<a class="code-typename" href="/core/hash/xxhash/#XXH32_state">XXH32_state</a>, seed: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> = XXH32_DEFAULT_SEED) -> (err: <a class="code-typename" href="/core/hash/xxhash/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH32_round"><span><a class="doc-id-link" href="#XXH32_round">XXH32_round<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_32.odin#L44"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH32_round :: <span class="keyword-type">proc</span>(seed, input: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> (res: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
+<pre class="doc-code">XXH32_round :: <span class="keyword-type">proc</span>(seed, input: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) -> (res: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH32_update"><span><a class="doc-id-link" href="#XXH32_update">XXH32_update<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_32.odin#L228"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH32_update :: <span class="keyword-type">proc</span>(state: ^<a class="code-typename" href="/core/hash/xxhash/#XXH32_state">XXH32_state</a>, input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: <a class="code-typename" href="/core/hash/xxhash/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">XXH32_update :: <span class="keyword-type">proc</span>(state: ^<a class="code-typename" href="/core/hash/xxhash/#XXH32_state">XXH32_state</a>, input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: <a class="code-typename" href="/core/hash/xxhash/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -1255,7 +1252,7 @@ canonical format.
 <div class="pkg-entity">
 <h3 id="XXH3_128_default"><span><a class="doc-id-link" href="#XXH3_128_default">XXH3_128_default<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L478"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_128_default :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (hash: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_128_default :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (hash: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1265,13 +1262,13 @@ canonical format.
 <div class="pkg-entity">
 <h3 id="XXH3_128_digest"><span><a class="doc-id-link" href="#XXH3_128_digest">XXH3_128_digest<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/streaming.odin#L59"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_128_digest :: <span class="keyword-type">proc</span>(state: ^<a class="code-typename" href="/core/hash/xxhash/#XXH3_state">XXH3_state</a>) -> (hash: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_128_digest :: <span class="keyword-type">proc</span>(state: ^<a class="code-typename" href="/core/hash/xxhash/#XXH3_state">XXH3_state</a>) -> (hash: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_128_hash_from_canonical"><span><a class="doc-id-link" href="#XXH3_128_hash_from_canonical">XXH3_128_hash_from_canonical<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/streaming.odin#L105"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_128_hash_from_canonical :: <span class="keyword-type">proc</span>(src: ^<a class="code-typename" href="/core/hash/xxhash/#XXH128_canonical">XXH128_canonical</a>) -> (hash: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_128_hash_from_canonical :: <span class="keyword-type">proc</span>(src: ^<a class="code-typename" href="/core/hash/xxhash/#XXH128_canonical">XXH128_canonical</a>) -> (hash: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -1290,43 +1287,43 @@ The only difference is the finalization routine.
 <div class="pkg-entity">
 <h3 id="XXH3_128_reset_with_secret"><span><a class="doc-id-link" href="#XXH3_128_reset_with_secret">XXH3_128_reset_with_secret<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/streaming.odin#L30"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_128_reset_with_secret :: <span class="keyword-type">proc</span>(state: ^<a class="code-typename" href="/core/hash/xxhash/#XXH3_state">XXH3_state</a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: <a class="code-typename" href="/core/hash/xxhash/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">XXH3_128_reset_with_secret :: <span class="keyword-type">proc</span>(state: ^<a class="code-typename" href="/core/hash/xxhash/#XXH3_state">XXH3_state</a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: <a class="code-typename" href="/core/hash/xxhash/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_128_reset_with_seed"><span><a class="doc-id-link" href="#XXH3_128_reset_with_seed">XXH3_128_reset_with_seed<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/streaming.odin#L42"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_128_reset_with_seed :: <span class="keyword-type">proc</span>(state: ^<a class="code-typename" href="/core/hash/xxhash/#XXH3_state">XXH3_state</a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (err: <a class="code-typename" href="/core/hash/xxhash/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">XXH3_128_reset_with_seed :: <span class="keyword-type">proc</span>(state: ^<a class="code-typename" href="/core/hash/xxhash/#XXH3_state">XXH3_state</a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (err: <a class="code-typename" href="/core/hash/xxhash/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_128_update"><span><a class="doc-id-link" href="#XXH3_128_update">XXH3_128_update<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/streaming.odin#L54"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_128_update :: <span class="keyword-type">proc</span>(state: ^<a class="code-typename" href="/core/hash/xxhash/#XXH3_state">XXH3_state</a>, input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: <a class="code-typename" href="/core/hash/xxhash/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">XXH3_128_update :: <span class="keyword-type">proc</span>(state: ^<a class="code-typename" href="/core/hash/xxhash/#XXH3_state">XXH3_state</a>, input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: <a class="code-typename" href="/core/hash/xxhash/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_128_with_secret"><span><a class="doc-id-link" href="#XXH3_128_with_secret">XXH3_128_with_secret<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L488"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_128_with_secret :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (hash: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_128_with_secret :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (hash: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_128_with_seed"><span><a class="doc-id-link" href="#XXH3_128_with_seed">XXH3_128_with_seed<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L483"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_128_with_seed :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (hash: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_128_with_seed :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (hash: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_128bits_internal"><span><a class="doc-id-link" href="#XXH3_128bits_internal">XXH3_128bits_internal<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L452"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_128bits_internal :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, f_hl128: <a class="code-typename" href="/core/hash/xxhash/#XXH3_hashLong128_f">XXH3_hashLong128_f</a>) -> (res: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_128bits_internal :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, f_hl128: <a class="code-typename" href="/core/hash/xxhash/#XXH3_hashLong128_f">XXH3_hashLong128_f</a>) -> (res: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_64_default"><span><a class="doc-id-link" href="#XXH3_64_default">XXH3_64_default<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L947"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_64_default :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (hash: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_64_default :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (hash: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1336,7 +1333,7 @@ The only difference is the finalization routine.
 <div class="pkg-entity">
 <h3 id="XXH3_64_digest"><span><a class="doc-id-link" href="#XXH3_64_digest">XXH3_64_digest<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/streaming.odin#L306"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_64_digest :: <span class="keyword-type">proc</span>(state: ^<a class="code-typename" href="/core/hash/xxhash/#XXH3_state">XXH3_state</a>) -> (hash: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_64_digest :: <span class="keyword-type">proc</span>(state: ^<a class="code-typename" href="/core/hash/xxhash/#XXH3_state">XXH3_state</a>) -> (hash: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -1373,25 +1370,25 @@ The only difference is the finalization routine.
 <div class="pkg-entity">
 <h3 id="XXH3_64_with_secret"><span><a class="doc-id-link" href="#XXH3_64_with_secret">XXH3_64_with_secret<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L957"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_64_with_secret :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (hash: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_64_with_secret :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (hash: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_64_with_seed"><span><a class="doc-id-link" href="#XXH3_64_with_seed">XXH3_64_with_seed<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L952"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_64_with_seed :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (hash: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_64_with_seed :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (hash: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_64bits_internal"><span><a class="doc-id-link" href="#XXH3_64bits_internal">XXH3_64bits_internal<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L927"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_64bits_internal :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, f_hashLong: <a class="code-typename" href="/core/hash/xxhash/#XXH3_hashLong64_f">XXH3_hashLong64_f</a>) -> (hash: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_64bits_internal :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, f_hashLong: <a class="code-typename" href="/core/hash/xxhash/#XXH3_hashLong64_f">XXH3_hashLong64_f</a>) -> (hash: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_accumulate"><span><a class="doc-id-link" href="#XXH3_accumulate">XXH3_accumulate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L795"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_accumulate :: <span class="keyword-type">proc</span>(acc: []<a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, nbStripes: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>, f_acc512: <a class="code-typename" href="/core/hash/xxhash/#XXH3_accumulate_512_f">XXH3_accumulate_512_f</a>) {…}</pre>
+<pre class="doc-code">XXH3_accumulate :: <span class="keyword-type">proc</span>(acc: []<a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, nbStripes: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>, f_acc512: <a class="code-typename" href="/core/hash/xxhash/#XXH3_accumulate_512_f">XXH3_accumulate_512_f</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1403,7 +1400,7 @@ The only difference is the finalization routine.
 <div class="pkg-entity">
 <h3 id="XXH3_accumulate_512_scalar"><span><a class="doc-id-link" href="#XXH3_accumulate_512_scalar">XXH3_accumulate_512_scalar<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L741"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_accumulate_512_scalar :: <span class="keyword-type">proc</span>(acc: []<a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_accumulate_512_scalar :: <span class="keyword-type">proc</span>(acc: []<a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1413,7 +1410,7 @@ The only difference is the finalization routine.
 <div class="pkg-entity">
 <h3 id="XXH3_avalanche"><span><a class="doc-id-link" href="#XXH3_avalanche">XXH3_avalanche<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L129"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_avalanche :: <span class="keyword-type">proc</span>(h64: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_avalanche :: <span class="keyword-type">proc</span>(h64: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1424,13 +1421,13 @@ The only difference is the finalization routine.
 <h3 id="XXH3_consume_stripes"><span><a class="doc-id-link" href="#XXH3_consume_stripes">XXH3_consume_stripes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/streaming.odin#L178"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">XXH3_consume_stripes :: <span class="keyword-type">proc</span>(
-	acc:               []<a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, 
-	stripes_so_far:    ^<a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>, 
-	stripes_per_block: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>, 
-	input:             []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, 
-	number_of_stripes: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>, 
-	secret:            []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, 
-	secret_limit:      <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>, 
+	acc:               []<a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, 
+	stripes_so_far:    ^<a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>, 
+	stripes_per_block: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>, 
+	input:             []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, 
+	number_of_stripes: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>, 
+	secret:            []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, 
+	secret_limit:      <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>, 
 	f_acc512:          <a class="code-typename" href="/core/hash/xxhash/#XXH3_accumulate_512_f">XXH3_accumulate_512_f</a>, 
 	f_scramble:        <a class="code-typename" href="/core/hash/xxhash/#XXH3_scramble_accumulator_f">XXH3_scramble_accumulator_f</a>, 
 ) {…}</pre>
@@ -1457,19 +1454,19 @@ The only difference is the finalization routine.
 <div class="pkg-entity">
 <h3 id="XXH3_digest_long"><span><a class="doc-id-link" href="#XXH3_digest_long">XXH3_digest_long<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/streaming.odin#L274"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_digest_long :: <span class="keyword-type">proc</span>(acc: []<a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, state: ^<a class="code-typename" href="/core/hash/xxhash/#XXH3_state">XXH3_state</a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_digest_long :: <span class="keyword-type">proc</span>(acc: []<a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, state: ^<a class="code-typename" href="/core/hash/xxhash/#XXH3_state">XXH3_state</a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_generate_secret"><span><a class="doc-id-link" href="#XXH3_generate_secret">XXH3_generate_secret<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/streaming.odin#L323"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_generate_secret :: <span class="keyword-type">proc</span>(secret_buffer: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, custom_seed: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_generate_secret :: <span class="keyword-type">proc</span>(secret_buffer: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, custom_seed: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_hashLong_128b_default"><span><a class="doc-id-link" href="#XXH3_hashLong_128b_default">XXH3_hashLong_128b_default<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L411"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_hashLong_128b_default :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (res: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_hashLong_128b_default :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (res: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1479,13 +1476,13 @@ The only difference is the finalization routine.
 <div class="pkg-entity">
 <h3 id="XXH3_hashLong_128b_internal"><span><a class="doc-id-link" href="#XXH3_hashLong_128b_internal">XXH3_hashLong_128b_internal<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L383"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_hashLong_128b_internal :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, f_acc512: <a class="code-typename" href="/core/hash/xxhash/#XXH3_accumulate_512_f">XXH3_accumulate_512_f</a>, f_scramble: <a class="code-typename" href="/core/hash/xxhash/#XXH3_scramble_accumulator_f">XXH3_scramble_accumulator_f</a>) -> (res: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_hashLong_128b_internal :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, f_acc512: <a class="code-typename" href="/core/hash/xxhash/#XXH3_accumulate_512_f">XXH3_accumulate_512_f</a>, f_scramble: <a class="code-typename" href="/core/hash/xxhash/#XXH3_scramble_accumulator_f">XXH3_scramble_accumulator_f</a>) -> (res: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_hashLong_128b_withSecret"><span><a class="doc-id-link" href="#XXH3_hashLong_128b_withSecret">XXH3_hashLong_128b_withSecret<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L419"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_hashLong_128b_withSecret :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (res: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_hashLong_128b_withSecret :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (res: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1495,7 +1492,7 @@ The only difference is the finalization routine.
 <div class="pkg-entity">
 <h3 id="XXH3_hashLong_128b_withSeed"><span><a class="doc-id-link" href="#XXH3_hashLong_128b_withSeed">XXH3_hashLong_128b_withSeed<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L445"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_hashLong_128b_withSeed :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (res: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_hashLong_128b_withSeed :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (res: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1506,19 +1503,19 @@ The only difference is the finalization routine.
 <h3 id="XXH3_hashLong_128b_withSeed_internal"><span><a class="doc-id-link" href="#XXH3_hashLong_128b_withSeed_internal">XXH3_hashLong_128b_withSeed_internal<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L424"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">XXH3_hashLong_128b_withSeed_internal :: <span class="keyword-type">proc</span>(
-	input:      []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, 
-	seed:       <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, 
-	secret:     []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, 
+	input:      []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, 
+	seed:       <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, 
+	secret:     []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, 
 	f_acc512:   <a class="code-typename" href="/core/hash/xxhash/#XXH3_accumulate_512_f">XXH3_accumulate_512_f</a>, 
 	f_scramble: <a class="code-typename" href="/core/hash/xxhash/#XXH3_scramble_accumulator_f">XXH3_scramble_accumulator_f</a>, 
 	f_initSec:  <a class="code-typename" href="/core/hash/xxhash/#XXH3_init_custom_secret_f">XXH3_init_custom_secret_f</a>, 
-) -> (res: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
+) -> (res: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_hashLong_64b_default"><span><a class="doc-id-link" href="#XXH3_hashLong_64b_default">XXH3_hashLong_64b_default<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L884"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_hashLong_64b_default :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed64: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (hash: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_hashLong_64b_default :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed64: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (hash: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1533,13 +1530,13 @@ and uses this opportunity to streamline the generated code for better performanc
 <div class="pkg-entity">
 <h3 id="XXH3_hashLong_64b_internal"><span><a class="doc-id-link" href="#XXH3_hashLong_64b_internal">XXH3_hashLong_64b_internal<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L853"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_hashLong_64b_internal :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, f_acc512: <a class="code-typename" href="/core/hash/xxhash/#XXH3_accumulate_512_f">XXH3_accumulate_512_f</a>, f_scramble: <a class="code-typename" href="/core/hash/xxhash/#XXH3_scramble_accumulator_f">XXH3_scramble_accumulator_f</a>) -> (hash: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_hashLong_64b_internal :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, f_acc512: <a class="code-typename" href="/core/hash/xxhash/#XXH3_accumulate_512_f">XXH3_accumulate_512_f</a>, f_scramble: <a class="code-typename" href="/core/hash/xxhash/#XXH3_scramble_accumulator_f">XXH3_scramble_accumulator_f</a>) -> (hash: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_hashLong_64b_withSecret"><span><a class="doc-id-link" href="#XXH3_hashLong_64b_withSecret">XXH3_hashLong_64b_withSecret<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L872"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_hashLong_64b_withSecret :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed64: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (hash: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_hashLong_64b_withSecret :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed64: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (hash: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1549,7 +1546,7 @@ and uses this opportunity to streamline the generated code for better performanc
 <div class="pkg-entity">
 <h3 id="XXH3_hashLong_64b_withSeed"><span><a class="doc-id-link" href="#XXH3_hashLong_64b_withSeed">XXH3_hashLong_64b_withSeed<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L919"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_hashLong_64b_withSeed :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (hash: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_hashLong_64b_withSeed :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (hash: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1559,7 +1556,7 @@ and uses this opportunity to streamline the generated code for better performanc
 <div class="pkg-entity">
 <h3 id="XXH3_hashLong_64b_withSeed_internal"><span><a class="doc-id-link" href="#XXH3_hashLong_64b_withSeed_internal">XXH3_hashLong_64b_withSeed_internal<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L900"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_hashLong_64b_withSeed_internal :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, f_acc512: <a class="code-typename" href="/core/hash/xxhash/#XXH3_accumulate_512_f">XXH3_accumulate_512_f</a>, f_scramble: <a class="code-typename" href="/core/hash/xxhash/#XXH3_scramble_accumulator_f">XXH3_scramble_accumulator_f</a>, f_init_sec: <a class="code-typename" href="/core/hash/xxhash/#XXH3_init_custom_secret_f">XXH3_init_custom_secret_f</a>) -> (hash: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_hashLong_64b_withSeed_internal :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, f_acc512: <a class="code-typename" href="/core/hash/xxhash/#XXH3_accumulate_512_f">XXH3_accumulate_512_f</a>, f_scramble: <a class="code-typename" href="/core/hash/xxhash/#XXH3_scramble_accumulator_f">XXH3_scramble_accumulator_f</a>, f_init_sec: <a class="code-typename" href="/core/hash/xxhash/#XXH3_init_custom_secret_f">XXH3_init_custom_secret_f</a>) -> (hash: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1578,13 +1575,13 @@ why (uop cache maybe?), but the difference is large and easily measurable.
 <div class="pkg-entity">
 <h3 id="XXH3_hashLong_internal_loop"><span><a class="doc-id-link" href="#XXH3_hashLong_internal_loop">XXH3_hashLong_internal_loop<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L808"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_hashLong_internal_loop :: <span class="keyword-type">proc</span>(acc: []<a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, f_acc512: <a class="code-typename" href="/core/hash/xxhash/#XXH3_accumulate_512_f">XXH3_accumulate_512_f</a>, f_scramble: <a class="code-typename" href="/core/hash/xxhash/#XXH3_scramble_accumulator_f">XXH3_scramble_accumulator_f</a>) {…}</pre>
+<pre class="doc-code">XXH3_hashLong_internal_loop :: <span class="keyword-type">proc</span>(acc: []<a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, f_acc512: <a class="code-typename" href="/core/hash/xxhash/#XXH3_accumulate_512_f">XXH3_accumulate_512_f</a>, f_scramble: <a class="code-typename" href="/core/hash/xxhash/#XXH3_scramble_accumulator_f">XXH3_scramble_accumulator_f</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_init_custom_secret_scalar"><span><a class="doc-id-link" href="#XXH3_init_custom_secret_scalar">XXH3_init_custom_secret_scalar<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L775"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_init_custom_secret_scalar :: <span class="keyword-type">proc</span>(custom_secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed64: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_init_custom_secret_scalar :: <span class="keyword-type">proc</span>(custom_secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed64: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -1596,7 +1593,7 @@ why (uop cache maybe?), but the difference is large and easily measurable.
 <div class="pkg-entity">
 <h3 id="XXH3_len_0to16_128b"><span><a class="doc-id-link" href="#XXH3_len_0to16_128b">XXH3_len_0to16_128b<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L265"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_len_0to16_128b :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_len_0to16_128b :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1606,31 +1603,31 @@ why (uop cache maybe?), but the difference is large and easily measurable.
 <div class="pkg-entity">
 <h3 id="XXH3_len_0to16_64b"><span><a class="doc-id-link" href="#XXH3_len_0to16_64b">XXH3_len_0to16_64b<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L583"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_len_0to16_64b :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_len_0to16_64b :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_len_129to240_128b"><span><a class="doc-id-link" href="#XXH3_len_129to240_128b">XXH3_len_129to240_128b<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L327"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_len_129to240_128b :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_len_129to240_128b :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_len_129to240_64b"><span><a class="doc-id-link" href="#XXH3_len_129to240_64b">XXH3_len_129to240_64b<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L669"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_len_129to240_64b :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_len_129to240_64b :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_len_17to128_128b"><span><a class="doc-id-link" href="#XXH3_len_17to128_128b">XXH3_len_17to128_128b<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L297"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_len_17to128_128b :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_len_17to128_128b :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_len_17to128_64b"><span><a class="doc-id-link" href="#XXH3_len_17to128_64b">XXH3_len_17to128_64b<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L636"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_len_17to128_64b :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_len_17to128_64b :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1640,13 +1637,13 @@ why (uop cache maybe?), but the difference is large and easily measurable.
 <div class="pkg-entity">
 <h3 id="XXH3_len_1to3_128b"><span><a class="doc-id-link" href="#XXH3_len_1to3_128b">XXH3_len_1to3_128b<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L170"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_len_1to3_128b :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_len_1to3_128b :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_len_1to3_64b"><span><a class="doc-id-link" href="#XXH3_len_1to3_64b">XXH3_len_1to3_64b<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L523"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_len_1to3_64b :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_len_1to3_64b :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1665,37 +1662,37 @@ This adds an extra layer of strength for custom secrets.
 <div class="pkg-entity">
 <h3 id="XXH3_len_4to8_128b"><span><a class="doc-id-link" href="#XXH3_len_4to8_128b">XXH3_len_4to8_128b<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L194"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_len_4to8_128b :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_len_4to8_128b :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_len_4to8_64b"><span><a class="doc-id-link" href="#XXH3_len_4to8_64b">XXH3_len_4to8_64b<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L546"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_len_4to8_64b :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_len_4to8_64b :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_len_9to16_128b"><span><a class="doc-id-link" href="#XXH3_len_9to16_128b">XXH3_len_9to16_128b<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L223"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_len_9to16_128b :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/core/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_len_9to16_128b :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/base/builtin#u128"><span class="doc-builtin">u128</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_len_9to16_64b"><span><a class="doc-id-link" href="#XXH3_len_9to16_64b">XXH3_len_9to16_64b<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L566"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_len_9to16_64b :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_len_9to16_64b :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_mergeAccs"><span><a class="doc-id-link" href="#XXH3_mergeAccs">XXH3_mergeAccs<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L844"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_mergeAccs :: <span class="keyword-type">proc</span>(acc: []<a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, start: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_mergeAccs :: <span class="keyword-type">proc</span>(acc: []<a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, start: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_mix16B"><span><a class="doc-id-link" href="#XXH3_mix16B">XXH3_mix16B<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L625"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_mix16B :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_mix16B :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1729,19 +1726,19 @@ about strength.
 <div class="pkg-entity">
 <h3 id="XXH3_mix2Accs"><span><a class="doc-id-link" href="#XXH3_mix2Accs">XXH3_mix2Accs<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L837"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_mix2Accs :: <span class="keyword-type">proc</span>(acc: []<a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (res: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_mix2Accs :: <span class="keyword-type">proc</span>(acc: []<a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (res: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_reset_internal"><span><a class="doc-id-link" href="#XXH3_reset_internal">XXH3_reset_internal<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/streaming.odin#L141"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_reset_internal :: <span class="keyword-type">proc</span>(state: ^<a class="code-typename" href="/core/hash/xxhash/#XXH3_state">XXH3_state</a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, secret_size: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_reset_internal :: <span class="keyword-type">proc</span>(state: ^<a class="code-typename" href="/core/hash/xxhash/#XXH3_state">XXH3_state</a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, secret_size: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_rrmxmx"><span><a class="doc-id-link" href="#XXH3_rrmxmx">XXH3_rrmxmx<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L141"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_rrmxmx :: <span class="keyword-type">proc</span>(h64, length: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_rrmxmx :: <span class="keyword-type">proc</span>(h64, length: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1753,13 +1750,13 @@ about strength.
 <div class="pkg-entity">
 <h3 id="XXH3_scramble_accumulator_scalar"><span><a class="doc-id-link" href="#XXH3_scramble_accumulator_scalar">XXH3_scramble_accumulator_scalar<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L758"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_scramble_accumulator_scalar :: <span class="keyword-type">proc</span>(acc: []<a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">XXH3_scramble_accumulator_scalar :: <span class="keyword-type">proc</span>(acc: []<a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, secret: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH3_update"><span><a class="doc-id-link" href="#XXH3_update">XXH3_update<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/streaming.odin#L205"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH3_update :: <span class="keyword-type">proc</span>(state: ^<a class="code-typename" href="/core/hash/xxhash/#XXH3_state">XXH3_state</a>, input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, f_acc512: <a class="code-typename" href="/core/hash/xxhash/#XXH3_accumulate_512_f">XXH3_accumulate_512_f</a>, f_scramble: <a class="code-typename" href="/core/hash/xxhash/#XXH3_scramble_accumulator_f">XXH3_scramble_accumulator_f</a>) -> (err: <a class="code-typename" href="/core/hash/xxhash/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">XXH3_update :: <span class="keyword-type">proc</span>(state: ^<a class="code-typename" href="/core/hash/xxhash/#XXH3_state">XXH3_state</a>, input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, f_acc512: <a class="code-typename" href="/core/hash/xxhash/#XXH3_accumulate_512_f">XXH3_accumulate_512_f</a>, f_scramble: <a class="code-typename" href="/core/hash/xxhash/#XXH3_scramble_accumulator_f">XXH3_scramble_accumulator_f</a>) -> (err: <a class="code-typename" href="/core/hash/xxhash/#Error">Error</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1769,19 +1766,19 @@ about strength.
 <div class="pkg-entity">
 <h3 id="XXH64"><span><a class="doc-id-link" href="#XXH64">XXH64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_64.odin#L134"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH64 :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (digest: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH64 :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (digest: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH64_avalanche"><span><a class="doc-id-link" href="#XXH64_avalanche">XXH64_avalanche<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_64.odin#L61"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH64_avalanche :: <span class="keyword-type">proc</span>(h64: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH64_avalanche :: <span class="keyword-type">proc</span>(h64: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH64_canonical_from_hash"><span><a class="doc-id-link" href="#XXH64_canonical_from_hash">XXH64_canonical_from_hash<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_64.odin#L285"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH64_canonical_from_hash :: <span class="keyword-type">proc</span>(hash: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (canonical: <a class="code-typename" href="/core/hash/xxhash/#XXH64_canonical">XXH64_canonical</a>) {…}</pre>
+<pre class="doc-code">XXH64_canonical_from_hash :: <span class="keyword-type">proc</span>(hash: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (canonical: <a class="code-typename" href="/core/hash/xxhash/#XXH64_canonical">XXH64_canonical</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1824,61 +1821,61 @@ canonical format.
 <div class="pkg-entity">
 <h3 id="XXH64_digest"><span><a class="doc-id-link" href="#XXH64_digest">XXH64_digest<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_64.odin#L249"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH64_digest :: <span class="keyword-type">proc</span>(state: ^<a class="code-typename" href="/core/hash/xxhash/#XXH64_state">XXH64_state</a>) -> (res: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH64_digest :: <span class="keyword-type">proc</span>(state: ^<a class="code-typename" href="/core/hash/xxhash/#XXH64_state">XXH64_state</a>) -> (res: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH64_endian_align"><span><a class="doc-id-link" href="#XXH64_endian_align">XXH64_endian_align<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_64.odin#L104"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH64_endian_align :: <span class="keyword-type">proc</span>(input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> = XXH64_DEFAULT_SEED, alignment: <a class="code-typename" href="/core/hash/xxhash/#Alignment">Alignment</a> = Alignment.Unaligned) -> (res: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH64_endian_align :: <span class="keyword-type">proc</span>(input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> = XXH64_DEFAULT_SEED, alignment: <a class="code-typename" href="/core/hash/xxhash/#Alignment">Alignment</a> = Alignment.Unaligned) -> (res: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH64_finalize"><span><a class="doc-id-link" href="#XXH64_finalize">XXH64_finalize<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_64.odin#L72"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH64_finalize :: <span class="keyword-type">proc</span>(h64: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, buf: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, alignment: <a class="code-typename" href="/core/hash/xxhash/#Alignment">Alignment</a>) -> (res: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH64_finalize :: <span class="keyword-type">proc</span>(h64: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, buf: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, alignment: <a class="code-typename" href="/core/hash/xxhash/#Alignment">Alignment</a>) -> (res: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH64_hash_from_canonical"><span><a class="doc-id-link" href="#XXH64_hash_from_canonical">XXH64_hash_from_canonical<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_64.odin#L292"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH64_hash_from_canonical :: <span class="keyword-type">proc</span>(canonical: ^<a class="code-typename" href="/core/hash/xxhash/#XXH64_canonical">XXH64_canonical</a>) -> (hash: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH64_hash_from_canonical :: <span class="keyword-type">proc</span>(canonical: ^<a class="code-typename" href="/core/hash/xxhash/#XXH64_canonical">XXH64_canonical</a>) -> (hash: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH64_mergeRound"><span><a class="doc-id-link" href="#XXH64_mergeRound">XXH64_mergeRound<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_64.odin#L54"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH64_mergeRound :: <span class="keyword-type">proc</span>(acc, val: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH64_mergeRound :: <span class="keyword-type">proc</span>(acc, val: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH64_read64"><span><a class="doc-id-link" href="#XXH64_read64">XXH64_read64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/common.odin#L93"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH64_read64 :: <span class="keyword-type">proc</span>(buf: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, alignment: <a class="code-typename" href="/core/hash/xxhash/#Alignment">Alignment</a> = Alignment.Unaligned) -> (res: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH64_read64 :: <span class="keyword-type">proc</span>(buf: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, alignment: <a class="code-typename" href="/core/hash/xxhash/#Alignment">Alignment</a> = Alignment.Unaligned) -> (res: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH64_reset_state"><span><a class="doc-id-link" href="#XXH64_reset_state">XXH64_reset_state<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_64.odin#L180"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH64_reset_state :: <span class="keyword-type">proc</span>(state_ptr: ^<a class="code-typename" href="/core/hash/xxhash/#XXH64_state">XXH64_state</a>, seed: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a> = XXH64_DEFAULT_SEED) -> (err: <a class="code-typename" href="/core/hash/xxhash/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">XXH64_reset_state :: <span class="keyword-type">proc</span>(state_ptr: ^<a class="code-typename" href="/core/hash/xxhash/#XXH64_state">XXH64_state</a>, seed: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> = XXH64_DEFAULT_SEED) -> (err: <a class="code-typename" href="/core/hash/xxhash/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH64_round"><span><a class="doc-id-link" href="#XXH64_round">XXH64_round<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_64.odin#L44"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH64_round :: <span class="keyword-type">proc</span>(acc, input: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH64_round :: <span class="keyword-type">proc</span>(acc, input: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH64_update"><span><a class="doc-id-link" href="#XXH64_update">XXH64_update<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_64.odin#L195"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH64_update :: <span class="keyword-type">proc</span>(state: ^<a class="code-typename" href="/core/hash/xxhash/#XXH64_state">XXH64_state</a>, input: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: <a class="code-typename" href="/core/hash/xxhash/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">XXH64_update :: <span class="keyword-type">proc</span>(state: ^<a class="code-typename" href="/core/hash/xxhash/#XXH64_state">XXH64_state</a>, input: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> (err: <a class="code-typename" href="/core/hash/xxhash/#Error">Error</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH_mul_64_to_128_fold_64"><span><a class="doc-id-link" href="#XXH_mul_64_to_128_fold_64">XXH_mul_64_to_128_fold_64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L115"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH_mul_64_to_128_fold_64 :: <span class="keyword-type">proc</span>(lhs, rhs: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH_mul_64_to_128_fold_64 :: <span class="keyword-type">proc</span>(lhs, rhs: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -1893,43 +1890,43 @@ canonical format.
 <div class="pkg-entity">
 <h3 id="XXH_rotl32"><span><a class="doc-id-link" href="#XXH_rotl32">XXH_rotl32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/common.odin#L71"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH_rotl32 :: <span class="keyword-type">proc</span>(x, r: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) -> (res: <a href="/core/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
+<pre class="doc-code">XXH_rotl32 :: <span class="keyword-type">proc</span>(x, r: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) -> (res: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH_rotl64"><span><a class="doc-id-link" href="#XXH_rotl64">XXH_rotl64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/common.odin#L76"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH_rotl64 :: <span class="keyword-type">proc</span>(x, r: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH_rotl64 :: <span class="keyword-type">proc</span>(x, r: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) -> (res: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH_writeLE64"><span><a class="doc-id-link" href="#XXH_writeLE64">XXH_writeLE64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L703"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH_writeLE64 :: <span class="keyword-type">proc</span>(dst: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, v64: <a href="/core/builtin#u64le"><span class="doc-builtin">u64le</span></a>) {…}</pre>
+<pre class="doc-code">XXH_writeLE64 :: <span class="keyword-type">proc</span>(dst: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, v64: <a href="/base/builtin#u64le"><span class="doc-builtin">u64le</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="XXH_xorshift_64"><span><a class="doc-id-link" href="#XXH_xorshift_64">XXH_xorshift_64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_3.odin#L121"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">XXH_xorshift_64 :: <span class="keyword-type">proc</span>(v: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>, <span class="keyword-type">#any_int</span> shift: <a href="/core/builtin#uint"><span class="doc-builtin">uint</span></a>) -> (res: <a href="/core/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
+<pre class="doc-code">XXH_xorshift_64 :: <span class="keyword-type">proc</span>(v: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>, <span class="keyword-type">#any_int</span> shift: <a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a>) -> (res: <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="byte_swap"><span><a class="doc-id-link" href="#byte_swap">byte_swap<span class="a-hidden">&nbsp;¶</span></a></span></h3>
 <div>
-<pre class="doc-code">byte_swap :: intrinsics.byte_swap</pre>
+<pre class="doc-code">byte_swap :: <a href="/base/intrinsics#byte_swap">intrinsics</a>.byte_swap</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="prefetch_address"><span><a class="doc-id-link" href="#prefetch_address">prefetch_address<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/common.odin#L63"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">prefetch_address :: <span class="keyword-type">proc</span>(address: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>) {…}</pre>
+<pre class="doc-code">prefetch_address :: <span class="keyword-type">proc</span>(address: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="prefetch_offset"><span><a class="doc-id-link" href="#prefetch_offset">prefetch_offset<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/common.odin#L65"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">prefetch_offset :: <span class="keyword-type">proc</span>(address: <a href="/core/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, <span class="keyword-type">#any_int</span> offset: <a href="/core/builtin#uintptr"><span class="doc-builtin">uintptr</span></a>) {…}</pre>
+<pre class="doc-code">prefetch_offset :: <span class="keyword-type">proc</span>(address: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, <span class="keyword-type">#any_int</span> offset: <a href="/base/builtin#uintptr"><span class="doc-builtin">uintptr</span></a>) {…}</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
@@ -1965,7 +1962,7 @@ canonical format.
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/hash/xxhash/xxhash_64.odin">xxhash_64.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:14.914191800 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.230372200 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

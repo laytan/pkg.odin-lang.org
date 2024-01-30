@@ -43,7 +43,6 @@
 <div class="py-3">
 <h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
 <ul>
-<li class="nav-item"><a href="/core/builtin">builtin</a></li>
 <li class="nav-item"><a href="/core/bufio">bufio</a></li>
 <li class="nav-item"><a href="/core/bytes">bytes</a></li>
 <li class="nav-item"><a href="/core/c">c</a><ul>
@@ -97,7 +96,6 @@
 <li class="nav-item">encoding<ul>
 <li><a href="/core/encoding/base32">base32</a></li>
 <li><a href="/core/encoding/base64">base64</a></li>
-<li><a href="/core/encoding/cbor">cbor</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
 <li><a href="/core/encoding/entity">entity</a></li>
@@ -168,7 +166,6 @@
 
 </li>
 <li class="nav-item"><a href="/core/reflect">reflect</a></li>
-<li class="nav-item"><a href="/core/runtime">runtime</a></li>
 <li class="nav-item"><a href="/core/simd">simd</a></li>
 <li class="nav-item"><a href="/core/slice">slice</a><ul>
 <li><a href="/core/slice/heap">heap</a></li>
@@ -288,7 +285,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="compare_byte_ptrs_constant_time"><span><a class="doc-id-link" href="#compare_byte_ptrs_constant_time">compare_byte_ptrs_constant_time<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/crypto.odin#L30"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">compare_byte_ptrs_constant_time :: <span class="keyword-type">proc</span> "contextless" (a, b: ^<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>, n: <a href="/core/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">compare_byte_ptrs_constant_time :: <span class="keyword-type">proc</span> "contextless" (a, b: ^<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, n: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -301,7 +298,7 @@ contents of the memory being compared.</p>
 <div class="pkg-entity">
 <h3 id="compare_constant_time"><span><a class="doc-id-link" href="#compare_constant_time">compare_constant_time<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/crypto.odin#L10"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">compare_constant_time :: <span class="keyword-type">proc</span> "contextless" (a, b: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/core/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+<pre class="doc-code">compare_constant_time :: <span class="keyword-type">proc</span> "contextless" (a, b: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -314,7 +311,7 @@ If the length of the two slices is different, it will early-return 0.</p>
 <div class="pkg-entity">
 <h3 id="rand_bytes"><span><a class="doc-id-link" href="#rand_bytes">rand_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/crypto.odin#L48"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">rand_bytes :: <span class="keyword-type">proc</span>(dst: []<a href="/core/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">rand_bytes :: <span class="keyword-type">proc</span>(dst: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -334,7 +331,7 @@ as catastrophic, resulting in a panic.</p>
 <li><em>(hidden platform specific files)</em></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2023-12 (vendor "odin") Windows_amd64 @ 2023-12-23 21:54:15.250616100 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-01 (vendor "odin") Windows_amd64 @ 2024-01-30 21:06:21.082995700 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
