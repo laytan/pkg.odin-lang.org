@@ -75,6 +75,8 @@
 <li><a href="/core/crypto/blake2s">blake2s</a></li>
 <li><a href="/core/crypto/chacha20">chacha20</a></li>
 <li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
+<li><a href="/core/crypto/hash">hash</a></li>
+<li><a href="/core/crypto/hmac">hmac</a></li>
 <li><a href="/core/crypto/legacy/keccak">legacy/keccak</a></li>
 <li><a href="/core/crypto/legacy/md5">legacy/md5</a></li>
 <li><a href="/core/crypto/legacy/sha1">legacy/sha1</a></li>
@@ -232,6 +234,15 @@
 </div>
 <ul id="odin-search-results"></ul>
 <div id="pkg-top">
+<h2>Overview</h2>
+<div id="pkg-overview">
+<p>package sha3 implements the SHA3 hash algorithm family.</p>
+<p>The SHAKE XOF can be found in crypto/shake.  While discouraged if the
+pre-standardization Keccak algorithm is required, it can be found in
+crypto/legacy/keccak.</p>
+<p>See:
+<span class="doc-list">https://nvlpubs.nist.gov/nistpubs/fips/nist.fips.202.pdf</span></p>
+</div>
 <div id="pkg-index">
 <h2>Index</h2>
 <div>
@@ -246,8 +257,12 @@ Types (1)</summary>
 <div>
 <details class="doc-index" id="doc-index-Constants" aria-labelledby="#doc-index-Constants-header">
 <summary id="#doc-index-Constants-header">
-Constants (4)</summary>
+Constants (8)</summary>
 <ul>
+<li><a href="#BLOCK_SIZE_224">BLOCK_SIZE_224</a></li>
+<li><a href="#BLOCK_SIZE_256">BLOCK_SIZE_256</a></li>
+<li><a href="#BLOCK_SIZE_384">BLOCK_SIZE_384</a></li>
+<li><a href="#BLOCK_SIZE_512">BLOCK_SIZE_512</a></li>
 <li><a href="#DIGEST_SIZE_224">DIGEST_SIZE_224</a></li>
 <li><a href="#DIGEST_SIZE_256">DIGEST_SIZE_256</a></li>
 <li><a href="#DIGEST_SIZE_384">DIGEST_SIZE_384</a></li>
@@ -265,34 +280,15 @@ Variables (0)</summary>
 <div>
 <details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
 <summary id="#doc-index-Procedures-header">
-Procedures (27)</summary>
+Procedures (8)</summary>
 <ul>
+<li><a href="#clone">clone</a></li>
 <li><a href="#final">final</a></li>
-<li><a href="#hash_bytes_224">hash_bytes_224</a></li>
-<li><a href="#hash_bytes_256">hash_bytes_256</a></li>
-<li><a href="#hash_bytes_384">hash_bytes_384</a></li>
-<li><a href="#hash_bytes_512">hash_bytes_512</a></li>
-<li><a href="#hash_bytes_to_buffer_224">hash_bytes_to_buffer_224</a></li>
-<li><a href="#hash_bytes_to_buffer_256">hash_bytes_to_buffer_256</a></li>
-<li><a href="#hash_bytes_to_buffer_384">hash_bytes_to_buffer_384</a></li>
-<li><a href="#hash_bytes_to_buffer_512">hash_bytes_to_buffer_512</a></li>
-<li><a href="#hash_file_224">hash_file_224</a></li>
-<li><a href="#hash_file_256">hash_file_256</a></li>
-<li><a href="#hash_file_384">hash_file_384</a></li>
-<li><a href="#hash_file_512">hash_file_512</a></li>
-<li><a href="#hash_stream_224">hash_stream_224</a></li>
-<li><a href="#hash_stream_256">hash_stream_256</a></li>
-<li><a href="#hash_stream_384">hash_stream_384</a></li>
-<li><a href="#hash_stream_512">hash_stream_512</a></li>
-<li><a href="#hash_string_224">hash_string_224</a></li>
-<li><a href="#hash_string_256">hash_string_256</a></li>
-<li><a href="#hash_string_384">hash_string_384</a></li>
-<li><a href="#hash_string_512">hash_string_512</a></li>
-<li><a href="#hash_string_to_buffer_224">hash_string_to_buffer_224</a></li>
-<li><a href="#hash_string_to_buffer_256">hash_string_to_buffer_256</a></li>
-<li><a href="#hash_string_to_buffer_384">hash_string_to_buffer_384</a></li>
-<li><a href="#hash_string_to_buffer_512">hash_string_to_buffer_512</a></li>
-<li><a href="#init">init</a></li>
+<li><a href="#init_224">init_224</a></li>
+<li><a href="#init_256">init_256</a></li>
+<li><a href="#init_384">init_384</a></li>
+<li><a href="#init_512">init_512</a></li>
+<li><a href="#reset">reset</a></li>
 <li><a href="#update">update</a></li>
 </ul>
 </details>
@@ -300,13 +296,8 @@ Procedures (27)</summary>
 <div>
 <details class="doc-index" id="doc-index-Procedure Groups" aria-labelledby="#doc-index-Procedure Groups-header">
 <summary id="#doc-index-Procedure Groups-header">
-Procedure Groups (4)</summary>
-<ul>
-<li><a href="#hash_224">hash_224</a></li>
-<li><a href="#hash_256">hash_256</a></li>
-<li><a href="#hash_384">hash_384</a></li>
-<li><a href="#hash_512">hash_512</a></li>
-</ul>
+Procedure Groups (0)</summary>
+<p class="pkg-empty-section">This section is empty.</p>
 </details>
 </div>
 </div>
@@ -314,402 +305,227 @@ Procedure Groups (4)</summary>
 <section class="documentation">
 <h2 id="pkg-Types" class="pkg-header">Types</h2>
 <div class="pkg-entity">
-<h3 id="Context"><span><a class="doc-id-link" href="#Context">Context<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L352"><em>Source</em></a></div></h3>
+<h3 id="Context"><span><a class="doc-id-link" href="#Context">Context<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L42"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Context :: _sha3.<a class="code-typename" href="//#Sha3_Context">Sha3_Context</a></pre>
+<pre class="doc-code">Context :: <span class="keyword-type">struct</span> {
+	st:             <span class="keyword-type">struct</span> <span class="directive">#raw_union</span> {
+		b: [200]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+		q: [25]<a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>,
+	},
+	pt:             <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	rsiz:           <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	mdlen:          <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	is_keccak:      <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	is_initialized: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
+	is_finalized:   <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
+}</pre>
 </div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Context is a SHA3 instance.</p>
+</details>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/crypto/sha3/#clone">clone</a></li>
+<li><a href="/core/crypto/sha3/#final">final</a></li>
+<li><a href="/core/crypto/sha3/#init_224">init_224</a></li>
+<li><a href="/core/crypto/sha3/#init_256">init_256</a></li>
+<li><a href="/core/crypto/sha3/#init_384">init_384</a></li>
+<li><a href="/core/crypto/sha3/#init_512">init_512</a></li>
+<li><a href="/core/crypto/sha3/#reset">reset</a></li>
+<li><a href="/core/crypto/sha3/#update">update</a></li>
+</ul>
 </div>
 <h2 id="pkg-Constants" class="pkg-header">Constants</h2>
 <div class="pkg-entity">
-<h3 id="DIGEST_SIZE_224"><span><a class="doc-id-link" href="#DIGEST_SIZE_224">DIGEST_SIZE_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L23"><em>Source</em></a></div></h3>
+<h3 id="BLOCK_SIZE_224"><span><a class="doc-id-link" href="#BLOCK_SIZE_224">BLOCK_SIZE_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L33"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">BLOCK_SIZE_224 :: _sha3.RATE_224</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>BLOCK_SIZE_224 is the SHA3-224 block size in bytes.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="BLOCK_SIZE_256"><span><a class="doc-id-link" href="#BLOCK_SIZE_256">BLOCK_SIZE_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L35"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">BLOCK_SIZE_256 :: _sha3.RATE_256</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>BLOCK_SIZE_256 is the SHA3-256 block size in bytes.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="BLOCK_SIZE_384"><span><a class="doc-id-link" href="#BLOCK_SIZE_384">BLOCK_SIZE_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L37"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">BLOCK_SIZE_384 :: _sha3.RATE_384</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>BLOCK_SIZE_384 is the SHA3-384 block size in bytes.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="BLOCK_SIZE_512"><span><a class="doc-id-link" href="#BLOCK_SIZE_512">BLOCK_SIZE_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L39"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">BLOCK_SIZE_512 :: _sha3.RATE_512</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>BLOCK_SIZE_512 is the SHA3-512 block size in bytes.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="DIGEST_SIZE_224"><span><a class="doc-id-link" href="#DIGEST_SIZE_224">DIGEST_SIZE_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L24"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">DIGEST_SIZE_224 :: 28</pre>
 </div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>DIGEST_SIZE_224 is the SHA3-224 digest size.</p>
+</details>
 </div>
 <div class="pkg-entity">
-<h3 id="DIGEST_SIZE_256"><span><a class="doc-id-link" href="#DIGEST_SIZE_256">DIGEST_SIZE_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L24"><em>Source</em></a></div></h3>
+<h3 id="DIGEST_SIZE_256"><span><a class="doc-id-link" href="#DIGEST_SIZE_256">DIGEST_SIZE_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L26"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">DIGEST_SIZE_256 :: 32</pre>
 </div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>DIGEST_SIZE_256 is the SHA3-256 digest size.</p>
+</details>
 </div>
 <div class="pkg-entity">
-<h3 id="DIGEST_SIZE_384"><span><a class="doc-id-link" href="#DIGEST_SIZE_384">DIGEST_SIZE_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L25"><em>Source</em></a></div></h3>
+<h3 id="DIGEST_SIZE_384"><span><a class="doc-id-link" href="#DIGEST_SIZE_384">DIGEST_SIZE_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L28"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">DIGEST_SIZE_384 :: 48</pre>
 </div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>DIGEST_SIZE_384 is the SHA3-384 digest size.</p>
+</details>
 </div>
 <div class="pkg-entity">
-<h3 id="DIGEST_SIZE_512"><span><a class="doc-id-link" href="#DIGEST_SIZE_512">DIGEST_SIZE_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L26"><em>Source</em></a></div></h3>
+<h3 id="DIGEST_SIZE_512"><span><a class="doc-id-link" href="#DIGEST_SIZE_512">DIGEST_SIZE_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L30"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">DIGEST_SIZE_512 :: 64</pre>
 </div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>DIGEST_SIZE_512 is the SHA3-512 digest size.</p>
+</details>
 </div>
 <h2 id="pkg-Variables" class="pkg-header">Variables</h2>
 <p class="pkg-empty-section">This section is empty.</p>
 <h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
 <div class="pkg-entity">
-<h3 id="final"><span><a class="doc-id-link" href="#final">final<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L362"><em>Source</em></a></div></h3>
+<h3 id="clone"><span><a class="doc-id-link" href="#clone">clone<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L88"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">final :: <span class="keyword-type">proc</span>(ctx: ^_sha3.<a class="code-typename" href="//#Sha3_Context">Sha3_Context</a>, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="hash_bytes_224"><span><a class="doc-id-link" href="#hash_bytes_224">hash_bytes_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L36"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">hash_bytes_224 :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [28]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">clone :: <span class="keyword-type">proc</span>(ctx, other: ^<a class="code-typename" href="/core/crypto/sha3/#Context">Context</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
-<p>hash_bytes_224 will hash the given input and return the
-computed hash</p>
+<p>clone clones the Context other into ctx.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_bytes_256"><span><a class="doc-id-link" href="#hash_bytes_256">hash_bytes_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L116"><em>Source</em></a></div></h3>
+<h3 id="final"><span><a class="doc-id-link" href="#final">final<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L83"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_bytes_256 :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [32]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">final :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/sha3/#Context">Context</a>, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, finalize_clone: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
-<p>hash_bytes_256 will hash the given input and return the
-computed hash</p>
+<p>final finalizes the Context, writes the digest to hash, and calls
+reset on the Context.</p>
+<p>Iff finalize_clone is set, final will work on a copy of the Context,
+which is useful for for calculating rolling digests.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_bytes_384"><span><a class="doc-id-link" href="#hash_bytes_384">hash_bytes_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L196"><em>Source</em></a></div></h3>
+<h3 id="init_224"><span><a class="doc-id-link" href="#init_224">init_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L45"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_bytes_384 :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [48]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">init_224 :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/sha3/#Context">Context</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
-<p>hash_bytes_384 will hash the given input and return the
-computed hash</p>
+<p>init_224 initializes a Context for SHA3-224.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_bytes_512"><span><a class="doc-id-link" href="#hash_bytes_512">hash_bytes_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L276"><em>Source</em></a></div></h3>
+<h3 id="init_256"><span><a class="doc-id-link" href="#init_256">init_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L51"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_bytes_512 :: <span class="keyword-type">proc</span>(data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> [64]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+<pre class="doc-code">init_256 :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/sha3/#Context">Context</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
-<p>hash_bytes_512 will hash the given input and return the
-computed hash</p>
+<p>init_256 initializes a Context for SHA3-256.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_bytes_to_buffer_224"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_224">hash_bytes_to_buffer_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L56"><em>Source</em></a></div></h3>
+<h3 id="init_384"><span><a class="doc-id-link" href="#init_384">init_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L57"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_bytes_to_buffer_224 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">init_384 :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/sha3/#Context">Context</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
-<p>hash_bytes_to_buffer_224 will hash the given input and write the
-computed hash into the second parameter.
-It requires that the destination buffer is at least as big as the digest size</p>
+<p>init_384 initializes a Context for SHA3-384.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_bytes_to_buffer_256"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_256">hash_bytes_to_buffer_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L136"><em>Source</em></a></div></h3>
+<h3 id="init_512"><span><a class="doc-id-link" href="#init_512">init_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L63"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_bytes_to_buffer_256 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">init_512 :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/sha3/#Context">Context</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
-<p>hash_bytes_to_buffer_256 will hash the given input and write the
-computed hash into the second parameter.
-It requires that the destination buffer is at least as big as the digest size</p>
+<p>init_512 initializes a Context for SHA3-512.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_bytes_to_buffer_384"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_384">hash_bytes_to_buffer_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L216"><em>Source</em></a></div></h3>
+<h3 id="reset"><span><a class="doc-id-link" href="#reset">reset<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L94"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_bytes_to_buffer_384 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">reset :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/sha3/#Context">Context</a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
-<p>hash_bytes_to_buffer_384 will hash the given input and write the
-computed hash into the second parameter.
-It requires that the destination buffer is at least as big as the digest size</p>
+<p>reset sanitizes the Context.  The Context must be re-initialized to
+be used again.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="hash_bytes_to_buffer_512"><span><a class="doc-id-link" href="#hash_bytes_to_buffer_512">hash_bytes_to_buffer_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L296"><em>Source</em></a></div></h3>
+<h3 id="update"><span><a class="doc-id-link" href="#update">update<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L74"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hash_bytes_to_buffer_512 :: <span class="keyword-type">proc</span>(data, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+<pre class="doc-code">update :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/sha3/#Context">Context</a>, data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
-<p>hash_bytes_to_buffer_512 will hash the given input and write the
-computed hash into the second parameter.
-It requires that the destination buffer is at least as big as the digest size</p>
+<p>update adds more data to the Context.</p>
 </details>
-</div>
-<div class="pkg-entity">
-<h3 id="hash_file_224"><span><a class="doc-id-link" href="#hash_file_224">hash_file_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L88"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">hash_file_224 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([28]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
-</div>
-<details class="odin-doc-toggle" open>
-<summary class="hideme"><span>&nbsp;</span></summary>
-<p>hash_file_224 will read the file provided by the given handle
-and compute a hash</p>
-</details>
-</div>
-<div class="pkg-entity">
-<h3 id="hash_file_256"><span><a class="doc-id-link" href="#hash_file_256">hash_file_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L168"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">hash_file_256 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([32]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
-</div>
-<details class="odin-doc-toggle" open>
-<summary class="hideme"><span>&nbsp;</span></summary>
-<p>hash_file_256 will read the file provided by the given handle
-and compute a hash</p>
-</details>
-</div>
-<div class="pkg-entity">
-<h3 id="hash_file_384"><span><a class="doc-id-link" href="#hash_file_384">hash_file_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L248"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">hash_file_384 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([48]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
-</div>
-<details class="odin-doc-toggle" open>
-<summary class="hideme"><span>&nbsp;</span></summary>
-<p>hash_file_384 will read the file provided by the given handle
-and compute a hash</p>
-</details>
-</div>
-<div class="pkg-entity">
-<h3 id="hash_file_512"><span><a class="doc-id-link" href="#hash_file_512">hash_file_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L328"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">hash_file_512 :: <span class="keyword-type">proc</span>(hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> ([64]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
-</div>
-<details class="odin-doc-toggle" open>
-<summary class="hideme"><span>&nbsp;</span></summary>
-<p>hash_file_512 will read the file provided by the given handle
-and compute a hash</p>
-</details>
-</div>
-<div class="pkg-entity">
-<h3 id="hash_stream_224"><span><a class="doc-id-link" href="#hash_stream_224">hash_stream_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L66"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">hash_stream_224 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([28]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
-</div>
-<details class="odin-doc-toggle" open>
-<summary class="hideme"><span>&nbsp;</span></summary>
-<p>hash_stream_224 will read the stream in chunks and compute a
-hash from its contents</p>
-</details>
-</div>
-<div class="pkg-entity">
-<h3 id="hash_stream_256"><span><a class="doc-id-link" href="#hash_stream_256">hash_stream_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L146"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">hash_stream_256 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([32]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
-</div>
-<details class="odin-doc-toggle" open>
-<summary class="hideme"><span>&nbsp;</span></summary>
-<p>hash_stream_256 will read the stream in chunks and compute a
-hash from its contents</p>
-</details>
-</div>
-<div class="pkg-entity">
-<h3 id="hash_stream_384"><span><a class="doc-id-link" href="#hash_stream_384">hash_stream_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L226"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">hash_stream_384 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([48]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
-</div>
-<details class="odin-doc-toggle" open>
-<summary class="hideme"><span>&nbsp;</span></summary>
-<p>hash_stream_384 will read the stream in chunks and compute a
-hash from its contents</p>
-</details>
-</div>
-<div class="pkg-entity">
-<h3 id="hash_stream_512"><span><a class="doc-id-link" href="#hash_stream_512">hash_stream_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L306"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">hash_stream_512 :: <span class="keyword-type">proc</span>(s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>) -> ([64]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
-</div>
-<details class="odin-doc-toggle" open>
-<summary class="hideme"><span>&nbsp;</span></summary>
-<p>hash_stream_512 will read the stream in chunks and compute a
-hash from its contents</p>
-</details>
-</div>
-<div class="pkg-entity">
-<h3 id="hash_string_224"><span><a class="doc-id-link" href="#hash_string_224">hash_string_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L30"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">hash_string_224 :: <span class="keyword-type">proc</span>(data: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> [28]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
-</div>
-<details class="odin-doc-toggle" open>
-<summary class="hideme"><span>&nbsp;</span></summary>
-<p>hash_string_224 will hash the given input and return the
-computed hash</p>
-</details>
-</div>
-<div class="pkg-entity">
-<h3 id="hash_string_256"><span><a class="doc-id-link" href="#hash_string_256">hash_string_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L110"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">hash_string_256 :: <span class="keyword-type">proc</span>(data: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> [32]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
-</div>
-<details class="odin-doc-toggle" open>
-<summary class="hideme"><span>&nbsp;</span></summary>
-<p>hash_string_256 will hash the given input and return the
-computed hash</p>
-</details>
-</div>
-<div class="pkg-entity">
-<h3 id="hash_string_384"><span><a class="doc-id-link" href="#hash_string_384">hash_string_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L190"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">hash_string_384 :: <span class="keyword-type">proc</span>(data: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> [48]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
-</div>
-<details class="odin-doc-toggle" open>
-<summary class="hideme"><span>&nbsp;</span></summary>
-<p>hash_string_384 will hash the given input and return the
-computed hash</p>
-</details>
-</div>
-<div class="pkg-entity">
-<h3 id="hash_string_512"><span><a class="doc-id-link" href="#hash_string_512">hash_string_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L270"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">hash_string_512 :: <span class="keyword-type">proc</span>(data: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> [64]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
-</div>
-<details class="odin-doc-toggle" open>
-<summary class="hideme"><span>&nbsp;</span></summary>
-<p>hash_string_512 will hash the given input and return the
-computed hash</p>
-</details>
-</div>
-<div class="pkg-entity">
-<h3 id="hash_string_to_buffer_224"><span><a class="doc-id-link" href="#hash_string_to_buffer_224">hash_string_to_buffer_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L49"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">hash_string_to_buffer_224 :: <span class="keyword-type">proc</span>(data: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
-</div>
-<details class="odin-doc-toggle" open>
-<summary class="hideme"><span>&nbsp;</span></summary>
-<p>hash_string_to_buffer_224 will hash the given input and assign the
-computed hash to the second parameter.
-It requires that the destination buffer is at least as big as the digest size</p>
-</details>
-</div>
-<div class="pkg-entity">
-<h3 id="hash_string_to_buffer_256"><span><a class="doc-id-link" href="#hash_string_to_buffer_256">hash_string_to_buffer_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L129"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">hash_string_to_buffer_256 :: <span class="keyword-type">proc</span>(data: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
-</div>
-<details class="odin-doc-toggle" open>
-<summary class="hideme"><span>&nbsp;</span></summary>
-<p>hash_string_to_buffer_256 will hash the given input and assign the
-computed hash to the second parameter.
-It requires that the destination buffer is at least as big as the digest size</p>
-</details>
-</div>
-<div class="pkg-entity">
-<h3 id="hash_string_to_buffer_384"><span><a class="doc-id-link" href="#hash_string_to_buffer_384">hash_string_to_buffer_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L209"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">hash_string_to_buffer_384 :: <span class="keyword-type">proc</span>(data: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
-</div>
-<details class="odin-doc-toggle" open>
-<summary class="hideme"><span>&nbsp;</span></summary>
-<p>hash_string_to_buffer_384 will hash the given input and assign the
-computed hash to the second parameter.
-It requires that the destination buffer is at least as big as the digest size</p>
-</details>
-</div>
-<div class="pkg-entity">
-<h3 id="hash_string_to_buffer_512"><span><a class="doc-id-link" href="#hash_string_to_buffer_512">hash_string_to_buffer_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L289"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">hash_string_to_buffer_512 :: <span class="keyword-type">proc</span>(data: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
-</div>
-<details class="odin-doc-toggle" open>
-<summary class="hideme"><span>&nbsp;</span></summary>
-<p>hash_string_to_buffer_512 will hash the given input and assign the
-computed hash to the second parameter.
-It requires that the destination buffer is at least as big as the digest size</p>
-</details>
-</div>
-<div class="pkg-entity">
-<h3 id="init"><span><a class="doc-id-link" href="#init">init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L354"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">init :: <span class="keyword-type">proc</span>(ctx: ^_sha3.<a class="code-typename" href="//#Sha3_Context">Sha3_Context</a>) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="update"><span><a class="doc-id-link" href="#update">update<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L358"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">update :: <span class="keyword-type">proc</span>(ctx: ^_sha3.<a class="code-typename" href="//#Sha3_Context">Sha3_Context</a>, data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
-</div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
-<div class="pkg-entity">
-<h3 id="hash_224"><span><a class="doc-id-link" href="#hash_224">hash_224<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L99"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">hash_224 :: proc{
-	<a class="code-procedure" href="/core/crypto/sha3/#hash_stream_224">hash_stream_224</a>,
-	<a class="code-procedure" href="/core/crypto/sha3/#hash_file_224">hash_file_224</a>,
-	<a class="code-procedure" href="/core/crypto/sha3/#hash_bytes_224">hash_bytes_224</a>,
-	<a class="code-procedure" href="/core/crypto/sha3/#hash_string_224">hash_string_224</a>,
-	<a class="code-procedure" href="/core/crypto/sha3/#hash_bytes_to_buffer_224">hash_bytes_to_buffer_224</a>,
-	<a class="code-procedure" href="/core/crypto/sha3/#hash_string_to_buffer_224">hash_string_to_buffer_224</a>,
-}
-</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="hash_256"><span><a class="doc-id-link" href="#hash_256">hash_256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L179"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">hash_256 :: proc{
-	<a class="code-procedure" href="/core/crypto/sha3/#hash_stream_256">hash_stream_256</a>,
-	<a class="code-procedure" href="/core/crypto/sha3/#hash_file_256">hash_file_256</a>,
-	<a class="code-procedure" href="/core/crypto/sha3/#hash_bytes_256">hash_bytes_256</a>,
-	<a class="code-procedure" href="/core/crypto/sha3/#hash_string_256">hash_string_256</a>,
-	<a class="code-procedure" href="/core/crypto/sha3/#hash_bytes_to_buffer_256">hash_bytes_to_buffer_256</a>,
-	<a class="code-procedure" href="/core/crypto/sha3/#hash_string_to_buffer_256">hash_string_to_buffer_256</a>,
-}
-</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="hash_384"><span><a class="doc-id-link" href="#hash_384">hash_384<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L259"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">hash_384 :: proc{
-	<a class="code-procedure" href="/core/crypto/sha3/#hash_stream_384">hash_stream_384</a>,
-	<a class="code-procedure" href="/core/crypto/sha3/#hash_file_384">hash_file_384</a>,
-	<a class="code-procedure" href="/core/crypto/sha3/#hash_bytes_384">hash_bytes_384</a>,
-	<a class="code-procedure" href="/core/crypto/sha3/#hash_string_384">hash_string_384</a>,
-	<a class="code-procedure" href="/core/crypto/sha3/#hash_bytes_to_buffer_384">hash_bytes_to_buffer_384</a>,
-	<a class="code-procedure" href="/core/crypto/sha3/#hash_string_to_buffer_384">hash_string_to_buffer_384</a>,
-}
-</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="hash_512"><span><a class="doc-id-link" href="#hash_512">hash_512<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin#L339"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">hash_512 :: proc{
-	<a class="code-procedure" href="/core/crypto/sha3/#hash_stream_512">hash_stream_512</a>,
-	<a class="code-procedure" href="/core/crypto/sha3/#hash_file_512">hash_file_512</a>,
-	<a class="code-procedure" href="/core/crypto/sha3/#hash_bytes_512">hash_bytes_512</a>,
-	<a class="code-procedure" href="/core/crypto/sha3/#hash_string_512">hash_string_512</a>,
-	<a class="code-procedure" href="/core/crypto/sha3/#hash_bytes_to_buffer_512">hash_bytes_to_buffer_512</a>,
-	<a class="code-procedure" href="/core/crypto/sha3/#hash_string_to_buffer_512">hash_string_to_buffer_512</a>,
-}
-</pre>
-</div>
-</div>
+<p class="pkg-empty-section">This section is empty.</p>
 </section>
 <h2 id="pkg-source-files">Source Files</h2>
 <ul>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/sha3/sha3.odin">sha3.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2024-02 (vendor "odin") Windows_amd64 @ 2024-02-05 21:03:23.833952700 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-02 (vendor "odin") Windows_amd64 @ 2024-02-06 21:02:53.742824300 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
 <ul>
-<li><a href="#pkg-Types">Types</a><ul>
+<li><a href="#pkg-overview">Overview</a><li><a href="#pkg-Types">Types</a><ul>
 <li><a href="#Context">Context</a></li>
 </ul>
 </li>
 <li><a href="#pkg-Constants">Constants</a><ul>
+<li><a href="#BLOCK_SIZE_224">BLOCK_SIZE_224</a></li>
+<li><a href="#BLOCK_SIZE_256">BLOCK_SIZE_256</a></li>
+<li><a href="#BLOCK_SIZE_384">BLOCK_SIZE_384</a></li>
+<li><a href="#BLOCK_SIZE_512">BLOCK_SIZE_512</a></li>
 <li><a href="#DIGEST_SIZE_224">DIGEST_SIZE_224</a></li>
 <li><a href="#DIGEST_SIZE_256">DIGEST_SIZE_256</a></li>
 <li><a href="#DIGEST_SIZE_384">DIGEST_SIZE_384</a></li>
@@ -717,40 +533,14 @@ It requires that the destination buffer is at least as big as the digest size</p
 </ul>
 </li>
 <li><a href="#pkg-Procedures">Procedures</a><ul>
+<li><a href="#clone">clone</a></li>
 <li><a href="#final">final</a></li>
-<li><a href="#hash_bytes_224">hash_bytes_224</a></li>
-<li><a href="#hash_bytes_256">hash_bytes_256</a></li>
-<li><a href="#hash_bytes_384">hash_bytes_384</a></li>
-<li><a href="#hash_bytes_512">hash_bytes_512</a></li>
-<li><a href="#hash_bytes_to_buffer_224">hash_bytes_to_buffer_224</a></li>
-<li><a href="#hash_bytes_to_buffer_256">hash_bytes_to_buffer_256</a></li>
-<li><a href="#hash_bytes_to_buffer_384">hash_bytes_to_buffer_384</a></li>
-<li><a href="#hash_bytes_to_buffer_512">hash_bytes_to_buffer_512</a></li>
-<li><a href="#hash_file_224">hash_file_224</a></li>
-<li><a href="#hash_file_256">hash_file_256</a></li>
-<li><a href="#hash_file_384">hash_file_384</a></li>
-<li><a href="#hash_file_512">hash_file_512</a></li>
-<li><a href="#hash_stream_224">hash_stream_224</a></li>
-<li><a href="#hash_stream_256">hash_stream_256</a></li>
-<li><a href="#hash_stream_384">hash_stream_384</a></li>
-<li><a href="#hash_stream_512">hash_stream_512</a></li>
-<li><a href="#hash_string_224">hash_string_224</a></li>
-<li><a href="#hash_string_256">hash_string_256</a></li>
-<li><a href="#hash_string_384">hash_string_384</a></li>
-<li><a href="#hash_string_512">hash_string_512</a></li>
-<li><a href="#hash_string_to_buffer_224">hash_string_to_buffer_224</a></li>
-<li><a href="#hash_string_to_buffer_256">hash_string_to_buffer_256</a></li>
-<li><a href="#hash_string_to_buffer_384">hash_string_to_buffer_384</a></li>
-<li><a href="#hash_string_to_buffer_512">hash_string_to_buffer_512</a></li>
-<li><a href="#init">init</a></li>
+<li><a href="#init_224">init_224</a></li>
+<li><a href="#init_256">init_256</a></li>
+<li><a href="#init_384">init_384</a></li>
+<li><a href="#init_512">init_512</a></li>
+<li><a href="#reset">reset</a></li>
 <li><a href="#update">update</a></li>
-</ul>
-</li>
-<li><a href="#pkg-Procedure Groups">Procedure Groups</a><ul>
-<li><a href="#hash_224">hash_224</a></li>
-<li><a href="#hash_256">hash_256</a></li>
-<li><a href="#hash_384">hash_384</a></li>
-<li><a href="#hash_512">hash_512</a></li>
 </ul>
 </li>
 <li><a href="#pkg-source-files">Source Files</a></ul>

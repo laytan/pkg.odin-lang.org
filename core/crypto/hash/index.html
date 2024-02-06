@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>package crypto/hash - pkg.odin-lang.org</title>	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/scss/custom.min.css">
+	<link rel=stylesheet href="//odin-lang.org/lib/highlight/styles/github-dark.min.css">
+	<script src="//odin-lang.org/lib/highlight/highlight.min.js"></script>
+
+	<script>hljs.registerLanguage("odin",function(a){return{aliases:["odin","odinlang","odin-lang"],keywords:{keyword:"auto_cast bit_set break case cast context continue defer distinct do dynamic else enum fallthrough for foreign if import in map not_in or_else or_return package proc return struct switch transmute type_of typeid union using when where",literal:"true false nil",built_in:"abs align_of cap clamp complex conj expand_to_tuple imag jmag kmag len max min offset_of quaternion real size_of soa_unzip soa_zip swizzle type_info_of type_of typeid_of"},illegal:"</",contains:[a.C_LINE_COMMENT_MODE,a.C_BLOCK_COMMENT_MODE,{className:"string",variants:[a.QUOTE_STRING_MODE,{begin:"'",end:"[^\\\\]'"},{begin:"`",end:"`"}]},{className:"number",variants:[{begin:a.C_NUMBER_RE+"[ijk]",relevance:1},a.C_NUMBER_MODE]}]}})</script>
+	<script>hljs.highlightAll()</script>
+	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/css/style.css">
+
+	<link rel="stylesheet" type="text/css" href="/style.css">
+
+	</style>
+</head>
+<body>
+<header class="sticky-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary odin-menu">
+		<div class="container">
+			<a class="navbar-brand" href="https://odin-lang.org/">
+			<img src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#odin-navbar-content" aria-controls="odin-navbar-content" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="odin-navbar-content">
+			<ul class="navbar-nav ms-md-auto">
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/docs">Docs</a></li>
+				<li class="nav-item"><a class="nav-link active" href="/">Packages</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/news">News</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/showcase">Showcase</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://odin-lang.org/community">Community</a></li>
+				<li class="nav-item"><a class="nav-link" href="https://github.com/odin-lang/Odin" target="_blank">GitHub</a></li>
+			</ul>
+		</div>
+		</div>
+	</nav>
+</header>
+<main>
+<div class="container full-width">
+<div class="row odin-main my-4" id="pkg">
+<nav id="pkg-sidebar" class="col-lg-2 odin-sidebar-border navbar-light sticky-top odin-below-navbar">
+<div class="py-3">
+<h4><a style="text-transform: capitalize; color: inherit;" href="/core">core Library</a></h4>
+<ul>
+<li class="nav-item"><a href="/core/bufio">bufio</a></li>
+<li class="nav-item"><a href="/core/bytes">bytes</a></li>
+<li class="nav-item"><a href="/core/c">c</a><ul>
+<li><a href="/core/c/frontend/preprocessor">frontend/preprocessor</a></li>
+<li><a href="/core/c/frontend/tokenizer">frontend/tokenizer</a></li>
+<li><a href="/core/c/libc">libc</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/compress">compress</a><ul>
+<li><a href="/core/compress/gzip">gzip</a></li>
+<li><a href="/core/compress/shoco">shoco</a></li>
+<li><a href="/core/compress/zlib">zlib</a></li>
+</ul>
+
+</li>
+<li class="nav-item">container<ul>
+<li><a href="/core/container/bit_array">bit_array</a></li>
+<li><a href="/core/container/intrusive/list">intrusive/list</a></li>
+<li><a href="/core/container/lru">lru</a></li>
+<li><a href="/core/container/priority_queue">priority_queue</a></li>
+<li><a href="/core/container/queue">queue</a></li>
+<li><a href="/core/container/small_array">small_array</a></li>
+<li><a href="/core/container/topological_sort">topological_sort</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/crypto">crypto</a><ul>
+<li><a href="/core/crypto/blake2b">blake2b</a></li>
+<li><a href="/core/crypto/blake2s">blake2s</a></li>
+<li><a href="/core/crypto/chacha20">chacha20</a></li>
+<li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
+<li><a class="active" href="/core/crypto/hash">hash</a></li>
+<li><a href="/core/crypto/hmac">hmac</a></li>
+<li><a href="/core/crypto/legacy/keccak">legacy/keccak</a></li>
+<li><a href="/core/crypto/legacy/md5">legacy/md5</a></li>
+<li><a href="/core/crypto/legacy/sha1">legacy/sha1</a></li>
+<li><a href="/core/crypto/poly1305">poly1305</a></li>
+<li><a href="/core/crypto/sha2">sha2</a></li>
+<li><a href="/core/crypto/sha3">sha3</a></li>
+<li><a href="/core/crypto/shake">shake</a></li>
+<li><a href="/core/crypto/sm3">sm3</a></li>
+<li><a href="/core/crypto/x25519">x25519</a></li>
+</ul>
+
+</li>
+<li class="nav-item">debug<ul>
+<li><a href="/core/debug/pe">pe</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/dynlib">dynlib</a></li>
+<li class="nav-item">encoding<ul>
+<li><a href="/core/encoding/base32">base32</a></li>
+<li><a href="/core/encoding/base64">base64</a></li>
+<li><a href="/core/encoding/csv">csv</a></li>
+<li><a href="/core/encoding/endian">endian</a></li>
+<li><a href="/core/encoding/entity">entity</a></li>
+<li><a href="/core/encoding/hex">hex</a></li>
+<li><a href="/core/encoding/hxa">hxa</a></li>
+<li><a href="/core/encoding/json">json</a></li>
+<li><a href="/core/encoding/varint">varint</a></li>
+<li><a href="/core/encoding/xml">xml</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/fmt">fmt</a></li>
+<li class="nav-item"><a href="/core/hash">hash</a><ul>
+<li><a href="/core/hash/xxhash">xxhash</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/image">image</a><ul>
+<li><a href="/core/image/netpbm">netpbm</a></li>
+<li><a href="/core/image/png">png</a></li>
+<li><a href="/core/image/qoi">qoi</a></li>
+<li><a href="/core/image/tga">tga</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/io">io</a></li>
+<li class="nav-item"><a href="/core/log">log</a></li>
+<li class="nav-item"><a href="/core/math">math</a><ul>
+<li><a href="/core/math/big">big</a></li>
+<li><a href="/core/math/bits">bits</a></li>
+<li><a href="/core/math/cmplx">cmplx</a></li>
+<li><a href="/core/math/ease">ease</a></li>
+<li><a href="/core/math/fixed">fixed</a></li>
+<li><a href="/core/math/linalg">linalg</a></li>
+<li><a href="/core/math/linalg/glsl">linalg/glsl</a></li>
+<li><a href="/core/math/linalg/hlsl">linalg/hlsl</a></li>
+<li><a href="/core/math/noise">noise</a></li>
+<li><a href="/core/math/rand">rand</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/mem">mem</a><ul>
+<li><a href="/core/mem/virtual">virtual</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/net">net</a></li>
+<li class="nav-item">odin<ul>
+<li><a href="/core/odin/ast">ast</a></li>
+<li><a href="/core/odin/doc-format">doc-format</a></li>
+<li><a href="/core/odin/format">format</a></li>
+<li><a href="/core/odin/parser">parser</a></li>
+<li><a href="/core/odin/printer">printer</a></li>
+<li><a href="/core/odin/tokenizer">tokenizer</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/os">os</a></li>
+<li class="nav-item">path<ul>
+<li><a href="/core/path/filepath">filepath</a></li>
+<li><a href="/core/path/slashpath">slashpath</a></li>
+</ul>
+
+</li>
+<li class="nav-item">prof<ul>
+<li><a href="/core/prof/spall">spall</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/reflect">reflect</a></li>
+<li class="nav-item"><a href="/core/simd">simd</a></li>
+<li class="nav-item"><a href="/core/slice">slice</a><ul>
+<li><a href="/core/slice/heap">heap</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/sort">sort</a></li>
+<li class="nav-item"><a href="/core/strconv">strconv</a><ul>
+<li><a href="/core/strconv/decimal">decimal</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/strings">strings</a></li>
+<li class="nav-item"><a href="/core/sync">sync</a></li>
+<li class="nav-item"><a href="/core/testing">testing</a></li>
+<li class="nav-item">text<ul>
+<li><a href="/core/text/edit">edit</a></li>
+<li><a href="/core/text/i18n">i18n</a></li>
+<li><a href="/core/text/match">match</a></li>
+<li><a href="/core/text/scanner">scanner</a></li>
+<li><a href="/core/text/table">table</a></li>
+</ul>
+
+</li>
+<li class="nav-item"><a href="/core/thread">thread</a></li>
+<li class="nav-item"><a href="/core/time">time</a></li>
+<li class="nav-item"><a href="/core/unicode">unicode</a><ul>
+<li><a href="/core/unicode/utf16">utf16</a></li>
+<li><a href="/core/unicode/utf8">utf8</a></li>
+<li><a href="/core/unicode/utf8/utf8string">utf8/utf8string</a></li>
+</ul>
+
+</li>
+</ul>
+</div>
+</nav>
+<article class="col-lg-8 p-4 documentation odin-article">
+<nav class="pkg-breadcrumb" aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="/core">core</a></li>
+<li class="breadcrumb-item"><a href="/core/crypto">crypto</a></li>
+<li class="breadcrumb-item active" aria-current="page"><a href="/core/crypto/hash">hash</a></li>
+</ol>
+</nav>
+<h1>package core:crypto/hash<div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash"><em>Source</em></a></div></h1>
+
+		<div class="odin-search-wrapper">
+			<input type="search" id="odin-search" class="odin-search-package" autocomplete="off" spellcheck="false" placeholder="Fuzzy Search...">
+			<div class="odin-search-shortcut">
+				<div class="odin-search-key key-macos">⌘K</div>
+				<div class="odin-search-key key-windows">Ctrl+K</div>
+				<span class="odin-search-or">or</span>
+				<div class="odin-search-key">/</div>
+			</div>
+		</div>
+	
+<div id="odin-search-info">
+<div id="odin-search-time"></div>
+
+		<div id="odin-search-options">
+			<input type="checkbox" id="odin-search-filter" name="odin-search-filter">
+			<label for="odin-search-filter">Filter Results</label>
+		</div>
+</div>
+<ul id="odin-search-results"></ul>
+<div id="pkg-top">
+<h2>Overview</h2>
+<div id="pkg-overview">
+<p>package hash provides a generic interface to the supported hash algorithms.</p>
+<p>A high-level convenience procedure group <code>hash</code> is provided to easily
+accomplish common tasks.
+<span class="doc-list"><code>hash_string</code> - Hash a given string and return the digest.</span>
+<span class="doc-list"><code>hash_bytes</code> - Hash a given byte slice and return the digest.</span>
+<span class="doc-list"><code>hash_string_to_buffer</code> - Hash a given string and put the digest in</span>
+  the third parameter.  It requires that the destination buffer
+  is at least as big as the digest size.
+<span class="doc-list"><code>hash_bytes_to_buffer</code> - Hash a given string and put the computed</span>
+  digest in the third parameter.  It requires that the destination
+  buffer is at least as big as the digest size.
+<span class="doc-list"><code>hash_stream</code> - Incrementally fully consume a <code>io.Stream</code>, and return</span>
+  the computed digest.
+<span class="doc-list"><code>hash_file</code> - Takes a file handle and returns the computed digest.</span>
+  A third optional boolean parameter controls if the file is streamed
+  (default), or or read at once.</p>
+<p><code></code>`odin
+package hash_example</p>
+<p>import "core:crypto/hash"</p>
+<p>main :: proc() {</p>
+<pre>input := "Feed the fire."
+
+// Compute the digest, using the high level API.
+returned_digest := hash.hash(hash.Algorithm.SHA512_256, input)
+defer delete(returned_digest)
+
+// Variant that takes a destination buffer, instead of returning
+// the digest.
+digest := make([]byte, hash.DIGEST_SIZES[hash.Algorithm.BLAKE2B]) // @note: Destination buffer has to be at least as big as the digest size of the hash.
+defer delete(digest)
+hash.hash(hash.Algorithm.BLAKE2B, input, digest)
+</pre>
+<p>}
+<code></code>`</p>
+<p>A generic low level API is provided supporting the init/update/final interface
+that is typical with cryptographic hash function implementations.</p>
+<p><code></code>`odin
+package hash_example</p>
+<p>import "core:crypto/hash"</p>
+<p>main :: proc() {
+    input := "Let the cinders burn."</p>
+<p>    // Compute the digest, using the low level API.
+    ctx: hash.Context
+    digest := make([]byte, hash.DIGEST_SIZES[hash.Algorithm.SHA3_512])
+    defer delete(digest)</p>
+<p>    hash.init(&ctx, hash.Algorithm.SHA3_512)
+    hash.update(&ctx, transmute([]byte)input)
+    hash.final(&ctx, digest)
+}
+<code></code>`</p>
+</div>
+<div id="pkg-index">
+<h2>Index</h2>
+<div>
+<details class="doc-index" id="doc-index-Types" aria-labelledby="#doc-index-Types-header">
+<summary id="#doc-index-Types-header">
+Types (2)</summary>
+<ul>
+<li><a href="#Algorithm">Algorithm</a></li>
+<li><a href="#Context">Context</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Constants" aria-labelledby="#doc-index-Constants-header">
+<summary id="#doc-index-Constants-header">
+Constants (2)</summary>
+<ul>
+<li><a href="#MAX_BLOCK_SIZE">MAX_BLOCK_SIZE</a></li>
+<li><a href="#MAX_DIGEST_SIZE">MAX_DIGEST_SIZE</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Variables" aria-labelledby="#doc-index-Variables-header">
+<summary id="#doc-index-Variables-header">
+Variables (3)</summary>
+<ul>
+<li><a href="#ALGORITHM_NAMES">ALGORITHM_NAMES</a></li>
+<li><a href="#BLOCK_SIZES">BLOCK_SIZES</a></li>
+<li><a href="#DIGEST_SIZES">DIGEST_SIZES</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
+<summary id="#doc-index-Procedures-header">
+Procedures (14)</summary>
+<ul>
+<li><a href="#algorithm">algorithm</a></li>
+<li><a href="#block_size">block_size</a></li>
+<li><a href="#clone">clone</a></li>
+<li><a href="#digest_size">digest_size</a></li>
+<li><a href="#final">final</a></li>
+<li><a href="#hash_bytes">hash_bytes</a></li>
+<li><a href="#hash_bytes_to_buffer">hash_bytes_to_buffer</a></li>
+<li><a href="#hash_file">hash_file</a></li>
+<li><a href="#hash_stream">hash_stream</a></li>
+<li><a href="#hash_string">hash_string</a></li>
+<li><a href="#hash_string_to_buffer">hash_string_to_buffer</a></li>
+<li><a href="#init">init</a></li>
+<li><a href="#reset">reset</a></li>
+<li><a href="#update">update</a></li>
+</ul>
+</details>
+</div>
+<div>
+<details class="doc-index" id="doc-index-Procedure Groups" aria-labelledby="#doc-index-Procedure Groups-header">
+<summary id="#doc-index-Procedure Groups-header">
+Procedure Groups (1)</summary>
+<ul>
+<li><a href="#hash">hash</a></li>
+</ul>
+</details>
+</div>
+</div>
+</div>
+<section class="documentation">
+<h2 id="pkg-Types" class="pkg-header">Types</h2>
+<div class="pkg-entity">
+<h3 id="Algorithm"><span><a class="doc-id-link" href="#Algorithm">Algorithm<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/low_level.odin#L22"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Algorithm :: <span class="keyword-type">enum</span> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {
+	Invalid, 
+	BLAKE2B, 
+	BLAKE2S, 
+	SHA224, 
+	SHA256, 
+	SHA384, 
+	SHA512, 
+	SHA512_256, 
+	SHA3_224, 
+	SHA3_256, 
+	SHA3_384, 
+	SHA3_512, 
+	SM3, 
+	Legacy_KECCAK_224, 
+	Legacy_KECCAK_256, 
+	Legacy_KECCAK_384, 
+	Legacy_KECCAK_512, 
+	Insecure_MD5, 
+	Insecure_SHA1, 
+}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Algorithm is the algorithm identifier associated with a given Context.</p>
+</details>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/crypto/hash/#hash_bytes">hash_bytes</a></li>
+<li><a href="/core/crypto/hash/#hash_bytes_to_buffer">hash_bytes_to_buffer</a></li>
+<li><a href="/core/crypto/hash/#hash_file">hash_file</a></li>
+<li><a href="/core/crypto/hash/#hash_stream">hash_stream</a></li>
+<li><a href="/core/crypto/hash/#hash_string">hash_string</a></li>
+<li><a href="/core/crypto/hash/#hash_string_to_buffer">hash_string_to_buffer</a></li>
+<li><a href="/core/crypto/hash/#init">init</a></li>
+<li><a href="/core/crypto/hash/#hash">hash</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/core/crypto/hash/#algorithm">algorithm</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Context"><span><a class="doc-id-link" href="#Context">Context<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/low_level.odin#L114"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Context :: <span class="keyword-type">struct</span> {
+	_algo: <a class="code-typename" href="/core/crypto/hash/#Algorithm">Algorithm</a>,
+	_impl: <span class="keyword-type">union</span> {
+		_blake2.<a class="code-typename" href="//#Blake2b_Context">Blake2b_Context</a>, 
+		_blake2.<a class="code-typename" href="//#Blake2s_Context">Blake2s_Context</a>, 
+		sha2.<a class="code-typename" href="/core/crypto/sha2/#Context_256">Context_256</a>, 
+		sha2.<a class="code-typename" href="/core/crypto/sha2/#Context_512">Context_512</a>, 
+		sha3.<a class="code-typename" href="/core/crypto/sha3/#Context">Context</a>, 
+		sm3.<a class="code-typename" href="/core/crypto/sm3/#Context">Context</a>, 
+		keccak.<a class="code-typename" href="/core/crypto/legacy/keccak/#Context">Context</a>, 
+		md5.<a class="code-typename" href="/core/crypto/legacy/md5/#Context">Context</a>, 
+		sha1.<a class="code-typename" href="/core/crypto/legacy/sha1/#Context">Context</a>, 
+	},
+}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Context is a concrete instantiation of a specific hash algorithm.</p>
+</details>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/crypto/hash/#algorithm">algorithm</a></li>
+<li><a href="/core/crypto/hash/#block_size">block_size</a></li>
+<li><a href="/core/crypto/hash/#clone">clone</a></li>
+<li><a href="/core/crypto/hash/#digest_size">digest_size</a></li>
+<li><a href="/core/crypto/hash/#final">final</a></li>
+<li><a href="/core/crypto/hash/#init">init</a></li>
+<li><a href="/core/crypto/hash/#reset">reset</a></li>
+<li><a href="/core/crypto/hash/#update">update</a></li>
+</ul>
+</div>
+<h2 id="pkg-Constants" class="pkg-header">Constants</h2>
+<div class="pkg-entity">
+<h3 id="MAX_BLOCK_SIZE"><span><a class="doc-id-link" href="#MAX_BLOCK_SIZE">MAX_BLOCK_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/low_level.odin#L19"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MAX_BLOCK_SIZE :: sha3.BLOCK_SIZE_224</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>MAX_BLOCK_SIZE is the maximum block size used by any of Algorithms
+supported by this package.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="MAX_DIGEST_SIZE"><span><a class="doc-id-link" href="#MAX_DIGEST_SIZE">MAX_DIGEST_SIZE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/low_level.odin#L16"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MAX_DIGEST_SIZE :: 64</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>MAX_DIGEST_SIZE is the maximum size digest that can be returned by any
+of the Algorithms supported via this package.</p>
+</details>
+</div>
+<h2 id="pkg-Variables" class="pkg-header">Variables</h2>
+<div class="pkg-entity">
+<h3 id="ALGORITHM_NAMES"><span><a class="doc-id-link" href="#ALGORITHM_NAMES">ALGORITHM_NAMES<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/low_level.odin#L45"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">ALGORITHM_NAMES: [<a class="code-typename" href="/core/crypto/hash/#Algorithm">Algorithm</a>]<a href="/base/builtin#string"><span class="doc-builtin">string</span></a> = …</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>ALGORITHM_NAMES is the Algorithm to algorithm name string.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="BLOCK_SIZES"><span><a class="doc-id-link" href="#BLOCK_SIZES">BLOCK_SIZES<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/low_level.odin#L91"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">BLOCK_SIZES: [<a class="code-typename" href="/core/crypto/hash/#Algorithm">Algorithm</a>]<a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = …</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>BLOCK_SIZES is the Algoritm to block size in bytes.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="DIGEST_SIZES"><span><a class="doc-id-link" href="#DIGEST_SIZES">DIGEST_SIZES<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/low_level.odin#L68"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">DIGEST_SIZES: [<a class="code-typename" href="/core/crypto/hash/#Algorithm">Algorithm</a>]<a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = …</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>DIGEST_SIZES is the Algorithm to digest size in bytes.</p>
+</details>
+</div>
+<h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
+<div class="pkg-entity">
+<h3 id="algorithm"><span><a class="doc-id-link" href="#algorithm">algorithm<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/low_level.odin#L341"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">algorithm :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/hash/#Context">Context</a>) -> <a class="code-typename" href="/core/crypto/hash/#Algorithm">Algorithm</a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>algorithm returns the Algorithm used by a Context instance.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="block_size"><span><a class="doc-id-link" href="#block_size">block_size<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/low_level.odin#L351"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">block_size :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/hash/#Context">Context</a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>block_size returns the block size of a Context instance in bytes.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="clone"><span><a class="doc-id-link" href="#clone">clone<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/low_level.odin#L270"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">clone :: <span class="keyword-type">proc</span>(ctx, other: ^<a class="code-typename" href="/core/crypto/hash/#Context">Context</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>clone clones the Context other into ctx.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="digest_size"><span><a class="doc-id-link" href="#digest_size">digest_size<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/low_level.odin#L346"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">digest_size :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/hash/#Context">Context</a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>digest_size returns the digest size of a Context instance in bytes.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="final"><span><a class="doc-id-link" href="#final">final<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/low_level.odin#L240"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">final :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/hash/#Context">Context</a>, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, finalize_clone: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>final finalizes the Context, writes the digest to hash, and calls
+reset on the Context.</p>
+<p>Iff finalize_clone is set, final will work on a copy of the Context,
+which is useful for for calculating rolling digests.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes"><span><a class="doc-id-link" href="#hash_bytes">hash_bytes<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/hash.odin#L23"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes :: <span class="keyword-type">proc</span>(algorithm: <a class="code-typename" href="/core/crypto/hash/#Algorithm">Algorithm</a>, data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes will hash the given input and return the computed digest
+in a newly allocated slice.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_bytes_to_buffer"><span><a class="doc-id-link" href="#hash_bytes_to_buffer">hash_bytes_to_buffer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/hash.odin#L39"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_bytes_to_buffer :: <span class="keyword-type">proc</span>(algorithm: <a class="code-typename" href="/core/crypto/hash/#Algorithm">Algorithm</a>, data, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes_to_buffer will hash the given input and write the
+computed digest into the third parameter.  It requires that the
+destination buffer is at least as big as the digest size.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_file"><span><a class="doc-id-link" href="#hash_file">hash_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/hash.odin#L87"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_file :: <span class="keyword-type">proc</span>(algorithm: <a class="code-typename" href="/core/crypto/hash/#Algorithm">Algorithm</a>, hd: os.<a class="code-typename" href="/core/os/#Handle">Handle</a>, load_at_once: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> ([]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_file will read the file provided by the given handle and return the
+computed digest in a newly allocated slice.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_stream"><span><a class="doc-id-link" href="#hash_stream">hash_stream<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/hash.odin#L49"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_stream :: <span class="keyword-type">proc</span>(algorithm: <a class="code-typename" href="/core/crypto/hash/#Algorithm">Algorithm</a>, s: io.<a class="code-typename" href="/core/io/#Stream">Stream</a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> ([]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, io.<a class="code-typename" href="/core/io/#Error">Error</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_stream will incrementally fully consume a stream, and return the
+computed digest in a newly allocated slice.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string"><span><a class="doc-id-link" href="#hash_string">hash_string<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/hash.odin#L17"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string :: <span class="keyword-type">proc</span>(algorithm: <a class="code-typename" href="/core/crypto/hash/#Algorithm">Algorithm</a>, data: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_bytes will hash the given input and return the computed digest
+in a newly allocated slice.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="hash_string_to_buffer"><span><a class="doc-id-link" href="#hash_string_to_buffer">hash_string_to_buffer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/hash.odin#L32"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash_string_to_buffer :: <span class="keyword-type">proc</span>(algorithm: <a class="code-typename" href="/core/crypto/hash/#Algorithm">Algorithm</a>, data: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, hash: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>hash_string_to_buffer will hash the given input and assign the
+computed digest to the third parameter.  It requires that the
+destination buffer is at least as big as the digest size.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="init"><span><a class="doc-id-link" href="#init">init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/low_level.odin#L153"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">init :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/hash/#Context">Context</a>, algorithm: <a class="code-typename" href="/core/crypto/hash/#Algorithm">Algorithm</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>init initializes a Context with a specific hash Algorithm.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="reset"><span><a class="doc-id-link" href="#reset">reset<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/low_level.odin#L312"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">reset :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/hash/#Context">Context</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>reset sanitizes the Context.  The Context must be re-initialized to
+be used again.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="update"><span><a class="doc-id-link" href="#update">update<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/low_level.odin#L210"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">update :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/hash/#Context">Context</a>, data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>update adds more data to the Context.</p>
+</details>
+</div>
+<h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
+<div class="pkg-entity">
+<h3 id="hash"><span><a class="doc-id-link" href="#hash">hash<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/hash.odin#L109"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">hash :: proc{
+	<a class="code-procedure" href="/core/crypto/hash/#hash_stream">hash_stream</a>,
+	<a class="code-procedure" href="/core/crypto/hash/#hash_file">hash_file</a>,
+	<a class="code-procedure" href="/core/crypto/hash/#hash_bytes">hash_bytes</a>,
+	<a class="code-procedure" href="/core/crypto/hash/#hash_string">hash_string</a>,
+	<a class="code-procedure" href="/core/crypto/hash/#hash_bytes_to_buffer">hash_bytes_to_buffer</a>,
+	<a class="code-procedure" href="/core/crypto/hash/#hash_string_to_buffer">hash_string_to_buffer</a>,
+}
+</pre>
+</div>
+</div>
+</section>
+<h2 id="pkg-source-files">Source Files</h2>
+<ul>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/doc.odin">doc.odin</a></li>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/hash.odin">hash.odin</a></li>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hash/low_level.odin">low_level.odin</a></li>
+</ul>
+<h2 id="pkg-generation-information">Generation Information</h2>
+<p>Generated with <code>odin version dev-2024-02 (vendor "odin") Windows_amd64 @ 2024-02-06 21:02:53.801002200 +0000 UTC</code></p>
+</article>
+<div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#pkg-overview">Overview</a><li><a href="#pkg-Types">Types</a><ul>
+<li><a href="#Algorithm">Algorithm</a></li>
+<li><a href="#Context">Context</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Constants">Constants</a><ul>
+<li><a href="#MAX_BLOCK_SIZE">MAX_BLOCK_SIZE</a></li>
+<li><a href="#MAX_DIGEST_SIZE">MAX_DIGEST_SIZE</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Variables">Variables</a><ul>
+<li><a href="#ALGORITHM_NAMES">ALGORITHM_NAMES</a></li>
+<li><a href="#BLOCK_SIZES">BLOCK_SIZES</a></li>
+<li><a href="#DIGEST_SIZES">DIGEST_SIZES</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Procedures">Procedures</a><ul>
+<li><a href="#algorithm">algorithm</a></li>
+<li><a href="#block_size">block_size</a></li>
+<li><a href="#clone">clone</a></li>
+<li><a href="#digest_size">digest_size</a></li>
+<li><a href="#final">final</a></li>
+<li><a href="#hash_bytes">hash_bytes</a></li>
+<li><a href="#hash_bytes_to_buffer">hash_bytes_to_buffer</a></li>
+<li><a href="#hash_file">hash_file</a></li>
+<li><a href="#hash_stream">hash_stream</a></li>
+<li><a href="#hash_string">hash_string</a></li>
+<li><a href="#hash_string_to_buffer">hash_string_to_buffer</a></li>
+<li><a href="#init">init</a></li>
+<li><a href="#reset">reset</a></li>
+<li><a href="#update">update</a></li>
+</ul>
+</li>
+<li><a href="#pkg-Procedure Groups">Procedure Groups</a><ul>
+<li><a href="#hash">hash</a></li>
+</ul>
+</li>
+<li><a href="#pkg-source-files">Source Files</a></ul>
+</nav>
+</div></div>
+<script type="text/javascript">var odin_pkg_name = "crypto_hash";</script>
+</div>
+
+</div>
+</main>
+
+<footer class="odin-footer">
+	<div class="container pb-5 pt-5">
+		<div class="row g-4">
+		<div class="col">
+		<a class="navbar-brand" href="https://odin-lang.org">
+		<img class="mb-3" src="https://odin-lang.org/logo.svg" height="30" alt="Odin"></a>
+		<p>
+		The Data-Oriented Language for Sane Software Development.
+		</p>
+		</div>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Resources</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://odin-lang.org/docs" class="link-light">Docs</a></li>
+			<li><a href="https://pkg.odin-lang.org/" class="link-light">Packages</a></li>
+			<li><a href="https://odin-lang.org/news" class="link-light">News</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Community</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin" target="_blank" class="link-light">GitHub</a></li>
+			<li><a href="https://discord.com/invite/sVBPHEv" target="_blank" class="link-light">Discord</a></li>
+			<li><a href="https://www.twitch.tv/ginger_bill" target="_blank" class="link-light">Twitch</a></li>
+			<li><a href="https://www.youtube.com/channel/UCUSck1dOH7VKmG4lRW7tZXg" target="_blank" class="link-light">YouTube</a></li>
+			</ul>
+		</nav>
+		<nav class="col-md-auto">
+			<h4 class="fw-normal">Contribute</h4>
+			<ul class="list-unstyled">
+			<li><a href="https://github.com/odin-lang/Odin/issues" target="_blank" class="link-light">Issues</a></li>
+			<li><a href="https://www.patreon.com/gingerbill" target="_blank" class="link-light">Donate</a></li>
+			</ul>
+			</nav>
+		</div>
+		<div class="mt-4 text-muted">© 2016–2023 Ginger Bill</div>
+	</div>
+</footer>
+
+<script src="https://odin-lang.org/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://odin-lang.org/js/script.js"></script>
+<script src="/pkg-data.js"></script>
+<script src="/search.js"></script>
+</body>
+</html>

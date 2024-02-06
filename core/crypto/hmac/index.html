@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>package encoding/entity - pkg.odin-lang.org</title>	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/scss/custom.min.css">
+	<title>package crypto/hmac - pkg.odin-lang.org</title>	<link rel="stylesheet" type="text/css" href="https://odin-lang.org/scss/custom.min.css">
 	<link rel=stylesheet href="//odin-lang.org/lib/highlight/styles/github-dark.min.css">
 	<script src="//odin-lang.org/lib/highlight/highlight.min.js"></script>
 
@@ -76,7 +76,7 @@
 <li><a href="/core/crypto/chacha20">chacha20</a></li>
 <li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
 <li><a href="/core/crypto/hash">hash</a></li>
-<li><a href="/core/crypto/hmac">hmac</a></li>
+<li><a class="active" href="/core/crypto/hmac">hmac</a></li>
 <li><a href="/core/crypto/legacy/keccak">legacy/keccak</a></li>
 <li><a href="/core/crypto/legacy/md5">legacy/md5</a></li>
 <li><a href="/core/crypto/legacy/sha1">legacy/sha1</a></li>
@@ -100,7 +100,7 @@
 <li><a href="/core/encoding/base64">base64</a></li>
 <li><a href="/core/encoding/csv">csv</a></li>
 <li><a href="/core/encoding/endian">endian</a></li>
-<li><a class="active" href="/core/encoding/entity">entity</a></li>
+<li><a href="/core/encoding/entity">entity</a></li>
 <li><a href="/core/encoding/hex">hex</a></li>
 <li><a href="/core/encoding/hxa">hxa</a></li>
 <li><a href="/core/encoding/json">json</a></li>
@@ -208,11 +208,11 @@
 <nav class="pkg-breadcrumb" aria-label="breadcrumb">
 <ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="/core">core</a></li>
-<li class="breadcrumb-item">encoding</li>
-<li class="breadcrumb-item active" aria-current="page"><a href="/core/encoding/entity">entity</a></li>
+<li class="breadcrumb-item"><a href="/core/crypto">crypto</a></li>
+<li class="breadcrumb-item active" aria-current="page"><a href="/core/crypto/hmac">hmac</a></li>
 </ol>
 </nav>
-<h1>package core:encoding/entity<div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity"><em>Source</em></a></div></h1>
+<h1>package core:crypto/hmac<div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hmac"><em>Source</em></a></div></h1>
 
 		<div class="odin-search-wrapper">
 			<input type="search" id="odin-search" class="odin-search-package" autocomplete="off" spellcheck="false" placeholder="Fuzzy Search...">
@@ -234,33 +234,28 @@
 </div>
 <ul id="odin-search-results"></ul>
 <div id="pkg-top">
+<h2>Overview</h2>
+<div id="pkg-overview">
+<p>package hmac implements the HMAC MAC algorithm.</p>
+<p>See:
+<span class="doc-list">https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.198-1.pdf</span></p>
+</div>
 <div id="pkg-index">
 <h2>Index</h2>
 <div>
 <details class="doc-index" id="doc-index-Types" aria-labelledby="#doc-index-Types-header">
 <summary id="#doc-index-Types-header">
-Types (4)</summary>
+Types (1)</summary>
 <ul>
-<li><a href="#Error">Error</a></li>
-<li><a href="#Tokenizer">Tokenizer</a></li>
-<li><a href="#XML_Decode_Option">XML_Decode_Option</a></li>
-<li><a href="#XML_Decode_Options">XML_Decode_Options</a></li>
+<li><a href="#Context">Context</a></li>
 </ul>
 </details>
 </div>
 <div>
 <details class="doc-index" id="doc-index-Constants" aria-labelledby="#doc-index-Constants-header">
 <summary id="#doc-index-Constants-header">
-Constants (7)</summary>
-<ul>
-<li><a href="#CDATA_END">CDATA_END</a></li>
-<li><a href="#CDATA_START">CDATA_START</a></li>
-<li><a href="#COMMENT_END">COMMENT_END</a></li>
-<li><a href="#COMMENT_START">COMMENT_START</a></li>
-<li><a href="#MAX_RUNE_CODEPOINT">MAX_RUNE_CODEPOINT</a></li>
-<li><a href="#XML_NAME_TO_RUNE_MAX_LENGTH">XML_NAME_TO_RUNE_MAX_LENGTH</a></li>
-<li><a href="#XML_NAME_TO_RUNE_MIN_LENGTH">XML_NAME_TO_RUNE_MIN_LENGTH</a></li>
-</ul>
+Constants (0)</summary>
+<p class="pkg-empty-section">This section is empty.</p>
 </details>
 </div>
 <div>
@@ -273,12 +268,16 @@ Variables (0)</summary>
 <div>
 <details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
 <summary id="#doc-index-Procedures-header">
-Procedures (4)</summary>
+Procedures (8)</summary>
 <ul>
-<li><a href="#advance">advance</a></li>
-<li><a href="#decode_xml">decode_xml</a></li>
-<li><a href="#named_xml_entity_to_rune">named_xml_entity_to_rune</a></li>
-<li><a href="#xml_decode_entity">xml_decode_entity</a></li>
+<li><a href="#algorithm">algorithm</a></li>
+<li><a href="#final">final</a></li>
+<li><a href="#init">init</a></li>
+<li><a href="#reset">reset</a></li>
+<li><a href="#sum">sum</a></li>
+<li><a href="#tag_size">tag_size</a></li>
+<li><a href="#update">update</a></li>
+<li><a href="#verify">verify</a></li>
 </ul>
 </details>
 </div>
@@ -294,206 +293,155 @@ Procedure Groups (0)</summary>
 <section class="documentation">
 <h2 id="pkg-Types" class="pkg-header">Types</h2>
 <div class="pkg-entity">
-<h3 id="Error"><span><a class="doc-id-link" href="#Error">Error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L31"><em>Source</em></a></div></h3>
+<h3 id="Context"><span><a class="doc-id-link" href="#Context">Context<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hmac/hmac.odin#L38"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">Error :: <span class="keyword-type">enum</span> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {
-	None                    = 0, 
-	Tokenizer_Is_Nil, 
-	Illegal_NUL_Character, 
-	Illegal_UTF_Encoding, 
-	Illegal_BOM, 
-	CDATA_Not_Terminated, 
-	Comment_Not_Terminated, 
-	Invalid_Entity_Encoding, 
+<pre class="doc-code">Context :: <span class="keyword-type">struct</span> {
+	_o_hash:         crypto_hash.<a class="code-typename" href="/core/crypto/hash/#Context">Context</a>,
+	<span class="comment">// H(k ^ ipad) (not finalized)</span>
+	_i_hash:         crypto_hash.<a class="code-typename" href="/core/crypto/hash/#Context">Context</a>,
+	<span class="comment">// H(k ^ opad) (not finalized)</span>
+	_tag_sz:         <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
+	_is_initialized: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>,
 }</pre>
 </div>
-<h5>Related Procedures With Returns</h5>
-<ul>
-<li><a href="/core/encoding/entity/#advance">advance</a></li>
-<li><a href="/core/encoding/entity/#decode_xml">decode_xml</a></li>
-</ul>
-</div>
-<div class="pkg-entity">
-<h3 id="Tokenizer"><span><a class="doc-id-link" href="#Tokenizer">Tokenizer<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L44"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">Tokenizer :: <span class="keyword-type">struct</span> {
-	r:           <a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>,
-	w:           <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
-	src:         <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>,
-	offset:      <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
-	read_offset: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>,
-}</pre>
-</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Context is a concrete instantiation of HMAC with a specific hash
+algorithm.</p>
+</details>
 <h5>Related Procedures With Parameters</h5>
 <ul>
-<li><a href="/core/encoding/entity/#advance">advance</a></li>
+<li><a href="/core/crypto/hmac/#algorithm">algorithm</a></li>
+<li><a href="/core/crypto/hmac/#final">final</a></li>
+<li><a href="/core/crypto/hmac/#init">init</a></li>
+<li><a href="/core/crypto/hmac/#reset">reset</a></li>
+<li><a href="/core/crypto/hmac/#tag_size">tag_size</a></li>
+<li><a href="/core/crypto/hmac/#update">update</a></li>
 </ul>
 </div>
-<div class="pkg-entity">
-<h3 id="XML_Decode_Option"><span><a class="doc-id-link" href="#XML_Decode_Option">XML_Decode_Option<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L62"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">XML_Decode_Option :: <span class="keyword-type">enum</span> <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {
-	<span class="comment">// 		Do not decode & entities. It decodes by default.</span>
-	<span class="comment">// 		If given, overrides `Decode_CDATA`.</span>
-	No_Entity_Decode, 
-	<span class="comment">// 		CDATA is unboxed.</span>
-	Unbox_CDATA, 
-	<span class="comment">// 		Unboxed CDATA is decoded as well.</span>
-	<span class="comment">// 		Ignored if `.Unbox_CDATA` is not given.</span>
-	Decode_CDATA, 
-	<span class="comment">// 		Comments are stripped.</span>
-	Comment_Strip, 
-}</pre>
-</div>
-<details class="odin-doc-toggle" open>
-<summary class="hideme"><span>&nbsp;</span></summary>
-<p>Default: CDATA and comments are passed through unchanged.</p>
-</details>
-</div>
-<div class="pkg-entity">
-<h3 id="XML_Decode_Options"><span><a class="doc-id-link" href="#XML_Decode_Options">XML_Decode_Options<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L85"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">XML_Decode_Options :: <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/encoding/entity/#XML_Decode_Option">XML_Decode_Option</a>; <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>]</pre>
-</div>
-</div>
 <h2 id="pkg-Constants" class="pkg-header">Constants</h2>
-<div class="pkg-entity">
-<h3 id="CDATA_END"><span><a class="doc-id-link" href="#CDATA_END">CDATA_END<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L54"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">CDATA_END :: "]]&gt;"</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="CDATA_START"><span><a class="doc-id-link" href="#CDATA_START">CDATA_START<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L53"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">CDATA_START :: "&lt;![CDATA["</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="COMMENT_END"><span><a class="doc-id-link" href="#COMMENT_END">COMMENT_END<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L57"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">COMMENT_END :: "--&gt;"</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="COMMENT_START"><span><a class="doc-id-link" href="#COMMENT_START">COMMENT_START<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L56"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">COMMENT_START :: "&lt;!--"</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="MAX_RUNE_CODEPOINT"><span><a class="doc-id-link" href="#MAX_RUNE_CODEPOINT">MAX_RUNE_CODEPOINT<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L26"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">MAX_RUNE_CODEPOINT :: int(unicode.MAX_RUNE)</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="XML_NAME_TO_RUNE_MAX_LENGTH"><span><a class="doc-id-link" href="#XML_NAME_TO_RUNE_MAX_LENGTH">XML_NAME_TO_RUNE_MAX_LENGTH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/generated.odin#L38"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">XML_NAME_TO_RUNE_MAX_LENGTH :: 31</pre>
-</div>
-<details class="odin-doc-toggle" open>
-<summary class="hideme"><span>&nbsp;</span></summary>
-<p><code>&CounterClockwiseContourIntegral;</code></p>
-</details>
-</div>
-<div class="pkg-entity">
-<h3 id="XML_NAME_TO_RUNE_MIN_LENGTH"><span><a class="doc-id-link" href="#XML_NAME_TO_RUNE_MIN_LENGTH">XML_NAME_TO_RUNE_MIN_LENGTH<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/generated.odin#L36"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">XML_NAME_TO_RUNE_MIN_LENGTH :: 2</pre>
-</div>
-<details class="odin-doc-toggle" open>
-<summary class="hideme"><span>&nbsp;</span></summary>
-<p><code>&lt;</code></p>
-</details>
-</div>
+<p class="pkg-empty-section">This section is empty.</p>
 <h2 id="pkg-Variables" class="pkg-header">Variables</h2>
 <p class="pkg-empty-section">This section is empty.</p>
 <h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
 <div class="pkg-entity">
-<h3 id="advance"><span><a class="doc-id-link" href="#advance">advance<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L185"><em>Source</em></a></div></h3>
+<h3 id="algorithm"><span><a class="doc-id-link" href="#algorithm">algorithm<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hmac/hmac.odin#L95"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">advance :: <span class="keyword-type">proc</span>(t: ^<a class="code-typename" href="/core/encoding/entity/#Tokenizer">Tokenizer</a>) -> (err: <a class="code-typename" href="/core/encoding/entity/#Error">Error</a>) {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="decode_xml"><span><a class="doc-id-link" href="#decode_xml">decode_xml<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L91"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">decode_xml :: <span class="keyword-type">proc</span>(input: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, options: <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/encoding/entity/#XML_Decode_Option">XML_Decode_Option</a>; <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>] = XML_Decode_Options{}, allocator := <a href="/core/runtime/#Context">context.allocator</a>) -> (decoded: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, err: <a class="code-typename" href="/core/encoding/entity/#Error">Error</a>) {…}</pre>
+<pre class="doc-code">algorithm :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/hmac/#Context">Context</a>) -> crypto_hash.<a class="code-typename" href="/core/crypto/hash/#Algorithm">Algorithm</a> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
-<p>Decode a string that may include SGML/XML/HTML entities.</p>
-<pre>The caller has to free the result.
-</pre>
+<p>algorithm returns the Algorithm used by a Context instance.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="named_xml_entity_to_rune"><span><a class="doc-id-link" href="#named_xml_entity_to_rune">named_xml_entity_to_rune<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/generated.odin#L51"><em>Source</em></a></div></h3>
+<h3 id="final"><span><a class="doc-id-link" href="#final">final<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hmac/hmac.odin#L66"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">named_xml_entity_to_rune :: <span class="keyword-type">proc</span>(name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> (decoded: <a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">final :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/hmac/#Context">Context</a>, dst: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
-<p>Input:</p>
-<pre>	entity_name - a string, like "copy" that describes a user-encoded Unicode entity as used in XML.
-
-Output:
-	"decoded" - The decoded rune if found by name, or -1 otherwise.
-	"ok"      - true if found, false if not.
-
-IMPORTANT: XML processors (including browsers) treat these names as case-sensitive. So do we.
-</pre>
+<p>final finalizes the Context, writes the tag to dst, and calls
+reset on the Context.</p>
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="xml_decode_entity"><span><a class="doc-id-link" href="#xml_decode_entity">xml_decode_entity<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin#L212"><em>Source</em></a></div></h3>
+<h3 id="init"><span><a class="doc-id-link" href="#init">init<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hmac/hmac.odin#L46"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">xml_decode_entity :: <span class="keyword-type">proc</span>(entity: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> (decoded: <a href="/base/builtin#rune"><span class="doc-builtin">rune</span></a>, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">init :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/hmac/#Context">Context</a>, algorithm: crypto_hash.<a class="code-typename" href="/core/crypto/hash/#Algorithm">Algorithm</a>, key: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
 </div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>init initializes a Context with a specific hash Algorithm and key.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="reset"><span><a class="doc-id-link" href="#reset">reset<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hmac/hmac.odin#L83"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">reset :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/hmac/#Context">Context</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>reset sanitizes the Context.  The Context must be re-initialized to
+be used again.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="sum"><span><a class="doc-id-link" href="#sum">sum<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hmac/hmac.odin#L16"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">sum :: <span class="keyword-type">proc</span>(algorithm: crypto_hash.<a class="code-typename" href="/core/crypto/hash/#Algorithm">Algorithm</a>, dst, msg, key: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>sum will compute the HMAC with the specified algorithm and key
+over msg, and write the computed digest to dst.  It requires that
+the dst buffer is the tag size.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="tag_size"><span><a class="doc-id-link" href="#tag_size">tag_size<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hmac/hmac.odin#L102"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">tag_size :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/hmac/#Context">Context</a>) -> <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>tag_size returns the tag size of a Context instance in bytes.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="update"><span><a class="doc-id-link" href="#update">update<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hmac/hmac.odin#L58"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">update :: <span class="keyword-type">proc</span>(ctx: ^<a class="code-typename" href="/core/crypto/hmac/#Context">Context</a>, data: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>update adds more data to the Context.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="verify"><span><a class="doc-id-link" href="#verify">verify<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hmac/hmac.odin#L27"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">verify :: <span class="keyword-type">proc</span>(algorithm: crypto_hash.<a class="code-typename" href="/core/crypto/hash/#Algorithm">Algorithm</a>, tag, msg, key: []<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>verify will verify the HMAC tag computed with the specified algorithm
+and key over msg and return true iff the tag is valid.  It requires
+that the tag is correctly sized.</p>
+</details>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
 <p class="pkg-empty-section">This section is empty.</p>
 </section>
 <h2 id="pkg-source-files">Source Files</h2>
 <ul>
-<li><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/entity.odin">entity.odin</a></li>
-<li><a href="https://github.com/odin-lang/Odin/tree/master/core/encoding/entity/generated.odin">generated.odin</a></li>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/crypto/hmac/hmac.odin">hmac.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2024-02 (vendor "odin") Windows_amd64 @ 2024-02-06 21:02:53.838089000 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-02 (vendor "odin") Windows_amd64 @ 2024-02-06 21:02:53.881053000 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
 <ul>
-<li><a href="#pkg-Types">Types</a><ul>
-<li><a href="#Error">Error</a></li>
-<li><a href="#Tokenizer">Tokenizer</a></li>
-<li><a href="#XML_Decode_Option">XML_Decode_Option</a></li>
-<li><a href="#XML_Decode_Options">XML_Decode_Options</a></li>
-</ul>
-</li>
-<li><a href="#pkg-Constants">Constants</a><ul>
-<li><a href="#CDATA_END">CDATA_END</a></li>
-<li><a href="#CDATA_START">CDATA_START</a></li>
-<li><a href="#COMMENT_END">COMMENT_END</a></li>
-<li><a href="#COMMENT_START">COMMENT_START</a></li>
-<li><a href="#MAX_RUNE_CODEPOINT">MAX_RUNE_CODEPOINT</a></li>
-<li><a href="#XML_NAME_TO_RUNE_MAX_LENGTH">XML_NAME_TO_RUNE_MAX_LENGTH</a></li>
-<li><a href="#XML_NAME_TO_RUNE_MIN_LENGTH">XML_NAME_TO_RUNE_MIN_LENGTH</a></li>
+<li><a href="#pkg-overview">Overview</a><li><a href="#pkg-Types">Types</a><ul>
+<li><a href="#Context">Context</a></li>
 </ul>
 </li>
 <li><a href="#pkg-Procedures">Procedures</a><ul>
-<li><a href="#advance">advance</a></li>
-<li><a href="#decode_xml">decode_xml</a></li>
-<li><a href="#named_xml_entity_to_rune">named_xml_entity_to_rune</a></li>
-<li><a href="#xml_decode_entity">xml_decode_entity</a></li>
+<li><a href="#algorithm">algorithm</a></li>
+<li><a href="#final">final</a></li>
+<li><a href="#init">init</a></li>
+<li><a href="#reset">reset</a></li>
+<li><a href="#sum">sum</a></li>
+<li><a href="#tag_size">tag_size</a></li>
+<li><a href="#update">update</a></li>
+<li><a href="#verify">verify</a></li>
 </ul>
 </li>
 <li><a href="#pkg-source-files">Source Files</a></ul>
 </nav>
 </div></div>
-<script type="text/javascript">var odin_pkg_name = "unicode_entity";</script>
+<script type="text/javascript">var odin_pkg_name = "hmac";</script>
 </div>
 
 </div>

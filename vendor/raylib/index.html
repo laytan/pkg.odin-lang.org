@@ -3649,6 +3649,11 @@ NOTE: Support depends on OpenGL version and platform</p>
 <li><a href="/vendor/raylib/#SetShaderValueTexture">SetShaderValueTexture</a></li>
 <li><a href="/vendor/raylib/#SetShaderValueV">SetShaderValueV</a></li>
 </ul>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/vendor/raylib/#GetShaderLocation">GetShaderLocation</a></li>
+<li><a href="/vendor/raylib/#GetShaderLocationAttrib">GetShaderLocationAttrib</a></li>
+</ul>
 </div>
 <div class="pkg-entity">
 <h3 id="ShaderUniformDataType"><span><a class="doc-id-link" href="#ShaderUniformDataType">ShaderUniformDataType<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raylib.odin#L799"><em>Source</em></a></div></h3>
@@ -8056,7 +8061,7 @@ version: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span
 <div class="pkg-entity">
 <h3 id="GetShaderLocation"><span><a class="doc-id-link" href="#GetShaderLocation">GetShaderLocation<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raylib.odin#L1054"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetShaderLocation :: <span class="keyword-type">proc</span> "c" (shader: <a class="code-typename" href="/vendor/raylib/#Shader">Shader</a>, uniformName: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">GetShaderLocation :: <span class="keyword-type">proc</span> "c" (shader: <a class="code-typename" href="/vendor/raylib/#Shader">Shader</a>, uniformName: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> <a class="code-typename" href="/vendor/raylib/#ShaderLocationIndex">ShaderLocationIndex</a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -8066,7 +8071,7 @@ version: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span
 <div class="pkg-entity">
 <h3 id="GetShaderLocationAttrib"><span><a class="doc-id-link" href="#GetShaderLocationAttrib">GetShaderLocationAttrib<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raylib.odin#L1055"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">GetShaderLocationAttrib :: <span class="keyword-type">proc</span> "c" (shader: <a class="code-typename" href="/vendor/raylib/#Shader">Shader</a>, attribName: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">GetShaderLocationAttrib :: <span class="keyword-type">proc</span> "c" (shader: <a class="code-typename" href="/vendor/raylib/#Shader">Shader</a>, attribName: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> <a class="code-typename" href="/vendor/raylib/#ShaderLocationIndex">ShaderLocationIndex</a> ---</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -13196,7 +13201,7 @@ rlgl initialization functions</p>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/rlgl.odin">rlgl.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2024-02 (vendor "odin") Windows_amd64 @ 2024-02-05 21:03:24.593220900 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-02 (vendor "odin") Windows_amd64 @ 2024-02-06 21:02:54.717041900 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

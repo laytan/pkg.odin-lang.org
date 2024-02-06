@@ -75,6 +75,8 @@
 <li><a href="/core/crypto/blake2s">blake2s</a></li>
 <li><a href="/core/crypto/chacha20">chacha20</a></li>
 <li><a href="/core/crypto/chacha20poly1305">chacha20poly1305</a></li>
+<li><a href="/core/crypto/hash">hash</a></li>
+<li><a href="/core/crypto/hmac">hmac</a></li>
 <li><a href="/core/crypto/legacy/keccak">legacy/keccak</a></li>
 <li><a href="/core/crypto/legacy/md5">legacy/md5</a></li>
 <li><a href="/core/crypto/legacy/sha1">legacy/sha1</a></li>
@@ -307,7 +309,7 @@ Procedure Groups (0)</summary>
 <div class="pkg-entity">
 <h3 id="initialize_symbols"><span><a class="doc-id-link" href="#initialize_symbols">initialize_symbols<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/dynlib/lib.odin#L126"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">initialize_symbols :: <span class="keyword-type">proc</span>(symbol_table: ^$T, library_path: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, symbol_prefix: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> = "", handle_field_name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> = "__handle") -> (count: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">initialize_symbols :: <span class="keyword-type">proc</span>(symbol_table: ^$T, library_path: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, symbol_prefix: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> = "", handle_field_name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> = "__handle") -> (count: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a> = -1, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -322,7 +324,7 @@ The number of symbols assigned on success. <code>ok</code> = true if <code>count
 </details>
 </div>
 <div class="pkg-entity">
-<h3 id="last_error"><span><a class="doc-id-link" href="#last_error">last_error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/dynlib/lib.odin#L190"><em>Source</em></a></div></h3>
+<h3 id="last_error"><span><a class="doc-id-link" href="#last_error">last_error<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/dynlib/lib.odin#L183"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">last_error :: <span class="keyword-type">proc</span>() -> <a href="/base/builtin#string"><span class="doc-builtin">string</span></a> {…}</pre>
 </div>
@@ -445,7 +447,7 @@ load_then_unload_my_library :: proc() {
 <li><em>(hidden platform specific files)</em></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2024-02 (vendor "odin") Windows_amd64 @ 2024-02-05 21:03:23.822695900 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-02 (vendor "odin") Windows_amd64 @ 2024-02-06 21:02:53.766650700 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
