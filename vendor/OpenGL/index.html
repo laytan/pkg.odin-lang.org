@@ -2724,7 +2724,7 @@ Variables (710)</summary>
 <div>
 <details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
 <summary id="#doc-index-Procedures-header">
-Procedures (737)</summary>
+Procedures (739)</summary>
 <ul>
 <li><a href="#ActiveShaderProgram">ActiveShaderProgram</a></li>
 <li><a href="#ActiveTexture">ActiveTexture</a></li>
@@ -3433,6 +3433,8 @@ Procedures (737)</summary>
 <li><a href="#ViewportIndexedf">ViewportIndexedf</a></li>
 <li><a href="#ViewportIndexedfv">ViewportIndexedfv</a></li>
 <li><a href="#WaitSync">WaitSync</a></li>
+<li><a href="#compile_shader_from_source">compile_shader_from_source</a></li>
+<li><a href="#create_and_link_program">create_and_link_program</a></li>
 <li><a href="#destroy_uniforms">destroy_uniforms</a></li>
 <li><a href="#get_last_error_message">get_last_error_message</a></li>
 <li><a href="#get_last_error_messages">get_last_error_messages</a></li>
@@ -5415,6 +5417,10 @@ Procedure Groups (1)</summary>
 	SHADER_LINK            = -1,    <span class="comment">// @Note: Not an OpenGL constant, but used for error checking.</span>
 }</pre>
 </div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/vendor/OpenGL/#compile_shader_from_source">compile_shader_from_source</a></li>
+</ul>
 <h5>Related Procedures With Returns</h5>
 <ul>
 <li><a href="/vendor/OpenGL/#get_last_error_message">get_last_error_message</a></li>
@@ -5422,7 +5428,7 @@ Procedure Groups (1)</summary>
 </ul>
 </div>
 <div class="pkg-entity">
-<h3 id="Uniform_Info"><span><a class="doc-id-link" href="#Uniform_Info">Uniform_Info<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L374"><em>Source</em></a></div></h3>
+<h3 id="Uniform_Info"><span><a class="doc-id-link" href="#Uniform_Info">Uniform_Info<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L372"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Uniform_Info :: <span class="keyword-type">struct</span> {
 	location: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>,
@@ -5433,7 +5439,7 @@ Procedure Groups (1)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Uniform_Type"><span><a class="doc-id-link" href="#Uniform_Type">Uniform_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L250"><em>Source</em></a></div></h3>
+<h3 id="Uniform_Type"><span><a class="doc-id-link" href="#Uniform_Type">Uniform_Type<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L248"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Uniform_Type :: <span class="keyword-type">enum</span> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> {
 	FLOAT                                     = 5126, 
@@ -5548,7 +5554,7 @@ Procedure Groups (1)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="Uniforms"><span><a class="doc-id-link" href="#Uniforms">Uniforms<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L381"><em>Source</em></a></div></h3>
+<h3 id="Uniforms"><span><a class="doc-id-link" href="#Uniforms">Uniforms<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L379"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">Uniforms :: <span class="keyword-type">map</span>[<a href="/base/builtin#string"><span class="doc-builtin">string</span></a>]<a class="code-typename" href="/vendor/OpenGL/#Uniform_Info">Uniform_Info</a></pre>
 </div>
@@ -25877,7 +25883,27 @@ Procedure Groups (1)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="destroy_uniforms"><span><a class="doc-id-link" href="#destroy_uniforms">destroy_uniforms<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L383"><em>Source</em></a></div></h3>
+<h3 id="compile_shader_from_source"><span><a class="doc-id-link" href="#compile_shader_from_source">compile_shader_from_source<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L123"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">compile_shader_from_source :: <span class="keyword-type">proc</span>(shader_data: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, shader_type: <a class="code-typename" href="/vendor/OpenGL/#Shader_Type">Shader_Type</a>) -> (shader_id: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Compiling shaders are identical for any shader (vertex, geometry, fragment, tesselation, (maybe compute too))</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="create_and_link_program"><span><a class="doc-id-link" href="#create_and_link_program">create_and_link_program<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L136"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">create_and_link_program :: <span class="keyword-type">proc</span>(shader_ids: []<a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>, binary_retrievable: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> (program_id: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>only used once, but I'd just make a subprocedure(?) for consistency</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="destroy_uniforms"><span><a class="doc-id-link" href="#destroy_uniforms">destroy_uniforms<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L381"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">destroy_uniforms :: <span class="keyword-type">proc</span>(u: <span class="keyword-type">map</span>[<a href="/base/builtin#string"><span class="doc-builtin">string</span></a>]<a class="code-typename" href="/vendor/OpenGL/#Uniform_Info">Uniform_Info</a>) {…}</pre>
 </div>
@@ -25895,7 +25921,7 @@ Procedure Groups (1)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="get_uniforms_from_program"><span><a class="doc-id-link" href="#get_uniforms_from_program">get_uniforms_from_program<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L390"><em>Source</em></a></div></h3>
+<h3 id="get_uniforms_from_program"><span><a class="doc-id-link" href="#get_uniforms_from_program">get_uniforms_from_program<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L388"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">get_uniforms_from_program :: <span class="keyword-type">proc</span>(program: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) -> (uniforms: <span class="keyword-type">map</span>[<a href="/base/builtin#string"><span class="doc-builtin">string</span></a>]<a class="code-typename" href="/vendor/OpenGL/#Uniform_Info">Uniform_Info</a>) {…}</pre>
 </div>
@@ -26015,25 +26041,25 @@ Procedure Groups (1)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="load_compute_file"><span><a class="doc-id-link" href="#load_compute_file">load_compute_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L153"><em>Source</em></a></div></h3>
+<h3 id="load_compute_file"><span><a class="doc-id-link" href="#load_compute_file">load_compute_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L151"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">load_compute_file :: <span class="keyword-type">proc</span>(filename: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, binary_retrievable: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> (program_id: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="load_compute_source"><span><a class="doc-id-link" href="#load_compute_source">load_compute_source<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L162"><em>Source</em></a></div></h3>
+<h3 id="load_compute_source"><span><a class="doc-id-link" href="#load_compute_source">load_compute_source<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L160"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">load_compute_source :: <span class="keyword-type">proc</span>(cs_data: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, binary_retrievable: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> (program_id: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="load_shaders_file"><span><a class="doc-id-link" href="#load_shaders_file">load_shaders_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L168"><em>Source</em></a></div></h3>
+<h3 id="load_shaders_file"><span><a class="doc-id-link" href="#load_shaders_file">load_shaders_file<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L166"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">load_shaders_file :: <span class="keyword-type">proc</span>(vs_filename, fs_filename: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, binary_retrievable: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> (program_id: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="load_shaders_source"><span><a class="doc-id-link" href="#load_shaders_source">load_shaders_source<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L178"><em>Source</em></a></div></h3>
+<h3 id="load_shaders_source"><span><a class="doc-id-link" href="#load_shaders_source">load_shaders_source<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L176"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">load_shaders_source :: <span class="keyword-type">proc</span>(vs_source, fs_source: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, binary_retrievable: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> (program_id: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>, ok: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
@@ -26045,20 +26071,20 @@ Procedure Groups (1)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="update_shader_if_changed"><span><a class="doc-id-link" href="#update_shader_if_changed">update_shader_if_changed<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L193"><em>Source</em></a></div></h3>
+<h3 id="update_shader_if_changed"><span><a class="doc-id-link" href="#update_shader_if_changed">update_shader_if_changed<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L191"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">update_shader_if_changed :: <span class="keyword-type">proc</span>(vertex_name, fragment_name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, program: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>, last_vertex_time, last_fragment_time: os.<a class="code-typename" href="/core/os/#File_Time">File_Time</a>) -> (old_program: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>, current_vertex_time, current_fragment_time: os.<a class="code-typename" href="/core/os/#File_Time">File_Time</a>, updated: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="update_shader_if_changed_compute"><span><a class="doc-id-link" href="#update_shader_if_changed_compute">update_shader_if_changed_compute<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L221"><em>Source</em></a></div></h3>
+<h3 id="update_shader_if_changed_compute"><span><a class="doc-id-link" href="#update_shader_if_changed_compute">update_shader_if_changed_compute<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L219"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">update_shader_if_changed_compute :: <span class="keyword-type">proc</span>(compute_name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, program: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>, last_compute_time: os.<a class="code-typename" href="/core/os/#File_Time">File_Time</a>) -> (old_program: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>, current_compute_time: os.<a class="code-typename" href="/core/os/#File_Time">File_Time</a>, updated: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
 <div class="pkg-entity">
-<h3 id="load_shaders"><span><a class="doc-id-link" href="#load_shaders">load_shaders<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L189"><em>Source</em></a></div></h3>
+<h3 id="load_shaders"><span><a class="doc-id-link" href="#load_shaders">load_shaders<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/helpers.odin#L187"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">load_shaders :: proc{
 	<a class="code-procedure" href="/vendor/OpenGL/#load_shaders_file">load_shaders_file</a>,
@@ -26076,7 +26102,7 @@ Procedure Groups (1)</summary>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/vendor/OpenGL/wrappers.odin">wrappers.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2024-02 (vendor "odin") Windows_amd64 @ 2024-02-06 21:02:54.162696000 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-02 (vendor "odin") Windows_amd64 @ 2024-02-07 21:03:05.550792800 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
@@ -29343,6 +29369,8 @@ Procedure Groups (1)</summary>
 <li><a href="#ViewportIndexedf">ViewportIndexedf</a></li>
 <li><a href="#ViewportIndexedfv">ViewportIndexedfv</a></li>
 <li><a href="#WaitSync">WaitSync</a></li>
+<li><a href="#compile_shader_from_source">compile_shader_from_source</a></li>
+<li><a href="#create_and_link_program">create_and_link_program</a></li>
 <li><a href="#destroy_uniforms">destroy_uniforms</a></li>
 <li><a href="#get_last_error_message">get_last_error_message</a></li>
 <li><a href="#get_last_error_messages">get_last_error_messages</a></li>
