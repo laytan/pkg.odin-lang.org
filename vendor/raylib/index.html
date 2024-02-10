@@ -341,7 +341,7 @@ Types (96)</summary>
 <div>
 <details class="doc-index" id="doc-index-Constants" aria-labelledby="#doc-index-Constants-header">
 <summary id="#doc-index-Constants-header">
-Constants (119)</summary>
+Constants (120)</summary>
 <ul>
 <li><a href="#BEIGE">BEIGE</a></li>
 <li><a href="#BLACK">BLACK</a></li>
@@ -354,6 +354,7 @@ Constants (119)</summary>
 <li><a href="#DARKGREEN">DARKGREEN</a></li>
 <li><a href="#DARKPURPLE">DARKPURPLE</a></li>
 <li><a href="#DEG2RAD">DEG2RAD</a></li>
+<li><a href="#EPSILON">EPSILON</a></li>
 <li><a href="#GOLD">GOLD</a></li>
 <li><a href="#GRAY">GRAY</a></li>
 <li><a href="#GREEN">GREEN</a></li>
@@ -477,7 +478,7 @@ Variables (1)</summary>
 <div>
 <details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
 <summary id="#doc-index-Procedures-header">
-Procedures (785)</summary>
+Procedures (898)</summary>
 <ul>
 <li><a href="#AttachAudioMixedProcessor">AttachAudioMixedProcessor</a></li>
 <li><a href="#AttachAudioStreamProcessor">AttachAudioStreamProcessor</a></li>
@@ -502,6 +503,7 @@ Procedures (785)</summary>
 <li><a href="#CheckCollisionPointTriangle">CheckCollisionPointTriangle</a></li>
 <li><a href="#CheckCollisionRecs">CheckCollisionRecs</a></li>
 <li><a href="#CheckCollisionSpheres">CheckCollisionSpheres</a></li>
+<li><a href="#Clamp">Clamp</a></li>
 <li><a href="#ClearBackground">ClearBackground</a></li>
 <li><a href="#ClearWindowState">ClearWindowState</a></li>
 <li><a href="#CloseAudioDevice">CloseAudioDevice</a></li>
@@ -664,6 +666,7 @@ Procedures (785)</summary>
 <li><a href="#ExportWaveAsCode">ExportWaveAsCode</a></li>
 <li><a href="#Fade">Fade</a></li>
 <li><a href="#FileExists">FileExists</a></li>
+<li><a href="#FloatEquals">FloatEquals</a></li>
 <li><a href="#GenImageCellular">GenImageCellular</a></li>
 <li><a href="#GenImageChecked">GenImageChecked</a></li>
 <li><a href="#GenImageColor">GenImageColor</a></li>
@@ -926,6 +929,7 @@ Procedures (785)</summary>
 <li><a href="#IsWindowReady">IsWindowReady</a></li>
 <li><a href="#IsWindowResized">IsWindowResized</a></li>
 <li><a href="#IsWindowState">IsWindowState</a></li>
+<li><a href="#Lerp">Lerp</a></li>
 <li><a href="#LoadAudioStream">LoadAudioStream</a></li>
 <li><a href="#LoadAutomationEventList">LoadAutomationEventList</a></li>
 <li><a href="#LoadCodepoints">LoadCodepoints</a></li>
@@ -970,6 +974,26 @@ Procedures (785)</summary>
 <li><a href="#LoadWave">LoadWave</a></li>
 <li><a href="#LoadWaveFromMemory">LoadWaveFromMemory</a></li>
 <li><a href="#LoadWaveSamples">LoadWaveSamples</a></li>
+<li><a href="#MatrixAdd">MatrixAdd</a></li>
+<li><a href="#MatrixDeterminant">MatrixDeterminant</a></li>
+<li><a href="#MatrixIdentity">MatrixIdentity</a></li>
+<li><a href="#MatrixInvert">MatrixInvert</a></li>
+<li><a href="#MatrixLookAt">MatrixLookAt</a></li>
+<li><a href="#MatrixMultiply">MatrixMultiply</a></li>
+<li><a href="#MatrixOrtho">MatrixOrtho</a></li>
+<li><a href="#MatrixPerspective">MatrixPerspective</a></li>
+<li><a href="#MatrixRotate">MatrixRotate</a></li>
+<li><a href="#MatrixRotateX">MatrixRotateX</a></li>
+<li><a href="#MatrixRotateXYZ">MatrixRotateXYZ</a></li>
+<li><a href="#MatrixRotateY">MatrixRotateY</a></li>
+<li><a href="#MatrixRotateZ">MatrixRotateZ</a></li>
+<li><a href="#MatrixRotateZYX">MatrixRotateZYX</a></li>
+<li><a href="#MatrixScale">MatrixScale</a></li>
+<li><a href="#MatrixSubtract">MatrixSubtract</a></li>
+<li><a href="#MatrixToFloatV">MatrixToFloatV</a></li>
+<li><a href="#MatrixTrace">MatrixTrace</a></li>
+<li><a href="#MatrixTranslate">MatrixTranslate</a></li>
+<li><a href="#MatrixTranspose">MatrixTranspose</a></li>
 <li><a href="#MaximizeWindow">MaximizeWindow</a></li>
 <li><a href="#MeasureText">MeasureText</a></li>
 <li><a href="#MeasureTextEx">MeasureTextEx</a></li>
@@ -979,6 +1003,7 @@ Procedures (785)</summary>
 <li><a href="#MemFree">MemFree</a></li>
 <li><a href="#MemRealloc">MemRealloc</a></li>
 <li><a href="#MinimizeWindow">MinimizeWindow</a></li>
+<li><a href="#Normalize">Normalize</a></li>
 <li><a href="#OpenURL">OpenURL</a></li>
 <li><a href="#PauseAudioStream">PauseAudioStream</a></li>
 <li><a href="#PauseMusicStream">PauseMusicStream</a></li>
@@ -988,6 +1013,30 @@ Procedures (785)</summary>
 <li><a href="#PlayMusicStream">PlayMusicStream</a></li>
 <li><a href="#PlaySound">PlaySound</a></li>
 <li><a href="#PollInputEvents">PollInputEvents</a></li>
+<li><a href="#QuaternionAdd">QuaternionAdd</a></li>
+<li><a href="#QuaternionAddValue">QuaternionAddValue</a></li>
+<li><a href="#QuaternionDivide">QuaternionDivide</a></li>
+<li><a href="#QuaternionEquals">QuaternionEquals</a></li>
+<li><a href="#QuaternionFromAxisAngle">QuaternionFromAxisAngle</a></li>
+<li><a href="#QuaternionFromEuler">QuaternionFromEuler</a></li>
+<li><a href="#QuaternionFromMatrix">QuaternionFromMatrix</a></li>
+<li><a href="#QuaternionFromVector3ToVector3">QuaternionFromVector3ToVector3</a></li>
+<li><a href="#QuaternionIdentity">QuaternionIdentity</a></li>
+<li><a href="#QuaternionInvert">QuaternionInvert</a></li>
+<li><a href="#QuaternionLength">QuaternionLength</a></li>
+<li><a href="#QuaternionLerp">QuaternionLerp</a></li>
+<li><a href="#QuaternionMultiply">QuaternionMultiply</a></li>
+<li><a href="#QuaternionNlerp">QuaternionNlerp</a></li>
+<li><a href="#QuaternionNormalize">QuaternionNormalize</a></li>
+<li><a href="#QuaternionScale">QuaternionScale</a></li>
+<li><a href="#QuaternionSlerp">QuaternionSlerp</a></li>
+<li><a href="#QuaternionSubtract">QuaternionSubtract</a></li>
+<li><a href="#QuaternionSubtractValue">QuaternionSubtractValue</a></li>
+<li><a href="#QuaternionToAxisAngle">QuaternionToAxisAngle</a></li>
+<li><a href="#QuaternionToEuler">QuaternionToEuler</a></li>
+<li><a href="#QuaternionToMatrix">QuaternionToMatrix</a></li>
+<li><a href="#QuaternionTransform">QuaternionTransform</a></li>
+<li><a href="#Remap">Remap</a></li>
 <li><a href="#RestoreWindow">RestoreWindow</a></li>
 <li><a href="#ResumeAudioStream">ResumeAudioStream</a></li>
 <li><a href="#ResumeMusicStream">ResumeMusicStream</a></li>
@@ -1113,11 +1162,76 @@ Procedures (785)</summary>
 <li><a href="#UpdateTexture">UpdateTexture</a></li>
 <li><a href="#UpdateTextureRec">UpdateTextureRec</a></li>
 <li><a href="#UploadMesh">UploadMesh</a></li>
+<li><a href="#Vector2Add">Vector2Add</a></li>
+<li><a href="#Vector2AddValue">Vector2AddValue</a></li>
+<li><a href="#Vector2Angle">Vector2Angle</a></li>
+<li><a href="#Vector2Clamp">Vector2Clamp</a></li>
+<li><a href="#Vector2ClampValue">Vector2ClampValue</a></li>
+<li><a href="#Vector2Distance">Vector2Distance</a></li>
+<li><a href="#Vector2DistanceSqrt">Vector2DistanceSqrt</a></li>
+<li><a href="#Vector2Divide">Vector2Divide</a></li>
+<li><a href="#Vector2DotProduct">Vector2DotProduct</a></li>
+<li><a href="#Vector2Equals">Vector2Equals</a></li>
+<li><a href="#Vector2Invert">Vector2Invert</a></li>
+<li><a href="#Vector2Length">Vector2Length</a></li>
+<li><a href="#Vector2LengthSqr">Vector2LengthSqr</a></li>
+<li><a href="#Vector2Lerp">Vector2Lerp</a></li>
+<li><a href="#Vector2LineAngle">Vector2LineAngle</a></li>
+<li><a href="#Vector2MoveTowards">Vector2MoveTowards</a></li>
+<li><a href="#Vector2Multiply">Vector2Multiply</a></li>
+<li><a href="#Vector2Negate">Vector2Negate</a></li>
+<li><a href="#Vector2Normalize">Vector2Normalize</a></li>
+<li><a href="#Vector2One">Vector2One</a></li>
+<li><a href="#Vector2Reflect">Vector2Reflect</a></li>
+<li><a href="#Vector2Rotate">Vector2Rotate</a></li>
+<li><a href="#Vector2Scale">Vector2Scale</a></li>
+<li><a href="#Vector2Subtract">Vector2Subtract</a></li>
+<li><a href="#Vector2SubtractValue">Vector2SubtractValue</a></li>
+<li><a href="#Vector2Transform">Vector2Transform</a></li>
+<li><a href="#Vector2Zero">Vector2Zero</a></li>
+<li><a href="#Vector3Add">Vector3Add</a></li>
+<li><a href="#Vector3AddValue">Vector3AddValue</a></li>
+<li><a href="#Vector3Angle">Vector3Angle</a></li>
+<li><a href="#Vector3Barycenter">Vector3Barycenter</a></li>
+<li><a href="#Vector3Clamp">Vector3Clamp</a></li>
+<li><a href="#Vector3ClampValue">Vector3ClampValue</a></li>
+<li><a href="#Vector3CrossProduct">Vector3CrossProduct</a></li>
+<li><a href="#Vector3Distance">Vector3Distance</a></li>
+<li><a href="#Vector3DistanceSqrt">Vector3DistanceSqrt</a></li>
+<li><a href="#Vector3Divide">Vector3Divide</a></li>
+<li><a href="#Vector3DotProduct">Vector3DotProduct</a></li>
+<li><a href="#Vector3Equals">Vector3Equals</a></li>
+<li><a href="#Vector3Invert">Vector3Invert</a></li>
+<li><a href="#Vector3Length">Vector3Length</a></li>
+<li><a href="#Vector3LengthSqr">Vector3LengthSqr</a></li>
+<li><a href="#Vector3Lerp">Vector3Lerp</a></li>
+<li><a href="#Vector3LineAngle">Vector3LineAngle</a></li>
+<li><a href="#Vector3Max">Vector3Max</a></li>
+<li><a href="#Vector3Min">Vector3Min</a></li>
+<li><a href="#Vector3MoveTowards">Vector3MoveTowards</a></li>
+<li><a href="#Vector3Multiply">Vector3Multiply</a></li>
+<li><a href="#Vector3Negate">Vector3Negate</a></li>
+<li><a href="#Vector3Normalize">Vector3Normalize</a></li>
+<li><a href="#Vector3One">Vector3One</a></li>
+<li><a href="#Vector3OrthoNormalize">Vector3OrthoNormalize</a></li>
+<li><a href="#Vector3Project">Vector3Project</a></li>
+<li><a href="#Vector3Reflect">Vector3Reflect</a></li>
+<li><a href="#Vector3Refract">Vector3Refract</a></li>
+<li><a href="#Vector3Reject">Vector3Reject</a></li>
+<li><a href="#Vector3RotateByAxisAngle">Vector3RotateByAxisAngle</a></li>
+<li><a href="#Vector3RotateByQuaternion">Vector3RotateByQuaternion</a></li>
+<li><a href="#Vector3Scale">Vector3Scale</a></li>
+<li><a href="#Vector3Subtract">Vector3Subtract</a></li>
+<li><a href="#Vector3SubtractValue">Vector3SubtractValue</a></li>
+<li><a href="#Vector3Transform">Vector3Transform</a></li>
+<li><a href="#Vector3Unproject">Vector3Unproject</a></li>
+<li><a href="#Vector3Zero">Vector3Zero</a></li>
 <li><a href="#WaitTime">WaitTime</a></li>
 <li><a href="#WaveCopy">WaveCopy</a></li>
 <li><a href="#WaveCrop">WaveCrop</a></li>
 <li><a href="#WaveFormat">WaveFormat</a></li>
 <li><a href="#WindowShouldClose">WindowShouldClose</a></li>
+<li><a href="#Wrap">Wrap</a></li>
 <li><a href="#rlActiveDrawBuffers">rlActiveDrawBuffers</a></li>
 <li><a href="#rlActiveTextureSlot">rlActiveTextureSlot</a></li>
 <li><a href="#rlBegin">rlBegin</a></li>
@@ -4174,6 +4288,12 @@ WARNING: This callbacks are intended for advance users</p>
 </div>
 </div>
 <div class="pkg-entity">
+<h3 id="EPSILON"><span><a class="doc-id-link" href="#EPSILON">EPSILON<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L7"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">EPSILON :: 0.000001</pre>
+</div>
+</div>
+<div class="pkg-entity">
 <h3 id="GOLD"><span><a class="doc-id-link" href="#GOLD">GOLD<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raylib.odin#L192"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">GOLD :: Color{255, 203, 0, 255}</pre>
@@ -5412,6 +5532,16 @@ version: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
 <p>Check collision between two spheres</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Clamp"><span><a class="doc-id-link" href="#Clamp">Clamp<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L17"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Clamp :: <span class="keyword-type">proc</span> "c" (value: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, min, max: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Clamp float value</p>
 </details>
 </div>
 <div class="pkg-entity">
@@ -7104,6 +7234,16 @@ version: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
 <p>Check if file exists</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="FloatEquals"><span><a class="doc-id-link" href="#FloatEquals">FloatEquals<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L47"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">FloatEquals :: <span class="keyword-type">proc</span> "c" (x, y: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Check whether two given floats are almost equal</p>
 </details>
 </div>
 <div class="pkg-entity">
@@ -9807,6 +9947,16 @@ version: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span
 </details>
 </div>
 <div class="pkg-entity">
+<h3 id="Lerp"><span><a class="doc-id-link" href="#Lerp">Lerp<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L23"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Lerp :: <span class="keyword-type">proc</span> "c" (start, end: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, amount: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate linear interpolation between two floats</p>
+</details>
+</div>
+<div class="pkg-entity">
 <h3 id="LoadAudioStream"><span><a class="doc-id-link" href="#LoadAudioStream">LoadAudioStream<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raylib.odin#L1692"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">LoadAudioStream :: <span class="keyword-type">proc</span> "c" (sampleRate, sampleSize: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>, channels: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a class="code-typename" href="/vendor/raylib/#AudioStream">AudioStream</a> ---</pre>
@@ -10261,6 +10411,217 @@ version: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span
 </details>
 </div>
 <div class="pkg-entity">
+<h3 id="MatrixAdd"><span><a class="doc-id-link" href="#MatrixAdd">MatrixAdd<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L574"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MatrixAdd :: <span class="keyword-type">proc</span> "c" (left, right: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Add two matrices</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="MatrixDeterminant"><span><a class="doc-id-link" href="#MatrixDeterminant">MatrixDeterminant<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L544"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MatrixDeterminant :: <span class="keyword-type">proc</span> "c" (mat: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Compute matrix determinant</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="MatrixIdentity"><span><a class="doc-id-link" href="#MatrixIdentity">MatrixIdentity<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L568"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MatrixIdentity :: <span class="keyword-type">proc</span> "c" () -> <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Get identity matrix</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="MatrixInvert"><span><a class="doc-id-link" href="#MatrixInvert">MatrixInvert<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L562"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MatrixInvert :: <span class="keyword-type">proc</span> "c" (mat: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Invert provided matrix</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="MatrixLookAt"><span><a class="doc-id-link" href="#MatrixLookAt">MatrixLookAt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L660"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MatrixLookAt :: <span class="keyword-type">proc</span> "c" (eye, target, up: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Get camera look-at matrix (view matrix)</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="MatrixMultiply"><span><a class="doc-id-link" href="#MatrixMultiply">MatrixMultiply<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L587"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MatrixMultiply :: <span class="keyword-type">proc</span> "c" (left, right: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Get two matrix multiplication
+NOTE: When multiplying matrices... the order matters!</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="MatrixOrtho"><span><a class="doc-id-link" href="#MatrixOrtho">MatrixOrtho<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L648"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MatrixOrtho :: <span class="keyword-type">proc</span> "c" (
+	left, right, bottom, top, near, 
+	far:                            <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, 
+) -> <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Get orthographic projection matrix</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="MatrixPerspective"><span><a class="doc-id-link" href="#MatrixPerspective">MatrixPerspective<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L655"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MatrixPerspective :: <span class="keyword-type">proc</span> "c" (fovY, aspect, nearPlane, farPlane: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Get perspective projection matrix
+NOTE: Fovy angle must be provided in radians</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="MatrixRotate"><span><a class="doc-id-link" href="#MatrixRotate">MatrixRotate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L600"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MatrixRotate :: <span class="keyword-type">proc</span> "c" (axis: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, angle: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Create rotation matrix from axis and angle
+NOTE: Angle should be provided in radians</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="MatrixRotateX"><span><a class="doc-id-link" href="#MatrixRotateX">MatrixRotateX<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L607"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MatrixRotateX :: <span class="keyword-type">proc</span> "c" (angle: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Get x-rotation matrix
+NOTE: Angle must be provided in radians</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="MatrixRotateXYZ"><span><a class="doc-id-link" href="#MatrixRotateXYZ">MatrixRotateXYZ<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L628"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MatrixRotateXYZ :: <span class="keyword-type">proc</span> "c" (angle: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Get xyz-rotation matrix
+NOTE: Angle must be provided in radians</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="MatrixRotateY"><span><a class="doc-id-link" href="#MatrixRotateY">MatrixRotateY<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L614"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MatrixRotateY :: <span class="keyword-type">proc</span> "c" (angle: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Get y-rotation matrix
+NOTE: Angle must be provided in radians</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="MatrixRotateZ"><span><a class="doc-id-link" href="#MatrixRotateZ">MatrixRotateZ<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L621"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MatrixRotateZ :: <span class="keyword-type">proc</span> "c" (angle: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Get z-rotation matrix
+NOTE: Angle must be provided in radians</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="MatrixRotateZYX"><span><a class="doc-id-link" href="#MatrixRotateZYX">MatrixRotateZYX<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L635"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MatrixRotateZYX :: <span class="keyword-type">proc</span> "c" (angle: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Get zyx-rotation matrix
+NOTE: Angle must be provided in radians</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="MatrixScale"><span><a class="doc-id-link" href="#MatrixScale">MatrixScale<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L642"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MatrixScale :: <span class="keyword-type">proc</span> "c" (x, y, z: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Get scaling matrix</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="MatrixSubtract"><span><a class="doc-id-link" href="#MatrixSubtract">MatrixSubtract<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L580"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MatrixSubtract :: <span class="keyword-type">proc</span> "c" (left, right: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Subtract two matrices (left - right)</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="MatrixToFloatV"><span><a class="doc-id-link" href="#MatrixToFloatV">MatrixToFloatV<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L666"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MatrixToFloatV :: <span class="keyword-type">proc</span> "c" (mat: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [16]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Get float array of matrix data</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="MatrixTrace"><span><a class="doc-id-link" href="#MatrixTrace">MatrixTrace<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L550"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MatrixTrace :: <span class="keyword-type">proc</span> "c" (mat: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Get the trace of the matrix (sum of the values along the diagonal)</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="MatrixTranslate"><span><a class="doc-id-link" href="#MatrixTranslate">MatrixTranslate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L593"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MatrixTranslate :: <span class="keyword-type">proc</span> "c" (x, y, z: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Get translation matrix</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="MatrixTranspose"><span><a class="doc-id-link" href="#MatrixTranspose">MatrixTranspose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L556"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">MatrixTranspose :: <span class="keyword-type">proc</span> "c" (mat: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Transposes provided matrix</p>
+</details>
+</div>
+<div class="pkg-entity">
 <h3 id="MaximizeWindow"><span><a class="doc-id-link" href="#MaximizeWindow">MaximizeWindow<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raylib.odin#L969"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">MaximizeWindow :: <span class="keyword-type">proc</span> "c" () ---</pre>
@@ -10347,6 +10708,16 @@ version: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
 <p>Set window state: minimized, if resizable (only PLATFORM_DESKTOP)</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Normalize"><span><a class="doc-id-link" href="#Normalize">Normalize<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L29"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Normalize :: <span class="keyword-type">proc</span> "c" (value: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, start, end: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Normalize input value within input range</p>
 </details>
 </div>
 <div class="pkg-entity">
@@ -10437,6 +10808,246 @@ version: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
 <p>Register all input events</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="QuaternionAdd"><span><a class="doc-id-link" href="#QuaternionAdd">QuaternionAdd<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L679"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">QuaternionAdd :: <span class="keyword-type">proc</span> "c" (q1, q2: <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a>) -> <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Add two quaternions</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="QuaternionAddValue"><span><a class="doc-id-link" href="#QuaternionAddValue">QuaternionAddValue<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L684"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">QuaternionAddValue :: <span class="keyword-type">proc</span> "c" (q: <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a>, add: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Add quaternion and float value</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="QuaternionDivide"><span><a class="doc-id-link" href="#QuaternionDivide">QuaternionDivide<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L729"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">QuaternionDivide :: <span class="keyword-type">proc</span> "c" (q1, q2: <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a>) -> <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Divide two quaternions</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="QuaternionEquals"><span><a class="doc-id-link" href="#QuaternionEquals">QuaternionEquals<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L813"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">QuaternionEquals :: <span class="keyword-type">proc</span> "c" (p, q: <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Check whether two given quaternions are almost equal</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="QuaternionFromAxisAngle"><span><a class="doc-id-link" href="#QuaternionFromAxisAngle">QuaternionFromAxisAngle<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L768"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">QuaternionFromAxisAngle :: <span class="keyword-type">proc</span> "c" (axis: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, angle: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Get rotation quaternion for an angle and axis NOTE: Angle must be provided in radians</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="QuaternionFromEuler"><span><a class="doc-id-link" href="#QuaternionFromEuler">QuaternionFromEuler<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L779"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">QuaternionFromEuler :: <span class="keyword-type">proc</span> "c" (pitch, yaw, roll: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Get the quaternion equivalent to Euler angles NOTE: Rotation order is ZYX</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="QuaternionFromMatrix"><span><a class="doc-id-link" href="#QuaternionFromMatrix">QuaternionFromMatrix<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L758"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">QuaternionFromMatrix :: <span class="keyword-type">proc</span> "c" (mat: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Get a quaternion for a given rotation matrix</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="QuaternionFromVector3ToVector3"><span><a class="doc-id-link" href="#QuaternionFromVector3ToVector3">QuaternionFromVector3ToVector3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L753"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">QuaternionFromVector3ToVector3 :: <span class="keyword-type">proc</span> "c" (from, to: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate quaternion based on the rotation from one vector to another</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="QuaternionIdentity"><span><a class="doc-id-link" href="#QuaternionIdentity">QuaternionIdentity<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L699"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">QuaternionIdentity :: <span class="keyword-type">proc</span> "c" () -> <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Get identity quaternion</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="QuaternionInvert"><span><a class="doc-id-link" href="#QuaternionInvert">QuaternionInvert<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L714"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">QuaternionInvert :: <span class="keyword-type">proc</span> "c" (q: <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a>) -> <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Invert provided quaternion</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="QuaternionLength"><span><a class="doc-id-link" href="#QuaternionLength">QuaternionLength<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L704"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">QuaternionLength :: <span class="keyword-type">proc</span> "c" (q: <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Computes the length of a quaternion</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="QuaternionLerp"><span><a class="doc-id-link" href="#QuaternionLerp">QuaternionLerp<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L734"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">QuaternionLerp :: <span class="keyword-type">proc</span> "c" (q1, q2: <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a>, amount: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> (q3: <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate linear interpolation between two quaternions</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="QuaternionMultiply"><span><a class="doc-id-link" href="#QuaternionMultiply">QuaternionMultiply<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L719"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">QuaternionMultiply :: <span class="keyword-type">proc</span> "c" (q1, q2: <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a>) -> <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate two quaternion multiplication</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="QuaternionNlerp"><span><a class="doc-id-link" href="#QuaternionNlerp">QuaternionNlerp<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L743"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">QuaternionNlerp :: <span class="keyword-type">proc</span> "c" (q1, q2: <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a>, amount: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate slerp-optimized interpolation between two quaternions</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="QuaternionNormalize"><span><a class="doc-id-link" href="#QuaternionNormalize">QuaternionNormalize<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L709"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">QuaternionNormalize :: <span class="keyword-type">proc</span> "c" (q: <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a>) -> <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Normalize provided quaternion</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="QuaternionScale"><span><a class="doc-id-link" href="#QuaternionScale">QuaternionScale<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L724"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">QuaternionScale :: <span class="keyword-type">proc</span> "c" (q: <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a>, mul: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Scale quaternion by float value</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="QuaternionSlerp"><span><a class="doc-id-link" href="#QuaternionSlerp">QuaternionSlerp<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L748"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">QuaternionSlerp :: <span class="keyword-type">proc</span> "c" (q1, q2: <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a>, amount: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculates spherical linear interpolation between two quaternions</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="QuaternionSubtract"><span><a class="doc-id-link" href="#QuaternionSubtract">QuaternionSubtract<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L689"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">QuaternionSubtract :: <span class="keyword-type">proc</span> "c" (q1, q2: <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a>) -> <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Subtract two quaternions</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="QuaternionSubtractValue"><span><a class="doc-id-link" href="#QuaternionSubtractValue">QuaternionSubtractValue<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L694"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">QuaternionSubtractValue :: <span class="keyword-type">proc</span> "c" (q: <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a>, sub: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Subtract quaternion and float value</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="QuaternionToAxisAngle"><span><a class="doc-id-link" href="#QuaternionToAxisAngle">QuaternionToAxisAngle<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L773"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">QuaternionToAxisAngle :: <span class="keyword-type">proc</span> "c" (q: <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a>) -> (outAxis: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, outAngle: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Get the rotation angle and axis for a given quaternion</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="QuaternionToEuler"><span><a class="doc-id-link" href="#QuaternionToEuler">QuaternionToEuler<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L784"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">QuaternionToEuler :: <span class="keyword-type">proc</span> "c" (q: <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Get the Euler angles equivalent to quaternion (roll, pitch, yaw) NOTE: Angles are returned in a Vector3 struct in radians</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="QuaternionToMatrix"><span><a class="doc-id-link" href="#QuaternionToMatrix">QuaternionToMatrix<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L763"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">QuaternionToMatrix :: <span class="keyword-type">proc</span> "c" (q: <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a>) -> <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Get a matrix for a given quaternion</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="QuaternionTransform"><span><a class="doc-id-link" href="#QuaternionTransform">QuaternionTransform<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L807"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">QuaternionTransform :: <span class="keyword-type">proc</span> "c" (q: <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a>, mat: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Transform a quaternion given a transformation matrix</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Remap"><span><a class="doc-id-link" href="#Remap">Remap<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L35"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Remap :: <span class="keyword-type">proc</span> "c" (value: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, inputStart, inputEnd: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, outputStart, outputEnd: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Remap input value within input range to output range</p>
 </details>
 </div>
 <div class="pkg-entity">
@@ -11687,6 +12298,645 @@ version: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span
 </details>
 </div>
 <div class="pkg-entity">
+<h3 id="Vector2Add"><span><a class="doc-id-link" href="#Vector2Add">Vector2Add<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L70"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2Add :: <span class="keyword-type">proc</span> "c" (v1, v2: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Add two vectors (v1 + v2)</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2AddValue"><span><a class="doc-id-link" href="#Vector2AddValue">Vector2AddValue<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L75"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2AddValue :: <span class="keyword-type">proc</span> "c" (v: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, value: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Add vector and float value</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2Angle"><span><a class="doc-id-link" href="#Vector2Angle">Vector2Angle<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L116"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2Angle :: <span class="keyword-type">proc</span> "c" (v1, v2: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate angle between two vectors
+NOTE: Angle is calculated from origin point (0, 0)</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2Clamp"><span><a class="doc-id-link" href="#Vector2Clamp">Vector2Clamp<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L204"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2Clamp :: <span class="keyword-type">proc</span> "c" (v: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, min, max: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Clamp the components of the vector between
+min and max values specified by the given vectors</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2ClampValue"><span><a class="doc-id-link" href="#Vector2ClampValue">Vector2ClampValue<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L213"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2ClampValue :: <span class="keyword-type">proc</span> "c" (v: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, min, max: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Clamp the magnitude of the vector between two min and max values</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2Distance"><span><a class="doc-id-link" href="#Vector2Distance">Vector2Distance<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L105"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2Distance :: <span class="keyword-type">proc</span> "c" (v1, v2: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate distance between two vectors</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2DistanceSqrt"><span><a class="doc-id-link" href="#Vector2DistanceSqrt">Vector2DistanceSqrt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L110"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2DistanceSqrt :: <span class="keyword-type">proc</span> "c" (v1, v2: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate square distance between two vectors</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2Divide"><span><a class="doc-id-link" href="#Vector2Divide">Vector2Divide<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L146"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2Divide :: <span class="keyword-type">proc</span> "c" (v1, v2: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Divide vector by vector</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2DotProduct"><span><a class="doc-id-link" href="#Vector2DotProduct">Vector2DotProduct<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L100"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2DotProduct :: <span class="keyword-type">proc</span> "c" (v1, v2: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate two vectors dot product</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2Equals"><span><a class="doc-id-link" href="#Vector2Equals">Vector2Equals<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L231"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2Equals :: <span class="keyword-type">proc</span> "c" (p, q: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2Invert"><span><a class="doc-id-link" href="#Vector2Invert">Vector2Invert<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L197"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2Invert :: <span class="keyword-type">proc</span> "c" (v: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Invert the given vector</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2Length"><span><a class="doc-id-link" href="#Vector2Length">Vector2Length<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L90"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2Length :: <span class="keyword-type">proc</span> "c" (v: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate vector length</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2LengthSqr"><span><a class="doc-id-link" href="#Vector2LengthSqr">Vector2LengthSqr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L95"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2LengthSqr :: <span class="keyword-type">proc</span> "c" (v: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate vector square length</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2Lerp"><span><a class="doc-id-link" href="#Vector2Lerp">Vector2Lerp<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L162"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2Lerp :: <span class="keyword-type">proc</span> "c" (v1, v2: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, amount: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate linear interpolation between two vectors</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2LineAngle"><span><a class="doc-id-link" href="#Vector2LineAngle">Vector2LineAngle<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L124"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2LineAngle :: <span class="keyword-type">proc</span> "c" (start, end: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate angle defined by a two vectors line
+NOTE: Parameters need to be normalized
+Current implementation should be aligned with glm::angle</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2MoveTowards"><span><a class="doc-id-link" href="#Vector2MoveTowards">Vector2MoveTowards<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L183"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2MoveTowards :: <span class="keyword-type">proc</span> "c" (v, target: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, maxDistance: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Move Vector towards target</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2Multiply"><span><a class="doc-id-link" href="#Vector2Multiply">Vector2Multiply<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L136"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2Multiply :: <span class="keyword-type">proc</span> "c" (v1, v2: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Multiply vector by vector</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2Negate"><span><a class="doc-id-link" href="#Vector2Negate">Vector2Negate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L141"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2Negate :: <span class="keyword-type">proc</span> "c" (v: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Negate vector</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2Normalize"><span><a class="doc-id-link" href="#Vector2Normalize">Vector2Normalize<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L151"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2Normalize :: <span class="keyword-type">proc</span> "c" (v: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Normalize provided vector</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2One"><span><a class="doc-id-link" href="#Vector2One">Vector2One<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L65"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2One :: <span class="keyword-type">proc</span> "c" () -> [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Vector with components value 1.0</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2Reflect"><span><a class="doc-id-link" href="#Vector2Reflect">Vector2Reflect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L167"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2Reflect :: <span class="keyword-type">proc</span> "c" (v, normal: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate reflected vector to normal</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2Rotate"><span><a class="doc-id-link" href="#Vector2Rotate">Vector2Rotate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L172"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2Rotate :: <span class="keyword-type">proc</span> "c" (v: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, angle: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Rotate vector by angle</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2Scale"><span><a class="doc-id-link" href="#Vector2Scale">Vector2Scale<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L131"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2Scale :: <span class="keyword-type">proc</span> "c" (v: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, scale: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Scale vector (multiply by value)</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2Subtract"><span><a class="doc-id-link" href="#Vector2Subtract">Vector2Subtract<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L80"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2Subtract :: <span class="keyword-type">proc</span> "c" (a, b: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Subtract two vectors (v1 - v2)</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2SubtractValue"><span><a class="doc-id-link" href="#Vector2SubtractValue">Vector2SubtractValue<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L85"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2SubtractValue :: <span class="keyword-type">proc</span> "c" (v: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, value: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Subtract vector by float value</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2Transform"><span><a class="doc-id-link" href="#Vector2Transform">Vector2Transform<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L156"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2Transform :: <span class="keyword-type">proc</span> "c" (v: [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, m: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Transforms a Vector2 by a given Matrix</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector2Zero"><span><a class="doc-id-link" href="#Vector2Zero">Vector2Zero<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L60"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector2Zero :: <span class="keyword-type">proc</span> "c" () -> [2]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Vector with components value 0.0</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3Add"><span><a class="doc-id-link" href="#Vector3Add">Vector3Add<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L255"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3Add :: <span class="keyword-type">proc</span> "c" (v1, v2: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Add two vectors (v1 + v2)</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3AddValue"><span><a class="doc-id-link" href="#Vector3AddValue">Vector3AddValue<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L260"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3AddValue :: <span class="keyword-type">proc</span> "c" (v: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, value: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Add vector and float value</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3Angle"><span><a class="doc-id-link" href="#Vector3Angle">Vector3Angle<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L306"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3Angle :: <span class="keyword-type">proc</span> "c" (v1, v2: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate angle between two vectors
+NOTE: Angle is calculated from origin point (0, 0)</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3Barycenter"><span><a class="doc-id-link" href="#Vector3Barycenter">Vector3Barycenter<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L498"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3Barycenter :: <span class="keyword-type">proc</span> "c" (p: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, a, b, c: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> (result: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Compute barycenter coordinates (u, v, w) for point p with respect to triangle (a, b, c)
+NOTE: Assumes P is on the plane of the triangle</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3Clamp"><span><a class="doc-id-link" href="#Vector3Clamp">Vector3Clamp<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L449"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3Clamp :: <span class="keyword-type">proc</span> "c" (v: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, min, max: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Clamp the components of the vector between
+min and max values specified by the given vectors</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3ClampValue"><span><a class="doc-id-link" href="#Vector3ClampValue">Vector3ClampValue<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L459"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3ClampValue :: <span class="keyword-type">proc</span> "c" (v: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, min, max: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Clamp the magnitude of the vector between two min and max values</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3CrossProduct"><span><a class="doc-id-link" href="#Vector3CrossProduct">Vector3CrossProduct<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L290"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3CrossProduct :: <span class="keyword-type">proc</span> "c" (v1, v2: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate two vectors dot product</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3Distance"><span><a class="doc-id-link" href="#Vector3Distance">Vector3Distance<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L295"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3Distance :: <span class="keyword-type">proc</span> "c" (v1, v2: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate distance between two vectors</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3DistanceSqrt"><span><a class="doc-id-link" href="#Vector3DistanceSqrt">Vector3DistanceSqrt<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L300"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3DistanceSqrt :: <span class="keyword-type">proc</span> "c" (v1, v2: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate square distance between two vectors</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3Divide"><span><a class="doc-id-link" href="#Vector3Divide">Vector3Divide<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L336"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3Divide :: <span class="keyword-type">proc</span> "c" (v1, v2: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Divide vector by vector</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3DotProduct"><span><a class="doc-id-link" href="#Vector3DotProduct">Vector3DotProduct<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L285"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3DotProduct :: <span class="keyword-type">proc</span> "c" (v1, v2: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate two vectors dot product</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3Equals"><span><a class="doc-id-link" href="#Vector3Equals">Vector3Equals<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L477"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3Equals :: <span class="keyword-type">proc</span> "c" (p, q: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3Invert"><span><a class="doc-id-link" href="#Vector3Invert">Vector3Invert<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L442"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3Invert :: <span class="keyword-type">proc</span> "c" (v: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Invert the given vector</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3Length"><span><a class="doc-id-link" href="#Vector3Length">Vector3Length<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L275"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3Length :: <span class="keyword-type">proc</span> "c" (v: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate vector length</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3LengthSqr"><span><a class="doc-id-link" href="#Vector3LengthSqr">Vector3LengthSqr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L280"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3LengthSqr :: <span class="keyword-type">proc</span> "c" (v: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate vector square length</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3Lerp"><span><a class="doc-id-link" href="#Vector3Lerp">Vector3Lerp<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L408"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3Lerp :: <span class="keyword-type">proc</span> "c" (v1, v2: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, amount: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate linear interpolation between two vectors</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3LineAngle"><span><a class="doc-id-link" href="#Vector3LineAngle">Vector3LineAngle<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L314"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3LineAngle :: <span class="keyword-type">proc</span> "c" (start, end: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate angle defined by a two vectors line
+NOTE: Parameters need to be normalized
+Current implementation should be aligned with glm::angle</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3Max"><span><a class="doc-id-link" href="#Vector3Max">Vector3Max<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L490"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3Max :: <span class="keyword-type">proc</span> "c" (v1, v2: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3Min"><span><a class="doc-id-link" href="#Vector3Min">Vector3Min<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L485"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3Min :: <span class="keyword-type">proc</span> "c" (v1, v2: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3MoveTowards"><span><a class="doc-id-link" href="#Vector3MoveTowards">Vector3MoveTowards<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L428"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3MoveTowards :: <span class="keyword-type">proc</span> "c" (v, target: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, maxDistance: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Move Vector towards target</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3Multiply"><span><a class="doc-id-link" href="#Vector3Multiply">Vector3Multiply<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L326"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3Multiply :: <span class="keyword-type">proc</span> "c" (v1, v2: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Multiply vector by vector</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3Negate"><span><a class="doc-id-link" href="#Vector3Negate">Vector3Negate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L331"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3Negate :: <span class="keyword-type">proc</span> "c" (v: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Negate vector</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3Normalize"><span><a class="doc-id-link" href="#Vector3Normalize">Vector3Normalize<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L341"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3Normalize :: <span class="keyword-type">proc</span> "c" (v: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Normalize provided vector</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3One"><span><a class="doc-id-link" href="#Vector3One">Vector3One<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L250"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3One :: <span class="keyword-type">proc</span> "c" () -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Vector with components value 1.0</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3OrthoNormalize"><span><a class="doc-id-link" href="#Vector3OrthoNormalize">Vector3OrthoNormalize<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L361"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3OrthoNormalize :: <span class="keyword-type">proc</span> "c" (v1, v2: ^[3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Orthonormalize provided vectors
+Makes vectors normalized and orthogonal to each other
+Gram-Schmidt function implementation</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3Project"><span><a class="doc-id-link" href="#Vector3Project">Vector3Project<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L347"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3Project :: <span class="keyword-type">proc</span> "c" (v1, v2: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate the projection of the vector v1 on to v2</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3Reflect"><span><a class="doc-id-link" href="#Vector3Reflect">Vector3Reflect<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L413"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3Reflect :: <span class="keyword-type">proc</span> "c" (v, normal: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate reflected vector to normal</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3Refract"><span><a class="doc-id-link" href="#Vector3Refract">Vector3Refract<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L422"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3Refract :: <span class="keyword-type">proc</span> "c" (v, n: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, r: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Compute the direction of a refracted ray
+v: normalized direction of the incoming ray
+n: normalized normal vector of the interface of two optical media
+r: ratio of the refractive index of the medium from where the ray comes
+   to the refractive index of the medium on the other side of the surface</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3Reject"><span><a class="doc-id-link" href="#Vector3Reject">Vector3Reject<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L353"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3Reject :: <span class="keyword-type">proc</span> "c" (v1, v2: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Calculate the rejection  of the vector v1 on to v2</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3RotateByAxisAngle"><span><a class="doc-id-link" href="#Vector3RotateByAxisAngle">Vector3RotateByAxisAngle<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L375"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3RotateByAxisAngle :: <span class="keyword-type">proc</span> "c" (v: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, axis: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, angle: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Rotates a vector around an axis</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3RotateByQuaternion"><span><a class="doc-id-link" href="#Vector3RotateByQuaternion">Vector3RotateByQuaternion<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L369"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3RotateByQuaternion :: <span class="keyword-type">proc</span> "c" (v: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, q: <a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Transform a vector by quaternion rotation</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3Scale"><span><a class="doc-id-link" href="#Vector3Scale">Vector3Scale<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L321"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3Scale :: <span class="keyword-type">proc</span> "c" (v: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, scale: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Scale vector (multiply by value)</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3Subtract"><span><a class="doc-id-link" href="#Vector3Subtract">Vector3Subtract<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L265"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3Subtract :: <span class="keyword-type">proc</span> "c" (a, b: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Subtract two vectors (v1 - v2)</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3SubtractValue"><span><a class="doc-id-link" href="#Vector3SubtractValue">Vector3SubtractValue<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L270"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3SubtractValue :: <span class="keyword-type">proc</span> "c" (v: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, value: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Subtract vector by float value</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3Transform"><span><a class="doc-id-link" href="#Vector3Transform">Vector3Transform<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L402"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3Transform :: <span class="keyword-type">proc</span> "c" (v: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, m: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Transforms a Vector3 by a given Matrix</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3Unproject"><span><a class="doc-id-link" href="#Vector3Unproject">Vector3Unproject<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L520"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3Unproject :: <span class="keyword-type">proc</span> "c" (source: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, projection: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, view: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Projects a Vector3 from screen space into object space</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Vector3Zero"><span><a class="doc-id-link" href="#Vector3Zero">Vector3Zero<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L245"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Vector3Zero :: <span class="keyword-type">proc</span> "c" () -> [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Vector with components value 0.0</p>
+</details>
+</div>
+<div class="pkg-entity">
 <h3 id="WaitTime"><span><a class="doc-id-link" href="#WaitTime">WaitTime<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raylib.odin#L1011"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">WaitTime :: <span class="keyword-type">proc</span> "c" (seconds: <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a>) ---</pre>
@@ -11734,6 +12984,16 @@ version: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
 <p>Check if application should close (KEY_ESCAPE pressed or windows close icon clicked)</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="Wrap"><span><a class="doc-id-link" href="#Wrap">Wrap<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin#L41"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Wrap :: <span class="keyword-type">proc</span> "c" (value: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, min, max: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Wrap input value from min to max</p>
 </details>
 </div>
 <div class="pkg-entity">
@@ -13198,10 +14458,11 @@ rlgl initialization functions</p>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/easings.odin">easings.odin</a></li>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raygui.odin">raygui.odin</a></li>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raylib.odin">raylib.odin</a></li>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/raymath.odin">raymath.odin</a></li>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/vendor/raylib/rlgl.odin">rlgl.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2024-02 (vendor "odin") Windows_amd64 @ 2024-02-09 21:03:16.267891100 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-02 (vendor "odin") Windows_amd64 @ 2024-02-10 21:03:28.399500400 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
@@ -13317,6 +14578,7 @@ rlgl initialization functions</p>
 <li><a href="#DARKGREEN">DARKGREEN</a></li>
 <li><a href="#DARKPURPLE">DARKPURPLE</a></li>
 <li><a href="#DEG2RAD">DEG2RAD</a></li>
+<li><a href="#EPSILON">EPSILON</a></li>
 <li><a href="#GOLD">GOLD</a></li>
 <li><a href="#GRAY">GRAY</a></li>
 <li><a href="#GREEN">GREEN</a></li>
@@ -13455,6 +14717,7 @@ rlgl initialization functions</p>
 <li><a href="#CheckCollisionPointTriangle">CheckCollisionPointTriangle</a></li>
 <li><a href="#CheckCollisionRecs">CheckCollisionRecs</a></li>
 <li><a href="#CheckCollisionSpheres">CheckCollisionSpheres</a></li>
+<li><a href="#Clamp">Clamp</a></li>
 <li><a href="#ClearBackground">ClearBackground</a></li>
 <li><a href="#ClearWindowState">ClearWindowState</a></li>
 <li><a href="#CloseAudioDevice">CloseAudioDevice</a></li>
@@ -13617,6 +14880,7 @@ rlgl initialization functions</p>
 <li><a href="#ExportWaveAsCode">ExportWaveAsCode</a></li>
 <li><a href="#Fade">Fade</a></li>
 <li><a href="#FileExists">FileExists</a></li>
+<li><a href="#FloatEquals">FloatEquals</a></li>
 <li><a href="#GenImageCellular">GenImageCellular</a></li>
 <li><a href="#GenImageChecked">GenImageChecked</a></li>
 <li><a href="#GenImageColor">GenImageColor</a></li>
@@ -13879,6 +15143,7 @@ rlgl initialization functions</p>
 <li><a href="#IsWindowReady">IsWindowReady</a></li>
 <li><a href="#IsWindowResized">IsWindowResized</a></li>
 <li><a href="#IsWindowState">IsWindowState</a></li>
+<li><a href="#Lerp">Lerp</a></li>
 <li><a href="#LoadAudioStream">LoadAudioStream</a></li>
 <li><a href="#LoadAutomationEventList">LoadAutomationEventList</a></li>
 <li><a href="#LoadCodepoints">LoadCodepoints</a></li>
@@ -13923,6 +15188,26 @@ rlgl initialization functions</p>
 <li><a href="#LoadWave">LoadWave</a></li>
 <li><a href="#LoadWaveFromMemory">LoadWaveFromMemory</a></li>
 <li><a href="#LoadWaveSamples">LoadWaveSamples</a></li>
+<li><a href="#MatrixAdd">MatrixAdd</a></li>
+<li><a href="#MatrixDeterminant">MatrixDeterminant</a></li>
+<li><a href="#MatrixIdentity">MatrixIdentity</a></li>
+<li><a href="#MatrixInvert">MatrixInvert</a></li>
+<li><a href="#MatrixLookAt">MatrixLookAt</a></li>
+<li><a href="#MatrixMultiply">MatrixMultiply</a></li>
+<li><a href="#MatrixOrtho">MatrixOrtho</a></li>
+<li><a href="#MatrixPerspective">MatrixPerspective</a></li>
+<li><a href="#MatrixRotate">MatrixRotate</a></li>
+<li><a href="#MatrixRotateX">MatrixRotateX</a></li>
+<li><a href="#MatrixRotateXYZ">MatrixRotateXYZ</a></li>
+<li><a href="#MatrixRotateY">MatrixRotateY</a></li>
+<li><a href="#MatrixRotateZ">MatrixRotateZ</a></li>
+<li><a href="#MatrixRotateZYX">MatrixRotateZYX</a></li>
+<li><a href="#MatrixScale">MatrixScale</a></li>
+<li><a href="#MatrixSubtract">MatrixSubtract</a></li>
+<li><a href="#MatrixToFloatV">MatrixToFloatV</a></li>
+<li><a href="#MatrixTrace">MatrixTrace</a></li>
+<li><a href="#MatrixTranslate">MatrixTranslate</a></li>
+<li><a href="#MatrixTranspose">MatrixTranspose</a></li>
 <li><a href="#MaximizeWindow">MaximizeWindow</a></li>
 <li><a href="#MeasureText">MeasureText</a></li>
 <li><a href="#MeasureTextEx">MeasureTextEx</a></li>
@@ -13932,6 +15217,7 @@ rlgl initialization functions</p>
 <li><a href="#MemFree">MemFree</a></li>
 <li><a href="#MemRealloc">MemRealloc</a></li>
 <li><a href="#MinimizeWindow">MinimizeWindow</a></li>
+<li><a href="#Normalize">Normalize</a></li>
 <li><a href="#OpenURL">OpenURL</a></li>
 <li><a href="#PauseAudioStream">PauseAudioStream</a></li>
 <li><a href="#PauseMusicStream">PauseMusicStream</a></li>
@@ -13941,6 +15227,30 @@ rlgl initialization functions</p>
 <li><a href="#PlayMusicStream">PlayMusicStream</a></li>
 <li><a href="#PlaySound">PlaySound</a></li>
 <li><a href="#PollInputEvents">PollInputEvents</a></li>
+<li><a href="#QuaternionAdd">QuaternionAdd</a></li>
+<li><a href="#QuaternionAddValue">QuaternionAddValue</a></li>
+<li><a href="#QuaternionDivide">QuaternionDivide</a></li>
+<li><a href="#QuaternionEquals">QuaternionEquals</a></li>
+<li><a href="#QuaternionFromAxisAngle">QuaternionFromAxisAngle</a></li>
+<li><a href="#QuaternionFromEuler">QuaternionFromEuler</a></li>
+<li><a href="#QuaternionFromMatrix">QuaternionFromMatrix</a></li>
+<li><a href="#QuaternionFromVector3ToVector3">QuaternionFromVector3ToVector3</a></li>
+<li><a href="#QuaternionIdentity">QuaternionIdentity</a></li>
+<li><a href="#QuaternionInvert">QuaternionInvert</a></li>
+<li><a href="#QuaternionLength">QuaternionLength</a></li>
+<li><a href="#QuaternionLerp">QuaternionLerp</a></li>
+<li><a href="#QuaternionMultiply">QuaternionMultiply</a></li>
+<li><a href="#QuaternionNlerp">QuaternionNlerp</a></li>
+<li><a href="#QuaternionNormalize">QuaternionNormalize</a></li>
+<li><a href="#QuaternionScale">QuaternionScale</a></li>
+<li><a href="#QuaternionSlerp">QuaternionSlerp</a></li>
+<li><a href="#QuaternionSubtract">QuaternionSubtract</a></li>
+<li><a href="#QuaternionSubtractValue">QuaternionSubtractValue</a></li>
+<li><a href="#QuaternionToAxisAngle">QuaternionToAxisAngle</a></li>
+<li><a href="#QuaternionToEuler">QuaternionToEuler</a></li>
+<li><a href="#QuaternionToMatrix">QuaternionToMatrix</a></li>
+<li><a href="#QuaternionTransform">QuaternionTransform</a></li>
+<li><a href="#Remap">Remap</a></li>
 <li><a href="#RestoreWindow">RestoreWindow</a></li>
 <li><a href="#ResumeAudioStream">ResumeAudioStream</a></li>
 <li><a href="#ResumeMusicStream">ResumeMusicStream</a></li>
@@ -14066,11 +15376,76 @@ rlgl initialization functions</p>
 <li><a href="#UpdateTexture">UpdateTexture</a></li>
 <li><a href="#UpdateTextureRec">UpdateTextureRec</a></li>
 <li><a href="#UploadMesh">UploadMesh</a></li>
+<li><a href="#Vector2Add">Vector2Add</a></li>
+<li><a href="#Vector2AddValue">Vector2AddValue</a></li>
+<li><a href="#Vector2Angle">Vector2Angle</a></li>
+<li><a href="#Vector2Clamp">Vector2Clamp</a></li>
+<li><a href="#Vector2ClampValue">Vector2ClampValue</a></li>
+<li><a href="#Vector2Distance">Vector2Distance</a></li>
+<li><a href="#Vector2DistanceSqrt">Vector2DistanceSqrt</a></li>
+<li><a href="#Vector2Divide">Vector2Divide</a></li>
+<li><a href="#Vector2DotProduct">Vector2DotProduct</a></li>
+<li><a href="#Vector2Equals">Vector2Equals</a></li>
+<li><a href="#Vector2Invert">Vector2Invert</a></li>
+<li><a href="#Vector2Length">Vector2Length</a></li>
+<li><a href="#Vector2LengthSqr">Vector2LengthSqr</a></li>
+<li><a href="#Vector2Lerp">Vector2Lerp</a></li>
+<li><a href="#Vector2LineAngle">Vector2LineAngle</a></li>
+<li><a href="#Vector2MoveTowards">Vector2MoveTowards</a></li>
+<li><a href="#Vector2Multiply">Vector2Multiply</a></li>
+<li><a href="#Vector2Negate">Vector2Negate</a></li>
+<li><a href="#Vector2Normalize">Vector2Normalize</a></li>
+<li><a href="#Vector2One">Vector2One</a></li>
+<li><a href="#Vector2Reflect">Vector2Reflect</a></li>
+<li><a href="#Vector2Rotate">Vector2Rotate</a></li>
+<li><a href="#Vector2Scale">Vector2Scale</a></li>
+<li><a href="#Vector2Subtract">Vector2Subtract</a></li>
+<li><a href="#Vector2SubtractValue">Vector2SubtractValue</a></li>
+<li><a href="#Vector2Transform">Vector2Transform</a></li>
+<li><a href="#Vector2Zero">Vector2Zero</a></li>
+<li><a href="#Vector3Add">Vector3Add</a></li>
+<li><a href="#Vector3AddValue">Vector3AddValue</a></li>
+<li><a href="#Vector3Angle">Vector3Angle</a></li>
+<li><a href="#Vector3Barycenter">Vector3Barycenter</a></li>
+<li><a href="#Vector3Clamp">Vector3Clamp</a></li>
+<li><a href="#Vector3ClampValue">Vector3ClampValue</a></li>
+<li><a href="#Vector3CrossProduct">Vector3CrossProduct</a></li>
+<li><a href="#Vector3Distance">Vector3Distance</a></li>
+<li><a href="#Vector3DistanceSqrt">Vector3DistanceSqrt</a></li>
+<li><a href="#Vector3Divide">Vector3Divide</a></li>
+<li><a href="#Vector3DotProduct">Vector3DotProduct</a></li>
+<li><a href="#Vector3Equals">Vector3Equals</a></li>
+<li><a href="#Vector3Invert">Vector3Invert</a></li>
+<li><a href="#Vector3Length">Vector3Length</a></li>
+<li><a href="#Vector3LengthSqr">Vector3LengthSqr</a></li>
+<li><a href="#Vector3Lerp">Vector3Lerp</a></li>
+<li><a href="#Vector3LineAngle">Vector3LineAngle</a></li>
+<li><a href="#Vector3Max">Vector3Max</a></li>
+<li><a href="#Vector3Min">Vector3Min</a></li>
+<li><a href="#Vector3MoveTowards">Vector3MoveTowards</a></li>
+<li><a href="#Vector3Multiply">Vector3Multiply</a></li>
+<li><a href="#Vector3Negate">Vector3Negate</a></li>
+<li><a href="#Vector3Normalize">Vector3Normalize</a></li>
+<li><a href="#Vector3One">Vector3One</a></li>
+<li><a href="#Vector3OrthoNormalize">Vector3OrthoNormalize</a></li>
+<li><a href="#Vector3Project">Vector3Project</a></li>
+<li><a href="#Vector3Reflect">Vector3Reflect</a></li>
+<li><a href="#Vector3Refract">Vector3Refract</a></li>
+<li><a href="#Vector3Reject">Vector3Reject</a></li>
+<li><a href="#Vector3RotateByAxisAngle">Vector3RotateByAxisAngle</a></li>
+<li><a href="#Vector3RotateByQuaternion">Vector3RotateByQuaternion</a></li>
+<li><a href="#Vector3Scale">Vector3Scale</a></li>
+<li><a href="#Vector3Subtract">Vector3Subtract</a></li>
+<li><a href="#Vector3SubtractValue">Vector3SubtractValue</a></li>
+<li><a href="#Vector3Transform">Vector3Transform</a></li>
+<li><a href="#Vector3Unproject">Vector3Unproject</a></li>
+<li><a href="#Vector3Zero">Vector3Zero</a></li>
 <li><a href="#WaitTime">WaitTime</a></li>
 <li><a href="#WaveCopy">WaveCopy</a></li>
 <li><a href="#WaveCrop">WaveCrop</a></li>
 <li><a href="#WaveFormat">WaveFormat</a></li>
 <li><a href="#WindowShouldClose">WindowShouldClose</a></li>
+<li><a href="#Wrap">Wrap</a></li>
 <li><a href="#rlActiveDrawBuffers">rlActiveDrawBuffers</a></li>
 <li><a href="#rlActiveTextureSlot">rlActiveTextureSlot</a></li>
 <li><a href="#rlBegin">rlBegin</a></li>
