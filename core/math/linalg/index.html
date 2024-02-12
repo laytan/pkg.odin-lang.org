@@ -385,7 +385,7 @@ Variables (0)</summary>
 <div>
 <details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
 <summary id="#doc-index-Procedures-header">
-Procedures (665)</summary>
+Procedures (666)</summary>
 <ul>
 <li><a href="#abs">abs</a></li>
 <li><a href="#acos">acos</a></li>
@@ -547,7 +547,8 @@ Procedures (665)</summary>
 <li><a href="#hadamard_product">hadamard_product</a></li>
 <li><a href="#hermite">hermite</a></li>
 <li><a href="#hermitian_adjoint">hermitian_adjoint</a></li>
-<li><a href="#identity">identity</a></li>
+<li><a href="#identity_array_based_matrix">identity_array_based_matrix</a></li>
+<li><a href="#identity_matrix">identity_matrix</a></li>
 <li><a href="#inverse_sqrt">inverse_sqrt</a></li>
 <li><a href="#is_inf_array">is_inf_array</a></li>
 <li><a href="#is_inf_single">is_inf_single</a></li>
@@ -1058,7 +1059,7 @@ Procedures (665)</summary>
 <div>
 <details class="doc-index" id="doc-index-Procedure Groups" aria-labelledby="#doc-index-Procedure Groups-header">
 <summary id="#doc-index-Procedure Groups-header">
-Procedure Groups (211)</summary>
+Procedure Groups (212)</summary>
 <ul>
 <li><a href="#adjugate">adjugate</a></li>
 <li><a href="#angle_axis_from_quaternion">angle_axis_from_quaternion</a></li>
@@ -1112,6 +1113,7 @@ Procedure Groups (211)</summary>
 <li><a href="#euler_angles_zyz_from_quaternion">euler_angles_zyz_from_quaternion</a></li>
 <li><a href="#greater_than">greater_than</a></li>
 <li><a href="#greater_than_equal">greater_than_equal</a></li>
+<li><a href="#identity">identity</a></li>
 <li><a href="#inner_product">inner_product</a></li>
 <li><a href="#inverse">inverse</a></li>
 <li><a href="#inverse_transpose">inverse_transpose</a></li>
@@ -2183,7 +2185,7 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="array_cast"><span><a class="doc-id-link" href="#array_cast">array_cast<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L344"><em>Source</em></a></div></h3>
+<h3 id="array_cast"><span><a class="doc-id-link" href="#array_cast">array_cast<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L354"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">array_cast :: <span class="keyword-type">proc</span> "contextless" (v: $V/[0]$T, $Elem_Type: <a href="/base/builtin#typeid"><span class="doc-builtin">typeid</span></a>) -> (w: [0]<a href="/base/builtin#typeid"><span class="doc-builtin">typeid</span></a>) {…}</pre>
 </div>
@@ -2225,7 +2227,7 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="catmull_rom"><span><a class="doc-id-link" href="#catmull_rom">catmull_rom<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L311"><em>Source</em></a></div></h3>
+<h3 id="catmull_rom"><span><a class="doc-id-link" href="#catmull_rom">catmull_rom<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L321"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">catmull_rom :: <span class="keyword-type">proc</span> "contextless" (v1, v2, v3, v4: $V/[0]$T, s: $T) -> $V/[0]$T {…}</pre>
 </div>
@@ -2261,7 +2263,7 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="cubic"><span><a class="doc-id-link" href="#cubic">cubic<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L337"><em>Source</em></a></div></h3>
+<h3 id="cubic"><span><a class="doc-id-link" href="#cubic">cubic<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L347"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">cubic :: <span class="keyword-type">proc</span> "contextless" (v1, v2, v3, v4: $V/[0]$T, s: $T) -> $V/[0]$T {…}</pre>
 </div>
@@ -3071,21 +3073,27 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="hermite"><span><a class="doc-id-link" href="#hermite">hermite<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L324"><em>Source</em></a></div></h3>
+<h3 id="hermite"><span><a class="doc-id-link" href="#hermite">hermite<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L334"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">hermite :: <span class="keyword-type">proc</span> "contextless" (v1, t1, v2, t2: $V/[0]$T, s: $T) -> $V/[0]$T {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="hermitian_adjoint"><span><a class="doc-id-link" href="#hermitian_adjoint">hermitian_adjoint<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L418"><em>Source</em></a></div></h3>
+<h3 id="hermitian_adjoint"><span><a class="doc-id-link" href="#hermitian_adjoint">hermitian_adjoint<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L428"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">hermitian_adjoint :: <span class="keyword-type">proc</span> "contextless" (m: $M/<span class="keyword-type">matrix</span>[0, 0]$T) -> $M/<span class="keyword-type">matrix</span>[0, 0]$T {…}</pre>
+<pre class="doc-code">hermitian_adjoint :: <span class="keyword-type">proc</span> "contextless" (m: $/<span class="keyword-type">matrix</span>[0, 0]$T) -> $/<span class="keyword-type">matrix</span>[0, 0]$T {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="identity"><span><a class="doc-id-link" href="#identity">identity<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L175"><em>Source</em></a></div></h3>
+<h3 id="identity_array_based_matrix"><span><a class="doc-id-link" href="#identity_array_based_matrix">identity_array_based_matrix<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L175"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">identity :: <span class="keyword-type">proc</span> "contextless" ($T: typeid/[0][0]T) -> (m: $/[0][0]T) {…}</pre>
+<pre class="doc-code">identity_array_based_matrix :: <span class="keyword-type">proc</span> "contextless" ($T: typeid/[0][0]T) -> (m: $/[0][0]T) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="identity_matrix"><span><a class="doc-id-link" href="#identity_matrix">identity_matrix<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L183"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">identity_matrix :: <span class="keyword-type">proc</span> "contextless" ($T: typeid/<span class="keyword-type">matrix</span>[0, 0]T) -> $/<span class="keyword-type">matrix</span>[0, 0]T {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -3173,25 +3181,25 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="matrix1x1_adjugate"><span><a class="doc-id-link" href="#matrix1x1_adjugate">matrix1x1_adjugate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L475"><em>Source</em></a></div></h3>
+<h3 id="matrix1x1_adjugate"><span><a class="doc-id-link" href="#matrix1x1_adjugate">matrix1x1_adjugate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L485"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">matrix1x1_adjugate :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[1, 1]$T) -> (y: $M/<span class="keyword-type">matrix</span>[1, 1]$T) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="matrix1x1_determinant"><span><a class="doc-id-link" href="#matrix1x1_determinant">matrix1x1_determinant<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L447"><em>Source</em></a></div></h3>
+<h3 id="matrix1x1_determinant"><span><a class="doc-id-link" href="#matrix1x1_determinant">matrix1x1_determinant<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L457"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">matrix1x1_determinant :: <span class="keyword-type">proc</span> "contextless" (m: $M/<span class="keyword-type">matrix</span>[1, 1]$T) -> (det: $T) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="matrix1x1_inverse"><span><a class="doc-id-link" href="#matrix1x1_inverse">matrix1x1_inverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L585"><em>Source</em></a></div></h3>
+<h3 id="matrix1x1_inverse"><span><a class="doc-id-link" href="#matrix1x1_inverse">matrix1x1_inverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L595"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">matrix1x1_inverse :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[1, 1]$T) -> (y: $M/<span class="keyword-type">matrix</span>[1, 1]$T) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="matrix1x1_inverse_transpose"><span><a class="doc-id-link" href="#matrix1x1_inverse_transpose">matrix1x1_inverse_transpose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L516"><em>Source</em></a></div></h3>
+<h3 id="matrix1x1_inverse_transpose"><span><a class="doc-id-link" href="#matrix1x1_inverse_transpose">matrix1x1_inverse_transpose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L526"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">matrix1x1_inverse_transpose :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[1, 1]$T) -> (y: $M/<span class="keyword-type">matrix</span>[1, 1]$T) {…}</pre>
 </div>
@@ -3359,25 +3367,25 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="matrix2x2_adjugate"><span><a class="doc-id-link" href="#matrix2x2_adjugate">matrix2x2_adjugate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L481"><em>Source</em></a></div></h3>
+<h3 id="matrix2x2_adjugate"><span><a class="doc-id-link" href="#matrix2x2_adjugate">matrix2x2_adjugate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L491"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">matrix2x2_adjugate :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[2, 2]$T) -> (y: $M/<span class="keyword-type">matrix</span>[2, 2]$T) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="matrix2x2_determinant"><span><a class="doc-id-link" href="#matrix2x2_determinant">matrix2x2_determinant<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L452"><em>Source</em></a></div></h3>
+<h3 id="matrix2x2_determinant"><span><a class="doc-id-link" href="#matrix2x2_determinant">matrix2x2_determinant<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L462"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">matrix2x2_determinant :: <span class="keyword-type">proc</span> "contextless" (m: $M/<span class="keyword-type">matrix</span>[2, 2]$T) -> (det: $T) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="matrix2x2_inverse"><span><a class="doc-id-link" href="#matrix2x2_inverse">matrix2x2_inverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L591"><em>Source</em></a></div></h3>
+<h3 id="matrix2x2_inverse"><span><a class="doc-id-link" href="#matrix2x2_inverse">matrix2x2_inverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L601"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">matrix2x2_inverse :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[2, 2]$T) -> (y: $M/<span class="keyword-type">matrix</span>[2, 2]$T) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="matrix2x2_inverse_transpose"><span><a class="doc-id-link" href="#matrix2x2_inverse_transpose">matrix2x2_inverse_transpose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L522"><em>Source</em></a></div></h3>
+<h3 id="matrix2x2_inverse_transpose"><span><a class="doc-id-link" href="#matrix2x2_inverse_transpose">matrix2x2_inverse_transpose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L532"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">matrix2x2_inverse_transpose :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[2, 2]$T) -> (y: $M/<span class="keyword-type">matrix</span>[2, 2]$T) {…}</pre>
 </div>
@@ -4067,25 +4075,25 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="matrix3x3_adjugate"><span><a class="doc-id-link" href="#matrix3x3_adjugate">matrix3x3_adjugate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L490"><em>Source</em></a></div></h3>
+<h3 id="matrix3x3_adjugate"><span><a class="doc-id-link" href="#matrix3x3_adjugate">matrix3x3_adjugate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L500"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">matrix3x3_adjugate :: <span class="keyword-type">proc</span> "contextless" (m: $A/<span class="keyword-type">matrix</span>[3, 3]$T) -> (y: $A/<span class="keyword-type">matrix</span>[3, 3]$T) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="matrix3x3_determinant"><span><a class="doc-id-link" href="#matrix3x3_determinant">matrix3x3_determinant<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L456"><em>Source</em></a></div></h3>
+<h3 id="matrix3x3_determinant"><span><a class="doc-id-link" href="#matrix3x3_determinant">matrix3x3_determinant<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L466"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">matrix3x3_determinant :: <span class="keyword-type">proc</span> "contextless" (m: $A/<span class="keyword-type">matrix</span>[3, 3]$T) -> (det: $T) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="matrix3x3_inverse"><span><a class="doc-id-link" href="#matrix3x3_inverse">matrix3x3_inverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L609"><em>Source</em></a></div></h3>
+<h3 id="matrix3x3_inverse"><span><a class="doc-id-link" href="#matrix3x3_inverse">matrix3x3_inverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L619"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">matrix3x3_inverse :: <span class="keyword-type">proc</span> "contextless" (x: $A/<span class="keyword-type">matrix</span>[3, 3]$T) -> (y: $A/<span class="keyword-type">matrix</span>[3, 3]$T) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="matrix3x3_inverse_transpose"><span><a class="doc-id-link" href="#matrix3x3_inverse_transpose">matrix3x3_inverse_transpose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L540"><em>Source</em></a></div></h3>
+<h3 id="matrix3x3_inverse_transpose"><span><a class="doc-id-link" href="#matrix3x3_inverse_transpose">matrix3x3_inverse_transpose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L550"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">matrix3x3_inverse_transpose :: <span class="keyword-type">proc</span> "contextless" (x: $A/<span class="keyword-type">matrix</span>[3, 3]$T) -> (y: $A/<span class="keyword-type">matrix</span>[3, 3]$T) {…}</pre>
 </div>
@@ -4111,19 +4119,19 @@ Procedure Groups (211)</summary>
 <div class="pkg-entity">
 <h3 id="matrix4_cofactor_f16"><span><a class="doc-id-link" href="#matrix4_cofactor_f16">matrix4_cofactor_f16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/specific.odin#L1829"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">matrix4_cofactor_f16 :: <span class="keyword-type">proc</span> "contextless" (m: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f16"><span class="doc-builtin">f16</span></a>, c, r: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#f16"><span class="doc-builtin">f16</span></a> {…}</pre>
+<pre class="doc-code">matrix4_cofactor_f16 :: <span class="keyword-type">proc</span> "contextless" (m: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f16"><span class="doc-builtin">f16</span></a>, row, col: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#f16"><span class="doc-builtin">f16</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="matrix4_cofactor_f32"><span><a class="doc-id-link" href="#matrix4_cofactor_f32">matrix4_cofactor_f32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/specific.odin#L1836"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">matrix4_cofactor_f32 :: <span class="keyword-type">proc</span> "contextless" (m: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, c, r: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+<pre class="doc-code">matrix4_cofactor_f32 :: <span class="keyword-type">proc</span> "contextless" (m: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, row, col: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="matrix4_cofactor_f64"><span><a class="doc-id-link" href="#matrix4_cofactor_f64">matrix4_cofactor_f64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/specific.odin#L1843"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">matrix4_cofactor_f64 :: <span class="keyword-type">proc</span> "contextless" (m: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a>, c, r: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a> {…}</pre>
+<pre class="doc-code">matrix4_cofactor_f64 :: <span class="keyword-type">proc</span> "contextless" (m: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a>, row, col: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -4795,19 +4803,19 @@ Procedure Groups (211)</summary>
 <div class="pkg-entity">
 <h3 id="matrix4_minor_f16"><span><a class="doc-id-link" href="#matrix4_minor_f16">matrix4_minor_f16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/specific.odin#L1786"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">matrix4_minor_f16 :: <span class="keyword-type">proc</span> "contextless" (m: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f16"><span class="doc-builtin">f16</span></a>, c, r: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#f16"><span class="doc-builtin">f16</span></a> {…}</pre>
+<pre class="doc-code">matrix4_minor_f16 :: <span class="keyword-type">proc</span> "contextless" (m: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f16"><span class="doc-builtin">f16</span></a>, row, col: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#f16"><span class="doc-builtin">f16</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="matrix4_minor_f32"><span><a class="doc-id-link" href="#matrix4_minor_f32">matrix4_minor_f32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/specific.odin#L1798"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">matrix4_minor_f32 :: <span class="keyword-type">proc</span> "contextless" (m: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, c, r: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+<pre class="doc-code">matrix4_minor_f32 :: <span class="keyword-type">proc</span> "contextless" (m: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, row, col: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="matrix4_minor_f64"><span><a class="doc-id-link" href="#matrix4_minor_f64">matrix4_minor_f64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/specific.odin#L1810"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">matrix4_minor_f64 :: <span class="keyword-type">proc</span> "contextless" (m: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a>, c, r: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a> {…}</pre>
+<pre class="doc-code">matrix4_minor_f64 :: <span class="keyword-type">proc</span> "contextless" (m: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a>, row, col: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -4849,19 +4857,19 @@ Procedure Groups (211)</summary>
 <div class="pkg-entity">
 <h3 id="matrix4_rotate_f16"><span><a class="doc-id-link" href="#matrix4_rotate_f16">matrix4_rotate_f16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/specific.odin#L2005"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">matrix4_rotate_f16 :: <span class="keyword-type">proc</span> "contextless" (angle_radians: <a href="/base/builtin#f16"><span class="doc-builtin">f16</span></a>, v: [3]<a href="/base/builtin#f16"><span class="doc-builtin">f16</span></a>) -> <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f16"><span class="doc-builtin">f16</span></a> {…}</pre>
+<pre class="doc-code">matrix4_rotate_f16 :: <span class="keyword-type">proc</span> "contextless" (angle_radians: <a href="/base/builtin#f16"><span class="doc-builtin">f16</span></a>, v: [3]<a href="/base/builtin#f16"><span class="doc-builtin">f16</span></a>) -> (rot: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f16"><span class="doc-builtin">f16</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="matrix4_rotate_f32"><span><a class="doc-id-link" href="#matrix4_rotate_f32">matrix4_rotate_f32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/specific.odin#L2032"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">matrix4_rotate_f32 :: <span class="keyword-type">proc</span> "contextless" (angle_radians: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, v: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
+<pre class="doc-code">matrix4_rotate_f32 :: <span class="keyword-type">proc</span> "contextless" (angle_radians: <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>, v: [3]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> (rot: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="matrix4_rotate_f64"><span><a class="doc-id-link" href="#matrix4_rotate_f64">matrix4_rotate_f64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/specific.odin#L2059"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">matrix4_rotate_f64 :: <span class="keyword-type">proc</span> "contextless" (angle_radians: <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a>, v: [3]<a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a>) -> <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a> {…}</pre>
+<pre class="doc-code">matrix4_rotate_f64 :: <span class="keyword-type">proc</span> "contextless" (angle_radians: <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a>, v: [3]<a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a>) -> (rot: <span class="keyword-type">matrix</span>[4, 4]<a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -4901,39 +4909,39 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="matrix4x4_adjugate"><span><a class="doc-id-link" href="#matrix4x4_adjugate">matrix4x4_adjugate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L505"><em>Source</em></a></div></h3>
+<h3 id="matrix4x4_adjugate"><span><a class="doc-id-link" href="#matrix4x4_adjugate">matrix4x4_adjugate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L515"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">matrix4x4_adjugate :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[4, 4]$T) -> (y: $M/<span class="keyword-type">matrix</span>[4, 4]$T) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="matrix4x4_determinant"><span><a class="doc-id-link" href="#matrix4x4_determinant">matrix4x4_determinant<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L463"><em>Source</em></a></div></h3>
+<h3 id="matrix4x4_determinant"><span><a class="doc-id-link" href="#matrix4x4_determinant">matrix4x4_determinant<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L473"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">matrix4x4_determinant :: <span class="keyword-type">proc</span> "contextless" (m: $M/<span class="keyword-type">matrix</span>[4, 4]$T) -> (det: $T) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="matrix4x4_inverse"><span><a class="doc-id-link" href="#matrix4x4_inverse">matrix4x4_inverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L630"><em>Source</em></a></div></h3>
+<h3 id="matrix4x4_inverse"><span><a class="doc-id-link" href="#matrix4x4_inverse">matrix4x4_inverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L640"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">matrix4x4_inverse :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[4, 4]$T) -> (y: $M/<span class="keyword-type">matrix</span>[4, 4]$T) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="matrix4x4_inverse_transpose"><span><a class="doc-id-link" href="#matrix4x4_inverse_transpose">matrix4x4_inverse_transpose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L561"><em>Source</em></a></div></h3>
+<h3 id="matrix4x4_inverse_transpose"><span><a class="doc-id-link" href="#matrix4x4_inverse_transpose">matrix4x4_inverse_transpose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L571"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">matrix4x4_inverse_transpose :: <span class="keyword-type">proc</span> "contextless" (x: $M/<span class="keyword-type">matrix</span>[4, 4]$T) -> (y: $M/<span class="keyword-type">matrix</span>[4, 4]$T) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="matrix_cast"><span><a class="doc-id-link" href="#matrix_cast">matrix_cast<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L352"><em>Source</em></a></div></h3>
+<h3 id="matrix_cast"><span><a class="doc-id-link" href="#matrix_cast">matrix_cast<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L362"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">matrix_cast :: <span class="keyword-type">proc</span> "contextless" (v: $M/<span class="keyword-type">matrix</span>[0, 0]$T, $Elem_Type: <a href="/base/builtin#typeid"><span class="doc-builtin">typeid</span></a>) -> (w: <span class="keyword-type">matrix</span>[0, 0]<a href="/base/builtin#typeid"><span class="doc-builtin">typeid</span></a>) {…}</pre>
+<pre class="doc-code">matrix_cast :: <span class="keyword-type">proc</span> "contextless" (v: $/<span class="keyword-type">matrix</span>[0, 0]$T, $Elem_Type: <a href="/base/builtin#typeid"><span class="doc-builtin">typeid</span></a>) -> (w: <span class="keyword-type">matrix</span>[0, 0]<a href="/base/builtin#typeid"><span class="doc-builtin">typeid</span></a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="matrix_comp_mul"><span><a class="doc-id-link" href="#matrix_comp_mul">matrix_comp_mul<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L191"><em>Source</em></a></div></h3>
+<h3 id="matrix_comp_mul"><span><a class="doc-id-link" href="#matrix_comp_mul">matrix_comp_mul<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L201"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">matrix_comp_mul :: <span class="keyword-type">proc</span> "contextless" (a, b: $M/<span class="keyword-type">matrix</span>[0, 0]$T) -> (c: $M/<span class="keyword-type">matrix</span>[0, 0]$T) {…}</pre>
+<pre class="doc-code">matrix_comp_mul :: <span class="keyword-type">proc</span> "contextless" (a, b: $/<span class="keyword-type">matrix</span>[0, 0]$T) -> (c: $/<span class="keyword-type">matrix</span>[0, 0]$T) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -4943,25 +4951,25 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="matrix_minor"><span><a class="doc-id-link" href="#matrix_minor">matrix_minor<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L431"><em>Source</em></a></div></h3>
+<h3 id="matrix_minor"><span><a class="doc-id-link" href="#matrix_minor">matrix_minor<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L441"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">matrix_minor :: <span class="keyword-type">proc</span> "contextless" (m: $M/<span class="keyword-type">matrix</span>[0, 0]$T, <span class="keyword-type">#any_int</span> row, <span class="keyword-type">#any_int</span> column: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> (minor: $T) {…}</pre>
+<pre class="doc-code">matrix_minor :: <span class="keyword-type">proc</span> "contextless" (m: $/<span class="keyword-type">matrix</span>[0, 0]$T, <span class="keyword-type">#any_int</span> row, <span class="keyword-type">#any_int</span> column: <a href="/base/builtin#int"><span class="doc-builtin">int</span></a>) -> (minor: $T) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="matrix_mul"><span><a class="doc-id-link" href="#matrix_mul">matrix_mul<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L185"><em>Source</em></a></div></h3>
+<h3 id="matrix_mul"><span><a class="doc-id-link" href="#matrix_mul">matrix_mul<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L195"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">matrix_mul :: <span class="keyword-type">proc</span> "contextless" (a, b: $M/<span class="keyword-type">matrix</span>[0, 0]$T) -> (c: $M/<span class="keyword-type">matrix</span>[0, 0]$T) {…}</pre>
+<pre class="doc-code">matrix_mul :: <span class="keyword-type">proc</span> "contextless" (a, b: $/<span class="keyword-type">matrix</span>[0, 0]$T) -> (c: $/<span class="keyword-type">matrix</span>[0, 0]$T) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="matrix_mul_differ"><span><a class="doc-id-link" href="#matrix_mul_differ">matrix_mul_differ<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L197"><em>Source</em></a></div></h3>
+<h3 id="matrix_mul_differ"><span><a class="doc-id-link" href="#matrix_mul_differ">matrix_mul_differ<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L207"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">matrix_mul_differ :: <span class="keyword-type">proc</span> "contextless" (a, b: $M/<span class="keyword-type">matrix</span>[0, 0]$T) -> (c: <span class="keyword-type">matrix</span>[0, 0]$T) {…}</pre>
+<pre class="doc-code">matrix_mul_differ :: <span class="keyword-type">proc</span> "contextless" (a, b: $/<span class="keyword-type">matrix</span>[0, 0]$T) -> (c: <span class="keyword-type">matrix</span>[0, 0]$T) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="matrix_mul_vector"><span><a class="doc-id-link" href="#matrix_mul_vector">matrix_mul_vector<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L204"><em>Source</em></a></div></h3>
+<h3 id="matrix_mul_vector"><span><a class="doc-id-link" href="#matrix_mul_vector">matrix_mul_vector<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L214"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">matrix_mul_vector :: <span class="keyword-type">proc</span> "contextless" (a: $A/<span class="keyword-type">matrix</span>[3, 3]$T, b: $T/[3]$T) -> (c: $T/[3]$T) {…}</pre>
 </div>
@@ -4994,9 +5002,9 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="matrix_to_ptr"><span><a class="doc-id-link" href="#matrix_to_ptr">matrix_to_ptr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L261"><em>Source</em></a></div></h3>
+<h3 id="matrix_to_ptr"><span><a class="doc-id-link" href="#matrix_to_ptr">matrix_to_ptr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L271"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">matrix_to_ptr :: <span class="keyword-type">proc</span> "contextless" (m: ^$M/<span class="keyword-type">matrix</span>[0, 0]$T) -> ^$T {…}</pre>
+<pre class="doc-code">matrix_to_ptr :: <span class="keyword-type">proc</span> "contextless" (m: ^$/<span class="keyword-type">matrix</span>[0, 0]$T) -> ^$T {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -5138,7 +5146,7 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="quaternion128_angle_between"><span><a class="doc-id-link" href="#quaternion128_angle_between">quaternion128_angle_between<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L279"><em>Source</em></a></div></h3>
+<h3 id="quaternion128_angle_between"><span><a class="doc-id-link" href="#quaternion128_angle_between">quaternion128_angle_between<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L289"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">quaternion128_angle_between :: <span class="keyword-type">proc</span> "contextless" (a, b: $T/<a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a>) -> <a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
 </div>
@@ -5150,13 +5158,13 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="quaternion128_mul_vector3"><span><a class="doc-id-link" href="#quaternion128_mul_vector3">quaternion128_mul_vector3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L225"><em>Source</em></a></div></h3>
+<h3 id="quaternion128_mul_vector3"><span><a class="doc-id-link" href="#quaternion128_mul_vector3">quaternion128_mul_vector3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L235"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">quaternion128_mul_vector3 :: <span class="keyword-type">proc</span> "contextless" (q: $T/<a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a>, v: $V/[3]$F/<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a>) -> $V/[3]$F/<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="quaternion256_angle_between"><span><a class="doc-id-link" href="#quaternion256_angle_between">quaternion256_angle_between<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L283"><em>Source</em></a></div></h3>
+<h3 id="quaternion256_angle_between"><span><a class="doc-id-link" href="#quaternion256_angle_between">quaternion256_angle_between<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L293"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">quaternion256_angle_between :: <span class="keyword-type">proc</span> "contextless" (a, b: $T/<a href="/base/builtin#quaternion256"><span class="doc-builtin">quaternion256</span></a>) -> <a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a> {…}</pre>
 </div>
@@ -5168,13 +5176,13 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="quaternion256_mul_vector3"><span><a class="doc-id-link" href="#quaternion256_mul_vector3">quaternion256_mul_vector3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L235"><em>Source</em></a></div></h3>
+<h3 id="quaternion256_mul_vector3"><span><a class="doc-id-link" href="#quaternion256_mul_vector3">quaternion256_mul_vector3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L245"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">quaternion256_mul_vector3 :: <span class="keyword-type">proc</span> "contextless" (q: $T/<a href="/base/builtin#quaternion256"><span class="doc-builtin">quaternion256</span></a>, v: $V/[3]$F/<a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a>) -> $V/[3]$F/<a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="quaternion64_angle_between"><span><a class="doc-id-link" href="#quaternion64_angle_between">quaternion64_angle_between<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L275"><em>Source</em></a></div></h3>
+<h3 id="quaternion64_angle_between"><span><a class="doc-id-link" href="#quaternion64_angle_between">quaternion64_angle_between<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L285"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">quaternion64_angle_between :: <span class="keyword-type">proc</span> "contextless" (a, b: $T/<a href="/base/builtin#quaternion64"><span class="doc-builtin">quaternion64</span></a>) -> <a href="/base/builtin#f16"><span class="doc-builtin">f16</span></a> {…}</pre>
 </div>
@@ -5186,7 +5194,7 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="quaternion64_mul_vector3"><span><a class="doc-id-link" href="#quaternion64_mul_vector3">quaternion64_mul_vector3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L215"><em>Source</em></a></div></h3>
+<h3 id="quaternion64_mul_vector3"><span><a class="doc-id-link" href="#quaternion64_mul_vector3">quaternion64_mul_vector3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L225"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">quaternion64_mul_vector3 :: <span class="keyword-type">proc</span> "contextless" (q: $T/<a href="/base/builtin#quaternion64"><span class="doc-builtin">quaternion64</span></a>, v: $V/[3]$F/<a href="/base/builtin#f16"><span class="doc-builtin">f16</span></a>) -> $V/[3]$F/<a href="/base/builtin#f16"><span class="doc-builtin">f16</span></a> {…}</pre>
 </div>
@@ -5432,7 +5440,7 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="quaternion_mul_quaternion"><span><a class="doc-id-link" href="#quaternion_mul_quaternion">quaternion_mul_quaternion<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L210"><em>Source</em></a></div></h3>
+<h3 id="quaternion_mul_quaternion"><span><a class="doc-id-link" href="#quaternion_mul_quaternion">quaternion_mul_quaternion<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L220"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">quaternion_mul_quaternion :: <span class="keyword-type">proc</span> "contextless" (q1, q2: $T) -> $T {…}</pre>
 </div>
@@ -5654,19 +5662,19 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="to_complex128"><span><a class="doc-id-link" href="#to_complex128">to_complex128<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L378"><em>Source</em></a></div></h3>
+<h3 id="to_complex128"><span><a class="doc-id-link" href="#to_complex128">to_complex128<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L388"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">to_complex128 :: <span class="keyword-type">proc</span>(v: $V/[0]$T) -> [0]<a href="/base/builtin#complex128"><span class="doc-builtin">complex128</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="to_complex32"><span><a class="doc-id-link" href="#to_complex32">to_complex32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L376"><em>Source</em></a></div></h3>
+<h3 id="to_complex32"><span><a class="doc-id-link" href="#to_complex32">to_complex32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L386"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">to_complex32 :: <span class="keyword-type">proc</span>(v: $V/[0]$T) -> [0]<a href="/base/builtin#complex32"><span class="doc-builtin">complex32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="to_complex64"><span><a class="doc-id-link" href="#to_complex64">to_complex64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L377"><em>Source</em></a></div></h3>
+<h3 id="to_complex64"><span><a class="doc-id-link" href="#to_complex64">to_complex64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L387"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">to_complex64 :: <span class="keyword-type">proc</span>(v: $V/[0]$T) -> [0]<a href="/base/builtin#complex64"><span class="doc-builtin">complex64</span></a> {…}</pre>
 </div>
@@ -5678,61 +5686,61 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="to_f32"><span><a class="doc-id-link" href="#to_f32">to_f32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L361"><em>Source</em></a></div></h3>
+<h3 id="to_f32"><span><a class="doc-id-link" href="#to_f32">to_f32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L371"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">to_f32 :: <span class="keyword-type">proc</span>(v: $V/[0]$T) -> [0]<a href="/base/builtin#f32"><span class="doc-builtin">f32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="to_f64"><span><a class="doc-id-link" href="#to_f64">to_f64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L362"><em>Source</em></a></div></h3>
+<h3 id="to_f64"><span><a class="doc-id-link" href="#to_f64">to_f64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L372"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">to_f64 :: <span class="keyword-type">proc</span>(v: $V/[0]$T) -> [0]<a href="/base/builtin#f64"><span class="doc-builtin">f64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="to_i16"><span><a class="doc-id-link" href="#to_i16">to_i16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L365"><em>Source</em></a></div></h3>
+<h3 id="to_i16"><span><a class="doc-id-link" href="#to_i16">to_i16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L375"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">to_i16 :: <span class="keyword-type">proc</span>(v: $V/[0]$T) -> [0]<a href="/base/builtin#i16"><span class="doc-builtin">i16</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="to_i32"><span><a class="doc-id-link" href="#to_i32">to_i32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L366"><em>Source</em></a></div></h3>
+<h3 id="to_i32"><span><a class="doc-id-link" href="#to_i32">to_i32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L376"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">to_i32 :: <span class="keyword-type">proc</span>(v: $V/[0]$T) -> [0]<a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="to_i64"><span><a class="doc-id-link" href="#to_i64">to_i64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L367"><em>Source</em></a></div></h3>
+<h3 id="to_i64"><span><a class="doc-id-link" href="#to_i64">to_i64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L377"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">to_i64 :: <span class="keyword-type">proc</span>(v: $V/[0]$T) -> [0]<a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="to_i8"><span><a class="doc-id-link" href="#to_i8">to_i8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L364"><em>Source</em></a></div></h3>
+<h3 id="to_i8"><span><a class="doc-id-link" href="#to_i8">to_i8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L374"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">to_i8 :: <span class="keyword-type">proc</span>(v: $V/[0]$T) -> [0]<a href="/base/builtin#i8"><span class="doc-builtin">i8</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="to_int"><span><a class="doc-id-link" href="#to_int">to_int<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L368"><em>Source</em></a></div></h3>
+<h3 id="to_int"><span><a class="doc-id-link" href="#to_int">to_int<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L378"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">to_int :: <span class="keyword-type">proc</span>(v: $V/[0]$T) -> [0]<a href="/base/builtin#int"><span class="doc-builtin">int</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="to_quaternion128"><span><a class="doc-id-link" href="#to_quaternion128">to_quaternion128<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L380"><em>Source</em></a></div></h3>
+<h3 id="to_quaternion128"><span><a class="doc-id-link" href="#to_quaternion128">to_quaternion128<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L390"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">to_quaternion128 :: <span class="keyword-type">proc</span>(v: $V/[0]$T) -> [0]<a href="/base/builtin#quaternion128"><span class="doc-builtin">quaternion128</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="to_quaternion256"><span><a class="doc-id-link" href="#to_quaternion256">to_quaternion256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L381"><em>Source</em></a></div></h3>
+<h3 id="to_quaternion256"><span><a class="doc-id-link" href="#to_quaternion256">to_quaternion256<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L391"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">to_quaternion256 :: <span class="keyword-type">proc</span>(v: $V/[0]$T) -> [0]<a href="/base/builtin#quaternion256"><span class="doc-builtin">quaternion256</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="to_quaternion64"><span><a class="doc-id-link" href="#to_quaternion64">to_quaternion64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L379"><em>Source</em></a></div></h3>
+<h3 id="to_quaternion64"><span><a class="doc-id-link" href="#to_quaternion64">to_quaternion64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L389"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">to_quaternion64 :: <span class="keyword-type">proc</span>(v: $V/[0]$T) -> [0]<a href="/base/builtin#quaternion64"><span class="doc-builtin">quaternion64</span></a> {…}</pre>
 </div>
@@ -5744,39 +5752,39 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="to_u16"><span><a class="doc-id-link" href="#to_u16">to_u16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L371"><em>Source</em></a></div></h3>
+<h3 id="to_u16"><span><a class="doc-id-link" href="#to_u16">to_u16<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L381"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">to_u16 :: <span class="keyword-type">proc</span>(v: $V/[0]$T) -> [0]<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="to_u32"><span><a class="doc-id-link" href="#to_u32">to_u32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L372"><em>Source</em></a></div></h3>
+<h3 id="to_u32"><span><a class="doc-id-link" href="#to_u32">to_u32<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L382"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">to_u32 :: <span class="keyword-type">proc</span>(v: $V/[0]$T) -> [0]<a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="to_u64"><span><a class="doc-id-link" href="#to_u64">to_u64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L373"><em>Source</em></a></div></h3>
+<h3 id="to_u64"><span><a class="doc-id-link" href="#to_u64">to_u64<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L383"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">to_u64 :: <span class="keyword-type">proc</span>(v: $V/[0]$T) -> [0]<a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="to_u8"><span><a class="doc-id-link" href="#to_u8">to_u8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L370"><em>Source</em></a></div></h3>
+<h3 id="to_u8"><span><a class="doc-id-link" href="#to_u8">to_u8<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L380"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">to_u8 :: <span class="keyword-type">proc</span>(v: $V/[0]$T) -> [0]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="to_uint"><span><a class="doc-id-link" href="#to_uint">to_uint<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L374"><em>Source</em></a></div></h3>
+<h3 id="to_uint"><span><a class="doc-id-link" href="#to_uint">to_uint<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L384"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">to_uint :: <span class="keyword-type">proc</span>(v: $V/[0]$T) -> [0]<a href="/base/builtin#uint"><span class="doc-builtin">uint</span></a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="trace"><span><a class="doc-id-link" href="#trace">trace<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L423"><em>Source</em></a></div></h3>
+<h3 id="trace"><span><a class="doc-id-link" href="#trace">trace<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L433"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">trace :: <span class="keyword-type">proc</span> "contextless" (m: $M/<span class="keyword-type">matrix</span>[0, 0]$T) -> (trace: $T) {…}</pre>
+<pre class="doc-code">trace :: <span class="keyword-type">proc</span> "contextless" (m: $/<span class="keyword-type">matrix</span>[0, 0]$T) -> (trace: $T) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -6038,7 +6046,7 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="vector_angle_between"><span><a class="doc-id-link" href="#vector_angle_between">vector_angle_between<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L270"><em>Source</em></a></div></h3>
+<h3 id="vector_angle_between"><span><a class="doc-id-link" href="#vector_angle_between">vector_angle_between<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L280"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">vector_angle_between :: <span class="keyword-type">proc</span> "contextless" (a, b: $V/[0]$T) -> $T {…}</pre>
 </div>
@@ -6086,13 +6094,13 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="vector_slerp"><span><a class="doc-id-link" href="#vector_slerp">vector_slerp<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L299"><em>Source</em></a></div></h3>
+<h3 id="vector_slerp"><span><a class="doc-id-link" href="#vector_slerp">vector_slerp<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L309"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">vector_slerp :: <span class="keyword-type">proc</span> "contextless" (x, y: $V/[0]$T, a: $T) -> $V/[0]$T {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="vector_to_ptr"><span><a class="doc-id-link" href="#vector_to_ptr">vector_to_ptr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L257"><em>Source</em></a></div></h3>
+<h3 id="vector_to_ptr"><span><a class="doc-id-link" href="#vector_to_ptr">vector_to_ptr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L267"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">vector_to_ptr :: <span class="keyword-type">proc</span> "contextless" (v: ^$V/[0]$T) -> ^$T {…}</pre>
 </div>
@@ -6123,7 +6131,7 @@ Procedure Groups (211)</summary>
 </div>
 <h2 id="pkg-Procedure Groups" class="pkg-header">Procedure Groups</h2>
 <div class="pkg-entity">
-<h3 id="adjugate"><span><a class="doc-id-link" href="#adjugate">adjugate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L395"><em>Source</em></a></div></h3>
+<h3 id="adjugate"><span><a class="doc-id-link" href="#adjugate">adjugate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L405"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">adjugate :: proc{
 	<a class="code-procedure" href="/core/math/linalg/#matrix1x1_adjugate">matrix1x1_adjugate</a>,
@@ -6146,7 +6154,7 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="angle_between"><span><a class="doc-id-link" href="#angle_between">angle_between<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L287"><em>Source</em></a></div></h3>
+<h3 id="angle_between"><span><a class="doc-id-link" href="#angle_between">angle_between<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L297"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">angle_between :: proc{
 	<a class="code-procedure" href="/core/math/linalg/#vector_angle_between">vector_angle_between</a>,
@@ -6202,7 +6210,7 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="determinant"><span><a class="doc-id-link" href="#determinant">determinant<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L388"><em>Source</em></a></div></h3>
+<h3 id="determinant"><span><a class="doc-id-link" href="#determinant">determinant<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L398"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">determinant :: proc{
 	<a class="code-procedure" href="/core/math/linalg/#matrix1x1_determinant">matrix1x1_determinant</a>,
@@ -6697,6 +6705,16 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
+<h3 id="identity"><span><a class="doc-id-link" href="#identity">identity<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L187"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">identity :: proc{
+	<a class="code-procedure" href="/core/math/linalg/#identity_array_based_matrix">identity_array_based_matrix</a>,
+	<a class="code-procedure" href="/core/math/linalg/#identity_matrix">identity_matrix</a>,
+}
+</pre>
+</div>
+</div>
+<div class="pkg-entity">
 <h3 id="inner_product"><span><a class="doc-id-link" href="#inner_product">inner_product<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L68"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">inner_product :: proc{
@@ -6710,7 +6728,7 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="inverse"><span><a class="doc-id-link" href="#inverse">inverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L410"><em>Source</em></a></div></h3>
+<h3 id="inverse"><span><a class="doc-id-link" href="#inverse">inverse<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L420"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">inverse :: proc{
 	<a class="code-procedure" href="/core/math/linalg/#matrix1x1_inverse">matrix1x1_inverse</a>,
@@ -6722,7 +6740,7 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="inverse_transpose"><span><a class="doc-id-link" href="#inverse_transpose">inverse_transpose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L402"><em>Source</em></a></div></h3>
+<h3 id="inverse_transpose"><span><a class="doc-id-link" href="#inverse_transpose">inverse_transpose<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L412"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">inverse_transpose :: proc{
 	<a class="code-procedure" href="/core/math/linalg/#matrix1x1_inverse_transpose">matrix1x1_inverse_transpose</a>,
@@ -7839,7 +7857,7 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="mul"><span><a class="doc-id-link" href="#mul">mul<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L246"><em>Source</em></a></div></h3>
+<h3 id="mul"><span><a class="doc-id-link" href="#mul">mul<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L256"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">mul :: proc{
 	<a class="code-procedure" href="/core/math/linalg/#matrix_mul">matrix_mul</a>,
@@ -8076,7 +8094,7 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="quaternion_mul_vector3"><span><a class="doc-id-link" href="#quaternion_mul_vector3">quaternion_mul_vector3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L244"><em>Source</em></a></div></h3>
+<h3 id="quaternion_mul_vector3"><span><a class="doc-id-link" href="#quaternion_mul_vector3">quaternion_mul_vector3<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L254"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">quaternion_mul_vector3 :: proc{
 	<a class="code-procedure" href="/core/math/linalg/#quaternion64_mul_vector3">quaternion64_mul_vector3</a>,
@@ -8349,7 +8367,7 @@ Procedure Groups (211)</summary>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="to_ptr"><span><a class="doc-id-link" href="#to_ptr">to_ptr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L265"><em>Source</em></a></div></h3>
+<h3 id="to_ptr"><span><a class="doc-id-link" href="#to_ptr">to_ptr<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/general.odin#L275"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">to_ptr :: proc{
 	<a class="code-procedure" href="/core/math/linalg/#vector_to_ptr">vector_to_ptr</a>,
@@ -8547,7 +8565,7 @@ Procedure Groups (211)</summary>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/math/linalg/swizzle.odin">swizzle.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2024-02 (vendor "odin") Windows_amd64 @ 2024-02-11 21:03:25.845216500 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-02 (vendor "odin") Windows_amd64 @ 2024-02-12 21:03:30.441877500 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
@@ -8838,7 +8856,8 @@ Procedure Groups (211)</summary>
 <li><a href="#hadamard_product">hadamard_product</a></li>
 <li><a href="#hermite">hermite</a></li>
 <li><a href="#hermitian_adjoint">hermitian_adjoint</a></li>
-<li><a href="#identity">identity</a></li>
+<li><a href="#identity_array_based_matrix">identity_array_based_matrix</a></li>
+<li><a href="#identity_matrix">identity_matrix</a></li>
 <li><a href="#inverse_sqrt">inverse_sqrt</a></li>
 <li><a href="#is_inf_array">is_inf_array</a></li>
 <li><a href="#is_inf_single">is_inf_single</a></li>
@@ -9398,6 +9417,7 @@ Procedure Groups (211)</summary>
 <li><a href="#euler_angles_zyz_from_quaternion">euler_angles_zyz_from_quaternion</a></li>
 <li><a href="#greater_than">greater_than</a></li>
 <li><a href="#greater_than_equal">greater_than_equal</a></li>
+<li><a href="#identity">identity</a></li>
 <li><a href="#inner_product">inner_product</a></li>
 <li><a href="#inverse">inverse</a></li>
 <li><a href="#inverse_transpose">inverse_transpose</a></li>

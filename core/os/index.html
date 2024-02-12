@@ -416,7 +416,6 @@ Procedure Groups (1)</summary>
 </div>
 <h5>Related Procedures With Returns</h5>
 <ul>
-<li><a href="/core/os/#change_directory">change_directory</a></li>
 <li><a href="/core/os/#close">close</a></li>
 <li><a href="/core/os/#file_size">file_size</a></li>
 <li><a href="/core/os/#flush">flush</a></li>
@@ -915,9 +914,9 @@ TODO: Narrow down this range once Win 11 is published and the last Win 10 builds
 </div>
 <h2 id="pkg-Procedures" class="pkg-header">Procedures</h2>
 <div class="pkg-entity">
-<h3 id="change_directory"><span><a class="doc-id-link" href="#change_directory">change_directory<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L412"><em>Source</em></a></div></h3>
+<h3 id="change_directory"><span><a class="doc-id-link" href="#change_directory">change_directory<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L396"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">change_directory :: <span class="keyword-type">proc</span>(path: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> (err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
+<pre class="doc-code">change_directory :: <a class="code-procedure" href="/core/os/#set_current_directory">set_current_directory</a></pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -1002,7 +1001,7 @@ NOTE: the slice of strings and the strings with be allocated using the supplied 
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="ftruncate"><span><a class="doc-id-link" href="#ftruncate">ftruncate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L538"><em>Source</em></a></div></h3>
+<h3 id="ftruncate"><span><a class="doc-id-link" href="#ftruncate">ftruncate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L528"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">ftruncate :: <span class="keyword-type">proc</span>(fd: <a class="code-typename" href="/core/os/#Handle">Handle</a>, length: <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>) -> (err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
 </div>
@@ -1117,7 +1116,7 @@ NOTE: the value will be allocated with the supplied allocator</p>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="link"><span><a class="doc-id-link" href="#link">link<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L507"><em>Source</em></a></div></h3>
+<h3 id="link"><span><a class="doc-id-link" href="#link">link<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L497"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">link :: <span class="keyword-type">proc</span>(old_name, new_name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> (err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
 </div>
@@ -1142,7 +1141,7 @@ NOTE: the value will be allocated with the supplied allocator</p>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="make_directory"><span><a class="doc-id-link" href="#make_directory">make_directory<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L422"><em>Source</em></a></div></h3>
+<h3 id="make_directory"><span><a class="doc-id-link" href="#make_directory">make_directory<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L412"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">make_directory :: <span class="keyword-type">proc</span>(path: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, mode: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a> = 0) -> (err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
 </div>
@@ -1154,7 +1153,7 @@ NOTE: the value will be allocated with the supplied allocator</p>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="pipe"><span><a class="doc-id-link" href="#pipe">pipe<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L605"><em>Source</em></a></div></h3>
+<h3 id="pipe"><span><a class="doc-id-link" href="#pipe">pipe<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L595"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">pipe :: <span class="keyword-type">proc</span>() -> (r, w: <a class="code-typename" href="/core/os/#Handle">Handle</a>, err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
 </div>
@@ -1225,19 +1224,19 @@ read(fd, bytes)
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="remove"><span><a class="doc-id-link" href="#remove">remove<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L567"><em>Source</em></a></div></h3>
+<h3 id="remove"><span><a class="doc-id-link" href="#remove">remove<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L557"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">remove :: <span class="keyword-type">proc</span>(name: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> <a class="code-typename" href="/core/os/#Errno">Errno</a> {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="remove_directory"><span><a class="doc-id-link" href="#remove_directory">remove_directory<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L434"><em>Source</em></a></div></h3>
+<h3 id="remove_directory"><span><a class="doc-id-link" href="#remove_directory">remove_directory<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L424"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">remove_directory :: <span class="keyword-type">proc</span>(path: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> (err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="rename"><span><a class="doc-id-link" href="#rename">rename<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L526"><em>Source</em></a></div></h3>
+<h3 id="rename"><span><a class="doc-id-link" href="#rename">rename<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L516"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">rename :: <span class="keyword-type">proc</span>(old_path, new_path: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> (err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
 </div>
@@ -1277,13 +1276,13 @@ read(fd, bytes)
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="truncate"><span><a class="doc-id-link" href="#truncate">truncate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L555"><em>Source</em></a></div></h3>
+<h3 id="truncate"><span><a class="doc-id-link" href="#truncate">truncate<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L545"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">truncate :: <span class="keyword-type">proc</span>(path: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, length: <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>) -> (err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
-<h3 id="unlink"><span><a class="doc-id-link" href="#unlink">unlink<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L514"><em>Source</em></a></div></h3>
+<h3 id="unlink"><span><a class="doc-id-link" href="#unlink">unlink<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/os/file_windows.odin#L504"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">unlink :: <span class="keyword-type">proc</span>(path: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> (err: <a class="code-typename" href="/core/os/#Errno">Errno</a>) {…}</pre>
 </div>
@@ -1376,7 +1375,7 @@ write(fd, bytes)
 <li><em>(hidden platform specific files)</em></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2024-02 (vendor "odin") Windows_amd64 @ 2024-02-11 21:03:25.893336300 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-02 (vendor "odin") Windows_amd64 @ 2024-02-12 21:03:30.387033100 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
