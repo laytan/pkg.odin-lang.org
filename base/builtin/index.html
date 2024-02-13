@@ -241,6 +241,7 @@ Procedures (90)</summary>
 <li><a href="/core/runtime">runtime</a>.<a href="#assign_at_elem">assign_at_elem</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#assign_at_elems">assign_at_elems</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#assign_at_elem_string">assign_at_elem_string</a></li>
+<li><a href="/core/runtime">runtime</a>.<a href="#raw_soa_footer_slice">raw_soa_footer_slice</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#clear_dynamic_array">clear_dynamic_array</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#reserve_dynamic_array">reserve_dynamic_array</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#non_zero_reserve_dynamic_array">non_zero_reserve_dynamic_array</a></li>
@@ -251,7 +252,6 @@ Procedures (90)</summary>
 <li><a href="/core/runtime">runtime</a>.<a href="#assert">assert</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#panic">panic</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#unimplemented">unimplemented</a></li>
-<li><a href="/core/runtime">runtime</a>.<a href="#raw_soa_footer_slice">raw_soa_footer_slice</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#raw_soa_footer_dynamic_array">raw_soa_footer_dynamic_array</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#make_soa_aligned">make_soa_aligned</a></li>
 <li><a href="/core/runtime">runtime</a>.<a href="#make_soa_slice">make_soa_slice</a></li>
@@ -1677,6 +1677,12 @@ If m is nil, or there is no such element, this procedure is a no-op</p>
 </div>
 </div>
 <div class="pkg-entity">
+<h3 id="raw_soa_footer_slice"><span><a class="doc-id-link" href="#raw_soa_footer_slice">raw_soa_footer_slice<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/base/runtime/core_builtin_soa.odin#L54"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">raw_soa_footer_slice :: <span class="keyword-type">proc</span>(array: ^$T/<span class="directive">#soa</span>[]$T) -> (footer: ^<a class="code-typename" href="/base/runtime/#Raw_SOA_Footer_Slice">Raw_SOA_Footer_Slice</a>) {…}</pre>
+</div>
+</div>
+<div class="pkg-entity">
 <h3 id="clear_dynamic_array"><span><a class="doc-id-link" href="#clear_dynamic_array">clear_dynamic_array<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/base/runtime/core_builtin.odin#L680"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">clear_dynamic_array :: <span class="keyword-type">proc</span> "contextless" (array: ^$T/[<span class="keyword">dynamic</span>]$T) {…}</pre>
@@ -1739,12 +1745,6 @@ If m is nil, or there is no such element, this procedure is a no-op</p>
 <h3 id="unimplemented"><span><a class="doc-id-link" href="#unimplemented">unimplemented<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/base/runtime/core_builtin.odin#L891"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">unimplemented :: <span class="keyword-type">proc</span>(message: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, loc := <a href="/core/runtime/#Source_Code_Location">#caller_location</a>) -> ! {…}</pre>
-</div>
-</div>
-<div class="pkg-entity">
-<h3 id="raw_soa_footer_slice"><span><a class="doc-id-link" href="#raw_soa_footer_slice">raw_soa_footer_slice<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/base/runtime/core_builtin_soa.odin#L54"><em>Source</em></a></div></h3>
-<div>
-<pre class="doc-code">raw_soa_footer_slice :: <span class="keyword-type">proc</span>(array: ^$T/<span class="directive">#soa</span>[]$T) -> (footer: ^<a class="code-typename" href="/base/runtime/#Raw_SOA_Footer_Slice">Raw_SOA_Footer_Slice</a>) {…}</pre>
 </div>
 </div>
 <div class="pkg-entity">
