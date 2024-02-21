@@ -238,7 +238,7 @@
 <div>
 <details class="doc-index" id="doc-index-Types" aria-labelledby="#doc-index-Types-header">
 <summary id="#doc-index-Types-header">
-Types (22)</summary>
+Types (23)</summary>
 <ul>
 <li><a href="#Atomic_Cond">Atomic_Cond</a></li>
 <li><a href="#Atomic_Memory_Order">Atomic_Memory_Order</a></li>
@@ -255,6 +255,7 @@ Types (22)</summary>
 <li><a href="#Futex">Futex</a></li>
 <li><a href="#Mutex">Mutex</a></li>
 <li><a href="#Once">Once</a></li>
+<li><a href="#One_Shot_Event">One_Shot_Event</a></li>
 <li><a href="#Parker">Parker</a></li>
 <li><a href="#RW_Mutex">RW_Mutex</a></li>
 <li><a href="#Recursive_Benaphore">Recursive_Benaphore</a></li>
@@ -289,7 +290,7 @@ Variables (0)</summary>
 <div>
 <details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
 <summary id="#doc-index-Procedures-header">
-Procedures (102)</summary>
+Procedures (104)</summary>
 <ul>
 <li><a href="#atomic_add">atomic_add</a></li>
 <li><a href="#atomic_add_explicit">atomic_add_explicit</a></li>
@@ -364,6 +365,8 @@ Procedures (102)</summary>
 <li><a href="#once_do_with_data_contextless">once_do_with_data_contextless</a></li>
 <li><a href="#once_do_without_data">once_do_without_data</a></li>
 <li><a href="#once_do_without_data_contextless">once_do_without_data_contextless</a></li>
+<li><a href="#one_shot_event_signal">one_shot_event_signal</a></li>
+<li><a href="#one_shot_event_wait">one_shot_event_wait</a></li>
 <li><a href="#park">park</a></li>
 <li><a href="#park_with_timeout">park_with_timeout</a></li>
 <li><a href="#recursive_benaphore_guard">recursive_benaphore_guard</a></li>
@@ -793,6 +796,27 @@ behavior. For this reason, Mutexes are marked as <code>#no_copy</code>.</p>
 <li><a href="/core/sync/#once_do_without_data">once_do_without_data</a></li>
 <li><a href="/core/sync/#once_do_without_data_contextless">once_do_without_data_contextless</a></li>
 <li><a href="/core/sync/#once_do">once_do</a>&nbsp;<em>(procedure groups)</em></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="One_Shot_Event"><span><a class="doc-id-link" href="#One_Shot_Event">One_Shot_Event<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/sync/extended.odin#L429"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">One_Shot_Event :: <span class="keyword-type">struct</span> {
+	state: <a class="code-typename" href="/core/sync/#Futex">Futex</a>,
+}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>A One_Shot_Event is an associated token which is initially not present:
+    * The <code>one_shot_event_wait</code> blocks the current thread until the event
+      is made available
+    * The <code>one_shot_event_signal</code> procedure automatically makes the token
+      available if its was not already.</p>
+</details>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/sync/#one_shot_event_signal">one_shot_event_signal</a></li>
+<li><a href="/core/sync/#one_shot_event_wait">one_shot_event_wait</a></li>
 </ul>
 </div>
 <div class="pkg-entity">
@@ -1558,6 +1582,26 @@ Barrier can be reused after all threads rendezvoused once, and can be used conti
 </details>
 </div>
 <div class="pkg-entity">
+<h3 id="one_shot_event_signal"><span><a class="doc-id-link" href="#one_shot_event_signal">one_shot_event_signal<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/sync/extended.odin#L441"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">one_shot_event_signal :: <span class="keyword-type">proc</span> "contextless" (e: ^<a class="code-typename" href="/core/sync/#One_Shot_Event">One_Shot_Event</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Releases any threads that are currently blocked by this event with <code>one_shot_event_wait</code>.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="one_shot_event_wait"><span><a class="doc-id-link" href="#one_shot_event_wait">one_shot_event_wait<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/sync/extended.odin#L434"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">one_shot_event_wait :: <span class="keyword-type">proc</span> "contextless" (e: ^<a class="code-typename" href="/core/sync/#One_Shot_Event">One_Shot_Event</a>) {…}</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Blocks the current thread until the event is made available with <code>one_shot_event_signal</code>.</p>
+</details>
+</div>
+<div class="pkg-entity">
 <h3 id="park"><span><a class="doc-id-link" href="#park">park<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/sync/extended.odin#L382"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">park :: <span class="keyword-type">proc</span> "contextless" (p: ^<a class="code-typename" href="/core/sync/#Parker">Parker</a>) {…}</pre>
@@ -2027,7 +2071,7 @@ If the mutex is already locked for reading or writing, the mutex blocks until th
 <li><em>(hidden platform specific files)</em></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2024-02 (vendor "odin") Windows_amd64 @ 2024-02-20 21:03:02.888723200 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-02 (vendor "odin") Windows_amd64 @ 2024-02-21 21:03:39.980977800 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
@@ -2048,6 +2092,7 @@ If the mutex is already locked for reading or writing, the mutex blocks until th
 <li><a href="#Futex">Futex</a></li>
 <li><a href="#Mutex">Mutex</a></li>
 <li><a href="#Once">Once</a></li>
+<li><a href="#One_Shot_Event">One_Shot_Event</a></li>
 <li><a href="#Parker">Parker</a></li>
 <li><a href="#RW_Mutex">RW_Mutex</a></li>
 <li><a href="#Recursive_Benaphore">Recursive_Benaphore</a></li>
@@ -2140,6 +2185,8 @@ If the mutex is already locked for reading or writing, the mutex blocks until th
 <li><a href="#once_do_with_data_contextless">once_do_with_data_contextless</a></li>
 <li><a href="#once_do_without_data">once_do_without_data</a></li>
 <li><a href="#once_do_without_data_contextless">once_do_without_data_contextless</a></li>
+<li><a href="#one_shot_event_signal">one_shot_event_signal</a></li>
+<li><a href="#one_shot_event_wait">one_shot_event_wait</a></li>
 <li><a href="#park">park</a></li>
 <li><a href="#park_with_timeout">park_with_timeout</a></li>
 <li><a href="#recursive_benaphore_guard">recursive_benaphore_guard</a></li>
